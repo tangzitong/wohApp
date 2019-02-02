@@ -20,7 +20,7 @@
     <WindowsSdkPath>
     </WindowsSdkPath>
     <LayoutDir>D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\AppX</LayoutDir>
-    <RegisteredManifestChecksum>66C65E0EF09FDFADF6AB00691BBD299C635A547A33F13569198C087B77F3F7F2</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>1D471E4F31C8CE112027F3358CCA1C28516F19DDEF47A947FB93974DBC7C13DD</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>com.highwayns.wohApp_4.0.0.0_neutral__bzbj8h50hftv4</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>com.highwayns.wohApp_bzbj8h50hftv4!com.highwayns.wohApp</RegisteredUserModeAppID>
     <RegisteredPackageID>com.highwayns.wohApp</RegisteredPackageID>
@@ -31,7 +31,7 @@
     <AppXManifest Include="D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-02-02T12:49:59.686</Modified>
+      <Modified>2019-02-02T13:24:44.453</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -144,19 +144,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\config.xml">
       <PackagePath>config.xml</PackagePath>
-      <Modified>2019-02-02T12:49:01.573</Modified>
+      <Modified>2019-02-02T13:14:10.290</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\confighelper.js">
       <PackagePath>www\cordova-js-src\confighelper.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.668</Modified>
+      <Modified>2019-02-02T13:14:10.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\exec.js">
       <PackagePath>www\cordova-js-src\exec.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.669</Modified>
+      <Modified>2019-02-02T13:14:10.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\platform.js">
       <PackagePath>www\cordova-js-src\platform.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.670</Modified>
+      <Modified>2019-02-02T13:14:10.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\splashscreen.js">
       <PackagePath>www\cordova-js-src\splashscreen.js</PackagePath>
@@ -168,107 +168,107 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova_plugins.js">
       <PackagePath>www\cordova_plugins.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.671</Modified>
+      <Modified>2019-02-02T13:14:10.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\js\index.js">
       <PackagePath>www\js\index.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.673</Modified>
+      <Modified>2019-02-02T13:14:10.557</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\src\windows\CameraProxy.js">
       <PackagePath>www\plugins\cordova-plugin-camera\src\windows\CameraProxy.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.674</Modified>
+      <Modified>2019-02-02T13:14:10.558</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\Camera.js">
       <PackagePath>www\plugins\cordova-plugin-camera\www\Camera.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.674</Modified>
+      <Modified>2019-02-02T13:14:10.559</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\CameraConstants.js">
       <PackagePath>www\plugins\cordova-plugin-camera\www\CameraConstants.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.675</Modified>
+      <Modified>2019-02-02T13:14:10.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\CameraPopoverHandle.js">
       <PackagePath>www\plugins\cordova-plugin-camera\www\CameraPopoverHandle.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.676</Modified>
+      <Modified>2019-02-02T13:14:10.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\CameraPopoverOptions.js">
       <PackagePath>www\plugins\cordova-plugin-camera\www\CameraPopoverOptions.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.676</Modified>
+      <Modified>2019-02-02T13:14:10.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\src\windows\ContactProxy.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\src\windows\ContactProxy.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.677</Modified>
+      <Modified>2019-02-02T13:14:10.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\Contact.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\Contact.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.677</Modified>
+      <Modified>2019-02-02T13:14:10.563</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactAddress.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactAddress.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.678</Modified>
+      <Modified>2019-02-02T13:14:10.564</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactError.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactError.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.678</Modified>
+      <Modified>2019-02-02T13:14:10.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactField.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactField.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.679</Modified>
+      <Modified>2019-02-02T13:14:10.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactFieldType.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactFieldType.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.679</Modified>
+      <Modified>2019-02-02T13:14:10.565</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactFindOptions.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactFindOptions.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.680</Modified>
+      <Modified>2019-02-02T13:14:10.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactName.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactName.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.680</Modified>
+      <Modified>2019-02-02T13:14:10.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\ContactOrganization.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\ContactOrganization.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.681</Modified>
+      <Modified>2019-02-02T13:14:10.567</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\contacts.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\contacts.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.682</Modified>
+      <Modified>2019-02-02T13:14:10.567</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-contacts\www\convertUtils.js">
       <PackagePath>www\plugins\cordova-plugin-contacts\www\convertUtils.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.683</Modified>
+      <Modified>2019-02-02T13:14:10.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-device\src\windows\DeviceProxy.js">
       <PackagePath>www\plugins\cordova-plugin-device\src\windows\DeviceProxy.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.684</Modified>
+      <Modified>2019-02-02T13:14:10.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-device\www\device.js">
       <PackagePath>www\plugins\cordova-plugin-device\www\device.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.685</Modified>
+      <Modified>2019-02-02T13:14:10.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-dialogs\src\windows\NotificationProxy.js">
       <PackagePath>www\plugins\cordova-plugin-dialogs\src\windows\NotificationProxy.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.686</Modified>
+      <Modified>2019-02-02T13:14:10.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-dialogs\www\notification.js">
       <PackagePath>www\plugins\cordova-plugin-dialogs\www\notification.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.687</Modified>
+      <Modified>2019-02-02T13:14:10.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-fcm\www\FCMPlugin.js">
       <PackagePath>www\plugins\cordova-plugin-fcm\www\FCMPlugin.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.688</Modified>
+      <Modified>2019-02-02T13:14:10.570</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js">
-      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.703</Modified>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a_.js">
+      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a_.js</PackagePath>
+      <Modified>2019-02-02T13:14:10.577</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js">
-      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.704</Modified>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada_.js">
+      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada_.js</PackagePath>
+      <Modified>2019-02-02T13:14:10.578</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js">
-      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js</PackagePath>
-      <Modified>2019-02-02T12:49:01.714</Modified>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78_.js">
+      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78_.js</PackagePath>
+      <Modified>2019-02-02T13:14:10.588</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\WinJS\js\base.js">
       <PackagePath>www\WinJS\js\base.js</PackagePath>
@@ -276,11 +276,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\css\index.css">
       <PackagePath>www\css\index.css</PackagePath>
-      <Modified>2019-02-02T12:49:01.671</Modified>
+      <Modified>2019-02-02T13:14:10.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\css\notification.css">
       <PackagePath>www\css\notification.css</PackagePath>
-      <Modified>2019-02-02T12:49:01.671</Modified>
+      <Modified>2019-02-02T13:14:10.556</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\css\splashscreen.css">
       <PackagePath>www\css\splashscreen.css</PackagePath>
@@ -288,27 +288,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\css\app.290cb0a64dcef398f1c459681d215e48.css">
       <PackagePath>www\static\css\app.290cb0a64dcef398f1c459681d215e48.css</PackagePath>
-      <Modified>2019-02-02T12:49:01.702</Modified>
+      <Modified>2019-02-02T13:14:10.576</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\index.html">
       <PackagePath>www\index.html</PackagePath>
-      <Modified>2019-02-02T12:50:10.938</Modified>
+      <Modified>2019-02-02T13:24:56.671</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\css\app.290cb0a64dcef398f1c459681d215e48.css.map">
       <PackagePath>www\static\css\app.290cb0a64dcef398f1c459681d215e48.css.map</PackagePath>
       <Modified>2019-02-02T06:20:46.212</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js.map">
-      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js.map</PackagePath>
-      <Modified>2019-02-02T06:20:46.228</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map">
-      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map</PackagePath>
-      <Modified>2019-02-02T06:20:46.230</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js.map">
-      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js.map</PackagePath>
-      <Modified>2019-02-02T06:20:46.234</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\fonts\iconfont.3192b72.ttf">
       <PackagePath>www\static\fonts\iconfont.3192b72.ttf</PackagePath>
@@ -326,9 +314,21 @@
       <PackagePath>www\static\img\iconfont.f03fb1f.svg</PackagePath>
       <Modified>2019-02-02T06:20:46.227</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js.map_">
+      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js.map_</PackagePath>
+      <Modified>2019-02-02T13:14:10.365</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map_">
+      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map_</PackagePath>
+      <Modified>2019-02-02T13:14:10.371</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js.map_">
+      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js.map_</PackagePath>
+      <Modified>2019-02-02T13:14:10.380</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\ReverseMap\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-02-02T12:49:59.651</Modified>
+      <Modified>2019-02-02T13:24:44.347</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

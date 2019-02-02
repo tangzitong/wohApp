@@ -194,14 +194,14 @@
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-fcm\www\FCMPlugin.js">
       <PackagePath>www\plugins\cordova-plugin-fcm\www\FCMPlugin.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js">
-      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js</PackagePath>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a_.js">
+      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a_.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js">
-      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js</PackagePath>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada_.js">
+      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada_.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js">
-      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js</PackagePath>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78_.js">
+      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78_.js</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\WinJS\js\base.js">
       <PackagePath>www\WinJS\js\base.js</PackagePath>
@@ -224,15 +224,6 @@
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\css\app.290cb0a64dcef398f1c459681d215e48.css.map">
       <PackagePath>www\static\css\app.290cb0a64dcef398f1c459681d215e48.css.map</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js.map">
-      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js.map</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map">
-      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js.map">
-      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js.map</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\fonts\iconfont.3192b72.ttf">
       <PackagePath>www\static\fonts\iconfont.3192b72.ttf</PackagePath>
     </AppxPackagedFile>
@@ -244,6 +235,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\img\iconfont.f03fb1f.svg">
       <PackagePath>www\static\img\iconfont.f03fb1f.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js.map_">
+      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js.map_</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map_">
+      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map_</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js.map_">
+      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js.map_</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\ReverseMap\resources.pri">
       <PackagePath>resources.pri</PackagePath>

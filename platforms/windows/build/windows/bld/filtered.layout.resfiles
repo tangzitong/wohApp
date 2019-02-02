@@ -62,10 +62,10 @@ www\static\icons\ios\icon-76@2x.png
 www\static\icons\ios\icon-small.png
 www\static\icons\ios\icon-small@2x.png
 www\static\img\iconfont.f03fb1f.svg
-www\static\js\app.ab6cc696fcb7998a141a.js
-www\static\js\app.ab6cc696fcb7998a141a.js.map
-www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js
-www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map
-www\static\js\vendor.2f6313d46713e9729a78.js
-www\static\js\vendor.2f6313d46713e9729a78.js.map
+www\static\js\app.ab6cc696fcb7998a141a.js.map_
+www\static\js\app.ab6cc696fcb7998a141a_.js
+www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map_
+www\static\js\manifest.37a2ecbb1d1b7e6c9ada_.js
+www\static\js\vendor.2f6313d46713e9729a78.js.map_
+www\static\js\vendor.2f6313d46713e9729a78_.js
 www\WinJS\js\base.js
