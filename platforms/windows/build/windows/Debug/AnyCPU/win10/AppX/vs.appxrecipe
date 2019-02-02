@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-SJ9SGBB</Machine>
+    <WindowsUser>teigun</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>ac65fcf0-26b2-11e9-864b-4b4443ae1a77</PackageIdentityName>
+    <PackageIdentityPublisher>CN=%24username%24</PackageIdentityPublisher>
+    <IntermediateOutputPath>D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>
+    </WindowsSdkPath>
+    <LayoutDir>D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\AppX</LayoutDir>
+    <RegisteredManifestChecksum>386593EC04DC4B7504F174D34E53E12F081C0E9AFDDA140752C8ECBAFFF8DD9F</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>com.highwayns.com_4.0.0.0_neutral__bzbj8h50hftv4</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>com.highwayns.com_bzbj8h50hftv4!com.highwayns.com</RegisteredUserModeAppID>
+    <RegisteredPackageID>com.highwayns.com</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=$username$</RegisteredPackagePublisher>
+    <RegisteredVersion>4.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T07:39:17.532</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\SplashScreen.scale-100.png">
+      <PackagePath>images\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.269</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Square150x150Logo.scale-100.png">
+      <PackagePath>images\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.271</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Square30x30Logo.scale-100.png">
+      <PackagePath>images\Square30x30Logo.scale-100.png</PackagePath>
+      <Modified>2019-02-02T06:20:45.273</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Square310x310Logo.scale-100.png">
+      <PackagePath>images\Square310x310Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.274</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Square44x44Logo.scale-100.png">
+      <PackagePath>images\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.274</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Square70x70Logo.scale-100.png">
+      <PackagePath>images\Square70x70Logo.scale-100.png</PackagePath>
+      <Modified>2019-02-02T06:20:45.276</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Square71x71Logo.scale-100.png">
+      <PackagePath>images\Square71x71Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.277</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\StoreLogo.scale-100.png">
+      <PackagePath>images\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.279</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\images\Wide310x150Logo.scale-100.png">
+      <PackagePath>images\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2019-02-02T06:20:45.281</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\img\logo.png">
+      <PackagePath>www\img\logo.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.205</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-40.png">
+      <PackagePath>www\static\icons\ios\icon-40.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.216</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-40%402x.png">
+      <PackagePath>www\static\icons\ios\icon-40%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.217</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-50.png">
+      <PackagePath>www\static\icons\ios\icon-50.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.218</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-50%402x.png">
+      <PackagePath>www\static\icons\ios\icon-50%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.218</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-60.png">
+      <PackagePath>www\static\icons\ios\icon-60.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.219</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-60%402x.png">
+      <PackagePath>www\static\icons\ios\icon-60%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-72.png">
+      <PackagePath>www\static\icons\ios\icon-72.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.221</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-72%402x.png">
+      <PackagePath>www\static\icons\ios\icon-72%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.222</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-76.png">
+      <PackagePath>www\static\icons\ios\icon-76.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.222</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-76%402x.png">
+      <PackagePath>www\static\icons\ios\icon-76%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.223</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-small.png">
+      <PackagePath>www\static\icons\ios\icon-small.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.224</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon-small%402x.png">
+      <PackagePath>www\static\icons\ios\icon-small%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.224</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon.png">
+      <PackagePath>www\static\icons\ios\icon.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.225</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\icons\ios\icon%402x.png">
+      <PackagePath>www\static\icons\ios\icon%402x.png</PackagePath>
+      <Modified>2019-02-02T06:20:46.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2019-02-02T06:20:45.289</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\config.xml">
+      <PackagePath>config.xml</PackagePath>
+      <Modified>2019-02-02T07:39:07.624</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\confighelper.js">
+      <PackagePath>www\cordova-js-src\confighelper.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.432</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\exec.js">
+      <PackagePath>www\cordova-js-src\exec.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.433</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\platform.js">
+      <PackagePath>www\cordova-js-src\platform.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.433</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova-js-src\splashscreen.js">
+      <PackagePath>www\cordova-js-src\splashscreen.js</PackagePath>
+      <Modified>2019-02-02T06:20:46.202</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova.js">
+      <PackagePath>www\cordova.js</PackagePath>
+      <Modified>2019-02-02T06:20:46.204</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\cordova_plugins.js">
+      <PackagePath>www\cordova_plugins.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.434</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\js\index.js">
+      <PackagePath>www\js\index.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.436</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\src\windows\CameraProxy.js">
+      <PackagePath>www\plugins\cordova-plugin-camera\src\windows\CameraProxy.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.437</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\Camera.js">
+      <PackagePath>www\plugins\cordova-plugin-camera\www\Camera.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.437</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\CameraConstants.js">
+      <PackagePath>www\plugins\cordova-plugin-camera\www\CameraConstants.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.438</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\CameraPopoverHandle.js">
+      <PackagePath>www\plugins\cordova-plugin-camera\www\CameraPopoverHandle.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.438</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\plugins\cordova-plugin-camera\www\CameraPopoverOptions.js">
+      <PackagePath>www\plugins\cordova-plugin-camera\www\CameraPopoverOptions.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.439</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js">
+      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.450</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js">
+      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.450</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js">
+      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js</PackagePath>
+      <Modified>2019-02-02T07:38:48.458</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\WinJS\js\base.js">
+      <PackagePath>www\WinJS\js\base.js</PackagePath>
+      <Modified>2019-02-02T06:20:46.075</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\css\index.css">
+      <PackagePath>www\css\index.css</PackagePath>
+      <Modified>2019-02-02T07:38:48.435</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\css\splashscreen.css">
+      <PackagePath>www\css\splashscreen.css</PackagePath>
+      <Modified>2019-02-02T06:20:46.204</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\css\app.290cb0a64dcef398f1c459681d215e48.css">
+      <PackagePath>www\static\css\app.290cb0a64dcef398f1c459681d215e48.css</PackagePath>
+      <Modified>2019-02-02T07:38:48.449</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\index.html">
+      <PackagePath>www\index.html</PackagePath>
+      <Modified>2019-02-02T07:51:45.214</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\css\app.290cb0a64dcef398f1c459681d215e48.css.map">
+      <PackagePath>www\static\css\app.290cb0a64dcef398f1c459681d215e48.css.map</PackagePath>
+      <Modified>2019-02-02T06:20:46.212</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\app.ab6cc696fcb7998a141a.js.map">
+      <PackagePath>www\static\js\app.ab6cc696fcb7998a141a.js.map</PackagePath>
+      <Modified>2019-02-02T06:20:46.228</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map">
+      <PackagePath>www\static\js\manifest.37a2ecbb1d1b7e6c9ada.js.map</PackagePath>
+      <Modified>2019-02-02T06:20:46.230</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\js\vendor.2f6313d46713e9729a78.js.map">
+      <PackagePath>www\static\js\vendor.2f6313d46713e9729a78.js.map</PackagePath>
+      <Modified>2019-02-02T06:20:46.234</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\fonts\iconfont.3192b72.ttf">
+      <PackagePath>www\static\fonts\iconfont.3192b72.ttf</PackagePath>
+      <Modified>2019-02-02T06:20:46.214</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\fonts\iconfont.a3c9ebd.eot">
+      <PackagePath>www\static\fonts\iconfont.a3c9ebd.eot</PackagePath>
+      <Modified>2019-02-02T06:20:46.214</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\fonts\iconfont.d43499a.woff">
+      <PackagePath>www\static\fonts\iconfont.d43499a.woff</PackagePath>
+      <Modified>2019-02-02T06:20:46.215</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\www\static\img\iconfont.f03fb1f.svg">
+      <PackagePath>www\static\img\iconfont.f03fb1f.svg</PackagePath>
+      <Modified>2019-02-02T06:20:46.227</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2019-02-02T07:39:17.465</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

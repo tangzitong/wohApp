@@ -7,20 +7,8 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "com.highwayns.wohapp"
-    },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.highwayns.wohapp"
-    },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "com.highwayns.wohapp"
-    },
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "com.highwayns.wohapp"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.highwayns.wohapp"
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.highwayns.com"
     }
   },
   "dependent_plugins": {}

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package IgnorableNamespaces="uap mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
     <Identity Name="com.highwayns.com" Publisher="CN=$username$" Version="4.0.0.0" />
-    <mp:PhoneIdentity PhoneProductId="66e650d0-2149-11e9-9b00-fb7aba3d282d" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+    <mp:PhoneIdentity PhoneProductId="ac65fcf0-26b2-11e9-864b-4b4443ae1a77" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
     <Properties>
         <DisplayName>wohApp</DisplayName>
         <PublisherDisplayName>Tei Gun</PublisherDisplayName>
         <Logo>images\StoreLogo.png</Logo>
-        <Description>A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app.</Description>
+        <Description>A sample Apache Cordova application that responds to the deviceready event.</Description>
     </Properties>
     <Dependencies>
         <TargetDeviceFamily MaxVersionTested="10.0.10240.0" MinVersion="10.0.10240.0" Name="Windows.Universal" />
@@ -16,7 +16,7 @@
     </Resources>
     <Applications>
         <Application Id="com.highwayns.com" StartPage="ms-appx-web://com.highwayns.com/www/index.html">
-            <uap:VisualElements BackgroundColor="#464646" Description="A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app." DisplayName="wohApp" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+            <uap:VisualElements BackgroundColor="#464646" Description="A sample Apache Cordova application that responds to the deviceready event." DisplayName="wohApp" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
                 <uap:SplashScreen Image="images\splashscreen.png" />
                 <uap:DefaultTile ShortName="wohApp" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png" />
                 <uap:InitialRotationPreference>
@@ -32,7 +32,6 @@
     </Applications>
     <Capabilities>
         <Capability Name="internetClient" />
-        <DeviceCapability Name="location" />
         <DeviceCapability Name="webcam" />
     </Capabilities>
 </Package>

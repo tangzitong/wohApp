@@ -5,7 +5,7 @@
         <DisplayName>wohApp</DisplayName>
         <PublisherDisplayName>Tei Gun</PublisherDisplayName>
         <Logo>images\StoreLogo.png</Logo>
-        <Description>A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app.</Description>
+        <Description>A sample Apache Cordova application that responds to the deviceready event.</Description>
     </Properties>
     <Prerequisites>
         <OSMinVersion>6.3.0</OSMinVersion>
@@ -16,7 +16,7 @@
     </Resources>
     <Applications>
         <Application Id="com.highwayns.com" StartPage="www/index.html">
-            <m2:VisualElements BackgroundColor="#464646" Description="A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app." DisplayName="wohApp" ForegroundText="light" Square150x150Logo="images\Square150x150Logo.png" Square30x30Logo="images\Square30x30Logo.png">
+            <m2:VisualElements BackgroundColor="#464646" Description="A sample Apache Cordova application that responds to the deviceready event." DisplayName="wohApp" ForegroundText="light" Square150x150Logo="images\Square150x150Logo.png" Square30x30Logo="images\Square30x30Logo.png">
                 <m2:DefaultTile Square310x310Logo="images\Square310x310Logo.png" Square70x70Logo="images\Square70x70Logo.png" Wide310x150Logo="images\Wide310x150Logo.png">
                     <m2:ShowNameOnTiles>
                         <m2:ShowOn Tile="square150x150Logo" />
@@ -35,7 +35,6 @@
     </Applications>
     <Capabilities>
         <Capability Name="internetClient" />
-        <DeviceCapability Name="location" />
         <DeviceCapability Name="webcam" />
     </Capabilities>
 </Package>

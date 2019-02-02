@@ -10,10 +10,11 @@ const cache = new StoreCache('vuex')
 
 export function getLangConfig() {
   const simplifiedChinese = ['zh', 'zh-cn']
-  const traditionalChinese = ['zh-tw', 'zh-hk']
+  const japanese = ['ja-JP', 'ja-jp']
   let browserLang = navigator.userLanguage || window.navigator.language
   browserLang = browserLang.toLowerCase()
-  return cache.get('lang') || (~simplifiedChinese.indexOf(browserLang) ? 'zhCN' : ~traditionalChinese.indexOf(browserLang) ? 'zhTW' : 'enUS')
+  return cache.get('lang')
+      || (~simplifiedChinese.indexOf(browserLang) ? 'zhCN' : ~japanese.indexOf(browserLang) ? 'jaJP' : 'enUS')
 }
 
 export function setLangConfig(lang) {

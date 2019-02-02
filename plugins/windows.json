@@ -9,29 +9,7 @@
   "installed_plugins": {
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "wohApp"
-    },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "wohApp"
-    },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "wohApp"
-    },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "wohApp"
-    },
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "wohApp"
-    },
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "wohApp"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "wohApp"
     }
   },
-  "dependent_plugins": {
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "wohApp"
-    }
-  }
+  "dependent_plugins": {}
 }
