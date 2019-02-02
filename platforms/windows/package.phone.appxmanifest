@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-    <Identity Name="com.highwayns.wohapp" Publisher="CN=$username$" Version="4.0.0.0" />
+    <Identity Name="com.highwayns.com" Publisher="CN=$username$" Version="4.0.0.0" />
     <mp:PhoneIdentity PhoneProductId="66e650d0-2149-11e9-9b00-fb7aba3d282d" PhonePublisherId="db093ed5-53b1-45f7-af72-751e8f36ab80" />
     <Properties>
         <DisplayName>wohApp</DisplayName>
-        <PublisherDisplayName>BelinChung</PublisherDisplayName>
+        <PublisherDisplayName>Tei Gun</PublisherDisplayName>
         <Logo>images\StoreLogo.png</Logo>
         <Description>A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app.</Description>
     </Properties>
@@ -16,7 +16,7 @@
         <Resource Language="x-generate" />
     </Resources>
     <Applications>
-        <Application Id="com.highwayns.wohapp" StartPage="www/index.html">
+        <Application Id="com.highwayns.com" StartPage="www/index.html">
             <m3:VisualElements BackgroundColor="transparent" Description="A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app." DisplayName="wohApp" ForegroundText="light" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
                 <m3:DefaultTile Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png">
                     <m3:ShowNameOnTiles>
@@ -35,7 +35,7 @@
     </Applications>
     <Capabilities>
         <Capability Name="internetClientServer" />
-        <DeviceCapability Name="webcam" />
         <DeviceCapability Name="location" />
+        <DeviceCapability Name="webcam" />
     </Capabilities>
 </Package>
