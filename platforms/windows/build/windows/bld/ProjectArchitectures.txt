@@ -1,0 +1,1 @@
+D:\work\wohapp\wohapp\platforms\windows\CordovaApp.Windows10.jsproj;neutral
