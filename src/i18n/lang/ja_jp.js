@@ -31,11 +31,11 @@ export default {
   },
   home: {
     comment: 'コメント',
-    like: '喜欢',
+    like: '好き',
     noNewestPost: 'ポストなし'
   },
   contacts: {
-    placeholder: '連絡者検査',
+    placeholder: '連絡者検索',
     empty: '連絡者なし'
   },
   feedback: {

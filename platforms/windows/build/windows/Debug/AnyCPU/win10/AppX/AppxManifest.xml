@@ -7,7 +7,7 @@
 
     パッケージ マニフェスト ファイルの詳細については、http://go.microsoft.com/fwlink/?LinkID=241727 を参照してください
   -->
-  <Identity Name="com.highwayns.com" Publisher="CN=$username$" Version="4.0.0.0" ProcessorArchitecture="neutral" />
+  <Identity Name="com.highwayns.wohApp" Publisher="CN=$username$" Version="4.0.0.0" ProcessorArchitecture="neutral" />
   <mp:PhoneIdentity PhoneProductId="ac65fcf0-26b2-11e9-864b-4b4443ae1a77" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>wohApp</DisplayName>
@@ -22,7 +22,7 @@
     <Resource Language="JA-JP" />
   </Resources>
   <Applications>
-    <Application Id="com.highwayns.com" StartPage="ms-appx-web://com.highwayns.com/www/index.html">
+    <Application Id="com.highwayns.wohApp" StartPage="ms-appx-web://com.highwayns.wohapp/www/index.html">
       <uap:VisualElements BackgroundColor="#464646" Description="A sample Apache Cordova application that responds to the deviceready event." DisplayName="wohApp" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
         <uap:SplashScreen Image="images\splashscreen.png" />
         <uap:DefaultTile ShortName="wohApp" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png" />
@@ -38,6 +38,7 @@
     </Application>
   </Applications>
   <Capabilities>
+    <uap:Capability Name="contacts" />
     <Capability Name="internetClient" />
     <DeviceCapability Name="webcam" />
   </Capabilities>
