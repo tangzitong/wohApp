@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const DEV_BASE_URL = '/api'
-const PROD_BASE_URL = 'https://raw.githubusercontent.com/BelinChung/api-mock/master/HiApp'
+const PROD_BASE_URL = 'http://woh.highwayns.com/mock'
 axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? PROD_BASE_URL : DEV_BASE_URL
 
 // Add a request interceptor

@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const backEndServer = 'https://raw.githubusercontent.com'
+const backEndServer = 'http://woh.highwayns.com'
 
 module.exports = {
   dev: {
@@ -14,7 +14,7 @@ module.exports = {
         target: backEndServer,
         changeOrigin: true,
         pathRewrite: {
-          '^/api' : '/BelinChung/api-mock/master/HiApp',
+          '^/api' : '/mock',
         },
       }
     },
