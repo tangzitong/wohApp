@@ -359,3 +359,4 @@ firestore.settings(settings);
 
 // We load currently existing chat messages and listen to new ones.
 loadMessages();
+// get from google friendlychat-web-master
