@@ -1,0 +1,510 @@
+{
+  "jobs": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "ApplicationNum": 0,
+        "AreaId": "1",
+        "Content": "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
+        "CreateDate": "2019年2月13日",
+        "Image": "http://woh.highwayns.com/mock/top.jpg",
+        "IndustryId": "1",
+        "JobTypeList": "1,2,3",
+        "LikeNum": 0,
+        "Title": "C#開発者募集",
+        "UserId": "1",
+        "id": "1"
+      }
+    ]
+
+  },
+  "jobtype": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "1",
+        "language": "jp",
+        "name": "正社員",
+        "nickname": "正"
+      },
+      {
+        "id": "2",
+        "language": "jp",
+        "name": "契約社員",
+        "nickname": "契"
+      },
+      {
+        "id": "3",
+        "language": "jp",
+        "name": "アルバイト",
+        "nickname": "ア"
+      },
+      {
+        "id": "4",
+        "language": "jp",
+        "name": "派遣社員",
+        "nickname": "派"
+      }
+    ]
+
+  },
+  "industry": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "1",
+        "language": "cn",
+        "text": "開発"
+      },
+      {
+        "id": "2",
+        "language": "jp",
+        "text": "ソフトウェア開発"
+      },
+      {
+        "id": "3",
+        "language": "en",
+        "text": "Software Development"
+      },
+      {
+        "id": "4",
+        "language": "jp",
+        "text": "モバイル開発"
+      }
+    ]
+
+  },
+  "area": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "1",
+        "language": "cn",
+        "text": "北京"
+      },
+      {
+        "id": "2",
+        "language": "jp",
+        "text": "東京"
+      },
+      {
+        "id": "3",
+        "language": "en",
+        "text": "Newyork"
+      },
+      {
+        "id": "4",
+        "language": "jp",
+        "text": "大阪"
+      }
+    ]
+  },
+  "user_login": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": {
+      "sid": "e651771fe37dc17c17421331a87721",
+      "user": {
+        "id": 10001,
+        "login_name": "wohapp@highwayns.com",
+        "nick_name": "wohApp",
+        "points": 267,
+        "avatar_url": "http://woh.highwayns.com/mock/top.jpg",
+        "gender": "m",
+        "location": "Tokyo"
+      }
+    }
+  },
+  "comments": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "avatar": "1",
+        "name": "Cory Bergman",
+        "text": "wow that's some serious chat action",
+        "time": "1404705240"
+      },
+      {
+        "avatar": "2",
+        "name": "Rhonda Irvine",
+        "text": "what country is covered by your food app?",
+        "time": "1404705260"
+      },
+      {
+        "avatar": "3",
+        "name": "Nathan Lawson",
+        "text": "much  more interesting than a stupid grumpy cat",
+        "time": "1404705300"
+      },
+      {
+        "avatar": "4",
+        "name": "Vaughn",
+        "text": "Signed the petition. Hope it's not too late.",
+        "time": "1404705400"
+      }
+    ]
+  },
+  "contacts": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "nickname": "Alex Black",
+        "location": "London",
+        "avatar": "1",
+        "header": "A"
+      },
+      {
+        "nickname": "Alex Proti",
+        "location": "Moscow",
+        "avatar": "5",
+        "header": "A"
+      },
+      {
+        "nickname": "Andrew Smith",
+        "location": "Kiev",
+        "avatar": "3",
+        "header": "A"
+      },
+      {
+        "nickname": "Ann Ryder",
+        "location": "Kiev",
+        "avatar": "7",
+        "header": "A"
+      },
+      {
+        "nickname": "Daniel Ricci",
+        "location": "Kiev",
+        "avatar": "8",
+        "header": "D"
+      },
+      {
+        "nickname": "Ivan Ivanov",
+        "location": "Kiev",
+        "avatar": "3",
+        "header": "I"
+      },
+      {
+        "nickname": "Kate Lebedeva",
+        "location": "Odessa",
+        "avatar": "6",
+        "header": "K"
+      },
+      {
+        "nickname": "Kate Shy",
+        "location": "Kiev",
+        "avatar": "10",
+        "header": "K"
+      },
+      {
+        "nickname": "Michael Fold",
+        "location": "Praha",
+        "avatar": "1",
+        "header": "M"
+      },
+      {
+        "nickname": "Nadya Lovin",
+        "location": "Moscow",
+        "avatar": "2",
+        "header": "N"
+      },
+      {
+        "nickname": "Oleg Price",
+        "location": "Odessa",
+        "avatar": "4",
+        "header": "O"
+      },
+      {
+        "nickname": "Oleg Ryzhkov",
+        "location": "Kiev",
+        "avatar": "5",
+        "header": "O"
+      },
+      {
+        "nickname": "Olga Blare",
+        "location": "Praha",
+        "avatar": "9",
+        "header": "O"
+      },
+      {
+        "nickname": "Svetlana Kot",
+        "location": "Milan",
+        "avatar": "10",
+        "header": "S"
+      }
+    ]
+  },
+  "more_timeline": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "29",
+        "nickname": "Jean Paul Sartre",
+        "avatar": "9",
+        "text": "If you're lonely when you're alone, you're in bad company.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=1",
+        "like_count": 1,
+        "comment_count": 0,
+        "created_at": "1504700591"
+      },
+      {
+        "id": "28",
+        "nickname": "Zig Ziglar",
+        "avatar": "08",
+        "text": "Your attitude, not your aptitude, will determine your altitude.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504698995"
+      },
+      {
+        "id": "27",
+        "nickname": "Winston Churchill",
+        "avatar": "1",
+        "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=8",
+        "like_count": 2,
+        "comment_count": 0,
+        "created_at": "1504698321"
+      },
+      {
+        "id": "26",
+        "nickname": "Nishan Panwar",
+        "avatar": "4",
+        "text": "When life gets hard and you want to give up, remember that life is full of ups and downs, and without the downs, the ups would mean nothing.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 2,
+        "created_at": "1504697858"
+      },
+      {
+        "id": "25",
+        "nickname": "Paulo Coelho",
+        "avatar": "2",
+        "text": "There is only one thing that makes a dream impossible to achieve: the fear of failure.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=7",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504693147"
+      },
+      {
+        "id": "24",
+        "nickname": "Helen Keller",
+        "avatar": "9",
+        "text": "When one door of happiness closes, another opens; but often we look so long at the closed door that we do not see the one which has been opened for us.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504692969"
+      }
+    ]
+  },
+  "refresh_timeline": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "48",
+        "nickname": "Nicole Sobon",
+        "avatar": "5",
+        "text": "Sometimes the hardest part isn't letting go, but rather, learning to start over.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504784104"
+      },
+      {
+        "id": "47",
+        "nickname": "Indira Gandhi",
+        "avatar": "2",
+        "text": "Opportunities are not offered. They must be wrested and worked for. And this calls for perseverance and courage.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=1",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504783664"
+      },
+      {
+        "id": "46",
+        "nickname": "Sally Nicholls",
+        "avatar": "1",
+        "text": "There's no point having wishes if you don't at least try to do them.https://twitter.com",
+        "original_pic": "",
+        "like_count": 1,
+        "comment_count": 2,
+        "created_at": "1504781208"
+      },
+      {
+        "id": "45",
+        "nickname": "Dale Carnegie",
+        "avatar": "7",
+        "text": "Remember, happiness doesn't depend upon who you are or what you have; it depends solely upon what you think.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=3",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504781124"
+      },
+      {
+        "id": "44",
+        "nickname": "Ted Mosby",
+        "avatar": "3",
+        "text": "Sometimes things have to fall apart to make way for better things.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504780946"
+      },
+      {
+        "id": "43",
+        "nickname": "Tim Howard",
+        "avatar": "5",
+        "text": "It's not about making the amazing saves. It's the little things and small things that made great gatekeepers great.",
+        "original_pic": "https://loremflickr.com/70/70/nature?lock=5",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504779710"
+      },
+      {
+        "id": "42",
+        "nickname": "Max Lerner",
+        "avatar": "7",
+        "text": "The turning point in the process of growing up is when you discover the core of strength within you that survives all hurt.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504779092"
+      }
+    ]
+  },
+  "timeline": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "41",
+        "nickname": "Bob Brown",
+        "avatar": "1",
+        "text": "Behind every successful man there's a lot u unsuccessful years. https://www.google.com/",
+        "original_pic": "",
+        "like_count": 1,
+        "comment_count": 2,
+        "created_at": "1504709434"
+      },
+      {
+        "id": "40",
+        "nickname": "Jean Kerr",
+        "avatar": "7",
+        "text": "I think success has no rules, but you can learn a lot from failure. ",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504708544"
+      },
+      {
+        "id": "39",
+        "nickname": "Colin L. Powell",
+        "avatar": "3",
+        "text": "There are no secrets to success. It is the result of preparation, hard work, and learning from failure. www.youtube.com ",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 2,
+        "created_at": "1504708455"
+      },
+      {
+        "id": "38",
+        "nickname": "Balzac",
+        "avatar": "5",
+        "text": "There is no such thing as a great talent without great will - power.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=5",
+        "like_count": 2,
+        "comment_count": 0,
+        "created_at": "1504707590"
+      },
+      {
+        "id": "37",
+        "nickname": "Charles Chaplin",
+        "avatar": "7",
+        "text": "You have to believe in yourself. That's the secret of success.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504707580"
+      },
+      {
+        "id": "36",
+        "nickname": "R.M. Nixon",
+        "avatar": "4",
+        "text": "Our destiny offers not the cup of despair, but the chalice of opportunity. So let us seize it, not in fear, but in gladness.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 1,
+        "created_at": "1504707197"
+      },
+      {
+        "id": "35",
+        "nickname": "Erasmus",
+        "avatar": "8",
+        "text": "None is of freedom or of life deserving unless he daily conquers it anew.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=3",
+        "like_count": 1,
+        "comment_count": 0,
+        "created_at": "1504706070"
+      },
+      {
+        "id": "34",
+        "nickname": "John Ruskin",
+        "avatar": "3",
+        "text": "Living without an aim is like sailing without a compass.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504706060"
+      },
+      {
+        "id": "33",
+        "nickname": "George Eliot",
+        "avatar": "6",
+        "text": "What makes life dreary is the want of motive.",
+        "original_pic": "https://loremflickr.com/1000/700/nature?lock=7",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504705260"
+      },
+      {
+        "id": "32",
+        "nickname": "Lincoln",
+        "avatar": "6",
+        "text": "Towering genius disdains a beaten path. It seeks regions hitherto unexplored.",
+        "original_pic": "",
+        "like_count": 1,
+        "comment_count": 1,
+        "created_at": "1504705240"
+      },
+      {
+        "id": "31",
+        "nickname": "Erasmus",
+        "avatar": "10",
+        "text": "None is of freedom or of life deserving unless he daily conquers it anew. ",
+        "original_pic": "",
+        "like_count": 2,
+        "comment_count": 1,
+        "created_at": "1504705133"
+      },
+      {
+        "id": "30",
+        "nickname": "Thomas Addison",
+        "avatar": "8",
+        "text": "A strong man will struggle with the storms of fate.",
+        "original_pic": "",
+        "like_count": 0,
+        "comment_count": 0,
+        "created_at": "1504704742"
+      }
+    ]
+  }
+}

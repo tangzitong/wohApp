@@ -1,18 +1,18 @@
 <template>
-  <div class="card post-card" @click="contentClick(job)">
+  <div class="card post-card" @click="contentClick(data)">
     <div class="card-header">
       <div class="avatar">
-        <img :src="getAvatar(job.avatar)" alt="avatar">
+        <img :src="getAvatar(data.Image)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{job.title}}</div>
-        <div class="time">{{`#${job.id} `}}{{formatTime(job.created_at)}}</div>
+        <div class="name">{{data.title}}</div>
+        <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
       </div>
     </div>
     <div class="card-content">
-      <div class="text">{{job.text}}</div>
-      <div v-if="job.original_pic" class="image" @click.stop="openPhotoBrowser(job.original_pic)">
-        <img :src="job.original_pic">
+      <div class="text">{{data.Content}}</div>
+      <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
+        <img :src="data.Image">
       </div>
     </div>
     <div class="card-footer flex-row" v-if="enableToolbar">
