@@ -46,6 +46,11 @@ export default {
     like: '好き',
     noNewestPost: 'ポストなし'
   },
+  job: {
+    application: '申請',
+    like: '好き',
+    noNewestPost: '仕事なし.'
+  },
   contacts: {
     placeholder: '連絡者検索',
     empty: '連絡者なし'

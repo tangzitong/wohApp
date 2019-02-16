@@ -1,28 +1,28 @@
 <template>
-  <div class="card post-card" @click="contentClick(data)">
-    <div class="card-header">
+  <div class="job post-job" @click="contentClick(data)">
+    <div class="job-header">
       <div class="avatar">
-        <img :src="getAvatar(data.Image)" alt="Image">
+        <img :src="getAvatar(data.id)" alt="Image">
       </div>
       <div class="user flex-column">
         <div class="name">{{data.title}}</div>
         <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
       </div>
     </div>
-    <div class="card-content">
+    <div class="job-content">
       <div class="text">{{data.Content}}</div>
       <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
         <img :src="data.Image">
       </div>
     </div>
-    <div class="card-footer flex-row" v-if="enableToolbar">
+    <div class="job-footer flex-row" v-if="enableToolbar">
       <f7-link class="tool tool-border flex-rest-width">
         <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="job.comment_count ? job.comment_count : $t('home.comment')"></span>
+        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('job.application')"></span>
       </f7-link>
-      <f7-link class="tool flex-rest-width" :class="{liked: job.liked}" @click.stop="toggleLike(job.id, job.liked)">
+      <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
         <span class="iconfont icon-like"></span>
-        <span class="text" v-text="job.like_count ? job.like_count : $t('home.like')"></span>
+        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('job.like')"></span>
       </f7-link>
     </div>
   </div>
@@ -31,13 +31,13 @@
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
-  .card.post-card {
+  .job.post-job {
     background-color: white;
     margin: 10px 0;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
-    .card-header {
+    .job-header {
       padding: 10px;
       padding-bottom: 5px;
       justify-content: inherit;
@@ -65,7 +65,7 @@
         }
       }
     }
-    .card-content{
+    .job-content{
       padding: 5px 10px;
       .image {
         margin-top: 5px;
@@ -74,7 +74,7 @@
         }
       }
     }
-    .card-footer{
+    .job-footer{
       min-height: 35px;
       padding: 0;
       a.link {

@@ -46,6 +46,11 @@ export default {
     like: '喜欢',
     noNewestPost: '没有加载到新动态'
   },
+  job: {
+    application: '申請',
+    like: '喜欢',
+    noNewestPost: '没有工作.'
+  },
   contacts: {
     placeholder: '搜索联系人',
     empty: '暂无联系人'

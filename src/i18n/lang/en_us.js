@@ -46,6 +46,11 @@ export default {
     like: 'Like',
     noNewestPost: 'New article not loaded.'
   },
+  job: {
+    application: 'Application',
+    like: 'Like',
+    noNewestPost: 'No Job Posted.'
+  },
   contacts: {
     placeholder: 'Search in contacts',
     empty: 'Empty Contacts'

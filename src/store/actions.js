@@ -44,6 +44,31 @@ export function updateTimeline({commit}, { mid, type }) {
   })
 }
 
+export function initJobs({ commit }, jobs) {
+  commit(types.INIT_JOBS, {
+    jobs
+  })
+}
+
+export function infiniteJobs({ commit }, jobs) {
+  commit(types.APPEND_JOBS, {
+    jobs
+  })
+}
+
+export function refreshJobs({ commit }, jobs) {
+  commit(types.PREPEND_JOBS, {
+    jobs
+  })
+}
+
+export function updateJobs({ commit }, { mid, type }) {
+  commit(types.UPDATE_JOBS, {
+    mid,
+    type
+  })
+}
+
 export function updatePopup({commit}, { key, value }) {
   commit(types.UPDATE_POPUP, {
     key,
