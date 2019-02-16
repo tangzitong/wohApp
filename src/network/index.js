@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const DEV_BASE_URL = '/api'
-const PROD_BASE_URL = 'http://woh.highwayns.com/mock'
+const PROD_BASE_URL = 'https://wohapp-3a179.firebaseio.com'
 axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? PROD_BASE_URL : DEV_BASE_URL
 
 // Add a request interceptor

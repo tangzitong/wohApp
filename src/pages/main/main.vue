@@ -10,6 +10,9 @@
     <f7-toolbar tabbar :labels="!isAndroid">
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7homeoutline' : ''" :text="$t('app.home')" tab-link="#home" tab-link-active></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.contacts')" tab-link="#contacts"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.news')" tab-link="#news"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.data')" tab-link="#data"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.work')" tab-link="#work"></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7gearoutline' : ''" :text="$t('app.settings')" tab-link="#settings"></f7-link>
     </f7-toolbar>
 
@@ -19,6 +22,15 @@
       </f7-tab>
       <f7-tab id="contacts" @tab:show="tabActived('contacts')">
         <contacts-view></contacts-view>
+      </f7-tab>
+      <f7-tab id="news" @tab:show="tabActived('news')">
+        <news-view></news-view>
+      </f7-tab>
+      <f7-tab id="data" @tab:show="tabActived('data')">
+        <data-view></data-view>
+      </f7-tab>
+      <f7-tab id="work" @tab:show="tabActived('work')">
+        <work-view></work-view>
       </f7-tab>
       <f7-tab id="settings" @tab:show="tabActived('settings')">
         <settings-view></settings-view>
@@ -53,6 +65,9 @@
 <script>
 import HomeView from './tabs/home'
 import ContactsView from './tabs/contacts'
+import NewsView from './tabs/news'
+import DataView from './tabs/data'
+import WorkView from './tabs/work'
 import SettingsView from './tabs/settings'
 import { mapActions } from 'vuex'
 import { isAndroid } from '@/utils/appFunc'
@@ -70,6 +85,12 @@ export default {
           return this.$t('app.app_name')
         case 'contacts':
           return this.$t('app.contacts')
+        case 'news':
+          return this.$t('app.news')
+        case 'data':
+          return this.$t('app.data')
+        case 'work':
+          return this.$t('app.work')
         case 'settings':
           return this.$t('app.settings')
       }
@@ -104,6 +125,9 @@ export default {
   components: {
     HomeView,
     ContactsView,
+    NewsView,
+    DataView,
+    WorkView,
     SettingsView,
   }
 }

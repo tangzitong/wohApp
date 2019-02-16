@@ -27,7 +27,19 @@ export default {
     modal: {
       title: '系统提示',
       button_ok: '确定'
-    }
+    },
+    jobs: '工作',
+    companys: '公司',
+    projects: '項目',
+    talents: '人材',
+    consultants: '咨询',
+    dispatchers: '派遣',
+    knowledge: '知識',
+    tools: '工具',
+    events: '社区',
+    data: '数据',
+    work: '个人工作',
+    news: '新聞'
   },
   home: {
     comment: '评论',

@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const backEndServer = 'http://woh.highwayns.com'
+const backEndServer = 'https://wohapp-3a179.firebaseio.com'
 
 module.exports = {
   dev: {
@@ -14,7 +14,7 @@ module.exports = {
         target: backEndServer,
         changeOrigin: true,
         pathRewrite: {
-          '^/api' : '/mock',
+          '^/api' : '/',
         },
       }
     },

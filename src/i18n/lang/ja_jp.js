@@ -27,7 +27,19 @@ export default {
     modal: {
       title: 'システム開発タイトル',
       button_ok: '確定'
-    }
+    },
+    jobs: '仕事',
+    companys: '会社',
+    projects: '工程',
+    talents: '人材',
+    consultants: 'コンサルタント',
+    dispatchers: '派遣者',
+    knowledge: '知識',
+    tools: 'ツール',
+    events: 'イベント',
+    data: 'データ',
+    work: 'ワーク',
+    news: 'ニュース'
   },
   home: {
     comment: 'コメント',

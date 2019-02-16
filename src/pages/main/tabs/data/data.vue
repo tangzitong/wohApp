@@ -1,5 +1,5 @@
 <template>
-  <div class="home-view">
+  <div class="data-view">
     <f7-list>
       <f7-list-item :title="$t('app.jobs')" link="/jobs/">
         <i class='iconfont icon-jobs' slot="media"></i>
@@ -49,36 +49,46 @@
 </template>
 
 <style lang="less" scoped>
-.home-view {
-  .list {
+.data-view {
+  .list
+  {
     margin: 15px 0;
-    .iconfont {
+    .iconfont
+    {
       height: 29px;
     }
     .icon-jobs {
       color: #0099ff;
     }
+
     .icon-companys {
       color: #00cc99;
     }
+
     .icon-projects {
       color: #ffcc33;
     }
+
     .icon-talents {
       color: #fecc33;
     }
+
     .icon-consultants {
       color: #ffec33;
     }
+
     .icon-dispatchers {
       color: #ffdc33;
     }
+
     .icon-knowledge {
       color: #ff0c33;
     }
+
     .icon-tools {
       color: #ff8c33;
     }
+
     .icon-events {
       color: #ff9c33;
     }

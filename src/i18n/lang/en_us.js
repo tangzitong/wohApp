@@ -27,7 +27,19 @@ export default {
     modal: {
       title: 'System',
       button_ok: 'OK'
-    }
+    },
+    jobs: 'Jobs',
+    companys: 'Companys',
+    projects: 'Projects',
+    talents: 'Talents',
+    consultants: 'Consultants',
+    dispatchers: 'Dispatchers',
+    knowledge: 'Knowledge',
+    tools: 'Tools',
+    events: 'Events',
+    data: 'Data',
+    work: 'Work',
+    news: 'News'
   },
   home: {
     comment: 'Comment',
