@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.highwayns.com"
+    package="com.highwayns.wohApp"
     android:hardwareAccelerated="true"
     android:versionCode="40000"
     android:versionName="4.0.0" >
@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:testOnly="true" >
         <activity
-            android:name="com.highwayns.com.MainActivity"
+            android:name="com.highwayns.wohApp.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
             android:label="@string/activity_name"
             android:launchMode="singleTop"
@@ -43,7 +43,7 @@
 
         <provider
             android:name="org.apache.cordova.camera.FileProvider"
-            android:authorities="com.highwayns.com.provider"
+            android:authorities="com.highwayns.wohApp.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -52,7 +52,7 @@
         </provider>
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.highwayns.com.com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.highwayns.wohApp.com.android.tools.ir.server.InstantRunContentProvider"
             android:multiprocess="true" />
     </application>
 

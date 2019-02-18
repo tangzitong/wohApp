@@ -1,4 +1,67 @@
 {
+  "reports": {
+
+  },
+  "orders": {
+
+  },
+  "quatations": {
+
+  },
+  "attachments": {
+
+  },
+  "likes": {
+
+  },
+  "messages": {
+
+  },
+  "contacts": {
+
+  },
+  "users": {
+
+  },
+  "eventtype": {
+
+  },
+  "knowledgetype": {
+
+  },
+  "tooltype": {
+
+  },
+  "resumetype": {
+
+  },
+  "projecttype": {
+
+  },
+  "companytype": {
+
+  },
+  "applications": {
+
+  },
+  "events": {
+
+  },
+  "tools": {
+
+  },
+  "knowledges": {
+
+  },
+  "resumes": {
+
+  },
+  "projects": {
+
+  },
+  "companys": {
+
+  },
   "jobs": {
     "err_code": 0,
     "err_msg": "success",

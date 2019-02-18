@@ -1,4 +1,4 @@
-#Sat Feb 02 15:34:09 JST 2019
-base.0=D\:\\work\\wohapp\\wohapp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\26
+#Sat Feb 16 18:31:42 JST 2019
+base.0=D\:\\work\\wohapp\\wohapp\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
 path.0=classes.dex
 renamed.0=classes.dex

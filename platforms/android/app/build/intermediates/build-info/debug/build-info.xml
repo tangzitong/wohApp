@@ -6,22 +6,22 @@
     density="xxhdpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1549089239794"
+    timestamp="1550309482173"
     token="7379338449809402332"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1508" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="242" />
     <task
         name="verifier"
-        duration="0" />
+        duration="295" />
 
     <artifact
         location="D:\work\wohapp\wohapp\platforms\android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
@@ -62,7 +62,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1549089239794"
+        timestamp="1550309482173"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\work\wohapp\wohapp\platforms\android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
