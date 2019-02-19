@@ -10,6 +10,8 @@ export default {
     city: '都市',
     profile: '個人情報',
     language: '言語選択',
+    area: '地区',
+    industry: '業界',
     feedback: 'アドバイス',
     about: 'アバウトアス',
     avatar: 'アバター',

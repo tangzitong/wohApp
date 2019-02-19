@@ -10,6 +10,8 @@ export default {
     city: 'City',
     profile: 'Profile',
     language: 'Language',
+    area: 'area',
+    industry: 'industry',
     feedback: 'Feedback',
     about: 'About',
     avatar: 'Avatar',

@@ -2,6 +2,8 @@ import mainPage from './pages/main'
 import aboutPage from './pages/about'
 import feedbackPage from './pages/feedback'
 import languagePage from './pages/language'
+import areaPage from './pages/area'
+import industryPage from './pages/industry'
 import profilePage from './pages/profile'
 import jobsPage from './pages/jobs'
 import companysPage from './pages/companys'
@@ -27,6 +29,14 @@ export default [
   {
     path: '/language/',
     component: languagePage
+  },
+  {
+    path: '/area/',
+    component: areaPage
+  },
+  {
+    path: '/industry/',
+    component: industryPage
   },
   {
     path: '/feedback/',

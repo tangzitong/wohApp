@@ -18,6 +18,16 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
+      <f7-list-item :title="$t('app.area')" link="/area/">
+        <i class='iconfont icon-area' slot="media"></i>
+      </f7-list-item>
+    </f7-list>
+    <f7-list>
+      <f7-list-item :title="$t('app.industry')" link="/industry/">
+        <i class='iconfont icon-industry' slot="media"></i>
+      </f7-list-item>
+    </f7-list>
+    <f7-list>
       <f7-list-item :title="$t('app.feedback')" link="/feedback/">
         <i class='iconfont icon-feedback2' slot="media"></i>
       </f7-list-item>
@@ -39,6 +49,12 @@
     }
     .icon-language {
       color: #0099ff;
+    }
+    .icon-area {
+      color: #0055ff;
+    }
+    .icon-industry {
+      color: #5555ff;
     }
     .icon-feedback2 {
       color: #00cc99;
