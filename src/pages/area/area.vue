@@ -7,14 +7,18 @@
     </f7-navbar>
     <f7-block-title>{{$t('app.area')}}</f7-block-title>
     <f7-list>
-        <f7-list-item radio name="area-radio" value="enUS" title="English" :checked="lang === 'enUS'"></f7-list-item>
-        <f7-list-item radio name="area-radio" value="zhCN" title="简体中文" :checked="lang === 'zhCN'"></f7-list-item>
-        <f7-list-item radio name="area-radio" value="jaJP" title="日本語" :checked="lang === 'jaJP'"></f7-list-item>
+      <template v-if="areas.length">
+        <div class="area flex-row" v-for="area in areas" :key="area.id">
+          <f7-list-item radio name="area-radio" value="area.id" title="area.text" :checked="area === area.id"></f7-list-item>
+        </div>
+      </template>
     </f7-list>
   </f7-page>
 </template>
 
 <script>
+import axios from 'axios'
+import { mapState, mapActions } from 'vuex'
 import { getAreaConfig, setAreaConfig } from '@/code'
 
 export default {
@@ -26,7 +30,26 @@ export default {
   created() {
     this.area = getAreaConfig()
   },
+  computed: {
+    ...mapState({
+      areas: state => state.areas,
+    })
+  },
+  mounted() {
+    this.getAreas()
+  },
   methods: {
+    ...mapActions([
+      'initArea'
+    ]),
+    getAreas() {
+      this.$f7.preloader.show()
+      axios.get('/area.json').then(res => {
+        const areas = res.data
+        this.initArea(areas)
+        this.$f7.preloader.hide()
+      })
+    },
     saveArea() {
       const area = this.$$('input[name="area-radio"]:checked').val()
       setAreaConfig(area)
