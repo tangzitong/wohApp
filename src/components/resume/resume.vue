@@ -1,28 +1,28 @@
 <template>
-  <div class="card post-card" @click="contentClick(job)">
-    <div class="card-header">
+  <div class="resume post-resume" @click="contentClick(data)">
+    <div class="resume-header">
       <div class="avatar">
-        <img :src="getAvatar(job.avatar)" alt="avatar">
+        <img :src="getAvatar(data.id)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{job.title}}</div>
-        <div class="time">{{`#${job.id} `}}{{formatTime(job.created_at)}}</div>
+        <div class="name">{{data.title}}</div>
+        <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
       </div>
     </div>
-    <div class="card-content">
-      <div class="text">{{job.text}}</div>
-      <div v-if="job.original_pic" class="image" @click.stop="openPhotoBrowser(job.original_pic)">
-        <img :src="job.original_pic">
+    <div class="resume-content">
+      <div class="text">{{data.Content}}</div>
+      <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
+        <img :src="data.Image">
       </div>
     </div>
-    <div class="card-footer flex-row" v-if="enableToolbar">
+    <div class="resume-footer flex-row" v-if="enableToolbar">
       <f7-link class="tool tool-border flex-rest-width">
         <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="job.comment_count ? job.comment_count : $t('home.comment')"></span>
+        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('resume.application')"></span>
       </f7-link>
-      <f7-link class="tool flex-rest-width" :class="{liked: job.liked}" @click.stop="toggleLike(job.id, job.liked)">
+      <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
         <span class="iconfont icon-like"></span>
-        <span class="text" v-text="job.like_count ? job.like_count : $t('home.like')"></span>
+        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('resume.like')"></span>
       </f7-link>
     </div>
   </div>
@@ -31,13 +31,13 @@
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
-  .card.post-card {
+  .resume.post-resume {
     background-color: white;
     margin: 10px 0;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
-    .card-header {
+    .resume-header {
       padding: 10px;
       padding-bottom: 5px;
       justify-content: inherit;
@@ -65,7 +65,7 @@
         }
       }
     }
-    .card-content{
+    .resume-content{
       padding: 5px 10px;
       .image {
         margin-top: 5px;
@@ -74,7 +74,7 @@
         }
       }
     }
-    .card-footer{
+    .resume-footer{
       min-height: 35px;
       padding: 0;
       a.link {

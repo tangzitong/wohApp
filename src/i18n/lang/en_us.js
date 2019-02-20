@@ -69,6 +69,10 @@ export default {
     publisher: 'Publisher',
     placeholder: 'what\'s new with you.'
   },
+  application: {
+    application: 'Application',
+    placeholder: 'what\'s new with you.'
+  },
   post: {
     post: 'Post'
   }

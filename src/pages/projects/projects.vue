@@ -1,67 +1,86 @@
 <template>
-  <f7-page class="projects-view">
-    <f7-navbar :title="$t('app.projects')" :back-link="$t('app.back')"></f7-navbar>
-    <f7-block>
-        <div class="logo">
-            <img src="@/assets/images/hiapp_logo@2x.png" alt="logo">
-        </div>
-        <div class="app-name">wohApp</div>
-    </f7-block>
-    <f7-block class="detail">
-        <p>GitHub: highwayns/wohApp</p>
-        <p>Email: tei952@gmail.com</p>
-        <p>Twitter: @tei952</p>
-    </f7-block>
-    <f7-block class="copyright">
-        Copyright © 2019 Tokyo.
-    </f7-block>
+  <f7-page id="projectsView" class="projects-view"
+           ptr
+           infinite
+           @ptr:refresh="onRefresh"
+           @infinite="onInfiniteScroll">
+    <project v-for="item in projects" :key="item.id" :data="item" @project:content-click="routeToPost"></project>
   </f7-page>
 </template>
 
-<style lang="less">
-  .projects-view {
-    .logo {
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
-    background-color: #fff;
-    text-indent: -9999;
-    border-radius: 5px;
-    margin: 0 auto;
-    border: 1px solid #dfdfdf;
-    text-align: center;
-    > img {
-      width: 75px;
-      height: 75px;
-      vertical-align: middle;
+<script>
+import axios from 'axios'
+import Project from '@/components/project'
+import { mapState, mapActions } from 'vuex'
+
+export default {
+  data() {
+    return {
+      refreshing: false,
+      loadingMore: false,
+      loadedEnd: false,
     }
-  }
-  .app-name {
-    text-align: center;
-    color: #666;
-    font-size: 20px;
-    margin-top: 15px;
-  }
-  .detail {
-    text-align: center;
-    color: #666;
-    > p {
-      margin: 6px 0;
+  },
+  computed: {
+    ...mapState({
+      projects: state => state.projects,
+    })
+  },
+  mounted() {
+    this.getProjects()
+  },
+  methods: {
+    ...mapActions([
+      'initProjects',
+      'infiniteProjects',
+      'refreshProjects'
+    ]),
+    getProjects() {
+      this.$f7.preloader.show()
+      axios.get('/projects.json').then(res => {
+        const projects = res.data
+        this.initProjects(projects)
+        this.$f7.preloader.hide()
+      })
+    },
+    onRefresh() {
+      if (this.refreshing) return false
+
+      this.refreshing = true
+      axios.get('/projects.json').then(res => {
+        if (parseInt(this.projects[0].id) === 48) {
+          this.$emit('show-tip')
+        } else {
+          const projects = res.data
+          this.refreshProjects(projects)
+        }
+        this.refreshing = false
+        this.$f7.ptr.done()
+      })
+    },
+    onInfiniteScroll() {
+      if (this.loadingMore || this.loadedEnd) return false
+
+      this.loadingMore = true
+      axios.get('/projects.json').then(res => {
+        const id = parseInt(this.projects[this.projects.length - 1].id)
+        if (id === 24) {
+          this.loadedEnd = true
+          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
+          this.$$('#homeView .infinite-scroll-preloader').remove()
+        } else {
+          const projects = res.data
+          this.infiniteProjects(projects)
+        }
+        this.loadingMore = false
+      })
+    },
+    routeToPost(data) {
+      this.$f7router.navigate(`/post/?mid=${data.id}`)
     }
-  }
-  .copyright {
-    position: absolute;
-    left: 0;
-    text-align: center;
-    bottom: 0;
-    font-size: 10px;
-    color: #9c9c9c;
-    width: 100%;
-    padding: 0;
+  },
+  components: {
+    Project
   }
 }
-</style>
-
-<script>
-export default {}
 </script>

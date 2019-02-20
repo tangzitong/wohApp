@@ -9,6 +9,30 @@ export default {
   [types.INIT_CONTACTS] (state, { contacts }) {
     Vue.set(state, 'contacts', contacts)
   },
+  [types.INIT_AREA](state, { area }) {
+    Vue.set(state, 'area', area)
+  },
+  [types.INIT_INDUSTRY](state, { industry }) {
+    Vue.set(state, 'industry', industry)
+  },
+  [types.INIT_JOBTYPE](state, { jobtype }) {
+    Vue.set(state, 'jobtype', jobtype)
+  },
+  [types.INIT_COMPANYTYPE](state, { companytype }) {
+    Vue.set(state, 'companytype', companytype)
+  },
+  [types.INIT_PROJECTTYPE](state, { projecttype }) {
+    Vue.set(state, 'projecttype', projecttype)
+  },
+  [types.INIT_KNOWLEDGETYPE](state, { knowledgetype }) {
+    Vue.set(state, 'knowledgetype', knowledgetype)
+  },
+  [types.INIT_TOOLTYPE](state, { tooltype }) {
+    Vue.set(state, 'tooltype', tooltype)
+  },
+  [types.INIT_EVENTTYPE](state, { eventtype }) {
+    Vue.set(state, 'eventtype', eventtype)
+  },
   [types.INIT_JOBS](state, { jobs }) {
     Vue.set(state, 'jobs', jobs)
   },
@@ -20,6 +44,156 @@ export default {
   },
   [types.UPDATE_JOBS](state, { mid, type }) {
     let item = find(state.jobs, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_COMPANYS](state, { companys }) {
+    Vue.set(state, 'companys', companys)
+  },
+  [types.APPEND_COMPANYS](state, { companys }) {
+    Vue.set(state, 'companys', [...state.companys, ...companys])
+  },
+  [types.PREPEND_COMPANYS](state, { companys }) {
+    Vue.set(state, 'companys', [...companys, ...state.companys])
+  },
+  [types.UPDATE_COMPANYS](state, { mid, type }) {
+    let item = find(state.companys, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_PROJECTS](state, { projects }) {
+    Vue.set(state, 'projects', projects)
+  },
+  [types.APPEND_PROJECTS](state, { projects }) {
+    Vue.set(state, 'projects', [...state.projects, ...projects])
+  },
+  [types.PREPEND_PROJECTS](state, { projects }) {
+    Vue.set(state, 'projects', [...projects, ...state.projects])
+  },
+  [types.UPDATE_PROJECTS](state, { mid, type }) {
+    let item = find(state.projects, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_RESUMES](state, { resumes }) {
+    Vue.set(state, 'resumes', resumes)
+  },
+  [types.APPEND_RESUMES](state, { resumes }) {
+    Vue.set(state, 'resumes', [...state.resumes, ...resumes])
+  },
+  [types.PREPEND_RESUMES](state, { resumes }) {
+    Vue.set(state, 'resumes', [...resumes, ...state.resumes])
+  },
+  [types.UPDATE_RESUMES](state, { mid, type }) {
+    let item = find(state.projects, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_TOOLS](state, { tools }) {
+    Vue.set(state, 'tools', tools)
+  },
+  [types.APPEND_TOOLS](state, { tools }) {
+    Vue.set(state, 'tools', [...state.tools, ...tools])
+  },
+  [types.PREPEND_TOOLS](state, { tools }) {
+    Vue.set(state, 'tools', [...tools, ...state.tools])
+  },
+  [types.UPDATE_TOOLS](state, { mid, type }) {
+    let item = find(state.tools, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_KNOWLEDGES](state, { knowledges }) {
+    Vue.set(state, 'knowledges', knowledges)
+  },
+  [types.APPEND_KNOWLEDGES](state, { knowledges }) {
+    Vue.set(state, 'knowledges', [...state.knowledges, ...knowledges])
+  },
+  [types.PREPEND_KNOWLEDGES](state, { knowledges }) {
+    Vue.set(state, 'knowledges', [...knowledges, ...state.knowledges])
+  },
+  [types.UPDATE_KNOWLEDGES](state, { mid, type }) {
+    let item = find(state.knowledges, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_EVENTS](state, { events }) {
+    Vue.set(state, 'events', events)
+  },
+  [types.APPEND_EVENTS](state, { events }) {
+    Vue.set(state, 'events', [...state.events, ...events])
+  },
+  [types.PREPEND_EVENTS](state, { events }) {
+    Vue.set(state, 'events', [...events, ...state.events])
+  },
+  [types.UPDATE_EVENTS](state, { mid, type }) {
+    let item = find(state.events, p => p.id === mid)
     const update = {}
     switch (type) {
       case 'like':
@@ -61,5 +235,8 @@ export default {
   },
   [types.UPDATE_POPUP] (state, { key, value }) {
     Vue.set(state.popup, key, value)
+  },
+  [types.UPDATE_APPLICATION](state, { key, value }) {
+    Vue.set(state.application, key, value)
   }
 }

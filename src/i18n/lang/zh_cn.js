@@ -69,6 +69,10 @@ export default {
     publisher: '发消息',
     placeholder: '随时分享新鲜事...'
   },
+  application: {
+    application: '申請',
+    placeholder: '提出申請.'
+  },
   post: {
     post: '正文'
   }

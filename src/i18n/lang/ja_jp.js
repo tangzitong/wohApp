@@ -69,6 +69,10 @@ export default {
     publisher: '配布者',
     placeholder: '最新情報を共有しましょう...'
   },
+  application: {
+    application: '申し込み',
+    placeholder: '申し込みしてください.'
+  },
   post: {
     post: '文章'
   }
