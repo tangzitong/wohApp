@@ -24,7 +24,8 @@ import { getIndustryConfig, setIndustryConfig } from '@/code'
 export default {
   data() {
     return {
-      industry: '1'
+      industry: '1',
+      industrys: []
     }
   },
   created() {
