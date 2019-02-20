@@ -10,6 +10,8 @@ export default {
     city: '城市',
     profile: '个人信息',
     language: '语言选择',
+    area: '地区',
+    industry: '業界',
     feedback: '意见反馈',
     about: '关于我们',
     avatar: '头像',
