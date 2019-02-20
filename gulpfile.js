@@ -1,3 +1,4 @@
+var gulp = require('gulp');
 var iconfont = require('gulp-iconfont');
 var runTimestamp = Math.round(Date.now() / 1000);
 
