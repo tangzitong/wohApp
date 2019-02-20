@@ -4,6 +4,8 @@
            infinite
            @ptr:refresh="onRefresh"
            @infinite="onInfiniteScroll">
+    <f7-navbar :title="$t('app.tools')" :back-link="$t('app.back')">
+    </f7-navbar>
     <tool v-for="item in tools" :key="item.id" :data="item" @tool:content-click="routeToPost"></tool>
   </f7-page>
 </template>

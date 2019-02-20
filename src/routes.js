@@ -16,7 +16,6 @@ import toolsPage from './pages/tools'
 import eventsPage from './pages/events'
 import messagePage from './pages/message'
 import postPage from './pages/post'
-import applicationPage from './pages/application'
 
 export default [
   {

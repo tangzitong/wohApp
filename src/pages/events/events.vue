@@ -4,6 +4,8 @@
            infinite
            @ptr:refresh="onRefresh"
            @infinite="onInfiniteScroll">
+    <f7-navbar :title="$t('app.events')" :back-link="$t('app.back')">
+    </f7-navbar>
     <event v-for="item in events" :key="item.id" :data="item" @event:content-click="routeToPost"></event>
   </f7-page>
 </template>
