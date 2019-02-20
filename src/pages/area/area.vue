@@ -24,7 +24,8 @@ import { getAreaConfig, setAreaConfig } from '@/code'
 export default {
   data() {
     return {
-      area: '1'
+      area: '1'，
+      areas： []
     }
   },
   created() {
