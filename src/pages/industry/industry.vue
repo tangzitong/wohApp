@@ -8,8 +8,8 @@
     <f7-block-title>{{$t('app.industry')}}</f7-block-title>
     <f7-list>
       <template v-if="industrys.length">
-        <div class="industry flex-row" v-for="industry in industrys" :key="industry.id">
-          <f7-list-item radio name="industry-radio" value="industry.id" title="industry.text" :checked="industry === industry.id"></f7-list-item>
+        <div class="industry flex-row" v-for="industry_ in industrys" :key="industry_.id">
+          <f7-list-item radio name="industry-radio" :value="industry_.id" :title="industry_.text" :checked="industry === industry_.id"></f7-list-item>
         </div>
       </template>
     </f7-list>
@@ -17,8 +17,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import { getIndustryConfig, setIndustryConfig } from '@/code'
 
 export default {
@@ -37,20 +36,9 @@ export default {
     })
   },
   mounted() {
-    this.getIndustrys()
+    this.$store.dispatch('getIndustrys')
   },
   methods: {
-    ...mapActions([
-      'initIndustry'
-    ]),
-    getIndustrys() {
-      this.$f7.preloader.show()
-      axios.get('/industry.json').then(res => {
-        const industrys = res.data
-        this.initIndustry(industrys)
-        this.$f7.preloader.hide()
-      })
-    },
     saveIndustry() {
       const industry = this.$$('input[name="industry-radio"]:checked').val()
       setIndustryConfig(industry)

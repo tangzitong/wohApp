@@ -9,29 +9,29 @@ export default {
   [types.INIT_CONTACTS] (state, { contacts }) {
     Vue.set(state, 'contacts', contacts)
   },
-  [types.INIT_AREA](state, { area }) {
-    Vue.set(state, 'area', area)
+  [types.INIT_AREAS](state, { areas }) {
+    Vue.set(state, 'areas', areas)
   },
-  [types.INIT_INDUSTRY](state, { industry }) {
-    Vue.set(state, 'industry', industry)
+  [types.INIT_INDUSTRYS](state, { industrys }) {
+    Vue.set(state, 'industrys', industrys)
   },
-  [types.INIT_JOBTYPE](state, { jobtype }) {
-    Vue.set(state, 'jobtype', jobtype)
+  [types.INIT_JOBTYPES](state, { jobtypes }) {
+    Vue.set(state, 'jobtypes', jobtypes)
   },
-  [types.INIT_COMPANYTYPE](state, { companytype }) {
-    Vue.set(state, 'companytype', companytype)
+  [types.INIT_COMPANYTYPES](state, { companytypes }) {
+    Vue.set(state, 'companytypes', companytypes)
   },
-  [types.INIT_PROJECTTYPE](state, { projecttype }) {
-    Vue.set(state, 'projecttype', projecttype)
+  [types.INIT_PROJECTTYPES](state, { projecttypes }) {
+    Vue.set(state, 'projecttypes', projecttypes)
   },
-  [types.INIT_KNOWLEDGETYPE](state, { knowledgetype }) {
-    Vue.set(state, 'knowledgetype', knowledgetype)
+  [types.INIT_KNOWLEDGETYPES](state, { knowledgetypes }) {
+    Vue.set(state, 'knowledgetypes', knowledgetypes)
   },
-  [types.INIT_TOOLTYPE](state, { tooltype }) {
-    Vue.set(state, 'tooltype', tooltype)
+  [types.INIT_TOOLTYPES](state, { tooltypes }) {
+    Vue.set(state, 'tooltypes', tooltypes)
   },
-  [types.INIT_EVENTTYPE](state, { eventtype }) {
-    Vue.set(state, 'eventtype', eventtype)
+  [types.INIT_EVENTTYPES](state, { eventtypes }) {
+    Vue.set(state, 'eventtypes', eventtypes)
   },
   [types.INIT_JOBS](state, { jobs }) {
     Vue.set(state, 'jobs', jobs)

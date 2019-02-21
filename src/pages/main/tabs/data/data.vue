@@ -32,7 +32,7 @@
     </f7-list>
     <f7-list>
       <f7-list-item :title="$t('app.knowledge')" link="/knowledge/">
-        <i class='iconfont icon-knowledge' slot="media"></i>
+        <i class='iconfont icon-knowledges' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
@@ -81,7 +81,7 @@
       color: #ffdc33;
     }
 
-    .icon-knowledge {
+    .icon-knowledges {
       color: #ff0c33;
     }
 

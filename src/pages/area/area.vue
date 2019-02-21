@@ -7,18 +7,18 @@
     </f7-navbar>
     <f7-block-title>{{$t('app.area')}}</f7-block-title>
     <f7-list>
-      <template v-if="areas.length">
-        <div class="area flex-row" v-for="area in areas" :key="area.id">
-          <f7-list-item radio name="area-radio" value="area.id" title="area.text" :checked="area === area.id"></f7-list-item>
-        </div>
-      </template>
+      <f7-list-group v-for="area_ in areas" :key="area_.id">
+        <f7-list-item radio name="area-radio"
+                      :value="area_.id"
+                      :title="area_.text"
+                      :checked="area === area_.id"></f7-list-item>
+      </f7-list-group>
     </f7-list>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import { getAreaConfig, setAreaConfig } from '@/code'
 
 export default {
@@ -37,20 +37,9 @@ export default {
     })
   },
   mounted() {
-    this.getAreas()
+    this.$store.dispatch('getAreas')
   },
   methods: {
-    ...mapActions([
-      'initArea'
-    ]),
-    getAreas() {
-      this.$f7.preloader.show()
-      axios.get('/area.json').then(res => {
-        const areas = res.data
-        this.initArea(areas)
-        this.$f7.preloader.hide()
-      })
-    },
     saveArea() {
       const area = this.$$('input[name="area-radio"]:checked').val()
       setAreaConfig(area)

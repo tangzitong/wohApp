@@ -19,83 +19,83 @@ export function getContacts({commit}) {
   })
 }
 
-export function getArea({ commit }) {
+export function getAreas({ commit }) {
   axios.get('/area.json').then(res => {
-    const area = res.data
-    commit(types.INIT_AREA, {
-      area
+    const areas = res.data
+    commit(types.INIT_AREAS, {
+      areas
     })
   })
 }
 
-export function getIndustry({ commit }) {
+export function getIndustrys({ commit }) {
   axios.get('/industry.json').then(res => {
-    const industry = res.data
-    commit(types.INIT_INDUSTRY, {
-      industry
+    const industrys = res.data
+    commit(types.INIT_INDUSTRYS, {
+      industrys
     })
   })
 }
 
-export function getJobtype({ commit }) {
+export function getJobtypes({ commit }) {
   axios.get('/jobtype.json').then(res => {
-    const jobtype = res.data
-    commit(types.INIT_JOBTYPE, {
-      jobtype
+    const jobtypes = res.data
+    commit(types.INIT_JOBTYPES, {
+      jobtypes
     })
   })
 }
 
-export function getCompanytype({ commit }) {
+export function getCompanytypes({ commit }) {
   axios.get('/companytype.json').then(res => {
-    const companytype = res.data
-    commit(types.INIT_COMPANYTYPE, {
-      companytype
+    const companytypes = res.data
+    commit(types.INIT_COMPANYTYPES, {
+      companytypes
     })
   })
 }
 
-export function getProjecttype({ commit }) {
+export function getProjecttypes({ commit }) {
   axios.get('/projecttype.json').then(res => {
-    const projecttype = res.data
-    commit(types.INIT_PROJECTTYPE, {
-      projecttype
+    const projecttypes = res.data
+    commit(types.INIT_PROJECTTYPES, {
+      projecttypes
     })
   })
 }
 
-export function getResumetype({ commit }) {
+export function getResumetypes({ commit }) {
   axios.get('/resumetype.json').then(res => {
-    const resumetype = res.data
-    commit(types.INIT_RESUMETYPE, {
-      resumetype
+    const resumetypes = res.data
+    commit(types.INIT_RESUMETYPES, {
+      resumetypes
     })
   })
 }
 
-export function getKnowledgetype({ commit }) {
+export function getKnowledgetypes({ commit }) {
   axios.get('/knowledgetype.json').then(res => {
-    const knowledgetype = res.data
-    commit(types.INIT_KNOWLEDGETYPE, {
-      knowledgetype
+    const knowledgetypes = res.data
+    commit(types.INIT_KNOWLEDGETYPES, {
+      knowledgetypes
     })
   })
 }
 
-export function getTooltype({ commit }) {
+export function getTooltypes({ commit }) {
   axios.get('/tooltype.json').then(res => {
-    const tooltype = res.data
-    commit(types.INIT_TOOLTYPE, {
-      tooltype
+    const tooltypes = res.data
+    commit(types.INIT_TOOLTYPES, {
+      tooltypes
     })
   })
 }
 
-export function getEventtype({ commit }) {
+export function getEventtypes({ commit }) {
   axios.get('/eventtype.json').then(res => {
-    const eventtype = res.data
-    commit(types.INIT_EVENTTYPE, {
-      eventtype
+    const eventtypes = res.data
+    commit(types.INIT_EVENTTYPES, {
+      eventtypes
     })
   })
 }
