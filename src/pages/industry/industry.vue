@@ -7,11 +7,12 @@
     </f7-navbar>
     <f7-block-title>{{$t('app.industry')}}</f7-block-title>
     <f7-list>
-      <template v-if="industrys.length">
-        <div class="industry flex-row" v-for="industry_ in industrys" :key="industry_.id">
-          <f7-list-item radio name="industry-radio" :value="industry_.id" :title="industry_.text" :checked="industry === industry_.id"></f7-list-item>
-        </div>
-      </template>
+      <f7-list-group v-for="industry_ in industrys" :key="industry_.id">
+        <f7-list-item radio name="industry-radio"
+                      :value="industry_.id"
+                      :title="industry_.text"
+                      :checked="industry === industry_.id"></f7-list-item>
+      </f7-list-group>
     </f7-list>
   </f7-page>
 </template>
@@ -23,8 +24,7 @@ import { getIndustryConfig, setIndustryConfig } from '@/code'
 export default {
   data() {
     return {
-      industry: '1',
-      industrys: []
+      industry: '1'
     }
   },
   created() {
