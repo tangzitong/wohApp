@@ -38,15 +38,19 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('login.title')" link="/about/login/">
-        <i class='iconfont icon-industry' slot="media"></i>
-      </f7-list-item>
-      <f7-list-item :title="$t('modify.title')" link="/about/modify/">
-        <i class='iconfont icon-industry' slot="media"></i>
-      </f7-list-item>
-      <f7-list-item :title="$t('logout.title')">
-        <a @click="logout">{{$t('logout.btn')}}</a>
-      </f7-list-item>
+      <template v-if="isUserNotLogin">
+        <f7-list-item :title="$t('login.title')" link="/about/login/">
+          <i class='iconfont icon-industry' slot="media"></i>
+        </f7-list-item>
+      </template>
+      <template v-if="isUserLogin">
+        <f7-list-item :title="$t('modify.title')" link="/about/modify/">
+          <i class='iconfont icon-industry' slot="media"></i>
+        </f7-list-item>
+        <f7-list-item :title="$t('logout.title')">
+          <a @click="logout">{{$t('logout.btn')}}</a>
+        </f7-list-item>
+      </template>
     </f7-list>
   </div>
 </template>
@@ -100,9 +104,17 @@ import { mapState } from 'vuex'
 const fb = require('../../../../firebaseConfig.js')
 
 export default {
+  data() {
+    return {
+      isUserNotLogin: true,
+      isUserLogin: false
+    }
+  },
   computed: {
     ...mapState({
-      userInfo: state => state.user
+      userInfo: state => state.user,
+      isUserLogin = !!userInfo,
+      isUserNotLogin = !isUserLogin
     })
   },
   methods: {
