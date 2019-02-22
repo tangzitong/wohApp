@@ -1,5 +1,47 @@
 import axios from 'axios'
 import * as types from './mutation-types'
+const fb = require('../firebaseConfig.js')
+
+export function clearData({ commit }) {
+  commit(types.SET_CURRENTUSER, null)
+  commit(types.SET_USERPROFILE, {})
+  commit(types.SET_CURRENTUSER, null)
+  commit(types.SET_CURRENTUSER, null)
+}
+
+export function fetchUserProfile({ commit, state }) {
+  fb.usersCollection.doc(state.currentUser.uid).get().then(res => {
+    commit(types.SET_USERPROFILE, res.data())
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
+export function updateProfile({ commit, state }, data) {
+  const name = data.name
+  const title = data.title
+
+  fb.usersCollection.doc(state.currentUser.uid).update({ name, title }).then(user => {
+    // update all posts by user to reflect new name
+    fb.postsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
+      docs.forEach(doc => {
+        fb.postsCollection.doc(doc.id).update({
+          userName: name
+        })
+      })
+    })
+    // update all comments by user to reflect new name
+    fb.commentsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
+      docs.forEach(doc => {
+        fb.commentsCollection.doc(doc.id).update({
+          userName: name
+        })
+      })
+    })
+  }).catch(err => {
+    console.log(err)
+  })
+}
 
 export function getLoginUser({commit}) {
   axios.get('/user_login.json').then(res => {

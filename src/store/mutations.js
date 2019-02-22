@@ -269,6 +269,28 @@ export default {
   },
   [types.APPEND_FEEDBACK](state, { feedback }) {
     Vue.set(state, 'feedback', [...state.feedback, ...feedback])
+  },
+  [types.SET_CURRENTUSER](state, { currentUser }) {
+    Vue.set(state, 'currentUser', currentUser)
+  },
+  [types.SET_USERPROFILE](state, { userProfile }) {
+    Vue.set(state, 'userProfile', userProfile)
+  },
+  [types.SET_POSTS](state, { posts }) {
+    if (posts) {
+      Vue.set(state, 'posts', posts)
+    } else {
+      Vue.set(state, 'posts', [])
+    }
+  },
+  [types.SET_HIDDENPOSTS](state, { hiddenPosts }) {
+    if (hiddenPosts) {
+      if (!state.hiddenPosts.some(x => x.id === hiddenPosts.id)) {
+        state.hiddenPosts.unshift(hiddenPosts)
+      }
+    } else {
+      Vue.set(state, 'hiddenPosts', [])
+    }
   }
 
 }
