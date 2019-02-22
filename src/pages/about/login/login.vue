@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import * as types from '../../../store/mutation-types'
 const fb = require('../../../firebaseConfig.js')
 
 export default {
@@ -129,7 +130,7 @@ export default {
       this.performingRequest = true
 
       fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
-        this.$store.commit('setCurrentUser', user)
+        this.$store.commit(types.SET_CURRENTUSER, user)
         this.$store.dispatch('fetchUserProfile')
         this.performingRequest = false
         this.$f7router.navigate('/')
@@ -143,7 +144,7 @@ export default {
       this.performingRequest = true
 
       fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
-        this.$store.commit('setCurrentUser', user)
+        this.$store.commit(types.SET_CURRENTUSER, user)
 
         // create user obj
         fb.usersCollection.doc(user.uid).set({

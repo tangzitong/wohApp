@@ -20,8 +20,9 @@ export function fetchUserProfile({ commit, state }) {
 export function updateProfile({ commit, state }, data) {
   const name = data.name
   const title = data.title
+  const password = data.password
 
-  fb.usersCollection.doc(state.currentUser.uid).update({ name, title }).then(user => {
+  fb.usersCollection.doc(state.currentUser.uid).update({ name, title, password }).then(user => {
     // update all posts by user to reflect new name
     fb.postsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
       docs.forEach(doc => {
