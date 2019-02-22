@@ -55,7 +55,16 @@ npm install -g vue-cli
 vue init webpack test-vue
 
 11.framework7
-
+npm install framework7
+npm install -g framework7-cli
+framework7 create
+framework7 create --ui
+framework7 create --ui --port 8080
+framework7 generate-assets
+framework7 generate-assets --ui
+framework7 cordova plugin add cordova-plugin-statusbar
+framework7 cordova plugin add cordova-plugin-splashscreen
+framework7 cordova build ios
 12.glup
 npm install glup -g
 gulp Iconfont
