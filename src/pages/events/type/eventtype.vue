@@ -45,7 +45,7 @@ export default {
     saveEventtype() {
       const eventtype = this.$$('input[name="eventtype-radio"]:checked').val()
       setEventtypeConfig(eventtype)
-      this.$f7router.navigate(`/knowledge/?eventtype=${eventtype}`)
+      this.$f7router.navigate(`/events/?eventtype=${eventtype}`)
     }
   }
 }

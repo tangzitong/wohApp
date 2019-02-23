@@ -45,7 +45,7 @@ export default {
     saveProjecttype() {
       const projecttype = this.$$('input[name="projecttype-radio"]:checked').val()
       setProjecttypeConfig(projecttype)
-      this.$f7router.navigate(`/knowledge/?projecttype=${projecttype}`)
+      this.$f7router.navigate(`/projects/?projecttype=${projecttype}`)
     }
   }
 }

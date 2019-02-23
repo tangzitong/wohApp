@@ -2,7 +2,7 @@
   <f7-page class="talenttype-page">
     <f7-navbar :title="$t('app.talenttype')" :back-link="$t('app.back')">
       <f7-nav-right>
-        <f7-link :text="$t('app.study')" @click="saveTalenttype"></f7-link>
+        <f7-link :text="$t('app.display')" @click="saveTalenttype"></f7-link>
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.talenttype')}}</f7-block-title>
@@ -45,7 +45,7 @@ export default {
     saveTalenttype() {
       const talenttype = this.$$('input[name="talenttype-radio"]:checked').val()
       setTalenttypeConfig(talenttype)
-      this.$f7router.navigate(`/knowledge/?talenttype=${talenttype}`)
+      this.$f7router.navigate(`/talents/?talenttype=${talenttype}`)
     }
   }
 }

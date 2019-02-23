@@ -45,7 +45,7 @@ export default {
     saveReporttype() {
       const reporttype = this.$$('input[name="reporttype-radio"]:checked').val()
       setReporttypeConfig(reporttype)
-      this.$f7router.navigate(`/knowledge/?reporttype=${reporttype}`)
+      this.$f7router.navigate(`/reports/?reporttype=${reporttype}`)
     }
   }
 }

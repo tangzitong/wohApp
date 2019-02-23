@@ -1,17 +1,17 @@
 <template>
-  <f7-page class="knowledgetype-page">
-    <f7-navbar :title="$t('app.knowledgetype')" :back-link="$t('app.back')">
+  <f7-page class="tooltype-page">
+    <f7-navbar :title="$t('app.tooltype')" :back-link="$t('app.back')">
       <f7-nav-right>
-        <f7-link :text="$t('app.display')" @click="saveKnowledgetype"></f7-link>
+        <f7-link :text="$t('app.display')" @click="saveTooltype"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.knowledgetype')}}</f7-block-title>
+    <f7-block-title>{{$t('app.tooltype')}}</f7-block-title>
     <f7-list>
-      <f7-list-group v-for="knowledgetype_ in knowledgetypes" :key="knowledgetype_.id">
-        <f7-list-item radio name="knowledgetype-radio"
-                      :value="knowledgetype_.id"
-                      :title="knowledgetype_.name"
-                      :checked="knowledgetype === knowledgetype_.id"></f7-list-item>
+      <f7-list-group v-for="tooltype_ in tooltypes" :key="tooltype_.id">
+        <f7-list-item radio name="tooltype-radio"
+                      :value="tooltype_.id"
+                      :title="tooltype_.name"
+                      :checked="tooltype === tooltype_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
   </f7-page>
@@ -19,33 +19,33 @@
 
 <script>
 import { mapState } from 'vuex'
-import { getKnowledgetypeConfig, setKnowledgetypeConfig } from '@/code'
+import { getTooltypeConfig, setTooltypeConfig } from '@/code'
 import { getLangConfig } from '@/i18n'
 
 export default {
   data() {
     return {
-      knowledgetype: '1',
+      tooltype: '1',
       lang: 'enUS'
     }
   },
   created() {
-    this.knowledgetype = getKnowledgetypeConfig()
+    this.tooltype = getTooltypeConfig()
     this.lang = getLangConfig()
   },
   computed: {
     ...mapState({
-      knowledgetypes: state => state.knowledgetypes,
+      tooltypes: state => state.tooltypes,
     })
   },
   mounted() {
-    this.$store.dispatch('getKnowledgetypes', this.lang)
+    this.$store.dispatch('getTooltypes', this.lang)
   },
   methods: {
-    saveKnowledgetype() {
-      const knowledgetype = this.$$('input[name="knowledgetype-radio"]:checked').val()
-      setKnowledgetypeConfig(knowledgetype)
-      this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}`)
+    saveTooltype() {
+      const tooltype = this.$$('input[name="tooltype-radio"]:checked').val()
+      setTooltypeConfig(tooltype)
+      this.$f7router.navigate(`/tools/?tooltype=${tooltype}`)
     }
   }
 }

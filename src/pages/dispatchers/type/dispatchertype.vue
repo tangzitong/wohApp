@@ -45,7 +45,7 @@ export default {
     saveDispatchertype() {
       const dispatchertype = this.$$('input[name="dispatchertype-radio"]:checked').val()
       setDispatchertypeConfig(dispatchertype)
-      this.$f7router.navigate(`/knowledge/?dispatchertype=${dispatchertype}`)
+      this.$f7router.navigate(`/dispatchers/?dispatchertype=${dispatchertype}`)
     }
   }
 }

@@ -45,7 +45,7 @@ export default {
     saveJobtype() {
       const jobtype = this.$$('input[name="jobtype-radio"]:checked').val()
       setJobtypeConfig(jobtype)
-      this.$f7router.navigate(`/knowledge/?jobtype=${jobtype}`)
+      this.$f7router.navigate(`/jobs/?jobtype=${jobtype}`)
     }
   }
 }
