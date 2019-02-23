@@ -208,6 +208,31 @@ export default {
     // Yes, Object.assign can update state and UI component at same time.
     item = Object.assign(item, update)
   },
+  [types.INIT_REPORTS](state, { reports }) {
+    Vue.set(state, 'reports', reports)
+  },
+  [types.APPEND_REPORTS](state, { reports }) {
+    Vue.set(state, 'reports', [...state.reports, ...reports])
+  },
+  [types.PREPEND_REPORTS](state, { reports }) {
+    Vue.set(state, 'reports', [...reports, ...state.reports])
+  },
+  [types.UPDATE_REPORTS](state, { mid, type }) {
+    let item = find(state.reports, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
   [types.INIT_TIMETIME](state, { timeline }) {
     Vue.set(state, 'timeline', timeline)
   },

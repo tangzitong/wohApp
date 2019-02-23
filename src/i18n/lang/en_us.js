@@ -31,6 +31,7 @@ export default {
       button_ok: 'OK'
     },
     jobs: 'Jobs',
+    reports: 'Reports',
     companys: 'Companys',
     projects: 'Projects',
     talents: 'Talents',
@@ -52,6 +53,11 @@ export default {
     application: 'Application',
     like: 'Like',
     noNewestPost: 'No Job Posted.'
+  },
+  report: {
+    application: 'Application',
+    like: 'Like',
+    noNewestPost: 'No Report Posted.'
   },
   contacts: {
     placeholder: 'Search in contacts',

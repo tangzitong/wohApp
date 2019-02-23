@@ -19,8 +19,8 @@ export function getContacts({commit}) {
   })
 }
 
-export function getAreas({ commit }) {
-  axios.get('/area.json').then(res => {
+export function getAreas({ commit }, language) {
+  axios.get(`/area.json?language="${language}"`).then(res => {
     const areas = res.data
     commit(types.INIT_AREAS, {
       areas
@@ -28,8 +28,8 @@ export function getAreas({ commit }) {
   })
 }
 
-export function getIndustrys({ commit }) {
-  axios.get('/industry.json').then(res => {
+export function getIndustrys({ commit }, language) {
+  axios.get(`/industry.json?language="${language}"`).then(res => {
     const industrys = res.data
     commit(types.INIT_INDUSTRYS, {
       industrys
@@ -294,6 +294,31 @@ export function refreshEvents({ commit }, events) {
 
 export function updateEvents({ commit }, { mid, type }) {
   commit(types.UPDATE_EVENTS, {
+    mid,
+    type
+  })
+}
+
+export function initReports({ commit }, reports) {
+  commit(types.INIT_REPORTS, {
+    reports
+  })
+}
+
+export function infiniteReports({ commit }, reports) {
+  commit(types.APPEND_REPORTS, {
+    reports
+  })
+}
+
+export function refreshReports({ commit }, reports) {
+  commit(types.PREPEND_REPORTS, {
+    reports
+  })
+}
+
+export function updateReports({ commit }, { mid, type }) {
+  commit(types.UPDATE_REPORTS, {
     mid,
     type
   })

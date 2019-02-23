@@ -1,28 +1,27 @@
 <template>
-  <div class="company post-company" @click="contentClick(data)">
-    <div class="company-header">
+  <div class="report post-report" @click="contentClick(data)">
+    <div class="report-header">
       <div class="avatar">
         <img :src="getAvatar(data.id)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{data.Title}}</div>
-        <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
+        <div class="name">{{data.userid}}</div>
       </div>
     </div>
-    <div class="company-content">
-      <div class="text">{{data.Content}}</div>
-      <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
-        <img :src="data.Image">
-      </div>
+    <div class="report-content">
+      <div class="text">{{data.date}}</div>
+      <div class="text">{{data.startTime}}</div>
+      <div class="text">{{data.endTime}}</div>
+      <div class="text">{{data.content}}</div>
     </div>
-    <div class="company-footer flex-row" v-if="enableToolbar">
+    <div class="report-footer flex-row" v-if="enableToolbar">
       <f7-link class="tool tool-border flex-rest-width">
         <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('company.application')"></span>
+        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('report.application')"></span>
       </f7-link>
       <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
         <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('company.like')"></span>
+        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('report.like')"></span>
       </f7-link>
     </div>
   </div>
@@ -31,13 +30,13 @@
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
-  .company.post-company {
+  .report.post-report {
     background-color: white;
     margin: 10px 0;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
-    .company-header {
+    .report-header {
       padding: 10px;
       padding-bottom: 5px;
       justify-content: inherit;
@@ -65,7 +64,7 @@
         }
       }
     }
-    .company-content{
+    .report-content{
       padding: 5px 10px;
       .image {
         margin-top: 5px;
@@ -74,7 +73,7 @@
         }
       }
     }
-    .company-footer{
+    .report-footer{
       min-height: 35px;
       padding: 0;
       a.link {

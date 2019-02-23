@@ -20,15 +20,18 @@
 <script>
 import { mapState } from 'vuex'
 import { getAreaConfig, setAreaConfig } from '@/code'
+import { getLangConfig } from '@/i18n'
 
 export default {
   data() {
     return {
-      area: '1'
+      area: '1',
+      lang: 'enUS'
     }
   },
   created() {
     this.area = getAreaConfig()
+    this.lang = getLangConfig()
   },
   computed: {
     ...mapState({
@@ -36,7 +39,7 @@ export default {
     })
   },
   mounted() {
-    this.$store.dispatch('getAreas')
+    this.$store.dispatch('getAreas', this.lang)
   },
   methods: {
     saveArea() {

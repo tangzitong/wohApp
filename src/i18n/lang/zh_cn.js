@@ -31,6 +31,7 @@ export default {
       button_ok: '确定'
     },
     jobs: '工作',
+    reports: '報告',
     companys: '公司',
     projects: '項目',
     talents: '人材',
@@ -52,6 +53,11 @@ export default {
     application: '申請',
     like: '喜欢',
     noNewestPost: '没有工作.'
+  },
+  report: {
+    application: '承認',
+    like: '好き',
+    noNewestPost: '報告なし.'
   },
   contacts: {
     placeholder: '搜索联系人',

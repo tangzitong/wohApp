@@ -14,6 +14,7 @@ import dispatchersPage from './pages/dispatchers'
 import knowledgePage from './pages/knowledge'
 import toolsPage from './pages/tools'
 import eventsPage from './pages/events'
+import reportsPage from './pages/reports'
 import messagePage from './pages/message'
 import postPage from './pages/post'
 
@@ -89,5 +90,9 @@ export default [
   {
     path: '/events/',
     component: eventsPage
+  },
+  {
+    path: '/reports/',
+    component: reportsPage
   }
 ]

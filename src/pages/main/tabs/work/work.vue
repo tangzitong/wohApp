@@ -45,6 +45,11 @@
         <i class='iconfont icon-events' slot="media"></i>
       </f7-list-item>
     </f7-list>
+    <f7-list>
+      <f7-list-item :title="$t('app.reports')" link="/reports/">
+        <i class='iconfont icon-reports' slot="media"></i>
+      </f7-list-item>
+    </f7-list>
   </div>
 </template>
 
@@ -93,6 +98,10 @@
     }
 
     .icon-events {
+      color: #ff9c33;
+    }
+
+    .icon-reports {
       color: #ff9c33;
     }
 
