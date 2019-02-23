@@ -1,47 +1,47 @@
 <template>
   <div class="home-view">
     <f7-list>
-      <f7-list-item :title="$t('app.jobs')" link="/jobs/">
+      <f7-list-item :title="$t('app.jobs')" link="/jobs/type/">
         <i class='iconfont icon-jobs' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.companys')" link="/companys/">
+      <f7-list-item :title="$t('app.companys')" link="/companys/type/">
         <i class='iconfont icon-companys' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.projects')" link="/projects/">
+      <f7-list-item :title="$t('app.projects')" link="/projects/type/">
         <i class='iconfont icon-projects' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.talents')" link="/talents/">
+      <f7-list-item :title="$t('app.talents')" link="/talents/type/">
         <i class='iconfont icon-talents' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.consultants')" link="/consultants/">
+      <f7-list-item :title="$t('app.consultants')" link="/consultants/type/">
         <i class='iconfont icon-consultants' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.dispatchers')" link="/dispatchers/">
+      <f7-list-item :title="$t('app.dispatchers')" link="/dispatchers/type/">
         <i class='iconfont icon-dispatchers' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.knowledge')" link="/knowledge/">
+      <f7-list-item :title="$t('app.knowledge')" link="/knowledge/type/">
         <i class='iconfont icon-knowledges' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.tools')" link="/tools/">
+      <f7-list-item :title="$t('app.tools')" link="/tools/type/">
         <i class='iconfont icon-tools' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.events')" link="/events/">
+      <f7-list-item :title="$t('app.events')" link="/events/type/">
         <i class='iconfont icon-events' slot="media"></i>
       </f7-list-item>
     </f7-list>
