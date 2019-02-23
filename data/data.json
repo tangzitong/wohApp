@@ -4,18 +4,22 @@
     "err_msg": "success",
     "data": [
       {
+        "username":"TOM",
         "userid": "1",
         "date": "2018/10/01",
         "startTime": "9:00",
         "endTime": "19:00",
-        "content": "システム開発"
+        "content": "システム開発",
+        "address":"八丁堀"
       },
       {
-        "userid": "1",
+        "username":"LILY",
+        "userid": "2",
         "date": "2018/10/02",
         "startTime": "9:00",
         "endTime": "19:00",
-        "content": "システム開発"
+        "content": "システム開発",
+        "address":"東京都"
       }
     ]
 

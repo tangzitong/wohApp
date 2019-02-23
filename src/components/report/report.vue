@@ -5,28 +5,20 @@
         <img :src="getAvatar(data.id)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{data.userid}}</div>
+        <div class="name">{{data.username}}</div>
       </div>
     </div>
     <div class="report-content">
-      <div class="text">{{data.date}}</div>
-      <div class="text">{{data.startTime}}</div>
-      <div class="text">{{data.endTime}}</div>
-      <div class="text">{{data.content}}</div>
+      <div><span v-text="$t('report.DateHyouji')"></span><span class="text"> :{{data.date}} </span></div>
+      <div><span v-text="$t('report.WorkTimehyoji')"></span><span class="text"> :{{data.startTime}}~{{data.endTime}}</span></div>
+      <div><span v-text="$t('report.WorkContenthyoji')"></span><span class="text"> :{{data.content}}</span></div>
+      <div><span v-text="$t('report.WorkAddresshyoji')"></span><span class="text"> :{{data.address}}</span></div>
     </div>
-    <div class="report-footer flex-row" v-if="enableToolbar">
-      <f7-link class="tool tool-border flex-rest-width">
-        <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('report.application')"></span>
-      </f7-link>
-      <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
-        <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('report.like')"></span>
-      </f7-link>
+    <div class="report-footer flex-row" v-if="enableToolbar" style="background:#FFA500;">
+      <f7-link class="tool tool-border flex-rest-width"  :text="$t('report.application')" @click="sendResult"></f7-link>
     </div>
   </div>
 </template>
-
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
@@ -85,11 +77,6 @@
         &.tool-border{
           border-right: 1px solid #e1e1e1;
         }
-        &.liked{
-          > span {
-            color: @mainColor;
-          }
-        }
         > span {
           color: #6D6D78;
           vertical-align: middle;
@@ -145,6 +132,9 @@ export default {
         mid,
         type: status ? 'unlike' : 'like'
       })
+    },
+    sendResult() {
+      $$.alert(this.$t('report.result'))
     }
   }
 }
