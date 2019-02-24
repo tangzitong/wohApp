@@ -97,7 +97,6 @@
 
 <script>
 import { mapState } from 'vuex'
-const fb = require('../../../../firebaseConfig.js')
 
 export default {
   data() {
@@ -107,12 +106,12 @@ export default {
   },
   computed: {
     ...mapState({
-      userInfo: state => state.userProfile
+      userInfo: state => state.user
     })
   },
   methods: {
     logout() {
-      fb.auth.signOut().then(() => {
+      this.$fb.auth.signOut().then(() => {
         this.$store.dispatch('clearData')
         this.$f7router.navigate('/')
       }).catch(err => {

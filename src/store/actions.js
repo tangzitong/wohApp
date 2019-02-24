@@ -1,6 +1,5 @@
 import axios from 'axios'
 import * as types from './mutation-types'
-const fb = require('../firebaseConfig.js')
 
 export function clearData({ commit }) {
   commit(types.SET_CURRENTUSER, null)
@@ -10,7 +9,7 @@ export function clearData({ commit }) {
 }
 
 export function fetchUserProfile({ commit, state }) {
-  fb.usersCollection.doc(state.currentUser.uid).get().then(res => {
+  this.$fb.usersCollection.doc(state.currentUser.uid).get().then(res => {
     commit(types.SET_USERPROFILE, res.data())
   }).catch(err => {
     console.log(err)
@@ -22,19 +21,19 @@ export function updateProfile({ commit, state }, data) {
   const title = data.title
   const password = data.password
 
-  fb.usersCollection.doc(state.currentUser.uid).update({ name, title, password }).then(user => {
+  this.$fb.usersCollection.doc(state.currentUser.uid).update({ name, title, password }).then(user => {
     // update all posts by user to reflect new name
-    fb.postsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
+    this.$fb.postsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
       docs.forEach(doc => {
-        fb.postsCollection.doc(doc.id).update({
+        this.$fb.postsCollection.doc(doc.id).update({
           userName: name
         })
       })
     })
     // update all comments by user to reflect new name
-    fb.commentsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
+    this.$fb.commentsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
       docs.forEach(doc => {
-        fb.commentsCollection.doc(doc.id).update({
+        this.$fb.commentsCollection.doc(doc.id).update({
           userName: name
         })
       })

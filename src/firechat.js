@@ -51,6 +51,7 @@ function Firechat(firebaseRef, options) {
   this._moderatorsRef  = this._firechatRef.child('moderators');
   this._suspensionsRef = this._firechatRef.child('suspensions');
   this._usersOnlineRef = this._firechatRef.child('user-names-online');
+  this._postsRef = this._firechatRef.child('posts');
 
   // Setup and establish default options.
   this._options = options || {};
@@ -641,6 +642,103 @@ Firechat.prototype.warn = function(msg) {
       console.log(msg);
     }
   }
+};
+
+Firechat.prototype.createPost = function(content, pic, callback) {
+  var self = this,
+      newPostRef = this._postsRef.push();
+
+  var newPost = {
+    id: newPostRef.key,
+    text: content,
+    comment_count: 0,
+    comments: [],
+    like_count: 0,
+    likes: [],
+    original_pic: pic,
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  };
+
+  newPostRef.set(newPost, function(error) {
+    if (callback) {
+      callback(newPostRef.key);
+    }
+  });
+};
+
+Firechat.prototype.addComment = function(postId, comments, callback) {
+  var self = this,
+      newCommentsRef = self._postsRef.child('postId').child('comments').push();
+
+  var newComment = {
+    id: newCommentsRef.key,
+    text: comments,
+    postid: postId,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  };
+
+  newCommentsRef.set(newComment, function(error) {
+    if (!error) {
+      self._postsRef.child('postId').update({
+        comment_count: comment_count + 1
+      })
+    }
+    if (callback) {
+      callback(newCommentsRef.key);
+    }
+  });
+};
+
+Firechat.prototype.likePost = function(postId, callback) {
+  var self = this,
+      newLikesRef = self._postsRef.child('postId').child('likes').push();
+
+  var newlike = {
+    id: newLikesRef.key,
+    postid: postId,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  };
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._postsRef.child('postId').update({
+        like_count: like_count + 1
+      })
+    }
+    if (callback) {
+      callback(newLikesRef.key);
+    }
+  });
+};
+
+Firechat.prototype.getPostList = function(cb) {
+  var self = this;
+
+  self._postsRef.once('value', function(snapshot) {
+    cb(snapshot.val());
+  });
+};
+
+Firechat.prototype.getPostComments = function(postid, cb) {
+  var self = this;
+
+  self._postsRef.child('postId').child('comments').once('value', function(snapshot) {
+    cb(snapshot.val());
+  });
+};
+
+Firechat.prototype.getPostLikes = function(postid, cb) {
+  var self = this;
+
+  self._postsRef.child('postId').child('likes').once('value', function(snapshot) {
+    cb(snapshot.val());
+  });
 };
 //})();
 

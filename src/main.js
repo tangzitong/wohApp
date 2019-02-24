@@ -41,7 +41,7 @@ import { isAndroid } from './utils/appFunc'
 
 const fb = require('./firebaseConfig.js')
 // Init F7 Vue Plugin
-Vue.use(Framework7Vue, Framework7)
+Vue.use(Framework7Vue, Framework7, fb)
 
 const router = new VueRouter({
   Routes,
@@ -106,6 +106,7 @@ new Vue({
   el: '#app',
   store,
   i18n,
+  fb,
   template: '<app/>',
   // Init Framework7 by passing parameters here
   framework7: {

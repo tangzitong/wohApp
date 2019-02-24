@@ -1,6 +1,6 @@
-D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\ReverseMap\resources.pri
-D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\AppxManifest.xml
-D:\work\wohapp\wohapp\platforms\windows\build\windows\Debug\AnyCPU\win10\CordovaApp.Windows10.build.appxrecipe
+D:\work\wohapp\wohapp\platforms\windows\build\windows\debug\x64\win10\resources.pri
+D:\work\wohapp\wohapp\platforms\windows\build\windows\debug\x64\win10\AppxManifest.xml
+D:\work\wohapp\wohapp\platforms\windows\build\windows\debug\x64\win10\CordovaApp.Windows10.build.appxrecipe
 D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\CordovaApp.Windows10.jsproj.CoreCompileInputs.cache
 D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\ResourceHandlingTask.state
 D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\priconfig.xml
@@ -19,3 +19,5 @@ D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\qualifiers.txt
 D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\qualifiers.txt.intermediate
 D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\MultipleQualifiersPerDimensionFound.txt
 D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\ProjectArchitectures.txt
+D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\package.map.txt
+D:\work\wohapp\wohapp\platforms\windows\build\windows\bld\_pkginfo.txt

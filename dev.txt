@@ -6,24 +6,24 @@ cd D:\work\wohapp
 git init
 git clone https://github.com/highwayns/wohApp.git
 git remote add origin/master https://github.com/highwayns/wohApp.git
-highwayns
-zjhuen1915
 
 update:
 git reset --hard origin/master
 git fetch
 git pull
-highwayns
-zjhuen1915
 
 commit:
 git add .
 git commit -m "XXX modified"
 git push
 
+コンフリクト解消ガイド
+https://qiita.com/yuya_presto/items/5d99499cf96c0ebb09f8
+
 2.json
 https://github.com/highwayns/json-server
 https://json.org/
+https://github.com/jdorn/json-editor
 
 3.js
 https://qiita.com/takeharu/items/809114f943208aaf55b3
@@ -41,6 +41,7 @@ https://nodejs.org/en/docs/
 npm install
 npm start
 npm run build
+https://dackdive.hateblo.jp/entry/2016/10/10/095800
 
 6.phonegap
 http://docs.phonegap.com/
@@ -49,9 +50,23 @@ http://docs.phonegap.com/
 https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
 debug
 https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html
+install vue plugin & Eslint plugin & Debugger for Chrome
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "vuejs: chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      }
+    }
+https://docs.microsoft.com/en-us/visualstudio/cross-platform/tools-for-cordova/debug-test/debug-using-visual-studio?view=toolsforcordova-2017
 
 8.firebase
 https://firebase.google.com/docs/reference/js/firebase
+firebase tools:
 npm i firebase-tools
 npm i -g firebase-tools
 firebase login
@@ -61,6 +76,30 @@ firebase serve --only hosting
 firebase deploy
 firebase open hosting:site
 
+firebase auth:
+firebase database:
+firebase firestore:
+firebase storage:
+firebase hosting:
+firebase mlkit:
+
+firebase performance monitor:
+  アプリケーションにPerformance Monitoring SDKを追加する
+  （Optional）SDKを使用してアプリケーションのカスタムトレースとカウンタを定義する
+  Firebaseコンソールでのパフォーマンスデータの監視
+firebase Crashlytics:
+firebase Test Lab:
+
+firebase In-App messaging:
+firebase Predictions:
+firebase A/B Testing:
+firebase Cloud messaging:
+firebase Remote Config:
+firebase Dynamic Links:
+firebase App Index:
+firebase invite:
+firebase admob:
+
 9.cordova
 https://cordova.apache.org/docs/en/latest/
 npm install cordova -g
@@ -69,11 +108,20 @@ cordova requirements
 cordova platform add ios --save
 cordova plugin add cordova-plugin-whitelist cordova-plugin-statusbar cordova-plugin-camera cordova-plugin-geolocation cordova-plugin-file-transfer cordova-plugin-inappbrowser cordova-plugin-network-information
 
-10 vue & vuex
+10 vue & vuex &axios
 https://vuejs.org/v2/guide/
 https://vuex.vuejs.org/guide/
+https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+project create:
 npm install -g vue-cli
 vue init webpack test-vue
+
+project manager:
+npm install --global @vue/cli
+vue ui
+
+online editor:
+https://github.com/highwayns/vuegg
 
 11.framework7
 http://v2.framework7.io/vue/
@@ -92,6 +140,10 @@ framework7 cordova build ios
 https://github.com/gulpjs/gulp/tree/master/docs
 npm install glup -g
 gulp Iconfont
+framework7-icons:
+https://github.com/framework7io/framework7-icons
+material-design-icons:
+https://github.com/google/material-design-icons
 
 13.jQuery
 https://maketips.net/tip/223/how-to-include-jquery-into-vuejs
@@ -158,4 +210,57 @@ users/
     muted - A list of user ids currently muted by the user.
     rooms - A list of currently active rooms, used for sessioning.
 
+16.android
+JDKのインストール
+Android SDKのインストール
 
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/tools:$PATH
+
+cordova platform add android
+
+エミュレータでの検証:
+Genymotion.appを起動
+アプリケーション内で、VMをダウンロード (もしまだなければ)
+VMを起動
+Cordovaから起動 $ cordova run android 
+
+実機で検証:
+Android実機のUSBデバッグ機能をONに
+MacにAndroid実機をUSB接続 (USBケーブルが充電専用だとNGなので注意)
+次のコマンドで接続確認して、表示されればOK $ adb devices 
+Cordovaから起動 $ cordova run android 
+ビルドを待つ...
+実機でアプリが起動!
+
+17.ios
+Apple の開発者のダウンロードアップルの開発者として登録する必要があります。
+    $ npm install -g ios-sim
+    $ npm install -g ios-deploy
+    $ cordova run ios --device
+    $ cordova emulate ios
+
+18.windows
+cordova build windows -- --appx=8.1-phone
+To deploy Windows package:
+cordova run windows -- --win  # explicitly specify Windows as deployment target
+cordova run windows # `run` uses Windows package by default
+To deploy Windows Phone package:
+cordova run windows -- --phone  # deploy app to Windows Phone 8.1 emulator
+cordova run windows --device -- --phone  # deploy app to connected device
+This command will give you the list of all available targets:
+cordova run windows --list
+cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone
+
+19.python2.7
+一部Packageはpython2.7を使っている。
+https://www.python.jp/install/windows/install_py2.7.html
+
+20.awaresome
+https://github.com/highwayns/awesome-vue
+https://github.com/highwayns/vuejs-interview-questions
+https://github.com/highwayns/awesome-github-vue
+https://github.com/highwayns/vue2-elm
+https://github.com/useryangtao/vue-wechat
+
+    

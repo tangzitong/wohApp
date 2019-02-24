@@ -20,7 +20,7 @@
                 <input v-model.trim="loginForm.password" type="password" :placeholder="$t('login.password_')" id="password1" />
               </f7-list-item>
               <f7-list-item>
-                <a @click="login">{{$t('login.btn')}}</a>
+                <a @click="signin">{{$t('login.btn')}}</a>
               </f7-list-item>
               <f7-list-item>
                 <a @click="togglePasswordReset">{{$t('password.title')}}</a>
@@ -86,7 +86,6 @@
 
 <script>
 import * as types from '../../../store/mutation-types'
-const fb = require('../../../firebaseConfig.js')
 
 export default {
   data() {
@@ -126,10 +125,10 @@ export default {
         this.showForgotPassword = true
       }
     },
-    login() {
+    signin() {
       this.performingRequest = true
 
-      fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
+      this.$fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
         this.$store.commit(types.SET_CURRENTUSER, user)
         this.$store.dispatch('fetchUserProfile')
         this.performingRequest = false
@@ -143,11 +142,11 @@ export default {
     signup() {
       this.performingRequest = true
 
-      fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
+      this.$fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
         this.$store.commit(types.SET_CURRENTUSER, user)
 
         // create user obj
-        fb.usersCollection.doc(user.uid).set({
+        this.$fb.usersCollection.doc(user.uid).set({
           name: this.signupForm.name,
           title: this.signupForm.title
         }).then(() => {
@@ -168,7 +167,7 @@ export default {
     resetPassword() {
       this.performingRequest = true
 
-      fb.auth.sendPasswordResetEmail(this.passwordForm.email).then(() => {
+      this.$fb.auth.sendPasswordResetEmail(this.passwordForm.email).then(() => {
         this.performingRequest = false
         this.passwordResetSuccess = true
         this.passwordForm.email = ''
