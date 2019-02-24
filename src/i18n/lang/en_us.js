@@ -50,6 +50,7 @@ export default {
     consultants: 'Consultants',
     dispatchers: 'Dispatchers',
     knowledge: 'Knowledge',
+    knowledgeadd: 'Add Knowledge',
     tools: 'Tools',
     events: 'Events',
     data: 'Data',

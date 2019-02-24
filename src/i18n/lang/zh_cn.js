@@ -50,6 +50,7 @@ export default {
     consultants: '咨询',
     dispatchers: '派遣',
     knowledge: '知識',
+    knowledgeadd: '追加知識',
     tools: '工具',
     events: '社区',
     data: '数据',

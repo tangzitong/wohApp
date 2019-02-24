@@ -5,7 +5,7 @@
     <card :enableToolbar="false" :data="post"></card>
     <div class="comments">
       <div class="title">
-        <span>{{$t('home.comment')}}</span>
+        <span>{{$t('home.knowledgeadd')}}</span>
       </div>
       <div class="clist">
         <template v-if="comments.length">

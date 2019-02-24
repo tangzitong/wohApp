@@ -263,5 +263,12 @@ export default {
   },
   [types.UPDATE_APPLICATION](state, { key, value }) {
     Vue.set(state.application, key, value)
+  },
+  [types.INIT_FEEDBACK](state, { feedbacks }) {
+    Vue.set(state, 'feedbacks', feedbacks)
+  },
+  [types.APPEND_FEEDBACK](state, { feedback }) {
+    Vue.set(state, 'feedback', [...state.feedback, ...feedback])
   }
+
 }

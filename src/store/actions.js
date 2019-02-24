@@ -20,7 +20,7 @@ export function getContacts({commit}) {
 }
 
 export function getAreas({ commit }, language) {
-  axios.get(`/area.json?language="${language}"`).then(res => {
+  axios.get(`/area.json?$key=%22${language}%22`).then(res => {
     const areas = res.data
     commit(types.INIT_AREAS, {
       areas
@@ -335,5 +335,24 @@ export function updateApplication({ commit }, { key, value }) {
   commit(types.UPDATE_APPLICATION, {
     key,
     value
+  })
+}
+
+export function getFeedback({ commit }) {
+  axios.get('/feedback.json').then(res => {
+    const feedbacks = res.data
+    commit(types.INIT_FEEDBACK, {
+      feedbacks
+    })
+  })
+}
+
+export function putFeedback({ commit }, feedback) {
+  axios.patch('/feedback.json', feedback)
+  axios.get('/feedback.json').then(res => {
+    const feedbacks = res.data
+    commit(types.APPEND_FEEDBACK, {
+      feedbacks
+    })
   })
 }

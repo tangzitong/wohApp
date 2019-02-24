@@ -4,7 +4,7 @@
            infinite
            @ptr:refresh="onRefresh"
            @infinite="onInfiniteScroll">
-    <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')">
+    <f7-navbar :title="$t('app.knowledge')" :back-link="$t('app.back')">
     </f7-navbar>
     <knowledge v-for="item in knowledges" :key="item.id" :data="item" @knowledge:content-click="routeToPost"></knowledge>
   </f7-page>

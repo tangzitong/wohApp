@@ -50,6 +50,7 @@ export default {
     consultants: 'コンサルタント',
     dispatchers: '派遣者',
     knowledge: '知識',
+    knowledgeadd: '知識追加',
     tools: 'ツール',
     events: 'イベント',
     data: 'データ',

@@ -1,38 +1,431 @@
 {
+  "feedback": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "id": "1",
+        "userid": "1",
+        "content": "test",
+        "CreateDate": "2019年2月13日"
+      }
+    ]
+
+  },
   "reports": {
     "err_code": 0,
     "err_msg": "success",
     "data": [
       {
         "userid": "1",
-        "date": "2018/10/01",
-        "startTime": "9:00",
-        "endTime": "19:00",
-        "content": "システム開発"
-      },
-      {
-        "userid": "1",
-        "date": "2018/10/02",
-        "startTime": "9:00",
-        "endTime": "19:00",
-        "content": "システム開発"
+        "companyId": "1",
+        "dateMonth": "2018/10",
+        "workdetail": [
+          {
+            "date": "2018/10/01",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/02",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/03",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/04",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/05",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/06",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/07",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/08",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/09",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/10",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/11",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/12",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/13",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/14",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/15",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/16",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/17",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/18",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/19",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/20",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/21",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/22",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/23",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/24",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/25",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/26",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/27",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/28",
+            "startTime": "",
+            "endTime": "",
+            "break": "",
+            "content": ""
+          },
+          {
+            "date": "2018/10/29",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/30",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          },
+          {
+            "date": "2018/10/31",
+            "startTime": "9:00",
+            "endTime": "19:00",
+            "break": "1:00",
+            "content": "システム開発"
+          }
+        ],
+        "total": 172
       }
     ]
 
   },
   "invoices": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "userid": "1",
+        "invoiceId": "201810",
+        "companyId": "2",
+        "startDate": "2018/10/01",
+        "endDate": "2018/10/31",
+        "location": "品川",
+        "content": "システム開発",
+        "totalAmount": 1080000,
+        "detail": [
+          {
+            "name": "a",
+            "time": "1人月",
+            "price": 550000,
+            "Unit": "円"
+          },
+          {
+            "name": "b",
+            "time": "1人月",
+            "price": 450000,
+            "Unit": "円"
+          }
+        ],
+        "tax": 0.08,
+        "bankaccount": "みずほ銀行○○支店12345678",
+        "comment": "特になし"
+      },
+      {
+        "userid": "1",
+        "invoiceId": "201810",
+        "companyId": "3",
+        "startDate": "2018/10/01",
+        "endDate": "2018/10/31",
+        "location": "品川",
+        "content": "システム開発",
+        "totalAmount": 1080000,
+        "detail": [
+          {
+            "name": "a",
+            "time": "1人月",
+            "price": 550000,
+            "Unit": "円"
+          },
+          {
+            "name": "b",
+            "time": "1人月",
+            "price": 450000,
+            "Unit": "円"
+          }
+        ],
+        "tax": 0.08,
+        "bankaccount": "みずほ銀行○○支店12345678",
+        "comment": "特になし"
+      }
+    ]
 
   },
   "orders": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "userid": "1",
+        "invoiceId": "201810",
+        "companyId": "2",
+        "startDate": "2018/10/01",
+        "endDate": "2018/10/31",
+        "location": "品川",
+        "content": "システム開発",
+        "totalAmount": 1080000,
+        "detail": [
+          {
+            "name": "a",
+            "time": "1人月",
+            "price": 550000,
+            "Unit": "円"
+          },
+          {
+            "name": "b",
+            "time": "1人月",
+            "price": 450000,
+            "Unit": "円"
+          }
+        ],
+        "tax": 0.08,
+        "bankaccount": "みずほ銀行○○支店12345678",
+        "comment": "特になし"
+      },
+      {
+        "userid": "1",
+        "invoiceId": "201810",
+        "companyId": "3",
+        "startDate": "2018/10/01",
+        "endDate": "2018/10/31",
+        "location": "品川",
+        "content": "システム開発",
+        "totalAmount": 1080000,
+        "detail": [
+          {
+            "name": "a",
+            "time": "1人月",
+            "price": 550000,
+            "Unit": "円"
+          },
+          {
+            "name": "b",
+            "time": "1人月",
+            "price": 450000,
+            "Unit": "円"
+          }
+        ],
+        "tax": 0.08,
+        "comment": "特になし"
+      }
+    ]
 
   },
   "quatations": {
+    "err_code": 0,
+    "err_msg": "success",
+    "data": [
+      {
+        "userid": "1",
+        "invoiceId": "201810",
+        "companyId": "2",
+        "startDate": "2018/10/01",
+        "endDate": "2018/10/31",
+        "location": "品川",
+        "content": "システム開発",
+        "totalAmount": 1080000,
+        "detail": [
+          {
+            "name": "a",
+            "time": "1人月",
+            "price": 550000,
+            "Unit": "円"
+          },
+          {
+            "name": "b",
+            "time": "1人月",
+            "price": 450000,
+            "Unit": "円"
+          }
+        ],
+        "tax": 0.08,
+        "bankaccount": "みずほ銀行○○支店12345678",
+        "comment": "特になし"
+      },
+      {
+        "userid": "1",
+        "invoiceId": "201810",
+        "companyId": "3",
+        "startDate": "2018/10/01",
+        "endDate": "2018/10/31",
+        "location": "品川",
+        "content": "システム開発",
+        "totalAmount": 1080000,
+        "detail": [
+          {
+            "name": "a",
+            "time": "1人月",
+            "price": 550000,
+            "Unit": "円"
+          },
+          {
+            "name": "b",
+            "time": "1人月",
+            "price": 450000,
+            "Unit": "円"
+          }
+        ],
+        "tax": 0.08,
+        "comment": "特になし"
+      }
+    ]
 
   },
   "attachments": {
-
-  },
-  "likes": {
 
   },
   "messages": {
@@ -305,17 +698,27 @@
     "err_msg": "success",
     "data": [
       {
-        "ApplicationNum": 0,
-        "AreaId": "1",
-        "Content": "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
+        "StudentsNum": 0,
+        "Description": "C#プロジェクト開発入門",
         "CreateDate": "2019年2月13日",
         "Image": "http://woh.highwayns.com/mock/top.jpg",
-        "IndustryId": "1",
-        "KnowledgeTypeList": "1,2,3",
+        "KnowledgeTypeList": "1",
         "LikeNum": 0,
         "Title": "C#プロジェクト開発",
         "UserId": "1",
-        "id": "1"
+        "id": "1",
+        "Detail": [
+          {
+            "SubId": "1",
+            "SubDetail": "第一章",
+            "Content": ""
+          },
+          {
+            "SubId": "2",
+            "SubDetail": "第二章",
+            "Content": ""
+          }
+        ]
       }
     ]
 
@@ -333,7 +736,7 @@
         "IndustryId": "1",
         "ResumeTypeList": "1,2,3",
         "LikeNum": 0,
-        "Title": "C#開発者募集",
+        "Title": "C#開発応募者",
         "UserId": "1",
         "id": "1"
       }
@@ -369,7 +772,7 @@
         "AreaId": "1",
         "Content": "お客様に対して、常に最善のシステムを提供し、ビジネス価値の向上に貢献する。\\nＩＴの革新と向き合い、ソフトウェア価値の向上に貢献する。\\n日本と中国でネットワークを展開し、ソフトウェア開発サービスの充実をはかる。\\nソフトウェア開発者から発想することで、人々の次世代の豊かさを創造し、社会の発展に寄与する。\\n自由と自律を尊重し、多様な個性とチーム力を価値創造の源泉とする。\\n競争と協調の精神で、新しい挑戦を続け、世界で有名な会社を目指す\\n企業価値の継続的な向上をはかり、株主からの信頼と期待に応える。",
         "CreateDate": "2019年2月13日",
-        "Captical": "2500万",
+        "Capital": "2500万",
         "Image": "http://woh.highwayns.com/mock/top.jpg",
         "IndustryId": "1",
         "CompanyTypeList": "1,4",

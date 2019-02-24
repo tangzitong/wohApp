@@ -5,12 +5,12 @@
         <img :src="getAvatar(data.id)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{data.title}}</div>
+        <div class="name">{{data.Title}}</div>
         <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
       </div>
     </div>
     <div class="knowledge-content">
-      <div class="text">{{data.Content}}</div>
+      <div class="text">{{data.Description}}</div>
       <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
         <img :src="data.Image">
       </div>
@@ -18,7 +18,7 @@
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
       <f7-link class="tool tool-border flex-rest-width">
         <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('knowledge.application')"></span>
+        <span class="text" v-text="data.StudentsNum ? data.StudentsNum : $t('knowledge.application')"></span>
       </f7-link>
       <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
         <span class="iconfont icon-like"></span>
@@ -125,7 +125,7 @@ export default {
   },
   methods: {
     contentClick(data) {
-      this.$emit('card:content-click', data)
+      this.$emit('knowledge:content-click', data)
     },
     openPhotoBrowser(url) {
       const pb = this.$f7.photoBrowser.create({
@@ -142,7 +142,7 @@ export default {
       return getRemoteAvatar(id)
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
+      this.$store.dispatch('updateKnowledges', {
         mid,
         type: status ? 'unlike' : 'like'
       })
