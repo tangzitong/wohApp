@@ -19,7 +19,7 @@ import './assets/scss/app.scss'
 
 // Import Routes
 import Routes from './routes.js'
-
+import * from './firebaseConfig.js'
 // Import App Component
 import App from './app'
 
@@ -41,6 +41,23 @@ import { isAndroid } from './utils/appFunc'
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
 
+const router = new VueRouter({
+  Routes,
+  mode: 'history'
+});
+
+router.beforeEach((to, from, next) => {
+    const requiresAuth = to.matched.some(record  => record.meta.requiresAuth)
+    const currentUser = firebase.auth().currentUser
+
+    if (requiresAuth && !currentUser) {
+        next('/signin')
+    } else if (requiresAuth && currentUser) {
+        next()
+    } else {
+        next()
+    }
+})
 // Init App
 new Vue({
   el: '#app',
