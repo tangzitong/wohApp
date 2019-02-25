@@ -70,7 +70,12 @@ export default {
   report: {
     application: 'Application',
     like: 'Like',
-    noNewestPost: 'No Report Posted.'
+    noNewestPost: 'No Report Posted.',
+    DateHyouji: 'Date',
+    WorkTimehyoji: 'WorkTime',
+    WorkContenthyoji: 'WorkContent',
+    WorkAddresshyoji: 'WorkAddress',
+    result: 'You are admitted'
   },
   contacts: {
     placeholder: 'Search in contacts',

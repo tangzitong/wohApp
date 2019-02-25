@@ -260,13 +260,13 @@
         "detail": [
           {
             "name": "a",
-            "time": "1人月",
+            "worktime": "1人月",
             "price": 550000,
             "Unit": "円"
           },
           {
             "name": "b",
-            "time": "1人月",
+            "worktime": "1人月",
             "price": 450000,
             "Unit": "円"
           }
@@ -348,13 +348,13 @@
         "detail": [
           {
             "name": "a",
-            "time": "1人月",
+            "worktime": "1人月",
             "price": 550000,
             "Unit": "円"
           },
           {
             "name": "b",
-            "time": "1人月",
+            "worktime": "1人月",
             "price": 450000,
             "Unit": "円"
           }
@@ -381,13 +381,13 @@
         "detail": [
           {
             "name": "a",
-            "time": "1人月",
+            "worktime": "1人月",
             "price": 550000,
             "Unit": "円"
           },
           {
             "name": "b",
-            "time": "1人月",
+            "worktime": "1人月",
             "price": 450000,
             "Unit": "円"
           }

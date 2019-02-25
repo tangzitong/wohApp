@@ -68,9 +68,14 @@ export default {
     noNewestPost: '没有工作.'
   },
   report: {
-    application: '承認',
-    like: '好き',
-    noNewestPost: '報告なし.'
+    application: '承认',
+    like: '喜欢',
+    noNewestPost: '无报告.',
+    DateHyouji: '日期',
+    WorkTimehyoji: '工作时间',
+    WorkContenthyoji: '工作内容',
+    WorkAddresshyoji: '工作地点',
+    result: '已承认'
   },
   contacts: {
     placeholder: '搜索联系人',

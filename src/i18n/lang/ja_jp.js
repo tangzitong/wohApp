@@ -70,7 +70,12 @@ export default {
   report: {
     application: '承認',
     like: '好き',
-    noNewestPost: '報告なし.'
+    noNewestPost: '報告なし.',
+    DateHyouji: '日付',
+    WorkTimehyoji: '出勤時間',
+    WorkContenthyoji: '仕事の内容',
+    WorkAddresshyoji: '仕事の場所',
+    result: '承認しました'
   },
   contacts: {
     placeholder: '連絡者検索',
