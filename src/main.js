@@ -15,6 +15,7 @@ import 'framework7/dist/css/framework7.css'
 // Import App Custom Styles
 import './assets/fonts/iconfont.css'
 import './assets/styles/app.less'
+import './assets/scss/app.scss'
 
 // Import Routes
 import Routes from './routes.js'
