@@ -97,6 +97,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import * as fb from '../../../../firebaseConfig.js'
 
 export default {
   data() {
@@ -111,7 +112,7 @@ export default {
   },
   methods: {
     logout() {
-      this.$fb.auth.signOut().then(() => {
+      fb.auth.signOut().then(() => {
         this.$store.dispatch('clearData')
         this.$f7router.navigate('/')
       }).catch(err => {

@@ -23,6 +23,7 @@ const database = firebase.database().ref()
 const chat = new Firechat(database, null)
 
 export {
+  database,
   auth,
   currentUser,
   chat

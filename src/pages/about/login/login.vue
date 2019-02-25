@@ -86,6 +86,7 @@
 
 <script>
 import * as types from '../../../store/mutation-types'
+import * as fb from '../../../firebaseConfig.js'
 
 export default {
   data() {
@@ -128,7 +129,7 @@ export default {
     signin() {
       this.performingRequest = true
 
-      this.$fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
+      fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
         this.$store.commit(types.SET_CURRENTUSER, user)
         this.$store.dispatch('fetchUserProfile')
         this.performingRequest = false
@@ -142,13 +143,20 @@ export default {
     signup() {
       this.performingRequest = true
 
-      this.$fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
+      fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
         this.$store.commit(types.SET_CURRENTUSER, user)
 
         // create user obj
-        this.$fb.usersCollection.doc(user.uid).set({
-          name: this.signupForm.name,
-          title: this.signupForm.title
+        fb.database.child('users').push({
+          login_name: this.signupForm.name,
+          nick_name: this.signupForm.title,
+          points: 0,
+          avatar_url: '',
+          gender: '',
+          location: '',
+          invites: [],
+          muted: [],
+          rooms: []
         }).then(() => {
           this.$store.dispatch('fetchUserProfile')
           this.performingRequest = false
@@ -167,7 +175,7 @@ export default {
     resetPassword() {
       this.performingRequest = true
 
-      this.$fb.auth.sendPasswordResetEmail(this.passwordForm.email).then(() => {
+      fb.auth.sendPasswordResetEmail(this.passwordForm.email).then(() => {
         this.performingRequest = false
         this.passwordResetSuccess = true
         this.passwordForm.email = ''

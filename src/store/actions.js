@@ -1,5 +1,6 @@
 import axios from 'axios'
 import * as types from './mutation-types'
+import * as fb from '../firebaseConfig.js'
 
 export function clearData({ commit }) {
   commit(types.SET_CURRENTUSER, null)
@@ -9,35 +10,24 @@ export function clearData({ commit }) {
 }
 
 export function fetchUserProfile({ commit, state }) {
-  this.$fb.usersCollection.doc(state.currentUser.uid).get().then(res => {
-    commit(types.SET_USERPROFILE, res.data())
+  fb.database.child(state.currentUser.uid).once('value', function(snapshot) {
+    commit(types.SET_USERPROFILE, snapshot.val())
   }).catch(err => {
     console.log(err)
   })
 }
 
 export function updateProfile({ commit, state }, data) {
-  const name = data.name
-  const title = data.title
-  const password = data.password
-
-  this.$fb.usersCollection.doc(state.currentUser.uid).update({ name, title, password }).then(user => {
-    // update all posts by user to reflect new name
-    this.$fb.postsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
-      docs.forEach(doc => {
-        this.$fb.postsCollection.doc(doc.id).update({
-          userName: name
-        })
-      })
-    })
-    // update all comments by user to reflect new name
-    this.$fb.commentsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {
-      docs.forEach(doc => {
-        this.$fb.commentsCollection.doc(doc.id).update({
-          userName: name
-        })
-      })
-    })
+  fb.database.child(state.currentUser.uid).set({
+    login_name: data.name,
+    nick_name: data.title,
+    points: 0,
+    avatar_url: '',
+    gender: '',
+    location: '',
+    invites: [],
+    muted: [],
+    rooms: []
   }).catch(err => {
     console.log(err)
   })

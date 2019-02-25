@@ -272,3 +272,6 @@ npm install -g nodeunit
 test folderにテストプログラムを作成する
 nodeunit test
 
+22.vue plugin & vuefire
+https://github.com/highwayns/vuefire
+https://jp.vuejs.org/v2/guide/plugins.html
