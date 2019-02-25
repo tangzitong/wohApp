@@ -61,6 +61,7 @@
     "ttf2woff2": "^2.0.3",
     "vue": "^2.5.2",
     "vue-i18n": "^7.5.0",
+    "vue-router": "^3.0.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
