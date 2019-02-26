@@ -4,8 +4,8 @@
 
 module.exports = function (obj, sortBy, sortDesc) {
   sortDesc = sortDesc === true || sortDesc === 'desc' || sortDesc === 'DESC'
-  let arr = []
-  for (let el in obj) {
+  const arr = []
+  for (const el in obj) {
     arr.push({
       '.key': el,
       '.sort': obj[el][sortBy] ? obj[el][sortBy] : ''
@@ -25,7 +25,7 @@ module.exports = function (obj, sortBy, sortDesc) {
     result = sortDesc ? -1 * result : result
     return result
   })
-  let sortedObj = {}
+  const sortedObj = {}
   for (let e = 0; e < arr.length; e++) {
     sortedObj[arr[e]['.key']] = obj[arr[e]['.key']]
   }

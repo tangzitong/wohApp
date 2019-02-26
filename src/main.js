@@ -21,7 +21,7 @@ import './assets/css/framework7-icons.css'
 // Import Routes
 import Routes from './routes.js'
 // Import App Component
-import App from './app'
+import App from './app.vue'
 
 // Import Vuex store
 import store from './store'

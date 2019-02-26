@@ -26,7 +26,7 @@ import './assets/css/framework7-icons.css'
 // Import Routes
 import Routes from './routes.js'
 // Import App Component
-import App from './app'
+import App from './app.vue'
 
 // Import Vuex store
 import store from './store'
@@ -60,7 +60,7 @@ function initCordova (callback) {
   }
 }
 
-let manageComponentData = {
+const manageComponentData = {
   created: function () {
     this.$nextTick(function () {
       this.$pageKey = this.getKey()
@@ -74,8 +74,8 @@ let manageComponentData = {
     restoreData: function () {
       if (this.$pageKey) {
         if (window.localStorage[this.$pageKey]) {
-          let data = JSON.parse(window.localStorage[this.$pageKey])
-          for (let item in data) {
+          const data = JSON.parse(window.localStorage[this.$pageKey])
+          for (const item in data) {
             this.$data[item] = data[item]
           }
         }
@@ -83,8 +83,8 @@ let manageComponentData = {
     },
     rememberData: function () {
       if (this.$pageKey) {
-        let data = {}
-        for (let item in this.$data) {
+        const data = {}
+        for (const item in this.$data) {
           data[item] = this.$data[item]
         }
         window.localStorage[this.$pageKey] = JSON.stringify(data)
@@ -95,8 +95,8 @@ let manageComponentData = {
         let url = this.$el.f7PageData.url
         if (url.substr(0, 1) === '/') url = url.substr(1)
         if (url.substr(url.length - 1, 1) === '/') url = url.substr(0, url.length - 1)
-        let view = this.$el.f7PageData.view.selector
-        let key = 'data|' + view + '|' + url
+        const view = this.$el.f7PageData.view.selector
+        const key = 'data|' + view + '|' + url
         return key
       } else {
         return null
@@ -104,7 +104,7 @@ let manageComponentData = {
     }
   }
 }
-let easierGlobalDataObject = {
+const easierGlobalDataObject = {
   computed: {
     // Legacy support
     $get () {
@@ -124,14 +124,14 @@ let easierGlobalDataObject = {
     }
   }
 }
-let easierLanguagePattern = {
+const easierLanguagePattern = {
   methods: {
     $lang (key, data = null) {
       return this.$root.getLanguagePattern(key, data)
     }
   }
 }
-let easierFirebase = {
+const easierFirebase = {
   computed: {
     // Authentication
     $fireAuth () {
@@ -151,7 +151,7 @@ let easierFirebase = {
   }
 }
 
-let mixins = {}
+const mixins = {}
 mixins.loadConfig = {
   data: {
     // Load App Framework version
@@ -201,7 +201,7 @@ mixins.loadRoutes = {
   },
   created: function () {
     // Load routes file
-    let routes = require(process.env.APP_ROOT_FROM_SCRIPTS + 'routes.json')
+    const routes = require(process.env.APP_ROOT_FROM_SCRIPTS + 'routes.json')
     for (let r = 0; r < routes.length; r++) {
       // Page routes
       try {
@@ -288,7 +288,7 @@ mixins.manageFirebase = {
     // Use Firebase
     if (process.env.USE_FIREBASE_APP === 'true') {
       // Include scripts
-      let firebase = require('firebase/app')
+      const firebase = require('firebase/app')
       if (process.env.USE_FIREBASE_AUTH === 'true') require('firebase/auth')
       if (process.env.USE_FIREBASE_DATABASE === 'true') require('firebase/database')
       if (process.env.USE_FIREBASE_STORAGE === 'true') require('firebase/storage')
@@ -353,11 +353,11 @@ mixins.manageFirebase = {
   },
   methods: {
     cleanLocalStorageAfterLogut: function () {
-      for (let item in window.localStorage) {
+      for (const item in window.localStorage) {
         // History
         if (/^urls\|([0-9a-zA-Z._-]+)$/.test(item)) {
-          let urls = JSON.parse(window.localStorage[item])
-          let newUrls = []
+          const urls = JSON.parse(window.localStorage[item])
+          const newUrls = []
           let loginRequired = false
           urls.map((url) => {
             if (this.urlRequiresLogin(url)) {
@@ -369,7 +369,7 @@ mixins.manageFirebase = {
           window.localStorage[item] = JSON.stringify(newUrls)
         // Component data and scroll positions
         } else if (/(scroll|data)\|[0-9a-zA-Z._-]+\|(.+)$/.test(item)) {
-          let url = item.match(/(scroll|data)\|[0-9a-zA-Z._-]+\|(.+)$/)[2]
+          const url = item.match(/(scroll|data)\|[0-9a-zA-Z._-]+\|(.+)$/)[2]
           if (this.urlRequiresLogin(url)) {
             window.localStorage.removeItem(item)
           }
@@ -389,7 +389,7 @@ mixins.resetCache = {
         window.localStorage.projectVersion !== undefined &&
         window.localStorage.projectVersion !== this.projectVersion) {
       // Remember alert
-      let text = {
+      const text = {
         en: 'The application has been updated and the cache has been reset.',
         de: 'Die Anwendung wurde aktualisiert und der Cache wurde zurückgesetzt.'
       }
@@ -401,7 +401,7 @@ mixins.resetCache = {
         window.localStorage.cacheResetAlert = text['en']
       }
       // Empty local storage
-      for (let item in window.localStorage) {
+      for (const item in window.localStorage) {
         if (!/(firebase:(.+)|user|cacheResetAlert)/.test(item) && item !== 'user') {
           window.localStorage.removeItem(item)
         }
@@ -426,13 +426,13 @@ mixins.checkNPMupdates = {
   watch: {
     stateReady: function () {
       if (process.env.NODE_ENV === 'development') {
-        let npm = require(process.env.PROJECT_ROOT_FROM_SCRIPTS + 'node_modules/.app-framework-cache/latest-npm-version.json')
+        const npm = require(process.env.PROJECT_ROOT_FROM_SCRIPTS + 'node_modules/.app-framework-cache/latest-npm-version.json')
         if (npm !== undefined && npm.latest !== undefined) {
           if (npm.latest === 'unknown') {
             window.f7.alert('Failed to get latest NPM version. Please open an incident on GitHub.', 'App Framework')
           } else if (/^[0-9]+\.[0-9]+\.[0-9]+(-.+)?$/.test(npm.latest)) {
-            let currentVersion = this.frameworkVersion.split('.')
-            let npmVersion = npm.latest.split('.')
+            const currentVersion = this.frameworkVersion.split('.')
+            const npmVersion = npm.latest.split('.')
             if (parseInt(currentVersion[0]) < parseInt(npmVersion[0]) ||
                 parseInt(currentVersion[1]) < parseInt(npmVersion[1]) ||
                 parseInt(currentVersion[2]) < parseInt(npmVersion[2])) {
@@ -555,16 +555,16 @@ mixins.manageApplicationFrame = {
   methods: {
     updatePhoneFrame: function () {
       // Get attributes
-      let windowHeight = window.innerHeight
-      let windowWidth = window.innerWidth
-      let appMaxHeight = this.$root.config.limitApplicationHeight
-      let appMaxWidth = this.$root.config.limitApplicationWidth
-      let showPhoneFrame = this.$root.config.showPhoneFrameOnDesktop
-      let desktopMode = this.appMode === 'desktop'
+      const windowHeight = window.innerHeight
+      const windowWidth = window.innerWidth
+      const appMaxHeight = this.$root.config.limitApplicationHeight
+      const appMaxWidth = this.$root.config.limitApplicationWidth
+      const showPhoneFrame = this.$root.config.showPhoneFrameOnDesktop
+      const desktopMode = this.appMode === 'desktop'
       // Calculate attributes
-      let phoneFrameMinHeight = appMaxHeight + 250
-      let phoneFrameMinWidth = appMaxWidth + 50
-      let mode = showPhoneFrame && desktopMode && windowHeight >= phoneFrameMinHeight && windowWidth >= phoneFrameMinWidth
+      const phoneFrameMinHeight = appMaxHeight + 250
+      const phoneFrameMinWidth = appMaxWidth + 50
+      const mode = showPhoneFrame && desktopMode && windowHeight >= phoneFrameMinHeight && windowWidth >= phoneFrameMinWidth
         ? 'phoneFrame'
         : desktopMode && windowHeight >= appMaxHeight && windowWidth >= appMaxWidth
           ? 'limitBoth'
@@ -628,7 +628,7 @@ mixins.tranformSubnavbarForMaterial = {
   created: function () {
     if (this.config.materialSubnavbarFix === true) {
       window.Dom7(document).on('page:init', function (e) {
-        let subnavbar = window.Dom7(e.target).find('.subnavbar')
+        const subnavbar = window.Dom7(e.target).find('.subnavbar')
         if (subnavbar.length > 0) {
           window.Dom7(e.target).addClass('toolbar-fixed')
           window.Dom7(e.target).removeClass('with-subnavbar')
@@ -656,7 +656,7 @@ mixins.manageLanguage = {
         // Update local storage
         window.localStorage.language = newLanguage
         // Update Framework7 text patterns
-        let f7Text = {
+        const f7Text = {
           en: {
             modalButtonOk: 'OK',
             modalButtonCancel: 'Cancel',
@@ -680,8 +680,8 @@ mixins.manageLanguage = {
             notificationCloseButtonText: 'OK'
           }
         }
-        let useText = f7Text[newLanguage] ? f7Text[newLanguage] : f7Text['en']
-        for (let item in useText) window.f7.params[item] = useText[item]
+        const useText = f7Text[newLanguage] ? f7Text[newLanguage] : f7Text['en']
+        for (const item in useText) window.f7.params[item] = useText[item]
       // New language is not valid
       } else {
         // Rollback to old or configuration value
@@ -721,13 +721,13 @@ mixins.manageTheme = {
             // Remove unneeded theme tags in production mode
             } else {
               window.Dom7('link').each((i, el) => {
-                let href = window.Dom7(el).attr('href').match(/^(ios|material)\.(.+)\.css$/)
+                const href = window.Dom7(el).attr('href').match(/^(ios|material)\.(.+)\.css$/)
                 if (href !== null && href[1] !== newTheme) {
                   window.Dom7(el).remove()
                 }
               })
               window.Dom7('script').each(function (i, el) {
-                let src = window.Dom7(el).attr('src').match(/^(ios|material)\.(.+)\.js$/)
+                const src = window.Dom7(el).attr('src').match(/^(ios|material)\.(.+)\.js$/)
                 if (src !== null && src[1] !== newTheme) {
                   window.Dom7(el).remove()
                 }
@@ -941,7 +941,7 @@ mixins.preventOverscroll = {
       // Set overflow attribute to app container
       window.Dom7('#app').css('-webkit-overflow-scrolling', 'touch')
       // Definen start value
-      var startY = 0
+      let startY = 0
       // Remember touch start position
       window.Dom7(document).on('touchstart', evt => {
         startY = evt.touches ? evt.touches[0].screenY : evt.screenY
@@ -949,11 +949,11 @@ mixins.preventOverscroll = {
       // Handle touch move
       window.Dom7(document).on('touchmove', evt => {
         // Get the element that was scrolled upon
-        var el = evt.target
+        let el = evt.target
         // Check all parent elements for scrollability
         while (el !== document.body) {
           // Get some style properties
-          var style = window.getComputedStyle(el)
+          const style = window.getComputedStyle(el)
           if (!style) {
           // If we've encountered an element we can't compute the style for, get out
             break
@@ -971,19 +971,19 @@ mixins.preventOverscroll = {
             return
           }
           // Determine scrolling property
-          var scrolling = style.getPropertyValue('-webkit-overflow-scrolling')
-          var overflowY = style.getPropertyValue('overflow-y')
-          var height = parseInt(style.getPropertyValue('height'), 10)
+          const scrolling = style.getPropertyValue('-webkit-overflow-scrolling')
+          const overflowY = style.getPropertyValue('overflow-y')
+          const height = parseInt(style.getPropertyValue('height'), 10)
           // Determine if the element should scroll
-          var isScrollable = scrolling === 'touch' && (overflowY === 'auto' || overflowY === 'scroll')
-          var canScroll = el.scrollHeight > el.offsetHeight
+          const isScrollable = scrolling === 'touch' && (overflowY === 'auto' || overflowY === 'scroll')
+          const canScroll = el.scrollHeight > el.offsetHeight
           if (isScrollable && canScroll) {
             // Get the current Y position of the touch
-            var curY = evt.touches ? evt.touches[0].screenY : evt.screenY
+            const curY = evt.touches ? evt.touches[0].screenY : evt.screenY
             // Determine if the user is trying to scroll past the top or bottom
             // In this case, the window will bounce, so we have to prevent scrolling completely
-            var isAtTop = (startY <= curY && el.scrollTop === 0)
-            var isAtBottom = (startY >= curY && el.scrollHeight - el.scrollTop === height)
+            const isAtTop = (startY <= curY && el.scrollTop === 0)
+            const isAtBottom = (startY >= curY && el.scrollHeight - el.scrollTop === height)
             // Stop a bounce bug when at the bottom or top of the scrollable element
             if (isAtTop || isAtBottom) {
               evt.preventDefault()
@@ -1067,7 +1067,7 @@ mixins.manageState = {
       }
       function restoreScrollOnPage (pageEl) {
         window.Dom7(pageEl).find('.page-content').each(function () {
-          let storageKey = 'scroll|' + getViewSel(pageEl) + '|' + getViewUrl(pageEl) + (this.id !== '' ? '|' + this.id : '')
+          const storageKey = 'scroll|' + getViewSel(pageEl) + '|' + getViewUrl(pageEl) + (this.id !== '' ? '|' + this.id : '')
           if (/^[0-9]+$/.test(window.localStorage[storageKey])) {
             window.Dom7(this).scrollTop(window.localStorage[storageKey])
           }
@@ -1075,7 +1075,7 @@ mixins.manageState = {
       }
       function restoreTabOnPageLoad () {
         window.Dom7(document).on('page:init', function (e) {
-          let tab = window.localStorage['tab|' + getViewSel(e) + '|' + getViewUrl(e)]
+          const tab = window.localStorage['tab|' + getViewSel(e) + '|' + getViewUrl(e)]
           if (tab !== undefined) {
             window.f7.showTab('#' + tab, false)
           }
@@ -1084,8 +1084,8 @@ mixins.manageState = {
       function restoreFormInputOnPageLoad () {
         window.Dom7(document).on('page:init', function (e) {
           window.Dom7(e.target).find('form').each(function (i, el) {
-            let formId = window.Dom7(el).attr('id')
-            let formData = window.localStorage['formInput|' + formId] ? JSON.parse(window.localStorage['formInput|' + formId]) : null
+            const formId = window.Dom7(el).attr('id')
+            const formData = window.localStorage['formInput|' + formId] ? JSON.parse(window.localStorage['formInput|' + formId]) : null
             if (formId !== null && typeof formData === 'object' && formData !== null) {
               window.f7.formFromData('#' + formId, formData)
             }
@@ -1097,8 +1097,8 @@ mixins.manageState = {
         if (elements.length === 0) {
           callback()
         } else {
-          let element = elements.shift()
-          let value = window.localStorage[element]
+          const element = elements.shift()
+          const value = window.localStorage[element]
           if (value !== undefined) {
             setTimeout(function () {
               if (element === 'panel' && window.Dom7('.panel-' + value).length > 0) {
@@ -1139,13 +1139,13 @@ mixins.manageState = {
       function rememberViews () {
         window.Dom7(document).on('page:init page:reinit swipeback:beforechange', e => {
           // Get view
-          let view = e.type === 'swipeback:beforechange' ? e.target.f7View : e.detail.page.view
+          const view = e.type === 'swipeback:beforechange' ? e.target.f7View : e.detail.page.view
           // Get urls
-          let urls = view.history ? JSON.parse(JSON.stringify(view.history)) : []
+          const urls = view.history ? JSON.parse(JSON.stringify(view.history)) : []
           // Remove url on back navigation
           if (e.type !== 'page:init') urls.pop()
           // Filter temporary pages
-          let urlsNew = []
+          const urlsNew = []
           urls.map(url => {
             if (!/^\/?#content-/.test(url)) {
               if (url.substr(0, 1) === '/') url = url.substr(1)
@@ -1159,12 +1159,12 @@ mixins.manageState = {
       }
       function rememberScroll () {
         window.Dom7('.page-content').on('scroll', function (e) {
-          let storageKey = 'scroll|' + getViewSel(e) + '|' + getViewUrl(e) + (this.id !== '' ? '|' + this.id : '')
+          const storageKey = 'scroll|' + getViewSel(e) + '|' + getViewUrl(e) + (this.id !== '' ? '|' + this.id : '')
           window.localStorage[storageKey] = this.scrollTop
         })
         window.Dom7(document).on('page:init', function (e) {
           window.Dom7(e.target).find('.page-content').on('scroll', function (e) {
-            let storageKey = 'scroll|' + getViewSel(e) + '|' + getViewUrl(e) + (this.id !== '' ? '|' + this.id : '')
+            const storageKey = 'scroll|' + getViewSel(e) + '|' + getViewUrl(e) + (this.id !== '' ? '|' + this.id : '')
             window.localStorage[storageKey] = this.scrollTop
           })
         })
@@ -1179,11 +1179,11 @@ mixins.manageState = {
       function rememberOverlays () {
         window.Dom7(document).on('panel:open panel:close actions:open actions:close loginscreen:open loginscreen:close picker:open picker:close popup:open popup:close', function (e) {
           // Get details
-          let type = e.type.split(':')[0]
-          let action = e.type.split(':')[1]
-          let id = e.target.id
+          const type = e.type.split(':')[0]
+          const action = e.type.split(':')[1]
+          const id = e.target.id
           if (id !== 'app-framework-login-popup') {
-            let classes = e.target.className.split(' ')
+            const classes = e.target.className.split(' ')
             // Update local storage
             if (action === 'close') {
               window.localStorage.removeItem(type)
@@ -1197,7 +1197,7 @@ mixins.manageState = {
       }
       function rememberFormData () {
         window.Dom7(document).on('keyup change', function (e) {
-          let formId = window.Dom7(e.target).parents('form').attr('id')
+          const formId = window.Dom7(e.target).parents('form').attr('id')
           if (formId !== null) {
             window.localStorage['formInput|' + formId] = JSON.stringify(window.f7.formToData('#' + formId))
           }
@@ -1208,10 +1208,10 @@ mixins.manageState = {
           if (e.type === 'focusout') {
             window.localStorage.removeItem('focus')
           } else {
-            let formId = window.Dom7(e.target).parents('form').attr('id')
-            let inputName = window.Dom7(e.target).attr('name')
+            const formId = window.Dom7(e.target).parents('form').attr('id')
+            const inputName = window.Dom7(e.target).attr('name')
             if (formId !== null && inputName !== null) {
-              let focusEl = 'form#' + formId + ' [name=' + inputName + ']'
+              const focusEl = 'form#' + formId + ' [name=' + inputName + ']'
               window.localStorage.focus = focusEl
             } else {
               window.localStorage.removeItem('focus')
@@ -1225,7 +1225,7 @@ mixins.manageState = {
                (el.length > 0 && el[0].classList.length > 0 ? '.' + el[0].classList.value.replace(/ /g, '.') : '')
       }
       function getViewUrl (el) {
-        let viewSel = getViewSel(el)
+        const viewSel = getViewSel(el)
         for (let v = 0; v < window.f7.views.length; v++) {
           if (window.f7.views[v].selector === viewSel) {
             let url = window.f7.views[v].url
@@ -1261,7 +1261,7 @@ mixins.languagePattern = {
       const defaultText = this.languagePattern[this.config.defaultLanguage] ? this.languagePattern[this.config.defaultLanguage][key] : undefined
       let text = requestedText || defaultText || (data !== null ? '{{' + key + ', ' + JSON.stringify(data) + '}}' : '{{' + key + '}}')
       if (data !== null) {
-        for (let item in data) {
+        for (const item in data) {
           text = text.replace(new RegExp('\\{\\{' + item + '\\}\\}', 'g'), data[item])
         }
       }
@@ -1276,10 +1276,10 @@ function initF7VueApp () {
   // Load Framework7
   // require('../vendor/framework7/js/framework7.js')
   // Load Framework7-Vue (with workaround for theme integration)
-  let config = require('./config.json')
-  let theme = (/^(ios|material)$/.test(window.localStorage.theme) && config.theme.split('-').indexOf(window.localStorage.theme) >= 0)
-    ? window.localStorage.theme : config.theme.split('-')[0]
-  //vue.use(require('../vendor/framework7-vue/framework7-vue.js'), {theme: theme})
+  const config = require('./config.json')
+  // const theme = (/^(ios|material)$/.test(window.localStorage.theme) && config.theme.split('-').indexOf(window.localStorage.theme) >= 0)
+  //  ? window.localStorage.theme : config.theme.split('-')[0]
+  // vue.use(require('../vendor/framework7-vue/framework7-vue.js'), {theme: theme})
   Vue.use(Framework7Vue, Framework7)
 
   // Use login popup
@@ -1296,19 +1296,18 @@ function initF7VueApp () {
     vue.mixin(manageComponentData)
   }
   // Get local mixins as array
-  let useMixins = Object.keys(mixins).map(mixin => mixins[mixin])
+  const useMixins = Object.keys(mixins).map(mixin => mixins[mixin])
   // Load custom vue script
   vue = process.env.CUSTOM_VUE_SCRIPT === 'true' ? require(process.env.APP_ROOT_FROM_SCRIPTS + 'vue.js')(vue) : vue
- 
+
   const router = new VueRouter({
     Routes,
     mode: 'history'
   })
-  
+
   router.beforeEach((to, from, next) => {
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
     const currentUser = fb.currentUser
-  
     if (requiresAuth && !currentUser) {
       next('/login')
     } else if (requiresAuth && currentUser) {
