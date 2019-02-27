@@ -64,6 +64,9 @@ export default {
   },
   job: {
     application: 'Application',
+    add: 'Add Job',
+    title: 'Job title',
+    content: 'Job content',
     like: 'Like',
     noNewestPost: 'No Job Posted.'
   },

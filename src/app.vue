@@ -15,24 +15,30 @@
     <f7-popup :opened="commentPopupOpened">
       <comment-popup></comment-popup>
     </f7-popup>
+    <f7-popup :opened="applicationPopupOpened">
+      <application-popup></application-popup>
+    </f7-popup>
   </div>
 </template>
 
 <script>
 import PublisherPopup from './popup/publisher'
 import CommentPopup from './popup/comment'
+import ApplicationPopup from './popup/application'
 import { mapState } from 'vuex'
 
 export default {
   computed: {
     ...mapState({
       publisherPopupOpened: state => state.popup.publisherOpened,
-      commentPopupOpened: state => state.popup.commentOpened
+      commentPopupOpened: state => state.popup.commentOpened,
+      applicationPopupOpened: state => state.popup.applicationOpened
     }),
   },
   components: {
     PublisherPopup,
-    CommentPopup
+    CommentPopup,
+    ApplicationPopup
   }
 }
 </script>

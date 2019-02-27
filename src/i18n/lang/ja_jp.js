@@ -63,7 +63,10 @@ export default {
     noNewestPost: 'ポストなし'
   },
   job: {
-    application: '申請',
+    application: '仕事申請',
+    add: '仕事追加',
+    title: '仕事見出し',
+    content: '仕事内容',
     like: '好き',
     noNewestPost: '仕事なし.'
   },

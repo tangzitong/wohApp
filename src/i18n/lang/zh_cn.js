@@ -63,7 +63,10 @@ export default {
     noNewestPost: '没有加载到新动态'
   },
   job: {
-    application: '申請',
+    application: '申請工作',
+    add: '追加工作',
+    title: '工作概要',
+    content: '工作内容',
     like: '喜欢',
     noNewestPost: '没有工作.'
   },

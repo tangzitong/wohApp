@@ -1,52 +1,52 @@
 <template>
   <div class="work-view">
     <f7-list>
-      <f7-list-item :title="$t('app.jobs')" link="/jobs/">
+      <f7-list-item :title="$t('app.jobs')" link="/jobs/add/">
         <i class='iconfont icon-jobs' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.companys')" link="/companys/">
+      <f7-list-item :title="$t('app.companys')" link="/companys/add/">
         <i class='iconfont icon-companys' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.projects')" link="/projects/">
+      <f7-list-item :title="$t('app.projects')" link="/projects/add/">
         <i class='iconfont icon-projects' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.talents')" link="/talents/">
+      <f7-list-item :title="$t('app.talents')" link="/talents/add/">
         <i class='iconfont icon-talents' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.consultants')" link="/consultants/">
+      <f7-list-item :title="$t('app.consultants')" link="/consultants/add/">
         <i class='iconfont icon-consultants' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.dispatchers')" link="/dispatchers/">
+      <f7-list-item :title="$t('app.dispatchers')" link="/dispatchers/add/">
         <i class='iconfont icon-dispatchers' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.knowledge')" link="/knowledge/">
+      <f7-list-item :title="$t('app.knowledge')" link="/knowledge/add/">
         <i class='iconfont icon-knowledges' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.tools')" link="/tools/">
+      <f7-list-item :title="$t('app.tools')" link="/tools/add/">
         <i class='iconfont icon-tools' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.events')" link="/events/">
+      <f7-list-item :title="$t('app.events')" link="/events/add/">
         <i class='iconfont icon-events' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.reports')" link="/reports/">
+      <f7-list-item :title="$t('app.reports')" link="/reports/add/">
         <i class='iconfont icon-reports' slot="media"></i>
       </f7-list-item>
     </f7-list>

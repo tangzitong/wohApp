@@ -48,7 +48,11 @@ export default [
   },
   {
     path: '/profile/',
-    component: profilePage
+    component: profilePage,
+    name: 'profile',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/language/',
@@ -68,15 +72,27 @@ export default [
   },
   {
     path: '/about/',
-    component: aboutPage
+    component: aboutPage,
+    name: 'about',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/message/',
-    component: messagePage
+    component: messagePage,
+    name: 'message',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/post/',
-    component: postPage
+    component: postPage,
+    name: 'post',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/jobs/',
@@ -88,7 +104,11 @@ export default [
   },
   {
     path: '/jobs/add/',
-    component: jobaddPage
+    component: jobaddPage,
+    name: 'addJob',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/companys/',
@@ -100,7 +120,11 @@ export default [
   },
   {
     path: '/companys/add',
-    component: companyaddPage
+    component: companyaddPage,
+    name: 'addCompany',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/projects/',
@@ -112,7 +136,11 @@ export default [
   },
   {
     path: '/projects/add/',
-    component: projectaddPage
+    component: projectaddPage,
+    name: 'addProject',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/talents/',
@@ -124,7 +152,11 @@ export default [
   },
   {
     path: '/talents/add/',
-    component: talentaddPage
+    component: talentaddPage,
+    name: 'addTalent',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/consultants/type/',
@@ -132,7 +164,11 @@ export default [
   },
   {
     path: '/consultants/add/',
-    component: consultantaddPage
+    component: consultantaddPage,
+    name: 'addConsultant',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/consultants/',
@@ -148,7 +184,11 @@ export default [
   },
   {
     path: '/dispatchers/add/',
-    component: dispatcheraddPage
+    component: dispatcheraddPage,
+    name: 'addDispatcher',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/knowledge/',
@@ -160,7 +200,11 @@ export default [
   },
   {
     path: '/knowledge/add/',
-    component: knowledgeaddPage
+    component: knowledgeaddPage,
+    name: 'addKnowledge',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/tools/',
@@ -172,7 +216,11 @@ export default [
   },
   {
     path: '/tools/add/',
-    component: tooladdPage
+    component: tooladdPage,
+    name: 'addTool',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/events/',
@@ -184,7 +232,11 @@ export default [
   },
   {
     path: '/events/add/',
-    component: eventaddPage
+    component: eventaddPage,
+    name: 'addEvent',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/reports/',
@@ -196,7 +248,11 @@ export default [
   },
   {
     path: '/reports/add/',
-    component: reportaddPage
+    component: reportaddPage,
+    name: 'addReport',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/login',
