@@ -3,8 +3,8 @@
   src: url('iconfont.eot?t=1489313832595'); /* IE9*/
   src: url('iconfont.eot?t=1489313832595#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('iconfont.woff?t=1489313832595') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1489313832595') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1489313832595#iconfont') format('svg'); /* iOS 4.1- */
+  url('iconfont.ttf?t=1489313832595') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  /*url('iconfont.svg?t=1489313832595#iconfont') format('svg');*/ /* iOS 4.1- */
 }
 
 .iconfont {
