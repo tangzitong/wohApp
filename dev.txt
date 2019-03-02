@@ -1,0 +1,61 @@
+1. git install
+https://qiita.com/toshi-click/items/dcf3dd48fdc74c91b409
+
+2.create 
+cd D:\work\wohapp
+git init
+git clone https://github.com/highwayns/wohApp.git
+git remote add origin/master https://github.com/highwayns/wohApp.git
+highwayns
+zjhuen1915
+
+3.update
+git reset --hard origin/master
+git fetch
+highwayns
+zjhuen1915
+
+4.commit
+git add .
+git commit -m 'XXX modified'
+git push
+
+5.nodejs install
+https://qiita.com/taiponrock/items/9001ae194571feb63a5e
+
+6.node command
+npm install
+npm start
+
+7.vs install cordova
+https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
+
+
+8.firebase
+npm i firebase-tools
+npm i -g firebase-tools
+firebase login
+firebase init
+firebase use --add
+firebase serve --only hosting
+firebase deploy
+firebase open hosting:site
+
+9.cordova
+npm install cordova -g
+cordova create wohapp com.highwayns.wohapp wohApp
+cordova requirements
+cordova platform add ios --save
+cordova plugin add cordova-plugin-whitelist cordova-plugin-statusbar cordova-plugin-camera cordova-plugin-geolocation cordova-plugin-file-transfer cordova-plugin-inappbrowser cordova-plugin-network-information
+
+10 vue 
+npm install -g vue-cli
+vue init webpack test-vue
+
+11.framework7
+
+12.glup
+
+13.
+
+

@@ -6,13 +6,24 @@
     "rules": "storage.rules"
   },
   "hosting": {
-    "public": ".",
-    "headers": [{
-      "source" : "**/*.@(js|html)",
-      "headers" : [ {
-        "key" : "Cache-Control",
-        "value" : "max-age=0"
-      } ]
-    }]
+    "public": "www",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/build/**",
+      "**/data/**",
+      "**/plugins/**",
+      "**/platforms/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }

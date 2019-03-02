@@ -65,6 +65,7 @@ export default {
   job: {
     application: 'Application',
     add: 'Add Job',
+    name: 'name',
     title: 'Job title',
     content: 'Job content',
     like: 'Like',
