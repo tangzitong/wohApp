@@ -129,6 +129,9 @@ export default {
   },
   password: {
     title: 'パスワードが忘れ',
+    content: 'We will send you an email to reset your password',
+    sent: 'Email Sent',
+    complete: 'We will send you an email to reset your password',
     btn: '送信',
     email: 'E-メール:',
     email_: 'E-メールを入力してください'

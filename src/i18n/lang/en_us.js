@@ -130,6 +130,9 @@ export default {
   },
   password: {
     title: 'Password Forget',
+    content: 'We will send you an email to reset your password',
+    sent: 'Email Sent',
+    complete: 'We will send you an email to reset your password',
     btn: 'Send Mail',
     email: 'E-mail:',
     email_: 'Please input your E-mail'

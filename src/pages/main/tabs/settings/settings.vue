@@ -37,6 +37,11 @@
         <i class='iconfont icon-about1' slot="media"></i>
       </f7-list-item>
     </f7-list>
+    <f7-list>
+      <f7-list-item :title="$t('login.title')" link="/about/login/">
+        <i class='iconfont icon-industry' slot="media"></i>
+      </f7-list-item>
+    </f7-list>
   </div>
 </template>
 

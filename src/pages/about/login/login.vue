@@ -1,81 +1,73 @@
 <template>
-  <div id="login">
-    <transition name="fade">
-      <div v-if="performingRequest" class="loading">
-        <p>Loading...</p>
-      </div>
-    </transition>
-    <section>
-      <div class="col2" :class="{ 'signup-form': !showLoginForm && !showForgotPassword }">
-        <form v-if="showLoginForm" @submit.prevent>
-          <h1>Welcome Back</h1>
-
-          <label for="email1">Email</label>
-          <input v-model.trim="loginForm.email" type="text" placeholder="you@email.com" id="email1" />
-
-          <label for="password1">Password</label>
-          <input v-model.trim="loginForm.password" type="password" placeholder="******" id="password1" />
-
-          <button @click="login" class="button">Log In</button>
-
-          <div class="extras">
-            <a @click="togglePasswordReset">Forgot Password</a>
-            <a @click="toggleForm">Create an Account</a>
-          </div>
-        </form>
-        <form v-if="!showLoginForm && !showForgotPassword" @submit.prevent>
-          <h1>Get Started</h1>
-
-          <label for="name">Name</label>
-          <input v-model.trim="signupForm.name" type="text" placeholder="Savvy Apps" id="name" />
-
-          <label for="title">Title</label>
-          <input v-model.trim="signupForm.title" type="text" placeholder="Company" id="title" />
-
-          <label for="email2">Email</label>
-          <input v-model.trim="signupForm.email" type="text" placeholder="you@email.com" id="email2" />
-
-          <label for="password2">Password</label>
-          <input v-model.trim="signupForm.password" type="password" placeholder="min 6 characters" id="password2" />
-
-          <button @click="signup" class="button">Sign Up</button>
-
-          <div class="extras">
-            <a @click="toggleForm">Back to Log In</a>
-          </div>
-        </form>
-        <form v-if="showForgotPassword" @submit.prevent class="password-reset">
-          <div v-if="!passwordResetSuccess">
-            <h1>Reset Password</h1>
-            <p>We will send you an email to reset your password</p>
-
-            <label for="email3">Email</label>
-            <input v-model.trim="passwordForm.email" type="text" placeholder="you@email.com" id="email3" />
-
-            <button @click="resetPassword" class="button">Submit</button>
-
-            <div class="extras">
-              <a @click="togglePasswordReset">Back to Log In</a>
-            </div>
-          </div>
-          <div v-else>
-            <h1>Email Sent</h1>
-            <p>check your email for a link to reset your password</p>
-            <button @click="togglePasswordReset" class="button">Back to login</button>
-          </div>
-        </form>
+  <f7-page class="login-page">
+    <f7-navbar :title="$t('login.title')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-block>
+      <div id="login">
         <transition name="fade">
-          <div v-if="errorMsg !== ''" class="error-msg">
-            <p>{{ errorMsg }}</p>
+          <div v-if="performingRequest" class="loading">
+            <p>Loading...</p>
           </div>
         </transition>
+        <section>
+          <div class="col2" :class="{ 'signup-form': !showLoginForm && !showForgotPassword }">
+            <form v-if="showLoginForm" @submit.prevent>
+              <h1>{{$t('login.title')}}</h1>
+              <label for="email1">{{$t('login.userId')}}</label>
+              <input v-model.trim="loginForm.email" type="text" :placeholder="$t('login.userId_')" id="email1" />
+              <label for="password1">{{$t('login.password')}}</label>
+              <input v-model.trim="loginForm.password" type="password" :placeholder="$t('login.password_')" id="password1" />
+              <button @click="login" class="button">{{$t('login.btn')}}</button>
+              <div class="extras">
+                <a @click="togglePasswordReset">{{$t('password.title')}}</a>
+                <a @click="toggleForm">{{$t('regist.title')}}</a>
+              </div>
+            </form>
+            <form v-if="!showLoginForm && !showForgotPassword" @submit.prevent>
+              <h1>{{$t('regist.title')}}</h1>
+              <label for="name">{{$t('regist.name')}}</label>
+              <input v-model.trim="signupForm.name" type="text" :placeholder="$t('regist.name_')" id="name" />
+              <label for="title">{{$t('regist.usertitle')}}</label>
+              <input v-model.trim="signupForm.title" type="text" :placeholder="$t('regist.usertitle_')" id="title" />
+              <label for="email2">{{$t('regist.email')}}</label>
+              <input v-model.trim="signupForm.email" type="text" :placeholder="$t('regist.email_')" id="email2" />
+              <label for="password2">{{$t('regist.password')}}</label>
+              <input v-model.trim="signupForm.password" type="password" :placeholder="$t('regist.password_')" id="password2" />
+              <button @click="signup" class="button">{{$t('regist.btn')}}</button>
+              <div class="extras">
+                <a @click="toggleForm">{{$t('app.back')}}</a>
+              </div>
+            </form>
+            <form v-if="showForgotPassword" @submit.prevent class="password-reset">
+              <div v-if="!passwordResetSuccess">
+                <h1>{{$t('password.title')}}</h1>
+                <p>{{$t('password.content')}}</p>
+                <label for="email3">{{$t('password.email')}}</label>
+                <input v-model.trim="passwordForm.email" type="text" :placeholder="$t('password.email_')" id="email3" />
+                <button @click="resetPassword" class="button">{{$t('password.btn')}}</button>
+                <div class="extras">
+                  <a @click="togglePasswordReset">{{$t('app.back')}}</a>
+                </div>
+              </div>
+              <div v-else>
+                <h1>{{$t('password.sent')}}</h1>
+                <p>{{$t('password.complete')}}</p>
+                <button @click="togglePasswordReset" class="button">{{$t('app.back')}}</button>
+              </div>
+            </form>
+            <transition name="fade">
+              <div v-if="errorMsg !== ''" class="error-msg">
+                <p>{{ errorMsg }}</p>
+              </div>
+            </transition>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
+    </f7-block>
+  </f7-page>
 </template>
 
 <script>
-const fb = require('../firebaseConfig.js')
+const fb = require('../../../firebaseConfig.js')
 
 export default {
   data() {
@@ -122,7 +114,7 @@ export default {
         this.$store.commit('setCurrentUser', user)
         this.$store.dispatch('fetchUserProfile')
         this.performingRequest = false
-        this.$router.push('/dashboard')
+        this.$router.push('/')
       }).catch(err => {
         console.log(err)
         this.performingRequest = false

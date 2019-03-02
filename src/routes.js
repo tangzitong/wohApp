@@ -1,5 +1,6 @@
 import mainPage from './pages/main'
 import aboutPage from './pages/about'
+import loginPage from './pages/about/login'
 import feedbackPage from './pages/feedback'
 import languagePage from './pages/language'
 import areaPage from './pages/area'
@@ -77,6 +78,11 @@ export default [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/about/login/',
+    component: loginPage,
+    name: 'login'
   },
   {
     path: '/message/',
