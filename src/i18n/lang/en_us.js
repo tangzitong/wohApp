@@ -1,6 +1,6 @@
 export default {
   app: {
-    app_name: 'wohApp',
+    app_name: 'Work On Highway',
     back: 'Back',
     save: 'Save',
     study: 'Study',
@@ -66,8 +66,10 @@ export default {
     application: 'Application',
     add: 'Add Job',
     name: 'name',
-    title: 'Job title',
-    content: 'Job content',
+    title: 'Job Title',
+    title_: 'Please input Title for the job',
+    content: 'Job Content',
+    content_: 'Please input Title for the content',
     like: 'Like',
     noNewestPost: 'No Job Posted.'
   },
@@ -105,5 +107,31 @@ export default {
   },
   post: {
     post: 'Post'
+  },
+  login: {
+    title: 'Login',
+    btn: 'Login',
+    userId: 'User Id(E-mail):',
+    password: 'Password:',
+    userId_: 'Please input User Id(E-mail)',
+    password_: 'Please input Password'
+  },
+  regist: {
+    title: 'Regist',
+    btn: 'Regist',
+    name: 'User Name:',
+    name_: 'Please input your name',
+    usertitle: 'Title:',
+    usertitle_: 'Please input your title',
+    email: 'E-mail:',
+    email_: 'Please input your E-mail',
+    password: 'Password:',
+    password_: 'Please input Password'
+  },
+  password: {
+    title: 'Password Forget',
+    btn: 'Send Mail',
+    email: 'E-mail:',
+    email_: 'Please input your E-mail'
   }
 }

@@ -1,6 +1,6 @@
 export default {
   app: {
-    app_name: 'wohApp',
+    app_name: '海威工作',
     back: '返回',
     save: '保存',
     study: '学習',
@@ -66,7 +66,9 @@ export default {
     application: '申請工作',
     add: '追加工作',
     title: '工作概要',
+    title_: '工作概要入力',
     content: '工作内容',
+    content_: '工作内容入力',
     like: '喜欢',
     noNewestPost: '没有工作.'
   },
@@ -104,5 +106,31 @@ export default {
   },
   post: {
     post: '正文'
+  },
+  login: {
+    title: '登録',
+    btn: '登録',
+    userId: '用戸ID(E-mail):',
+    password: '密馬:',
+    userId_: '用戸ID(E-mail)入力',
+    password_: '密馬入力'
+  },
+  regist: {
+    title: '登録',
+    btn: '登録',
+    name: '名前:',
+    name_: '名前を入力してください',
+    usertitle: '職位:',
+    usertitle_: '職位を入力してください',
+    email: 'E-メール:',
+    email_: 'E-メールを入力してください',
+    password: 'パスワード:',
+    password_: 'パスワードを入力してください'
+  },
+  password: {
+    title: 'パスワードが忘れ',
+    btn: '送信',
+    email: 'E-メール:',
+    email_: 'E-メールを入力してください'
   }
 }

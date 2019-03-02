@@ -1,6 +1,6 @@
 export default {
   app: {
-    app_name: 'wohApp',
+    app_name: '海威仕事',
     back: '戻る',
     save: '保存',
     study: '学習',
@@ -66,7 +66,9 @@ export default {
     application: '仕事申請',
     add: '仕事追加',
     title: '仕事見出し',
+    title_: '仕事見出しを入力してください',
     content: '仕事内容',
+    content_: '仕事内容を入力してください',
     like: '好き',
     noNewestPost: '仕事なし.'
   },
@@ -104,5 +106,31 @@ export default {
   },
   post: {
     post: '文章'
+  },
+  login: {
+    title: 'ログイン',
+    btn: 'ログイン',
+    userId: 'ユーザーID(E-mail):',
+    password: 'パスワード:',
+    userId_: 'ユーザーID(E-mail)を入力してください',
+    password_: 'パスワードを入力してください'
+  },
+  regist: {
+    title: '登録',
+    btn: '登録',
+    name: '名前:',
+    name_: '名前を入力してください',
+    usertitle: '職位:',
+    usertitle_: '職位を入力してください',
+    email: 'E-メール:',
+    email_: 'E-メールを入力してください',
+    password: 'パスワード:',
+    password_: 'パスワードを入力してください'
+  },
+  password: {
+    title: 'パスワードが忘れ',
+    btn: '送信',
+    email: 'E-メール:',
+    email_: 'E-メールを入力してください'
   }
 }

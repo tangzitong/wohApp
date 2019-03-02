@@ -12,12 +12,13 @@ zjhuen1915
 3.update
 git reset --hard origin/master
 git fetch
+git pull
 highwayns
 zjhuen1915
 
 4.commit
 git add .
-git commit -m 'XXX modified'
+git commit -m "XXX modified"
 git push
 
 5.nodejs install
@@ -26,6 +27,7 @@ https://qiita.com/taiponrock/items/9001ae194571feb63a5e
 6.node command
 npm install
 npm start
+npm run build
 
 7.vs install cordova
 https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
@@ -55,6 +57,8 @@ vue init webpack test-vue
 11.framework7
 
 12.glup
+npm install glup -g
+gulp Iconfont
 
 13.
 
