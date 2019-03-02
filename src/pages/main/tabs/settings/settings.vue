@@ -41,6 +41,12 @@
       <f7-list-item :title="$t('login.title')" link="/about/login/">
         <i class='iconfont icon-industry' slot="media"></i>
       </f7-list-item>
+      <f7-list-item :title="$t('modify.title')" link="/about/modify/">
+        <i class='iconfont icon-industry' slot="media"></i>
+      </f7-list-item>
+      <f7-list-item :title="$t('logout.title')">
+        <a @click="logout">{{$t('logout.btn')}}</a>
+      </f7-list-item>
     </f7-list>
   </div>
 </template>
@@ -91,12 +97,23 @@
 
 <script>
 import { mapState } from 'vuex'
+const fb = require('../../../../firebaseConfig.js')
 
 export default {
   computed: {
     ...mapState({
       userInfo: state => state.user
     })
+  },
+  methods: {
+    logout() {
+      fb.auth.signOut().then(() => {
+        this.$store.dispatch('clearData')
+        this.$f7router.navigate('/')
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   }
 }
 </script>

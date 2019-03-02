@@ -135,5 +135,23 @@ export default {
     btn: '送信',
     email: 'E-メール:',
     email_: 'E-メールを入力してください'
+  },
+  modify: {
+    title: '情報更新',
+    btn: '更新',
+    content: '個人情報更新',
+    complete: '個人情報更新完了しました。',
+    name: '名前:',
+    name_: '名前を入力してください',
+    usertitle: '職位:',
+    usertitle_: '職位を入力してください',
+    email: 'E-メール:',
+    email_: 'E-メールを入力してください',
+    password: 'パスワード:',
+    password_: 'パスワードを入力してください'
+  },
+  logout: {
+    title: 'ログアウト',
+    btn: '確認'
   }
 }

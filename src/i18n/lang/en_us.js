@@ -136,5 +136,23 @@ export default {
     btn: 'Send Mail',
     email: 'E-mail:',
     email_: 'Please input your E-mail'
+  },
+  modify: {
+    title: 'Update Profile',
+    btn: 'Update',
+    content: 'Update User Profile',
+    complete: 'User Profile Updated',
+    name: 'User Name:',
+    name_: 'Please input your name',
+    usertitle: 'Title:',
+    usertitle_: 'Please input your title',
+    email: 'E-mail:',
+    email_: 'Please input your E-mail',
+    password: 'Password:',
+    password_: 'Please input Password'
+  },
+  logout: {
+    title: 'Logout',
+    btn: 'OK'
   }
 }
