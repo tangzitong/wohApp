@@ -7,12 +7,12 @@ export default {
     display: '表示',
     unknown: '未知',
     home: 'トップ',
-    contacts: '連絡者',
+    contacts: '連絡簿',
     settings: '設定',
-    city: '都市',
+    city: '都市選択',
     profile: '個人情報',
     language: '言語選択',
-    area: '地区',
+    area: '地域選択',
     knowledgetype: '知識選択',
     jobtype: '仕事選択',
     companytype: '会社選択',
@@ -23,7 +23,7 @@ export default {
     tooltype: 'ツール選択',
     eventtype: 'イベント選択',
     reporttype: '報告選択',
-    industry: '業界',
+    industry: '業界選択',
     feedback: 'アドバイス',
     about: 'アバウトアス',
     avatar: 'アバター',
@@ -33,7 +33,7 @@ export default {
     male: '男',
     female: '女',
     send: '送信',
-    cancel: '取消',
+    cancel: '消去',
     chat: 'チャット',
     close: '閉じる',
     submitting: 'コッミト中...',
@@ -59,7 +59,7 @@ export default {
   },
   home: {
     comment: 'コメント',
-    like: '好き',
+    like: '好み',
     noNewestPost: 'ポストなし'
   },
   job: {
@@ -69,21 +69,21 @@ export default {
     title_: '仕事見出しを入力してください',
     content: '仕事内容',
     content_: '仕事内容を入力してください',
-    like: '好き',
+    like: '好み',
     noNewestPost: '仕事なし.'
   },
   report: {
     application: '承認',
-    like: '好き',
+    like: '好み',
     noNewestPost: '報告なし.',
     DateHyouji: '日付',
     WorkTimehyoji: '出勤時間',
-    WorkContenthyoji: '仕事の内容',
-    WorkAddresshyoji: '仕事の場所',
+    WorkContenthyoji: '仕事内容',
+    WorkAddresshyoji: '現場',
     result: '承認しました'
   },
   contacts: {
-    placeholder: '連絡者検索',
+    placeholder: '連絡先',
     empty: '連絡者なし'
   },
   feedback: {
@@ -129,9 +129,9 @@ export default {
   },
   password: {
     title: 'パスワードが忘れ',
-    content: 'We will send you an email to reset your password',
-    sent: 'Email Sent',
-    complete: 'We will send you an email to reset your password',
+    content: 'パスワード再設定メールを送信する',
+    sent: '送信',
+    complete: 'パスワード再設定メール送信完了しました。',
     btn: '送信',
     email: 'E-メール:',
     email_: 'E-メールを入力してください'
