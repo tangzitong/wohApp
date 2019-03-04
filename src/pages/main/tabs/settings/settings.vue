@@ -38,19 +38,15 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <template v-if="isUserNotLogin">
-        <f7-list-item :title="$t('login.title')" link="/about/login/">
-          <i class='iconfont icon-industry' slot="media"></i>
-        </f7-list-item>
-      </template>
-      <template v-if="isUserLogin">
-        <f7-list-item :title="$t('modify.title')" link="/about/modify/">
-          <i class='iconfont icon-industry' slot="media"></i>
-        </f7-list-item>
-        <f7-list-item :title="$t('logout.title')">
-          <a @click="logout">{{$t('logout.btn')}}</a>
-        </f7-list-item>
-      </template>
+      <f7-list-item v-if="!isUserLogin" :title="$t('login.title')" link="/about/login/">
+        <i class='iconfont icon-industry' slot="media"></i>
+      </f7-list-item>
+      <f7-list-item v-if="isUserLogin" :title="$t('modify.title')" link="/about/modify/">
+        <i class='iconfont icon-industry' slot="media"></i>
+      </f7-list-item>
+      <f7-list-item v-if="isUserLogin" :title="$t('logout.title')">
+        <a @click="logout">{{$t('logout.btn')}}</a>
+      </f7-list-item>
     </f7-list>
   </div>
 </template>
@@ -106,15 +102,12 @@ const fb = require('../../../../firebaseConfig.js')
 export default {
   data() {
     return {
-      isUserNotLogin: true,
-      isUserLogin: false
+      isUserLogin: this.userInfo
     }
   },
   computed: {
     ...mapState({
-      userInfo: state => state.user,
-      isUserLogin = !!userInfo,
-      isUserNotLogin = !isUserLogin
+      userInfo: state => state.user
     })
   },
   methods: {
