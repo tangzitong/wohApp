@@ -69,7 +69,10 @@ framework7 cordova build ios
 npm install glup -g
 gulp Iconfont
 
-13.firechat
+13.jQuery
+https://maketips.net/tip/223/how-to-include-jquery-into-vuejs
+
+14.firechat
 API - Public Methods
 new Firechat(ref, options)
 Firechat.setUser(userId, userName, onComplete)

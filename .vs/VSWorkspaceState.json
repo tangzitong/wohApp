@@ -2,8 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\pages\\main\\tabs",
-    "\\src\\pages\\main\\tabs\\settings",
     "\\src\\store"
   ],
   "SelectedNode": "\\src\\store\\index.js",

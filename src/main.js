@@ -66,9 +66,6 @@ fb.auth.onAuthStateChanged(user => {
   if (user) {
     store.commit(types.SET_CURRENTUSER, user)
     store.dispatch('fetchUserProfile')
-    fb.chat.setUser(user.uid, user.name, function(user) {
-      fb.chat.resumeSession()
-    })
 
     fb.usersCollection.doc(user.uid).onSnapshot(doc => {
       store.commit(types.SET_USERPROFILE, doc.data())

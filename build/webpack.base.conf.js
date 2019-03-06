@@ -1,4 +1,5 @@
 'use strict'
+const webpack = require('webpack')
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -95,5 +96,14 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jquery: 'jquery',
+      'window.jQuery': 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
+
 }
