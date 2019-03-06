@@ -69,6 +69,60 @@ framework7 cordova build ios
 npm install glup -g
 gulp Iconfont
 
-13.
+13.firechat
+API - Public Methods
+new Firechat(ref, options)
+Firechat.setUser(userId, userName, onComplete)
+Firechat.resumeSession()
+Firechat.on(eventType, callback)
+Firechat.createRoom(roomName, roomType, callback(roomId))
+Firechat.enterRoom(roomId)
+Firechat.leaveRoom(roomId)
+Firechat.sendMessage(roomId, messageContent, messageType='default', callback)
+Firechat.toggleUserMute(userId, callback)
+Firechat.inviteUser(userId, roomId)
+Firechat.acceptInvite(inviteId, callback)
+Firechat.declineInvite(inviteId, callback)
+Firechat.getRoomList(callback)
+Firechat.getUsersByRoom(roomId, [limit=100], callback)
+Firechat.getUsersByPrefix(prefix, startAt, endAt, limit, callback)
+Firechat.getRoom(roomId, callback)
+
+API - Exposed Bindings
+user-update - Invoked when the user's metadata changes.
+room-enter - Invoked when the user successfully enters a room.
+room-exit - Invoked when the user exists a room.
+message-add - Invoked when a new message is received.
+message-remove - Invoked when a message is deleted.
+room-invite - Invoked when a new room invite is received.
+room-invite-response - Invoked when a response to a previous invite is received.
+
+Data Structure
+moderators/ 
+  <user-id> - A list of user ids and their moderator status. 
+    true|false - A boolean value indicating the user's moderator status.
+room-messages/ 
+  <room-id> 
+    <message-id> 
+      userId - The id of the user that sent the message.
+      name - The name of the user that sent the message.
+      message - The content of the message.
+      timestamp - The time at which the message was sent.
+room-metadata/ 
+  <room-id> 
+    createdAt - The time at which the room was created.
+    createdByUserId- The id of the user that created the room.
+    id - The id of the room.
+    name - The public display name of the room.
+    type - The type of room, public or private.
+room-users/
+user-names-online/
+users/ 
+  <user-id> 
+    id - The id of the user.
+    name - The display name of the user.
+    invites - A list of invites the user has received.
+    muted - A list of user ids currently muted by the user.
+    rooms - A list of currently active rooms, used for sessioning.
 
 
