@@ -1,7 +1,7 @@
 1. git install
 https://qiita.com/toshi-click/items/dcf3dd48fdc74c91b409
 
-2.git create 
+create :
 cd D:\work\wohapp
 git init
 git clone https://github.com/highwayns/wohApp.git
@@ -9,19 +9,33 @@ git remote add origin/master https://github.com/highwayns/wohApp.git
 highwayns
 zjhuen1915
 
-3.git update
+update:
 git reset --hard origin/master
 git fetch
 git pull
 highwayns
 zjhuen1915
 
-4.git commit
+commit:
 git add .
 git commit -m "XXX modified"
 git push
 
-5.nodejs install
+2.json
+https://github.com/highwayns/json-server
+https://json.org/
+
+3.js
+https://qiita.com/takeharu/items/809114f943208aaf55b3
+https://momentjs.com/
+https://underscorejs.org/
+
+4.html/css
+http://www.ituore.com/entry/html-css-basic
+https://www.webopixel.net/html-css/503.html
+https://qiita.com/ritukiii/items/67b3c50002b48c6186d6
+
+5.nodejs
 https://qiita.com/taiponrock/items/9001ae194571feb63a5e
 https://nodejs.org/en/docs/
 npm install
@@ -33,6 +47,8 @@ http://docs.phonegap.com/
 
 7.vs install cordova
 https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
+debug
+https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html
 
 8.firebase
 https://firebase.google.com/docs/reference/js/firebase
