@@ -80,7 +80,12 @@ gulp Iconfont
 13.jQuery
 https://maketips.net/tip/223/how-to-include-jquery-into-vuejs
 
-14.firechat
+14.firebasebot
+https://github.com/FirebaseExtended/bolt/blob/master/docs/language.md
+npm install --global firebase-bolt
+firebase-bolt < posts.bolt
+
+15.firechat
 https://firechat.firebaseapp.com/docs/
 API - Public Methods
 new Firechat(ref, options)
