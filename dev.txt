@@ -1,7 +1,7 @@
 1. git install
 https://qiita.com/toshi-click/items/dcf3dd48fdc74c91b409
 
-2.create 
+2.git create 
 cd D:\work\wohapp
 git init
 git clone https://github.com/highwayns/wohApp.git
@@ -9,31 +9,33 @@ git remote add origin/master https://github.com/highwayns/wohApp.git
 highwayns
 zjhuen1915
 
-3.update
+3.git update
 git reset --hard origin/master
 git fetch
 git pull
 highwayns
 zjhuen1915
 
-4.commit
+4.git commit
 git add .
 git commit -m "XXX modified"
 git push
 
 5.nodejs install
 https://qiita.com/taiponrock/items/9001ae194571feb63a5e
-
-6.node command
+https://nodejs.org/en/docs/
 npm install
 npm start
 npm run build
 
+6.phonegap
+http://docs.phonegap.com/
+
 7.vs install cordova
 https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
 
-
 8.firebase
+https://firebase.google.com/docs/reference/js/firebase
 npm i firebase-tools
 npm i -g firebase-tools
 firebase login
@@ -44,17 +46,21 @@ firebase deploy
 firebase open hosting:site
 
 9.cordova
+https://cordova.apache.org/docs/en/latest/
 npm install cordova -g
 cordova create wohapp com.highwayns.wohapp wohApp
 cordova requirements
 cordova platform add ios --save
 cordova plugin add cordova-plugin-whitelist cordova-plugin-statusbar cordova-plugin-camera cordova-plugin-geolocation cordova-plugin-file-transfer cordova-plugin-inappbrowser cordova-plugin-network-information
 
-10 vue 
+10 vue & vuex
+https://vuejs.org/v2/guide/
+https://vuex.vuejs.org/guide/
 npm install -g vue-cli
 vue init webpack test-vue
 
 11.framework7
+http://v2.framework7.io/vue/
 npm install framework7
 npm install -g framework7-cli
 framework7 create
@@ -65,7 +71,9 @@ framework7 generate-assets --ui
 framework7 cordova plugin add cordova-plugin-statusbar
 framework7 cordova plugin add cordova-plugin-splashscreen
 framework7 cordova build ios
+
 12.glup
+https://github.com/gulpjs/gulp/tree/master/docs
 npm install glup -g
 gulp Iconfont
 
@@ -73,6 +81,7 @@ gulp Iconfont
 https://maketips.net/tip/223/how-to-include-jquery-into-vuejs
 
 14.firechat
+https://firechat.firebaseapp.com/docs/
 API - Public Methods
 new Firechat(ref, options)
 Firechat.setUser(userId, userName, onComplete)
