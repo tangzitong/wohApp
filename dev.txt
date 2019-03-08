@@ -6,15 +6,11 @@ cd D:\work\wohapp
 git init
 git clone https://github.com/highwayns/wohApp.git
 git remote add origin/master https://github.com/highwayns/wohApp.git
-highwayns
-zjhuen1915
 
 update:
 git reset --hard origin/master
 git fetch
 git pull
-highwayns
-zjhuen1915
 
 commit:
 git add .
@@ -52,6 +48,7 @@ https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html
 
 8.firebase
 https://firebase.google.com/docs/reference/js/firebase
+firebase tools:
 npm i firebase-tools
 npm i -g firebase-tools
 firebase login
@@ -61,6 +58,25 @@ firebase serve --only hosting
 firebase deploy
 firebase open hosting:site
 
+firebase auth:
+firebase database:
+firebase firestore:
+firebase storage:
+firebase hosting:
+firebase mlkit:
+
+firebase performance monitor:
+firebase Crashlytics:
+firebase Test Lab:
+
+firebase In-App messaging:
+firebase Predictions:
+firebase A/B Testing:
+firebase Cloud messaging:
+firebase Remote Config:
+firebase Dynamic Links:
+firebase admob:
+
 9.cordova
 https://cordova.apache.org/docs/en/latest/
 npm install cordova -g
@@ -69,9 +85,10 @@ cordova requirements
 cordova platform add ios --save
 cordova plugin add cordova-plugin-whitelist cordova-plugin-statusbar cordova-plugin-camera cordova-plugin-geolocation cordova-plugin-file-transfer cordova-plugin-inappbrowser cordova-plugin-network-information
 
-10 vue & vuex
+10 vue & vuex &axios
 https://vuejs.org/v2/guide/
 https://vuex.vuejs.org/guide/
+https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
 npm install -g vue-cli
 vue init webpack test-vue
 
@@ -157,5 +174,3 @@ users/
     invites - A list of invites the user has received.
     muted - A list of user ids currently muted by the user.
     rooms - A list of currently active rooms, used for sessioning.
-
-
