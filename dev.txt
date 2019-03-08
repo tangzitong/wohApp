@@ -66,6 +66,9 @@ firebase hosting:
 firebase mlkit:
 
 firebase performance monitor:
+  アプリケーションにPerformance Monitoring SDKを追加する
+  （Optional）SDKを使用してアプリケーションのカスタムトレースとカウンタを定義する
+  Firebaseコンソールでのパフォーマンスデータの監視
 firebase Crashlytics:
 firebase Test Lab:
 
@@ -75,6 +78,8 @@ firebase A/B Testing:
 firebase Cloud messaging:
 firebase Remote Config:
 firebase Dynamic Links:
+firebase App Index:
+firebase invite:
 firebase admob:
 
 9.cordova
@@ -174,3 +179,45 @@ users/
     invites - A list of invites the user has received.
     muted - A list of user ids currently muted by the user.
     rooms - A list of currently active rooms, used for sessioning.
+
+16.android
+JDKのインストール
+Android SDKのインストール
+
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/tools:$PATH
+
+cordova platform add android
+
+エミュレータでの検証:
+Genymotion.appを起動
+アプリケーション内で、VMをダウンロード (もしまだなければ)
+VMを起動
+Cordovaから起動 $ cordova run android 
+
+実機で検証:
+Android実機のUSBデバッグ機能をONに
+MacにAndroid実機をUSB接続 (USBケーブルが充電専用だとNGなので注意)
+次のコマンドで接続確認して、表示されればOK $ adb devices 
+Cordovaから起動 $ cordova run android 
+ビルドを待つ...
+実機でアプリが起動!
+
+17.ios
+Apple の開発者のダウンロードアップルの開発者として登録する必要があります。
+    $ npm install -g ios-sim
+    $ npm install -g ios-deploy
+    $ cordova run ios --device
+    $ cordova emulate ios
+18.windows
+cordova build windows -- --appx=8.1-phone
+To deploy Windows package:
+cordova run windows -- --win  # explicitly specify Windows as deployment target
+cordova run windows # `run` uses Windows package by default
+To deploy Windows Phone package:
+cordova run windows -- --phone  # deploy app to Windows Phone 8.1 emulator
+cordova run windows --device -- --phone  # deploy app to connected device
+This command will give you the list of all available targets:
+cordova run windows --list
+cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone
+    
