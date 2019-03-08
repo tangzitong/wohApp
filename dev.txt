@@ -49,6 +49,7 @@ http://docs.phonegap.com/
 https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
 debug
 https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html
+https://docs.microsoft.com/en-us/visualstudio/cross-platform/tools-for-cordova/debug-test/debug-using-visual-studio?view=toolsforcordova-2017
 
 8.firebase
 https://firebase.google.com/docs/reference/js/firebase
