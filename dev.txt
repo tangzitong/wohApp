@@ -95,8 +95,13 @@ cordova plugin add cordova-plugin-whitelist cordova-plugin-statusbar cordova-plu
 https://vuejs.org/v2/guide/
 https://vuex.vuejs.org/guide/
 https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+project create:
 npm install -g vue-cli
 vue init webpack test-vue
+
+project manager:
+npm install --global @vue/cli
+vue ui
 
 11.framework7
 http://v2.framework7.io/vue/
