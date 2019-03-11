@@ -37,6 +37,7 @@ https://nodejs.org/en/docs/
 npm install
 npm start
 npm run build
+https://dackdive.hateblo.jp/entry/2016/10/10/095800
 
 6.phonegap
 http://docs.phonegap.com/
