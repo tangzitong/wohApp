@@ -17,9 +17,13 @@ git add .
 git commit -m "XXX modified"
 git push
 
+コンフリクト解消ガイド
+https://qiita.com/yuya_presto/items/5d99499cf96c0ebb09f8
+
 2.json
 https://github.com/highwayns/json-server
 https://json.org/
+https://github.com/jdorn/json-editor
 
 3.js
 https://qiita.com/takeharu/items/809114f943208aaf55b3
@@ -45,6 +49,18 @@ http://docs.phonegap.com/
 https://algorithm.joho.info/programming/vs2017-visual-studio-tools-for-apache-cordova-install/
 debug
 https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html
+install vue plugin & Eslint plugin & Debugger for Chrome
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "vuejs: chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      }
+    }
 https://docs.microsoft.com/en-us/visualstudio/cross-platform/tools-for-cordova/debug-test/debug-using-visual-studio?view=toolsforcordova-2017
 
 8.firebase
@@ -103,6 +119,9 @@ project manager:
 npm install --global @vue/cli
 vue ui
 
+online editor:
+https://github.com/highwayns/vuegg
+
 11.framework7
 http://v2.framework7.io/vue/
 npm install framework7
@@ -120,6 +139,10 @@ framework7 cordova build ios
 https://github.com/gulpjs/gulp/tree/master/docs
 npm install glup -g
 gulp Iconfont
+framework7-icons:
+https://github.com/framework7io/framework7-icons
+material-design-icons:
+https://github.com/google/material-design-icons
 
 13.jQuery
 https://maketips.net/tip/223/how-to-include-jquery-into-vuejs
@@ -215,6 +238,7 @@ Apple の開発者のダウンロードアップルの開発者として登録�
     $ npm install -g ios-deploy
     $ cordova run ios --device
     $ cordova emulate ios
+
 18.windows
 cordova build windows -- --appx=8.1-phone
 To deploy Windows package:
@@ -226,4 +250,16 @@ cordova run windows --device -- --phone  # deploy app to connected device
 This command will give you the list of all available targets:
 cordova run windows --list
 cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone
+
+19.python2.7
+一部Packageはpython2.7を使っている。
+https://www.python.jp/install/windows/install_py2.7.html
+
+20.awaresome
+https://github.com/highwayns/awesome-vue
+https://github.com/highwayns/vuejs-interview-questions
+https://github.com/highwayns/awesome-github-vue
+https://github.com/highwayns/vue2-elm
+https://github.com/useryangtao/vue-wechat
+
     

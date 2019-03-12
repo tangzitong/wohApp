@@ -20,7 +20,7 @@
                 <input v-model.trim="loginForm.password" type="password" :placeholder="$t('login.password_')" id="password1" />
               </f7-list-item>
               <f7-list-item>
-                <a @click="login">{{$t('login.btn')}}</a>
+                <a @click="signin">{{$t('login.btn')}}</a>
               </f7-list-item>
               <f7-list-item>
                 <a @click="togglePasswordReset">{{$t('password.title')}}</a>
@@ -126,7 +126,7 @@ export default {
         this.showForgotPassword = true
       }
     },
-    login() {
+    signin() {
       this.performingRequest = true
 
       fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
