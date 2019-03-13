@@ -668,9 +668,9 @@ Firechat.prototype.createPost = function(content, pic, callback) {
   });
 };
 
-Firechat.prototype.addComment = function(postId, comments, callback) {
+Firechat.prototype.addComment = function(postKey, comments, callback) {
   var self = this,
-      newCommentsRef = self._postsRef.child('postId').child('comments').push();
+      newCommentsRef = self._postsRef.child(postKey).child('comments').push();
 
   var newComment = {
     id: newCommentsRef.key,
@@ -683,7 +683,7 @@ Firechat.prototype.addComment = function(postId, comments, callback) {
 
   newCommentsRef.set(newComment, function(error) {
     if (!error) {
-      self._postsRef.child('postId').update({
+      self._postsRef.child(postKey).update({
         comment_count: comment_count + 1
       })
     }
@@ -693,9 +693,9 @@ Firechat.prototype.addComment = function(postId, comments, callback) {
   });
 };
 
-Firechat.prototype.likePost = function(postId, callback) {
+Firechat.prototype.likePost = function(postKey, callback) {
   var self = this,
-      newLikesRef = self._postsRef.child('postId').child('likes').push();
+      newLikesRef = self._postsRef.child(postKey).child('likes').push();
 
   var newlike = {
     id: newLikesRef.key,
@@ -707,7 +707,7 @@ Firechat.prototype.likePost = function(postId, callback) {
 
   newLikesRef.set(newlike, function(error) {
     if (!error) {
-      self._postsRef.child('postId').update({
+      self._postsRef.child(postKey).update({
         like_count: like_count + 1
       })
     }
@@ -741,11 +741,37 @@ Firechat.prototype.getPostComments = function(postkey, cb) {
   });
 };
 
+Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
+  self._postsRef.child(postKey).child('comments').child(commentKey).remove(function(error) {
+    if (!error) {
+      self._postsRef.child(postKey).update({
+        comment_count: comment_count - 1
+      })
+    }
+    if (callback) {
+      callback();
+    }
+  });
+};
+
 Firechat.prototype.getPostLikes = function(postkey, cb) {
   var self = this;
 
   self._postsRef.child(postkey).child('likes').once('value', function(snapshot) {
     cb(snapshot.val());
+  });
+};
+
+Firechat.prototype.unlikePost = function(postKey, likeKey, callback) {
+  self._postsRef.child(postKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._postsRef.child(postKey).update({
+        like_count: like_count - 1
+      })
+    }
+    if (callback) {
+      callback();
+    }
   });
 };
 
@@ -774,23 +800,19 @@ Firechat.prototype.addContact = function(userid, name, header, location, callbac
   });
 };
 
-Firechat.prototype.removeContact = function(userid, userkey, callback) {
-  var self = this,
-      query = self._userRef.child(this._userId).child('contacts');
+Firechat.prototype.removeContact = function(userkey, callback) {
+  var self = this;
 
-  query = query.orderByChild('avatar').equalTo(userid);
-  if (query) {
-    self._userRef.child(this._userId).child('contacts').child(userkey).remove(function(error) {
-      if (!error) {
-        self._userRef.child(this._userId).update({
-          contact_count: contact_count - 1
-        })
-      }
-      if (callback) {
-        callback(newContactsRef.key);
-      }
-    });
-  }
+  self._userRef.child(this._userId).child('contacts').child(userkey).remove(function(error) {
+    if (!error) {
+      self._userRef.child(this._userId).update({
+        contact_count: contact_count - 1
+      })
+    }
+    if (callback) {
+      callback(newContactsRef.key);
+    }
+  });
 };
 
 Firechat.prototype.getContactList = function(cb) {
