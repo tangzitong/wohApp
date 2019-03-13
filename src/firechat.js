@@ -52,7 +52,7 @@ function Firechat(firebaseRef, options) {
   this._suspensionsRef = this._firechatRef.child('suspensions');
   this._usersOnlineRef = this._firechatRef.child('user-names-online');
   this._postsRef = this._firechatRef.child('posts');
-
+  
   // Setup and establish default options.
   this._options = options || {};
 
@@ -725,21 +725,82 @@ Firechat.prototype.getPostList = function(cb) {
   });
 };
 
-Firechat.prototype.getPostComments = function(postid, cb) {
+Firechat.prototype.removePost = function(postKey, callback) {
+  self._postsRef.child(postKey).remove(function(error) {
+    if (callback) {
+      callback();
+    }
+  });
+};
+
+Firechat.prototype.getPostComments = function(postkey, cb) {
   var self = this;
 
-  self._postsRef.child('postId').child('comments').once('value', function(snapshot) {
+  self._postsRef.child(postkey).child('comments').once('value', function(snapshot) {
     cb(snapshot.val());
   });
 };
 
-Firechat.prototype.getPostLikes = function(postid, cb) {
+Firechat.prototype.getPostLikes = function(postkey, cb) {
   var self = this;
 
-  self._postsRef.child('postId').child('likes').once('value', function(snapshot) {
+  self._postsRef.child(postkey).child('likes').once('value', function(snapshot) {
     cb(snapshot.val());
   });
 };
+
+Firechat.prototype.addContact = function(userid, name, header, location, callback) {
+  var self = this,
+      newContactsRef = self._userRef.child(this._userId).child('contacts').push();
+
+  var newContact = {
+    id: newContactsRef.key,
+    nickname: name,
+    location: location,
+    avatar: userid,
+    header: header,
+    time: firebase.database.ServerValue.TIMESTAMP
+  };
+
+  newContactsRef.set(newContact, function(error) {
+    if (!error) {
+      self._userRef.child(this._userId).update({
+        contact_count: contact_count + 1
+      })
+    }
+    if (callback) {
+      callback(newContactsRef.key);
+    }
+  });
+};
+
+Firechat.prototype.removeContact = function(userid, userkey, callback) {
+  var self = this,
+      query = self._userRef.child(this._userId).child('contacts');
+
+  query = query.orderByChild('avatar').equalTo(userid);
+  if (query) {
+    self._userRef.child(this._userId).child('contacts').child(userkey).remove(function(error) {
+      if (!error) {
+        self._userRef.child(this._userId).update({
+          contact_count: contact_count - 1
+        })
+      }
+      if (callback) {
+        callback(newContactsRef.key);
+      }
+    });
+  }
+};
+
+Firechat.prototype.getContactList = function(cb) {
+  var self = this;
+
+  self._userRef.child(this._userId).child('contacts').once('value', function(snapshot) {
+    cb(snapshot.val());
+  });
+};
+
 //})();
 
 export {
