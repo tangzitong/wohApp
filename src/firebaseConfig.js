@@ -1,5 +1,4 @@
 import firebase from 'firebase'
-import 'firebase/firestore'
 import 'firebase/database'
 import { Firechat } from 'firechat/dist/firechat.js'
 
@@ -16,31 +15,15 @@ const config = {
 firebase.initializeApp(config)
 
 // firebase utils
-const firestore = firebase.firestore()
 const auth = firebase.auth()
 const currentUser = auth.currentUser
 const database = firebase.database().ref()
-// date issue fix according to firebase
-const settings = {
-  timestampsInSnapshots: true
-}
-firestore.settings(settings)
 
-// firebase collections
-const usersCollection = firestore.collection('users')
-const postsCollection = firestore.collection('posts')
-const commentsCollection = firestore.collection('comments')
-const likesCollection = firestore.collection('likes')
-
+// firechat
 const chat = new Firechat(database, null)
 
 export {
-  firestore,
   auth,
   currentUser,
-  usersCollection,
-  postsCollection,
-  commentsCollection,
-  likesCollection,
   chat
 }

@@ -263,4 +263,12 @@ https://github.com/highwayns/awesome-github-vue
 https://github.com/highwayns/vue2-elm
 https://github.com/useryangtao/vue-wechat
 
-    
+21.unittest
+https://qiita.com/oret/items/8c9a216865b088c15d68
+https://jp.vuejs.org/v2/guide/unit-testing.html
+https://qiita.com/TsutomuNakamura/items/975329b61e5c8a375691
+
+npm install -g nodeunit
+test folderにテストプログラムを作成する
+nodeunit test
+
