@@ -275,3 +275,6 @@ nodeunit test
 22.vue plugin & vuefire
 https://github.com/highwayns/vuefire
 https://jp.vuejs.org/v2/guide/plugins.html
+
+23.vue on aem
+https://github.com/ahmed-musallam/AtACE-AEM-Vue
