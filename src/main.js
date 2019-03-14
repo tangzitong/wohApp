@@ -25,7 +25,6 @@ import App from './app'
 // Import Vuex store
 import store from './store'
 import { getLoginUser } from './store/actions'
-import * as types from './store/mutation-types'
 import VueRouter from 'vue-router'
 
 // import network framework
