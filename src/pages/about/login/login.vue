@@ -147,7 +147,7 @@ export default {
         this.$store.commit(types.SET_CURRENTUSER, user)
 
         // create user obj
-        fb.database.child('users').push({
+        fb.database.child('users').child(user.uid).set({
           login_name: this.signupForm.name,
           nick_name: this.signupForm.title,
           points: 0,
@@ -156,7 +156,8 @@ export default {
           location: '',
           invites: [],
           muted: [],
-          rooms: []
+          rooms: [],
+          contacts: []
         }).then(() => {
           this.$store.dispatch('fetchUserProfile')
           this.performingRequest = false
