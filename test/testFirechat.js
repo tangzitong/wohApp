@@ -2,7 +2,7 @@ import * as fb from '../src/firebaseConfig.js'
 
 fb.auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
   // create user obj
-  fb.database.child('users').push({
+  fb.database.child('users').child(user.uid).set({
     login_name: 'test1@gmail.com',
     nick_name: 'test1',
     points: 0,
@@ -11,13 +11,14 @@ fb.auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(use
     location: '',
     invites: [],
     muted: [],
-    rooms: []
+    rooms: [],
+    contacts: []
   })
 })
 
 fb.auth.onAuthStateChanged(user => {
   if (user) {
-    fb.database.child('users').orderByChild('login_name').equalTo(user.uid).once('value', function(snapshot){
+    fb.database.child('users').child(user.uid).once('value', function(snapshot){
       fb.chat.setUser(snapshot.key, snapshot.val().nick_name, null)
     })        
   }
