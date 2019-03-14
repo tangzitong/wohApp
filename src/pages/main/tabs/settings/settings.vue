@@ -38,15 +38,19 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item v-if="!isUserLogin" :title="$t('login.title')" link="/about/login/">
+      <template v-if="!isUserLogin">
+      <f7-list-item :title="$t('login.title')" link="/about/login/">
         <i class='iconfont icon-industry' slot="media"></i>
       </f7-list-item>
+      </template>
+      <template v-else>
       <f7-list-item v-if="isUserLogin" :title="$t('modify.title')" link="/about/modify/">
         <i class='iconfont icon-industry' slot="media"></i>
       </f7-list-item>
-      <f7-list-item v-if="isUserLogin" :title="$t('logout.title')">
+      <f7-list-item :title="$t('logout.title')">
         <a @click="logout">{{$t('logout.btn')}}</a>
       </f7-list-item>
+      </template>
     </f7-list>
   </div>
 </template>
