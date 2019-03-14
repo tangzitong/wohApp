@@ -1,4 +1,4 @@
-import * as fb from '../src/firebaseConfig.js'
+const fb = require('../src/firebaseConfig.js')
 
 fb.auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
   // create user obj
@@ -18,21 +18,21 @@ fb.auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(use
 
 fb.auth.onAuthStateChanged(user => {
   if (user) {
-    fb.database.child('users').child(user.uid).once('value', function(snapshot){
+    fb.database.child('users').child(user.uid).once('value', function(snapshot) {
       fb.chat.setUser(snapshot.key, snapshot.val().nick_name, null)
-    })        
+    })
   }
 })
 
 fb.auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 
-exports['createPost'] = function(test) {  
+exports['createPost'] = function(test) {
   const posts = fb.chat.createPost()
   test.equal(posts.count, 0)
   test.done()
 }
 
-exports['getPostList'] = function(test) {  
+exports['getPostList'] = function(test) {
   const posts = fb.chat.getPostList()
   test.equal(posts.count, 0)
   test.done()
