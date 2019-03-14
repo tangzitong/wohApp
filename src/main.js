@@ -62,14 +62,6 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-// handle page reload
-fb.auth.onAuthStateChanged(user => {
-  if (user) {
-    store.commit(types.SET_CURRENTUSER, user)
-    store.dispatch('fetchUserProfile')
-  }
-})
-
 // Init App
 new Vue({
   el: '#app',
