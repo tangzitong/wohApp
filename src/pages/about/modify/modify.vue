@@ -19,10 +19,6 @@
               <input v-model.trim="title" type="text" :placeholder="$t('modify.usertitle_')" id="title" />
             </f7-list-item>
             <f7-list-item>
-              <label for="password">{{$t('modify.password')}}</label>
-              <input v-model.trim="password" type="password" :placeholder="$t('modify.password_')" id="password" />
-            </f7-list-item>
-            <f7-list-item>
               <a @click="updateProfile">{{$t('modify.btn')}}</a>
             </f7-list-item>
           </form>
@@ -40,7 +36,6 @@ export default {
     return {
       name: '',
       title: '',
-      password: '',
       showSuccess: false
     }
   },
@@ -51,13 +46,11 @@ export default {
     updateProfile() {
       this.$store.dispatch('updateProfile', {
         name: this.name !== '' ? this.name : this.userProfile.name,
-        title: this.title !== '' ? this.title : this.userProfile.title,
-        password: this.password !== '' ? this.password : this.userProfile.password
+        title: this.title !== '' ? this.title : this.userProfile.title
       })
 
       this.name = ''
       this.title = ''
-      this.password = ''
 
       this.showSuccess = true
 
