@@ -100,7 +100,7 @@ Firechat.prototype = {
   // Initialize Firebase listeners and callbacks for the supported bindings.
   _setupDataEvents: function() {
     // Monitor connection state so we can requeue disconnect operations if need be.
-    const connectedRef = this._firechatRef.global.child('.info/connected')
+    const connectedRef = this._firechatRef.root.child('.info/connected')
     connectedRef.on('value', function(snapshot) {
       if (snapshot.val() === true) {
         // We're connected (or reconnected)! Set up our presence state.
