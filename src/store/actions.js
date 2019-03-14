@@ -10,7 +10,7 @@ export function clearData({ commit }) {
 }
 
 export function fetchUserProfile({ commit, state }) {
-  fb.database.child(state.currentUser.uid).once('value', function(snapshot) {
+  fb.database.child('users').child(state.currentUser.uid).once('value', function(snapshot) {
     commit(types.SET_USERPROFILE, snapshot.val())
   }).catch(err => {
     console.log(err)
@@ -18,16 +18,9 @@ export function fetchUserProfile({ commit, state }) {
 }
 
 export function updateProfile({ commit, state }, data) {
-  fb.database.child(state.currentUser.uid).set({
+  fb.database.child('users').child(state.currentUser.uid).update({
     login_name: data.name,
-    nick_name: data.title,
-    points: 0,
-    avatar_url: '',
-    gender: '',
-    location: '',
-    invites: [],
-    muted: [],
-    rooms: []
+    nick_name: data.title
   }).catch(err => {
     console.log(err)
   })
