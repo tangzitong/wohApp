@@ -173,6 +173,18 @@ Firechat.getRoomList(callback)
 Firechat.getUsersByRoom(roomId, [limit=100], callback)
 Firechat.getUsersByPrefix(prefix, startAt, endAt, limit, callback)
 Firechat.getRoom(roomId, callback)
+Firechat.createPost(content, pic, callback)
+Firechat.addComment(postKey, comments, callback)
+Firechat.likePost(postKey, callback)
+Firechat.getPostList(callback)
+Firechat.removePost(postKey, callback)
+Firechat.getPostComments(postkey, callback)
+Firechat.removePostComment(postKey, commentKey, callback)
+Firechat.getPostLikes(postkey, callback)
+Firechat.unlikePost(postKey, likeKey, callback)
+Firechat.addContact(userid, name, header, location, callback)
+Firechat.removeContact(userkey, callback)
+Firechat.getContactList(callback)
 
 API - Exposed Bindings
 user-update - Invoked when the user's metadata changes.
