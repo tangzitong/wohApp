@@ -145,6 +145,7 @@ framework7-icons:
 https://github.com/framework7io/framework7-icons
 material-design-icons:
 https://github.com/google/material-design-icons
+https://icofont.com/icons
 
 13.jQuery
 https://maketips.net/tip/223/how-to-include-jquery-into-vuejs

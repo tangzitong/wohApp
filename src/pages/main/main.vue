@@ -9,10 +9,10 @@
     </f7-navbar>
     <f7-toolbar tabbar :labels="!isAndroid">
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7homeoutline' : ''" :text="$t('app.home')" tab-link="#home" tab-link-active></f7-link>
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.contacts')" tab-link="#contacts"></f7-link>
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.news')" tab-link="#news"></f7-link>
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.data')" tab-link="#data"></f7-link>
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubbleoutline' : ''" :text="$t('app.work')" tab-link="#work"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7person' : ''" :text="$t('app.contacts')" tab-link="#contacts"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-pic' : ''" :text="$t('app.news')" tab-link="#news"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-thumbup' : ''" :text="$t('app.data')" tab-link="#data"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7cameraoutline' : ''" :text="$t('app.work')" tab-link="#work"></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7gearoutline' : ''" :text="$t('app.settings')" tab-link="#settings"></f7-link>
     </f7-toolbar>
 

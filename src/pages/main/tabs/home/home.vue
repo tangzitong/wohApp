@@ -2,7 +2,7 @@
   <div class="home-view">
     <f7-list>
       <f7-list-item :title="$t('app.jobs')" link="/jobs/type/">
-        <i class='iconfont icon-jobs' slot="media"></i>
+        <i class="f7-icons size-25" slot="media">home</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
@@ -56,6 +56,9 @@
       height: 29px;
     }
     .icon-jobs {
+      color: #0099ff;
+    }
+    .f7-icons.size-25 {
       color: #0099ff;
     }
     .icon-companys {
