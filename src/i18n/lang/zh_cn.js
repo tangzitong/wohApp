@@ -23,7 +23,7 @@ export default {
     tooltype: '工具选择',
     eventtype: '社区选择',
     reporttype: '報告选择',
-    industry: '行业',
+    industry: '行业选择',
     feedback: '意见反馈',
     about: '关于我们',
     avatar: '头像',

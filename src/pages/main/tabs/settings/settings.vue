@@ -24,7 +24,7 @@
     </f7-list>
     <f7-list>
       <f7-list-item :title="$t('app.industry')" link="/industry/">
-        <i class='iconfont icon-industry' slot="media"></i>
+        <i class='iconfont icon-wujieguoyangshi' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
@@ -40,14 +40,15 @@
     <f7-list>
       <template v-if="!isUserLogin">
       <f7-list-item :title="$t('login.title')" link="/about/login/">
-        <i class='iconfont icon-industry' slot="media"></i>
+        <i class='iconfont icon-ios7arrowright' slot="media"></i>
       </f7-list-item>
       </template>
       <template v-else>
       <f7-list-item v-if="isUserLogin" :title="$t('modify.title')" link="/about/modify/">
-        <i class='iconfont icon-industry' slot="media"></i>
+        <i class='iconfont icon-ios7arrowright' slot="media"></i>
       </f7-list-item>
       <f7-list-item :title="$t('logout.title')">
+        <i class='iconfont icon-ios7arrowright' slot="media"></i>
         <a @click="logout">{{$t('logout.btn')}}</a>
       </f7-list-item>
       </template>

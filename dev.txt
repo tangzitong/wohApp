@@ -43,6 +43,8 @@ npm start
 npm run build
 https://dackdive.hateblo.jp/entry/2016/10/10/095800
 https://github.com/highwayns/esformatter
+npm install [-g] esformatter
+esformatter -i test.js
 
 6.phonegap
 http://docs.phonegap.com/
@@ -292,3 +294,6 @@ https://jp.vuejs.org/v2/guide/plugins.html
 
 23.vue on aem
 https://github.com/ahmed-musallam/AtACE-AEM-Vue
+
+24.app-framework
+https://github.com/highwayns/app-framework
