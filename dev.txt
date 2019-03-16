@@ -30,6 +30,7 @@ https://qiita.com/takeharu/items/809114f943208aaf55b3
 https://momentjs.com/
 https://underscorejs.org/
 https://qiita.com/tsukishimaao/items/39d22fd9178546d6cdeb
+https://wp-p.info/tpl_rep.php?cat=js-application&fl=r9
 
 4.html/css
 http://www.ituore.com/entry/html-css-basic
