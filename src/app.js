@@ -46,7 +46,7 @@ import { isAndroid } from './utils/appFunc'
 
 import * as fb from './firebaseConfig.js'
 
-function initCordova (callback) {
+/* function initCordova (callback) {
   if (window.cordova !== undefined) {
     if (window.StatusBar !== undefined) {
       callback()
@@ -58,7 +58,7 @@ function initCordova (callback) {
   } else {
     callback()
   }
-}
+} */
 
 const manageComponentData = {
   created: function () {
@@ -155,11 +155,11 @@ const mixins = {}
 mixins.loadConfig = {
   data: {
     // Load App Framework version
-    frameworkVersion: process.env.FRAMEWORK_VERSION,
+    frameworkVersion: '1.20',
     // Load project version
-    version: process.env.PROJECT_VERSION,
+    version: '1.0',
     // Load application configuration
-    config: require(process.env.APP_ROOT_FROM_SCRIPTS + 'config.json')
+    config: require('./config.json')
   },
   // Update Framework7 modal title
   created: function () {
@@ -201,45 +201,7 @@ mixins.loadRoutes = {
   },
   created: function () {
     // Load routes file
-    const routes = require(process.env.APP_ROOT_FROM_SCRIPTS + 'routes.json')
-    for (let r = 0; r < routes.length; r++) {
-      // Page routes
-      try {
-        routes[r].component = require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + routes[r].component)
-      } catch (err) {
-        console.error('Failed to load page component "' + routes[r].component + '". Please update the routes.json file.')
-      }
-      // Login required?
-      if (routes[r].login === true) this.loginRoutes.push(routes[r].path)
-      // Tab routes
-      if (Array.isArray(routes[r].tabs)) {
-        for (let t = 0; t < routes[r].tabs.length; t++) {
-          try {
-            routes[r].tabs[t].component = require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + routes[r].tabs[t].component)
-          } catch (err) {
-            console.error('Failed to load page component "' + routes[r].tabs[t].component + '". Please update the routes.json file.')
-          }
-          // Login required?
-          if (routes[r].tabs[t].login === true) {
-            this.loginRoutes.push(routes[r].path + routes[r].tabs[t].path.substr(1))
-          }
-          // Alternate tab routes
-          if (Array.isArray(routes[r].tabs[t].routes)) {
-            for (let a = 0; a < routes[r].tabs[t].routes.length; a++) {
-              try {
-                routes[r].tabs[t].routes[a].component = require(process.env.APP_ROOT_FROM_SCRIPTS + 'pages/' + routes[r].tabs[t].routes[a].component)
-              } catch (err) {
-                console.error('Failed to load page component "' + routes[r].tabs[t].routes[a].component + '". Please update the routes.json file.')
-              }
-              // Login required?
-              if (routes[r].tabs[t].routes[a].login === true) {
-                this.loginRoutes.push(routes[r].path + routes[r].tabs[t].path.substr(1) + routes[r].tabs[t].routes[a].path.substr(1))
-              }
-            }
-          }
-        }
-      }
-    }
+    const routes = []
     // Add login screen route
     routes.push({
       path: '/app-framework-login-screen/',
@@ -269,10 +231,10 @@ mixins.loadRoutes = {
 }
 mixins.loadIconFonts = {
   created: function () {
-    if (process.env.FONT_FRAMEWORK7 === 'true') require('framework7-icons/css/framework7-icons.css')
-    if (process.env.FONT_MATERIAL === 'true') require('./assets/material-icons/material-icons.css')
-    if (process.env.FONT_ION === 'true') require('ionicons/dist/css/ionicons.css')
-    if (process.env.FONT_AWESOME === 'true') require('font-awesome/css/font-awesome.css')
+    // require('framework7-icons/css/framework7-icons.css')
+    // require('./assets/material-icons/material-icons.css')
+    // require('ionicons/dist/css/ionicons.css')
+    // require('font-awesome/css/font-awesome.css')
   }
 }
 mixins.manageFirebase = {
@@ -286,43 +248,44 @@ mixins.manageFirebase = {
   // Init Firebase
   created: function () {
     // Use Firebase
-    if (process.env.USE_FIREBASE_APP === 'true') {
-      // Include scripts
-      const firebase = require('firebase/app')
-      if (process.env.USE_FIREBASE_AUTH === 'true') require('firebase/auth')
-      if (process.env.USE_FIREBASE_DATABASE === 'true') require('firebase/database')
-      if (process.env.USE_FIREBASE_STORAGE === 'true') require('firebase/storage')
-      // Initialize Firebase
-      window.firebase = firebase.initializeApp(this.config[process.env.FIREBASE_CONFIG])
-      // Use auth service
-      if (process.env.USE_FIREBASE_AUTH === 'true') {
-        // Get initial user data from local storage
-        this.user = window.localStorage.user ? JSON.parse(window.localStorage.user) : null
-        // Clean local storage if user is not logged in initially
-        if (!window.localStorage.user) this.cleanLocalStorageAfterLogut()
-        // Monitor user changes
-        firebase.auth().onAuthStateChanged(user => {
-          this.user = user ? {
-            uid: user.uid,
-            email: user.email,
-            name: user.displayName,
-            photo: user.photoURL
-          } : null
-        })
-      }
-      // Use database service
-      if (process.env.USE_FIREBASE_DATABASE === 'true') {
-        this.db = function (path) {
-          return firebase.database().ref(path)
-        }
-        this.timestamp = firebase.database.ServerValue.TIMESTAMP
-      }
-      // Use storage service
-      if (process.env.USE_FIREBASE_STORAGE === 'true') {
-        this.store = function (path) {
-          return firebase.storage().ref(path)
-        }
-      }
+    // Include scripts
+    const firebase = require('firebase/app')
+    require('firebase/auth')
+    require('firebase/database')
+    require('firebase/storage')
+    // Initialize Firebase
+    window.firebase = firebase.initializeApp({
+      apiKey: 'AIzaSyDAE4x2uKFo46nBgZOxSsIFqcYVIqArM0Q',
+      authDomain: 'wohapp-3a179.firebaseapp.com',
+      databaseURL: 'https://wohapp-3a179.firebaseio.com',
+      projectId: 'wohapp-3a179',
+      storageBucket: 'wohapp-3a179.appspot.com',
+      messagingSenderId: '553446471400',
+      allowEmailLogin: true,
+      allowEmailRegistration: true
+    })
+    // Use auth service
+    // Get initial user data from local storage
+    this.user = window.localStorage.user ? JSON.parse(window.localStorage.user) : null
+    // Clean local storage if user is not logged in initially
+    if (!window.localStorage.user) this.cleanLocalStorageAfterLogut()
+    // Monitor user changes
+    firebase.auth().onAuthStateChanged(user => {
+      this.user = user ? {
+        uid: user.uid,
+        email: user.email,
+        name: user.displayName,
+        photo: user.photoURL
+      } : null
+    })
+    // Use database service
+    this.db = function (path) {
+      return firebase.database().ref(path)
+    }
+    this.timestamp = firebase.database.ServerValue.TIMESTAMP
+    // Use storage service
+    this.store = function (path) {
+      return firebase.storage().ref(path)
     }
   },
   // Watch for changes
@@ -422,30 +385,6 @@ mixins.resetCache = {
     }
   }
 }
-mixins.checkNPMupdates = {
-  watch: {
-    stateReady: function () {
-      if (process.env.NODE_ENV === 'development') {
-        const npm = require(process.env.PROJECT_ROOT_FROM_SCRIPTS + 'node_modules/.app-framework-cache/latest-npm-version.json')
-        if (npm !== undefined && npm.latest !== undefined) {
-          if (npm.latest === 'unknown') {
-            window.f7.alert('Failed to get latest NPM version. Please open an incident on GitHub.', 'App Framework')
-          } else if (/^[0-9]+\.[0-9]+\.[0-9]+(-.+)?$/.test(npm.latest)) {
-            const currentVersion = this.frameworkVersion.split('.')
-            const npmVersion = npm.latest.split('.')
-            if (parseInt(currentVersion[0]) < parseInt(npmVersion[0]) ||
-                parseInt(currentVersion[1]) < parseInt(npmVersion[1]) ||
-                parseInt(currentVersion[2]) < parseInt(npmVersion[2])) {
-              window.f7.alert('Please update App Framework to the latest version <b>' + npm.latest + '</b>.<br /><br />You have installed version ' + this.frameworkVersion + '.<br /><br />The CLI commands are "CTRL + C" to stop the development server and "npm update" to update App Framework.', 'App Framework')
-            }
-          } else {
-            window.f7.alert('Failed to get parse NPM version. Please open an incident on GitHub.', 'App Framework')
-          }
-        }
-      }
-    }
-  }
-}
 mixins.initWorkarounds = {
   data: {
     materialCodepoints: null
@@ -466,9 +405,7 @@ mixins.initWorkarounds = {
   },
   created: function () {
     // Materical Icons not shown in older browsers / android versions
-    if (process.env.FONT_MATERIAL) {
-      this.materialCodepoints = require('./material-codepoints.json')
-    }
+    this.materialCodepoints = require('./material-codepoints.json')
   }
 }
 mixins.manageGlobalDataObject = {
@@ -755,7 +692,7 @@ mixins.manageColor = {
   // Set initial data
   data: {
     color: null,
-    colors: require('./theme-colors')
+    colors: require('./theme-colors.json')
   },
   // Watch changes
   watch: {
@@ -1244,31 +1181,6 @@ mixins.manageState = {
     }
   }
 }
-mixins.languagePattern = {
-  data: {
-    languages: [],
-    languagePattern: {}
-  },
-  created () {
-    this.languages = process.env.LANGUAGES.split(',')
-    this.languages.forEach((lang) => {
-      this.languagePattern[lang] = require(process.env.APP_ROOT_FROM_SCRIPTS + 'lang/' + lang + '.json')
-    })
-  },
-  methods: {
-    getLanguagePattern (key, data) {
-      const requestedText = this.languagePattern[this.language] ? this.languagePattern[this.language][key] : undefined
-      const defaultText = this.languagePattern[this.config.defaultLanguage] ? this.languagePattern[this.config.defaultLanguage][key] : undefined
-      let text = requestedText || defaultText || (data !== null ? '{{' + key + ', ' + JSON.stringify(data) + '}}' : '{{' + key + '}}')
-      if (data !== null) {
-        for (const item in data) {
-          text = text.replace(new RegExp('\\{\\{' + item + '\\}\\}', 'g'), data[item])
-        }
-      }
-      return text
-    }
-  }
-}
 
 function initF7VueApp () {
   // Load Vue
@@ -1361,8 +1273,8 @@ function initF7VueApp () {
 }
 
 window.initApplication = () => {
-  initCordova(() => {
-    initF7VueApp()
-    getLoginUser(store)
-  })
+  // initCordova(() => {
+  initF7VueApp()
+  getLoginUser(store)
+  // })
 }

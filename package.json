@@ -69,6 +69,7 @@
     "vue-router": "^3.0.2",
     "ionicons": "^3.0.0",
     "font-awesome": "^4.7.0",
+    "json-loader": "^0.5.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

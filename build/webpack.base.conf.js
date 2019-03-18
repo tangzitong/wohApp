@@ -75,6 +75,11 @@ module.exports = {
           name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
+      // JSON files
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
