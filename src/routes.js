@@ -39,10 +39,6 @@ import reporttypePage from './pages/reports/type'
 import reportaddPage from './pages/reports/add'
 import messagePage from './pages/message'
 import postPage from './pages/post'
-import Login from '@/components/Login'
-import Dashboard from '@/components/Dashboard'
-import Settings from '@/components/Settings'
-
 export default [
   {
     path: '/',
@@ -265,27 +261,6 @@ export default [
     path: '/reports/add/',
     component: reportaddPage,
     name: 'addReport',
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/settings',
-    name: 'Settings',
-    component: Settings,
     meta: {
       requiresAuth: true
     }

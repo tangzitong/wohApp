@@ -7,8 +7,8 @@
     "industry":{
       ".indexOn": ["language"]
     },
-    ".read": false,
-    ".write": false,
+    ".read": true,
+    ".write": true,
     "room-metadata": {
       ".read": true,
       "$roomId": {
