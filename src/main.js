@@ -4,7 +4,6 @@ import 'es6-promise/auto'
 
 // Import Vue
 import Vue from 'vue'
-
 // Import F7, F7-Vue
 import Framework7 from 'framework7/dist/framework7.esm.bundle.js'
 import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle.js'
@@ -41,8 +40,12 @@ import { isAndroid } from './utils/appFunc'
 
 import * as fb from './firebaseConfig.js'
 
+// Import vuefire
+const VueFire = require('vuefire')
+
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
+Vue.use(VueFire)
 
 const router = new VueRouter({
   Routes,
@@ -68,6 +71,12 @@ new Vue({
   store,
   i18n,
   template: '<app/>',
+  firebase: {
+    db: fb.database,
+    auth: fb.auth,
+    currentUser: fb.currentUser,
+    chat: fb.chat
+  },
   // Init Framework7 by passing parameters here
   framework7: {
     id: 'com.highwayns.wohapp', // App bundle ID
