@@ -18,6 +18,9 @@
     <f7-popup :opened="applicationPopupOpened">
       <application-popup></application-popup>
     </f7-popup>
+    <f7-popup :opened="loginPopupOpened">
+      <login-popup></login-popup>
+    </f7-popup>
   </div>
 </template>
 
@@ -25,6 +28,7 @@
 import PublisherPopup from './popup/publisher'
 import CommentPopup from './popup/comment'
 import ApplicationPopup from './popup/application'
+import LoginPopup from './popup/login'
 import { mapState } from 'vuex'
 
 export default {
@@ -32,13 +36,15 @@ export default {
     ...mapState({
       publisherPopupOpened: state => state.popup.publisherOpened,
       commentPopupOpened: state => state.popup.commentOpened,
-      applicationPopupOpened: state => state.popup.applicationOpened
+      applicationPopupOpened: state => state.popup.applicationOpened,
+      loginPopupOpened: state => state.popup.loginOpened
     }),
   },
   components: {
     PublisherPopup,
     CommentPopup,
-    ApplicationPopup
+    ApplicationPopup,
+    LoginPopup
   }
 }
 </script>

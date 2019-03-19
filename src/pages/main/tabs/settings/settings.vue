@@ -39,8 +39,9 @@
     </f7-list>
     <f7-list>
       <template v-if="!isUserLogin">
-      <f7-list-item :title="$t('login.title')" link="/about/login/">
+      <f7-list-item :title="$t('login.title')">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
+        <a @click="openLogin">{{$t('login.btn')}}</a>
       </f7-list-item>
       </template>
       <template v-else>
@@ -101,13 +102,12 @@
 </style>
 
 <script>
-import { mapState } from 'vuex'
-import * as fb from '../../../../firebaseConfig.js'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data() {
     return {
-      isUserLogin: this.userInfo
+      isUserLogin: this.$root.user
     }
   },
   computed: {
@@ -116,8 +116,17 @@ export default {
     })
   },
   methods: {
+    ...mapActions([
+      'updatePopup'
+    ]),
+    openLogin() {
+      this.updatePopup({
+        key: 'loginOpened',
+        value: true
+      })
+    },
     logout() {
-      fb.auth.signOut().then(() => {
+      this.$root.auth.signOut().then(() => {
         this.$store.dispatch('clearData')
         this.$f7router.navigate('/')
       }).catch(err => {

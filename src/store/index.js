@@ -16,7 +16,9 @@ const state = {
   hiddenPosts: [],
   popup: {
     publisherOpened: false,
-    commentOpened: false
+    commentOpened: false,
+    applicationOpened: false,
+    loginOpened: false
   }
 }
 

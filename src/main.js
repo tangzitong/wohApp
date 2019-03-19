@@ -73,9 +73,9 @@ new Vue({
   template: '<app/>',
   data: {
     loginRequiredForAllPages: false,
-    loginRequiringPagesOnStart: true,
-    config: fb.dbConfig，
-    user：fb.currentUser,
+    loginRequiringPagesOnStart: false,
+    config: fb.dbConfig,
+    user: fb.currentUser,
     db: fb.database,
     auth: fb.auth,
     chat: fb.chat
