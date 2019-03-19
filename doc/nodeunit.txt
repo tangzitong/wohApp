@@ -1,192 +1,111 @@
-vue test
-<template>
-  <span>{{ message }}</span>
-</template>
+Installation
 
-<script>
-  export default {
-    data () {
-      return {
-        message: 'hello!'
-      }
-    },
-    created () {
-      this.message = 'bye!'
-    }
-  }
-</script>
+npm install nodeunit -g
 
-// Vue �� �e�X�g�Ώۂ̃R���|�[�l���g���C���|�[�g����
-import Vue from 'vue'
-import MyComponent from 'path/to/MyComponent.vue'
+usage
 
-// �e�X�g�����i�[�⌟�؂ɂ́A�ǂ̂悤�ȃ��C�u������p���Ă��\���܂���
-// �����ł� Jasmine 2.0 ��p�����e�X�g�L�q���s���Ă��܂��B
-describe('MyComponent', () => {
-  // �R���|�[�l���g�� options �𒼐ڌ��؂��܂��B
-  it('has a created hook', () => {
-    expect(typeof MyComponent.created).toBe('function')
-  })
-
-  // �R���|�[�l���g�� options ���ɂ���֐������s���A
-  // ���ʂ����؂��܂��B
-  it('sets the correct default data', () => {
-    expect(typeof MyComponent.data).toBe('function')
-    const defaultData = MyComponent.data()
-    expect(defaultData.message).toBe('hello!')
-  })
-
-  // �R���|�[�l���g�C���X�^���X���}�E���g���Č��؂��܂��B
-  it('correctly sets the message when created', () => {
-    const vm = new Vue(MyComponent).$mount()
-    expect(vm.message).toBe('bye!')
-  })
-
-  // �}�E���g���ꂽ�R���|�[�l���g�C���X�^���X��`�悵�Č��؂��܂��B
-  it('renders the correct message', () => {
-    const Constructor = Vue.extend(MyComponent)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.textContent).toBe('bye!')
-  })
-})
-
-nodeunit
-test/test-divided.js 
-var divided = require('../lib/divided');
-
-exports['calculate'] = function(test) {
-    test.equal(divided.calculate(4), 2);
+exports.testSomething = function(test) {
+    test.expect(1);
+    test.ok(true, "this assertion should pass");
     test.done();
 };
 
-nodeunit 
-~nodeprj$ nodeunit test
-
-module.js:340
-    throw err;
-          ^
-Error: Cannot find module '../lib/divided'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.Module._load (module.js:280:25)
-    ...
-    at Module.require (module.js:364:17)
-    
-    
-lib/divided.js 
-/** �^����ꂽ�l��2 �Ŋ����ď����_�ȉ���؂�̂Ă����ʂ�Ԃ��֐� */
-exports.calculate = function(num) {
-	return num / 2;
+exports.testSomethingElse = function(test) {
+    test.ok(false, "this assertion should fail");
+    test.done();
 };
 
-virefire unittest
 
-import Vuefire from '../src'
+API Documentation
 
-import { db, tick, Vue } from '@posva/vuefire-test-helpers'
+ok(value, [message]) - Tests if value is a true value.
+equal(actual, expected, [message]) - Tests shallow, coercive equality with the equal comparison operator ( == ).
+notEqual(actual, expected, [message]) - Tests shallow, coercive non-equality with the not equal comparison operator ( != ).
+deepEqual(actual, expected, [message]) - Tests for deep equality.
+notDeepEqual(actual, expected, [message]) - Tests for any deep inequality.
+strictEqual(actual, expected, [message]) - Tests strict equality, as determined by the strict equality operator ( === )
+notStrictEqual(actual, expected, [message]) - Tests strict non-equality, as determined by the strict not equal operator ( !== )
+throws(block, [error], [message]) - Expects block to throw an error.
+doesNotThrow(block, [error], [message]) - Expects block not to throw an error.
+ifError(value) - Tests if value is not a false value, throws if it is a true value. Useful when testing the first argument, error in callbacks.
+
+Nodeunit also provides the following functions within tests:
+expect(amount) - Specify how many assertions are expected to run within a test. Very useful for ensuring that all your callbacks and assertions are run.
+done() - Finish the current test function, and move on to the next. ALL tests should call this!
 
 
+Tests run in series
+var _readFile = fs.readFile;
+fs.readFile = function(path, callback) {
+    // it's a stub!
+};
+// test function that uses fs.readFile
 
-Vue.use(Vuefire)
+// we're done
+fs.readFile = _readFile;
 
+Groups, setUp and tearDown
+exports.test1 = function (test) {
+    ...
+}
 
-
-let collection, document, vm
-
-beforeEach(async () => {
-
-  collection = db.collection()
-
-  document = collection.doc()
-
-  vm = new Vue({
-
-    // purposely set items as null
-
-    // but it's a good practice to set it to an empty array
-
-    data: () => ({
-
-      items: null,
-
-      item: null
-
-    }),
-
-    firestore: {
-
-      items: collection,
-
-      item: document
-
+exports.group = {
+    test2: function (test) {
+        ...
+    },
+    test3: function (test) {
+        ...
     }
+}
 
-  })
+module.exports = {
+    setUp: function (callback) {
+        this.foo = 'bar';
+        callback();
+    },
+    tearDown: function (callback) {
+        // clean up
+        callback();
+    },
+    test1: function (test) {
+        test.equals(this.foo, 'bar');
+        test.done();
+    }
+};
 
-  await tick()
+Running Tests
+nodeunit testmodule1.js testfolder [...]
 
-})
+Command-line Options
+--reporter FILE - you can set the test reporter to a custom module or on of the modules in nodeunit/lib/reporters, when omitted, the default test runner is used.
+--list-reporters - list available built-in reporters.
+--config FILE - load config options from a JSON file, allows the customisation of color schemes for the default test reporter etc. See bin/nodeunit.json for current available options.
+-t testName - run specific test only.
+-f fullTestName - run specific test only. fullTestName is built so: "outerGroup - .. - innerGroup - testName".
+--version or -v - report nodeunit version
+--help - show nodeunit help
 
+Running tests in the browser
+<html>
+  <head>
+    <title>Example Test Suite</title>
+    <link rel="stylesheet" href="nodeunit.css" type="text/css" />
+    <script src="nodeunit.js"></script>
+    <script src="suite1.js"></script>
+    <script src="suite2.js"></script>
+  </head>
+  <body>
+    <h1 id="nodeunit-header">Example Test Suite</h1>
+    <script>
+      nodeunit.run({
+        'Suite One': suite1,
+        'Suite Two': suite2
+      });
+    </script>
+  </body>
+</html>
 
-
-test('does nothing with no firestore', () => {
-
-  const vm = new Vue({
-
-    data: () => ({ items: null })
-
-  })
-
-  expect(vm.items).toEqual(null)
-
-})
-
-
-
-test('setups _firestoreUnbinds', () => {
-
-  expect(vm._firestoreUnbinds).toBeTruthy()
-
-  expect(Object.keys(vm._firestoreUnbinds).sort()).toEqual(['item', 'items'])
-
-})
-
-
-
-test('setups _firestoreUnbinds with no firestore options', () => {
-
-  const vm = new Vue({
-
-    data: () => ({ items: null })
-
-  })
-
-  expect(vm._firestoreUnbinds).toBeTruthy()
-
-  expect(Object.keys(vm._firestoreUnbinds)).toEqual([])
-
-})
-
-
-
-test('setups $firestoreRefs', () => {
-
-  expect(Object.keys(vm.$firestoreRefs).sort()).toEqual(['item', 'items'])
-
-  expect(vm.$firestoreRefs.item).toBe(document)
-
-  expect(vm.$firestoreRefs.items).toBe(collection)
-
-})
-
-
-
-test('clears $firestoreRefs on $destroy', () => {
-
-  vm.$destroy()
-
-  expect(vm.$firestoreRefs).toEqual(null)
-
-})
-
-
-
+Adding nodeunit to Your Projects
+#!/usr/bin/env node
+var reporter = require('nodeunit').reporters.default;
+reporter.run(['test']);
