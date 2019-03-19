@@ -288,7 +288,7 @@ https://github.com/useryangtao/vue-wechat
 https://qiita.com/oret/items/8c9a216865b088c15d68
 https://jp.vuejs.org/v2/guide/unit-testing.html
 https://qiita.com/TsutomuNakamura/items/975329b61e5c8a375691
-
+https://qiita.com/chimame/items/e97883fd46b67529d59f
 npm install -g nodeunit
 test folderにテストプログラムを作成する
 nodeunit test
