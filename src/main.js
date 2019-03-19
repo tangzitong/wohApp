@@ -74,13 +74,13 @@ new Vue({
   data: {
     loginRequiredForAllPages: false,
     loginRequiringPagesOnStart: true,
-    config: fb.dbConfig
-  },
-  firebase: {
+    config: fb.dbConfig，
+    user：fb.currentUser,
     db: fb.database,
     auth: fb.auth,
-    currentUser: fb.currentUser,
     chat: fb.chat
+  },
+  firebase: {
   },
   // Init Framework7 by passing parameters here
   framework7: {
