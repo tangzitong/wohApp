@@ -31,7 +31,8 @@ https://momentjs.com/
 https://underscorejs.org/
 https://qiita.com/tsukishimaao/items/39d22fd9178546d6cdeb
 https://wp-p.info/tpl_rep.php?cat=js-application&fl=r9
-
+https://qiita.com/ichikawa_0829/items/85413fedc59822ccef75
+https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage
 4.html/css
 http://www.ituore.com/entry/html-css-basic
 https://www.webopixel.net/html-css/503.html
