@@ -50,7 +50,7 @@
     </f7-block>
 
     <!-- Cancel button -->
-    <f7-block v-if="(!$root.loginRequiringPagesOnStart && !$root.config.loginRequiredForAllPages) || mode !== 'signIn'">
+    <f7-block v-if="(!$root.loginRequiringPagesOnStart && !$root.loginRequiredForAllPages) || mode !== 'signIn'">
       <f7-button big raised color="red" @click="cancel">{{text.cancel}}</f7-button>
     </f7-block>
 
@@ -138,7 +138,7 @@ export default {
   },
   computed: {
     firebaseConfig: function () {
-      return process.env.NODE_ENV === 'production' ? this.$root.config.firebase : this.$root.config.devFirebase
+      return this.$root.config
     },
     text: function () {
       return text[this.$root.language] || text['en']
@@ -151,7 +151,7 @@ export default {
   mounted() {
     // Workaround to close login popup on initial load and shift it back to the left -->
     // Close only if there are no login requiring pages on start or the user is logged in
-    if ((!this.$root.loginRequiringPagesOnStart && !this.$root.config.loginRequiredForAllPages) || this.$root.user) {
+    if ((!this.$root.loginRequiringPagesOnStart && !this.$root.loginRequiredForAllPages) || this.$root.user) {
       this.$f7.closeModal('#app-framework-login-popup', false)
     }
     this.$$('#app-framework-login-popup').css('left', '0')
@@ -246,7 +246,7 @@ export default {
             navBack(view, history.length - historyRequiresLoginAtPosition)
           })
           // Do only if there are pages which do not require login
-          if (!this.$root.config.loginRequiredForAllPages && !this.$root.loginRequiringPagesOnStart) {
+          if (!this.$root.loginRequiredForAllPages && !this.$root.loginRequiringPagesOnStart) {
             // Close popup
             this.$f7.closeModal('#app-framework-login-popup')
             // Show notification

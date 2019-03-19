@@ -71,6 +71,11 @@ new Vue({
   store,
   i18n,
   template: '<app/>',
+  data: {
+    loginRequiredForAllPages: false,
+    loginRequiringPagesOnStart: true,
+    config: fb.dbConfig
+  },
   firebase: {
     db: fb.database,
     auth: fb.auth,

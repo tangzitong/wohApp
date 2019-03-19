@@ -4,7 +4,7 @@ import { Firechat } from './firechat.js'
 
 // firebase init goes here
 
-const devFirebase = {
+const dbConfig = {
   apiKey: 'AIzaSyDAE4x2uKFo46nBgZOxSsIFqcYVIqArM0Q',
   authDomain: 'wohapp-3a179.firebaseapp.com',
   databaseURL: 'https://wohapp-3a179.firebaseio.com',
@@ -14,7 +14,7 @@ const devFirebase = {
   allowEmailLogin: true,
   allowEmailRegistration: true
 }
-firebase.initializeApp(devFirebase)
+firebase.initializeApp(dbConfig)
 
 // firebase utils
 const auth = firebase.auth()
@@ -36,6 +36,7 @@ auth.onAuthStateChanged(function(user) {
 })
 
 export {
+  dbConfig,
   database,
   auth,
   currentUser,
