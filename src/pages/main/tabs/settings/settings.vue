@@ -39,9 +39,9 @@
     </f7-list>
     <f7-list>
       <template v-if="!isUserLogin">
-      <f7-list-item :title="$t('login.title')">
+      <f7-list-item :title="$t('login.titleSignIn')">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
-        <a @click="openLogin">{{$t('login.btn')}}</a>
+        <a @click="openLogin">{{$t('login.titleSignIn')}}</a>
       </f7-list-item>
       </template>
       <template v-else>

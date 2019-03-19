@@ -2,131 +2,63 @@
   <f7-page no-navbar no-toolbar no-swipeback layout="white">
 
     <!-- Title -->
-    <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? text.titleSignIn : text.titleSignOut}}</f7-block>
+    <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-block>
 
     <!-- Sign in disabled alert -->
-    <f7-block inner inset v-if="!firebaseConfig.allowEmailLogin && mode === 'signIn'">{{text.currentlyDisabled}}</f7-block>
+    <f7-block inner inset v-if="!firebaseConfig.allowEmailLogin && mode === 'signIn'">{{$t('login.currentlyDisabled')}}</f7-block>
 
     <!-- Form for email sign in / registration / password reset -->
     <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
       <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
-        <f7-label>{{text.email}}</f7-label>
-        <f7-input type="email" :placeholder="text.email" v-model="email" />
+        <f7-label>{{$t('login.email')}}</f7-label>
+        <f7-input type="email" :placeholder="$t('login.email')" v-model="email" />
       </f7-list-item>
       <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
-        <f7-label>{{text.password}}</f7-label>
-        <f7-input type="password" :placeholder="text.password" v-model="password" />
+        <f7-label>{{$t('login.password')}}</f7-label>
+        <f7-input type="password" :placeholder="$t('login.password')" v-model="password" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
-        <f7-label>{{text.password}}</f7-label>
-        <f7-input type="password" :placeholder="text.passwordConfirmation" v-model="passwordConfirmation" />
+        <f7-label>{{$t('login.password')}}</f7-label>
+        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" v-model="passwordConfirmation" />
       </f7-list-item>
     </f7-list>
 
     <!-- Email sign in buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignIn">{{text.signIn}}</f7-button>
+      <f7-button big raised color="green" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
     </f7-block>
 
     <!-- Email registration buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
-      <f7-button big raised color="green" @click="mode='registration'">{{text.createAccount}}</f7-button>
+      <f7-button big raised color="green" @click="mode='registration'">{{$t('login.createAccount')}}</f7-button>
     </f7-block>
     <f7-block v-if="mode === 'registration' && firebaseConfig.allowEmailRegistration">
-      <f7-button big raised color="green" fill @click="handleRegistration">{{text.handleRegistration}}</f7-button>
+      <f7-button big raised color="green" fill @click="handleRegistration">{{$t('login.handleRegistration')}}</f7-button>
     </f7-block>
 
     <!-- Email reset buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="orange" @click="mode='reset'">{{text.resetPassword}}</f7-button>
+      <f7-button big raised color="orange" @click="mode='reset'">{{$t('login.resetPassword')}}</f7-button>
     </f7-block>
     <f7-block v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="orange" fill @click="handleReset">{{text.handleReset}}</f7-button>
+      <f7-button big raised color="orange" fill @click="handleReset">{{$t('login.handleReset')}}</f7-button>
     </f7-block>
 
     <!-- Logout button -->
     <f7-block v-if="mode === 'signOut'">
-      <f7-button big raised color="red" fill @click="handleSignOut">{{text.signOut}}</f7-button>
+      <f7-button big raised color="red" fill @click="handleSignOut">{{$t('login.signOut')}}</f7-button>
     </f7-block>
 
     <!-- Cancel button -->
     <f7-block v-if="(!$root.loginRequiringPagesOnStart && !$root.loginRequiredForAllPages) || mode !== 'signIn'">
-      <f7-button big raised color="red" @click="cancel">{{text.cancel}}</f7-button>
+      <f7-button big raised color="red" @click="cancel">{{$t('login.cancel')}}</f7-button>
     </f7-block>
 
   </f7-page>
 </template>
 <script>
 import { mapActions } from 'vuex'
-// Define text patterns
-const text = {
-  en: {
-    titleSignIn: 'Sign in',
-    titleSignOut: 'Sign out',
-    currentlyDisabled: 'The sign in is currently disabled.',
-    email: 'Email',
-    password: 'Password',
-    passwordConfirmation: 'Confirmation',
-    handleRegistration: 'Create account',
-    handleReset: 'Reset password',
-    signIn: 'Sign in',
-    signOut: 'Sign out',
-    createAccount: 'Create new account',
-    resetPassword: 'Reset your password',
-    cancel: 'Cancel',
-    emailSent: 'Email sent',
-    checkYourInbox: 'Please check your inbox.',
-    signOutDone: 'Sign out done',
-    accountCreated: 'Account created',
-    error: 'Error',
-    errorOffline: 'This action is offline not possible.',
-    errorNoEmail: 'Please enter your email address.',
-    errorNoPassword: 'Please enter a password.',
-    errorPasswordsDifferent: 'You entered two different passwords.',
-    firebaseErrors: {
-      'auth/email-already-in-use': 'The email address is already linked to another account.',
-      'auth/invalid-email': 'The email address is invalid.',
-      'auth/operation-not-allowed': 'Login is currently disabled.',
-      'auth/weak-password': 'The password is not safe enough.',
-      'auth/user-not-found': 'No account found for that email address.',
-      'auth/user-disabled': 'Your account is deactivated.',
-      'auth/wrong-password': 'The password is wrong.'
-    }
-  },
-  de: {
-    titleSignIn: 'Anmelden',
-    titleSignOut: 'Abmelden',
-    currentlyDisabled: 'Die Anmeldung ist zurzeit deaktiviert.',
-    email: 'E-Mail',
-    password: 'Passwort',
-    passwordConfirmation: 'Bestätigung',
-    handleRegistration: 'Konto erstellen',
-    handleReset: 'Passwort zurücksetzen',
-    signIn: 'Anmelden',
-    signOut: 'Abmelden',
-    createAccount: 'Neues Konto erstellen',
-    resetPassword: 'Passwort zurücksetzen',
-    cancel: 'Abbrechen',
-    emailSent: 'E-Mail verschickt',
-    checkYourInbox: 'Bitte schau in deinem Posteingang.',
-    signOutDone: 'Abmeldung erfolgreich',
-    accountCreated: 'Konto erstellt',
-    error: 'Fehler',
-    errorOffline: 'Diese Aktion ist offline nicht möglich.',
-    errorNoEmail: 'Bitte gib Deine E-Mail-Adresse ein.',
-    errorNoPassword: 'Bitte gib ein Passwort ein.',
-    errorPasswordsDifferent: 'Du hast zwei unterschiedliche Passwörter eingegeben.',
-    firebaseErrors: {
-      'auth/email-already-in-use': 'Die E-Mail-Adresse wird bereits verwendet.',
-      'auth/invalid-email': 'Die E-Mail-Adresse ist fehlerhaft.',
-      'auth/operation-not-allowed': 'Anmelden ist zurzeit nicht möglich.',
-      'auth/weak-password': 'Dein Passwort ist nicht sicher genug.',
-      'auth/user-not-found': 'Kein Konto mit dieser E-Mail-Adresse gefunden.',
-      'auth/user-disabled': 'Dein Konto ist deaktiviert.',
-      'auth/wrong-password': 'Das Passwort ist falsch.'
-    }
-  }
-}
+
 // Export module
 export default {
   data: function () {
@@ -140,9 +72,6 @@ export default {
   computed: {
     firebaseConfig: function () {
       return this.$root.config
-    },
-    text: function () {
-      return text[this.$root.language] || text['en']
     }
   },
   created: function () {
@@ -183,11 +112,11 @@ export default {
     },
     handleSignIn: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.text.errorOffline, this.text.error)
+        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.text.errorNoEmail, this.text.error)
+        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else if (this.password === '') {
-        window.f7.alert(this.text.errorNoPassword, this.text.error)
+        window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else {
         // Show loading indicator
         window.f7.showIndicator()
@@ -202,7 +131,7 @@ export default {
             // Hide loading indicator
             window.f7.hideIndicator()
             // Show error alert
-            window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
+            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     },
@@ -266,8 +195,8 @@ export default {
             })
             // Show notification
             window.f7.addNotification({
-              title: this.text.signOut,
-              message: this.text.signOutDone,
+              title: this.$t('login.signOut'),
+              message: this.$t('login.signOutDone'),
               hold: 3000,
               closeIcon: false
             })
@@ -276,13 +205,13 @@ export default {
     },
     handleRegistration: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.text.errorOffline, this.text.error)
+        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.text.errorNoEmail, this.text.error)
+        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else if (this.password === '') {
-        window.f7.alert(this.text.errorNoPassword, this.text.error)
+        window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else if (this.passwordConfirmation !== this.password) {
-        window.f7.alert(this.text.errorPasswordsDifferent, this.text.error)
+        window.f7.alert(this.$t('login.errorPasswordsDifferent'), this.$t('login.error'))
       } else {
         // Show loading indicator
         window.f7.showIndicator()
@@ -294,8 +223,8 @@ export default {
             window.f7.hideIndicator()
             // Show notification
             window.f7.addNotification({
-              title: this.text.accountCreated,
-              message: this.text.checkYourInbox,
+              title: this.$t('login.accountCreated'),
+              message: this.$t('login.checkYourInbox'),
               hold: 3000,
               closeIcon: false
             })
@@ -307,15 +236,15 @@ export default {
             // Hide loading indicator
             window.f7.hideIndicator()
             // Show error alert
-            window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
+            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     },
     handleReset: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.text.errorOffline, this.text.error)
+        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.text.errorNoEmail, this.text.error)
+        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else {
         // Show loading indicator
         window.f7.showIndicator()
@@ -328,8 +257,8 @@ export default {
             this.mode = 'signIn'
             // On success, show notfication and login screen again
             window.f7.addNotification({
-              title: this.text.emailSent,
-              message: this.text.checkYourInbox,
+              title: this.$t('login.emailSent'),
+              message: this.$t('login.checkYourInbox'),
               hold: 3000,
               closeIcon: false
             })
@@ -339,7 +268,7 @@ export default {
             // Hide loading indicator
             window.f7.hideIndicator()
             // Show error alert
-            window.f7.alert(this.text.firebaseErrors[err.code], this.text.error)
+            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     }

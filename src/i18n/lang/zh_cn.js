@@ -108,12 +108,37 @@ export default {
     post: '正文'
   },
   login: {
-    title: '登陆',
-    btn: '登陆',
-    userId: '用戸ID(E-mail):',
-    password: '密码:',
-    userId_: '用戸ID(E-mail)入力',
-    password_: '密码入力'
+    titleSignIn: '登陆',
+    titleSignOut: '退出',
+    currentlyDisabled: '登陆禁止中.',
+    email: '邮件',
+    password: '密码',
+    passwordConfirmation: '确定',
+    handleRegistration: '账号做成',
+    handleReset: '忘了密码',
+    signIn: '登陆',
+    signOut: '退出',
+    createAccount: '账号做成',
+    resetPassword: '忘了密码',
+    cancel: '取消',
+    emailSent: '邮件送信完成',
+    checkYourInbox: '请确认您的信箱.',
+    signOutDone: '已经退出',
+    accountCreated: '账号做成完毕',
+    error: '错误',
+    errorOffline: '离线中无法使用.',
+    errorNoEmail: '请输入邮件.',
+    errorNoPassword: '请输入密码.',
+    errorPasswordsDifferent: '密码不一致.',
+    firebaseErrors: {
+      'auth/email-already-in-use': '本邮件被其他账号使用中.',
+      'auth/invalid-email': '邮件地址无效.',
+      'auth/operation-not-allowed': '现在登陆禁止中.',
+      'auth/weak-password': '密码太弱.',
+      'auth/user-not-found': '本邮件使用中的账号没有.',
+      'auth/user-disabled': '账号无效.',
+      'auth/wrong-password': '密码不正.'
+    }
   },
   regist: {
     title: '登陆',

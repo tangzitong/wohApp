@@ -108,12 +108,37 @@ export default {
     post: '文章'
   },
   login: {
-    title: 'ログイン',
-    btn: 'ログイン',
-    userId: 'ユーザーID(E-mail):',
-    password: 'パスワード:',
-    userId_: 'ユーザーID(E-mail)を入力してください',
-    password_: 'パスワードを入力してください'
+    titleSignIn: 'ログイン',
+    titleSignOut: 'ログアウト',
+    currentlyDisabled: 'ログインは禁止中です.',
+    email: 'Eメール',
+    password: 'パスワード',
+    passwordConfirmation: '確認',
+    handleRegistration: 'アカウント作成',
+    handleReset: 'パスワードが忘れ',
+    signIn: 'ログイン',
+    signOut: 'ログアウト',
+    createAccount: 'アカウント作成',
+    resetPassword: 'パスワードが忘れ',
+    cancel: '取消',
+    emailSent: 'メール送信しました',
+    checkYourInbox: 'メールボックスで確認してください.',
+    signOutDone: 'ログアウト済み',
+    accountCreated: 'アカウント作成済み',
+    error: 'エラー',
+    errorOffline: 'オフラインのためできません.',
+    errorNoEmail: 'メールアドレスを入力してください.',
+    errorNoPassword: 'パスワードを入力してください.',
+    errorPasswordsDifferent: 'パスワードが異なる.',
+    firebaseErrors: {
+      'auth/email-already-in-use': 'メールアドレスはほかのアカウントを使っています.',
+      'auth/invalid-email': 'メールアドレスが無効です.',
+      'auth/operation-not-allowed': 'ログインは今禁止中.',
+      'auth/weak-password': 'パスワードが弱いです.',
+      'auth/user-not-found': 'このメールアドレスを使っているアカウントが見つかりません.',
+      'auth/user-disabled': 'アカウントは無効です.',
+      'auth/wrong-password': 'パスワードが不正.'
+    }
   },
   regist: {
     title: '登録',
