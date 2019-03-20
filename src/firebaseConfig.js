@@ -1,5 +1,7 @@
 import firebase from 'firebase'
 import 'firebase/database'
+import 'firebase/storage'
+
 import { Firechat } from './firechat.js'
 
 // firebase init goes here
@@ -14,31 +16,21 @@ const dbConfig = {
   allowEmailLogin: true,
   allowEmailRegistration: true
 }
+// firebase app
 window.firebase = firebase.initializeApp(dbConfig)
 
 // firebase utils
 const auth = firebase.auth()
-const currentUser = auth.currentUser
-const database = firebase.database().ref()
+const database = firebase.database()
+const storage = firebase.storage()
 
 // firechat
-const chat = new Firechat(database, null)
-
-auth.onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    // chat.setUser(user.uid, user.displayName)
-    // ...
-  } else {
-    // User is signed out.
-    // ...
-  }
-})
+const chat = new Firechat(database.ref(), null)
 
 export {
   dbConfig,
   database,
+  storage,
   auth,
-  currentUser,
   chat
 }

@@ -54,7 +54,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const currentUser = fb.currentUser
+  const currentUser = this.$root.user
 
   if (requiresAuth && !currentUser) {
     next('/login')
@@ -75,10 +75,68 @@ new Vue({
     loginRequiredForAllPages: false,
     loginRequiringPagesOnStart: false,
     config: fb.dbConfig,
-    user: fb.currentUser,
-    db: fb.database,
-    auth: fb.auth,
-    chat: fb.chat
+    user: null,
+    db: null,
+    store: null,
+    timestamp: null,
+    auth: null,
+    chat: null
+  },
+  beforeCreate: function () {
+    window.sortObject = require('./sort-object')
+  },
+  created: function () {
+    // Use auth service
+    // Get initial user data from local storage
+    this.user = window.localStorage.user ? JSON.parse(window.localStorage.user) : null
+    // Clean local storage if user is not logged in initially
+    if (!window.localStorage.user) this.cleanLocalStorageAfterLogut()
+    // Monitor user changes
+    fb.auth().onAuthStateChanged(user => {
+      this.user = user ? {
+        uid: user.uid,
+        email: user.email,
+        name: user.displayName,
+        photo: user.photoURL
+      } : null
+    })
+    // Use database service
+    this.db = function (path) {
+      return fb.database().ref(path)
+    }
+    this.timestamp = fb.database.ServerValue.TIMESTAMP
+    // Use storage service
+    this.store = function (path) {
+      return fb.storage().ref(path)
+    }
+    this.auth = fb.auth
+    this.chat = fb.chat
+  },
+  // Watch for changes
+  watch: {
+    user: function (newUser) {
+      // Update local storage
+      if (newUser === null) {
+        window.localStorage.removeItem('user')
+        this.cleanLocalStorageAfterLogut()
+      } else {
+        window.localStorage.user = JSON.stringify(newUser)
+      }
+      // Update window object
+      window.user = newUser
+    },
+    db: function (newDB) {
+      // Update window object
+      window.db = newDB
+    },
+    store: function (newStore) {
+      // Update window object
+      window.store = newStore
+    },
+    timestamp: function (newTimestamp) {
+      // Update window object
+      window.timestamp = newTimestamp
+    }
   },
   firebase: {
   },
@@ -103,6 +161,30 @@ new Vue({
         confirm: f7.dialog.confirm,
         prompt: f7.dialog.prompt,
         cache: new StoreCache('vuex')
+      }
+    },
+    cleanLocalStorageAfterLogut: function () {
+      for (const item in window.localStorage) {
+        // History
+        if (/^urls\|([0-9a-zA-Z._-]+)$/.test(item)) {
+          const urls = JSON.parse(window.localStorage[item])
+          const newUrls = []
+          let loginRequired = false
+          urls.map((url) => {
+            if (this.urlRequiresLogin(url)) {
+              loginRequired = true
+            } else if (!loginRequired) {
+              newUrls.push(url)
+            }
+          })
+          window.localStorage[item] = JSON.stringify(newUrls)
+        // Component data and scroll positions
+        } else if (/(scroll|data)\|[0-9a-zA-Z._-]+\|(.+)$/.test(item)) {
+          const url = item.match(/(scroll|data)\|[0-9a-zA-Z._-]+\|(.+)$/)[2]
+          if (this.urlRequiresLogin(url)) {
+            window.localStorage.removeItem(item)
+          }
+        }
       }
     }
   },

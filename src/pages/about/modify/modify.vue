@@ -21,6 +21,9 @@
             <f7-list-item>
               <a @click="updateProfile">{{$t('modify.btn')}}</a>
             </f7-list-item>
+            <f7-list-item>
+              <a @click="uploadImage">{{$t('modify.image')}}</a>
+            </f7-list-item>
           </form>
         </f7-list-item>
       </f7-list>
@@ -29,7 +32,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data() {
@@ -43,6 +46,16 @@ export default {
     ...mapState(['userProfile'])
   },
   methods: {
+    ...mapActions([
+      'updatePopup'
+    ]),
+    cancel: function () {
+      // Close popup
+      this.updatePopup({
+        key: 'imageUploaderOpened',
+        value: true
+      })
+    },
     updateProfile() {
       this.$store.dispatch('updateProfile', {
         name: this.name !== '' ? this.name : this.userProfile.name,
