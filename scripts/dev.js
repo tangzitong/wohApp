@@ -3,26 +3,26 @@
 'use strict'
 
 // Set dev argument (for webpack config)
-let env = require('./env')
+const env = require('./env')
 env.arg.dev = true
 
 // Load packages
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let webpackConfig = require('./webpack-config').development
-let fs = require('fs-extra')
-let historyFallback = require('connect-history-api-fallback')
-let express = require('express')
-let packageJson = require('package-json')
-let abs = require('path').resolve
-let webpack = require('webpack')
-let devMiddleware = require('webpack-dev-middleware')
-let hotMiddleware = require('webpack-hot-middleware')
-let opn = require('opn')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const webpackConfig = require('./webpack-config').development
+const fs = require('fs-extra')
+const historyFallback = require('connect-history-api-fallback')
+const express = require('express')
+const packageJson = require('package-json')
+const abs = require('path').resolve
+const webpack = require('webpack')
+const devMiddleware = require('webpack-dev-middleware')
+const hotMiddleware = require('webpack-hot-middleware')
+const opn = require('opn')
 
 // Step: Fix code
-let fixCode = function (callback) {
+const fixCode = function (callback) {
   if (env.cfg.fixCodeOnTest === true) {
     cmd(__dirname, 'node code-check --fix', function () {
       callback()
@@ -33,15 +33,15 @@ let fixCode = function (callback) {
 }
 
 // Step: Start server
-let startServer = function (callback) {
+const startServer = function (callback) {
   alert('Development server start ongoing - please wait ...')
   // Start express server
-  var app = express()
+  const app = express()
   // Compile webpack
-  var compiler = webpack(webpackConfig)
-  var devMid = devMiddleware(compiler, { noInfo: true })
+  const compiler = webpack(webpackConfig)
+  const devMid = devMiddleware(compiler, { noInfo: true })
   // Add hot reload support
-  var hotMid = hotMiddleware(compiler)
+  const hotMid = hotMiddleware(compiler)
   // Force reload after html template changes
   compiler.plugin('compilation', function (compilation) {
     compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
@@ -99,7 +99,7 @@ fixCode(function () {
             cmd(__dirname, 'node create-icons', function () {
               cmd(__dirname, 'node firebase --database --storage --version dev', function () {
                 startServer(function () {
-                  let uri = 'http://localhost:' + env.cfg.devServerPort
+                  const uri = 'http://localhost:' + env.cfg.devServerPort
                   opn(uri)
                   alert('Development server started at ' + uri + '.\n\nTo be stopped with "CTRL + C".')
                 })

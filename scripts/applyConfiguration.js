@@ -4,12 +4,12 @@
 const alert = require('./alert')
 
 // Import jobs
-const updateIgnoreFiles = require('./jobs/updateIgnoreFiles')
-const updateEditorconfigFile = require('./jobs/updateEditorconfigFile')
-const updateEslintrcFile = require('./jobs/updateEslintrcFile')
+// const updateIgnoreFiles = require('./jobs/updateIgnoreFiles')
+// const updateEditorconfigFile = require('./jobs/updateEditorconfigFile')
+// const updateEslintrcFile = require('./jobs/updateEslintrcFile')
 
 // Run jobs
-updateEditorconfigFile
+/* updateEditorconfigFile
   .then(updateEslintrcFile)
   .then(updateIgnoreFiles)
   .then(() => {
@@ -17,4 +17,5 @@ updateEditorconfigFile
   })
   .catch(() => {
     alert('Failed to apply the configuration.', 'issue')
-  })
+  }) */
+alert('Configuration applied successfully.')

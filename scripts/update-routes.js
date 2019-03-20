@@ -7,18 +7,18 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let found = require('./found')
-let fs = require('fs-extra')
-let path = require('path')
-let rec = require('recursive-readdir')
-let us = require('underscore')
+const env = require('./env')
+const alert = require('./alert')
+const found = require('./found')
+const fs = require('fs-extra')
+const path = require('path')
+// const rec = require('recursive-readdir')
+const us = require('underscore')
 
 // Steps
-let loadRoutes = function (callback) {
+const loadRoutes = function (callback) {
   alert('Route loading ongoing - please wait ...')
-  let file = path.resolve(env.app, 'routes.json')
+  const file = path.resolve(env.app, 'routes.json')
   if (found(file)) {
     fs.readJson(file, function (err, json) {
       if (err) {
@@ -32,11 +32,11 @@ let loadRoutes = function (callback) {
     callback([]) // eslint-disable-line
   }
 }
-let checkRoutes = function (routes, callback) {
+const checkRoutes = function (routes, callback) {
   alert('Route check ongoing - please wait ...')
   // Start error array
-  let errors = []
-  let allRoutes = []
+  const errors = []
+  const allRoutes = []
   // Check routes file content
   if (!Array.isArray(routes)) {
     alert('JSON file routes.json must contain an array.', 'error')
@@ -75,8 +75,8 @@ let checkRoutes = function (routes, callback) {
         } else {
           for (let t = 0; t < routes[r].tabs.length; t++) {
             // Define shortlinks
-            let tab = routes[r].tabs[t]
-            let tabIdent = (r + 1) + '. object / ' + (t + 1) + '. tab'
+            const tab = routes[r].tabs[t]
+            const tabIdent = (r + 1) + '. object / ' + (t + 1) + '. tab'
             // Add to all routes
             allRoutes.push({
               path: (routes[r].path + tab.path).replace(/\/\//g, '/'),
@@ -119,8 +119,8 @@ let checkRoutes = function (routes, callback) {
               } else {
                 for (let a = 0; a < tab.routes.length; a++) {
                   // Define shortlinks
-                  let aTab = tab.routes[a]
-                  let aTabIdent = (r + 1) + '. object / ' + (t + 1) + '. tab / ' + (a + 1) + '. route'
+                  const aTab = tab.routes[a]
+                  const aTabIdent = (r + 1) + '. object / ' + (t + 1) + '. tab / ' + (a + 1) + '. route'
                   // Add to all routes
                   allRoutes.push({
                     path: (routes[r].path + tab.path + aTab.path).replace(/\/\//g, '/'),
@@ -147,7 +147,7 @@ let checkRoutes = function (routes, callback) {
                     errors.push(aTabIdent + ' - page component file "' + aTab.component + '" not found')
                   }
                   // Check other route props
-                  for (let prop in aTab) {
+                  for (const prop in aTab) {
                     if (prop !== 'path' && prop !== 'component' && prop !== 'login') {
                       errors.push(aTabIdent + ' - property "' + prop + '" not allowed')
                     }
@@ -156,7 +156,7 @@ let checkRoutes = function (routes, callback) {
               }
             }
             // Check other route props
-            for (let prop in tab) {
+            for (const prop in tab) {
               if (prop !== 'path' && prop !== 'tabId' && prop !== 'component' && prop !== 'routes' && prop !== 'login') {
                 errors.push(tabIdent + ' - property "' + prop + '" not allowed')
               }
@@ -165,7 +165,7 @@ let checkRoutes = function (routes, callback) {
         }
       }
       // Check other route props
-      for (let prop in routes[r]) {
+      for (const prop in routes[r]) {
         if (prop !== 'path' && prop !== 'component' && prop !== 'tabs' && prop !== 'login') {
           errors.push((r + 1) + '. object - property "' + prop + '" not allowed')
         }
@@ -186,11 +186,11 @@ let checkRoutes = function (routes, callback) {
     alert('Please correct the file app/routes.json\n\n' + errors.join('\n'), 'error')
   }
 }
-let addMissingTabs = function (routes, callback) {
-  if (env.cfg.completeRoutesFile === true) {
+const addMissingTabs = function (routes, callback) {
+  /* if (env.cfg.completeRoutesFile === true) {
     alert('Adding missing tab routes - please wait ...')
     // List page files
-    let tabsFolder = path.resolve(env.app, 'pages')
+    const tabsFolder = path.resolve(env.app, 'pages')
     rec(tabsFolder, function (err, tabs) {
       if (err) {
         alert('Failed to read tabs folder.', 'issue')
@@ -198,14 +198,14 @@ let addMissingTabs = function (routes, callback) {
         // Loop page files to add standard tabs
         for (let t = 0; t < tabs.length; t++) {
           // Check for one underscore
-          let tabFile = tabs[t].substr(tabsFolder.length + 1)
-          let tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
+          const tabFile = tabs[t].substr(tabsFolder.length + 1)
+          const tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
           // Underscore found
           if (tabSearch !== null) {
-            let tabPath = '/' + tabSearch[2] + '/'
-            let pagePath = '/' + tabSearch[1] + '/'
+            const tabPath = '/' + tabSearch[2] + '/'
+            const pagePath = '/' + tabSearch[1] + '/'
             // Search page index
-            let pageNo = us.findIndex(routes, {path: pagePath})
+            const pageNo = us.findIndex(routes, {path: pagePath})
             // Page not found in routes
             if (pageNo === -1) {
               alert(tabSearch[0] + ' indicates a tab component.\nPage component "' + tabSearch[1] + '.vue" is missing.', 'error')
@@ -231,22 +231,22 @@ let addMissingTabs = function (routes, callback) {
         // Loop page files to add alternate tabs
         for (let t = 0; t < tabs.length; t++) {
           // Check for two underscores
-          let tabFile = tabs[t].substr(tabsFolder.length + 1)
-          let tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
+          const tabFile = tabs[t].substr(tabsFolder.length + 1)
+          const tabSearch = tabFile.match(/^([0-9a-z/-]+)_([0-9a-z/-]+)_([0-9a-z/-]+)\.vue$/)
           // Two underscores found
           if (tabSearch !== null) {
-            let alternateTabPath = '/' + tabSearch[3] + '/'
-            let tabPath = '/' + tabSearch[2] + '/'
-            let pagePath = '/' + tabSearch[1] + '/'
+            const alternateTabPath = '/' + tabSearch[3] + '/'
+            const tabPath = '/' + tabSearch[2] + '/'
+            const pagePath = '/' + tabSearch[1] + '/'
             // Search page index
-            let pageNo = us.findIndex(routes, {path: pagePath})
+            const pageNo = us.findIndex(routes, {path: pagePath})
             // Page not found in routes
             if (pageNo === -1) {
               alert(tabSearch[0] + ' indicates a tab component.\nPage component "' + tabSearch[1] + '.vue" is missing.', 'error')
             // Page found in routes
             } else {
               // Search tab index
-              let tabNo = us.findIndex(routes[pageNo].tabs, {path: tabPath})
+              const tabNo = us.findIndex(routes[pageNo].tabs, {path: tabPath})
               // Tab not found in page route
               if (tabNo === -1) {
                 alert(tabSearch[0] + ' indicates an alternate tab component.\nTab page component "' + tabSearch[1] + '_' + tabSearch[2] + '.vue" is missing.', 'error')
@@ -278,20 +278,20 @@ let addMissingTabs = function (routes, callback) {
     })
   } else {
     callback(routes)
-  }
+  } */
 }
-let addMissingPages = function (routes, callback) {
-  if (env.cfg.completeRoutesFile === true) {
+const addMissingPages = function (routes, callback) {
+  /* if (env.cfg.completeRoutesFile === true) {
     alert('Add missing page routes ongoing - please wait ...')
-    let pagesFolder = path.resolve(env.app, 'pages')
+    const pagesFolder = path.resolve(env.app, 'pages')
     rec(pagesFolder, function (err, pages) {
       if (err) {
         alert('Failed to read pages folder.', 'issue')
       } else {
         for (let p = 0; p < pages.length; p++) {
-          let pageFile = pages[p].substr(pagesFolder.length + 1).replace(/\\/g, '/')
+          const pageFile = pages[p].substr(pagesFolder.length + 1).replace(/\\/g, '/')
           if (/^([0-9a-z-/]+)\.vue$/.test(pageFile)) {
-            let pagePath = '/' + pageFile.replace(/\.vue$/, '') + '/'
+            const pagePath = '/' + pageFile.replace(/\.vue$/, '') + '/'
             let pagePathFound = false
             for (let r = 0; r < routes.length; r++) {
               if (routes[r].path === pagePath) {
@@ -312,11 +312,11 @@ let addMissingPages = function (routes, callback) {
     })
   } else {
     callback(routes)
-  }
+  } */
 }
-let saveRoutes = function (routes, callback) {
+const saveRoutes = function (routes, callback) {
   alert('Saving routes.json file - please wait ...')
-  let file = path.resolve(env.app, 'routes.json')
+  const file = path.resolve(env.app, 'routes.json')
   routes = us.sortBy(routes, 'path')
   fs.writeJson(file, routes, function (err) {
     if (err) {

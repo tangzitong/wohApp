@@ -7,12 +7,12 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let found = require('./found')
-let fs = require('fs-extra')
-let abs = require('path').resolve
-let rec = require('recursive-readdir')
+const env = require('./env')
+const alert = require('./alert')
+const found = require('./found')
+const fs = require('fs-extra')
+const abs = require('path').resolve
+const rec = require('recursive-readdir')
 
 if (env.installed) {
   alert('Release modifications of v1.4 ongoing - please wait ...')
@@ -24,9 +24,9 @@ if (env.installed) {
       fs.removeSync(abs(env.app, 'pages/login-screen.vue'))
     }
     if (found(env.app, 'routes.json')) {
-      let routes = fs.readJsonSync(abs(env.app, 'routes.json'))
-      let newRoutes = []
-      for (let r in routes) {
+      const routes = fs.readJsonSync(abs(env.app, 'routes.json'))
+      const newRoutes = []
+      for (const r in routes) {
         if (routes[r].component !== 'login-screen.vue' && routes[r].component !== 'login-screen') {
           newRoutes.push(routes[r])
         }

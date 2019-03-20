@@ -9,10 +9,10 @@
 'use strict'
 
 // Import modules
-let alert = require('./alert')
-let type = require('./type')
-let cp = require('child_process')
-let path = require('path')
+const alert = require('./alert')
+const type = require('./type')
+const cp = require('child_process')
+const path = require('path')
 
 // Export function
 module.exports = function (workingDirectory, commands, onSuccess, onError) {
@@ -34,7 +34,7 @@ module.exports = function (workingDirectory, commands, onSuccess, onError) {
   }
   // Check onSuccess
   if (type(onSuccess) === 'string') {
-    let msg = onSuccess
+    const msg = onSuccess
     onSuccess = function () {
       alert(msg)
     }
@@ -45,7 +45,7 @@ module.exports = function (workingDirectory, commands, onSuccess, onError) {
   }
   // Check onError
   if (type(onError) === 'string') {
-    let msg = onError
+    const msg = onError
     onError = function () {
       alert(msg, 'error')
     }
@@ -57,7 +57,7 @@ module.exports = function (workingDirectory, commands, onSuccess, onError) {
     alert('cmd() functions needs string or function as fourth argument.', 'issue')
   }
   // Define child process environment variables, set subProcess to "true"
-  let env = JSON.parse(JSON.stringify(process.env))
+  const env = JSON.parse(JSON.stringify(process.env))
   env.subProcess = true
   // Run sub process
   cp.spawn(commands.shift(), commands, {

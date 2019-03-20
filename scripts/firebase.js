@@ -9,13 +9,13 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let fs = require('fs-extra')
-let join = require('path').join
-let abs = require('path').resolve
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const fs = require('fs-extra')
+const join = require('path').join
+const abs = require('path').resolve
 
 // Deploy current version by default
 if (env.arg.version === undefined) {
@@ -24,11 +24,11 @@ if (env.arg.version === undefined) {
 
 // Return if version dev and deployDevRulesOnTesting not true
 if (env.arg.version === 'dev' && env.cfg.devFirebase.deployDevRulesOnTesting !== true) {
-  alert('Dev-Firebase development deployment not activated in the config.json file.', 'exit')
+  // alert('Dev-Firebase development deployment not activated in the config.json file.', 'exit')
 }
 
 // Define configuration
-let cfg = env.arg.version === 'dev' ? env.cfg.devFirebase : env.cfg.firebase
+const cfg = env.arg.version === 'dev' ? env.cfg.devFirebase : env.cfg.firebase
 
 // Get project ID
 let projectID = null
@@ -60,15 +60,15 @@ if (env.arg.database !== true && env.arg.storage !== true && env.arg.hosting !==
 }
 
 // Prepare Firebase deployment
-let binFolder = abs(env.proj, 'node_modules/firebase-tools/bin')
+const binFolder = abs(env.proj, 'node_modules/firebase-tools/bin')
 
 // Steps
-let defineBuildFolder = function (callback) {
+const defineBuildFolder = function (callback) {
   if (env.arg.hosting !== true && env.arg.version === 'dev') {
     callback(env.app)
   } else {
     cmd(__dirname, 'node cache-version --version ' + env.arg.version, function () {
-      let buildFolder = abs(env.cache, 'snapshots/build-' + env.arg.version + '/build')
+      const buildFolder = abs(env.cache, 'snapshots/build-' + env.arg.version + '/build')
       if (found(buildFolder)) {
         callback(buildFolder)
       } else {
@@ -77,7 +77,7 @@ let defineBuildFolder = function (callback) {
     })
   }
 }
-let checkFolders = function (buildFolder, callback) {
+const checkFolders = function (buildFolder, callback) {
   if (!found(buildFolder)) {
     alert('Build folder not found.', 'error')
   } else if (!found(buildFolder, 'firebase-database.json')) {
@@ -88,7 +88,7 @@ let checkFolders = function (buildFolder, callback) {
     callback()
   }
 }
-let prepareFiles = (buildFolder, callback) => {
+const prepareFiles = (buildFolder, callback) => {
   alert('Firebase deployment preparation ongoing - please wait ...')
   try {
     // Correct storage bucket in database rules
@@ -111,20 +111,20 @@ let prepareFiles = (buildFolder, callback) => {
     alert('Firebase deployment preparation failed.', 'issue')
   }
 }
-let updateConfigFiles = (callback) => {
+const updateConfigFiles = (callback) => {
   alert('Firebase configuration update ongoing - please wait ...')
   try {
     // Ensure firebase cache folder
     fs.ensureDirSync(abs(binFolder))
     // Create/update .firebaserc file
-    let rc = {
+    const rc = {
       projects: {
         'default': projectID
       }
     }
     fs.writeJsonSync(abs(binFolder, '.firebaserc'), rc)
     // Create/update firebase.json file
-    let config = {}
+    const config = {}
     if (env.arg.database === true) {
       config.database = {
         rules: join('build', 'firebase-database.json')
@@ -147,7 +147,7 @@ let updateConfigFiles = (callback) => {
     alert('Firebase configuration update failed.', 'issue')
   }
 }
-let databaseDeployment = (callback) => {
+const databaseDeployment = (callback) => {
   if (env.arg.database === true) {
     alert('Firebase database rules deployment ongoing - please wait ...')
     cmd(binFolder, 'firebase deploy --only database', () => {
@@ -160,7 +160,7 @@ let databaseDeployment = (callback) => {
     callback()
   }
 }
-let storageDeployment = (callback) => {
+const storageDeployment = (callback) => {
   if (env.arg.storage === true) {
     alert('Firebase storage rules deployment ongoing - please wait ...')
     cmd(binFolder, 'firebase deploy --only storage', () => {
@@ -173,7 +173,7 @@ let storageDeployment = (callback) => {
     callback()
   }
 }
-let hostingDeployment = (callback) => {
+const hostingDeployment = (callback) => {
   if (env.arg.hosting === true) {
     alert('Firebase hosting deployment ongoing - please wait ...')
     cmd(binFolder, 'firebase deploy --only hosting', () => {

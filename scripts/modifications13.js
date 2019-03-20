@@ -2,28 +2,28 @@
 
 'use strict'
 
-let found = require('./found')
-let alert = require('./alert')
-let abs = require('path').resolve
-let fs = require('fs-extra')
-let img = require('jimp')
-let zipdir = require('zip-dir')
+const found = require('./found')
+const alert = require('./alert')
+const abs = require('path').resolve
+const fs = require('fs-extra')
+const img = require('jimp')
+const zipdir = require('zip-dir')
 
 // Alert
 alert('Release modifications of v1.3 ongoing - please wait ...')
 
 // Define expected project root
-let proj = abs(__dirname, '../../../')
+const proj = abs(__dirname, '../../../')
 
 // Is installed
 if (found(proj, 'package.json')) {
   // Transform special routes to object
-  let pkg = fs.readJsonSync(abs(proj, 'package.json'))
+  const pkg = fs.readJsonSync(abs(proj, 'package.json'))
   if (pkg.specialRoutes && Array.isArray(pkg.specialRoutes)) {
-    let routes = pkg.specialRoutes
+    const routes = pkg.specialRoutes
     pkg.specialRoutes = {}
     for (let i = 0; i < routes.length; i++) {
-      let page = routes[i].substr(0, routes[i].indexOf('/'))
+      const page = routes[i].substr(0, routes[i].indexOf('/'))
       pkg.specialRoutes[routes[i]] = page
     }
     fs.writeJsonSync(abs(proj, 'package.json'), pkg, {spaces: 2})
@@ -82,7 +82,7 @@ if (found(proj, 'package.json')) {
 
   // Create config.json
   if (!found(proj, 'app/config.json')) {
-    let cfg = fs.readJsonSync(abs(proj, 'package.json'))
+    const cfg = fs.readJsonSync(abs(proj, 'package.json'))
     delete cfg.name
     delete cfg.version
     delete cfg.description
@@ -97,8 +97,8 @@ if (found(proj, 'package.json')) {
   }
 
   // Clean-up package.json file
-  let cfg = fs.readJsonSync(abs(proj, 'app/config.json'))
-  for (let item in pkg) {
+  const cfg = fs.readJsonSync(abs(proj, 'app/config.json'))
+  for (const item in pkg) {
     if (cfg[item] !== undefined || item === 'faviconBackgroundColor' || item === 'faviconIcon') {
       delete pkg[item]
     }
@@ -109,7 +109,7 @@ if (found(proj, 'package.json')) {
 
   // Copy icon file to root and tranform to png
   if (typeof cfg.iconImage === 'string') {
-    let iconFile = abs(proj, 'app', cfg.iconImage)
+    const iconFile = abs(proj, 'app', cfg.iconImage)
     if (found(iconFile)) {
       img.read(iconFile, function (err, icon) {
         if (!err) {
@@ -127,15 +127,15 @@ if (found(proj, 'package.json')) {
 
   // Transform build to snapshot
   fs.ensureDirSync(abs(proj, 'snapshots'))
-  let wwwFolder = abs(proj, 'www')
+  const wwwFolder = abs(proj, 'www')
   if (found(wwwFolder)) {
-    let items = fs.readdirSync(wwwFolder)
+    const items = fs.readdirSync(wwwFolder)
     if (items.length === 0) {
       fs.removeSync(wwwFolder)
     }
     for (let i = 0; i < items.length; i++) {
       if (/^build-([0-9]+)\.([0-9]+)\.([0-9]+)(\/|\\)index\.html$/.test(items[i]) === true) {
-        let build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
+        const build = items[i].match(/^build-(([0-9]+)\.([0-9]+)\.([0-9]+))(\/|\\)index\.html$/)[1]
         fs.move(abs(wwwFolder, 'build-' + build), abs(wwwFolder, '.temp'), function (err) {
           if (!err) {
             fs.move(abs(wwwFolder, '.temp'), abs(wwwFolder, 'build-' + build, 'build/www'), function (err) {

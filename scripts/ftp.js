@@ -7,15 +7,15 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let fs = require('fs-extra')
-let ftp = require('ftp')
-let path = require('path')
-let abs = require('path').resolve
-let rec = require('recursive-readdir')
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const fs = require('fs-extra')
+const ftp = require('ftp')
+const path = require('path')
+const abs = require('path').resolve
+const rec = require('recursive-readdir')
 
 // Deploy current version by default
 if (env.arg.version === undefined) {
@@ -23,8 +23,8 @@ if (env.arg.version === undefined) {
 }
 
 // Steps
-let getConfig = function (callback) {
-  let configFile = abs(env.proj, 'ftp-config.json')
+const getConfig = function (callback) {
+  const configFile = abs(env.proj, 'ftp-config.json')
   if (found(configFile)) {
     fs.readJson(configFile, function (err, config) {
       if (err) {
@@ -38,7 +38,7 @@ let getConfig = function (callback) {
       }
     })
   } else {
-    let standardConfig = {
+    const standardConfig = {
       host: '',
       port: '21',
       user: '',
@@ -53,7 +53,7 @@ let getConfig = function (callback) {
     })
   }
 }
-let connect = function (config, callback) {
+const connect = function (config, callback) {
   alert('Connecting to the FTP server - please wait ...')
   let client = new ftp() // eslint-disable-line
   client.on('ready', function () {
@@ -64,14 +64,14 @@ let connect = function (config, callback) {
   })
   client.connect(config)
 }
-let uploadFiles = function (client, localFolder, remoteFolder, files, callback) {
+const uploadFiles = function (client, localFolder, remoteFolder, files, callback) {
   if (!Array.isArray(files) || files.length === 0) {
     callback()
   } else {
-    let file = files.shift()
-    let folder = path.join(remoteFolder, path.dirname(file))
-    let parentFolder = path.dirname(folder)
-    let putFile = function () {
+    const file = files.shift()
+    const folder = path.join(remoteFolder, path.dirname(file))
+    const parentFolder = path.dirname(folder)
+    const putFile = function () {
       client.put(abs(localFolder, file), path.join(remoteFolder, file).replace(/\\/g, '/'), function (err) {
         if (err) alert('Failed to upload file "' + path.join(folder, file) + '" to the FTP server.', 'issue')
         uploadFiles(client, localFolder, remoteFolder, files, callback)
@@ -96,10 +96,10 @@ let uploadFiles = function (client, localFolder, remoteFolder, files, callback) 
     })
   }
 }
-let uploadBuildFolder = function (client, callback) {
+const uploadBuildFolder = function (client, callback) {
   alert('Uploading build folder - please wait ...')
-  let localFolder = abs(env.cache, 'snapshots', 'build-' + env.arg.version, 'build/www')
-  let remoteFolder = 'build-' + env.arg.version
+  const localFolder = abs(env.cache, 'snapshots', 'build-' + env.arg.version, 'build/www')
+  const remoteFolder = 'build-' + env.arg.version
   if (!found(localFolder)) {
     alert('Local folder not found.', 'issue')
   }
@@ -131,10 +131,10 @@ let uploadBuildFolder = function (client, callback) {
     }
   })
 }
-let updateHtaccess = function (client, callback) {
+const updateHtaccess = function (client, callback) {
   alert('Updating .htaccess file - please wait ...')
-  let cacheDir = abs(env.cache, 'ftp')
-  let htaccess = 'RewriteEngine On\n' +
+  const cacheDir = abs(env.cache, 'ftp')
+  const htaccess = 'RewriteEngine On\n' +
                  'RewriteCond %{REQUEST_URI} !^/build-' + env.arg.version + '/\n' +
                  'RewriteRule ^(.*)$ /build-' + env.arg.version + '/$1 [L]\n' +
                  'RewriteCond %{REQUEST_FILENAME} !-f\n' +

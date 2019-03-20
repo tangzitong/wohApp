@@ -3,16 +3,16 @@
 'use strict'
 
 // Include modules
-let alert = require('./alert')
-let found = require('./found')
-let fs = require('fs-extra')
-let path = require('path')
+const alert = require('./alert')
+const found = require('./found')
+const fs = require('fs-extra')
+const path = require('path')
 
 module.exports = function (appRoot) {
   if (found(appRoot, 'config.json')) {
     try {
       // Read config
-      let cfg = fs.readJsonSync(path.resolve(appRoot, 'config.json'))
+      const cfg = fs.readJsonSync(path.resolve(appRoot, 'config.json'))
       // to v1.4
       if (cfg.loadIconFonts !== undefined) cfg.useIconFonts = cfg.loadIconFonts
       if (cfg.firebae) {
@@ -32,9 +32,9 @@ module.exports = function (appRoot) {
       if (cfg.statusbarVisibility === 'hidden') cfg.statusbarVisibility = false
       if (cfg.specialRoutes) {
         try {
-          let routes = found(appRoot, 'routes.json') ? fs.readJsonSync(path.resolve(appRoot, 'routes.json')) : {}
+          const routes = found(appRoot, 'routes.json') ? fs.readJsonSync(path.resolve(appRoot, 'routes.json')) : {}
           for (let path in cfg.specialRoutes) {
-            let page = cfg.specialRoutes[path]
+            const page = cfg.specialRoutes[path]
             if (!/^\//.test(path)) path = '/' + path
             if (!/\/$/.test(path)) path = path + '/'
             routes.push({
@@ -49,7 +49,7 @@ module.exports = function (appRoot) {
       }
       if (cfg.pagesWithRequiredLogin) {
         try {
-          let routes = found(appRoot, 'routes.json') ? fs.readJsonSync(path.resolve(appRoot, 'routes.json')) : {}
+          const routes = found(appRoot, 'routes.json') ? fs.readJsonSync(path.resolve(appRoot, 'routes.json')) : {}
           for (let r = 0; r < routes.length; r++) {
             if (cfg.pagesWithRequiredLogin.indexOf(routes[r].component.replace('.vue', '')) >= 0) {
               routes[r].login = true

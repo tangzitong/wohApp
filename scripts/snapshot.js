@@ -3,19 +3,19 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let fs = require('fs-extra')
-let abs = require('path').resolve
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const fs = require('fs-extra')
+const abs = require('path').resolve
 
 // Define filename
-let now = new Date()
-let name = 'snapshot-' + now.getFullYear() + '-' + (now.getMonth() < 9 ? '0' : '') + (now.getMonth() + 1) + '-' + (now.getDate() < 10 ? '0' : '') + now.getDate()
+const now = new Date()
+const name = 'snapshot-' + now.getFullYear() + '-' + (now.getMonth() < 9 ? '0' : '') + (now.getMonth() + 1) + '-' + (now.getDate() < 10 ? '0' : '') + now.getDate()
 
 // Define filename and create snapshot
-let createSnapshot = function (name, char) {
+const createSnapshot = function (name, char) {
   // Start empty
   char = char || ''
   // Check if file exists

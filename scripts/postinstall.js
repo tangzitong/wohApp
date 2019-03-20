@@ -16,17 +16,17 @@
 'use strict'
 
 // Load modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let jsonScheme = require('./json-scheme')
-let fs = require('fs-extra')
-let abs = require('path').resolve
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const jsonScheme = require('./json-scheme')
+const fs = require('fs-extra')
+const abs = require('path').resolve
 const path = require('path')
 
 // Step: Prune node folder
-let pruneModules = function (callback) {
+const pruneModules = function (callback) {
   alert('Node modules folder clean-up ongoing - please wait ...')
   cmd(env.proj, 'npm prune', function () {
     alert('Node modules folder clean-up done.')
@@ -35,7 +35,7 @@ let pruneModules = function (callback) {
 }
 
 // Step: Remove cache folder
-let removeCache = function (callback) {
+const removeCache = function (callback) {
   alert('Cache clean-up ongoing - please wait ...')
   fs.remove(env.cache, function (err) {
     if (err) {
@@ -48,13 +48,13 @@ let removeCache = function (callback) {
 }
 
 // Step: Create/update project folder files
-let setupProjectFolder = function (callback) {
+const setupProjectFolder = function (callback) {
   if (env.installed) {
     alert('Project folder setup ongoing - please wait ...')
     try {
       // Define source and destination folder
-      let from = abs(__dirname, '..')
-      let to = abs(env.proj)
+      const from = abs(__dirname, '..')
+      const to = abs(env.proj)
       // Copy missing Power Point design files
       fs.copySync(abs(from, 'design'), abs(to, 'design'), {filter: f => /(design|\.pptx)$/.test(f), overwrite: false})
       // Update PDF design files
@@ -75,7 +75,7 @@ let setupProjectFolder = function (callback) {
 
 // Setup app folder
 function setupAppFolder (callback) {
-  let reset = function () {
+  const reset = function () {
     alert('Setting up app folder - please wait ...')
     cmd(__dirname, 'node reset-app', function () {
       alert('App folder set up done.')
@@ -99,21 +99,21 @@ function setupAppFolder (callback) {
 }
 
 // Step: Update scripts in package.json
-let updateScriptsAndVersion = function (callback) {
+const updateScriptsAndVersion = function (callback) {
   if (env.installed) {
     alert('Script update onging - please wait ...')
-    let scripts = fs.readJsonSync(abs(__dirname, '../package.json')).scripts
-    for (let script in scripts) {
+    const scripts = fs.readJsonSync(abs(__dirname, '../package.json')).scripts
+    for (const script in scripts) {
       if (['postinstall', 'reset', 'f7', 'f7vue', 'iconfonts'].indexOf(script) !== -1) {
         delete scripts[script]
       } else {
         scripts[script] = scripts[script].replace('node scripts/', 'node node_modules/app-framework/scripts/')
       }
     }
-    let proj = fs.readJsonSync(abs(env.proj, 'package.json'))
+    const proj = fs.readJsonSync(abs(env.proj, 'package.json'))
     proj.scripts = scripts
     if (proj.devDependencies && proj.devDependencies['app-framework'] === '*') {
-      let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
+      const appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
       proj.devDependencies['app-framework'] = '^' + appFrameworkVersion
     }
     fs.writeJsonSync(abs(env.proj, 'package.json'), proj)
@@ -123,8 +123,8 @@ let updateScriptsAndVersion = function (callback) {
 }
 
 // Step: Create snapshot
-let createSnapshot = function (callback) {
-  let appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
+const createSnapshot = function (callback) {
+  const appFrameworkVersion = fs.readJsonSync(abs(__dirname, '../package.json')).version
   if (env.pkg.devDependencies['app-framework'] === '*') {
     callback()
   } else {
@@ -164,7 +164,7 @@ completePackageJson(() => {
                   updateScriptsAndVersion(function () {
                     cmd(__dirname, 'node applyConfiguration', function () {
                       // Fix configuration
-                      let configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
+                      const configFix = jsonScheme.fix(abs(__dirname, '../config-scheme.json'), abs(env.app, 'config.json'))
                       if (Array.isArray(configFix)) {
                         alert('Failed to fix config file.\nDetails:\n- ' + configFix.join('\n- '), 'issue', 'error')
                       }

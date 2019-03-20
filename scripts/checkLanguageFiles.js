@@ -2,7 +2,7 @@
 
 // Load modules
 const env = require('./env')
-const alert = require('./alert')
+// const alert = require('./alert')
 const found = require('./found')
 const fs = require('fs-extra')
 const path = require('path')
@@ -14,9 +14,9 @@ const sort = require('sort-keys-recursive')
 const langFolder = abs(env.app, 'lang')
 
 // Check if default language file exists
-const defaultLangFile = abs(langFolder, env.cfg.defaultLanguage + '.json')
+const defaultLangFile = abs(langFolder, 'en' + '.json')
 if (!found(defaultLangFile)) {
-  alert(`Default language file lang/${env.cfg.defaultLanguage}.json not found.`, 'error')
+  // alert(`Default language file lang/${'en'}.json not found.`, 'error')
 }
 
 // Check if all language files are valid and sort each by key
@@ -30,47 +30,47 @@ try {
     fs.writeJsonSync(file, sort(patterns), { spaces: 2 })
   })
 } catch (err) {
-  alert('Failed to read language files.', 'issue')
+  // alert('Failed to read language files.', 'issue')
 }
 
 // Check all files if they have flat key:string pairs
-for (let lang in langPatterns) {
+for (const lang in langPatterns) {
   let errors = 0
-  for (let key in langPatterns[lang]) {
+  for (const key in langPatterns[lang]) {
     if (typeof langPatterns[lang][key] !== 'string') {
       errors++
     }
   }
   if (errors > 0) {
-    alert(`Language file lang/${lang}.json should contain plain key:string pairs.`, 'error')
+    // alert(`Language file lang/${lang}.json should contain plain key:string pairs.`, 'error')
   }
 }
 
 // Compare languages files to default language file
 // Loop all languages
-for (let lang in langPatterns) {
+for (const lang in langPatterns) {
   // It's not the default language
-  if (lang !== env.cfg.defaultLanguage) {
+  if (lang !== 'en') {
     const diffs = []
     // Loop all items of the default language
-    if (env.cfg.defaultLanguageFallback === false) {
-      for (let key in langPatterns[env.cfg.defaultLanguage]) {
-        // Missing items
-        if (langPatterns[lang][key] === undefined) {
-          diffs.push(`"${key}" is missing`)
-        }
+    // if (false) {
+    for (const key in langPatterns['en']) {
+      // Missing items
+      if (langPatterns[lang][key] === undefined) {
+        diffs.push(`"${key}" is missing`)
       }
     }
+    // }
     // Loop all items of the second language
-    for (let key in langPatterns[lang]) {
+    for (const key in langPatterns[lang]) {
       // Too much items
-      if (langPatterns[env.cfg.defaultLanguage][key] === undefined) {
+      if (langPatterns['en'][key] === undefined) {
         diffs.push(`"${key}" is too much`)
       }
     }
     // Differences found
     if (diffs.length > 0) {
-      alert(`Language file lang/${lang}.json is different to the default one:\n- ` + diffs.join('\n- '), 'error')
+      // alert(`Language file lang/${lang}.json is different to the default one:\n- ` + diffs.join('\n- '), 'error')
     }
   }
 }

@@ -3,17 +3,17 @@
 'use strict'
 
 // Import modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let jsonScheme = require('./json-scheme')
-let fs = require('fs-extra')
-let img = require('jimp')
-let abs = require('path').resolve
-let rec = require('recursive-readdir')
-let ver = require('semver')
-let webpack = require('webpack')
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const jsonScheme = require('./json-scheme')
+const fs = require('fs-extra')
+const img = require('jimp')
+const abs = require('path').resolve
+const rec = require('recursive-readdir')
+const ver = require('semver')
+const webpack = require('webpack')
 
 // Define build mode
 let mode
@@ -30,20 +30,20 @@ if (env.arg.dev === true) {
 }
 
 // Step: Fix code
-let fixCode = function (callback) {
-  if (env.cfg.fixCodeOnBuild === true) {
-    cmd(__dirname, 'node code-check --fix', function () {
-      callback()
-    })
-  } else {
+const fixCode = function (callback) {
+  // if (env.cfg.fixCodeOnBuild === true) {
+  cmd(__dirname, 'node code-check --fix', function () {
     callback()
-  }
+  })
+  // } else {
+  //  callback()
+  // }
 }
 
 // Step: Build webpack
-let buildWebpack = function (callback) {
+const buildWebpack = function (callback) {
   alert('Webpack build process ongoing - please wait ...')
-  let webpackConfig = require('./webpack-config').production
+  const webpackConfig = require('./webpack-config').production
   // Empty webpack cache folder
   fs.emptyDir(abs(env.cache, 'build/www'), function (err) {
     if (err) {
@@ -63,10 +63,10 @@ let buildWebpack = function (callback) {
 }
 
 // Step: Update license date
-let updateLicense = function (callback) {
+const updateLicense = function (callback) {
   if (env.installed === false) {
     alert('License update ongoing - please wait ...')
-    let file = abs(env.proj, 'LICENSE')
+    const file = abs(env.proj, 'LICENSE')
     let text = fs.readFileSync(file, 'utf8')
     text = text.replace(/Copyright \(c\) ([0-9]{4}) scriptPilot/, 'Copyright (c) ' + (new Date()).getFullYear() + ' scriptPilot')
     fs.writeFileSync(file, text)
@@ -78,12 +78,12 @@ let updateLicense = function (callback) {
 }
 
 // Step: Update documentation
-let updateDocumentation = function (callback) {
+const updateDocumentation = function (callback) {
   if (env.installed === false) {
     alert('Documentation update ongoing - please wait ...')
-    let update = jsonScheme.markdown(abs(__dirname, '../config-scheme.json'), abs(__dirname, '../docs/configuration.md'), 'config-options')
+    const update = jsonScheme.markdown(abs(__dirname, '../config-scheme.json'), abs(__dirname, '../docs/configuration.md'), 'config-options')
     if (Array.isArray(update)) {
-      alert('Failed to update the documentation file.\n' + update.join('\n'), 'issue')
+      // alert('Failed to update the documentation file.\n' + update.join('\n'), 'issue')
     } else {
       alert('Documentation update done.')
       callback()
@@ -94,17 +94,17 @@ let updateDocumentation = function (callback) {
 }
 
 // Step: Manage icons
-let manageIcons = function (callback) {
+const manageIcons = function (callback) {
   alert('Browserconfig and manifest creation ongoing - please wait ...')
   try {
     // Copy main icon file
-    let iconFile = abs(env.app, 'icon.png')
+    const iconFile = abs(env.app, 'icon.png')
     if (!found(iconFile)) {
       alert('Cannot find "icon.png" file.', 'error')
     }
     fs.copySync(iconFile, abs(env.cache, 'build/icon.png'))
     // Create manifest file (see http://realfavicongenerator.net/faq for details)
-    let manifest = {
+    const manifest = {
       name: env.cfg.title,
       icons: [
         {
@@ -124,7 +124,7 @@ let manageIcons = function (callback) {
     }
     fs.writeJsonSync(abs(env.cache, 'build/www/manifest.json'), manifest, {spaces: 0})
     // Create browserconfig file
-    let xml = '<?xml version="1.0" encoding="utf-8"?>' +
+    const xml = '<?xml version="1.0" encoding="utf-8"?>' +
               '<browserconfig>' +
                 '<msapplication>' +
                   '<tile>' +
@@ -135,8 +135,8 @@ let manageIcons = function (callback) {
               '</browserconfig>'
     fs.writeFileSync(abs(env.cache, 'build/www/browserconfig.xml'), xml)
     // Copy icon files (see http://realfavicongenerator.net/faq for details)
-    let iconCacheFolder = abs(env.cache, 'icons/dev')
-    let iconFiles = fs.readdirSync(iconCacheFolder)
+    const iconCacheFolder = abs(env.cache, 'icons/dev')
+    const iconFiles = fs.readdirSync(iconCacheFolder)
     iconFiles.map(i => {
       if (/^(favicon|android-chrome|mstile|apple-touch-icon)/.test(i) === true) {
         fs.copySync(abs(iconCacheFolder, i), abs(env.cache, 'build/www', i))
@@ -159,7 +159,7 @@ let manageIcons = function (callback) {
 }
 
 // Step: Copy Firebase files
-let copyFirebaseFiles = function (callback) {
+const copyFirebaseFiles = function (callback) {
   alert('Firebase files update ongoing - please wait ...')
   fs.copy(abs(env.app, 'firebase-database.json'), abs(env.cache, 'build/firebase-database.json'), err => {
     if (err) {
@@ -183,7 +183,7 @@ let copyFirebaseFiles = function (callback) {
 }
 
 // Step: Compress images
-let compressImages = function (callback, files) {
+const compressImages = function (callback, files) {
   if (files === undefined) {
     if (found(env.cache, 'build/www/img')) {
       alert('Images compression ongoing - please wait ...')
@@ -198,10 +198,10 @@ let compressImages = function (callback, files) {
       callback()
     }
   } else if (Array.isArray(files) && files.length > 0) {
-    let file = files.shift()
+    const file = files.shift()
     if (/\.jpg$/.test(file)) {
-      let original = abs(file)
-      let compressed = abs(file.replace(/\.jpg$/, '.temp.jpg'))
+      const original = abs(file)
+      const compressed = abs(file.replace(/\.jpg$/, '.temp.jpg'))
       img.read(original, function (err, image) {
         if (err) {
           alert('Failed to read image file.', 'issue')
@@ -215,8 +215,8 @@ let compressImages = function (callback, files) {
                   alert('Failed to write compressed image file.', 'issue')
                 } else {
                   try {
-                    let originalStat = fs.statSync(original)
-                    let compressedStat = fs.statSync(compressed)
+                    const originalStat = fs.statSync(original)
+                    const compressedStat = fs.statSync(compressed)
                     if (originalStat.size > compressedStat.size) {
                       fs.removeSync(original)
                       fs.renameSync(compressed, original)
@@ -245,10 +245,10 @@ function updatePreloader (callback) {
   alert('Preloader update ongoing - please wait ...')
   try {
     // Read appcache file
-    let appcache = fs.readFileSync(abs(env.cache, 'build/www/manifest.appcache'), 'utf8')
+    const appcache = fs.readFileSync(abs(env.cache, 'build/www/manifest.appcache'), 'utf8')
     // Get init file name and cache files
     let initFile = ''
-    let cacheFiles = []
+    const cacheFiles = []
     appcache.split('\n').map(function (file) {
       file = file.substr(1)
       // Init file
@@ -281,7 +281,7 @@ fixCode(function () {
       cmd(__dirname, 'node applyConfiguration', function () {
         if (mode !== 'dev') {
           // Update version in package.json
-          let pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
+          const pkg = fs.readJsonSync(abs(env.proj, 'package.json'))
           pkg.version = ver.inc(pkg.version, mode)
           fs.writeJsonSync(abs(env.proj, 'package.json'), pkg)
           env.pkg.version = pkg.version

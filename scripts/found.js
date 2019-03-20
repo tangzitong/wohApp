@@ -3,16 +3,16 @@
 'use strict'
 
 // Include modules
-let fs = require('fs-extra')
-let path = require('path')
+const fs = require('fs-extra')
+const path = require('path')
 
 // Export function
 module.exports = function () {
   try {
-    let pathToCheck = path.resolve.apply(null, arguments)
-    let dirname = path.dirname(pathToCheck)
-    let basename = path.basename(pathToCheck)
-    let files = fs.readdirSync(dirname)
+    const pathToCheck = path.resolve.apply(null, arguments)
+    const dirname = path.dirname(pathToCheck)
+    const basename = path.basename(pathToCheck)
+    const files = fs.readdirSync(dirname)
     return files.indexOf(basename) > -1
   } catch (err) {
     return false

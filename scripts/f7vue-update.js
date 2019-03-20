@@ -3,12 +3,12 @@
 'use strict'
 
 // Load modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let fs = require('fs-extra')
-let abs = require('path').resolve
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const fs = require('fs-extra')
+const abs = require('path').resolve
 // let rec = require('recursive-readdir')
 
 // Check App Framework development mode
@@ -19,13 +19,13 @@ if (env.installed === true) {
 // Check Framework7-Vue source folder
 const sourceA = abs(__dirname, '../../Framework7-Vue')
 const sourceB = abs(__dirname, '../../framework7-vue')
-let source = found(sourceA) ? sourceA : sourceB
+const source = found(sourceA) ? sourceA : sourceB
 if (!found(source)) {
   alert('Cannot find Framework7-Vue folder.', 'error')
 }
 
 // Determine target folder
-let target = abs(__dirname, '../vendor/framework7-vue')
+const target = abs(__dirname, '../vendor/framework7-vue')
 
 // Build Framework7-Vue
 alert('Framework7-Vue build process ongoing - please wait ...')

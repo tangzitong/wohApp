@@ -7,18 +7,18 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let jsonScheme = require('./json-scheme')
-let fs = require('fs-extra')
-let abs = require('path').resolve
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const jsonScheme = require('./json-scheme')
+const fs = require('fs-extra')
+const abs = require('path').resolve
 
 // Define source and destination folders
-let dest = abs(env.proj, 'app')
+const dest = abs(env.proj, 'app')
 
 // Steps
-let resetAppFolder = function (callback) {
+const resetAppFolder = function (callback) {
   alert('Resetting app folder - please wait ...')
   try {
     fs.emptyDirSync(abs(dest))
@@ -31,7 +31,7 @@ let resetAppFolder = function (callback) {
     alert('Failed to reset app folder structure.', 'issue')
   }
 }
-let copyIconFile = function (callback) {
+const copyIconFile = function (callback) {
   fs.copy(abs(__dirname, '../client/icon.png'), abs(dest, 'icon.png'), function (err) {
     alert('Copying icon file - please wait ...')
     if (!err) {
@@ -42,9 +42,9 @@ let copyIconFile = function (callback) {
     }
   })
 }
-let createConfigFile = function (callback) {
+const createConfigFile = function (callback) {
   alert('Create default configuration file.')
-  let res = jsonScheme.create(abs(__dirname, '../config-scheme.json'), abs(dest, 'config.json'))
+  const res = jsonScheme.create(abs(__dirname, '../config-scheme.json'), abs(dest, 'config.json'))
   if (!Array.isArray(res)) {
     env.cfg = fs.readJsonSync(abs(dest, 'config.json'))
     alert('Default configuration file created.')
@@ -53,9 +53,9 @@ let createConfigFile = function (callback) {
     alert('Failed to create deafault configuration file.', 'issue')
   }
 }
-let createDatabaseRules = function (callback) {
+const createDatabaseRules = function (callback) {
   alert('Creating default database rules - please wait ...')
-  let rules = {
+  const rules = {
     'rules': {
       '.read': 'auth != null',
       '.write': 'auth != null'
@@ -70,9 +70,9 @@ let createDatabaseRules = function (callback) {
     }
   })
 }
-let createStorageRules = function (callback) {
+const createStorageRules = function (callback) {
   alert('Creating default storage rules - please wait ...')
-  let rules = 'service firebase.storage {\n' +
+  const rules = 'service firebase.storage {\n' +
               '  match /b/' + (env.cfg.firebase.storageBucket !== '' ? env.cfg.firebase.storageBucket : '<your-storage-bucket>') + '/o {\n' +
               '    match /{allPaths=**} {\n' +
               '      allow read, write: if request.auth != null;\n' +
@@ -88,9 +88,9 @@ let createStorageRules = function (callback) {
     }
   })
 }
-let createAppComponent = function (callback) {
+const createAppComponent = function (callback) {
   alert('Creating default app component - please wait ...')
-  let content = '<template>\n' +
+  const content = '<template>\n' +
                 '  <div id="app">\n' +
                 '    <f7-views>\n' +
                 '      <f7-view main url="/home/" navbar-through :dynamic-navbar="$theme.ios" />\n' +
@@ -106,9 +106,9 @@ let createAppComponent = function (callback) {
     }
   })
 }
-let createHomepage = function (callback) {
+const createHomepage = function (callback) {
   alert('Creating default page component - please wait ...')
-  let content = '<template>\n' +
+  const content = '<template>\n' +
                 '  <f7-page>\n' +
                 '    <f7-navbar :title="$root.config.title" />\n' +
                 '    <f7-block inner inset>{{$lang(\'text\')}}</f7-block>\n' +

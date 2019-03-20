@@ -9,25 +9,25 @@
 'use strict'
 
 // Include packages
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let fs = require('fs-extra')
-let hex2rgb = require('hex-rgb')
-let img = require('jimp')
-let abs = require('path').resolve
-let toIco = require('to-ico')
-let _ = require('underscore')
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const fs = require('fs-extra')
+// const hex2rgb = require('hex-rgb')
+const img = require('jimp')
+const abs = require('path').resolve
+const toIco = require('to-ico')
+const _ = require('underscore')
 
 // ALert
 alert('Icon generation ongoing - please wait ...')
 
 // Define background color
-let bg = hex2rgb(env.cfg.iconBackgroundColor).concat(255)
+const bg = [255, 255, 255, 255] // hex2rgb('#ffffff').rgb.concat(255)
 
 // Define icons (name, width, height, background)
-let icons = [
+const icons = [
   ['app-store-icon', 1024, 1024, true],
   ['play-store-icon', 512, 512],
   ['apple-touch-icon', 180, 180, true],
@@ -87,7 +87,7 @@ let icons = [
 ]
 
 // Add landscape launch screens
-let iconNo = icons.length
+const iconNo = icons.length
 for (let i = 0; i < iconNo; i++) {
   icons.push([icons[i][0], icons[i][2], icons[i][1], icons[i][3]])
 }
@@ -108,19 +108,19 @@ if (env.arg.version === 'dev') {
 }
 
 // Icons for version already cached
-let versionFolder = abs(env.cache, 'icons', env.arg.version)
+const versionFolder = abs(env.cache, 'icons', env.arg.version)
 if (found(versionFolder)) {
   alert('Icon generation done.', 'exit')
 }
 
 // Function to get icon file name
-let getIconFilename = function (callback) {
+const getIconFilename = function (callback) {
   if ((env.arg.version === 'dev' || env.arg.version === env.pkg.version) && found(env.app, 'icon.png')) {
     callback(abs(env.app, 'icon.png'))
   } else {
     // Ensure version snapshot cache
     cmd(__dirname, 'node cache-snapshot --name "build-' + env.arg.version + '"', function () {
-      let iconFile = abs(env.cache, 'snapshots/build-' + env.arg.version, 'app/icon.png')
+      const iconFile = '../src/icon.png'
       if (found(iconFile)) {
         callback(iconFile)
       } else {
@@ -131,7 +131,7 @@ let getIconFilename = function (callback) {
 }
 
 // Function to read icon to jimp object
-let readIconFile = function (filename, callback) {
+const readIconFile = function (filename, callback) {
   new img(filename, function (err, icon) { // eslint-disable-line
     if (err) {
       alert('Failed to read icon file "' + filename + '"', 'error')
@@ -142,24 +142,24 @@ let readIconFile = function (filename, callback) {
 }
 
 // Function to calculate icon dimensions
-let getIconsToCreate = function (icon, callback) {
-  let iconsToCreate = []
+const getIconsToCreate = function (icon, callback) {
+  const iconsToCreate = []
   // Loop icons
   for (let i = 0; i < icons.length; i++) {
     // Define attributes
-    let width = icons[i][1]
-    let height = icons[i][2]
-    let name = icons[i][0] + '-' + width + 'x' + height + (icons[i][0] === 'app-store-icon' ? '.jpg' : '.png')
-    let isFilled = icons[i][3] !== undefined
+    const width = icons[i][1]
+    const height = icons[i][2]
+    const name = icons[i][0] + '-' + width + 'x' + height + (icons[i][0] === 'app-store-icon' ? '.jpg' : '.png')
+    const isFilled = icons[i][3] !== undefined
     // Calculate icon size
-    let maxIconWidth = width === height ? width : width / 2
-    let maxIconHeight = width === height ? height : height / 2
-    let factor = Math.min(maxIconWidth / icon.bitmap.width, maxIconHeight / icon.bitmap.height)
-    let iconWidth = Math.floor(factor * icon.bitmap.width)
-    let iconHeight = Math.floor(factor * icon.bitmap.height)
+    const maxIconWidth = width === height ? width : width / 2
+    const maxIconHeight = width === height ? height : height / 2
+    const factor = Math.min(maxIconWidth / icon.bitmap.width, maxIconHeight / icon.bitmap.height)
+    const iconWidth = Math.floor(factor * icon.bitmap.width)
+    const iconHeight = Math.floor(factor * icon.bitmap.height)
     // Calculate icon position
-    let left = Math.floor((width - iconWidth) / 2)
-    let top = Math.floor((height - iconHeight) / 2)
+    const left = Math.floor((width - iconWidth) / 2)
+    const top = Math.floor((height - iconHeight) / 2)
     // Define icon to create
     iconsToCreate.push({
       name: name,
@@ -178,13 +178,13 @@ let getIconsToCreate = function (icon, callback) {
 }
 
 // Create transparent icons
-let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
+const createTransparentIcons = function (icon, iconList, hashFolder, callback) {
   alert('Transparent icon generation ongoing - please wait ...')
   if (!Array.isArray(iconList) || iconList.length === 0) {
     alert('Transparent icon generation done.')
     callback()
   } else {
-    let thisIcon = iconList.pop()
+    const thisIcon = iconList.pop()
     // Resize icon
     icon.resize(thisIcon.iconWidth, thisIcon.iconHeight, function (err, icon) {
       if (err) {
@@ -203,13 +203,13 @@ let createTransparentIcons = function (icon, iconList, hashFolder, callback) {
 }
 
 // Create filled icons
-let createFilledIcons = function (icon, iconList, hashFolder, callback) {
+const createFilledIcons = function (icon, iconList, hashFolder, callback) {
   alert('Filled icon generation ongoing - please wait ...')
   if (!Array.isArray(iconList) || iconList.length === 0) {
     alert('Filled icon generation done.')
     callback()
   } else {
-    let thisIcon = iconList.pop()
+    const thisIcon = iconList.pop()
     // Create canvas
     new img(thisIcon.canvasWidth, thisIcon.canvasHeight, img.rgbaToInt.apply(null, bg), function (err, canvas) { // eslint-disable-line
       if (err) {
@@ -242,13 +242,13 @@ let createFilledIcons = function (icon, iconList, hashFolder, callback) {
 }
 
 // Create special icons
-let createIcoFile = function (hashFolder, callback) {
+const createIcoFile = function (hashFolder, callback) {
   alert('Favicon.ico creation ongoing - please wait ...')
   // Load files
-  let files = []
+  const files = []
   icons.map(icon => {
     if (icon[0] === 'ico') {
-      let path = abs(hashFolder, 'ico-' + icon[1] + 'x' + icon[2] + '.png')
+      const path = abs(hashFolder, 'ico-' + icon[1] + 'x' + icon[2] + '.png')
       if (!found(path)) {
         alert('Cannot find ico-' + icon[1] + 'x' + icon[2] + '.png in hash cache folder.', 'issue')
       } else {
@@ -271,24 +271,24 @@ let createIcoFile = function (hashFolder, callback) {
 }
 
 // Downsize ms tile icons, keep transparency
-let downsizeTileIcons = function (hashFolder, iconList, callback) {
+const downsizeTileIcons = function (hashFolder, iconList, callback) {
   alert('Downsizing tile icons - Please wait ...')
   if (!Array.isArray(iconList) || iconList.length === 0) {
     alert('Downsized tile icons.')
     callback()
   } else {
-    let iconFile = iconList.shift().name
+    const iconFile = iconList.shift().name
     if (/^mstile/.test(iconFile) === true) {
       new img(abs(hashFolder, iconFile), function (err, icon) { // eslint-disable-line
         if (!err) {
           new img(icon.bitmap.width, icon.bitmap.height, function (err, canvas) { // eslint-disable-line
             if (!err) {
-              let newWidth = Math.floor(icon.bitmap.width * 0.75)
-              let newHeight = Math.floor(icon.bitmap.height * 0.75)
+              const newWidth = Math.floor(icon.bitmap.width * 0.75)
+              const newHeight = Math.floor(icon.bitmap.height * 0.75)
               icon.resize(newWidth, newHeight, function (err, icon) {
                 if (!err) {
-                  let left = Math.floor((canvas.bitmap.width - newWidth) / 2)
-                  let top = Math.floor((canvas.bitmap.height - newHeight) / 2)
+                  const left = Math.floor((canvas.bitmap.width - newWidth) / 2)
+                  const top = Math.floor((canvas.bitmap.height - newHeight) / 2)
                   canvas.composite(icon, left, top, function (err, canvas) {
                     if (!err) {
                       canvas.write(abs(hashFolder, iconFile), function (err) {
@@ -321,7 +321,7 @@ let downsizeTileIcons = function (hashFolder, iconList, callback) {
 }
 
 // Cache hash folder
-let cacheHashFolder = function (hashFolder, callback) {
+const cacheHashFolder = function (hashFolder, callback) {
   // Copy icons to version cache folder
   fs.copy(hashFolder, versionFolder, function (err) {
     if (err) {
@@ -337,7 +337,7 @@ alert('Icon generation ongoing - please wait ...')
 getIconFilename(function (filename) {
   readIconFile(filename, function (icon) {
     // Icon with same hash already cached
-    let hashFolder = abs(env.cache, 'icons', icon.hash() + '-' + env.cfg.iconBackgroundColor.substr(1).toLowerCase())
+    const hashFolder = abs(env.cache, 'icons', icon.hash() + '-' + '#ffffff'.substr(1).toLowerCase())
     if (found(hashFolder)) {
       cacheHashFolder(hashFolder, function () {
         alert('Icon generation done.', 'exit')
@@ -346,10 +346,10 @@ getIconFilename(function (filename) {
       // Generate icons
       getIconsToCreate(icon, function (iconsToCreate) {
         // Group by filled / not filled
-        let filled = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === true }), 'resizeFactor')
-        let transparent = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === false }), 'resizeFactor')
+        const filled = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === true }), 'resizeFactor')
+        const transparent = _.sortBy(_.filter(iconsToCreate, function (i) { return i.isFilled === false }), 'resizeFactor')
         // Clone icon for filled one
-        let iconFilled = icon.clone()
+        const iconFilled = icon.clone()
         // Create hash folder
         fs.ensureDirSync(hashFolder)
         // Create icons

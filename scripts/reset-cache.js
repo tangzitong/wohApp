@@ -2,9 +2,9 @@
 
 'use strict'
 
-let env = require('./env')
-let alert = require('./alert')
-let fs = require('fs-extra')
+const env = require('./env')
+const alert = require('./alert')
+const fs = require('fs-extra')
 
 alert('Cache reset ongoing - please wait ...')
 fs.remove(env.cache, function (err) {

@@ -3,21 +3,21 @@
 'use strict'
 
 // Import modules
-let alert = require('./alert')
-let found = require('./found')
-let fs = require('fs-extra')
-let abs = require('path').resolve
+const alert = require('./alert')
+const found = require('./found')
+const fs = require('fs-extra')
+const abs = require('path').resolve
 
 // Define single steps
 function updateMaterialDesignIcons (callback) {
   alert('Material Design Icon font update ongoing - please wait ...')
   // Define source and destination folder
-  let source = abs(__dirname, '../../material-design-icons/iconfont')
-  let dest = abs(__dirname, '../vendor/material-icons')
+  const source = abs(__dirname, '../../material-design-icons/iconfont')
+  const dest = abs(__dirname, '../vendor/material-icons')
   // Material Design Icons folder found
   if (found(source)) {
     // Define files to copy
-    let files = [
+    const files = [
       'material-icons.css',
       'MaterialIcons-Regular.eot',
       'MaterialIcons-Regular.woff',
@@ -47,16 +47,16 @@ function updateMaterialDesignIcons (callback) {
     // Update codepoint file
     try {
       // Read codepoints
-      let codepointsFile = fs.readFileSync(abs(source, 'codepoints'), 'utf8')
-      let codepointsRows = codepointsFile.match(/([a-z0-9_]+) ([a-z0-9_]+)/g)
+      const codepointsFile = fs.readFileSync(abs(source, 'codepoints'), 'utf8')
+      const codepointsRows = codepointsFile.match(/([a-z0-9_]+) ([a-z0-9_]+)/g)
       // Extract codepoints
-      let codepoints = {}
+      const codepoints = {}
       codepointsRows.map(codepoint => {
         codepoint = codepoint.split(' ')
         codepoints[codepoint[0]] = codepoint[1]
       })
       // Save codepoints as JSON
-      let jsonFile = abs(__dirname, '../client/material-codepoints.json')
+      const jsonFile = abs(__dirname, '../client/material-codepoints.json')
       fs.ensureFileSync(jsonFile)
       fs.writeJsonSync(jsonFile, codepoints, {spaces: 2})
     } catch (err) {

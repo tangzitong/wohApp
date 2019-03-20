@@ -1,2 +1,19 @@
-# OS X
+# This file is updated automatically, please add or remove files in the configuration file.
+
+*.log*
+*.zip
 .DS_Store
+.editorconfig
+.enable-dev-mode
+.eslintrc
+.git/
+README.md
+_SYNCAPP/
+build/
+database-backup.json
+doc/
+ftp-config.json
+media/
+node_modules/
+scr/
+snapshots/

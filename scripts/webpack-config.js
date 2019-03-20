@@ -17,7 +17,7 @@ const rec = require('recursive-readdir-sync')
 fs.emptyDirSync(abs(env.cache, 'build'))
 
 // Create configuration
-let createConfiguration = function (mode) {
+const createConfiguration = function (mode) {
   // Copy index.ejs file to cache
   try {
     fs.copySync(abs(__dirname, '../client/index.ejs'), abs(env.cache, 'index.ejs'))
@@ -31,8 +31,8 @@ let createConfiguration = function (mode) {
   }
 
   // Define loaders
-  let ExtractTextPlugin = require('extract-text-webpack-plugin')
-  let loaders = [
+  const ExtractTextPlugin = require('extract-text-webpack-plugin')
+  const loaders = [
     // JS files
     {
       test: /\.js$/,
@@ -97,7 +97,7 @@ let createConfiguration = function (mode) {
   ]
 
   // Start configuration object
-  let config = {
+  const config = {
     entry: {
       init: [abs(__dirname, '../client/init.js')],
       app: [abs(__dirname, '../client/app.js')]
@@ -156,8 +156,8 @@ let createConfiguration = function (mode) {
   }
 
   // Add environment variables
-  let firebaseConfigSource = mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase'
-  let firebaseConfig = env.cfg[firebaseConfigSource]
+  const firebaseConfigSource = mode === 'development' || env.arg.dev === true ? 'devFirebase' : 'firebase'
+  const firebaseConfig = env.cfg[firebaseConfigSource]
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
@@ -222,7 +222,7 @@ let createConfiguration = function (mode) {
   }
 
   // Plugin: HTML index file generation
-  let HtmlPlugin = require('html-webpack-plugin')
+  const HtmlPlugin = require('html-webpack-plugin')
   config.plugins.push(
     new HtmlPlugin({
       chunks: ['init'],
@@ -261,7 +261,7 @@ let createConfiguration = function (mode) {
   }
 
   // Add offline support
-  let OfflinePlugin = require('offline-plugin')
+  const OfflinePlugin = require('offline-plugin')
   if (mode === 'production') {
     config.plugins.push(new OfflinePlugin({
       version: 'v' + env.pkg.version,

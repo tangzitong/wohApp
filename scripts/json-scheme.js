@@ -28,16 +28,16 @@
 'use strict'
 
 // Import modules
-let found = require('./found')
-let type = require('./type')
-let fs = require('fs-extra')
+const found = require('./found')
+const type = require('./type')
+const fs = require('fs-extra')
 
 // Export object
 module.exports = {
   getScheme: function (source) { // Return object or array with errors
-    let schemeObject = this.getObject(source)
+    const schemeObject = this.getObject(source)
     if (type(schemeObject) === 'object') {
-      let schemeValidationResult = this.validateSchemeObject(schemeObject)
+      const schemeValidationResult = this.validateSchemeObject(schemeObject)
       if (schemeValidationResult === true) {
         return schemeObject
       } else {
@@ -69,8 +69,8 @@ module.exports = {
     } else if (schemeItem.allow && schemeItem.allow.indexOf(value) !== -1) {
       return true
     } else if (schemeItem.regexp !== undefined) {
-      let regexpParts = schemeItem.regexp.match(/^\/(.+)\/([a-z]{0,3})$/)
-      let regexp = RegExp(regexpParts[1], regexpParts[2])
+      const regexpParts = schemeItem.regexp.match(/^\/(.+)\/([a-z]{0,3})$/)
+      const regexp = RegExp(regexpParts[1], regexpParts[2])
       return regexp.test(value)
     } else {
       return false
@@ -96,7 +96,7 @@ module.exports = {
     }
     // 1. Item must contain exact one property of type, allow, regexp or props
     let propsFound = 0
-    for (let p in properties) {
+    for (const p in properties) {
       if (['type', 'allow', 'regexp', 'props'].indexOf(p) !== -1) {
         propsFound++
       }
@@ -105,7 +105,7 @@ module.exports = {
       errors.push(subItemStr + ' must contain exact one property of type, allow, regexp or props')
     }
     // 2. Props must contain a scheme object itself
-    let propsValidation = type(properties.props) === 'object' ? this.validateSchemeObject(properties.props, subItemStr) : true
+    const propsValidation = type(properties.props) === 'object' ? this.validateSchemeObject(properties.props, subItemStr) : true
     if (properties.props && propsValidation !== true) {
       errors = errors.concat(propsValidation)
     }
@@ -122,7 +122,7 @@ module.exports = {
     }
     // 5. Other props are not allowed
     propsFound = 0
-    for (let p in properties) {
+    for (const p in properties) {
       if (['type', 'allow', 'regexp', 'props', 'default'].indexOf(p) === -1) {
         propsFound++
       }
@@ -135,8 +135,8 @@ module.exports = {
   },
   validateSchemeObject: function (object, subItemStr) { // Return true or array with errors
     let errors = []
-    for (let item in object) {
-      let schemeItemValidation = this.validateSchemeItem(item, object[item], subItemStr)
+    for (const item in object) {
+      const schemeItemValidation = this.validateSchemeItem(item, object[item], subItemStr)
       if (schemeItemValidation !== true) {
         errors = errors.concat(schemeItemValidation)
       }
@@ -150,20 +150,20 @@ module.exports = {
   validateObject: function (scheme, object, subItemStr) { // Return true or array with errors
     let errors = []
     // Loop items in scheme
-    for (let item in scheme) {
-      let thisSubItemStr = (subItemStr ? subItemStr + '.' : '') + item
+    for (const item in scheme) {
+      const thisSubItemStr = (subItemStr ? subItemStr + '.' : '') + item
       // Item missing in object
       if (object[item] === undefined) {
         errors.push('Item ' + thisSubItemStr + ' is missing')
       // Scheme item contains props
       } else if (scheme[item].props && type(object[item]) === 'object') {
-        let propsValidation = this.validateObject(scheme[item].props, object[item], thisSubItemStr)
+        const propsValidation = this.validateObject(scheme[item].props, object[item], thisSubItemStr)
         if (propsValidation !== true) {
           errors = errors.concat(propsValidation)
         }
       // Check value
       } else {
-        let valueValidation = this.validateValue(scheme[item], object[item])
+        const valueValidation = this.validateValue(scheme[item], object[item])
         if (valueValidation !== true) {
           errors.push('Item ' + thisSubItemStr + ' value is not valid.')
         }
@@ -190,8 +190,8 @@ module.exports = {
     }
   }, // Return
   createObject: function (schemeObject) {
-    let object = {}
-    for (let item in schemeObject) {
+    const object = {}
+    for (const item in schemeObject) {
       object[item] = this.createItem(item, schemeObject[item])
     }
     return object
@@ -200,12 +200,12 @@ module.exports = {
     if (objectToFix === undefined) {
       return this.createObject(schemeObject)
     }
-    let object = {}
-    for (let item in schemeObject) {
+    const object = {}
+    for (const item in schemeObject) {
       if (schemeObject[item].props !== undefined) {
         object[item] = this.fixObject(schemeObject[item].props, objectToFix[item])
       } else {
-        let valueValidation = this.validateValue(schemeObject[item], objectToFix[item])
+        const valueValidation = this.validateValue(schemeObject[item], objectToFix[item])
         object[item] = valueValidation === true && objectToFix[item] !== undefined ? objectToFix[item] : this.createItem(item, schemeObject[item])
       }
     }
@@ -239,7 +239,7 @@ module.exports = {
   },
   markdownObject: function (schemeObject, shiftStr) {
     let table = ''
-    for (let item in schemeObject) {
+    for (const item in schemeObject) {
       table += this.markdownItem(item, schemeObject[item], shiftStr)
     }
     return table
@@ -251,7 +251,7 @@ module.exports = {
       return scheme
     }
     // Create object
-    let object = this.createObject(scheme)
+    const object = this.createObject(scheme)
     // Save to file
     if (saveToFile !== undefined) {
       try {
@@ -270,7 +270,7 @@ module.exports = {
       return scheme
     }
     // Load object
-    let object = this.getObject(objectSource)
+    const object = this.getObject(objectSource)
     if (type(object) !== 'object') {
       return ['Object is no valid object or json file']
     }
@@ -289,7 +289,7 @@ module.exports = {
       object = {}
     }
     // Validate object
-    let fixedObject = this.fixObject(scheme, object)
+    const fixedObject = this.fixObject(scheme, object)
     // Save to file
     if (type(objectSource) === 'string') {
       try {
@@ -308,7 +308,7 @@ module.exports = {
       return ['Invalid scheme.']
     }
     // Create markdown table
-    let table = 'Option | Allowed | Default\n' +
+    const table = 'Option | Allowed | Default\n' +
                 ':--- |:--- |:---\n' +
                 this.markdownObject(scheme)
     // Save to file

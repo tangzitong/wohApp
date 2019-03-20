@@ -7,12 +7,12 @@
 'use strict'
 
 // Include modules
-let env = require('./env')
-let alert = require('./alert')
-let found = require('./found')
-let fs = require('fs-extra')
-let path = require('path')
-let rec = require('recursive-readdir')
+const env = require('./env')
+const alert = require('./alert')
+const found = require('./found')
+const fs = require('fs-extra')
+const path = require('path')
+const rec = require('recursive-readdir')
 
 if (env.installed) {
   alert('Release modifications of v1.6+ ongoing - please wait ...')

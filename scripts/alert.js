@@ -32,7 +32,7 @@ module.exports = function (message, type) {
   // Exit script
   if (type === 'error' || type === 'issue' || type === 'exit') {
     // Define exit code
-    let exitCode = (type === 'error' || type === 'issue') && process.env.subProcess === 'true' ? 1 : 0
+    const exitCode = (type === 'error' || type === 'issue') && process.env.subProcess === 'true' ? 1 : 0
     // Exit
     process.exit(exitCode)
   }

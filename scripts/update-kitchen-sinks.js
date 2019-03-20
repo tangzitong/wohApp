@@ -3,17 +3,17 @@
 'use strict'
 
 // Load modules
-let env = require('./env')
-let alert = require('./alert')
-let found = require('./found')
-let fs = require('fs-extra')
-let jquery = require('jquery')
-let beautify = require('js-beautify')
-let jsdom = require('jsdom')
-let path = require('path')
-let rec = require('recursive-readdir')
+const env = require('./env')
+const alert = require('./alert')
+const found = require('./found')
+const fs = require('fs-extra')
+const jquery = require('jquery')
+const beautify = require('js-beautify')
+const jsdom = require('jsdom')
+const path = require('path')
+const rec = require('recursive-readdir')
 
-let materialCodepoints = require('../client/material-codepoints')
+const materialCodepoints = require('../client/material-codepoints')
 
 // Check App Framework development mode
 if (env.installed === true) {
@@ -25,7 +25,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
   if (!/(ios|material)$/.test(destinationFolder)) {
     alert('Invalid kitchen sink destination folder.')
   }
-  let theme = /ios$/.test(destinationFolder) ? 'ios' : 'material'
+  const theme = /ios$/.test(destinationFolder) ? 'ios' : 'material'
   if (!found(sourceFolder)) {
     alert('Cannot find source folder "' + sourceFolder + '".', 'error')
   } else {
@@ -37,7 +37,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
           if (err) {
             alert('Failed to read files in source folder.', 'error')
           } else {
-            let htmlFiles = []
+            const htmlFiles = []
             files.map(function (file) {
               file = file.substr(sourceFolder.length + 1)
               if (/\.html$/.test(file)) {
@@ -48,7 +48,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
               if (err) {
                 alert('Failed to initialize JSDom.', 'issue')
               } else {
-                let $ = jquery(window)
+                const $ = jquery(window)
                 let htmlCode = ''
                 for (let f = 0; f < htmlFiles.length; f++) {
                   try {
@@ -82,8 +82,8 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                         $('.navbar .center').html('Material')
                       }
                     }
-                    let page = $('.page')
-                    let navbar = $('.navbar')
+                    const page = $('.page')
+                    const navbar = $('.navbar')
                     if (page.length !== 1) {
                       alert('File "' + htmlFiles[f] + '" does not contain a unique .page container.', 'error')
                     } else {
@@ -97,7 +97,7 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                       $('.page').addClass('kitchen-sink-' + theme)
                       $('a.back').attr('href', '#')
                       $('a.back span').html('Back')
-                      let vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ').replace(/\n([ ]*)\n/g, '\n') + '\n</template>\n'
+                      const vueComponent = '<template>\n  ' + beautify.html($('.page').prop('outerHTML'), {indent_size: 2}).replace(/\n/g, '\n  ').replace(/\n([ ]*)\n/g, '\n') + '\n</template>\n'
                       fs.writeFileSync(path.resolve(destinationFolder, htmlFiles[f].replace(/\.html$/, '.vue')), vueComponent)
                     }
                   } catch (err) {
@@ -105,8 +105,8 @@ function proceedFolder (sourceFolder, destinationFolder, callback) {
                   }
                 }
                 try {
-                  let routes = fs.readJsonSync(path.resolve(env.app, 'routes.json'))
-                  let routesNew = []
+                  const routes = fs.readJsonSync(path.resolve(env.app, 'routes.json'))
+                  const routesNew = []
                   for (let r = 0; r < routes.length; r++) {
                     if ((new RegExp('^\/' + path.basename(sourceFolder).replace('kitchen-sink-', 'f7') + '\/')).test(routes[r].path) === false) { // eslint-disable-line
                       routesNew.push(routes[r])

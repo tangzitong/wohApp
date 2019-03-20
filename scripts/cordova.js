@@ -14,15 +14,17 @@
 'use strict'
 
 // Load packages
-let env = require('./env')
-let alert = require('./alert')
-let cmd = require('./cmd')
-let found = require('./found')
-let type = require('./type')
-let fs = require('fs-extra')
-let path = require('path')
-let abs = require('path').resolve
-let xml = require('xml2js')
+const env = require('./env')
+const alert = require('./alert')
+const cmd = require('./cmd')
+const found = require('./found')
+const type = require('./type')
+const fs = require('fs-extra')
+const path = require('path')
+const abs = require('path').resolve
+const xml = require('xml2js')
+
+let icons = null
 
 // Deploy current version by default
 if (env.arg.version === undefined && (env.arg.xcode === true || env.arg.studio === true)) {
@@ -41,7 +43,7 @@ if (env.arg.ios === true || env.arg.xcode === true) {
 }
 
 // Check store id
-let storeId = env.arg.ios === true || env.arg.android === true
+const storeId = env.arg.ios === true || env.arg.android === true
   ? 'com.app_framework.dev_build'
   : env.arg.xcode === true
     ? env.cfg.appStoreId
@@ -53,14 +55,14 @@ if (storeId === '') {
 }
 
 // Define Cordova bin directory
-let binDir = abs(env.proj, 'node_modules/cordova/bin')
+const binDir = abs(env.proj, 'node_modules/cordova/bin')
 
 // Define build directories
-let buildSourceDir = abs(env.cache, 'snapshots', 'build-' + env.arg.version, 'build/www')
-let wwwFolder = abs(binDir, 'www')
+const buildSourceDir = abs(env.cache, 'snapshots', 'build-' + env.arg.version, 'build/www')
+const wwwFolder = abs(binDir, 'www')
 
 // Define steps
-let deleteFiles = function (files, callback) {
+const deleteFiles = function (files, callback) {
   if (Array.isArray(files) && files.length > 0) {
     const fileToDelete = files.shift()
     fs.remove(abs(binDir, fileToDelete), function (err) {
@@ -76,13 +78,13 @@ let deleteFiles = function (files, callback) {
     callback()
   }
 }
-let resetCordovaFolder = function (callback) {
+const resetCordovaFolder = function (callback) {
   alert('Cordova directory reset ongoing - please wait ...')
   fs.readdir(binDir, function (err, files) {
     if (err) {
       alert('Cordova directory reset failed.', 'issue')
     } else {
-      let filesToDelete = []
+      const filesToDelete = []
       for (let f = 0; f < files.length; f++) {
         if (files[f] !== 'cordova' && files[f] !== 'cordova.cmd') {
           filesToDelete.push(files[f])
@@ -95,7 +97,7 @@ let resetCordovaFolder = function (callback) {
     }
   })
 }
-let createCordovaProject = function (callback) {
+const createCordovaProject = function (callback) {
   alert('Cordova project folder creation ongoing - please wait ...')
   cmd(binDir, 'cordova create .temp', function () {
     fs.copy(abs(binDir, '.temp'), binDir, function (err) {
@@ -116,12 +118,12 @@ let createCordovaProject = function (callback) {
     alert('Failed to create Cordova project folder.', 'issue')
   })
 }
-let updateCordovaConfig = function (callback) {
+const updateCordovaConfig = function (callback) {
   alert('Cordova configuration update ongoing - please wait ...')
   // Copy icons and read to array
   try {
     fs.copySync(abs(env.cache, 'icons/dev'), abs(binDir, 'icons'))
-    var icons = fs.readdirSync(abs(env.cache, 'icons/dev'))
+    icons = fs.readdirSync(abs(env.cache, 'icons/dev'))
   } catch (err) {
     alert('Failed to copy and read icon folder.', 'issue')
   }
@@ -159,7 +161,7 @@ let updateCordovaConfig = function (callback) {
       }
     }
   } else if (type(env.pkg.author) === 'string') {
-    let authorInfo = env.pkg.author.match(/^(.+?)( <(.+)>)?( \((.+?)\))?$/)
+    const authorInfo = env.pkg.author.match(/^(.+?)( <(.+)>)?( \((.+?)\))?$/)
     if (env.pkg.author !== null && authorInfo[1] !== undefined) {
       config.author = {
         _: authorInfo[1]
@@ -187,8 +189,8 @@ let updateCordovaConfig = function (callback) {
   }
   // Apply custom Cordova preferences
   if (env.cfg.cordovaPreferences !== undefined) {
-    var preferences = config.preference ? [config.preference] : []
-    for (var key in env.cfg.cordovaPreferences) {
+    const preferences = config.preference ? [config.preference] : []
+    for (const key in env.cfg.cordovaPreferences) {
       preferences.push({
         '$': {
           'name': key,
@@ -215,7 +217,7 @@ let updateCordovaConfig = function (callback) {
       'splash': []
     }
     for (let i = 0; i < icons.length; i++) {
-      let iconInfo = icons[i].match(/android-(icon|splash)-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)
+      const iconInfo = icons[i].match(/android-(icon|splash)-([a-z]+)dpi-([0-9]+)x([0-9]+)\.png/)
       if (iconInfo !== null) {
         config.platform[iconInfo[1]].push({
           '$': {
@@ -248,7 +250,7 @@ let updateCordovaConfig = function (callback) {
       'splash': []
     }
     for (let i = 0; i < icons.length; i++) {
-      let iconInfo = icons[i].match(/ios-(icon|splash)-([0-9]+)x([0-9]+)\.png/)
+      const iconInfo = icons[i].match(/ios-(icon|splash)-([0-9]+)x([0-9]+)\.png/)
       if (iconInfo !== null) {
         config.platform[iconInfo[1]].push({
           '$': {
@@ -307,8 +309,8 @@ let updateCordovaConfig = function (callback) {
     }
   ]
   // Update config files
-  let builder = new xml.Builder({rootName: 'widget', xmldec: {version: '1.0', encoding: 'utf-8'}})
-  let xmlContent = builder.buildObject(config)
+  const builder = new xml.Builder({rootName: 'widget', xmldec: {version: '1.0', encoding: 'utf-8'}})
+  const xmlContent = builder.buildObject(config)
   fs.writeFile(abs(binDir, 'config.xml'), xmlContent, function (err) {
     if (!err) {
       callback()
@@ -317,7 +319,7 @@ let updateCordovaConfig = function (callback) {
     }
   })
 }
-let updateWwwFolder = function (callback) {
+const updateWwwFolder = function (callback) {
   alert('Cordova build folder update ongoing - please wait ...')
   fs.remove(wwwFolder, function (err) {
     if (!err) {
@@ -347,7 +349,7 @@ let updateWwwFolder = function (callback) {
     }
   })
 }
-let installCordovaPlugins = function (callback, pluginList) {
+const installCordovaPlugins = function (callback, pluginList) {
   alert('Cordova plugin installation ongoing - please wait ...')
   if (pluginList === undefined) {
     pluginList = env.cfg.useCordovaPlugins
@@ -362,8 +364,8 @@ let installCordovaPlugins = function (callback, pluginList) {
     }
   }
   if (Array.isArray(pluginList) && pluginList.length > 0) {
-    let nextPlugin = pluginList.shift()
-    let additionalCommand = nextPlugin === 'cordova-plugin-camera'
+    const nextPlugin = pluginList.shift()
+    const additionalCommand = nextPlugin === 'cordova-plugin-camera'
       ? ' --variable CAMERA_USAGE_DESCRIPTION="' + env.cfg.title + ' camera use" --variable PHOTOLIBRARY_USAGE_DESCRIPTION="' + env.cfg.title + ' photo library use"'
       : ''
     cmd(binDir, 'cordova plugin add ' + nextPlugin + additionalCommand, function () {
@@ -376,7 +378,7 @@ let installCordovaPlugins = function (callback, pluginList) {
     callback()
   }
 }
-let addCordovaPlatforms = function (callback) {
+const addCordovaPlatforms = function (callback) {
   alert('Cordova platform installation ongoing - please wait ...')
   if (env.arg.ios === true || env.arg.xcode === true) {
     cmd(binDir, 'cordova platform add ios', function () {
@@ -416,7 +418,7 @@ let addCordovaPlatforms = function (callback) {
   }
 }
 
-let deployDevRules = function (callback) {
+const deployDevRules = function (callback) {
   if (env.arg.version === 'dev') {
     cmd(__dirname, 'node firebase --database --storage --version dev', function () {
       callback()
@@ -457,7 +459,7 @@ deployDevRules(function () {
                 } else if (env.arg.studio === true) {
                   alert('Android Studio start ongoing - please wait ...')
                   if (env.os === 'win') {
-                    let possibleInstallations = [
+                    const possibleInstallations = [
                       abs(process.env['ProgramFiles'], 'Android/Android Studio/bin/studio64.exe'),
                       abs(process.env['ProgramFiles'], 'Android/Android Studio/bin/studio.exe'),
                       abs(process.env['ProgramFiles(x86)'], 'Android/Android Studio/bin/studio64.exe'),
@@ -478,7 +480,7 @@ deployDevRules(function () {
                       alert('Android Studio started.')
                     })
                   } else if (env.os === 'linux') {
-                    let possibleInstallations = [
+                    const possibleInstallations = [
                       abs('/bin/android-studio/bin/studio.sh'),
                       abs('/opt/android-studio/bin/studio.sh'),
                       abs('/usr/bin/android-studio/bin/studio.sh'),
