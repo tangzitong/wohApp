@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <f7-page no-navbar no-toolbar no-swipeback layout="white">
 
     <!-- Non-native application input field -->
     <input type="file" accept="image/*;capture=camera" style="display: none" @change="handleFileChanged" />
@@ -18,7 +18,7 @@
     <!-- Upload button -->
     <f7-button @click="handleUploadClicked" raised>Upload photo</f7-button>
 
-  </div>
+  </f7-page>
 </template>
 <script>
 import { mapActions } from 'vuex'

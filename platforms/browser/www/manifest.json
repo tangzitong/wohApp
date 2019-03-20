@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "wohApp",
+  "short_name": "wohApp",
+  "version": "com.highwayns.wohApp",
+  "description": "A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app.",
+  "author": "Tei Gun",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#ff9800"
+}

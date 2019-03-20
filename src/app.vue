@@ -1,8 +1,6 @@
 <template>
   <!-- App -->
   <div id="app">
-    <login-popup />
-
     <!-- Statusbar -->
     <f7-statusbar></f7-statusbar>
 
@@ -23,7 +21,10 @@
       <login-popup></login-popup>
     </f7-popup>
     <f7-popup :opened="imageUploaderPopupOpened">
-      <imageuploader-popup></imageuploader-popup>
+      <imageuploader-popup
+        :db="'firebase'"
+        :store="'firestore'"
+        :size="1024"></imageuploader-popup>
     </f7-popup>
   </div>
 </template>
@@ -33,7 +34,7 @@ import PublisherPopup from './popup/publisher'
 import CommentPopup from './popup/comment'
 import ApplicationPopup from './popup/application'
 import LoginPopup from './popup/login'
-import ImageUploaderPopup from './popup/imageuploader'
+import ImageuploaderPopup from './popup/imageuploader'
 import { mapState } from 'vuex'
 
 export default {
@@ -51,7 +52,7 @@ export default {
     CommentPopup,
     ApplicationPopup,
     LoginPopup,
-    ImageUploaderPopup
+    ImageuploaderPopup
   }
 }
 </script>

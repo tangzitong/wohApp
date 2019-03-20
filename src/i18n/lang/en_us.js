@@ -109,12 +109,37 @@ export default {
     post: 'Post'
   },
   login: {
-    title: 'Login',
-    btn: 'Login',
-    userId: 'User Id(E-mail):',
-    password: 'Password:',
-    userId_: 'Please input User Id(E-mail)',
-    password_: 'Please input Password'
+    titleSignIn: 'Sign in',
+    titleSignOut: 'Sign out',
+    currentlyDisabled: 'The sign in is currently disabled.',
+    email: 'Email',
+    password: 'Password',
+    passwordConfirmation: 'Confirmation',
+    handleRegistration: 'Create account',
+    handleReset: 'Reset password',
+    signIn: 'Sign in',
+    signOut: 'Sign out',
+    createAccount: 'Create new account',
+    resetPassword: 'Reset your password',
+    cancel: 'Cancel',
+    emailSent: 'Email sent',
+    checkYourInbox: 'Please check your inbox.',
+    signOutDone: 'Sign out done',
+    accountCreated: 'Account created',
+    error: 'Error',
+    errorOffline: 'This action is offline not possible.',
+    errorNoEmail: 'Please enter your email address.',
+    errorNoPassword: 'Please enter a password.',
+    errorPasswordsDifferent: 'You entered two different passwords.',
+    firebaseErrors: {
+      'auth/email-already-in-use': 'The email address is already linked to another account.',
+      'auth/invalid-email': 'The email address is invalid.',
+      'auth/operation-not-allowed': 'Login is currently disabled.',
+      'auth/weak-password': 'The password is not safe enough.',
+      'auth/user-not-found': 'No account found for that email address.',
+      'auth/user-disabled': 'Your account is deactivated.',
+      'auth/wrong-password': 'The password is wrong.'
+    }
   },
   regist: {
     title: 'Regist',

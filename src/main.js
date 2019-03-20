@@ -78,7 +78,7 @@ new Vue({
     loginRequiringPagesOnStart: false,
     resetLocalStorageOnVersionChange: true,
     projectVersion: '1.0',
-    config: null,
+    config: fb.dbConfig,
     user: null,
     db: null,
     store: null,
@@ -116,7 +116,6 @@ new Vue({
     }
     this.auth = fb.auth
     this.chat = fb.chat
-    this.config = fb.dbConfig
     this.$nextTick(function () {
       this.$pageKey = this.getKey()
       this.restoreData()
