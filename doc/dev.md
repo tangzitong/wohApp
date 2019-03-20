@@ -2,7 +2,8 @@ Devlop Guidline
 ===
 
 1.Git
-##git install
+##git install##
+
 [git install](https://qiita.com/toshi-click/items/dcf3dd48fdc74c91b409)
 
 ##create local repository
