@@ -9,7 +9,7 @@ path / {
 }
 ```
 
-#2.
+# 2.
 ```
 path / {
   read() { true }
