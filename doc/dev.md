@@ -157,7 +157,7 @@ vue ui
 ## online editor:
 https://github.com/highwayns/vuegg
 
-## [Nodeunit usage guildline](https://github.com/highwayns/wohApp/blob/master/doc/nodeunit.md)
+## [Vue usage guildline](https://github.com/highwayns/wohApp/blob/master/doc/vue.md)
 
 # 11.framework7
 http://v2.framework7.io/vue/
