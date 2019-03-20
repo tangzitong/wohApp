@@ -120,11 +120,15 @@ The result is available in `www/` folder.
 
 ## Demo
 
-[wohapp-3a179.firebaseapp.com](http://wohapp-3a179.firebaseapp.com/)
+[Work On Highway](http://wohapp-3a179.firebaseapp.com/)
+
+## Devlopment guildline
+
+[Devlopment guildline](https://github.com/highwayns/wohApp/blob/master/doc/dev.md)
 
 ## License
 
-Copyright (c) 2016 - 2018 Tei Gun. MIT Licensed, see [LICENSE] for details.
+Copyright (c) 2016 - 2018 Tei Gun. MIT Licensed, see [LICENSE](https://github.com/highwayns/wohApp/blob/master/LICENSE.md) for details.
 
-[http://highwayns.com/]: http://highwayns.com/
+[http://highwayns.com/](http://highwayns.com/)
 [LICENSE]:https://github.com/highwayns/wohApp/blob/master/LICENSE.md
