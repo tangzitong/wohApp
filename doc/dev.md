@@ -39,6 +39,7 @@ git push
 * https://wp-p.info/tpl_rep.php?cat=js-application&fl=r9
 * https://qiita.com/ichikawa_0829/items/85413fedc59822ccef75
 * https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage
+## [js study guildline](https://github.com/highwayns/wohApp/blob/master/doc/js.md)
 
 # 4.html/css
 * http://www.ituore.com/entry/html-css-basic
@@ -125,6 +126,8 @@ firebase open hosting:site
 * firebase invite:
 * firebase admob:
 
+## [Firebase study guildline](https://github.com/highwayns/wohApp/blob/master/doc/firebase.md)
+
 # 9.cordova
 https://cordova.apache.org/docs/en/latest/
 ```
@@ -154,6 +157,8 @@ vue ui
 ## online editor:
 https://github.com/highwayns/vuegg
 
+## [Nodeunit usage guildline](https://github.com/highwayns/wohApp/blob/master/doc/nodeunit.md)
+
 # 11.framework7
 http://v2.framework7.io/vue/
 ```
@@ -168,6 +173,7 @@ framework7 cordova plugin add cordova-plugin-statusbar
 framework7 cordova plugin add cordova-plugin-splashscreen
 framework7 cordova build ios
 ```
+## [Framework7 study guildline](https://github.com/highwayns/wohApp/blob/master/doc/framework7.md)
 
 # 12.glup & Iconfont
 https://github.com/gulpjs/gulp/tree/master/docs
@@ -191,6 +197,7 @@ https://github.com/FirebaseExtended/bolt/blob/master/docs/language.md
 npm install --global firebase-bolt
 firebase-bolt < posts.bolt
 ```
+## [Bolt study guildline](https://github.com/highwayns/wohApp/blob/master/doc/bolt.md)
 
 # 15.firechat
 https://firechat.firebaseapp.com/docs/
@@ -343,13 +350,16 @@ npm install -g nodeunit
 ```
 nodeunit test
 ```
+## [Nodeunit usage guildline](https://github.com/highwayns/wohApp/blob/master/doc/nodeunit.md)
 
 # 22.vue plugin & vuefire
 * https://github.com/highwayns/vuefire
 * https://jp.vuejs.org/v2/guide/plugins.html
+## [VUEプラグインの使用](https://github.com/highwayns/wohApp/blob/master/doc/vueplugin.md)
 
 # 23.vue on aem
 https://github.com/ahmed-musallam/AtACE-AEM-Vue
 
 # 24.app-framework
-https://github.com/highwayns/app-framework
+* [app-framework git](https://github.com/highwayns/app-framework)
+## [app-framework guildline](https://github.com/highwayns/wohApp/blob/master/doc/appframework.md)

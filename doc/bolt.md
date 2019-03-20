@@ -1,25 +1,34 @@
-1.
+Bolt study guildline
+===
 
+# 1.
+```
 path / {
   read() { auth != null }
   write() { auth != null }
 }
+```
 
-2.
+#2.
+```
 path / {
   read() { true }
   write() { true }
 }
+```
 ->
+```
 {
   "rules": {
     ".read": "true",
     ".write": "true"
   }
 }
+```
 
-3.
+# 3.
 // Allow anyone to read the list of Posts.
+```
 path /posts {
   read() { true }
 }
@@ -35,8 +44,10 @@ type Post {
   message: String,
   from: String
 }
+```
 
-4.
+# 4.
+```
 path / is Person;
 
 type Person {
@@ -47,8 +58,10 @@ type Person {
   // Optional data (allows an Object or null/missing value).
   extra: Object | Null
 }
+```
 
-5.
+# 5.
+```
 path /users/{id} is User;
 path /rooms/{id} is Room;
 
@@ -65,8 +78,10 @@ type Room {
 type NameString extends String {
   validate() { this.length > 0 && this.length <= 32 }
 }
+```
 
-6.
+# 6.
+```
 path /users/{userid} is User {
   read() { true }
   write() { isCurrentUser(userid) }
@@ -80,8 +95,10 @@ type User {
 // Define isCurrentUser() function to test if the given user id
 // matches the currently signed-in user.
 isCurrentUser(uid) { auth != null && auth.uid == uid }
+```
 
-7.
+# 7.
+```
 path /posts/{id} is Post {
   read() { true }
   write() { true }
@@ -104,8 +121,10 @@ type InitialTimestamp extends Number {
 // Returns true if the value is intialized to init, or if it retains it's prior
 // value, otherwise.
 initial(value, init) { value == (prior(value) == null ? init : prior(value)) }
+```
 
-8.
+# 8.
+```
 //
 // Room Names
 //
@@ -167,3 +186,4 @@ type NameString {
 isCurrentUser(uid) { isSignedIn() && auth.uid == uid }
 isSignedIn() { auth != null }
 createOnly(value) { prior(value) == null && value != null }
+```

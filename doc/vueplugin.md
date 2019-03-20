@@ -1,6 +1,8 @@
-プラグインの使用
+VUEプラグインの使用
+===
 
-// `MyPlugin.install(Vue)` を呼び出します
+# // `MyPlugin.install(Vue)` を呼び出します
+```
 Vue.use(MyPlugin)
 
 new Vue({
@@ -9,16 +11,20 @@ new Vue({
 
 いくつかのオプションに任意で渡すことができます:
 Vue.use(MyPlugin, { someOption: true })
+```
 
-vue-router のような Vue.js 公式プラグインによって提供されるプラグイン
+# vue-router のような Vue.js 公式プラグインによって提供されるプラグイン
+```
 // Browserify または Webpack 経由で CommonJS を使用
 var Vue = require('vue')
 var VueRouter = require('vue-router')
 
 // これを呼びだすのを忘れてはいけません
 Vue.use(VueRouter)
+```
 
-プラグインの記述
+# プラグインの記述
+```
 MyPlugin.install = function (Vue, options) {
   // 1. グローバルメソッドまたはプロパティを追加
   Vue.myGlobalMethod = function () {
@@ -43,10 +49,14 @@ MyPlugin.install = function (Vue, options) {
     // 何らかのロジック ...
   }
 }
+```
 
-vuefire
+# vuefire
+```
 npm install vue firebase vuefire --save
+```
 
+```
 var Vue = require('vue')
 var VueFire = require('vuefire')
 var firebase = require('firebase')
@@ -118,4 +128,4 @@ export default {
     }
   }
 }
-
+```

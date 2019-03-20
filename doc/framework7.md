@@ -1,5 +1,8 @@
-App HTML Layout
+Framework7 Study Guildline
+===
 
+# App HTML Layout
+```
 <!DOCTYPE html>
 <html>
   <head>
@@ -58,9 +61,10 @@ App HTML Layout
     <script type="text/javascript" src="path/to/my-app.js"></script>
   </body>
 </html>
+```
 
-Initialize App:my-app.js
-
+# Initialize App:my-app.js
+```
 var app = new Framework7({
   // App root element
   root: '#app',
@@ -81,8 +85,10 @@ var app = new Framework7({
   ],
   // ... other parameters
 });
+```
 
-event:
+# event:
+```
 var app = new Framework7({
   ...
   on: {
@@ -104,8 +110,10 @@ var popup = app.popup.create({
     }
   }
 })
+```
 
-routers
+# routers
+```
 var app = new Framework7({
   routes: [
     {
@@ -146,9 +154,10 @@ var app = new Framework7({
     },
   ],
 });
+```
 
-router component:
-
+#router component:
+```
 routes = [
   // ...
   {
@@ -203,8 +212,10 @@ routes = [
   },
   // ...
 ]
+```
 
-view layout
+# view layout
+```
 <body>
   <!-- app root -->
   <div id="app">
@@ -222,8 +233,10 @@ view layout
     </div>
   </div>
 </body>
+```
 
-Multiple Views Layout
+# Multiple Views Layout
+```
 <body>
   <!-- app root -->
   <div id="app">
@@ -250,9 +263,10 @@ Multiple Views Layout
     </div>
   </div>
 </body>
+```
 
-
-App Methods & Properties
+# App Methods & Properties
+```
 var app = new Framework7({
   id: 'com.myapp.test',
   // Extended by Panel component:
@@ -281,9 +295,10 @@ app.statusbar.hide();
 app.on('panelOpen', function (panel) {
   console.log('Panel ' + panel.side + ' opened');
 });
+```
 
-Accordion Layout
-
+# Accordion Layout
+```
 <div class="accordion-list">
     <div class="accordion-item">
         <div class="accordion-item-toggle">...</div>
@@ -299,16 +314,20 @@ Accordion Layout
     </div>
     ...
 </div>
+```
 
-actions:
+# actions:
+```
 var app = new Framework7({
   actions: {
     convertToPopover: false,
     grid: true,
   }
 });
+```
 
-autocomplete
+# autocomplete
+```
 var autocomplete = app.autocomplete.create({
   inputEl: '#autocomplete-dropdown',
   openIn: 'dropdown',
@@ -316,15 +335,19 @@ var autocomplete = app.autocomplete.create({
     ...
   }
 });
+```
 
-Dom7
+# Dom7
+```
 //Export DOM7 to local variable to make it easy accessable
 var $$ = Dom7;
 $$('.something').on('click', function (e) {
     $$(this).addClass('hello').attr('title', 'world').insertAfter('.something-else');
 });
+```
 
-template7
+# template7
+```
 // Initialize app
 var app = new Framework7();
 
@@ -344,8 +367,10 @@ app.on('pageInit', function (page) {
 
     // Do something with html...
 });
+```
 
-plugin
+#plugin
+```
 var myPlugin = {
   // Module Name
   name: 'demo-module',
@@ -411,6 +436,4 @@ var myPlugin = {
 };
 
 Framework7.use(myPlugin);
-
-
-
+```

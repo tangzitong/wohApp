@@ -1,4 +1,8 @@
-1.
+Vue study guildline
+===
+
+# 1.
+```
 <div id="app">
   {{ message }}
 </div>
@@ -9,8 +13,10 @@ var app = new Vue({
     message: 'Hello Vue!'
   }
 })
+```
 
-2.
+# 2.
+```
 <div id="app-2">
   <span v-bind:title="message">
     Hover your mouse over me for a few seconds
@@ -23,8 +29,10 @@ var app2 = new Vue({
     message: 'You loaded this page on ' + new Date().toLocaleString()
   }
 })
+```
 
-3.
+# 3.
+```
 <div id="app-3">
   <span v-if="seen">Now you see me</span>
 </div>
@@ -35,8 +43,10 @@ var app3 = new Vue({
     seen: true
   }
 })
+```
 
-4.
+# 4.
+```
 <div id="app-4">
   <ol>
     <li v-for="todo in todos">
@@ -55,8 +65,10 @@ var app4 = new Vue({
     ]
   }
 })
+```
 
-5.
+# 5.
+```
 <div id="app-5">
   <p>{{ message }}</p>
   <button v-on:click="reverseMessage">Reverse Message</button>
@@ -73,8 +85,10 @@ var app5 = new Vue({
     }
   }
 })
+```
 
-6.
+# 6.
+```
 <div id="app-6">
   <p>{{ message }}</p>
   <input v-model="message">
@@ -85,8 +99,10 @@ var app6 = new Vue({
     message: 'Hello Vue!'
   }
 })
+```
 
-7.
+# 7.
+```
 Vue.component('todo-item', {
   template: '<li>This is a todo</li>'
 })
@@ -95,8 +111,10 @@ Vue.component('todo-item', {
   <!-- Create an instance of the todo-item component -->
   <todo-item></todo-item>
 </ol>
+```
 
-8.
+# 8.
+```
 Vue.component('todo-item', {
   // The todo-item component now accepts a
   // "prop", which is like a custom attribute.
@@ -120,8 +138,10 @@ Vue.component('todo-item', {
     ></todo-item>
   </ol>
 </div>
+```
 
-9.
+# 9.
+```
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
@@ -137,8 +157,10 @@ var app7 = new Vue({
     ]
   }
 })
+```
 
-10.
+# 10.
+```
 <div id="app">
   <app-nav></app-nav>
   <app-view>
@@ -146,3 +168,4 @@ var app7 = new Vue({
     <app-content></app-content>
   </app-view>
 </div>
+```
