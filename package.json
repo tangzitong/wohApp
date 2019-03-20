@@ -14,7 +14,8 @@
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
     "copy-fonts": "cpy node_modules/framework7-icons/fonts/*.* src/assets/fonts && cpy node_modules/framework7-icons/css/*.* src/assets/css",
-    "postinstall": "npm run copy-fonts"
+    "postinstall": "npm run copy-fonts",
+    "snapshot": "node ./scripts/snapshot.js"
   },
   "keywords": [
     "ios",
@@ -54,10 +55,14 @@
     "firebase": "^5.8.4",
     "firechat": "^3.0.1",
     "firestore": "^1.1.6",
+    "font-awesome": "^4.7.0",
     "framework7": "^2.3.1",
     "framework7-icons": "^0.8.9",
     "framework7-vue": "^2.3.0",
+    "fs-extra": "^7.0.1",
+    "ionicons": "^3.0.0",
     "jquery": "^3.3.1",
+    "json-loader": "^0.5.4",
     "material-design-icons": "^3.0.1",
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
@@ -67,11 +72,9 @@
     "vue": "^2.5.2",
     "vue-i18n": "^7.5.0",
     "vue-router": "^3.0.2",
-    "ionicons": "^3.0.0",
-    "font-awesome": "^4.7.0",
-    "json-loader": "^0.5.4",
     "vuefire": "^1.4.5",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "zip-dir": "^1.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
