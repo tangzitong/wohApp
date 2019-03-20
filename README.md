@@ -1,15 +1,11 @@
 wohApp
 =====
 
-A simple and interesting Framework7 hybrid app.With Cordova you can easily convert it to native iOS app.
+A simple and interesting Framework7 hybrid app.With Cordova you can easily convert it to native iOS&android app.
 
 ## Build Tools
 
 wohApp use different build tools to build the same project, Hope it will helps you select a suitable build tool.
-
-* `f7-vue-webpack` at origin/master
-* `f7-webpack` at [origin/f7-webpack](https://github.com/BelinChung/HiApp/tree/f7-webpack)
-* `fis3` at [origin/fis3](https://github.com/BelinChung/HiApp/tree/fis3)
 
 ## Requirements
 
@@ -75,6 +71,8 @@ Before you can build the project, you need to specify a set of target platforms.
 
 ```
 $ cordova platform add ios --save
+$ cordova platform add android --save
+$ cordova platform add windows --save
 ```
 
 ### 4. Add Plugins
@@ -122,7 +120,7 @@ The result is available in `www/` folder.
 
 ## Demo
 
-[https://highwayns.com/]
+[wohapp-3a179.firebaseapp.com](http://wohapp-3a179.firebaseapp.com/)
 
 ## License
 
