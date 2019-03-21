@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/database'
 import 'firebase/storage'
 
@@ -23,7 +23,7 @@ window.firebase = firebase.initializeApp(dbConfig)
 const auth = firebase.auth()
 const database = firebase.database()
 const storage = firebase.storage()
-
+const timestamp = firebase.database.ServerValue.TIMESTAMP
 // firechat
 const chat = new Firechat(database.ref(), null)
 
@@ -32,5 +32,6 @@ export {
   database,
   storage,
   auth,
+  timestamp,
   chat
 }

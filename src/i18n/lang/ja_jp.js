@@ -191,7 +191,8 @@ export default {
     email: 'E-メール:',
     email_: 'E-メールを入力してください',
     password: 'パスワード:',
-    password_: 'パスワードを入力してください'
+    password_: 'パスワードを入力してください',
+    image: '画像アップロード'
   },
   logout: {
     title: 'ログアウト',

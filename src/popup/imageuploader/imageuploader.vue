@@ -1,22 +1,25 @@
 <template>
   <f7-page no-navbar no-toolbar no-swipeback layout="white">
-
-    <!-- Non-native application input field -->
-    <input type="file" accept="image/*;capture=camera" style="display: none" @change="handleFileChanged" />
-
-    <!-- Native application actions -->
-    <f7-actions :opened="actionsOpened" @actions:closed="actionsOpened=false">
-      <f7-actions-group>
-        <f7-actions-button @click="handleTakePhotoClicked">Take photo</f7-actions-button>
-        <f7-actions-button @click="handleSelectPhotoClicked">Select photo</f7-actions-button>
-      </f7-actions-group>
-      <f7-actions-group>
-        <f7-actions-button color="red">Cancel</f7-actions-button>
-      </f7-actions-group>
-    </f7-actions>
-
-    <!-- Upload button -->
-    <f7-button @click="handleUploadClicked" raised>Upload photo</f7-button>
+    <f7-block>
+      <!-- Non-native application input field -->
+      <input type="file" accept="image/*;capture=camera" style="display: none" @change="handleFileChanged" />
+    </f7-block>
+    <f7-block>
+      <!-- Native application actions -->
+      <f7-actions :opened="actionsOpened" @actions:closed="actionsOpened=false">
+        <f7-actions-group>
+          <f7-actions-button @click="handleTakePhotoClicked">Take photo</f7-actions-button>
+          <f7-actions-button @click="handleSelectPhotoClicked">Select photo</f7-actions-button>
+        </f7-actions-group>
+        <f7-actions-group>
+          <f7-actions-button color="red">Cancel</f7-actions-button>
+        </f7-actions-group>
+      </f7-actions>
+    </f7-block>
+    <f7-block>
+      <!-- Upload button -->
+      <f7-button @click="handleUploadClicked" raised>Upload photo</f7-button>
+    </f7-block>
 
   </f7-page>
 </template>
@@ -64,7 +67,7 @@ export default {
         // No native application
         } else {
           // Click hidden file selection field
-          window.Dom7(e.target).parent().find('input').click()
+          window.$$(e.target).parent().find('input').click()
         }
       // User is offline
       } else {

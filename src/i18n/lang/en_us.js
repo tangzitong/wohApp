@@ -192,7 +192,8 @@ export default {
     email: 'E-mail:',
     email_: 'Please input your E-mail',
     password: 'Password:',
-    password_: 'Please input Password'
+    password_: 'Please input Password',
+    image: 'Image Upload'
   },
   logout: {
     title: 'Logout',

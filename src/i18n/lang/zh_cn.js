@@ -191,7 +191,8 @@ export default {
     email: '邮件:',
     email_: '请输入邮件',
     password: '密码:',
-    password_: '请输入密码'
+    password_: '请输入密码',
+    image: '图片上传'
   },
   logout: {
     title: '退出',

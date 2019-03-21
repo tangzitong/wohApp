@@ -11,15 +11,15 @@
     <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
       <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{$t('login.email')}}</f7-label>
-        <f7-input type="email" :placeholder="$t('login.email')" v-model="email" />
+        <f7-input type="email" :placeholder="$t('login.email')" @input="email = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{$t('login.password')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.password')" v-model="password" />
+        <f7-input type="password" :placeholder="$t('login.password')" @input="password = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <f7-label>{{$t('login.password')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" v-model="passwordConfirmation" />
+        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
     </f7-list>
 
@@ -119,7 +119,7 @@ export default {
         window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else {
         // Show loading indicator
-        window.f7.showIndicator()
+        // window.f7.showIndicator()
         // Sign in user
         window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
           // On success
@@ -129,7 +129,7 @@ export default {
           // On error, show alert
           .catch(err => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
             // Show error alert
             window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
@@ -137,7 +137,7 @@ export default {
     },
     handleSignInDone: function () {
       // Hide loading indicator
-      window.f7.hideIndicator()
+      // window.f7.hideIndicator()
       // Reset form
       this.email = ''
       this.password = ''
@@ -214,13 +214,13 @@ export default {
         window.f7.alert(this.$t('login.errorPasswordsDifferent'), this.$t('login.error'))
       } else {
         // Show loading indicator
-        window.f7.showIndicator()
+        // window.f7.showIndicator()
         // Create new user
         window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
           // On success, sign in user
           .then(user => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
             // Show notification
             window.f7.addNotification({
               title: this.$t('login.accountCreated'),
@@ -234,7 +234,7 @@ export default {
           // On error, show alert
           .catch(err => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
             // Show error alert
             window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
@@ -247,12 +247,12 @@ export default {
         window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else {
         // Show loading indicator
-        window.f7.showIndicator()
+        // window.f7.showIndicator()
         // Send reset link
         window.firebase.auth().sendPasswordResetEmail(this.email)
           .then(user => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
             // Update mode
             this.mode = 'signIn'
             // On success, show notfication and login screen again
@@ -266,7 +266,7 @@ export default {
           })
           .catch(err => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
             // Show error alert
             window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })

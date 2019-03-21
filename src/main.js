@@ -97,7 +97,7 @@ new Vue({
     // Clean local storage if user is not logged in initially
     if (!window.localStorage.user) this.cleanLocalStorageAfterLogut()
     // Monitor user changes
-    fb.auth().onAuthStateChanged(user => {
+    fb.auth.onAuthStateChanged(user => {
       this.user = user ? {
         uid: user.uid,
         email: user.email,
@@ -107,12 +107,12 @@ new Vue({
     })
     // Use database service
     this.db = function (path) {
-      return fb.database().ref(path)
+      return fb.database.ref(path)
     }
-    this.timestamp = fb.database.ServerValue.TIMESTAMP
+    this.timestamp = fb.timestamp
     // Use storage service
     this.storage = function (path) {
-      return fb.storage().ref(path)
+      return fb.storage.ref(path)
     }
     this.auth = fb.auth
     this.chat = fb.chat

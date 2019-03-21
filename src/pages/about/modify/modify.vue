@@ -49,7 +49,7 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
-    cancel: function () {
+    uploadImage: function () {
       // Close popup
       this.updatePopup({
         key: 'imageUploaderOpened',
