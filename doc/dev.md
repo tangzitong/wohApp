@@ -19,9 +19,9 @@ git fetch
 git pull
 ```
 ## commit modified
-git add .
-git commit -m "XXX modified"
-git push
+* git add .
+* git commit -m "XXX modified"
+* git push
 
 ## コンフリクト解消
 [コンフリクト解消ガイド](https://qiita.com/yuya_presto/items/5d99499cf96c0ebb09f8)
