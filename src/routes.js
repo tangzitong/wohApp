@@ -12,6 +12,7 @@ import jobtypePage from './pages/jobs/type'
 import jobaddPage from './pages/jobs/add'
 import companysPage from './pages/companys'
 import companytypePage from './pages/companys/type'
+import companyaddtypePage from './pages/companys/addtype'
 import companyaddPage from './pages/companys/add'
 import projectsPage from './pages/projects'
 import projecttypePage from './pages/projects/type'
@@ -128,6 +129,10 @@ export default [
   {
     path: '/companys/type/',
     component: companytypePage
+  },
+  {
+    path: '/companys/addtype/',
+    component: companyaddtypePage
   },
   {
     path: '/companys/add',

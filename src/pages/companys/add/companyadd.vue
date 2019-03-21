@@ -1,6 +1,6 @@
 <template>
-  <f7-page class="post-page">
-    <f7-navbar :title="$t('post.post')" :back-link="$t('app.back')" sliding>
+  <f7-page class="companyadd-page">
+    <f7-navbar :title="$t('company.add')" :back-link="$t('app.back')" sliding>
     </f7-navbar>
     <card :enableToolbar="false" :data="post"></card>
     <div class="comments">
@@ -42,7 +42,7 @@
 <style lang="less">
 @import '../../../assets/styles/mixins.less';
 
-.post-page {
+.companyadd-page {
   .custom-toolbar {
     background: #fff;
     &:before {

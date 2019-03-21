@@ -81,7 +81,7 @@ new Vue({
     config: fb.dbConfig,
     user: null,
     db: null,
-    store: null,
+    storage: null,
     timestamp: null,
     auth: null,
     chat: null,
@@ -111,7 +111,7 @@ new Vue({
     }
     this.timestamp = fb.database.ServerValue.TIMESTAMP
     // Use storage service
-    this.store = function (path) {
+    this.storage = function (path) {
       return fb.storage().ref(path)
     }
     this.auth = fb.auth

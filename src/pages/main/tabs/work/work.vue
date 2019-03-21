@@ -6,7 +6,7 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.companys')" link="/companys/type/">
+      <f7-list-item :title="$t('app.companys')" link="/companys/addtype/">
         <i class="f7-icons size-25" slot="media">home</i>
       </f7-list-item>
     </f7-list>

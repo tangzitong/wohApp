@@ -72,6 +72,24 @@ export default {
     like: '好み',
     noNewestPost: '仕事なし.'
   },
+  company: {
+    application: 'Application',
+    add: 'Add Company',
+    name: 'name',
+    name_: 'Please input Company Name',
+    address: 'Address',
+    address_: 'Please input Company Address',
+    Tel: 'Tel',
+    Tel_: 'Please input Company Tel',
+    Fax: 'Fax',
+    Fax_: 'Please input Company Fax',
+    Manager: 'Manager',
+    Manager_: 'Please input Company Manager',
+    HP: 'Homepage',
+    HP_: 'Please input Company HomePage',
+    like: 'Like',
+    noNewestCompany: 'No Company Added.'
+  },
   report: {
     application: '承認',
     like: '好み',
