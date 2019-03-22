@@ -372,5 +372,5 @@ https://github.com/ahmed-musallam/AtACE-AEM-Vue
 * [Global data object](https://github.com/highwayns/wohApp/blob/master/doc/data-object.md)
 * [Icon fonts](https://github.com/highwayns/wohApp/blob/master/doc/icon-fonts.md)
 * [Images](https://github.com/highwayns/wohApp/blob/master/doc/images.md)
-* [Modules and Scripts](https://github.com/highwayns/wohApp/blob/master/doc/moudules-and-scripts.md)
+* [Modules and Scripts](https://github.com/highwayns/wohApp/blob/master/doc/modules-and-scripts.md)
 * [State restoration](https://github.com/highwayns/wohApp/blob/master/doc/state-restoration.md)
