@@ -1,6 +1,5 @@
 import axios from 'axios'
 import * as types from './mutation-types'
-import * as fb from '../firebaseConfig.js'
 
 export function clearData({ commit }) {
   commit(types.SET_CURRENTUSER, null)
@@ -10,7 +9,7 @@ export function clearData({ commit }) {
 }
 
 export function fetchUserProfile({ commit, state }) {
-  fb.database.child('users').child(state.currentUser.uid).once('value', function(snapshot) {
+  window.db('users').child(state.currentUser.uid).once('value', function(snapshot) {
     commit(types.SET_USERPROFILE, snapshot.val())
   }).catch(err => {
     console.log(err)
@@ -18,9 +17,10 @@ export function fetchUserProfile({ commit, state }) {
 }
 
 export function updateProfile({ commit, state }, data) {
-  fb.database.child('users').child(state.currentUser.uid).update({
+  window.db('users').child(state.currentUser.uid).update({
     login_name: data.name,
-    nick_name: data.title
+    nick_name: data.title,
+    photo: data.photo
   }).catch(err => {
     console.log(err)
   })

@@ -48,6 +48,8 @@ const VueFire = require('vuefire')
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
 Vue.use(VueFire)
+// Load image-uploader component
+Vue.component('image-uploader', require('./popup/imageuploader'))
 
 const router = new VueRouter({
   Routes,
