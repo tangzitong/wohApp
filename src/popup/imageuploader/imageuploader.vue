@@ -1,5 +1,10 @@
 <template>
   <div>
+    <transition name="fade">
+        <div v-if="performingRequest" class="loading">
+            <p>Loading...</p>
+        </div>
+    </transition>
     <!-- Non-native application input field -->
     <input type="file" accept="image/*;capture=camera" style="display: none" @change="handleFileChanged" />
     <!-- Native application actions -->
@@ -35,7 +40,8 @@ export default {
   },
   data: function () {
     return {
-      actionsOpened: false
+      actionsOpened: false,
+      performingRequest: false
     }
   },
   methods: {
@@ -65,12 +71,14 @@ export default {
       const file = e.target.files[0]
       if (file) {
         // window.f7.showIndicator()
+        this.performingRequest = true
         window.store(this.store).put(file)
           .then(() => {
             this.handleFileUploaded()
           })
           .catch(() => {
             // window.f7.hideIndicator()
+            this.performingRequest = false
             window.f7.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
           })
       } else {
@@ -94,6 +102,7 @@ export default {
       if (navigator.camera && window.resolveLocalFileSystemURL) {
         navigator.camera.getPicture(function (imageUri) {
           // window.f7.showIndicator()
+          this.performingRequest = true
           window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
             fileEntry.file(function (file) {
               const reader = new window.FileReader()
@@ -105,6 +114,7 @@ export default {
                   })
                   .catch(() => {
                     // window.f7.hideIndicator()
+                    this.performingRequest = false
                     window.f7.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
                   })
               }
@@ -138,18 +148,22 @@ export default {
             window.db(this.db).set(url)
               .then(() => {
                 // window.f7.hideIndicator()
+                this.performingRequest = false
               })
               .catch(() => {
                 // window.f7.hideIndicator()
+                this.performingRequest = false
                 window.f7.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
               })
           })
           .catch(() => {
             // window.f7.hideIndicator()
+            this.performingRequest = false
             window.f7.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
           })
       } else {
         // window.f7.hideIndicator()
+        this.performingRequest = false
       }
     }
   }

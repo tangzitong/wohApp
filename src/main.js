@@ -26,7 +26,7 @@ import App from './app.vue'
 
 // Import Vuex store
 import store from './store'
-import { getLoginUser } from './store/actions'
+import { getLoginUser, setCurrentUser, fetchUserProfile } from './store/actions'
 import VueRouter from 'vue-router'
 
 // import network framework
@@ -49,7 +49,7 @@ const VueFire = require('vuefire')
 Vue.use(Framework7Vue, Framework7)
 Vue.use(VueFire)
 // Load image-uploader component
-Vue.component('image-uploader', require('./popup/imageuploader/imageuploader.vue'))
+// Vue.component('image-uploader', require('./popup/imageuploader/imageuploader.vue'))
 
 const router = new VueRouter({
   Routes,
@@ -106,8 +106,8 @@ window.vm = new Vue({
         name: user.displayName,
         photo: user.photoURL
       } : null
-      store.commit('setCurrentUser', user)
-      store.dispatch('fetchUserProfile')
+      setCurrentUser(store, user)
+      fetchUserProfile(store)
       if (this.chat) {
         this.chat.setUser(user.uid, user.displayName)
       }

@@ -27,7 +27,7 @@
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="$root.user">
-      <image-uploader
+      <imageuploader
         :store="'users/' + $root.user.uid"
         :db="'users/' + $root.user.uid + '/photo'" />
     </f7-block>
@@ -41,6 +41,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import imageuploader from '../../../popup/imageuploader'
 
 export default {
   data() {
@@ -80,6 +81,9 @@ export default {
 
       setTimeout(() => { this.showSuccess = false }, 2000)
     }
+  },
+  components: {
+    imageuploader
   }
 }
 </script>
