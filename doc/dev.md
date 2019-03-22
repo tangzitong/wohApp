@@ -353,8 +353,8 @@ nodeunit test
 ## [Nodeunit usage guildline](https://github.com/highwayns/wohApp/blob/master/doc/nodeunit.md)
 
 # 22.vue plugin & vuefire
-* https://github.com/highwayns/vuefire
-* https://jp.vuejs.org/v2/guide/plugins.html
+* [vuefire](https://github.com/highwayns/vuefire)
+* [vue plugin](https://jp.vuejs.org/v2/guide/plugins.html)
 ## [VUEプラグインの使用](https://github.com/highwayns/wohApp/blob/master/doc/vueplugin.md)
 
 # 23.vue on aem
@@ -362,11 +362,11 @@ https://github.com/ahmed-musallam/AtACE-AEM-Vue
 
 # 24.app-framework
 * [app-framework git](https://github.com/highwayns/app-framework)
-## [app-framework guildline](https://github.com/highwayns/wohApp/blob/master/doc/appframework.md)
-## [image-upload-component](https://github.com/highwayns/wohApp/blob/master/doc/image-upload-component.md)
-## [sort-object](https://github.com/highwayns/wohApp/blob/master/doc/sort-object.md)
-## [language-files](https://github.com/highwayns/wohApp/blob/master/doc/language-files.md)
-## [Design your application](https://github.com/highwayns/wohApp/blob/master/doc/design.md)
-## [Page components](https://github.com/highwayns/wohApp/blob/master/doc/page-components.md)
-## [Routing](https://github.com/highwayns/wohApp/blob/master/doc/routing.md)
-## [Global data object](https://github.com/highwayns/wohApp/blob/master/doc/data-object.md)
+* [app-framework guildline](https://github.com/highwayns/wohApp/blob/master/doc/appframework.md)
+* [image-upload-component](https://github.com/highwayns/wohApp/blob/master/doc/image-upload-component.md)
+* [sort-object](https://github.com/highwayns/wohApp/blob/master/doc/sort-object.md)
+* [language-files](https://github.com/highwayns/wohApp/blob/master/doc/language-files.md)
+* [Design your application](https://github.com/highwayns/wohApp/blob/master/doc/design.md)
+* [Page components](https://github.com/highwayns/wohApp/blob/master/doc/page-components.md)
+* [Routing](https://github.com/highwayns/wohApp/blob/master/doc/routing.md)
+* [Global data object](https://github.com/highwayns/wohApp/blob/master/doc/data-object.md)
