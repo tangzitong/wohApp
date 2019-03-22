@@ -4,8 +4,8 @@ import * as types from './mutation-types'
 export function clearData({ commit }) {
   commit(types.SET_CURRENTUSER, null)
   commit(types.SET_USERPROFILE, {})
-  commit(types.SET_CURRENTUSER, null)
-  commit(types.SET_CURRENTUSER, null)
+  commit(types.SET_POSTS, null)
+  commit(types.SET_HIDDENPOSTS, null)
 }
 
 export function fetchUserProfile({ commit, state }) {

@@ -106,6 +106,11 @@ window.vm = new Vue({
         name: user.displayName,
         photo: user.photoURL
       } : null
+      store.commit('setCurrentUser', user)
+      store.dispatch('fetchUserProfile')
+      if (this.chat) {
+        this.chat.setUser(user.uid, user.displayName)
+      }
     })
     // Use database service
     this.db = function (path) {
