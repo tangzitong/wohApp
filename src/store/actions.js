@@ -8,6 +8,10 @@ export function clearData({ commit }) {
   commit(types.SET_HIDDENPOSTS, null)
 }
 
+export function setCurrentUser({ commit }, user) {
+  commit(types.SET_CURRENTUSER, user)
+}
+
 export function fetchUserProfile({ commit, state }) {
   window.db('users').child(state.currentUser.uid).once('value', function(snapshot) {
     commit(types.SET_USERPROFILE, snapshot.val())

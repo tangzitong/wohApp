@@ -49,7 +49,7 @@ const VueFire = require('vuefire')
 Vue.use(Framework7Vue, Framework7)
 Vue.use(VueFire)
 // Load image-uploader component
-Vue.component('image-uploader', require('./popup/imageuploader'))
+Vue.component('image-uploader', require('./popup/imageuploader/imageuploader.vue'))
 
 const router = new VueRouter({
   Routes,
@@ -211,15 +211,15 @@ window.vm = new Vue({
 
   },
   firebase: {
-    jobs: this.db('jobs'),
-    companys: this.db('companys'),
-    projects: this.db('projects'),
-    talents: this.db('talents'),
-    consultants: this.db('consultants'),
-    dispatchers: this.db('dispatchers'),
-    knowledges: this.db('knowledges'),
-    tools: this.db('tools'),
-    events: this.db('events')
+    jobs: fb.database.ref('jobs'),
+    companys: fb.database.ref('companys'),
+    projects: fb.database.ref('projects'),
+    talents: fb.database.ref('talents'),
+    consultants: fb.database.ref('consultants'),
+    dispatchers: fb.database.ref('dispatchers'),
+    knowledges: fb.database.ref('knowledges'),
+    tools: fb.database.ref('tools'),
+    events: fb.database.ref('events')
   },
   // Init Framework7 by passing parameters here
   framework7: {
