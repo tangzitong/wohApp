@@ -68,7 +68,7 @@ router.beforeEach((to, from, next) => {
 })
 
 // Init App
-new Vue({
+window.vm = new Vue({
   el: '#app',
   store,
   i18n,
@@ -204,6 +204,15 @@ new Vue({
 
   },
   firebase: {
+    jobs: this.db('jobs'),
+    companys: this.db('companys'),
+    projects: this.db('projects'),
+    talents: this.db('talents'),
+    consultants: this.db('consultants'),
+    dispatchers: this.db('dispatchers'),
+    knowledges: this.db('knowledges'),
+    tools: this.db('tools'),
+    events: this.db('events')
   },
   // Init Framework7 by passing parameters here
   framework7: {
