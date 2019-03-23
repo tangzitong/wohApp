@@ -59,7 +59,7 @@ export default {
         }
       // User is offline
       } else {
-        window.f7.addNotification({
+        this.$f7.addNotification({
           title: 'Offline',
           message: 'This action is not possible in offline mode.',
           hold: 3000,
@@ -82,7 +82,7 @@ export default {
             window.$$.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
           })
       } else {
-        window.f7.addNotification({
+        this.$f7.addNotification({
           title: 'Select photo',
           message: 'Please select a photo first.',
           hold: 3000,
@@ -115,7 +115,7 @@ export default {
                   .catch(() => {
                     // window.f7.hideIndicator()
                     this.performingRequest = false
-                    window.f7.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
+                    window.$$.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
                   })
               }
               reader.readAsArrayBuffer(file)
@@ -123,7 +123,7 @@ export default {
           })
         }, function (err) {
           if (err !== 'no image selected') {
-            window.f7.alert(err, 'Error')
+            window.$$.alert(err, 'Error')
           }
         }, {
           sourceType: window.Camera.PictureSourceType[type === 'gallery' ? 'PHOTOLIBRARY' : 'CAMERA'],
@@ -133,10 +133,10 @@ export default {
         })
       // Camera plugin not available
       } else if (!navigator.camera) {
-        window.f7.alert('Please add "cordova-plugin-camera" to useCordovaPlugins option in the configuration file.')
+        window.$$.alert('Please add "cordova-plugin-camera" to useCordovaPlugins option in the configuration file.')
       // File plugin not available
       } else {
-        window.f7.alert('Please add "cordova-plugin-file" to useCordovaPlugins option in the configuration file.')
+        window.$$.alert('Please add "cordova-plugin-file" to useCordovaPlugins option in the configuration file.')
       }
     },
     handleFileUploaded: function () {
@@ -153,13 +153,13 @@ export default {
               .catch(() => {
                 // window.f7.hideIndicator()
                 this.performingRequest = false
-                window.f7.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
+                window.$$.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
               })
           })
           .catch(() => {
             // window.f7.hideIndicator()
             this.performingRequest = false
-            window.f7.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
+            window.$$.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
           })
       } else {
         // window.f7.hideIndicator()

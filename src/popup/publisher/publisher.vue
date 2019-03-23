@@ -34,7 +34,7 @@ export default {
       this.$f7.preloader.show(this.$t('app.submitting'))
       this.$root.chat.createPost(this.text, '')
         .then(postKey => {
-          window.f7.addNotification({
+          this.$f7.addNotification({
             title: this.$t('publisher.publisher'),
             message: this.$t('publisher.published'),
             hold: 3000,

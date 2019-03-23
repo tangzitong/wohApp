@@ -117,11 +117,11 @@ export default {
     },
     handleSignIn: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else if (this.password === '') {
-        window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else {
         // Show loading indicator
         // window.f7.showIndicator()
@@ -138,7 +138,7 @@ export default {
             // window.f7.hideIndicator()
             this.performingRequest = false
             // Show error alert
-            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     },
@@ -202,7 +202,7 @@ export default {
               value: false
             })
             // Show notification
-            window.f7.addNotification({
+            this.$f7.addNotification({
               title: this.$t('login.signOut'),
               message: this.$t('login.signOutDone'),
               hold: 3000,
@@ -213,13 +213,13 @@ export default {
     },
     handleRegistration: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else if (this.password === '') {
-        window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else if (this.passwordConfirmation !== this.password) {
-        window.f7.alert(this.$t('login.errorPasswordsDifferent'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorPasswordsDifferent'), this.$t('login.error'))
       } else {
         // Show loading indicator
         // window.f7.showIndicator()
@@ -232,7 +232,7 @@ export default {
             // window.f7.hideIndicator()
             this.performingRequest = false
             // Show notification
-            window.f7.addNotification({
+            this.$f7.addNotification({
               title: this.$t('login.accountCreated'),
               message: this.$t('login.checkYourInbox'),
               hold: 3000,
@@ -247,15 +247,15 @@ export default {
             // window.f7.hideIndicator()
             this.performingRequest = false
             // Show error alert
-            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     },
     handleReset: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else {
         // Show loading indicator
         // window.f7.showIndicator()
@@ -269,7 +269,7 @@ export default {
             // Update mode
             this.mode = 'signIn'
             // On success, show notfication and login screen again
-            window.f7.addNotification({
+            this.$f7.addNotification({
               title: this.$t('login.emailSent'),
               message: this.$t('login.checkYourInbox'),
               hold: 3000,
@@ -282,7 +282,7 @@ export default {
             // window.f7.hideIndicator()
             this.performingRequest = false
             // Show error alert
-            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     }

@@ -12,18 +12,18 @@
           <form @submit.prevent>
             <f7-list-item>
               <label for="name">{{$t('modify.name')}}</label>
-              <input v-model.trim="name" type="text" :placeholder="$t('modify.name_')" id="name" />
+              <input type="text" :placeholder="$t('modify.name_')" @input="name = $event.target.value" />
             </f7-list-item>
             <f7-list-item>
               <label for="title">{{$t('modify.usertitle')}}</label>
-              <input v-model.trim="title" type="text" :placeholder="$t('modify.usertitle_')" id="title" />
-            </f7-list-item>
-            <f7-list-item>
-              <a @click="updateProfile">{{$t('modify.btn')}}</a>
+              <input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" />
             </f7-list-item>
           </form>
         </f7-list-item>
       </f7-list>
+    </f7-block>
+    <f7-block v-if="$root.user">
+      <a @click="updateProfile">{{$t('modify.btn')}}</a>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="$root.user">
