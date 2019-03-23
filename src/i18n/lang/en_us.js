@@ -117,7 +117,8 @@ export default {
   },
   publisher: {
     publisher: 'Publisher',
-    placeholder: 'what\'s new with you.'
+    placeholder: 'what\'s new with you.',
+    published: 'Publish is End'
   },
   application: {
     application: 'Application',

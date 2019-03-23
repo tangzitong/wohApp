@@ -20,12 +20,6 @@
     <f7-popup :opened="loginPopupOpened">
       <login-popup></login-popup>
     </f7-popup>
-    <f7-popup :opened="imageUploaderPopupOpened">
-      <imageuploader-popup
-        :db="'firebase'"
-        :store="'firestore'"
-        :size="1024"></imageuploader-popup>
-    </f7-popup>
   </div>
 </template>
 
@@ -34,7 +28,6 @@ import PublisherPopup from './popup/publisher'
 import CommentPopup from './popup/comment'
 import ApplicationPopup from './popup/application'
 import LoginPopup from './popup/login'
-import ImageuploaderPopup from './popup/imageuploader'
 import { mapState } from 'vuex'
 
 export default {
@@ -43,16 +36,14 @@ export default {
       publisherPopupOpened: state => state.popup.publisherOpened,
       commentPopupOpened: state => state.popup.commentOpened,
       applicationPopupOpened: state => state.popup.applicationOpened,
-      loginPopupOpened: state => state.popup.loginOpened,
-      imageUploaderPopupOpened: state => state.popup.imageUploaderOpened
+      loginPopupOpened: state => state.popup.loginOpened
     }),
   },
   components: {
     PublisherPopup,
     CommentPopup,
     ApplicationPopup,
-    LoginPopup,
-    ImageuploaderPopup
+    LoginPopup
   }
 }
 </script>

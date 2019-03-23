@@ -1,6 +1,8 @@
 Bolt study guildline
 ===
 
+> This page is part of the [wohApp Devlopment Guidline](dev.md)
+
 # 1.
 ```
 path / {

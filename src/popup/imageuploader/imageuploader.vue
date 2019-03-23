@@ -1,30 +1,27 @@
 <template>
-  <f7-page no-navbar no-toolbar no-swipeback layout="white">
-    <f7-block>
-      <!-- Non-native application input field -->
-      <input type="file" accept="image/*;capture=camera" style="display: none" @change="handleFileChanged" />
-    </f7-block>
-    <f7-block>
-      <!-- Native application actions -->
-      <f7-actions :opened="actionsOpened" @actions:closed="actionsOpened=false">
-        <f7-actions-group>
-          <f7-actions-button @click="handleTakePhotoClicked">Take photo</f7-actions-button>
-          <f7-actions-button @click="handleSelectPhotoClicked">Select photo</f7-actions-button>
-        </f7-actions-group>
-        <f7-actions-group>
-          <f7-actions-button color="red">Cancel</f7-actions-button>
-        </f7-actions-group>
-      </f7-actions>
-    </f7-block>
-    <f7-block>
-      <!-- Upload button -->
-      <f7-button @click="handleUploadClicked" raised>Upload photo</f7-button>
-    </f7-block>
-
-  </f7-page>
+  <div>
+    <transition name="fade">
+        <div v-if="performingRequest" class="loading">
+            <p>Loading...</p>
+        </div>
+    </transition>
+    <!-- Non-native application input field -->
+    <input type="file" accept="image/*;capture=camera" style="display: none" @change="handleFileChanged" />
+    <!-- Native application actions -->
+    <f7-actions :opened="actionsOpened" @actions:closed="actionsOpened=false">
+      <f7-actions-group>
+        <f7-actions-button @click="handleTakePhotoClicked">Take photo</f7-actions-button>
+        <f7-actions-button @click="handleSelectPhotoClicked">Select photo</f7-actions-button>
+      </f7-actions-group>
+      <f7-actions-group>
+        <f7-actions-button color="red">Cancel</f7-actions-button>
+      </f7-actions-group>
+    </f7-actions>
+    <!-- Upload button -->
+    <f7-button @click="handleUploadClicked" raised>{{$t('modify.image')}}</f7-button>
+  </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -43,20 +40,11 @@ export default {
   },
   data: function () {
     return {
-      actionsOpened: false
+      actionsOpened: false,
+      performingRequest: false
     }
   },
   methods: {
-    ...mapActions([
-      'updatePopup'
-    ]),
-    cancel: function () {
-      // Close popup
-      this.updatePopup({
-        key: 'imageUploaderOpened',
-        value: false
-      })
-    },
     handleUploadClicked: function (e) {
       // User is online
       if (navigator.onLine) {
@@ -67,7 +55,7 @@ export default {
         // No native application
         } else {
           // Click hidden file selection field
-          window.$$(e.target).parent().find('input').click()
+          this.$$(e.target).parent().find('input').click()
         }
       // User is offline
       } else {
@@ -82,14 +70,16 @@ export default {
     handleFileChanged: function (e) {
       const file = e.target.files[0]
       if (file) {
-        window.f7.showIndicator()
-        window.store(this.store).put(file)
+        // window.f7.showIndicator()
+        this.performingRequest = true
+        window.storage(this.store).put(file)
           .then(() => {
             this.handleFileUploaded()
           })
           .catch(() => {
-            window.f7.hideIndicator()
-            window.f7.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
+            // window.f7.hideIndicator()
+            this.performingRequest = false
+            window.$$.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
           })
       } else {
         window.f7.addNotification({
@@ -111,18 +101,20 @@ export default {
       // Camera and file plugins available
       if (navigator.camera && window.resolveLocalFileSystemURL) {
         navigator.camera.getPicture(function (imageUri) {
-          window.f7.showIndicator()
+          // window.f7.showIndicator()
+          this.performingRequest = true
           window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
             fileEntry.file(function (file) {
               const reader = new window.FileReader()
               reader.onloadend = function () {
                 const blob = new window.Blob([new Uint8Array(this.result)], {type: file.type})
-                window.store(self.store).put(blob, {contentType: blob.type})
+                window.storage(self.store).put(blob, {contentType: blob.type})
                   .then(() => {
                     self.handleFileUploaded()
                   })
                   .catch(() => {
-                    window.f7.hideIndicator()
+                    // window.f7.hideIndicator()
+                    this.performingRequest = false
                     window.f7.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
                   })
               }
@@ -150,24 +142,28 @@ export default {
     handleFileUploaded: function () {
       if (this.db !== '') {
         // Get download URL
-        window.store(this.store).getDownloadURL()
+        window.storage(this.store).getDownloadURL()
           .then(url => {
             // Save download URL to user data
             window.db(this.db).set(url)
               .then(() => {
-                window.f7.hideIndicator()
+                // window.f7.hideIndicator()
+                this.performingRequest = false
               })
               .catch(() => {
-                window.f7.hideIndicator()
+                // window.f7.hideIndicator()
+                this.performingRequest = false
                 window.f7.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
               })
           })
           .catch(() => {
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
+            this.performingRequest = false
             window.f7.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
           })
       } else {
-        window.f7.hideIndicator()
+        // window.f7.hideIndicator()
+        this.performingRequest = false
       }
     }
   }

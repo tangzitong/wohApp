@@ -32,6 +32,15 @@ export default {
     },
     sendTweet() {
       this.$f7.preloader.show(this.$t('app.submitting'))
+      this.$root.chat.createPost(this.text, '')
+        .then(postKey => {
+          window.f7.addNotification({
+            title: this.$t('publisher.publisher'),
+            message: this.$t('publisher.published'),
+            hold: 3000,
+            closeIcon: false
+          })
+        })
       setTimeout(_ => {
         this.$f7.preloader.hide()
         this.closePopup()

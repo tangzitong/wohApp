@@ -21,45 +21,57 @@
             <f7-list-item>
               <a @click="updateProfile">{{$t('modify.btn')}}</a>
             </f7-list-item>
-            <f7-list-item>
-              <a @click="uploadImage">{{$t('modify.image')}}</a>
-            </f7-list-item>
           </form>
         </f7-list-item>
       </f7-list>
     </f7-block>
-  </f7-page>
+      <!-- Image uploader component -->
+    <f7-block v-if="$root.user">
+      <imageuploader
+        :store="'users/' + $root.user.uid"
+        :db="'users/' + $root.user.uid + '/photo'" />
+    </f7-block>
+
+    <!-- Image -->
+    <f7-block inset v-if="photo">
+      <img :src="photo" width="100%" />
+    </f7-block>
+</f7-page>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
+import imageuploader from '../../../popup/imageuploader'
 
 export default {
   data() {
     return {
       name: '',
       title: '',
-      showSuccess: false
+      showSuccess: false,
+      photo: null
     }
+  },
+  // Update user name, title and photo from Firebase
+  mounted: function () {
+    window.db('users/' + window.user.uid).on('value', snapshot => {
+      const data = snapshot.val()
+      if (data) {
+        this.name = data.name
+        this.title = data.title
+        this.photo = data.photo
+      }
+    })
   },
   computed: {
     ...mapState(['userProfile'])
   },
   methods: {
-    ...mapActions([
-      'updatePopup'
-    ]),
-    uploadImage: function () {
-      // Close popup
-      this.updatePopup({
-        key: 'imageUploaderOpened',
-        value: true
-      })
-    },
     updateProfile() {
       this.$store.dispatch('updateProfile', {
         name: this.name !== '' ? this.name : this.userProfile.name,
-        title: this.title !== '' ? this.title : this.userProfile.title
+        title: this.title !== '' ? this.title : this.userProfile.title,
+        photo: this.photo !== '' ? this.photo : this.userProfile.photo
       })
 
       this.name = ''
@@ -69,6 +81,9 @@ export default {
 
       setTimeout(() => { this.showSuccess = false }, 2000)
     }
+  },
+  components: {
+    imageuploader
   }
 }
 </script>

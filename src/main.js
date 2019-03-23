@@ -26,7 +26,7 @@ import App from './app.vue'
 
 // Import Vuex store
 import store from './store'
-import { getLoginUser } from './store/actions'
+import { getLoginUser, setCurrentUser, fetchUserProfile } from './store/actions'
 import VueRouter from 'vue-router'
 
 // import network framework
@@ -48,6 +48,8 @@ const VueFire = require('vuefire')
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
 Vue.use(VueFire)
+// Load image-uploader component
+// Vue.component('image-uploader', require('./popup/imageuploader/imageuploader.vue'))
 
 const router = new VueRouter({
   Routes,
@@ -68,7 +70,7 @@ router.beforeEach((to, from, next) => {
 })
 
 // Init App
-new Vue({
+window.vm = new Vue({
   el: '#app',
   store,
   i18n,
@@ -104,6 +106,11 @@ new Vue({
         name: user.displayName,
         photo: user.photoURL
       } : null
+      setCurrentUser(store, user)
+      fetchUserProfile(store)
+      if (this.chat) {
+        this.chat.setUser(user.uid, user.displayName)
+      }
     })
     // Use database service
     this.db = function (path) {
@@ -185,9 +192,9 @@ new Vue({
       // Update window object
       window.db = newDB
     },
-    store: function (newStore) {
+    storage: function (newStore) {
       // Update window object
-      window.store = newStore
+      window.storage = newStore
     },
     timestamp: function (newTimestamp) {
       // Update window object
@@ -204,6 +211,15 @@ new Vue({
 
   },
   firebase: {
+    jobs: fb.database.ref('jobs'),
+    companys: fb.database.ref('companys'),
+    projects: fb.database.ref('projects'),
+    talents: fb.database.ref('talents'),
+    consultants: fb.database.ref('consultants'),
+    dispatchers: fb.database.ref('dispatchers'),
+    knowledges: fb.database.ref('knowledges'),
+    tools: fb.database.ref('tools'),
+    events: fb.database.ref('events')
   },
   // Init Framework7 by passing parameters here
   framework7: {

@@ -1,6 +1,10 @@
 <template>
   <f7-page no-navbar no-toolbar no-swipeback layout="white">
-
+    <transition name="fade">
+        <div v-if="performingRequest" class="loading">
+            <p>Loading...</p>
+        </div>
+    </transition>
     <!-- Title -->
     <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-block>
 
@@ -66,7 +70,8 @@ export default {
       email: '',
       password: '',
       passwordConfirmation: '',
-      mode: ''
+      mode: '',
+      performingRequest: false
     }
   },
   computed: {
@@ -120,6 +125,7 @@ export default {
       } else {
         // Show loading indicator
         // window.f7.showIndicator()
+        this.performingRequest = true
         // Sign in user
         window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
           // On success
@@ -130,6 +136,7 @@ export default {
           .catch(err => {
             // Hide loading indicator
             // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show error alert
             window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
@@ -138,6 +145,7 @@ export default {
     handleSignInDone: function () {
       // Hide loading indicator
       // window.f7.hideIndicator()
+      this.performingRequest = false
       // Reset form
       this.email = ''
       this.password = ''
@@ -215,12 +223,14 @@ export default {
       } else {
         // Show loading indicator
         // window.f7.showIndicator()
+        this.performingRequest = true
         // Create new user
         window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
           // On success, sign in user
           .then(user => {
             // Hide loading indicator
             // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show notification
             window.f7.addNotification({
               title: this.$t('login.accountCreated'),
@@ -235,6 +245,7 @@ export default {
           .catch(err => {
             // Hide loading indicator
             // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show error alert
             window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
@@ -248,11 +259,13 @@ export default {
       } else {
         // Show loading indicator
         // window.f7.showIndicator()
+        this.performingRequest = true
         // Send reset link
         window.firebase.auth().sendPasswordResetEmail(this.email)
           .then(user => {
             // Hide loading indicator
             // window.f7.hideIndicator()
+            this.performingRequest = false
             // Update mode
             this.mode = 'signIn'
             // On success, show notfication and login screen again
@@ -267,6 +280,7 @@ export default {
           .catch(err => {
             // Hide loading indicator
             // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show error alert
             window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })

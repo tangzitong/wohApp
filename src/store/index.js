@@ -18,8 +18,7 @@ const state = {
     publisherOpened: false,
     commentOpened: false,
     applicationOpened: false,
-    loginOpened: false,
-    imageUploaderOpened: false
+    loginOpened: false
   }
 }
 

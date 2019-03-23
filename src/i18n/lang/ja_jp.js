@@ -116,7 +116,8 @@ export default {
   },
   publisher: {
     publisher: '配布者',
-    placeholder: '最新情報を共有しましょう...'
+    placeholder: '最新情報を共有しましょう...',
+    published: '情報発信完了'
   },
   application: {
     application: '申し込み',

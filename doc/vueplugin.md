@@ -1,6 +1,8 @@
 VUEプラグインの使用
 ===
 
+> This page is part of the [wohApp Devlopment Guidline](dev.md)
+
 # // `MyPlugin.install(Vue)` を呼び出します
 ```
 Vue.use(MyPlugin)

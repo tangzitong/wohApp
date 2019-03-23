@@ -1,6 +1,8 @@
 ﻿JS study guildline
 ===
 
+> This page is part of the [wohApp Devlopment Guidline](dev.md)
+
 # 内置类型
 * 基本类型有六种： null，undefined，boolean，number，string，symbol
 * 对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。

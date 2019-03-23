@@ -13,7 +13,8 @@ exports['createUser'] = function(test) {
       invites: [],
       muted: [],
       rooms: [],
-      contacts: []
+      contacts: [],
+      photo: ''
     })
   }).then(
     fb.database.child('users').child(user.uid).once('value', function(snapshot) {

@@ -116,7 +116,8 @@ export default {
   },
   publisher: {
     publisher: '发消息',
-    placeholder: '随时分享新鲜事...'
+    placeholder: '随时分享新鲜事...',
+    published: '情報発信完了'
   },
   application: {
     application: '申請',

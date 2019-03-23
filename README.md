@@ -3,15 +3,12 @@ wohApp
 
 A simple and interesting Framework7 hybrid app.With Cordova you can easily convert it to native iOS&android app.
 
-## Build Tools
-
-wohApp use different build tools to build the same project, Hope it will helps you select a suitable build tool.
-
 ## Requirements
 
 * cordova `^8.0.0`
-* framework7 `^2.0.7`
-* framework7-vue `^2.0.7`
+* framework7 `^2.3.1`
+* framework7-vue `^2.3.0`
+* …
 
 To build and run apps, you need to install SDKs for each platform you wish to target.  
 To check if you satisfy requirements for building the platform:
@@ -130,5 +127,5 @@ The result is available in `www/` folder.
 
 Copyright (c) 2016 - 2018 Tei Gun. MIT Licensed, see [LICENSE](https://github.com/highwayns/wohApp/blob/master/LICENSE.md) for details.
 
-[http://highwayns.com/](http://highwayns.com/)
-[LICENSE]:https://github.com/highwayns/wohApp/blob/master/LICENSE.md
+* [http://highwayns.com/](http://highwayns.com/)
+* [LICENSE](https://github.com/highwayns/wohApp/blob/master/LICENSE.md)
