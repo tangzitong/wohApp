@@ -1,7 +1,12 @@
-import firebase from 'firebase/app'
-import 'firebase/database'
-import 'firebase/storage'
-import { Firechat } from './firechat.js'
+// import firebase from 'firebase/app'
+// import 'firebase/database'
+// import 'firebase/storage'
+// import { Firechat } from './firechat.js'
+
+const firebase = require('firebase')
+require('firebase/database')
+require('firebase/storage')
+const Firechat = require('./firechat')
 
 // firebase init goes here
 
@@ -16,7 +21,7 @@ const dbConfig = {
   allowEmailRegistration: true
 }
 // firebase app
-window.firebase = firebase.initializeApp(dbConfig)
+firebase.initializeApp(dbConfig)
 
 // firebase utils
 const auth = firebase.auth()
@@ -24,9 +29,9 @@ const database = firebase.database()
 const storage = firebase.storage()
 const timestamp = firebase.database.ServerValue.TIMESTAMP
 // firechat
-const chat = new Firechat(database.ref(), null)
+const chat = Firechat.Firechat(database.ref(), null)
 
-export {
+module.exports = {
   dbConfig,
   database,
   storage,

@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+// import firebase from 'firebase'
+const firebase = require('firebase/app')
 // Firechat is a simple, easily-extensible data layer for multi-user,
 // multi-room chat, built entirely on [Firebase](https://firebase.google.com).
 //
@@ -830,4 +831,4 @@ Firechat.prototype.getContactList = function(cb) {
 
 // })()
 
-export { Firechat }
+module.exports = { Firechat }
