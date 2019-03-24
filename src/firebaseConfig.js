@@ -1,7 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
 import 'firebase/storage'
-
 import { Firechat } from './firechat.js'
 
 // firebase init goes here

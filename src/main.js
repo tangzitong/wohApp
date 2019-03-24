@@ -26,7 +26,7 @@ import App from './app.vue'
 
 // Import Vuex store
 import store from './store'
-import { getLoginUser, setCurrentUser, fetchUserProfile } from './store/actions'
+import { getLoginUser, setCurrentUser } from './store/actions'
 import VueRouter from 'vue-router'
 
 // import network framework
@@ -100,18 +100,17 @@ window.vm = new Vue({
     if (!window.localStorage.user) this.cleanLocalStorageAfterLogut()
     // Monitor user changes
     fb.auth.onAuthStateChanged(user => {
-      this.user = user ? {
-        uid: user.uid,
-        email: user.email,
-        name: user.displayName,
-        photo: user.photoURL
-      } : null
       if (user) {
-        setCurrentUser(store, user)
-        fetchUserProfile(store)
-        if (this.chat) {
-          this.chat.setUser(user.uid, user.displayName)
-        }
+        fb.database.child('users').child(user.uid).once('value', function(snapshot) {
+          this.user = snapshot ? {
+            uid: snapshot.key,
+            email: snapshot.login_name,
+            name: snapshot.nick_name,
+            photo: snapshot.avatar_url
+          } : null
+          setCurrentUser(store, this.user)
+          this.chat.setUser(user.uid, snapshot.nick_name)
+        })
       }
     })
     // Use database service
