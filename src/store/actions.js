@@ -30,6 +30,21 @@ export function updateProfile({ commit, state }, data) {
   })
 }
 
+export function updateCompany({ commit, state }, data) {
+  window.db('companys').child(state.currentUser.uid).update({
+    name: data.name,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
 export function getLoginUser({commit}) {
   axios.get('/user_login.json').then(res => {
     const user = res.data.user

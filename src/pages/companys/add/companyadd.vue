@@ -2,7 +2,7 @@
   <f7-page class="company">
     <f7-navbar :title="$t('company.add')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
-      <h3>{{$t('company.HP')}}</h3>
+      <h3>{{$t('company.add')}}</h3>
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('companyadd.complete')}}</p>
       </transition>
@@ -42,7 +42,7 @@
       </f7-list>
     </f7-block>
     <f7-block v-if="$root.user">
-      <a @click="updateProfile">{{$t('companyadd.btn')}}</a>
+      <a @click="updateProfile">{{$t('company.add')}}</a>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="$root.user">
@@ -78,7 +78,7 @@ export default {
   },
   // Update user name, title and photo from Firebase
   mounted: function () {
-    window.db('users/' + window.user.uid).on('value', snapshot => {
+    window.db('companys/' + window.user.uid).on('value', snapshot => {
       const data = snapshot.val()
       if (data) {
         this.name = data.name
@@ -93,14 +93,19 @@ export default {
     })
   },
   computed: {
-    ...mapState(['userProfile'])
+    ...mapState(['updateCompany'])
   },
   methods: {
     updateProfile() {
-      this.$store.dispatch('updateProfile', {
-        name: this.name !== '' ? this.name : this.userProfile.name,
-        title: this.title !== '' ? this.title : this.userProfile.title,
-        photo: this.photo !== '' ? this.photo : this.userProfile.photo
+      this.$store.dispatch('updateCompany', {
+        name: this.name,
+        address: this.address,
+        Tel: this.Tel,
+        Fax: this.Fax,
+        Manager: this.Manager,
+        HP: this.HP,
+        like: this.like,
+        photo: this.photo
       })
 
       this.name = ''
