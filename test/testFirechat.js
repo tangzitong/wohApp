@@ -6,11 +6,13 @@ const chat = require('../src/firebaseConfig').chat
 
 exports['createUser'] = function(test) {
   auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
+    const user_ = auth.currentUser
     // create user obj
-    database.child('users').set({
-      uid: user.uid,
+    const ref = database.ref().child('users')
+    const obj = {
+      uid: user_.uid,
       user: {
-        login_name: 'test1@gmail.com',
+        login_name: user_.email,
         nick_name: 'test1',
         points: 0,
         avatar_url: '',
@@ -23,37 +25,31 @@ exports['createUser'] = function(test) {
         posts: [],
         photo: ''
       }
-    })
-    database.child('users').once('value', function(snapshot) {
-      console.log('user.uid=' + snapshot.key)
-      console.log('user.login_name=' + snapshot.login_name)
-      console.log('user.nick_name=' + snapshot.nick_name)
-      test.equal(snapshot.login_name, 'test1@gmail.com')
-      test.equal(snapshot.nick_name, 'test1')
-      test.done()
-    })
+    }
+    ref.push(obj) // or however you wish to update the node
+    test.done()
   })
 }
 
 exports['setUser'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       console.log('chat._userId=' + chat._userId)
       console.log('chat._userName=' + chat._userName)
       test.equal(chat._userId, 'test1@gmail.com')
       test.equal(chat._userName, 'test1')
+      test.done()
     })
   })
-  test.done()
 }
 
 exports['createPost'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.createPost('test content', 'https://wohapp-3a179.firebaseapp.com/', postkey => {
-        database.child('posts').child(postkey).once('value', function(snapshot2) {
+        database.ref().child('posts').child(postkey).once('value', function(snapshot2) {
           console.log('snapshot2.text=' + snapshot2.text)
           console.log('snapshot2.name=' + snapshot2.name)
           test.equal(snapshot2.text, 'test content')
@@ -67,7 +63,7 @@ exports['createPost'] = function(test) {
 
 exports['getPostList'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
@@ -83,12 +79,12 @@ exports['getPostList'] = function(test) {
 
 exports['addComment'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
         chat.addComment(post.id, 'test commment', commentkey => {
-          database.child('posts').child(post.id).child('comments').once('value', function(snapshot2) {
+          database.ref().child('posts').child(post.id).child('comments').once('value', function(snapshot2) {
             const comment = snapshot2[0]
             console.log('comment.text=' + comment.text)
             console.log('comment.name=' + comment.name)
@@ -104,12 +100,12 @@ exports['addComment'] = function(test) {
 
 exports['likePost'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
         chat.likePost(post.id, commentkey => {
-          database.child('posts').child(post.id).child('likes').once('value', function(snapshot2) {
+          database.ref().child('posts').child(post.id).child('likes').once('value', function(snapshot2) {
             const like = snapshot2[0]
             console.log('like.postid=' + like.postid)
             console.log('like.name=' + like.name)
@@ -125,7 +121,7 @@ exports['likePost'] = function(test) {
 
 exports['getPostComments'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
@@ -144,7 +140,7 @@ exports['getPostComments'] = function(test) {
 
 exports['getPostLikes'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
@@ -161,7 +157,7 @@ exports['getPostLikes'] = function(test) {
 
 exports['removePostComment'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
@@ -181,7 +177,7 @@ exports['removePostComment'] = function(test) {
 
 exports['unlikePost'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
@@ -201,7 +197,7 @@ exports['unlikePost'] = function(test) {
 
 exports['removePost'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getPostList(posts => {
         const post = posts[0]
@@ -218,10 +214,10 @@ exports['removePost'] = function(test) {
 
 exports['addContact'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.addContact('1', 'Alex Black', 'A', 'London', contactkey => {
-        database.child('contacts').child(contactkey).once('value', function(snapshot2) {
+        database.ref().child('contacts').child(contactkey).once('value', function(snapshot2) {
           console.log('snapshot2.nickname=' + snapshot2.nickname)
           console.log('snapshot2.location=' + snapshot2.location)
           console.log('snapshot2.avatar=' + snapshot2.avatar)
@@ -238,11 +234,11 @@ exports['addContact'] = function(test) {
 
 exports['getContactList'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getContactList(contacts => {
         const contact = contacts[0]
-        database.child('contacts').child(contact.id).once('value', function(snapshot2) {
+        database.ref().child('contacts').child(contact.id).once('value', function(snapshot2) {
           console.log('snapshot2.nickname=' + snapshot2.nickname)
           console.log('snapshot2.location=' + snapshot2.location)
           console.log('snapshot2.avatar=' + snapshot2.avatar)
@@ -260,7 +256,7 @@ exports['getContactList'] = function(test) {
 
 exports['removeContact'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.getContactList(contacts => {
         const contact = contacts[0]
@@ -284,10 +280,10 @@ exports['on'] = function(test) {
 
 exports['createRoom'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
       chat.createRoom('room1', 'private', roomkey => {
-        database.child('room-metadata').child(roomkey).once('value', function(snapshot2) {
+        database.ref().child('room-metadata').child(roomkey).once('value', function(snapshot2) {
           console.log('snapshot2.name=' + snapshot2.name)
           console.log('snapshot2.createdByUserId=' + snapshot2.createdByUserId)
           test.equal(snapshot2.name, 'room1')
@@ -301,20 +297,20 @@ exports['createRoom'] = function(test) {
 
 exports['leaveRoom'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
-      database.child('room-metadata').once('value', function(snapshot2) {
+      database.ref().child('room-metadata').once('value', function(snapshot2) {
         const room = snapshot2[0]
         chat.leaveRoom(room.id)
-        database.child('users').child('rooms').child(room.id).once('value', function(snapshot3) {
+        database.ref().child('users').child('rooms').child(room.id).once('value', function(snapshot3) {
           console.log('snapshot3.name=' + snapshot3.name)
           console.log('snapshot3.active=' + snapshot3.active)
           test.equal(snapshot3.name, 'room1')
           test.equal(snapshot3.name, true)
         })
-        database.child('users').child(user.uid).child('sessions').once('value', function(snapshot3) {
+        database.ref().child('users').child(user.uid).child('sessions').once('value', function(snapshot3) {
           const sessionId = snapshot3.key
-          database.child('room-users').child(room.id).child(user.uid).child(sessionId).once('value', function(snapshot4) {
+          database.ref().child('room-users').child(room.id).child(user.uid).child(sessionId).once('value', function(snapshot4) {
             console.log('snapshot4.id=' + snapshot4.id)
             console.log('snapshot4.name=' + snapshot4.name)
             test.equal(snapshot4.id, user.uid)
@@ -329,20 +325,20 @@ exports['leaveRoom'] = function(test) {
 
 exports['leaveRoom'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.child('users').child(user.uid).once('value', function(snapshot) {
+    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
       chat.setUser(user.uid, snapshot.nick_name)
-      database.child('room-metadata').once('value', function(snapshot2) {
+      database.ref().child('room-metadata').once('value', function(snapshot2) {
         const room = snapshot2[0]
         chat.leaveRoom(room.id)
-        database.child('users').child('rooms').child(room.id).once('value', function(snapshot3) {
+        database.ref().child('users').child('rooms').child(room.id).once('value', function(snapshot3) {
           console.log('snapshot3.name=' + snapshot3.name)
           console.log('snapshot3.active=' + snapshot3.active)
           test.equal(snapshot3.name, 'room1')
           test.equal(snapshot3.name, false)
         })
-        database.child('users').child(user.uid).child('sessions').once('value', function(snapshot3) {
+        database.ref().child('users').child(user.uid).child('sessions').once('value', function(snapshot3) {
           const sessionId = snapshot3.key
-          database.child('room-users').child(room.id).child(user.uid).child(sessionId).once('value', function(snapshot4) {
+          database.ref().child('room-users').child(room.id).child(user.uid).child(sessionId).once('value', function(snapshot4) {
             test.equal(snapshot4, null)
           })
         })
