@@ -13,17 +13,20 @@
       :clear-button="true"
     ></f7-searchbar>
     <f7-list>
-      <f7-list-group v-for="companytype_ in companytypes" :key="companytype_.id">
-        <f7-list-item radio name="companytype-radio"
-                      :value="companytype_.id"
-                      :title="companytype_.name"
-                      :checked="companytype === companytype_.id"></f7-list-item>
+      <f7-list-group v-for="(group, key) in companytypeGroups" :key="key">
+        <f7-list-item :title="key" group-title></f7-list-item>
+        <f7-list-item radio name="companytype-radio" v-for="companytype_ in group"
+          :key="companytype_.id"
+          :value="companytype_.id"
+          :title="companytype_.name"
+          :checked="companytype === companytype_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
   </f7-page>
 </template>
 
 <script>
+import groupBy from 'lodash/groupBy'
 import { mapState } from 'vuex'
 import { getCompanytypeConfig, setCompanytypeConfig } from '@/code'
 import { getLangConfig } from '@/i18n'
@@ -42,7 +45,10 @@ export default {
   computed: {
     ...mapState({
       companytypes: state => state.companytypes,
-    })
+    }),
+    companytypeGroups() {
+      return groupBy(this.companytypes, 'nickname')
+    }
   },
   mounted() {
     this.$store.dispatch('getCompanytypes', this.lang)

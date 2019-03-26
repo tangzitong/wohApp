@@ -13,17 +13,20 @@
       :clear-button="true"
     ></f7-searchbar>
     <f7-list>
-      <f7-list-group v-for="eventtype_ in eventtypes" :key="eventtype_.id">
-        <f7-list-item radio name="eventtype-radio"
-                      :value="eventtype_.id"
-                      :title="eventtype_.name"
-                      :checked="eventtype === eventtype_.id"></f7-list-item>
+      <f7-list-group v-for="(group, key) in eventtypeGroups" :key="key">
+        <f7-list-item :title="key" group-title></f7-list-item>
+        <f7-list-item radio name="eventtype-radio" v-for="eventtype_ in group"
+          :key="eventtype_.id"
+          :value="eventtype_.id"
+          :title="eventtype_.name"
+          :checked="eventtype === eventtype_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
   </f7-page>
 </template>
 
 <script>
+import groupBy from 'lodash/groupBy'
 import { mapState } from 'vuex'
 import { getEventtypeConfig, setEventtypeConfig } from '@/code'
 import { getLangConfig } from '@/i18n'
@@ -42,7 +45,10 @@ export default {
   computed: {
     ...mapState({
       eventtypes: state => state.eventtypes,
-    })
+    }),
+    eventtypeGroups() {
+      return groupBy(this.eventtypes, 'nickname')
+    }
   },
   mounted() {
     this.$store.dispatch('getEventtypes', this.lang)

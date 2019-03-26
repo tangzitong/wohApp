@@ -13,17 +13,20 @@
       :clear-button="true"
     ></f7-searchbar>
     <f7-list>
-      <f7-list-group v-for="jobtype_ in jobtypes" :key="jobtype_.id">
-        <f7-list-item radio name="jobtype-radio"
-                      :value="jobtype_.id"
-                      :title="jobtype_.name"
-                      :checked="jobtype === jobtype_.id"></f7-list-item>
+      <f7-list-group v-for="(group, key) in jobtypeGroups" :key="key">
+        <f7-list-item :title="key" group-title></f7-list-item>
+        <f7-list-item radio name="jobtype-radio" v-for="jobtype_ in group"
+          :key="jobtype_.id"
+          :value="jobtype_.id"
+          :title="jobtype_.name"
+          :checked="jobtype === jobtype_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
   </f7-page>
 </template>
 
 <script>
+import groupBy from 'lodash/groupBy'
 import { mapState } from 'vuex'
 import { getJobtypeConfig, setJobtypeConfig } from '@/code'
 import { getLangConfig } from '@/i18n'
@@ -42,7 +45,10 @@ export default {
   computed: {
     ...mapState({
       jobtypes: state => state.jobtypes,
-    })
+    }),
+    jobtypeGroups() {
+      return groupBy(this.jobtypes, 'nickname')
+    }
   },
   mounted() {
     this.$store.dispatch('getJobtypes', this.lang)

@@ -13,17 +13,20 @@
       :clear-button="true"
     ></f7-searchbar>
     <f7-list>
-      <f7-list-group v-for="consultanttype_ in consultanttypes" :key="consultanttype_.id">
-        <f7-list-item radio name="consultanttype-radio"
-                      :value="consultanttype_.id"
-                      :title="consultanttype_.name"
-                      :checked="consultanttype === consultanttype_.id"></f7-list-item>
+      <f7-list-group v-for="(group, key) in consultanttypeGroups" :key="key">
+        <f7-list-item :title="key" group-title></f7-list-item>
+        <f7-list-item radio name="consultanttype-radio" v-for="consultanttype_ in group"
+          :key="consultanttype_.id"
+          :value="consultanttype_.id"
+          :title="consultanttype_.name"
+          :checked="consultanttype === consultanttype_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
   </f7-page>
 </template>
 
 <script>
+import groupBy from 'lodash/groupBy'
 import { mapState } from 'vuex'
 import { getConsultanttypeConfig, setConsultanttypeConfig } from '@/code'
 import { getLangConfig } from '@/i18n'
@@ -42,7 +45,10 @@ export default {
   computed: {
     ...mapState({
       consultanttypes: state => state.consultanttypes,
-    })
+    }),
+    consultanttypeGroups() {
+      return groupBy(this.consultanttypes, 'nickname')
+    }
   },
   mounted() {
     this.$store.dispatch('getConsultanttypes', this.lang)
