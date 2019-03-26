@@ -6,6 +6,12 @@
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.tooltype')}}</f7-block-title>
+    <f7-searchbar
+      search-container="#search-list"
+      :disable-link-text="$t('app.cancel')"
+      :placeholder="$t('tool.placeholder')"
+      :clear-button="true"
+    ></f7-searchbar>
     <f7-list>
       <f7-list-group v-for="tooltype_ in tooltypes" :key="tooltype_.id">
         <f7-list-item radio name="tooltype-radio"

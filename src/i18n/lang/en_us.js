@@ -69,9 +69,10 @@ export default {
     title: 'Job Title',
     title_: 'Please input Title for the job',
     content: 'Job Content',
-    content_: 'Please input Title for the content',
+    content_: 'Please input Content for the job',
     like: 'Like',
-    noNewestPost: 'No Job Posted.'
+    noNewestPost: 'No Job Posted.',
+    placeholder: 'Please input job keyword'
   },
   company: {
     application: 'Application',
@@ -89,7 +90,92 @@ export default {
     HP: 'Homepage',
     HP_: 'Please input Company HomePage',
     like: 'Like',
-    noNewestCompany: 'No Company Added.'
+    noNewestCompany: 'No Company Added.',
+    placeholder: 'Please input company keyword'
+  },
+  project: {
+    application: 'Application',
+    add: 'Add Project',
+    name: 'name',
+    title: 'Job Title',
+    title_: 'Please input Title for the Project',
+    content: 'Project Content',
+    content_: 'Please input Content for the Project',
+    like: 'Like',
+    noNewestPost: 'No Project Posted.',
+    placeholder: 'Please input project keyword'
+  },
+  talent: {
+    application: 'Application',
+    add: 'Add Talent',
+    name: 'name',
+    title: 'Talent Title',
+    title_: 'Please input Title for the Talent',
+    content: 'Talent Content',
+    content_: 'Please input Content for the Talent',
+    like: 'Like',
+    noNewestPost: 'No Talent Posted.',
+    placeholder: 'Please input Talent keyword'
+  },
+  consultant: {
+    application: 'Application',
+    add: 'Add Consultant',
+    name: 'name',
+    title: 'Consultant Title',
+    title_: 'Please input Title for the Consultant',
+    content: 'Consultant Content',
+    content_: 'Please input Content for the Consultant',
+    like: 'Like',
+    noNewestPost: 'No Consultant Posted.',
+    placeholder: 'Please input Consultant keyword'
+  },
+  dispatcher: {
+    application: 'Application',
+    add: 'Add Dispatcher',
+    name: 'name',
+    title: 'Dispatcher Title',
+    title_: 'Please input Title for the Dispatcher',
+    content: 'Dispatcher Content',
+    content_: 'Please input Content for the Dispatcher',
+    like: 'Like',
+    noNewestPost: 'No Dispatcher Posted.',
+    placeholder: 'Please input Dispatcher keyword'
+  },
+  knowledge: {
+    application: 'Application',
+    add: 'Add Knowledge',
+    name: 'name',
+    title: 'Knowledge Title',
+    title_: 'Please input Title for the Knowledge',
+    content: 'Knowledge Content',
+    content_: 'Please input Content for the Knowledge',
+    like: 'Like',
+    noNewestPost: 'No Knowledge Posted.',
+    placeholder: 'Please input Knowledge keyword'
+  },
+  tool: {
+    application: 'Application',
+    add: 'Add Tool',
+    name: 'name',
+    title: 'Tool Title',
+    title_: 'Please input Title for the Tool',
+    content: 'Tool Content',
+    content_: 'Please input Content for the Tool',
+    like: 'Like',
+    noNewestPost: 'No Tool Posted.',
+    placeholder: 'Please input Tool keyword'
+  },
+  event: {
+    application: 'Application',
+    add: 'Add Event',
+    name: 'name',
+    title: 'Event Title',
+    title_: 'Please input Title for the Event',
+    content: 'Event Content',
+    content_: 'Please input Content for the Event',
+    like: 'Like',
+    noNewestPost: 'No Event Posted.',
+    placeholder: 'Please input Event keyword'
   },
   report: {
     application: 'Application',

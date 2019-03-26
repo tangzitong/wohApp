@@ -6,6 +6,12 @@
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.jobtype')}}</f7-block-title>
+    <f7-searchbar
+      search-container="#search-list"
+      :disable-link-text="$t('app.cancel')"
+      :placeholder="$t('job.placeholder')"
+      :clear-button="true"
+    ></f7-searchbar>
     <f7-list>
       <f7-list-group v-for="jobtype_ in jobtypes" :key="jobtype_.id">
         <f7-list-item radio name="jobtype-radio"

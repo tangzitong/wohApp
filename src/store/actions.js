@@ -64,7 +64,7 @@ export function getContacts({commit}) {
 }
 
 export function getAreas({ commit }, language) {
-  axios.get(`/area.json?$key=%22${language}%22`).then(res => {
+  axios.get(`/datatype/${language}/area.json`).then(res => {
     const areas = res.data
     commit(types.INIT_AREAS, {
       areas
@@ -73,7 +73,7 @@ export function getAreas({ commit }, language) {
 }
 
 export function getIndustrys({ commit }, language) {
-  axios.get(`/industry.json?language="${language}"`).then(res => {
+  axios.get(`/datatype/${language}/industry.json`).then(res => {
     const industrys = res.data
     commit(types.INIT_INDUSTRYS, {
       industrys
@@ -81,8 +81,8 @@ export function getIndustrys({ commit }, language) {
   })
 }
 
-export function getJobtypes({ commit }) {
-  axios.get('/jobtype.json').then(res => {
+export function getJobtypes({ commit }, language) {
+  axios.get(`/datatype/${language}/jobtype.json`).then(res => {
     const jobtypes = res.data
     commit(types.INIT_JOBTYPES, {
       jobtypes
@@ -90,8 +90,8 @@ export function getJobtypes({ commit }) {
   })
 }
 
-export function getCompanytypes({ commit }) {
-  axios.get('/companytype.json').then(res => {
+export function getCompanytypes({ commit }, language) {
+  axios.get(`/datatype/${language}/companytype.json`).then(res => {
     const companytypes = res.data
     commit(types.INIT_COMPANYTYPES, {
       companytypes
@@ -99,8 +99,8 @@ export function getCompanytypes({ commit }) {
   })
 }
 
-export function getProjecttypes({ commit }) {
-  axios.get('/projecttype.json').then(res => {
+export function getProjecttypes({ commit }, language) {
+  axios.get(`/datatype/${language}/projecttype.json`).then(res => {
     const projecttypes = res.data
     commit(types.INIT_PROJECTTYPES, {
       projecttypes
@@ -108,8 +108,8 @@ export function getProjecttypes({ commit }) {
   })
 }
 
-export function getResumetypes({ commit }) {
-  axios.get('/resumetype.json').then(res => {
+export function getResumetypes({ commit }, language) {
+  axios.get(`/datatype/${language}/resumetype.json`).then(res => {
     const resumetypes = res.data
     commit(types.INIT_RESUMETYPES, {
       resumetypes
@@ -117,8 +117,8 @@ export function getResumetypes({ commit }) {
   })
 }
 
-export function getKnowledgetypes({ commit }) {
-  axios.get('/knowledgetype.json').then(res => {
+export function getKnowledgetypes({ commit }, language) {
+  axios.get(`/datatype/${language}/knowledgetype.json`).then(res => {
     const knowledgetypes = res.data
     commit(types.INIT_KNOWLEDGETYPES, {
       knowledgetypes
@@ -126,8 +126,8 @@ export function getKnowledgetypes({ commit }) {
   })
 }
 
-export function getTooltypes({ commit }) {
-  axios.get('/tooltype.json').then(res => {
+export function getTooltypes({ commit }, language) {
+  axios.get(`/datatype/${language}/tooltype.json`).then(res => {
     const tooltypes = res.data
     commit(types.INIT_TOOLTYPES, {
       tooltypes
@@ -135,8 +135,8 @@ export function getTooltypes({ commit }) {
   })
 }
 
-export function getEventtypes({ commit }) {
-  axios.get('/eventtype.json').then(res => {
+export function getEventtypes({ commit }, language) {
+  axios.get(`/datatype/${language}/eventtype.json`).then(res => {
     const eventtypes = res.data
     commit(types.INIT_EVENTTYPES, {
       eventtypes

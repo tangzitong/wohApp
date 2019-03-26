@@ -6,6 +6,12 @@
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.companytype')}}</f7-block-title>
+    <f7-searchbar
+      search-container="#search-list"
+      :disable-link-text="$t('app.cancel')"
+      :placeholder="$t('company.placeholder')"
+      :clear-button="true"
+    ></f7-searchbar>
     <f7-list>
       <f7-list-group v-for="companytype_ in companytypes" :key="companytype_.id">
         <f7-list-item radio name="companytype-radio"

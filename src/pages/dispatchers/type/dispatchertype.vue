@@ -6,6 +6,12 @@
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.dispatchertype')}}</f7-block-title>
+    <f7-searchbar
+      search-container="#search-list"
+      :disable-link-text="$t('app.cancel')"
+      :placeholder="$t('dispatcher.placeholder')"
+      :clear-button="true"
+    ></f7-searchbar>
     <f7-list>
       <f7-list-group v-for="dispatchertype_ in dispatchertypes" :key="dispatchertype_.id">
         <f7-list-item radio name="dispatchertype-radio"

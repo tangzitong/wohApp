@@ -425,6 +425,660 @@
     ]
 
   },
+  "datatype": {
+    "err_code": 0,
+    "err_msg": "success",
+    "enUS": {
+      "eventtype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "AI Learning Event",
+            "nickname": "A"
+          },
+          {
+            "id": "2",
+            "name": "Dispach Learning Event",
+            "nickname": "H"
+          },
+          {
+            "id": "3",
+            "name": "System Development Event",
+            "nickname": "K"
+          },
+          {
+            "id": "4",
+            "name": "Project Management Event",
+            "nickname": "P"
+          }
+        ]
+    
+      },
+      "knowledgetype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "Program Language",
+            "nickname": "P"
+          },
+          {
+            "id": "2",
+            "name": "Database Management",
+            "nickname": "D"
+          },
+          {
+            "id": "3",
+            "name": "Mobile Development",
+            "nickname": "M"
+          },
+          {
+            "id": "4",
+            "name": "Math",
+            "nickname": "M"
+          },
+          {
+            "id": "5",
+            "language": "jaJP",
+            "name": "OS",
+            "nickname": "O"
+          },
+          {
+            "id": "6",
+            "name": "Framework",
+            "nickname": "F"
+          },
+          {
+            "id": "7",
+            "name": "Hardware",
+            "nickname": "H"
+          },
+          {
+            "id": "8",
+            "name": "Cloud",
+            "nickname": "C"
+          },
+          {
+            "id": "9",
+            "name": "Application",
+            "nickname": "A"
+          },
+          {
+            "id": "10",
+            "name": "Project Management",
+            "nickname": "P"
+          }
+        ]
+    
+      },
+      "tooltype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "Voice Recognition",
+            "nickname": "V"
+          },
+          {
+            "id": "2",
+            "name": "Image Recognition",
+            "nickname": "I"
+          },
+          {
+            "id": "3",
+            "name": "Text Recognition",
+            "nickname": "T"
+          },
+          {
+            "id": "4",
+            "name": "Other",
+            "nickname": "O"
+          }
+        ]
+    
+      },
+      "resumetype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "Talent",
+            "nickname": "T"
+          },
+          {
+            "id": "2",
+            "name": "Consultant",
+            "nickname": "C"
+          },
+          {
+            "id": "3",
+            "name": "Dispatcher",
+            "nickname": "D"
+          }
+        ]
+    
+      },
+      "projecttype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "Max Price",
+            "nickname": "M"
+          },
+          {
+            "id": "2",
+            "name": "Fix Price",
+            "nickname": "F"
+          },
+          {
+            "id": "3",
+            "name": "Middle Price",
+            "nickname": "M"
+          },
+          {
+            "id": "4",
+            "name": "Valuation",
+            "nickname": "V"
+          }
+        ]
+    
+      },
+      "companytype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "Stock Corporation",
+            "nickname": "S"
+          },
+          {
+            "id": "2",
+            "name": "Limited Corporation",
+            "nickname": "L"
+          },
+          {
+            "id": "3",
+            "name": "Contact Corporation",
+            "nickname": "C"
+          },
+          {
+            "id": "4",
+            "name": "International Corporation",
+            "nickname": "I"
+          }
+        ]
+    
+      },
+      "jobtype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "Normal",
+            "nickname": "N"
+          },
+          {
+            "id": "2",
+            "name": "Contact",
+            "nickname": "C"
+          },
+          {
+            "id": "3",
+            "name": "Arbeit",
+            "nickname": "A"
+          },
+          {
+            "id": "4",
+            "name": "Dispatch",
+            "nickname": "D"
+          }
+        ]
+    
+      }
+        
+    },
+    "zhCN": {
+      "eventtype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "AI勉強会",
+            "nickname": "A"
+          },
+          {
+            "id": "2",
+            "name": "派遣営業会",
+            "nickname": "H"
+          },
+          {
+            "id": "3",
+            "name": "開発勉強会",
+            "nickname": "K"
+          },
+          {
+            "id": "4",
+            "name": "プロジェクト説明会",
+            "nickname": "P"
+          }
+        ]
+    
+      },
+      "knowledgetype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "プログラム",
+            "nickname": "プ"
+          },
+          {
+            "id": "2",
+            "name": "データベース",
+            "nickname": "デ"
+          },
+          {
+            "id": "3",
+            "name": "モベル開発",
+            "nickname": "モ"
+          },
+          {
+            "id": "4",
+            "name": "数学",
+            "nickname": "す"
+          },
+          {
+            "id": "5",
+            "name": "OS",
+            "nickname": "お"
+          },
+          {
+            "id": "6",
+            "name": "フレームワーク",
+            "nickname": "フ"
+          },
+          {
+            "id": "7",
+            "name": "ハードウェア",
+            "nickname": "ハ"
+          },
+          {
+            "id": "8",
+            "name": "クラウド",
+            "nickname": "ク"
+          },
+          {
+            "id": "9",
+            "name": "アプリケーション",
+            "nickname": "ア"
+          },
+          {
+            "id": "10",
+            "name": "マネジメント",
+            "nickname": "マ"
+          }
+        ]
+    
+      },
+      "tooltype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "音声認識",
+            "nickname": "音"
+          },
+          {
+            "id": "2",
+            "name": "画像認識",
+            "nickname": "画"
+          },
+          {
+            "id": "3",
+            "name": "文字認識",
+            "nickname": "文"
+          },
+          {
+            "id": "4",
+            "name": "その他",
+            "nickname": "他"
+          }
+        ]
+    
+      },
+      "resumetype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "タレント",
+            "nickname": "タ"
+          },
+          {
+            "id": "2",
+            "name": "コンサルタント",
+            "nickname": "コ"
+          },
+          {
+            "id": "3",
+            "name": "派遣者",
+            "nickname": "派"
+          }
+        ]
+    
+      },
+      "projecttype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "最高価格",
+            "nickname": "高"
+          },
+          {
+            "id": "2",
+            "name": "指定価格",
+            "nickname": "定"
+          },
+          {
+            "id": "3",
+            "name": "中間価格",
+            "nickname": "中"
+          },
+          {
+            "id": "4",
+            "name": "評価",
+            "nickname": "評"
+          }
+        ]
+    
+      },
+      "companytype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "株式会社",
+            "nickname": "株"
+          },
+          {
+            "id": "2",
+            "name": "有限会社",
+            "nickname": "有"
+          },
+          {
+            "id": "3",
+            "name": "合同会社",
+            "nickname": "合"
+          },
+          {
+            "id": "4",
+            "name": "国際会社",
+            "nickname": "国"
+          }
+        ]
+    
+      },
+      "jobtype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "正社員",
+            "nickname": "正"
+          },
+          {
+            "id": "2",
+            "name": "契約社員",
+            "nickname": "契"
+          },
+          {
+            "id": "3",
+            "name": "アルバイト",
+            "nickname": "ア"
+          },
+          {
+            "id": "4",
+            "name": "派遣社員",
+            "nickname": "派"
+          }
+        ]
+    
+      }      
+    },
+    "jaJP": {
+      "eventtype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "AI勉強会",
+            "nickname": "A"
+          },
+          {
+            "id": "2",
+            "name": "派遣営業会",
+            "nickname": "H"
+          },
+          {
+            "id": "3",
+            "name": "開発勉強会",
+            "nickname": "K"
+          },
+          {
+            "id": "4",
+            "name": "プロジェクト説明会",
+            "nickname": "P"
+          }
+        ]
+    
+      },
+      "knowledgetype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "プログラム",
+            "nickname": "プ"
+          },
+          {
+            "id": "2",
+            "name": "データベース",
+            "nickname": "デ"
+          },
+          {
+            "id": "3",
+            "name": "モベル開発",
+            "nickname": "モ"
+          },
+          {
+            "id": "4",
+            "name": "数学",
+            "nickname": "す"
+          },
+          {
+            "id": "5",
+            "name": "OS",
+            "nickname": "お"
+          },
+          {
+            "id": "6",
+            "name": "フレームワーク",
+            "nickname": "フ"
+          },
+          {
+            "id": "7",
+            "name": "ハードウェア",
+            "nickname": "ハ"
+          },
+          {
+            "id": "8",
+            "name": "クラウド",
+            "nickname": "ク"
+          },
+          {
+            "id": "9",
+            "name": "アプリケーション",
+            "nickname": "ア"
+          },
+          {
+            "id": "10",
+            "name": "マネジメント",
+            "nickname": "マ"
+          }
+        ]
+    
+      },
+      "tooltype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "音声認識",
+            "nickname": "音"
+          },
+          {
+            "id": "2",
+            "name": "画像認識",
+            "nickname": "画"
+          },
+          {
+            "id": "3",
+            "name": "文字認識",
+            "nickname": "文"
+          },
+          {
+            "id": "4",
+            "name": "その他",
+            "nickname": "他"
+          }
+        ]
+    
+      },
+      "resumetype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "タレント",
+            "nickname": "タ"
+          },
+          {
+            "id": "2",
+            "name": "コンサルタント",
+            "nickname": "コ"
+          },
+          {
+            "id": "3",
+            "name": "派遣者",
+            "nickname": "派"
+          }
+        ]
+    
+      },
+      "projecttype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "最高価格",
+            "nickname": "高"
+          },
+          {
+            "id": "2",
+            "name": "指定価格",
+            "nickname": "定"
+          },
+          {
+            "id": "3",
+            "name": "中間価格",
+            "nickname": "中"
+          },
+          {
+            "id": "4",
+            "name": "評価",
+            "nickname": "評"
+          }
+        ]
+    
+      },
+      "companytype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "株式会社",
+            "nickname": "株"
+          },
+          {
+            "id": "2",
+            "name": "有限会社",
+            "nickname": "有"
+          },
+          {
+            "id": "3",
+            "name": "合同会社",
+            "nickname": "合"
+          },
+          {
+            "id": "4",
+            "name": "国際会社",
+            "nickname": "国"
+          }
+        ]
+    
+      },
+      "jobtype": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "name": "正社員",
+            "nickname": "正"
+          },
+          {
+            "id": "2",
+            "name": "契約社員",
+            "nickname": "契"
+          },
+          {
+            "id": "3",
+            "name": "アルバイト",
+            "nickname": "ア"
+          },
+          {
+            "id": "4",
+            "name": "派遣社員",
+            "nickname": "派"
+          }
+        ]
+    
+      }      
+    }
+  },
   "eventtype": {
     "err_code": 0,
     "err_msg": "success",
