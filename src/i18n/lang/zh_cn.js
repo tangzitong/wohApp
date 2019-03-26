@@ -65,6 +65,8 @@ export default {
   job: {
     application: '申请',
     add: '追加工作',
+    update: '工作更新',
+    delete: '工作削除',
     title: '工作概要',
     title_: '工作概要入力',
     content: '工作内容',
@@ -76,6 +78,8 @@ export default {
   company: {
     application: '申请',
     add: '追加公司',
+    update: '公司更新',
+    delete: '公司削除',
     name: '名字',
     name_: '请输入公司名字',
     address: '地址',
@@ -95,6 +99,8 @@ export default {
   project: {
     application: 'Application',
     add: 'Add Project',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Job Title',
     title_: 'Please input Title for the Project',
@@ -107,6 +113,8 @@ export default {
   talent: {
     application: 'Application',
     add: 'Add Talent',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Talent Title',
     title_: 'Please input Title for the Talent',
@@ -119,6 +127,8 @@ export default {
   consultant: {
     application: 'Application',
     add: 'Add Consultant',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Consultant Title',
     title_: 'Please input Title for the Consultant',
@@ -131,6 +141,8 @@ export default {
   dispatcher: {
     application: 'Application',
     add: 'Add Dispatcher',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Dispatcher Title',
     title_: 'Please input Title for the Dispatcher',
@@ -143,6 +155,8 @@ export default {
   knowledge: {
     application: 'Application',
     add: 'Add Knowledge',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Knowledge Title',
     title_: 'Please input Title for the Knowledge',
@@ -155,6 +169,8 @@ export default {
   tool: {
     application: 'Application',
     add: 'Add Tool',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Tool Title',
     title_: 'Please input Title for the Tool',
@@ -167,6 +183,8 @@ export default {
   event: {
     application: 'Application',
     add: 'Add Event',
+    update: '公司更新',
+    delete: '公司削除',
     name: 'name',
     title: 'Event Title',
     title_: 'Please input Title for the Event',

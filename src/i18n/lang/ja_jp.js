@@ -65,6 +65,8 @@ export default {
   job: {
     application: '仕事申請',
     add: '仕事追加',
+    update: '仕事更新',
+    delete: '仕事削除',
     title: '仕事見出し',
     title_: '仕事見出しを入力してください',
     content: '仕事内容',
@@ -76,6 +78,8 @@ export default {
   company: {
     application: '仕事申請',
     add: '会社追加',
+    update: '会社更新',
+    delete: '会社削除',
     name: '名前',
     name_: '会社名を入力してください',
     address: '住所',
@@ -95,6 +99,8 @@ export default {
   project: {
     application: 'Application',
     add: 'Add Project',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Job Title',
     title_: 'Please input Title for the Project',
@@ -107,6 +113,8 @@ export default {
   talent: {
     application: 'Application',
     add: 'Add Talent',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Talent Title',
     title_: 'Please input Title for the Talent',
@@ -119,6 +127,8 @@ export default {
   consultant: {
     application: 'Application',
     add: 'Add Consultant',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Consultant Title',
     title_: 'Please input Title for the Consultant',
@@ -131,6 +141,8 @@ export default {
   dispatcher: {
     application: 'Application',
     add: 'Add Dispatcher',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Dispatcher Title',
     title_: 'Please input Title for the Dispatcher',
@@ -143,6 +155,8 @@ export default {
   knowledge: {
     application: 'Application',
     add: 'Add Knowledge',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Knowledge Title',
     title_: 'Please input Title for the Knowledge',
@@ -155,6 +169,8 @@ export default {
   tool: {
     application: 'Application',
     add: 'Add Tool',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Tool Title',
     title_: 'Please input Title for the Tool',
@@ -167,6 +183,8 @@ export default {
   event: {
     application: 'Application',
     add: 'Add Event',
+    update: '会社更新',
+    delete: '会社削除',
     name: 'name',
     title: 'Event Title',
     title_: 'Please input Title for the Event',

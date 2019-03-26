@@ -16,14 +16,15 @@
       </div>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-link class="tool tool-border flex-rest-width">
-        <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="data.StudentsNum ? data.StudentsNum : $t('knowledge.application')"></span>
-      </f7-link>
+      <f7-button big raised color="green" fill @click="applicationKnowledge">{{$t('knowledge.application')}}</f7-button>
       <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
         <span class="iconfont icon-like"></span>
         <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('knowledge.like')"></span>
       </f7-link>
+    </div>
+    <div class="knowledge-footer flex-row" v-if="isOwner">
+      <f7-button big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
+      <f7-button big raised color="green" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -121,9 +122,19 @@ export default {
     enableToolbar: {
       type: Boolean,
       default: true
+    },
+    isOwner: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
+    applicatoinKnowledge() {
+    },
+    updateKnowledge() {
+    },
+    deleteKnowledge() {
+    },
     contentClick(data) {
       this.$emit('knowledge:content-click', data)
     },

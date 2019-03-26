@@ -65,6 +65,8 @@ export default {
   job: {
     application: 'Application',
     add: 'Add Job',
+    update: 'Update Job',
+    delete: 'Delete Job',
     name: 'name',
     title: 'Job Title',
     title_: 'Please input Title for the job',
@@ -77,6 +79,8 @@ export default {
   company: {
     application: 'Application',
     add: 'Add Company',
+    update: 'Update Company',
+    delete: 'Delete Company',
     name: 'name',
     name_: 'Please input Company Name',
     address: 'Address',
@@ -96,6 +100,8 @@ export default {
   project: {
     application: 'Application',
     add: 'Add Project',
+    update: 'Update Project',
+    delete: 'Delete Project',
     name: 'name',
     title: 'Job Title',
     title_: 'Please input Title for the Project',
@@ -108,6 +114,8 @@ export default {
   talent: {
     application: 'Application',
     add: 'Add Talent',
+    update: 'Update Talent',
+    delete: 'Delete Talent',
     name: 'name',
     title: 'Talent Title',
     title_: 'Please input Title for the Talent',
@@ -120,6 +128,8 @@ export default {
   consultant: {
     application: 'Application',
     add: 'Add Consultant',
+    update: 'Update Consultant',
+    delete: 'Delete Consultant',
     name: 'name',
     title: 'Consultant Title',
     title_: 'Please input Title for the Consultant',
@@ -132,6 +142,8 @@ export default {
   dispatcher: {
     application: 'Application',
     add: 'Add Dispatcher',
+    update: 'Update Dispatcher',
+    delete: 'Delete Dispatcher',
     name: 'name',
     title: 'Dispatcher Title',
     title_: 'Please input Title for the Dispatcher',
@@ -144,6 +156,8 @@ export default {
   knowledge: {
     application: 'Application',
     add: 'Add Knowledge',
+    update: 'Update Knowledge',
+    delete: 'Delete Knowledge',
     name: 'name',
     title: 'Knowledge Title',
     title_: 'Please input Title for the Knowledge',
@@ -156,6 +170,8 @@ export default {
   tool: {
     application: 'Application',
     add: 'Add Tool',
+    update: 'Update Tool',
+    delete: 'Delete Tool',
     name: 'name',
     title: 'Tool Title',
     title_: 'Please input Title for the Tool',
@@ -168,6 +184,8 @@ export default {
   event: {
     application: 'Application',
     add: 'Add Event',
+    update: 'Update Event',
+    delete: 'Delete Event',
     name: 'name',
     title: 'Event Title',
     title_: 'Please input Title for the Event',

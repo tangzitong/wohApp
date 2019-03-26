@@ -16,14 +16,15 @@
       </div>
     </div>
     <div class="job-footer flex-row" v-if="enableToolbar">
-      <f7-link class="tool tool-border flex-rest-width">
-        <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('job.application')"></span>
-      </f7-link>
+      <f7-button big raised color="green" fill @click="applicationJob">{{$t('job.application')}}</f7-button>
       <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
         <span class="iconfont icon-like"></span>
         <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('job.like')"></span>
       </f7-link>
+    </div>
+    <div class="job-footer flex-row" v-if="isOwner">
+      <f7-button big raised color="green" fill @click="updateJob">{{$t('job.update')}}</f7-button>
+      <f7-button big raised color="green" fill @click="deleteJob">{{$t('job.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -121,9 +122,19 @@ export default {
     enableToolbar: {
       type: Boolean,
       default: true
+    },
+    isOwner: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
+    applicatoinJob() {
+    },
+    updateJob() {
+    },
+    deletejob() {
+    },
     contentClick(data) {
       this.$emit('card:content-click', data)
     },
