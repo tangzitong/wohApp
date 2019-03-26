@@ -9,6 +9,7 @@ import industryPage from './pages/industry'
 import profilePage from './pages/profile'
 import jobsPage from './pages/jobs'
 import jobtypePage from './pages/jobs/type'
+import jobaddtypePage from './pages/jobs/addtype'
 import jobaddPage from './pages/jobs/add'
 import companysPage from './pages/companys'
 import companytypePage from './pages/companys/type'
@@ -16,24 +17,31 @@ import companyaddtypePage from './pages/companys/addtype'
 import companyaddPage from './pages/companys/add'
 import projectsPage from './pages/projects'
 import projecttypePage from './pages/projects/type'
+import projectaddtypePage from './pages/projects/addtype'
 import projectaddPage from './pages/projects/add'
 import talentsPage from './pages/talents'
 import talenttypePage from './pages/talents/type'
+import talentaddtypePage from './pages/talents/addtype'
 import talentaddPage from './pages/talents/add'
 import consultantsPage from './pages/consultants'
 import consultanttypePage from './pages/consultants/type'
+import consultantaddtypePage from './pages/consultants/addtype'
 import consultantaddPage from './pages/consultants/add'
 import dispatchersPage from './pages/dispatchers'
 import dispatchertypePage from './pages/dispatchers/type'
+import dispatcheraddtypePage from './pages/dispatchers/addtype'
 import dispatcheraddPage from './pages/dispatchers/add'
 import knowledgePage from './pages/knowledge'
 import knowledgetypePage from './pages/knowledge/type'
+import knowledgeaddtypePage from './pages/knowledge/addtype'
 import knowledgeaddPage from './pages/knowledge/add'
 import toolsPage from './pages/tools'
 import tooltypePage from './pages/tools/type'
+import tooladdtypePage from './pages/tools/addtype'
 import tooladdPage from './pages/tools/add'
 import eventsPage from './pages/events'
 import eventtypePage from './pages/events/type'
+import eventaddtypePage from './pages/events/addtype'
 import eventaddPage from './pages/events/add'
 import reportsPage from './pages/reports'
 import reporttypePage from './pages/reports/type'
@@ -115,6 +123,10 @@ export default [
     component: jobtypePage
   },
   {
+    path: '/jobs/addtype/',
+    component: jobaddtypePage
+  },
+  {
     path: '/jobs/add/',
     component: jobaddPage,
     name: 'addJob',
@@ -151,6 +163,10 @@ export default [
     component: projecttypePage
   },
   {
+    path: '/projects/addtype/',
+    component: projectaddtypePage
+  },
+  {
     path: '/projects/add/',
     component: projectaddPage,
     name: 'addProject',
@@ -167,6 +183,10 @@ export default [
     component: talenttypePage
   },
   {
+    path: '/talents/addtype/',
+    component: talentaddtypePage
+  },
+  {
     path: '/talents/add/',
     component: talentaddPage,
     name: 'addTalent',
@@ -177,6 +197,10 @@ export default [
   {
     path: '/consultants/type/',
     component: consultanttypePage
+  },
+  {
+    path: '/consultants/addtype/',
+    component: consultantaddtypePage
   },
   {
     path: '/consultants/add/',
@@ -199,6 +223,10 @@ export default [
     component: dispatchertypePage
   },
   {
+    path: '/dispatchers/addtype/',
+    component: dispatcheraddtypePage
+  },
+  {
     path: '/dispatchers/add/',
     component: dispatcheraddPage,
     name: 'addDispatcher',
@@ -213,6 +241,10 @@ export default [
   {
     path: '/knowledge/type/',
     component: knowledgetypePage
+  },
+  {
+    path: '/knowledge/addtype/',
+    component: knowledgeaddtypePage
   },
   {
     path: '/knowledge/add/',
@@ -231,6 +263,10 @@ export default [
     component: tooltypePage
   },
   {
+    path: '/tools/addtype/',
+    component: tooladdtypePage
+  },
+  {
     path: '/tools/add/',
     component: tooladdPage,
     name: 'addTool',
@@ -245,6 +281,10 @@ export default [
   {
     path: '/events/type/',
     component: eventtypePage
+  },
+  {
+    path: '/events/addtype/',
+    component: eventaddtypePage
   },
   {
     path: '/events/add/',

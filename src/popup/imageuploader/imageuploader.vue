@@ -18,7 +18,7 @@
       </f7-actions-group>
     </f7-actions>
     <!-- Upload button -->
-    <f7-button @click="handleUploadClicked" raised>{{$t('modify.image')}}</f7-button>
+    <f7-button big raised @click="handleUploadClicked">{{$t('modify.image')}}</f7-button>
   </div>
 </template>
 <script>

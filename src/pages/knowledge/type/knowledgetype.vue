@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       knowledgetype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isowner: false
     }
   },
   created() {
@@ -57,7 +58,7 @@ export default {
     saveKnowledgetype() {
       const knowledgetype = this.$$('input[name="knowledgetype-radio"]:checked').val()
       setKnowledgetypeConfig(knowledgetype)
-      this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}`)
+      this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}&isowner=${this.isowner}`)
     }
   }
 }

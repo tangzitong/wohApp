@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       jobtype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isowner: false
     }
   },
   created() {
@@ -57,7 +58,7 @@ export default {
     saveJobtype() {
       const jobtype = this.$$('input[name="jobtype-radio"]:checked').val()
       setJobtypeConfig(jobtype)
-      this.$f7router.navigate(`/jobs/?jobtype=${jobtype}`)
+      this.$f7router.navigate(`/jobs/?jobtype=${jobtype}&isowner=${this.isowner}`)
     }
   }
 }
