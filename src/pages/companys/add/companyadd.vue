@@ -6,43 +6,39 @@
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('companyadd.complete')}}</p>
       </transition>
-      <f7-list>
+      <f7-list form @submit.prevent>
         <f7-list-item>
-          <form @submit.prevent>
-            <f7-list-item>
-              <label for="name">{{$t('company.name')}}</label>
-              <input type="text" :placeholder="$t('company.name_')" @input="name = $event.target.value" />
-            </f7-list-item>
-            <f7-list-item>
-              <label for="address">{{$t('company.address')}}</label>
-              <input type="text" :placeholder="$t('company.address_')" @input="address = $event.target.value" />
-            </f7-list-item>
-            <f7-list-item>
-              <label for="Tel">{{$t('company.Tel')}}</label>
-              <input type="text" :placeholder="$t('company.Tel_')" @input="Tel = $event.target.value" />
-            </f7-list-item>
-            <f7-list-item>
-              <label for="Fax">{{$t('company.Fax')}}</label>
-              <input type="text" :placeholder="$t('company.Fax_')" @input="Fax = $event.target.value" />
-            </f7-list-item>
-            <f7-list-item>
-              <label for="Manager">{{$t('company.Manager')}}</label>
-              <input type="text" :placeholder="$t('company.Manager_')" @input="Manager = $event.target.value" />
-            </f7-list-item>
-            <f7-list-item>
-              <label for="HP">{{$t('company.HP')}}</label>
-              <input type="text" :placeholder="$t('company.HP_')" @input="HP = $event.target.value" />
-            </f7-list-item>
-            <f7-list-item>
-              <label for="like">{{$t('company.like')}}</label>
-              <input type="text" :placeholder="$t('company.noNewestCompany')" @input="noNewestCompany = $event.target.value" />
-            </f7-list-item>
-           </form>
+          <label for="name">{{$t('company.name')}}</label>
+          <input type="text" :placeholder="$t('company.name_')" @input="name = $event.target.value" />
+        </f7-list-item>
+        <f7-list-item>
+          <label for="address">{{$t('company.address')}}</label>
+          <input type="text" :placeholder="$t('company.address_')" @input="address = $event.target.value" />
+        </f7-list-item>
+        <f7-list-item>
+          <label for="Tel">{{$t('company.Tel')}}</label>
+          <input type="text" :placeholder="$t('company.Tel_')" @input="Tel = $event.target.value" />
+        </f7-list-item>
+        <f7-list-item>
+          <label for="Fax">{{$t('company.Fax')}}</label>
+          <input type="text" :placeholder="$t('company.Fax_')" @input="Fax = $event.target.value" />
+        </f7-list-item>
+        <f7-list-item>
+          <label for="Manager">{{$t('company.Manager')}}</label>
+          <input type="text" :placeholder="$t('company.Manager_')" @input="Manager = $event.target.value" />
+        </f7-list-item>
+        <f7-list-item>
+          <label for="HP">{{$t('company.HP')}}</label>
+          <input type="text" :placeholder="$t('company.HP_')" @input="HP = $event.target.value" />
+        </f7-list-item>
+        <f7-list-item>
+          <label for="like">{{$t('company.like')}}</label>
+          <input type="text" :placeholder="$t('company.noNewestCompany')" @input="noNewestCompany = $event.target.value" />
         </f7-list-item>
       </f7-list>
     </f7-block>
     <f7-block v-if="$root.user">
-      <a @click="updateProfile">{{$t('company.add')}}</a>
+      <f7-button big raised color="green" fill @click="updateCompany">{{$t('company.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="$root.user">
@@ -96,7 +92,7 @@ export default {
     ...mapState(['updateCompany'])
   },
   methods: {
-    updateProfile() {
+    updateCompany() {
       this.$store.dispatch('updateCompany', {
         name: this.name,
         address: this.address,
