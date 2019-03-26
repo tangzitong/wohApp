@@ -392,11 +392,7 @@ export function getFeedback({ commit }) {
 }
 
 export function putFeedback({ commit }, feedback) {
-  axios.patch('/feedback.json', feedback)
-  axios.get('/feedback.json').then(res => {
-    const feedbacks = res.data
-    commit(types.APPEND_FEEDBACK, {
-      feedbacks
-    })
+  axios.put('/feedback.json', feedback).catch(err => {
+    console.log(err)
   })
 }
