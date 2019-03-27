@@ -392,7 +392,7 @@ export function getFeedback({ commit }) {
 }
 
 export function putFeedback({ commit }, feedback) {
-  axios.put('/feedback.json', feedback).catch(err => {
+  axios.post('/feedback.json', feedback).catch(err => {
     console.log(err)
   })
 }
