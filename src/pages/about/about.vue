@@ -3,7 +3,7 @@
     <f7-navbar :title="$t('app.about')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
         <div class="logo">
-            <img src="@/assets/images/hiapp_logo@2x.png" alt="logo">
+            <img src="@/assets/images/android-icon-xxhdpi-144x144.png" alt="logo">
         </div>
         <div class="app-name">wohApp</div>
     </f7-block>
