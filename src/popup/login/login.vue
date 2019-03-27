@@ -31,6 +31,18 @@
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <f7-button big raised color="green" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
     </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInFB">{{$t('login.signInFB')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInGG">{{$t('login.signInGG')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInTW">{{$t('login.signInTW')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInGH">{{$t('login.signInGH')}}</f7-button>
+    </f7-block>
 
     <!-- Email registration buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
@@ -141,6 +153,114 @@ export default {
             window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
+    },
+    handleSignInGG: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.GoogleAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        this.$store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
+    handleSignInFB: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.FacebookAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        this.$store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
+    handleSignInTW: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.TwitterAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        this.$store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
+    handleSignInGH: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.GithubAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        this.$store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
     },
     handleSignInDone: function () {
       // Hide loading indicator
