@@ -229,6 +229,12 @@ export default {
           // On success, sign in user
           .then(user => {
             // Hide loading indicator
+            this.$store.dispatch('addProfile', {
+              id: user.uid,
+              name: this.email,
+              title: '',
+              photo: ''
+            })
             // window.f7.hideIndicator()
             this.performingRequest = false
             // Show notification

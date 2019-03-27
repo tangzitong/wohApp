@@ -2,7 +2,7 @@
   <f7-page class="project-page">
     <f7-navbar :title="$t('project.project')" :back-link="$t('app.back')" sliding>
     </f7-navbar>
-    <card :enableToolbar="false" :data="project"></card>
+    <Project :enableToolbar="false" :data="project"></Project>
     <div class="comments">
       <div class="title">
         <span>{{$t('home.comment')}}</span>
@@ -131,7 +131,7 @@
 
 <script>
 import axios from 'axios'
-import Card from '@/components/card'
+import Project from '@/components/project'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapState, mapActions } from 'vuex'
@@ -185,7 +185,7 @@ export default {
     }
   },
   components: {
-    Card
+    Project
   }
 }
 </script>
