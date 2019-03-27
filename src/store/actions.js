@@ -30,18 +30,516 @@ export function updateProfile({ commit, state }, data) {
   })
 }
 
-export function updateCompany({ commit, state }, data) {
-  window.db('companys').child(state.currentUser.uid).update({
+export function addJob({ commit, state }, data) {
+  const newJobRef = window.db('jobs').child(state.currentUser.uid).push()
+  const newJob = {
+    id: newJobRef.key,
     name: data.name,
+    jobtype: data.jobtype,
+    industry: data.industry,
+    area: data.area,
     address: data.address,
     Tel: data.Tel,
     Fax: data.Fax,
     Manager: data.Manager,
     HP: data.HP,
     like: data.like,
-    photo: data.photo
-  }).catch(err => {
-    console.log(err)
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newJobRef.set(newJob, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateJob({ commit, state }, data) {
+  const updateJobRef = window.db('jobs').child(state.currentUser.uid).child(data.id)
+  const newJob = {
+    id: data.id,
+    name: data.name,
+    jobtype: data.jobtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateJobRef.set(newJob, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteJob({ commit, state }, data) {
+  const deleteJobRef = window.db('jobs').child(state.currentUser.uid).child(data.id)
+  deleteJobRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addCompany({ commit, state }, data) {
+  const newCompanyRef = window.db('companys').child(state.currentUser.uid).push()
+  const newCompany = {
+    id: newCompanyRef.key,
+    name: data.name,
+    companytype: data.companytype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newCompanyRef.set(newCompany, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateCompany({ commit, state }, data) {
+  const updateCompanyRef = window.db('companys').child(state.currentUser.uid).child(data.id)
+  const newCompany = {
+    id: data.id,
+    name: data.name,
+    companytype: data.companytype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateCompanyRef.set(newCompany, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteCompany({ commit, state }, data) {
+  const deleteCompanyRef = window.db('companys').child(state.currentUser.uid).child(data.id)
+  deleteCompanyRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addProject({ commit, state }, data) {
+  const newProjectRef = window.db('projects').child(state.currentUser.uid).push()
+  const newProject = {
+    id: newProjectRef.key,
+    name: data.name,
+    projecttype: data.projecttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newProjectRef.set(newProject, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateProject({ commit, state }, data) {
+  const updateProjectRef = window.db('projects').child(state.currentUser.uid).child(data.id)
+  const newProject = {
+    id: data.id,
+    name: data.name,
+    projecttype: data.projecttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateProjectRef.set(newProject, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteProject({ commit, state }, data) {
+  const deleteProjectRef = window.db('projects').child(state.currentUser.uid).child(data.id)
+  deleteProjectRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addTalent({ commit, state }, data) {
+  const newTalentRef = window.db('talents').child(state.currentUser.uid).push()
+  const newTalent = {
+    id: newTalentRef.key,
+    name: data.name,
+    talenttype: data.talenttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newTalentRef.set(newTalent, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateTalent({ commit, state }, data) {
+  const updateTalentRef = window.db('talents').child(state.currentUser.uid).child(data.id)
+  const newTalent = {
+    id: data.id,
+    name: data.name,
+    talenttype: data.talenttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateTalentRef.set(newTalent, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteTalent({ commit, state }, data) {
+  const deleteTalentRef = window.db('talents').child(state.currentUser.uid).child(data.id)
+  deleteTalentRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addConsultant({ commit, state }, data) {
+  const newConsultantRef = window.db('consultants').child(state.currentUser.uid).push()
+  const newConsultant = {
+    id: newConsultantRef.key,
+    name: data.name,
+    consultanttype: data.consultanttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newConsultantRef.set(newConsultant, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateConsultant({ commit, state }, data) {
+  const updateConsultantRef = window.db('consultants').child(state.currentUser.uid).child(data.id)
+  const newConsultant = {
+    id: data.id,
+    name: data.name,
+    consultanttype: data.consultanttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateConsultantRef.set(newConsultant, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteConsultant({ commit, state }, data) {
+  const deleteConsultantRef = window.db('consultants').child(state.currentUser.uid).child(data.id)
+  deleteConsultantRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addDispatcher({ commit, state }, data) {
+  const newDispatcherRef = window.db('dispachers').child(state.currentUser.uid).push()
+  const newDispatcher = {
+    id: newDispatcherRef.key,
+    name: data.name,
+    dispachertype: data.dispachertype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newDispatcherRef.set(newDispatcher, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateDispatcher({ commit, state }, data) {
+  const updateDispatcherRef = window.db('dispachers').child(state.currentUser.uid).child(data.id)
+  const newDispatcher = {
+    id: data.id,
+    name: data.name,
+    dispachertype: data.dispachertype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateDispatcherRef.set(newDispatcher, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteDispatcher({ commit, state }, data) {
+  const deleteDispatcherRef = window.db('dispachers').child(state.currentUser.uid).child(data.id)
+  deleteDispatcherRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addKnowledge({ commit, state }, data) {
+  const newKnowledgeRef = window.db('knowledges').child(state.currentUser.uid).push()
+  const newKnowledge = {
+    id: newKnowledgeRef.key,
+    name: data.name,
+    knowledgetype: data.knowledgetype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newKnowledgeRef.set(newKnowledge, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateKnowledge({ commit, state }, data) {
+  const updateKnowledgeRef = window.db('knowledges').child(state.currentUser.uid).child(data.id)
+  const newKnowledge = {
+    id: data.id,
+    name: data.name,
+    knowledgetype: data.knowledgetype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateKnowledgeRef.set(newKnowledge, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteKnowledge({ commit, state }, data) {
+  const deleteKnowledgeRef = window.db('knowledges').child(state.currentUser.uid).child(data.id)
+  deleteKnowledgeRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addTool({ commit, state }, data) {
+  const newToolRef = window.db('tools').child(state.currentUser.uid).push()
+  const newTool = {
+    id: newToolRef.key,
+    name: data.name,
+    tooltype: data.tooltype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newToolRef.set(newTool, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateTool({ commit, state }, data) {
+  const updateToolRef = window.db('tools').child(state.currentUser.uid).child(data.id)
+  const newTool = {
+    id: data.id,
+    name: data.name,
+    tooltype: data.tooltype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateToolRef.set(newTool, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteTool({ commit, state }, data) {
+  const deleteToolRef = window.db('tools').child(state.currentUser.uid).child(data.id)
+  deleteToolRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function addEvent({ commit, state }, data) {
+  const newEventRef = window.db('events').child(state.currentUser.uid).push()
+  const newEvent = {
+    id: newEventRef.key,
+    name: data.name,
+    eventtype: data.eventtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  newEventRef.set(newEvent, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function updateEvent({ commit, state }, data) {
+  const updateEventRef = window.db('events').child(state.currentUser.uid).child(data.id)
+  const newEvent = {
+    id: data.id,
+    name: data.name,
+    eventtype: data.eventtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    like: data.like,
+    photo: data.photo,
+    createDate: new Date()
+  }
+  updateEventRef.set(newEvent, function(error) {
+    if (error) {
+      console.log(error)
+    }
+  })
+}
+
+export function deleteEvent({ commit, state }, data) {
+  const deleteEventRef = window.db('events').child(state.currentUser.uid).child(data.id)
+  deleteEventRef.remove(function(error) {
+    if (error) {
+      console.log(error)
+    }
   })
 }
 

@@ -11,38 +11,47 @@ import jobsPage from './pages/jobs'
 import jobtypePage from './pages/jobs/type'
 import jobaddtypePage from './pages/jobs/addtype'
 import jobaddPage from './pages/jobs/add'
+import jobviewPage from './pages/jobs/view'
 import companysPage from './pages/companys'
 import companytypePage from './pages/companys/type'
 import companyaddtypePage from './pages/companys/addtype'
 import companyaddPage from './pages/companys/add'
+import companyviewPage from './pages/companys/view'
 import projectsPage from './pages/projects'
 import projecttypePage from './pages/projects/type'
 import projectaddtypePage from './pages/projects/addtype'
 import projectaddPage from './pages/projects/add'
+import projectviewPage from './pages/projects/view'
 import talentsPage from './pages/talents'
 import talenttypePage from './pages/talents/type'
 import talentaddtypePage from './pages/talents/addtype'
 import talentaddPage from './pages/talents/add'
+import talentviewPage from './pages/talents/view'
 import consultantsPage from './pages/consultants'
 import consultanttypePage from './pages/consultants/type'
 import consultantaddtypePage from './pages/consultants/addtype'
 import consultantaddPage from './pages/consultants/add'
+import consultantviewPage from './pages/consultants/view'
 import dispatchersPage from './pages/dispatchers'
 import dispatchertypePage from './pages/dispatchers/type'
 import dispatcheraddtypePage from './pages/dispatchers/addtype'
 import dispatcheraddPage from './pages/dispatchers/add'
+import dispatcherviewPage from './pages/dispatchers/view'
 import knowledgePage from './pages/knowledge'
 import knowledgetypePage from './pages/knowledge/type'
 import knowledgeaddtypePage from './pages/knowledge/addtype'
 import knowledgeaddPage from './pages/knowledge/add'
+import knowledgeviewPage from './pages/knowledge/view'
 import toolsPage from './pages/tools'
 import tooltypePage from './pages/tools/type'
 import tooladdtypePage from './pages/tools/addtype'
 import tooladdPage from './pages/tools/add'
+import toolviewPage from './pages/tools/view'
 import eventsPage from './pages/events'
 import eventtypePage from './pages/events/type'
 import eventaddtypePage from './pages/events/addtype'
 import eventaddPage from './pages/events/add'
+import eventviewPage from './pages/events/view'
 import reportsPage from './pages/reports'
 import reporttypePage from './pages/reports/type'
 import reportaddPage from './pages/reports/add'
@@ -135,6 +144,14 @@ export default [
     }
   },
   {
+    path: '/jobs/view/',
+    component: jobviewPage,
+    name: 'viewJob',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/companys/',
     component: companysPage
   },
@@ -150,6 +167,14 @@ export default [
     path: '/companys/add',
     component: companyaddPage,
     name: 'addCompany',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/company/view/',
+    component: companyviewPage,
+    name: 'viewCompany',
     meta: {
       requiresAuth: true
     }
@@ -175,6 +200,14 @@ export default [
     }
   },
   {
+    path: '/projects/view/',
+    component: projectviewPage,
+    name: 'viewProject',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/talents/',
     component: talentsPage
   },
@@ -195,6 +228,14 @@ export default [
     }
   },
   {
+    path: '/talents/view/',
+    component: talentviewPage,
+    name: 'viewTalent',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/consultants/type/',
     component: consultanttypePage
   },
@@ -206,6 +247,14 @@ export default [
     path: '/consultants/add/',
     component: consultantaddPage,
     name: 'addConsultant',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/consultants/view/',
+    component: consultantviewPage,
+    name: 'viewConsultant',
     meta: {
       requiresAuth: true
     }
@@ -235,6 +284,14 @@ export default [
     }
   },
   {
+    path: '/dispatchers/view/',
+    component: dispatcherviewPage,
+    name: 'viewDispatcher',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/knowledge/',
     component: knowledgePage
   },
@@ -250,6 +307,14 @@ export default [
     path: '/knowledge/add/',
     component: knowledgeaddPage,
     name: 'addKnowledge',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/view/',
+    component: knowledgeviewPage,
+    name: 'viewKnowledge',
     meta: {
       requiresAuth: true
     }
@@ -275,6 +340,14 @@ export default [
     }
   },
   {
+    path: '/tools/view/',
+    component: toolviewPage,
+    name: 'viewTool',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/events/',
     component: eventsPage
   },
@@ -290,6 +363,14 @@ export default [
     path: '/events/add/',
     component: eventaddPage,
     name: 'addEvent',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/events/view/',
+    component: eventviewPage,
+    name: 'viewEvent',
     meta: {
       requiresAuth: true
     }

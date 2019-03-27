@@ -53,52 +53,84 @@
 <script>
 import { mapState } from 'vuex'
 import imageuploader from '../../../popup/imageuploader'
+import { getIndustryConfig, getAreaConfig } from '@/code'
 
 export default {
   data() {
     return {
+      id: null,
       name: '',
       address: '',
       Tel: '',
       Fax: '',
       Manager: '',
       HP: '',
-      like: '',
+      like: 0,
       showSuccess: null,
       photo: null,
+      projecttype: '',
+      industry: '1',
+      area: '1'
     }
+  },
+  created() {
+    this.area = getAreaConfig()
+    this.industry = getIndustryConfig()
   },
   // Update user name, title and photo from Firebase
   mounted: function () {
-    window.db('projects/' + window.user.uid).on('value', snapshot => {
-      const data = snapshot.val()
-      if (data) {
-        this.name = data.name
-        this.address = data.address
-        this.Tel = data.Tel
-        this.Fax = data.Fax
-        this.Manager = data.Manager
-        this.HP = data.HP
-        this.like = data.like
-        this.photo = data.photo
-      }
-    })
+    if (this.id) {
+      window.db('projects/' + window.user.uid + '/' + this.id).on('value', snapshot => {
+        const data = snapshot.val()
+        if (data) {
+          this.name = data.name
+          this.address = data.address
+          this.Tel = data.Tel
+          this.Fax = data.Fax
+          this.Manager = data.Manager
+          this.HP = data.HP
+          this.like = data.like
+          this.photo = data.photo
+          this.projecttype = data.projecttype
+        }
+      })
+    }
   },
   computed: {
     ...mapState(['updateProject'])
   },
   methods: {
     updateProject() {
-      this.$store.dispatch('updateProject', {
-        name: this.name,
-        address: this.address,
-        Tel: this.Tel,
-        Fax: this.Fax,
-        Manager: this.Manager,
-        HP: this.HP,
-        like: this.like,
-        photo: this.photo
-      })
+      if (this.id) {
+        this.$store.dispatch('updateProject', {
+          id: this.id,
+          name: this.name,
+          address: this.address,
+          Tel: this.Tel,
+          Fax: this.Fax,
+          Manager: this.Manager,
+          HP: this.HP,
+          like: this.like,
+          photo: this.photo,
+          projecttype: this.projecttype,
+          area: this.area,
+          industry: this.industry
+        })
+      } else {
+        this.$store.dispatch('addProject', {
+          name: this.name,
+          address: this.address,
+          Tel: this.Tel,
+          Fax: this.Fax,
+          Manager: this.Manager,
+          HP: this.HP,
+          like: this.like,
+          photo: this.photo,
+          projecttype: this.projecttype,
+          area: this.area,
+          industry: this.industry
+        })
+      }
 
       this.name = ''
       this.address = ''

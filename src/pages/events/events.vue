@@ -78,7 +78,7 @@ export default {
       })
     },
     routeToPost(data) {
-      this.$f7router.navigate(`/post/?mid=${data.id}`)
+      this.$f7router.navigate(`/events/view/?mid=${data.id}`)
     }
   },
   components: {
