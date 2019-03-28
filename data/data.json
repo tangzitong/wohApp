@@ -643,6 +643,51 @@
           }
         ]
     
+      },
+      "industry": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "text": "System Development"
+          },
+          {
+            "id": "2",
+            "text": "Software Development"
+          },
+          {
+            "id": "3",
+            "text": "Mobile Development"
+          },
+          {
+            "id": "4",
+            "text": "System Mantainence"
+          }
+        ]
+
+      },
+      "area": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "text": "Tokyo"
+          },
+          {
+            "id": "2",
+            "text": "Beijing"
+          },
+          {
+            "id": "3",
+            "text": "Newyork"
+          },
+          {
+            "id": "4",
+            "text": "Osaka"
+          }
+        ]
       }
         
     },
@@ -860,6 +905,51 @@
           }
         ]
     
+      },
+      "industry": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "text": "System Development"
+          },
+          {
+            "id": "2",
+            "text": "Software Development"
+          },
+          {
+            "id": "3",
+            "text": "Mobile Development"
+          },
+          {
+            "id": "4",
+            "text": "System Mantainence"
+          }
+        ]
+
+      },
+      "area": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "text": "Tokyo"
+          },
+          {
+            "id": "2",
+            "text": "Beijing"
+          },
+          {
+            "id": "3",
+            "text": "Newyork"
+          },
+          {
+            "id": "4",
+            "text": "Osaka"
+          }
+        ]
       }      
     },
     "jaJP": {
@@ -1076,6 +1166,51 @@
           }
         ]
     
+      },
+      "industry": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "text": "システム開発"
+          },
+          {
+            "id": "2",
+            "text": "ソフトウェア開発"
+          },
+          {
+            "id": "3",
+            "text": "モビール開発"
+          },
+          {
+            "id": "4",
+            "text": "システムメンテナンス"
+          }
+        ]
+
+      },
+      "area": {
+        "err_code": 0,
+        "err_msg": "success",
+        "data": [
+          {
+            "id": "1",
+            "text": "東京"
+          },
+          {
+            "id": "2",
+            "text": "北京"
+          },
+          {
+            "id": "3",
+            "text": "ニューヨーク"
+          },
+          {
+            "id": "4",
+            "text": "大阪"
+          }
+        ]
       }      
     }
   },
