@@ -35,11 +35,11 @@ export default {
   },
   computed: {
     ...mapState({
-      consultanttypes: state => state.consultanttypes,
+      consultanttypes: state => state.resumetypes,
     })
   },
   mounted() {
-    this.$store.dispatch('getConsultanttypes', this.lang)
+    this.$store.dispatch('getResumetypes', this.lang)
   },
   methods: {
     saveConsultanttype() {

@@ -24,6 +24,9 @@ export default {
   [types.INIT_PROJECTTYPES](state, { projecttypes }) {
     Vue.set(state, 'projecttypes', projecttypes)
   },
+  [types.INIT_RESUMETYPES](state, { resumetypes }) {
+    Vue.set(state, 'resumetypes', resumetypes)
+  },
   [types.INIT_KNOWLEDGETYPES](state, { knowledgetypes }) {
     Vue.set(state, 'knowledgetypes', knowledgetypes)
   },

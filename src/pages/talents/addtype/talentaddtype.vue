@@ -35,11 +35,11 @@ export default {
   },
   computed: {
     ...mapState({
-      talenttypes: state => state.talenttypes,
+      talenttypes: state => state.resumetypes,
     })
   },
   mounted() {
-    this.$store.dispatch('getTalenttypes', this.lang)
+    this.$store.dispatch('getResumetypes', this.lang)
   },
   methods: {
     saveTalenttype() {

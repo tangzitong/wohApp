@@ -19,7 +19,7 @@ export default {
     projecttype: 'Project Type',
     consultanttype: 'Consultant Type',
     talenttype: 'Talent Type',
-    dispatachertype: 'Dispatcher Type',
+    dispatchertype: 'Dispatcher Type',
     tooltype: 'Tool Type',
     eventtype: 'Event Type',
     reporttype: 'Report Type',

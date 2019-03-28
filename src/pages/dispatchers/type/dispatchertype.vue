@@ -44,14 +44,14 @@ export default {
   },
   computed: {
     ...mapState({
-      dispatchertypes: state => state.dispatchertypes,
+      dispatchertypes: state => state.resumetypes,
     }),
     dispatchertypeGroups() {
       return groupBy(this.dispatchertypes, 'nickname')
     }
   },
   mounted() {
-    this.$store.dispatch('getDispatchertypes', this.lang)
+    this.$store.dispatch('getResumetypes', this.lang)
   },
   methods: {
     saveDispatchertype() {

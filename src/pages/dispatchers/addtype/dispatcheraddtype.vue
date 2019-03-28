@@ -35,11 +35,11 @@ export default {
   },
   computed: {
     ...mapState({
-      dispatchertypes: state => state.dispatchertypes,
+      dispatchertypes: state => state.resumetypes,
     })
   },
   mounted() {
-    this.$store.dispatch('getDispatchertypes', this.lang)
+    this.$store.dispatch('getResumetypes', this.lang)
   },
   methods: {
     saveDispatchertype() {
