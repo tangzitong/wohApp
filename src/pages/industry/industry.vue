@@ -20,15 +20,18 @@
 <script>
 import { mapState } from 'vuex'
 import { getIndustryConfig, setIndustryConfig } from '@/code'
+import { getLangConfig } from '@/i18n'
 
 export default {
   data() {
     return {
-      industry: '1'
+      industry: '1',
+      lang: 'enUS'
     }
   },
   created() {
     this.industry = getIndustryConfig()
+    this.lang = getLangConfig()
   },
   computed: {
     ...mapState({
@@ -36,7 +39,7 @@ export default {
     })
   },
   mounted() {
-    this.$store.dispatch('getIndustrys')
+    this.$store.dispatch('getIndustrys', this.lang)
   },
   methods: {
     saveIndustry() {
