@@ -29,7 +29,7 @@ const database = firebase.database()
 const storage = firebase.storage()
 const timestamp = firebase.database.ServerValue.TIMESTAMP
 // firechat
-const chat = Firechat.Firechat(database.ref(), null)
+const chat = new Firechat.Firechat(database.ref(), null)
 
 module.exports = {
   dbConfig,

@@ -4,16 +4,41 @@ const chat = require('../src/firebaseConfig').chat
 
 // import * as fb from '../src/firebaseConfig.js'
 
-/* exports['createUser'] = function(test) {
+/* exports['createUser1'] = function(test) {
+  auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
+    const user_ = auth.currentUser
+    // create user obj
+    const ref = database.ref().child('users').child(user_.uid)
+    const obj = {
+      id: user_.uid,
+      login_name: user_.email,
+      name: 'test1',
+      points: 0,
+      avatar_url: '',
+      gender: '',
+      location: '',
+      invites: [],
+      muted: [],
+      rooms: [],
+      contacts: [],
+      posts: [],
+      photo: ''
+    }
+    ref.set(obj) // or however you wish to update the node
+    test.done()
+  })
+}
+
+exports['createUser2'] = function(test) {
   auth.createUserWithEmailAndPassword('test2@gmail.com', '12345qwert').then(user => {
     const user_ = auth.currentUser
     // create user obj
     const ref = database.ref('users/' + user_.uid)
     console.log(ref.toJSON())
     const obj = {
-      uid: ref.key,
+      id: ref.key,
       login_name: user_.email,
-      nick_name: 'test2',
+      name: 'test2',
       points: 0,
       avatar_url: '',
       gender: '',
@@ -33,17 +58,17 @@ const chat = require('../src/firebaseConfig').chat
     })
   })
 }
-*/
+
 exports['userLogin'] = function(test) {
-  auth.createUserWithEmailAndPassword('test3@gmail.com', '12345qwert').then(user => {
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
     const user_ = auth.currentUser
     // create user obj
     const ref = database.ref('users/' + user_.uid)
     console.log(ref.toJSON())
     const obj = {
-      uid: ref.key,
+      id: ref.key,
       login_name: user_.email,
-      nick_name: 'test3',
+      name: 'test1',
       points: 0,
       avatar_url: '',
       gender: '',
@@ -65,81 +90,73 @@ exports['userLogin'] = function(test) {
 }
 
 exports['setUser'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    const user_ = auth.currentUser
-    // create user obj
-    const ref = database.ref('users/' + user_.uid)
-    console.log(ref.toJSON())
-    ref.once('value', function(snapshot) {
-      console.log(snapshot.val())
-      chat.setUser(user_.uid, snapshot.child('nick_name').val()).then(function() {
-        console.log('chat._userId=' + user_.uid)
-        console.log('chat._userName=' + snapshot.child('nick_name').val())
-        // test.equal(chat._userId, 'test1@gmail.com')
-        // test.equal(chat._userName, 'test1')
-        test.done()
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          console.log('chat._userId=' + user.uid)
+          console.log('chat._userName=' + snapshot.child('name').val())
+          test.equal(chat._userId, user.uid)
+          test.equal(chat._userName, 'test1')
+          test.done()
+        })
       })
-    })
-  })
-}
-
-/* exports['createUser'] = function(test) {
-  auth.createUserWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    const user_ = auth.currentUser
-    // create user obj
-    const ref = database.ref().child('users').child(user_.uid)
-    const obj = {
-      login_name: user_.email,
-      nick_name: 'test1',
-      points: 0,
-      avatar_url: '',
-      gender: '',
-      location: '',
-      invites: [],
-      muted: [],
-      rooms: [],
-      contacts: [],
-      posts: [],
-      photo: ''
     }
-    ref.set(obj) // or however you wish to update the node
-    test.done()
   })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
 exports['createPost'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.createPost('test content', 'https://wohapp-3a179.firebaseapp.com/', postkey => {
-        database.ref().child('posts').child(postkey).once('value', function(snapshot2) {
-          console.log('snapshot2.text=' + snapshot2.text)
-          console.log('snapshot2.name=' + snapshot2.name)
-          test.equal(snapshot2.text, 'test content')
-          test.equal(snapshot2.name, snapshot.nick_name)
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.createPost('test content', 'https://wohapp-3a179.firebaseapp.com/', postkey => {
+            database.ref().child('posts').child('data').child(postkey).once('value', function(snapshot2) {
+              console.log('snapshot2.text=' + snapshot2.child('text').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('text').val(), 'test content')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
         })
       })
-    })
+    }
   })
-  test.done()
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/
 
 exports['getPostList'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.getPostList(posts => {
-        const post = posts[0]
-        console.log('post.id=' + post.id)
-        console.log('post.text=' + post.text)
-        test.equal(post.text, 'test content')
-        test.equal(post.original_pic, 'https://wohapp-3a179.firebaseapp.com/')
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getPostList(posts => {
+            const post = posts[0]
+            console.log('post.id=' + post.id)
+            console.log('post.text=' + post.text)
+            test.equal(post.text, 'test content')
+            test.equal(post.original_pic, 'https://wohapp-3a179.firebaseapp.com/')
+            test.done()
+          })
+        })
       })
-    })
+    }
   })
-  test.done()
 }
 
+/*
 exports['addComment'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
     database.ref().child('users').child(user.uid).once('value', function(snapshot) {

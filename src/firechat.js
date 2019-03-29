@@ -652,7 +652,7 @@ Firechat.prototype.warn = function(msg) {
 
 Firechat.prototype.createPost = function(content, pic, callback) {
   const self = this
-  const newPostRef = self._postsRef.push()
+  const newPostRef = self._postsRef.child('data').push()
 
   const newPost = {
     id: newPostRef.key,
