@@ -46,11 +46,9 @@ export default {
     },
     sendFeedback() {
       const feedback = {
-        'data': {
-          'userid': this.$root.user.email,
-          'content': this.text,
-          'CreateDate': new Date()
-        }
+        'userid': this.$root.user.email,
+        'content': this.text,
+        'CreateDate': new Date()
       }
       this.$store.dispatch('putFeedback', feedback).then(function() {
         this.$store.dispatch('getFeedback').then(function() {
