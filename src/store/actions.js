@@ -909,7 +909,7 @@ export function getFeedback({ commit }) {
 }
 
 export function putFeedback({ commit }, feedback) {
-  axios.post('/feedback.json', feedback).catch(err => {
+  axios.post('/feedback/data.json', feedback).catch(err => {
     console.log(err)
   })
 }
