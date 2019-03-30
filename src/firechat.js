@@ -687,18 +687,18 @@ Firechat.prototype.addComment = function(postKey, comments, callback) {
   }
   newCommentsRef.set(newComment, function(error) {
     if (!error) {
-      console.log('no error!')
+      self._postsRef.child('data').child(postKey).transaction(function(current) {
+        if (current) {
+          current.comment_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newCommentsRef.key)
+        }
+      })
     }
   })
-  self._postsRef.child('data').child(postKey).once('value', function(snapshot2) {
-    console.log(snapshot2.val())
-    self._postsRef.child('data').child(postKey).update({
-      'comment_count': snapshot2.child('comment_count').val() + 1
-    })
-  })
-  if (callback) {
-    callback(newCommentsRef.key)
-  }
 }
 
 Firechat.prototype.likePost = function(postKey, callback) {
@@ -715,14 +715,16 @@ Firechat.prototype.likePost = function(postKey, callback) {
 
   newLikesRef.set(newlike, function(error) {
     if (!error) {
-      self._postsRef.child('data').child(postKey).transaction(function(post) {
-        if (post) {
-          post.like_count++
+      self._postsRef.child('data').child(postKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
         }
       })
-    }
-    if (callback) {
-      callback(newLikesRef.key)
     }
   })
 }
@@ -754,14 +756,16 @@ Firechat.prototype.getPostComments = function(postkey, cb) {
 Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
   self._postsRef.child('data').child(postKey).child('comments').child(commentKey).remove(function(error) {
     if (!error) {
-      self._postsRef.child('data').child(postKey).transaction(function(post) {
-        if (post) {
-          post.comment_count--
+      self._postsRef.child('data').child(postKey).transaction(function(current) {
+        if (current) {
+          current.comment_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
         }
       })
-    }
-    if (callback) {
-      callback()
     }
   })
 }
@@ -777,14 +781,16 @@ Firechat.prototype.getPostLikes = function(postkey, cb) {
 Firechat.prototype.unlikePost = function(postKey, likeKey, callback) {
   self._postsRef.child('data').child(postKey).child('likes').child(likeKey).remove(function(error) {
     if (!error) {
-      self._postsRef.child('data').child(postKey).transaction(function(post) {
-        if (post) {
-          post.like_count--
+      self._postsRef.child('data').child(postKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
         }
       })
-    }
-    if (callback) {
-      callback()
     }
   })
 }
@@ -804,12 +810,16 @@ Firechat.prototype.addContact = function(userid, name, header, location, callbac
 
   newContactsRef.set(newContact, function(error) {
     if (!error) {
-      self._userRef.child(this._userId).update({
-        'contact_count': 'contact_count' + 1
+      self._userRef.child(this._userId).transaction(function(current) {
+        if (current) {
+          current.contact_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newContactsRef.key)
+        }
       })
-    }
-    if (callback) {
-      callback(newContactsRef.key)
     }
   })
 }
@@ -819,12 +829,16 @@ Firechat.prototype.removeContact = function(userkey, callback) {
 
   self._userRef.child(this._userId).child('contacts').child(userkey).remove(function(error) {
     if (!error) {
-      self._userRef.child(this._userId).update({
-        'contact_count': 'contact_count' - 1
+      self._userRef.child(this._userId).transaction(function(current) {
+        if (current) {
+          current.contact_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
       })
-    }
-    if (callback) {
-      callback()
     }
   })
 }
