@@ -106,10 +106,10 @@ window.vm = new Vue({
             uid: snapshot.key,
             email: snapshot.login_name,
             name: snapshot.name,
-            photo: snapshot.avatar_url
+            photo: snapshot.photo
           } : null
           setCurrentUser(store, this.user)
-          this.chat.setUser(user.uid, snapshot.nick_name)
+          this.chat.setUser(user.uid, snapshot.name)
         })
       }
     })
