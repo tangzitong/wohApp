@@ -105,7 +105,7 @@ window.vm = new Vue({
           this.user = snapshot ? {
             uid: snapshot.key,
             email: snapshot.login_name,
-            name: snapshot.nick_name,
+            name: snapshot.name,
             photo: snapshot.avatar_url
           } : null
           setCurrentUser(store, this.user)
