@@ -312,23 +312,31 @@ exports['removePost'] = function(test) {
 }
 
 exports['addContact'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.addContact('1', 'Alex Black', 'A', 'London', contactkey => {
-        database.ref().child('contacts').child(contactkey).once('value', function(snapshot2) {
-          console.log('snapshot2.nickname=' + snapshot2.nickname)
-          console.log('snapshot2.location=' + snapshot2.location)
-          console.log('snapshot2.avatar=' + snapshot2.avatar)
-          console.log('snapshot2.header=' + snapshot2.header)
-          test.equal(snapshot2.nickname, 'Alex Black')
-          test.equal(snapshot2.location, 'London')
-          test.equal(snapshot2.avatar, '1')
-          test.equal(snapshot2.header, 'A')
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.addContact('1', 'Alex Black', 'A', 'London', contactkey => {
+            database.ref().child（'users').child(user.uid).child('contacts').child(contactkey).once('value', function(snapshot2) {
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              console.log('snapshot2.location=' + snapshot2.child('location').val())
+              console.log('snapshot2.avatar=' + snapshot2.child('avatar').val())
+              console.log('snapshot2.header=' + snapshot2.child('header').val())
+              test.equal(snapshot2.child('nickname').val(), 'Alex Black')
+              test.equal(snapshot2.child('location').val(), 'London')
+              test.equal(snapshot2..child('avatar').val(), '1')
+              test.equal(snapshot2.child('header').val(), 'A')
+              test.done()
+            })
+          })
         })
       })
-    })
+    }
   })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
 exports['getContactList'] = function(test) {
