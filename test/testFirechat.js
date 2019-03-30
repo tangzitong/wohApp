@@ -340,25 +340,29 @@ exports['addContact'] = function(test) {
 }
 
 exports['getContactList'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.getContactList(contacts => {
-        const contact = contacts[0]
-        database.ref().child('contacts').child(contact.id).once('value', function(snapshot2) {
-          console.log('snapshot2.nickname=' + snapshot2.nickname)
-          console.log('snapshot2.location=' + snapshot2.location)
-          console.log('snapshot2.avatar=' + snapshot2.avatar)
-          console.log('snapshot2.header=' + snapshot2.header)
-          test.equal(snapshot2.nickname, 'Alex Black')
-          test.equal(snapshot2.location, 'London')
-          test.equal(snapshot2.avatar, '1')
-          test.equal(snapshot2.header, 'A')
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getContactList(function(contacts) {
+            console.log(contacts)
+            for (const contact in contacts) {
+              console.log('contact.id=' + contacts[contact].id)
+              console.log('contact.nickname=' + contacts[contact].nickname)
+              test.equal(contacts[contact].nickname, 'Alex Black')
+              test.equal(posts[post].header, 'A')
+              test.done()
+              break
+            }
+          })
         })
       })
-    })
+    }
   })
-  test.done()
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
 exports['removeContact'] = function(test) {
