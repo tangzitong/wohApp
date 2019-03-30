@@ -726,7 +726,7 @@ Firechat.prototype.likePost = function(postKey, callback) {
 Firechat.prototype.getPostList = function(cb) {
   const self = this
 
-  self._postsRef.once('value', function(snapshot) {
+  self._postsRef.child('data').once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }

@@ -142,18 +142,24 @@ exports['getPostList'] = function(test) {
       ref.once('value', function(snapshot) {
         console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          chat.getPostList(posts => {
-            const post = posts[0]
-            console.log('post.id=' + post.id)
-            console.log('post.text=' + post.text)
-            test.equal(post.text, 'test content')
-            test.equal(post.original_pic, 'https://wohapp-3a179.firebaseapp.com/')
-            test.done()
+          chat.getPostList(function(posts) {
+            console.log(posts)
+            for (const post in posts) {
+              if (posts[post].avatar === user.uid) {
+                console.log('post.id=' + posts[post].id)
+                console.log('post.text=' + posts[post].text)
+                test.equal(posts[post].text, 'test content')
+                test.equal(posts[post].original_pic, 'https://wohapp-3a179.firebaseapp.com/')
+                test.done()
+                break
+              }
+            }
           })
         })
       })
     }
   })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
 /*
