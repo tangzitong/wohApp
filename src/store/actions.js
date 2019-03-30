@@ -22,8 +22,9 @@ export function fetchUserProfile({ commit, state }) {
 
 export function addProfile({ commit, state }, data) {
   window.db('users').child(data.id).set({
+    id：data.id，
     login_name: data.name,
-    nick_name: data.title,
+    name: data.title,
     points: 0,
     avatar_url: '',
     gender: '',
@@ -42,7 +43,7 @@ export function addProfile({ commit, state }, data) {
 export function updateProfile({ commit, state }, data) {
   window.db('users').child(state.currentUser.uid).update({
     login_name: data.name,
-    nick_name: data.title,
+    name: data.title,
     photo: data.photo
   }).catch(err => {
     console.log(err)
