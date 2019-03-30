@@ -676,8 +676,7 @@ Firechat.prototype.createPost = function(content, pic, callback) {
 
 Firechat.prototype.addComment = function(postKey, comments, callback) {
   const self = this
-  const newCommentsRef = self._postsRef.child(postKey).child('comments').push()
-
+  const newCommentsRef = self._postsRef.child('data').child(postKey).child('comments').push()
   const newComment = {
     id: newCommentsRef.key,
     text: comments,
@@ -686,22 +685,25 @@ Firechat.prototype.addComment = function(postKey, comments, callback) {
     name: this._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
-
   newCommentsRef.set(newComment, function(error) {
     if (!error) {
-      self._postsRef.child(postKey).update({
-        'comment_count': 'comment_count' + 1
-      })
-    }
-    if (callback) {
-      callback(newCommentsRef.key)
+      console.log('no error!')
     }
   })
+  self._postsRef.child('data').child(postKey).once('value', function(snapshot2) {
+    console.log(snapshot2.val())
+    self._postsRef.child('data').child(postKey).update({
+      'comment_count': snapshot2.child('comment_count').val() + 1
+    })
+  })
+  if (callback) {
+    callback(newCommentsRef.key)
+  }
 }
 
 Firechat.prototype.likePost = function(postKey, callback) {
   const self = this
-  const newLikesRef = self._postsRef.child(postKey).child('likes').push()
+  const newLikesRef = self._postsRef.child('data').child(postKey).child('likes').push()
 
   const newlike = {
     id: newLikesRef.key,
@@ -713,8 +715,10 @@ Firechat.prototype.likePost = function(postKey, callback) {
 
   newLikesRef.set(newlike, function(error) {
     if (!error) {
-      self._postsRef.child(postKey).update({
-        'like_count': 'like_count' + 1
+      self._postsRef.child('data').child(postKey).transaction(function(post) {
+        if (post) {
+          post.like_count++
+        }
       })
     }
     if (callback) {
@@ -732,7 +736,7 @@ Firechat.prototype.getPostList = function(cb) {
 }
 
 Firechat.prototype.removePost = function(postKey, callback) {
-  self._postsRef.child(postKey).remove(function(error) {
+  self._postsRef.child('data').child(postKey).remove(function(error) {
     if (!error && callback) {
       callback()
     }
@@ -742,16 +746,18 @@ Firechat.prototype.removePost = function(postKey, callback) {
 Firechat.prototype.getPostComments = function(postkey, cb) {
   const self = this
 
-  self._postsRef.child(postkey).child('comments').once('value', function(snapshot) {
+  self._postsRef.child('data').child(postkey).child('comments').once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
-  self._postsRef.child(postKey).child('comments').child(commentKey).remove(function(error) {
+  self._postsRef.child('data').child(postKey).child('comments').child(commentKey).remove(function(error) {
     if (!error) {
-      self._postsRef.child(postKey).update({
-        'comment_count': 'comment_count' - 1
+      self._postsRef.child('data').child(postKey).transaction(function(post) {
+        if (post) {
+          post.comment_count--
+        }
       })
     }
     if (callback) {
@@ -763,16 +769,18 @@ Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
 Firechat.prototype.getPostLikes = function(postkey, cb) {
   const self = this
 
-  self._postsRef.child(postkey).child('likes').once('value', function(snapshot) {
+  self._postsRef.child('data').child(postkey).child('likes').once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.unlikePost = function(postKey, likeKey, callback) {
-  self._postsRef.child(postKey).child('likes').child(likeKey).remove(function(error) {
+  self._postsRef.child('data').child(postKey).child('likes').child(likeKey).remove(function(error) {
     if (!error) {
-      self._postsRef.child(postKey).update({
-        'like_count': 'like_count' - 1
+      self._postsRef.child('data').child(postKey).transaction(function(post) {
+        if (post) {
+          post.like_count--
+        }
       })
     }
     if (callback) {
