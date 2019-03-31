@@ -668,8 +668,19 @@ Firechat.prototype.createPost = function(content, pic, callback) {
   }
 
   newPostRef.set(newPost, function(error) {
-    if (!error && callback) {
-      callback(newPostRef.key)
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.post_count) {
+          current.post_count++
+        } else {
+          current.post_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newPostRef.key)
+        }
+      })
     }
   })
 }
@@ -738,9 +749,21 @@ Firechat.prototype.getPostList = function(cb) {
 }
 
 Firechat.prototype.removePost = function(postKey, callback) {
+  const self = this
   self._postsRef.child('data').child(postKey).remove(function(error) {
-    if (!error && callback) {
-      callback()
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.post_count) {
+          current.post_count--
+        } else {
+          current.post_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
     }
   })
 }
@@ -754,6 +777,7 @@ Firechat.prototype.getPostComments = function(postkey, cb) {
 }
 
 Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
+  const self = this
   self._postsRef.child('data').child(postKey).child('comments').child(commentKey).remove(function(error) {
     if (!error) {
       self._postsRef.child('data').child(postKey).transaction(function(current) {
@@ -779,6 +803,7 @@ Firechat.prototype.getPostLikes = function(postkey, cb) {
 }
 
 Firechat.prototype.unlikePost = function(postKey, likeKey, callback) {
+  const self = this
   self._postsRef.child('data').child(postKey).child('likes').child(likeKey).remove(function(error) {
     if (!error) {
       self._postsRef.child('data').child(postKey).transaction(function(current) {
@@ -797,7 +822,7 @@ Firechat.prototype.unlikePost = function(postKey, likeKey, callback) {
 
 Firechat.prototype.addContact = function(userid, name, header, location, callback) {
   const self = this
-  const newContactsRef = self._userRef.child(this._userId).child('contacts').push()
+  const newContactsRef = self._userRef.child('contacts').push()
 
   const newContact = {
     id: newContactsRef.key,
@@ -810,9 +835,11 @@ Firechat.prototype.addContact = function(userid, name, header, location, callbac
 
   newContactsRef.set(newContact, function(error) {
     if (!error) {
-      self._userRef.child(this._userId).transaction(function(current) {
-        if (current) {
+      self._userRef.transaction(function(current) {
+        if (current && current.contact_count) {
           current.contact_count++
+        } else {
+          current.contact_count = 1
         }
         return current
       }, function(error, committed, snapshot) {
@@ -827,11 +854,13 @@ Firechat.prototype.addContact = function(userid, name, header, location, callbac
 Firechat.prototype.removeContact = function(userkey, callback) {
   const self = this
 
-  self._userRef.child(this._userId).child('contacts').child(userkey).remove(function(error) {
+  self._userRef.child('contacts').child(userkey).remove(function(error) {
     if (!error) {
-      self._userRef.child(this._userId).transaction(function(current) {
-        if (current) {
-          current.contact_count++
+      self._userRef.transaction(function(current) {
+        if (current && current.contact_count) {
+          current.contact_count--
+        } else {
+          current.contact_count = 0
         }
         return current
       }, function(error, committed, snapshot) {
@@ -846,7 +875,7 @@ Firechat.prototype.removeContact = function(userkey, callback) {
 Firechat.prototype.getContactList = function(cb) {
   const self = this
 
-  self._userRef.child(this._userId).child('contacts').once('value', function(snapshot) {
+  self._userRef.child('contacts').once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
