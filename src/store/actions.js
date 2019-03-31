@@ -22,7 +22,7 @@ export function fetchUserProfile({ commit, state }) {
 
 export function addProfile({ commit, state }, data) {
   window.db('users').child(data.id).set({
-    id：data.id，
+    id: data.id,
     login_name: data.name,
     name: data.title,
     points: 0,

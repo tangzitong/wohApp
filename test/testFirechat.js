@@ -160,7 +160,6 @@ exports['getPostList'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
 
 exports['addComment'] = function(test) {
   auth.onAuthStateChanged(function(user) {
@@ -195,64 +194,101 @@ exports['addComment'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
-/*
 exports['likePost'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.getPostList(posts => {
-        const post = posts[0]
-        chat.likePost(post.id, commentkey => {
-          database.ref().child('posts').child(post.id).child('likes').once('value', function(snapshot2) {
-            const like = snapshot2[0]
-            console.log('like.postid=' + like.postid)
-            console.log('like.name=' + like.name)
-            test.equal(like.postid, post.id)
-            test.equal(like.name, snapshot.nick_name)
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getPostList(function(posts) {
+            // console.log(posts)
+            for (const post in posts) {
+              if (posts[post].avatar === user.uid) {
+                chat.likePost(posts[post].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('posts').child('data').child(posts[post].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
           })
         })
       })
-    })
+    }
   })
-  test.done()
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
-/*
 exports['getPostComments'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.getPostList(posts => {
-        const post = posts[0]
-        chat.getPostComments(post.id, comments => {
-          const comment = comments[0]
-          console.log('comment.text=' + comment.text)
-          console.log('comment.name=' + comment.name)
-          test.equal(comment.text, 'test content')
-          test.equal(comment.name, snapshot.nick_name)
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getPostList(function(posts) {
+            // console.log(posts)
+            for (const post in posts) {
+              if (posts[post].avatar === user.uid) {
+                chat.getPostComments(posts[post].id, function(comments) {
+                  console.log(comments)
+                  for (const comment in comments) {
+                    console.log(comments[comment].id)
+                    console.log('text=' + comments[comment].text)
+                    console.log('name=' + comments[comment].name)
+                    test.equal(comments[comment].text, 'test commment')
+                    test.equal(comments[comment].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
         })
       })
-    })
+    }
   })
-  test.done()
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
 exports['getPostLikes'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.getPostList(posts => {
-        const post = posts[0]
-        chat.getPostLikes(post.id, likes => {
-          const like = likes[0]
-          console.log('like.name=' + like.name)
-          test.equal(like.name, snapshot.nick_name)
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getPostList(function(posts) {
+            // console.log(posts)
+            for (const post in posts) {
+              if (posts[post].avatar === user.uid) {
+                chat.getPostLikes(posts[post].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
         })
       })
-    })
+    }
   })
-  test.done()
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/
 
 exports['removePostComment'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
@@ -273,7 +309,7 @@ exports['removePostComment'] = function(test) {
   })
   test.done()
 }
-
+/*
 exports['unlikePost'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
     database.ref().child('users').child(user.uid).once('value', function(snapshot) {
@@ -320,7 +356,7 @@ exports['addContact'] = function(test) {
         console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
           chat.addContact('1', 'Alex Black', 'A', 'London', contactkey => {
-            database.ref().child（'users').child(user.uid).child('contacts').child(contactkey).once('value', function(snapshot2) {
+            database.ref().child('users').child(user.uid).child('contacts').child(contactkey).once('value', function(snapshot2) {
               console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
               console.log('snapshot2.location=' + snapshot2.child('location').val())
               console.log('snapshot2.avatar=' + snapshot2.child('avatar').val())
