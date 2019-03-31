@@ -358,7 +358,7 @@ exports['unlikePost'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
+
 exports['removePost'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -383,7 +383,7 @@ exports['removePost'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-/*
+
 exports['addContact'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -460,6 +460,7 @@ exports['removeContact'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/
 
 exports['resumeSession'] = function(test) {
   test.done()
@@ -469,22 +470,29 @@ exports['on'] = function(test) {
 }
 
 exports['createRoom'] = function(test) {
-  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
-    database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-      chat.setUser(user.uid, snapshot.nick_name)
-      chat.createRoom('room1', 'private', roomkey => {
-        database.ref().child('room-metadata').child(roomkey).once('value', function(snapshot2) {
-          console.log('snapshot2.name=' + snapshot2.name)
-          console.log('snapshot2.createdByUserId=' + snapshot2.createdByUserId)
-          test.equal(snapshot2.name, 'room1')
-          test.equal(snapshot2.createdByUserId, user.uid)
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.createRoom('room1', 'private', roomkey => {
+            database.ref().child('room-metadata').child(roomkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.createdByUserId=' + snapshot2.child('createdByUserId').val())
+              test.equal(snapshot2.child('name').val(), 'room1')
+              test.equal(snapshot2.child('createdByUserId').val(), user.uid)
+              test.done()
+            })
+          })
         })
       })
-    })
+    }
   })
-  test.done()
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-
+/*
 exports['leaveRoom'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert').then(user => {
     database.ref().child('users').child(user.uid).once('value', function(snapshot) {
