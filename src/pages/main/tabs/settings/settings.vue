@@ -107,7 +107,7 @@ import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      isUserLogin: this.$root.user
+      isUserLogin: !!window.user
     }
   },
   computed: {
@@ -126,7 +126,8 @@ export default {
       })
     },
     logout() {
-      this.$root.auth.signOut().then(() => {
+      window.firebase.auth().signOut().then(() => {
+        window.user = null
         this.$store.dispatch('clearData')
         this.$f7router.navigate('/')
       }).catch(err => {

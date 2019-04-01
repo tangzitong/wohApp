@@ -101,15 +101,18 @@ window.vm = new Vue({
     // Monitor user changes
     fb.auth.onAuthStateChanged(user => {
       if (user) {
-        fb.database.child('users').child(user.uid).once('value', function(snapshot) {
-          this.user = snapshot ? {
+        fb.database.ref().child('users').child(user.uid).once('value', function(snapshot) {
+          const user_ = snapshot ? {
             uid: snapshot.key,
-            email: snapshot.login_name,
-            name: snapshot.name,
-            photo: snapshot.photo
+            email: snapshot.child('login_name').val(),
+            name: snapshot.child('name').val(),
+            photo: snapshot.child('photo').val()
           } : null
-          setCurrentUser(store, this.user)
-          this.chat.setUser(user.uid, snapshot.name)
+          setCurrentUser(store, user_)
+          window.user = user_
+          fb.chat.setUser(user.uid, snapshot.child('name').val(), function() {
+            fb.chat.resumeSession()
+          })
         })
       }
     })

@@ -21,7 +21,7 @@ const dbConfig = {
   allowEmailRegistration: true
 }
 // firebase app
-firebase.initializeApp(dbConfig)
+window.firebase = firebase.initializeApp(dbConfig)
 
 // firebase utils
 const auth = firebase.auth()
