@@ -549,12 +549,41 @@ exports['leaveRoom'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
 
 exports['sendMessage'] = function(test) {
-  test.done()
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        // console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          database.ref().child('room-metadata').once('value', function(rooms) {
+            console.log(rooms.val())
+            for (const roomid in rooms.val()) {
+              chat.sendMessage(roomid, 'test message', 'messageType')
+              database.ref().child('room-messages').child(roomid).once('value', function(messages) {
+                console.log(messages.val())
+                for (const messageid in messages.val()) {
+                  database.ref().child('room-messages').child(roomid).child(messageid).once('value', function(snapshot2) {
+                    console.log('snapshot2.message=' + snapshot2.child('message').val())
+                    console.log('snapshot2.type=' + snapshot2.child('type').val())
+                    test.equal(snapshot2.child('message').val(), 'test message')
+                    test.equal(snapshot2.child('type').val(), 'messageType')
+                    test.done()
+                  })
+                }
+              })
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-/*
+
 exports['toggleUserMute'] = function(test) {
   test.done()
 }
@@ -565,28 +594,29 @@ exports['inviteUser'] = function(test) {
       const ref = database.ref('users/' + user.uid)
       console.log(ref.toJSON())
       ref.once('value', function(snapshot) {
-        console.log(snapshot.val())
+        // console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          database.ref().child('room-metadata').once('value', function(snapshot2) {
-            const roomid = snapshot2.child('id').val()
-            const userid = ''
-            chat.inviteUser(userid, roomid)
-            database.ref().child('users').child('rooms').child(roomid).once('value', function(snapshot3) {
-              console.log('snapshot3.name=' + snapshot3.child('name').val())
-              console.log('snapshot3.active=' + snapshot3.child('active').val())
-              test.equal(snapshot3.child('name').val(), 'room1')
-              test.equal(snapshot3.child('active').val(), true)
-            })
-            database.ref().child('users').child(user.uid).child('sessions').once('value', function(snapshot3) {
-              const sessionId = snapshot3.key
-              database.ref().child('room-users').child(roomid).child(user.uid).child(sessionId).once('value', function(snapshot4) {
-                console.log('snapshot4.id=' + snapshot4.child('id').val())
-                console.log('snapshot4.name=' + snapshot4.child('name').val())
-                test.equal(snapshot4.child('id').val(), user.uid)
-                test.equal(snapshot4.child('name').val(), snapshot.child('name').val())
-                test.done()
+          database.ref().child('room-metadata').once('value', function(rooms) {
+            console.log(rooms.val())
+            for (const roomid in rooms.val()) {
+              const userid = 'Vn8NjeM3yCh7vsK6mwhEdk9d1h73'
+              chat.inviteUser(userid, roomid)
+              database.ref().child('users').child(userid).child('invites').once('value', function(invites) {
+                console.log(invites.val())
+                for (const inviteid in invites.val()) {
+                  console.log('inviteid=' + inviteid)
+                  database.ref().child('users').child(userid).child('invites').child(inviteid).once('value', function(snapshot2) {
+                    console.log(snapshot2.val())
+                    console.log('snapshot2.fromUserId=' + snapshot2.child('fromUserId').val())
+                    console.log('snapshot2.fromUserName=' + snapshot2.child('fromUserName').val())
+                    test.equal(snapshot2.child('fromUserId').val(), user.uid)
+                    test.equal(snapshot2.child('fromUserName').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                }
               })
-            })
+              break
+            }
           })
         })
       })
@@ -594,18 +624,103 @@ exports['inviteUser'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+
 exports['acceptInvite'] = function(test) {
-  test.done()
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        // console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          database.ref().child('users').child(user.uid).child('invites').once('value', function(invites) {
+            console.log(invites.val())
+            for (const inviteid in invites.val()) {
+              console.log('inviteid=' + inviteid)
+              chat.acceptInvite(inviteid, function() {
+                database.ref().child('users').child(user.uid).child('invites').child(inviteid).once('value', function(snapshot2) {
+                  console.log(snapshot2.val())
+                  console.log('snapshot2.status=' + snapshot2.child('status').val())
+                  console.log('snapshot2.toUserName=' + snapshot2.child('toUserName').val())
+                  test.equal(snapshot2.child('status').val(), 'accepted')
+                  test.equal(snapshot2.child('toUserName').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
 }
+
 exports['declineInvite'] = function(test) {
-  test.done()
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        // console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          database.ref().child('users').child(user.uid).child('invites').once('value', function(invites) {
+            console.log(invites.val())
+            for (const inviteid in invites.val()) {
+              console.log('inviteid=' + inviteid)
+              chat.declineInvite(inviteid, function() {
+                database.ref().child('users').child(user.uid).child('invites').child(inviteid).once('value', function(snapshot2) {
+                  console.log(snapshot2.val())
+                  console.log('snapshot2.status=' + snapshot2.child('status').val())
+                  console.log('snapshot2.toUserName=' + snapshot2.child('toUserName').val())
+                  test.equal(snapshot2.child('status').val(), 'declined')
+                  test.equal(snapshot2.child('toUserName').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
 }
+*/
 exports['getRoomList'] = function(test) {
-  test.done()
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        // console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          database.ref().child('room-metadata').once('value', function(rooms) {
+            console.log(rooms.val())
+            for (const roomid in rooms.val()) {
+              chat.getRoomList(function(rooms_) {
+                for (const roomid_ in rooms_) {
+                  test.equal(roomid, roomid_)
+                  test.done()
+                }
+              })
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+
+/*
 exports['getUsersByPrefix'] = function(test) {
   test.done()
 }
+
 exports['getUsersByRoom'] = function(test) {
   test.done()
 }
