@@ -48,7 +48,7 @@ export default {
       const feedback = {
         'userid': this.$root.user.email,
         'content': this.text,
-        'CreateDate': new Date()
+        'CreateDate': (new Date()).toLocaleDateString()
       }
       this.$store.dispatch('putFeedback', feedback).then(function() {
         this.$store.dispatch('getFeedback').then(function() {
