@@ -688,7 +688,7 @@ exports['declineInvite'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
 }
-*/
+
 exports['getRoomList'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -716,7 +716,6 @@ exports['getRoomList'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
-/*
 exports['getUsersByPrefix'] = function(test) {
   test.done()
 }
@@ -727,4 +726,2524 @@ exports['getUsersByRoom'] = function(test) {
 exports['userLogout'] = function(test) {
   test.done()
 }
+
+exports['createJob'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test job',
+            jobtype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createJob(data, jobkey => {
+            database.ref().child('jobs').child('data').child(jobkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test job')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getJobList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                console.log('job.id=' + jobs[job].id)
+                console.log('job.name=' + jobs[job].name)
+                test.equal(jobs[job].name, 'test job')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addJobApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            // console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.addJobApplication(jobs[job].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('jobs').child('data').child(jobs[job].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeJob'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            // console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.likeJob(jobs[job].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('jobs').child('data').child(jobs[job].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getJobApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            // console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.getJobApplications(jobs[job].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getJobLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            // console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.getJobLikes(jobs[job].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeJobApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            // console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.getJobApplications(jobs[job].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeJobApplication(jobs[job].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeJob'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            // console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.getJobLikes(jobs[job].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeJob(jobs[job].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeJob'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobList(function(jobs) {
+            console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                chat.removeJob(jobs[job].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createCompany'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test company',
+            companytype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createCompany(data, companykey => {
+            database.ref().child('companys').child('data').child(companykey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test company')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getCompanyList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                console.log('company.id=' + companys[company].id)
+                console.log('company.name=' + companys[company].name)
+                test.equal(companys[company].name, 'test company')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addCompanyApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            // console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.addCompanyApplication(companys[company].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('companys').child('data').child(companys[company].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeCompany'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            // console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.likeCompany(companys[company].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('companys').child('data').child(companys[company].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getCompanyApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            // console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.getCompanyApplications(companys[company].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getCompanyLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            // console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.getCompanyLikes(companys[company].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeCompanyApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            // console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.getCompanyApplications(companys[company].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeCompanyApplication(companys[company].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeCompany'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            // console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.getCompanyLikes(companys[company].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeCompany(companys[company].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeCompany'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyList(function(companys) {
+            console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                chat.removeCompany(companys[company].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createProject'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test project',
+            projecttype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createProject(data, projectkey => {
+            database.ref().child('projects').child('data').child(projectkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test project')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getProjectList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                console.log('project.id=' + projects[project].id)
+                console.log('project.name=' + projects[project].name)
+                test.equal(projects[project].name, 'test project')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addProjectApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            // console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.addProjectApplication(projects[project].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('projects').child('data').child(projects[project].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeProject'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            // console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.likeProject(projects[project].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('projects').child('data').child(projects[project].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getProjectApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            // console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.getProjectApplications(projects[project].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getProjectLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            // console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.getProjectLikes(projects[project].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeProjectApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            // console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.getProjectApplications(projects[project].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeProjectApplication(projects[project].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeProject'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            // console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.getProjectLikes(projects[project].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeProject(projects[project].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeProject'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectList(function(projects) {
+            console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                chat.removeProject(projects[project].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
 */
+
+exports['createTalent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test talent',
+            talenttype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createTalent(data, talentkey => {
+            database.ref().child('talents').child('data').child(talentkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test talent')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getTalentList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                console.log('talent.id=' + talents[talent].id)
+                console.log('talent.name=' + talents[talent].name)
+                test.equal(talents[talent].name, 'test talent')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addTalentApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            // console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.addTalentApplication(talents[talent].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('talents').child('data').child(talents[talent].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeTalent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            // console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.likeTalent(talents[talent].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('talents').child('data').child(talents[talent].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getTalentApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            // console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.getTalentApplications(talents[talent].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getTalentLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            // console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.getTalentLikes(talents[talent].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeTalentApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            // console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.getTalentApplications(talents[talent].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeTalentApplication(talents[talent].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeTalent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            // console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.getTalentLikes(talents[talent].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeTalent(talents[talent].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeTalent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentList(function(talents) {
+            console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                chat.removeTalent(talents[talent].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createConsultant'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test consultant',
+            consultanttype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createConsultant(data, consultantkey => {
+            database.ref().child('consultants').child('data').child(consultantkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test consultant')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getConsultantList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                console.log('consultant.id=' + consultants[consultant].id)
+                console.log('consultant.name=' + consultants[consultant].name)
+                test.equal(consultants[consultant].name, 'test consultant')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addConsultantApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            // console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.addConsultantApplication(consultants[consultant].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('consultants').child('data').child(consultants[consultant].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeConsultant'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            // console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.likeConsultant(consultants[consultant].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('consultants').child('data').child(consultants[consultant].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getConsultantApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            // console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.getConsultantApplications(consultants[consultant].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getConsultantLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            // console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.getConsultantLikes(consultants[consultant].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeConsultantApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            // console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.getConsultantApplications(consultants[consultant].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeConsultantApplication(consultants[consultant].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeConsultant'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            // console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.getConsultantLikes(consultants[consultant].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeConsultant(consultants[consultant].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeConsultant'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantList(function(consultants) {
+            console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                chat.removeConsultant(consultants[consultant].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createDispatcher'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test dispatcher',
+            dispatchertype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createDispatcher(data, dispatcherkey => {
+            database.ref().child('dispatchers').child('data').child(dispatcherkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test dispatcher')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getDispatcherList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                console.log('dispatcher.id=' + dispatchers[dispatcher].id)
+                console.log('dispatcher.name=' + dispatchers[dispatcher].name)
+                test.equal(dispatchers[dispatcher].name, 'test dispatcher')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addDispatcherApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            // console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.addDispatcherApplication(dispatchers[dispatcher].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('dispatchers').child('data').child(dispatchers[dispatcher].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeDispatcher'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            // console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.likeDispatcher(dispatchers[dispatcher].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('dispatchers').child('data').child(dispatchers[dispatcher].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getDispatcherApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            // console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.getDispatcherApplications(dispatchers[dispatcher].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getDispatcherLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            // console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.getDispatcherLikes(dispatchers[dispatcher].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeDispatcherApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            // console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.getDispatcherApplications(dispatchers[dispatcher].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeDispatcherApplication(dispatchers[dispatcher].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeDispatcher'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            // console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.getDispatcherLikes(dispatchers[dispatcher].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeDispatcher(dispatchers[dispatcher].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeDispatcher'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherList(function(dispatchers) {
+            console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                chat.removeDispatcher(dispatchers[dispatcher].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createKnowledge'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test knowledge',
+            knowledgetype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createKnowledge(data, knowledgekey => {
+            database.ref().child('knowledges').child('data').child(knowledgekey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test knowledge')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                console.log('knowledge.id=' + knowledges[knowledge].id)
+                console.log('knowledge.name=' + knowledges[knowledge].name)
+                test.equal(knowledges[knowledge].name, 'test knowledge')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addKnowledgeApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.addKnowledgeApplication(knowledges[knowledge].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('knowledges').child('data').child(knowledges[knowledge].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeKnowledge'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.likeKnowledge(knowledges[knowledge].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('knowledges').child('data').child(knowledges[knowledge].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getKnowledgeApplications(knowledges[knowledge].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getKnowledgeLikes(knowledges[knowledge].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeKnowledgeApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getKnowledgeApplications(knowledges[knowledge].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeKnowledgeApplication(knowledges[knowledge].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeKnowledge'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getKnowledgeLikes(knowledges[knowledge].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeKnowledge(knowledges[knowledge].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeKnowledge'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.removeKnowledge(knowledges[knowledge].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createTool'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test tool',
+            tooltype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createTool(data, toolkey => {
+            database.ref().child('tools').child('data').child(toolkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test tool')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                console.log('tool.id=' + tools[tool].id)
+                console.log('tool.name=' + tools[tool].name)
+                test.equal(tools[tool].name, 'test tool')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addToolApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            // console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.addToolApplication(tools[tool].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('tools').child('data').child(tools[tool].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeTool'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            // console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.likeTool(tools[tool].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('tools').child('data').child(tools[tool].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            // console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.getToolApplications(tools[tool].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            // console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.getToolLikes(tools[tool].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeToolApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            // console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.getToolApplications(tools[tool].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeToolApplication(tools[tool].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeTool'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            // console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.getToolLikes(tools[tool].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeTool(tools[tool].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeTool'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolList(function(tools) {
+            console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                chat.removeTool(tools[tool].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['createEvent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test event',
+            eventtype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createEvent(data, eventkey => {
+            database.ref().child('events').child('data').child(eventkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test event')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              test.done()
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getEventList'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                console.log('event.id=' + events[event].id)
+                console.log('event.name=' + events[event].name)
+                test.equal(events[event].name, 'test event')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addEventApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            // console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.addEventApplication(events[event].id, 'test application', applicationkey => {
+                  console.log('applicationkey=' + applicationkey)
+                  database.ref().child('events').child('data').child(events[event].id).child('applications').child(applicationkey).once('value', function(applications) {
+                    console.log(applications.val())
+                    console.log('text=' + applications.child('text').val())
+                    console.log('name=' + applications.child('name').val())
+                    test.equal(applications.child('text').val(), 'test application')
+                    test.equal(applications.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['likeEvent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            // console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.likeEvent(events[event].id, likekey => {
+                  console.log('likekey=' + likekey)
+                  database.ref().child('events').child('data').child(events[event].id).child('likes').child(likekey).once('value', function(likes) {
+                    console.log(likes.val())
+                    console.log('name=' + likes.child('name').val())
+                    test.equal(likes.child('name').val(), snapshot.child('name').val())
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getEventApplications'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            // console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.getEventApplications(events[event].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].text, 'test application')
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getEventLikes'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            // console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.getEventLikes(events[event].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    console.log(likes[like].id)
+                    console.log('name=' + likes[like].name)
+                    test.equal(likes[like].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeEventApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            // console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.getEventApplications(events[event].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.removeEventApplication(events[event].id, applications[application].id, function() {
+                      console.log(applications[application].id)
+                      console.log('text=' + applications[application].text)
+                      console.log('name=' + applications[application].name)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['unlikeEvent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            // console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.getEventLikes(events[event].id, function(likes) {
+                  console.log(likes)
+                  for (const like in likes) {
+                    chat.unlikeEvent(events[event].id, likes[like].id, function() {
+                      console.log(likes[like].id)
+                      test.done()
+                    })
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['removeEvent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventList(function(events) {
+            console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                chat.removeEvent(events[event].id, function() {
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}

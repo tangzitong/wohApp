@@ -53,6 +53,15 @@ function Firechat(firebaseRef, options) {
   this._suspensionsRef = this._firechatRef.child('suspensions')
   this._usersOnlineRef = this._firechatRef.child('user-names-online')
   this._postsRef = this._firechatRef.child('posts')
+  this._jobsRef = this._firechatRef.child('jobs')
+  this._companysRef = this._firechatRef.child('companys')
+  this._projectsRef = this._firechatRef.child('projects')
+  this._talentsRef = this._firechatRef.child('talents')
+  this._dispatchersRef = this._firechatRef.child('dispatchers')
+  this._consultantsRef = this._firechatRef.child('consultants')
+  this._knowledgesRef = this._firechatRef.child('knowledges')
+  this._toolsRef = this._firechatRef.child('tools')
+  this._eventsRef = this._firechatRef.child('events')
 
   // Setup and establish default options.
   this._options = options || {}
@@ -877,6 +886,1608 @@ Firechat.prototype.getContactList = function(cb) {
 
   self._userRef.child('contacts').once('value', function(snapshot) {
     cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.createJob = function(data, callback) {
+  const self = this
+  const newJobRef = self._jobsRef.child('data').push()
+
+  const newJob = {
+    id: newJobRef.key,
+    name: data.name,
+    jobtype: data.jobtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newJobRef.set(newJob, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.job_count) {
+          current.job_count++
+        } else {
+          current.job_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newJobRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addJobApplication = function(jobKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._jobsRef.child('data').child(jobKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    jobid: jobKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._jobsRef.child('data').child(jobKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeJob = function(jobKey, callback) {
+  const self = this
+  const newLikesRef = self._jobsRef.child('data').child(jobKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    jobid: jobKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._jobsRef.child('data').child(jobKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getJobList = function(cb) {
+  const self = this
+
+  self._jobsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeJob = function(jobKey, callback) {
+  const self = this
+  self._jobsRef.child('data').child(jobKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.job_count) {
+          current.job_count--
+        } else {
+          current.job_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getJobApplications = function(jobkey, cb) {
+  const self = this
+
+  self._jobsRef.child('data').child(jobkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeJobApplication = function(jobKey, applicationKey, callback) {
+  const self = this
+  self._jobsRef.child('data').child(jobKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._jobsRef.child('data').child(jobKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getJobLikes = function(jobkey, cb) {
+  const self = this
+
+  self._jobsRef.child('data').child(jobkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeJob = function(jobKey, likeKey, callback) {
+  const self = this
+  self._jobsRef.child('data').child(jobKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._jobsRef.child('data').child(jobKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createCompany = function(data, callback) {
+  const self = this
+  const newCompanyRef = self._companysRef.child('data').push()
+
+  const newCompany = {
+    id: newCompanyRef.key,
+    name: data.name,
+    companytype: data.companytype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newCompanyRef.set(newCompany, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.company_count) {
+          current.company_count++
+        } else {
+          current.company_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newCompanyRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addCompanyApplication = function(companyKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._companysRef.child('data').child(companyKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    companyid: companyKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._companysRef.child('data').child(companyKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeCompany = function(companyKey, callback) {
+  const self = this
+  const newLikesRef = self._companysRef.child('data').child(companyKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    companyid: companyKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._companysRef.child('data').child(companyKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getCompanyList = function(cb) {
+  const self = this
+
+  self._companysRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeCompany = function(companyKey, callback) {
+  const self = this
+  self._companysRef.child('data').child(companyKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.company_count) {
+          current.company_count--
+        } else {
+          current.company_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getCompanyApplications = function(companykey, cb) {
+  const self = this
+
+  self._companysRef.child('data').child(companykey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeCompanyApplication = function(companyKey, applicationKey, callback) {
+  const self = this
+  self._companysRef.child('data').child(companyKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._companysRef.child('data').child(companyKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getCompanyLikes = function(companykey, cb) {
+  const self = this
+
+  self._companysRef.child('data').child(companykey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeCompany = function(companyKey, likeKey, callback) {
+  const self = this
+  self._companysRef.child('data').child(companyKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._companysRef.child('data').child(companyKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createProject = function(data, callback) {
+  const self = this
+  const newProjectRef = self._projectsRef.child('data').push()
+
+  const newProject = {
+    id: newProjectRef.key,
+    name: data.name,
+    projecttype: data.projecttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newProjectRef.set(newProject, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.project_count) {
+          current.project_count++
+        } else {
+          current.project_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newProjectRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addProjectApplication = function(projectKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._projectsRef.child('data').child(projectKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    projectid: projectKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._projectsRef.child('data').child(projectKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeProject = function(projectKey, callback) {
+  const self = this
+  const newLikesRef = self._projectsRef.child('data').child(projectKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    projectid: projectKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._projectsRef.child('data').child(projectKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getProjectList = function(cb) {
+  const self = this
+
+  self._projectsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeProject = function(projectKey, callback) {
+  const self = this
+  self._projectsRef.child('data').child(projectKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.project_count) {
+          current.project_count--
+        } else {
+          current.project_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getProjectApplications = function(projectkey, cb) {
+  const self = this
+
+  self._projectsRef.child('data').child(projectkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeProjectApplication = function(projectKey, applicationKey, callback) {
+  const self = this
+  self._projectsRef.child('data').child(projectKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._projectsRef.child('data').child(projectKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getProjectLikes = function(projectkey, cb) {
+  const self = this
+
+  self._projectsRef.child('data').child(projectkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeProject = function(projectKey, likeKey, callback) {
+  const self = this
+  self._projectsRef.child('data').child(projectKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._projectsRef.child('data').child(projectKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createTalent = function(data, callback) {
+  const self = this
+  const newTalentRef = self._talentsRef.child('data').push()
+
+  const newTalent = {
+    id: newTalentRef.key,
+    name: data.name,
+    talenttype: data.talenttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newTalentRef.set(newTalent, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.talent_count) {
+          current.talent_count++
+        } else {
+          current.talent_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newTalentRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addTalentApplication = function(talentKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._talentsRef.child('data').child(talentKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    talentid: talentKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._talentsRef.child('data').child(talentKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeTalent = function(talentKey, callback) {
+  const self = this
+  const newLikesRef = self._talentsRef.child('data').child(talentKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    talentid: talentKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._talentsRef.child('data').child(talentKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getTalentList = function(cb) {
+  const self = this
+
+  self._talentsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeTalent = function(talentKey, callback) {
+  const self = this
+  self._talentsRef.child('data').child(talentKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.talent_count) {
+          current.talent_count--
+        } else {
+          current.talent_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getTalentApplications = function(talentkey, cb) {
+  const self = this
+
+  self._talentsRef.child('data').child(talentkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeTalentApplication = function(talentKey, applicationKey, callback) {
+  const self = this
+  self._talentsRef.child('data').child(talentKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._talentsRef.child('data').child(talentKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getTalentLikes = function(talentkey, cb) {
+  const self = this
+
+  self._talentsRef.child('data').child(talentkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeTalent = function(talentKey, likeKey, callback) {
+  const self = this
+  self._talentsRef.child('data').child(talentKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._talentsRef.child('data').child(talentKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createConsultant = function(data, callback) {
+  const self = this
+  const newConsultantRef = self._consultantsRef.child('data').push()
+
+  const newConsultant = {
+    id: newConsultantRef.key,
+    name: data.name,
+    consultanttype: data.consultanttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newConsultantRef.set(newConsultant, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.consultant_count) {
+          current.consultant_count++
+        } else {
+          current.consultant_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newConsultantRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addConsultantApplication = function(consultantKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._consultantsRef.child('data').child(consultantKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    consultantid: consultantKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._consultantsRef.child('data').child(consultantKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeConsultant = function(consultantKey, callback) {
+  const self = this
+  const newLikesRef = self._consultantsRef.child('data').child(consultantKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    consultantid: consultantKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._consultantsRef.child('data').child(consultantKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getConsultantList = function(cb) {
+  const self = this
+
+  self._consultantsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeConsultant = function(consultantKey, callback) {
+  const self = this
+  self._consultantsRef.child('data').child(consultantKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.consultant_count) {
+          current.consultant_count--
+        } else {
+          current.consultant_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getConsultantApplications = function(consultantkey, cb) {
+  const self = this
+
+  self._consultantsRef.child('data').child(consultantkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeConsultantApplication = function(consultantKey, applicationKey, callback) {
+  const self = this
+  self._consultantsRef.child('data').child(consultantKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._consultantsRef.child('data').child(consultantKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getConsultantLikes = function(consultantkey, cb) {
+  const self = this
+
+  self._consultantsRef.child('data').child(consultantkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeConsultant = function(consultantKey, likeKey, callback) {
+  const self = this
+  self._consultantsRef.child('data').child(consultantKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._consultantsRef.child('data').child(consultantKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createDispatcher = function(data, callback) {
+  const self = this
+  const newDispatcherRef = self._dispatchersRef.child('data').push()
+
+  const newDispatcher = {
+    id: newDispatcherRef.key,
+    name: data.name,
+    dispatchertype: data.dispatchertype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newDispatcherRef.set(newDispatcher, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.dispatcher_count) {
+          current.dispatcher_count++
+        } else {
+          current.dispatcher_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newDispatcherRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addDispatcherApplication = function(dispatcherKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._dispatchersRef.child('data').child(dispatcherKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    dispatcherid: dispatcherKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._dispatchersRef.child('data').child(dispatcherKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeDispatcher = function(dispatcherKey, callback) {
+  const self = this
+  const newLikesRef = self._dispatchersRef.child('data').child(dispatcherKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    dispatcherid: dispatcherKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._dispatchersRef.child('data').child(dispatcherKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getDispatcherList = function(cb) {
+  const self = this
+
+  self._dispatchersRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeDispatcher = function(dispatcherKey, callback) {
+  const self = this
+  self._dispatchersRef.child('data').child(dispatcherKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.dispatcher_count) {
+          current.dispatcher_count--
+        } else {
+          current.dispatcher_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getDispatcherApplications = function(dispatcherkey, cb) {
+  const self = this
+
+  self._dispatchersRef.child('data').child(dispatcherkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeDispatcherApplication = function(dispatcherKey, applicationKey, callback) {
+  const self = this
+  self._dispatchersRef.child('data').child(dispatcherKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._dispatchersRef.child('data').child(dispatcherKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getDispatcherLikes = function(dispatcherkey, cb) {
+  const self = this
+
+  self._dispatchersRef.child('data').child(dispatcherkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeDispatcher = function(dispatcherKey, likeKey, callback) {
+  const self = this
+  self._dispatchersRef.child('data').child(dispatcherKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._dispatchersRef.child('data').child(dispatcherKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createKnowledge = function(data, callback) {
+  const self = this
+  const newKnowledgeRef = self._knowledgesRef.child('data').push()
+
+  const newKnowledge = {
+    id: newKnowledgeRef.key,
+    name: data.name,
+    knowledgetype: data.knowledgetype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newKnowledgeRef.set(newKnowledge, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.knowledge_count) {
+          current.knowledge_count++
+        } else {
+          current.knowledge_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newKnowledgeRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addKnowledgeApplication = function(knowledgeKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._knowledgesRef.child('data').child(knowledgeKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    knowledgeid: knowledgeKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeKnowledge = function(knowledgeKey, callback) {
+  const self = this
+  const newLikesRef = self._knowledgesRef.child('data').child(knowledgeKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    knowledgeid: knowledgeKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getKnowledgeList = function(cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeKnowledge = function(knowledgeKey, callback) {
+  const self = this
+  self._knowledgesRef.child('data').child(knowledgeKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.knowledge_count) {
+          current.knowledge_count--
+        } else {
+          current.knowledge_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getKnowledgeApplications = function(knowledgekey, cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').child(knowledgekey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeKnowledgeApplication = function(knowledgeKey, applicationKey, callback) {
+  const self = this
+  self._knowledgesRef.child('data').child(knowledgeKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getKnowledgeLikes = function(knowledgekey, cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').child(knowledgekey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeKnowledge = function(knowledgeKey, likeKey, callback) {
+  const self = this
+  self._knowledgesRef.child('data').child(knowledgeKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createTool = function(data, callback) {
+  const self = this
+  const newToolRef = self._toolsRef.child('data').push()
+
+  const newTool = {
+    id: newToolRef.key,
+    name: data.name,
+    tooltype: data.tooltype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newToolRef.set(newTool, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.tool_count) {
+          current.tool_count++
+        } else {
+          current.tool_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newToolRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addToolApplication = function(toolKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._toolsRef.child('data').child(toolKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    toolid: toolKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._toolsRef.child('data').child(toolKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeTool = function(toolKey, callback) {
+  const self = this
+  const newLikesRef = self._toolsRef.child('data').child(toolKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    toolid: toolKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._toolsRef.child('data').child(toolKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getToolList = function(cb) {
+  const self = this
+
+  self._toolsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeTool = function(toolKey, callback) {
+  const self = this
+  self._toolsRef.child('data').child(toolKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.tool_count) {
+          current.tool_count--
+        } else {
+          current.tool_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getToolApplications = function(toolkey, cb) {
+  const self = this
+
+  self._toolsRef.child('data').child(toolkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeToolApplication = function(toolKey, applicationKey, callback) {
+  const self = this
+  self._toolsRef.child('data').child(toolKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._toolsRef.child('data').child(toolKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getToolLikes = function(toolkey, cb) {
+  const self = this
+
+  self._toolsRef.child('data').child(toolkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeTool = function(toolKey, likeKey, callback) {
+  const self = this
+  self._toolsRef.child('data').child(toolKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._toolsRef.child('data').child(toolKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.createEvent = function(data, callback) {
+  const self = this
+  const newEventRef = self._eventsRef.child('data').push()
+
+  const newEvent = {
+    id: newEventRef.key,
+    name: data.name,
+    eventtype: data.eventtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    application_count: 0,
+    applications: [],
+    like_count: 0,
+    likes: [],
+    avatar: this._userId,
+    nickname: this._userName,
+    created_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newEventRef.set(newEvent, function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.event_count) {
+          current.event_count++
+        } else {
+          current.event_count = 1
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newEventRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addEventApplication = function(eventKey, applications, callback) {
+  const self = this
+  const newApplcationsRef = self._eventsRef.child('data').child(eventKey).child('applications').push()
+  const newApplication = {
+    id: newApplcationsRef.key,
+    text: applications,
+    eventid: eventKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newApplcationsRef.set(newApplication, function(error) {
+    if (!error) {
+      self._eventsRef.child('data').child(eventKey).transaction(function(current) {
+        if (current) {
+          current.application_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newApplcationsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.likeEvent = function(eventKey, callback) {
+  const self = this
+  const newLikesRef = self._eventsRef.child('data').child(eventKey).child('likes').push()
+
+  const newlike = {
+    id: newLikesRef.key,
+    eventid: eventKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLikesRef.set(newlike, function(error) {
+    if (!error) {
+      self._eventsRef.child('data').child(eventKey).transaction(function(current) {
+        if (current) {
+          current.like_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newLikesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getEventList = function(cb) {
+  const self = this
+
+  self._eventsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeEvent = function(eventKey, callback) {
+  const self = this
+  self._eventsRef.child('data').child(eventKey).remove(function(error) {
+    if (!error) {
+      self._userRef.transaction(function(current) {
+        if (current && current.event_count) {
+          current.event_count--
+        } else {
+          current.event_count = 0
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getEventApplications = function(eventkey, cb) {
+  const self = this
+
+  self._eventsRef.child('data').child(eventkey).child('applications').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.removeEventApplication = function(eventKey, applicationKey, callback) {
+  const self = this
+  self._eventsRef.child('data').child(eventKey).child('applications').child(applicationKey).remove(function(error) {
+    if (!error) {
+      self._eventsRef.child('data').child(eventKey).transaction(function(current) {
+        if (current) {
+          current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.getEventLikes = function(eventkey, cb) {
+  const self = this
+
+  self._eventsRef.child('data').child(eventkey).child('likes').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.unlikeEvent = function(eventKey, likeKey, callback) {
+  const self = this
+  self._eventsRef.child('data').child(eventKey).child('likes').child(likeKey).remove(function(error) {
+    if (!error) {
+      self._eventsRef.child('data').child(eventKey).transaction(function(current) {
+        if (current) {
+          current.like_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
   })
 }
 
