@@ -32,15 +32,14 @@ export default {
     },
     sendTweet() {
       this.$f7.preloader.show(this.$t('app.submitting'))
-      this.$root.chat.createPost(this.text, '')
-        .then(postKey => {
-          this.$f7.addNotification({
-            title: this.$t('publisher.publisher'),
-            message: this.$t('publisher.published'),
-            hold: 3000,
-            closeIcon: false
-          })
+      this.$root.chat.createPost(this.text, 'https://wohapp-3a179.firebaseapp.com/', postkey => {
+        this.$f7.addNotification({
+          title: this.$t('publisher.publisher'),
+          message: this.$t('publisher.published'),
+          hold: 3000,
+          closeIcon: false
         })
+      })
       setTimeout(_ => {
         this.$f7.preloader.hide()
         this.closePopup()

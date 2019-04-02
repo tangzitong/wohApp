@@ -52,7 +52,7 @@ export default {
       }
       this.$store.dispatch('putFeedback', feedback).then(function() {
         this.$store.dispatch('getFeedback').then(function() {
-          $$.alert(this.$t('feedback.result'))
+          window.$$.alert(this.$t('feedback.result'))
         })
       })
     }
