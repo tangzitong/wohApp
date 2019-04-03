@@ -81,7 +81,8 @@ export default {
     HP_: '仕事ホームページを入力してください',
     like: '好き',
     noNewestJob: '仕事は追加されていません.',
-    placeholder: '仕事キーワードを入力してください。'
+    placeholder: '仕事キーワードを入力してください。',
+    complete: '仕事追加または更新完了しました。'
   },
   company: {
     application: '面談申請',
@@ -102,7 +103,8 @@ export default {
     HP_: '会社ホームページを入力してください',
     like: '好き',
     noNewestCompany: '会社は追加されていません.',
-    placeholder: '会社キーワードを入力してください。'
+    placeholder: '会社キーワードを入力してください。',
+    complete: '会社追加または更新完了しました。'
   },
   project: {
     application: 'バッド申請',
@@ -123,7 +125,8 @@ export default {
     HP_: 'プロジェクトホームページを入力してください',
     like: '好き',
     noNewestProject: 'プロジェクトは追加されていません.',
-    placeholder: 'プロジェクトキーワードを入力してください。'
+    placeholder: 'プロジェクトキーワードを入力してください。',
+    complete: 'プロジェクト追加または更新完了しました。'
   },
   talent: {
     application: '募集申請',
@@ -144,7 +147,8 @@ export default {
     HP_: '人材ホームページを入力してください',
     like: '好き',
     noNewestTalent: '人材は追加されていません.',
-    placeholder: '人材キーワードを入力してください。'
+    placeholder: '人材キーワードを入力してください。',
+    complete: '人材追加または更新完了しました。'
   },
   consultant: {
     application: 'コンサルティング申請',
@@ -165,7 +169,8 @@ export default {
     HP_: 'コンサルタントホームページを入力してください',
     like: '好き',
     noNewestConsultant: 'コンサルタントは追加されていません.',
-    placeholder: 'コンサルタントキーワードを入力してください。'
+    placeholder: 'コンサルタントキーワードを入力してください。',
+    complete: 'コンサルタント追加または更新完了しました。'
   },
   dispatcher: {
     application: '派遣申請',
@@ -186,7 +191,8 @@ export default {
     HP_: '派遣者ホームページを入力してください',
     like: '好き',
     noNewestDispatcher: '派遣者は追加されていません.',
-    placeholder: '派遣者キーワードを入力してください。'
+    placeholder: '派遣者キーワードを入力してください。',
+    complete: '派遣者追加または更新完了しました。'
   },
   knowledge: {
     application: '学習申請',
@@ -207,7 +213,8 @@ export default {
     HP_: '知識ホームページを入力してください',
     like: '好き',
     noNewestKnowledge: '知識は追加されていません.',
-    placeholder: '知識キーワードを入力してください。'
+    placeholder: '知識キーワードを入力してください。',
+    complete: '知識追加または更新完了しました。'
   },
   tool: {
     application: '使用申請',
@@ -228,7 +235,8 @@ export default {
     HP_: 'ツールホームページを入力してください',
     like: '好き',
     noNewestTool: 'ツールは追加されていません.',
-    placeholder: 'ツールキーワードを入力してください。'
+    placeholder: 'ツールキーワードを入力してください。',
+    complete: 'ツール追加または更新完了しました。'
   },
   event: {
     application: '参加申請',
@@ -249,7 +257,8 @@ export default {
     HP_: 'イベントホームページを入力してください',
     like: '好き',
     noNewestEvent: 'イベントは追加されていません.',
-    placeholder: 'イベントキーワードを入力してください。'
+    placeholder: 'イベントキーワードを入力してください。',
+    complete: 'イベント追加または更新完了しました。'
   },
   report: {
     application: '承認',

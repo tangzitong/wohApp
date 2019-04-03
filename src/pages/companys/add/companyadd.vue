@@ -4,7 +4,7 @@
     <f7-block>
       <h3>{{$t('company.add')}}</h3>
       <transition name="fade">
-        <p v-if="showSuccess" class="success">{{$t('companyadd.complete')}}</p>
+        <p v-if="showSuccess" class="success">{{$t('company.complete')}}</p>
       </transition>
     </f7-block>
     <f7-list form @submit.prevent>

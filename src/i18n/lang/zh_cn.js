@@ -81,7 +81,8 @@ export default {
     HP_: '请输入工作网站',
     like: '喜欢',
     noNewestJob: '没有追加工作',
-    placeholder: '请输入工作关键词。'
+    placeholder: '请输入工作关键词。',
+    complete: '工作追加或更新完了'
   },
   company: {
     application: '面试申请',
@@ -102,7 +103,8 @@ export default {
     HP_: '请输入公司网站',
     like: '喜欢',
     noNewestCompany: '没有公司追加',
-    placeholder: '请输入公司关键词。'
+    placeholder: '请输入公司关键词。',
+    complete: '公司追加或更新完了'
   },
   project: {
     application: '竞标申请',
@@ -123,7 +125,8 @@ export default {
     HP_: '请输入项目网站',
     like: '喜欢',
     noNewestProject: '没有项目追加',
-    placeholder: '请输入项目关键词。'
+    placeholder: '请输入项目关键词。',
+    complete: '项目追加或更新完了'
   },
   talent: {
     application: '招聘申请',
@@ -144,7 +147,8 @@ export default {
     HP_: '请输入人材网站',
     like: '喜欢',
     noNewestTalent: '没有人材追加.',
-    placeholder: '请输入人材关键词。'
+    placeholder: '请输入人材关键词。',
+    complete: '人才追加或更新完了'
   },
   consultant: {
     application: '咨询申请',
@@ -165,7 +169,8 @@ export default {
     HP_: '请输入咨询师网站',
     like: '喜欢',
     noNewestConsultant: '没有咨询师追加.',
-    placeholder: '请输入咨询师关键词。'
+    placeholder: '请输入咨询师关键词。',
+    complete: '咨询师追加或更新完了'
   },
   dispatcher: {
     application: '派遣申请',
@@ -186,7 +191,8 @@ export default {
     HP_: '请输入派遣者网站',
     like: '喜欢',
     noNewestDispatcher: '没有派遣者追加',
-    placeholder: '请输入派遣者关键词。'
+    placeholder: '请输入派遣者关键词。',
+    complete: '派遣者追加或更新完了'
   },
   knowledge: {
     application: '学习申请',
@@ -207,7 +213,8 @@ export default {
     HP_: '请输入知识网站',
     like: '喜欢',
     noNewestKnowledge: '没有知识追加.',
-    placeholder: '请输入知识关键词。'
+    placeholder: '请输入知识关键词。',
+    complete: '知识追加或更新完了'
   },
   tool: {
     application: '使用申请',
@@ -228,7 +235,8 @@ export default {
     HP_: '请输入工具网站',
     like: '喜欢',
     noNewestTool: '没有工具追加',
-    placeholder: '请输入工具关键词。'
+    placeholder: '请输入工具关键词。',
+    complete: '工具追加或更新完了'
   },
   event: {
     application: '参加申请',
@@ -249,7 +257,8 @@ export default {
     HP_: '请输入活动网站',
     like: '喜欢',
     noNewestEvent: '没有活动追加',
-    placeholder: '请输入活动关键词。'
+    placeholder: '请输入活动关键词。',
+    complete: '活动追加或更新完了'
   },
   report: {
     application: '承认',

@@ -4,7 +4,7 @@
     <f7-block>
       <h3>{{$t('knowledge.add')}}</h3>
       <transition name="fade">
-        <p v-if="showSuccess" class="success">{{$t('knowledgeadd.complete')}}</p>
+        <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
     </f7-block>
     <f7-list form @submit.prevent>
@@ -33,14 +33,14 @@
         <input type="text" :placeholder="$t('knowledge.HP_')" @input="HP = $event.target.value" />
       </f7-list-item>
     </f7-list>
-    <f7-block v-if="$root.user">
+    <f7-block v-if="isUserLogin">
       <f7-button big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="$root.user">
+    <f7-block v-if="isUserLogin">
       <imageuploader
-        :store="'knowledges/' + $root.user.uid"
-        :db="'knowledges/' + $root.user.uid + '/photo'" />
+        :store="'knowledges/' + userid"
+        :db="'knowledges/' + userid + '/photo'" />
     </f7-block>
 
     <!-- Image -->
@@ -51,7 +51,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import imageuploader from '../../../popup/imageuploader'
 import { getIndustryConfig, getAreaConfig } from '@/code'
 
@@ -65,12 +64,13 @@ export default {
       Fax: '',
       Manager: '',
       HP: '',
-      like: 0,
       showSuccess: null,
       photo: null,
       knowledgetype: '',
       industry: '1',
-      area: '1'
+      area: '1',
+      isUserLogin: !!window.user,
+      userid: null
     }
   },
   created() {
@@ -79,9 +79,14 @@ export default {
   },
   // Update user name, title and photo from Firebase
   mounted: function () {
+    const query = this.$f7route.query
+    this.id = query.mid
+    this.knowledgetype = query.knowledgetype
+    if (this.isUserLogin) {
+      this.userid = window.user.uid
+    }
     if (this.id) {
-      window.db('knowledges/' + window.user.uid + '/' + this.id).on('value', snapshot => {
-        const data = snapshot.val()
+      this.$root.chat.getKnowledgeByKey(this.id, data => {
         if (data) {
           this.name = data.name
           this.address = data.address
@@ -89,46 +94,42 @@ export default {
           this.Fax = data.Fax
           this.Manager = data.Manager
           this.HP = data.HP
-          this.like = data.like
           this.photo = data.photo
-          this.knowledgetype = data.knowledgetype
         }
       })
     }
   },
-  computed: {
-    ...mapState(['updateKnowledge'])
-  },
   methods: {
     updateKnowledge() {
       if (this.id) {
-        this.$store.dispatch('updateKnowledge', {
-          id: this.id,
+        this.$root.chat.updateKnowledge(this.id, {
           name: this.name,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
           Manager: this.Manager,
           HP: this.HP,
-          like: this.like,
           photo: this.photo,
           knowledgetype: this.knowledgetype,
           area: this.area,
           industry: this.industry
+        }, function(knowledgeKey) {
+          console.log('update success')
         })
       } else {
-        this.$store.dispatch('addKnowledge', {
+        this.$root.chat.createKnowledge({
           name: this.name,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
           Manager: this.Manager,
           HP: this.HP,
-          like: this.like,
           photo: this.photo,
           knowledgetype: this.knowledgetype,
           area: this.area,
           industry: this.industry
+        }, function(knowledgeKey) {
+          console.log('add success')
         })
       }
 
@@ -138,7 +139,6 @@ export default {
       this.Fax = ''
       this.Manager = ''
       this.HP = ''
-      this.like = ''
       this.photo = ''
       this.showSuccess = true
 

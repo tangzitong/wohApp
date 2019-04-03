@@ -81,7 +81,8 @@ export default {
     HP_: 'Please input Job HomePage',
     like: 'Like',
     noNewestJob: 'No Job Added.',
-    placeholder: 'Please input Job keyword'
+    placeholder: 'Please input Job keyword',
+    complete: 'Job Add or Update complete'
   },
   company: {
     application: 'Company Application',
@@ -102,7 +103,8 @@ export default {
     HP_: 'Please input Company HomePage',
     like: 'Like',
     noNewestCompany: 'No Company Added.',
-    placeholder: 'Please input Company keyword'
+    placeholder: 'Please input Company keyword',
+    complete: 'Company Add or Update complete'
   },
   project: {
     application: 'Project Application',
@@ -123,7 +125,8 @@ export default {
     HP_: 'Please input Project HomePage',
     like: 'Like',
     noNewestProject: 'No Project Added.',
-    placeholder: 'Please input Project keyword'
+    placeholder: 'Please input Project keyword',
+    complete: 'Project Add or Update complete'
   },
   talent: {
     application: 'Talent Application',
@@ -144,7 +147,8 @@ export default {
     HP_: 'Please input Talent HomePage',
     like: 'Like',
     noNewestTalent: 'No Talent Added.',
-    placeholder: 'Please input Talent keyword'
+    placeholder: 'Please input Talent keyword',
+    complete: 'Talent Add or Update complete'
   },
   consultant: {
     application: 'Consultant Application',
@@ -165,7 +169,8 @@ export default {
     HP_: 'Please input Consultant HomePage',
     like: 'Like',
     noNewestConsultant: 'No Consultant Added.',
-    placeholder: 'Please input Consultant keyword'
+    placeholder: 'Please input Consultant keyword',
+    complete: 'Consultant Add or Update complete'
   },
   dispatcher: {
     application: 'Dispatcher Application',
@@ -186,7 +191,8 @@ export default {
     HP_: 'Please input Dispatcher HomePage',
     like: 'Like',
     noNewestDispatcher: 'No Dispatcher Added.',
-    placeholder: 'Please input Dispatcher keyword'
+    placeholder: 'Please input Dispatcher keyword',
+    complete: 'Dispatcher Add or Update complete'
   },
   knowledge: {
     application: 'Knowledge Application',
@@ -207,7 +213,8 @@ export default {
     HP_: 'Please input Knowledge HomePage',
     like: 'Like',
     noNewestKnowledge: 'No Knowledge Added.',
-    placeholder: 'Please input Knowledge keyword'
+    placeholder: 'Please input Knowledge keyword',
+    complete: 'Knowledge Add or Update complete'
   },
   tool: {
     application: 'Tool Application',
@@ -228,7 +235,8 @@ export default {
     HP_: 'Please input Tool HomePage',
     like: 'Like',
     noNewestTool: 'No Tool Added.',
-    placeholder: 'Please input Tool keyword'
+    placeholder: 'Please input Tool keyword',
+    complete: 'Tool Add or Update complete'
   },
   event: {
     application: 'Event Application',
@@ -249,7 +257,8 @@ export default {
     HP_: 'Please input Event HomePage',
     like: 'Like',
     noNewestEvent: 'No Event Added.',
-    placeholder: 'Please input Event keyword'
+    placeholder: 'Please input Event keyword',
+    complete: 'Event Add or Update complete'
   },
   report: {
     application: 'Application',
