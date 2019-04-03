@@ -3828,3 +3828,705 @@ exports['getCompanyListByOwner'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+
+exports['getJobByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobByKey('-LbW05tjlGqALVI2K445', function(job) {
+            console.log(job)
+            if (job.avatar === user.uid) {
+              console.log('job.id=' + job.id)
+              console.log('job.name=' + job.name)
+              test.equal(job.name, 'test job2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getJobListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobListByType('1', function(jobs) {
+            console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                console.log('job.id=' + jobs[job].id)
+                console.log('job.name=' + jobs[job].name)
+                test.equal(jobs[job].name, 'test job2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getJobListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getJobListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(jobs) {
+            console.log(jobs)
+            for (const job in jobs) {
+              if (jobs[job].avatar === user.uid) {
+                console.log('job.id=' + jobs[job].id)
+                console.log('job.name=' + jobs[job].name)
+                test.equal(jobs[job].name, 'test job2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getProjectByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectByKey('-LbW06MHXWWiH_5qTsNa', function(project) {
+            console.log(project)
+            if (project.avatar === user.uid) {
+              console.log('project.id=' + project.id)
+              console.log('project.name=' + project.name)
+              test.equal(project.name, 'test project2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getProjectListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectListByType('1', function(projects) {
+            console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                console.log('project.id=' + projects[project].id)
+                console.log('project.name=' + projects[project].name)
+                test.equal(projects[project].name, 'test project2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getProjectListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getProjectListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(projects) {
+            console.log(projects)
+            for (const project in projects) {
+              if (projects[project].avatar === user.uid) {
+                console.log('project.id=' + projects[project].id)
+                console.log('project.name=' + projects[project].name)
+                test.equal(projects[project].name, 'test project2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getTalentByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentByKey('-LbW06_C0f7YZbS0UVec', function(talent) {
+            console.log(talent)
+            if (talent.avatar === user.uid) {
+              console.log('talent.id=' + talent.id)
+              console.log('talent.name=' + talent.name)
+              test.equal(talent.name, 'test talent2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getTalentListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentListByType('1', function(talents) {
+            console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                console.log('talent.id=' + talents[talent].id)
+                console.log('talent.name=' + talents[talent].name)
+                test.equal(talents[talent].name, 'test talent2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getTalentListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getTalentListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(talents) {
+            console.log(talents)
+            for (const talent in talents) {
+              if (talents[talent].avatar === user.uid) {
+                console.log('talent.id=' + talents[talent].id)
+                console.log('talent.name=' + talents[talent].name)
+                test.equal(talents[talent].name, 'test talent2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getConsultantByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantByKey('-LbW06mrQIcnI-hUSrnL', function(consultant) {
+            console.log(consultant)
+            if (consultant.avatar === user.uid) {
+              console.log('consultant.id=' + consultant.id)
+              console.log('consultant.name=' + consultant.name)
+              test.equal(consultant.name, 'test consultant2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getConsultantListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantListByType('1', function(consultants) {
+            console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                console.log('consultant.id=' + consultants[consultant].id)
+                console.log('consultant.name=' + consultants[consultant].name)
+                test.equal(consultants[consultant].name, 'test consultant2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getConsultantListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getConsultantListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(consultants) {
+            console.log(consultants)
+            for (const consultant in consultants) {
+              if (consultants[consultant].avatar === user.uid) {
+                console.log('consultant.id=' + consultants[consultant].id)
+                console.log('consultant.name=' + consultants[consultant].name)
+                test.equal(consultants[consultant].name, 'test consultant2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getDispatcherByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherByKey('-LbW07-Ak4hTKCxzuXdf', function(dispatcher) {
+            console.log(dispatcher)
+            if (dispatcher.avatar === user.uid) {
+              console.log('dispatcher.id=' + dispatcher.id)
+              console.log('dispatcher.name=' + dispatcher.name)
+              test.equal(dispatcher.name, 'test dispatcher2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getDispatcherListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherListByType('1', function(dispatchers) {
+            console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                console.log('dispatcher.id=' + dispatchers[dispatcher].id)
+                console.log('dispatcher.name=' + dispatchers[dispatcher].name)
+                test.equal(dispatchers[dispatcher].name, 'test dispatcher2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getDispatcherListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getDispatcherListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(dispatchers) {
+            console.log(dispatchers)
+            for (const dispatcher in dispatchers) {
+              if (dispatchers[dispatcher].avatar === user.uid) {
+                console.log('dispatcher.id=' + dispatchers[dispatcher].id)
+                console.log('dispatcher.name=' + dispatchers[dispatcher].name)
+                test.equal(dispatchers[dispatcher].name, 'test dispatcher2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeByKey('-LbW07Cj8C37LDyZeKHF', function(knowledge) {
+            console.log(knowledge)
+            if (knowledge.avatar === user.uid) {
+              console.log('knowledge.id=' + knowledge.id)
+              console.log('knowledge.name=' + knowledge.name)
+              test.equal(knowledge.name, 'test knowledge2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeListByType('1', function(knowledges) {
+            console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                console.log('knowledge.id=' + knowledges[knowledge].id)
+                console.log('knowledge.name=' + knowledges[knowledge].name)
+                test.equal(knowledges[knowledge].name, 'test knowledge2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(knowledges) {
+            console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                console.log('knowledge.id=' + knowledges[knowledge].id)
+                console.log('knowledge.name=' + knowledges[knowledge].name)
+                test.equal(knowledges[knowledge].name, 'test knowledge2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolByKey('-LbW07QDVIQO5CWJ6-Xy', function(tool) {
+            console.log(tool)
+            if (tool.avatar === user.uid) {
+              console.log('tool.id=' + tool.id)
+              console.log('tool.name=' + tool.name)
+              test.equal(tool.name, 'test tool2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolListByType('1', function(tools) {
+            console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                console.log('tool.id=' + tools[tool].id)
+                console.log('tool.name=' + tools[tool].name)
+                test.equal(tools[tool].name, 'test tool2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(tools) {
+            console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                console.log('tool.id=' + tools[tool].id)
+                console.log('tool.name=' + tools[tool].name)
+                test.equal(tools[tool].name, 'test tool2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolByKey('-LbW07QDVIQO5CWJ6-Xy', function(tool) {
+            console.log(tool)
+            if (tool.avatar === user.uid) {
+              console.log('tool.id=' + tool.id)
+              console.log('tool.name=' + tool.name)
+              test.equal(tool.name, 'test tool2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolListByType('1', function(tools) {
+            console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                console.log('tool.id=' + tools[tool].id)
+                console.log('tool.name=' + tools[tool].name)
+                test.equal(tools[tool].name, 'test tool2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getToolListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getToolListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(tools) {
+            console.log(tools)
+            for (const tool in tools) {
+              if (tools[tool].avatar === user.uid) {
+                console.log('tool.id=' + tools[tool].id)
+                console.log('tool.name=' + tools[tool].name)
+                test.equal(tools[tool].name, 'test tool2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getEventByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventByKey('-LbW07cKyWoNzVpJvAZ5', function(event) {
+            console.log(event)
+            if (event.avatar === user.uid) {
+              console.log('event.id=' + event.id)
+              console.log('event.name=' + event.name)
+              test.equal(event.name, 'test event2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getEventListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventListByType('1', function(events) {
+            console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                console.log('event.id=' + events[event].id)
+                console.log('event.name=' + events[event].name)
+                test.equal(events[event].name, 'test event2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getEventListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getEventListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(events) {
+            console.log(events)
+            for (const event in events) {
+              if (events[event].avatar === user.uid) {
+                console.log('event.id=' + events[event].id)
+                console.log('event.name=' + events[event].name)
+                test.equal(events[event].name, 'test event2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}

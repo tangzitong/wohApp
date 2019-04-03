@@ -1022,6 +1022,30 @@ Firechat.prototype.getJobList = function(cb) {
   })
 }
 
+Firechat.prototype.getJobByKey = function(jobKey, cb) {
+  const self = this
+
+  self._jobsRef.child('data').child(jobKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getJobListByType = function(jobType, cb) {
+  const self = this
+
+  self._jobsRef.child('data').orderByChild('jobtype').equalTo(jobType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getJobListByOwner = function(owner, cb) {
+  const self = this
+
+  self._jobsRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeJob = function(jobKey, callback) {
   const self = this
   self._jobsRef.child('data').child(jobKey).remove(function(error) {
@@ -1456,6 +1480,30 @@ Firechat.prototype.getProjectList = function(cb) {
   })
 }
 
+Firechat.prototype.getProjectByKey = function(projectKey, cb) {
+  const self = this
+
+  self._projectsRef.child('data').child(projectKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getProjectListByType = function(projectType, cb) {
+  const self = this
+
+  self._projectsRef.child('data').orderByChild('projecttype').equalTo(projectType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getProjectListByOwner = function(owner, cb) {
+  const self = this
+
+  self._projectsRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeProject = function(projectKey, callback) {
   const self = this
   self._projectsRef.child('data').child(projectKey).remove(function(error) {
@@ -1657,6 +1705,30 @@ Firechat.prototype.getTalentList = function(cb) {
   const self = this
 
   self._talentsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getTalentByKey = function(talentKey, cb) {
+  const self = this
+
+  self._talentsRef.child('data').child(talentKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getTalentListByType = function(talentType, cb) {
+  const self = this
+
+  self._talentsRef.child('data').orderByChild('talenttype').equalTo(talentType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getTalentListByOwner = function(owner, cb) {
+  const self = this
+
+  self._talentsRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1866,6 +1938,30 @@ Firechat.prototype.getConsultantList = function(cb) {
   })
 }
 
+Firechat.prototype.getConsultantByKey = function(consultantKey, cb) {
+  const self = this
+
+  self._consultantsRef.child('data').child(consultantKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getConsultantListByType = function(consultantType, cb) {
+  const self = this
+
+  self._consultantsRef.child('data').orderByChild('consultanttype').equalTo(consultantType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getConsultantListByOwner = function(owner, cb) {
+  const self = this
+
+  self._consultantsRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeConsultant = function(consultantKey, callback) {
   const self = this
   self._consultantsRef.child('data').child(consultantKey).remove(function(error) {
@@ -2067,6 +2163,30 @@ Firechat.prototype.getDispatcherList = function(cb) {
   const self = this
 
   self._dispatchersRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getDispatcherByKey = function(dispatcherKey, cb) {
+  const self = this
+
+  self._dispatchersRef.child('data').child(dispatcherKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getDispatcherListByType = function(dispatcherType, cb) {
+  const self = this
+
+  self._dispatchersRef.child('data').orderByChild('dispatchertype').equalTo(dispatcherType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getDispatcherListByOwner = function(owner, cb) {
+  const self = this
+
+  self._dispatchersRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2276,6 +2396,30 @@ Firechat.prototype.getKnowledgeList = function(cb) {
   })
 }
 
+Firechat.prototype.getKnowledgeByKey = function(knowledgeKey, cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').child(knowledgeKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getKnowledgeListByType = function(knowledgeType, cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').orderByChild('knowledgetype').equalTo(knowledgeType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getKnowledgeListByOwner = function(owner, cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeKnowledge = function(knowledgeKey, callback) {
   const self = this
   self._knowledgesRef.child('data').child(knowledgeKey).remove(function(error) {
@@ -2481,6 +2625,30 @@ Firechat.prototype.getToolList = function(cb) {
   })
 }
 
+Firechat.prototype.getToolByKey = function(toolKey, cb) {
+  const self = this
+
+  self._toolsRef.child('data').child(toolKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getToolListByType = function(toolType, cb) {
+  const self = this
+
+  self._toolsRef.child('data').orderByChild('tooltype').equalTo(toolType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getToolListByOwner = function(owner, cb) {
+  const self = this
+
+  self._toolsRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeTool = function(toolKey, callback) {
   const self = this
   self._toolsRef.child('data').child(toolKey).remove(function(error) {
@@ -2682,6 +2850,30 @@ Firechat.prototype.getEventList = function(cb) {
   const self = this
 
   self._eventsRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getEventByKey = function(eventKey, cb) {
+  const self = this
+
+  self._eventsRef.child('data').child(eventKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getEventListByType = function(eventType, cb) {
+  const self = this
+
+  self._eventsRef.child('data').orderByChild('eventtype').equalTo(eventType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getEventListByOwner = function(owner, cb) {
+  const self = this
+
+  self._eventsRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
