@@ -1566,7 +1566,6 @@ exports['removeProject'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
 
 exports['createTalent'] = function(test) {
   auth.onAuthStateChanged(function(user) {
@@ -3238,6 +3237,588 @@ exports['removeEvent'] = function(test) {
                 chat.removeEvent(events[event].id, function() {
                   test.done()
                 })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateJob'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test job',
+            jobtype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createJob(data, jobkey => {
+            database.ref().child('jobs').child('data').child(jobkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test job')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test job2',
+                jobtype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateJob(jobkey, data2, jobkey2 => {
+                database.ref().child('jobs').child('data').child(jobkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test job2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateCompany'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test company',
+            companytype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createCompany(data, companykey => {
+            database.ref().child('companys').child('data').child(companykey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test company')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test company2',
+                companytype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateCompany(companykey, data2, companykey2 => {
+                database.ref().child('companys').child('data').child(companykey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test company2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateProject'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test project',
+            projecttype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createProject(data, projectkey => {
+            database.ref().child('projects').child('data').child(projectkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test project')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test project2',
+                projecttype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateProject(projectkey, data2, projectkey2 => {
+                database.ref().child('projects').child('data').child(projectkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test project2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateTalent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test talent',
+            talenttype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createTalent(data, talentkey => {
+            database.ref().child('talents').child('data').child(talentkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test talent')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test talent2',
+                talenttype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateTalent(talentkey, data2, talentkey2 => {
+                database.ref().child('talents').child('data').child(talentkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test talent2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateConsultant'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test consultant',
+            consultanttype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createConsultant(data, consultantkey => {
+            database.ref().child('consultants').child('data').child(consultantkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test consultant')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test consultant2',
+                consultanttype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateConsultant(consultantkey, data2, consultantkey2 => {
+                database.ref().child('consultants').child('data').child(consultantkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test consultant2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateDispatcher'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test dispatcher',
+            dispatchertype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createDispatcher(data, dispatcherkey => {
+            database.ref().child('dispatchers').child('data').child(dispatcherkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test dispatcher')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test dispatcher2',
+                dispatchertype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateDispatcher(dispatcherkey, data2, dispatcherkey2 => {
+                database.ref().child('dispatchers').child('data').child(dispatcherkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test dispatcher2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateKnowledge'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test knowledge',
+            knowledgetype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createKnowledge(data, knowledgekey => {
+            database.ref().child('knowledges').child('data').child(knowledgekey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test knowledge')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test knowledge2',
+                knowledgetype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateKnowledge(knowledgekey, data2, knowledgekey2 => {
+                database.ref().child('knowledges').child('data').child(knowledgekey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test knowledge2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateTool'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test tool',
+            tooltype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createTool(data, toolkey => {
+            database.ref().child('tools').child('data').child(toolkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test tool')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test tool2',
+                tooltype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateTool(toolkey, data2, toolkey2 => {
+                database.ref().child('tools').child('data').child(toolkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test tool2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateEvent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          const data = {
+            name: 'test event',
+            eventtype: '1',
+            industry: '1',
+            area: '1',
+            address: '11',
+            Tel: '1',
+            Fax: '1',
+            Manager: '1',
+            HP: '1',
+            photo: ''
+          }
+          chat.createEvent(data, eventkey => {
+            database.ref().child('events').child('data').child(eventkey).once('value', function(snapshot2) {
+              console.log('snapshot2.name=' + snapshot2.child('name').val())
+              console.log('snapshot2.nickname=' + snapshot2.child('nickname').val())
+              test.equal(snapshot2.child('name').val(), 'test event')
+              test.equal(snapshot2.child('nickname').val(), snapshot.child('name').val())
+              const data2 = {
+                name: 'test event2',
+                eventtype: '1',
+                industry: '1',
+                area: '1',
+                address: '11',
+                Tel: '1',
+                Fax: '1',
+                Manager: '1',
+                HP: '1',
+                photo: ''
+              }
+              chat.updateEvent(eventkey, data2, eventkey2 => {
+                database.ref().child('events').child('data').child(eventkey2).once('value', function(snapshot3) {
+                  console.log('snapshot3.name=' + snapshot3.child('name').val())
+                  console.log('snapshot3.nickname=' + snapshot3.child('nickname').val())
+                  test.equal(snapshot3.child('name').val(), 'test event2')
+                  test.equal(snapshot3.child('nickname').val(), snapshot.child('name').val())
+                  test.done()
+                })
+              })
+            })
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+*/
+exports['getCompanyByKey'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyByKey('-LbW068uZTzWv84W5fNq', function(company) {
+            console.log(company)
+            if (company.avatar === user.uid) {
+              console.log('company.id=' + company.id)
+              console.log('company.name=' + company.name)
+              test.equal(company.name, 'test company2')
+              test.done()
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getCompanyListByType'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyListByType('1', function(companys) {
+            console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                console.log('company.id=' + companys[company].id)
+                console.log('company.name=' + companys[company].name)
+                test.equal(companys[company].name, 'test company2')
+                test.done()
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getCompanyListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getCompanyListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(companys) {
+            console.log(companys)
+            for (const company in companys) {
+              if (companys[company].avatar === user.uid) {
+                console.log('company.id=' + companys[company].id)
+                console.log('company.name=' + companys[company].name)
+                test.equal(companys[company].name, 'test company2')
+                test.done()
+                break
               }
             }
           })

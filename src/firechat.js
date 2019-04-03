@@ -932,6 +932,33 @@ Firechat.prototype.createJob = function(data, callback) {
   })
 }
 
+Firechat.prototype.updateJob = function(jobKey, data, callback) {
+  const self = this
+  const newJobRef = self._jobsRef.child('data').child(jobKey)
+
+  const newJob = {
+    name: data.name,
+    jobtype: data.jobtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newJobRef.update(newJob, function(error) {
+    if (!error) {
+      callback(newJobRef.key)
+    }
+  })
+}
+
 Firechat.prototype.addJobApplication = function(jobKey, applications, callback) {
   const self = this
   const newApplcationsRef = self._jobsRef.child('data').child(jobKey).child('applications').push()
@@ -1110,6 +1137,33 @@ Firechat.prototype.createCompany = function(data, callback) {
   })
 }
 
+Firechat.prototype.updateCompany = function(companyKey, data, callback) {
+  const self = this
+  const newCompanyRef = self._companysRef.child('data').child(companyKey)
+
+  const newCompany = {
+    name: data.name,
+    companytype: data.companytype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newCompanyRef.update(newCompany, function(error) {
+    if (!error) {
+      callback(newCompanyRef.key)
+    }
+  })
+}
+
 Firechat.prototype.addCompanyApplication = function(companyKey, applications, callback) {
   const self = this
   const newApplcationsRef = self._companysRef.child('data').child(companyKey).child('applications').push()
@@ -1169,6 +1223,30 @@ Firechat.prototype.getCompanyList = function(cb) {
   const self = this
 
   self._companysRef.child('data').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getCompanyByKey = function(companyKey, cb) {
+  const self = this
+
+  self._companysRef.child('data').child(companyKey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getCompanyListByType = function(companyType, cb) {
+  const self = this
+
+  self._companysRef.child('data').orderByChild('companytype').equalTo(companyType).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getCompanyListByOwner = function(owner, cb) {
+  const self = this
+
+  self._companysRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1284,6 +1362,33 @@ Firechat.prototype.createProject = function(data, callback) {
           callback(newProjectRef.key)
         }
       })
+    }
+  })
+}
+
+Firechat.prototype.updateProject = function(projectKey, data, callback) {
+  const self = this
+  const newProjectRef = self._projectsRef.child('data').child(projectKey)
+
+  const newProject = {
+    name: data.name,
+    projecttype: data.projecttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newProjectRef.update(newProject, function(error) {
+    if (!error) {
+      callback(newProjectRef.key)
     }
   })
 }
@@ -1466,6 +1571,33 @@ Firechat.prototype.createTalent = function(data, callback) {
   })
 }
 
+Firechat.prototype.updateTalent = function(talentKey, data, callback) {
+  const self = this
+  const newTalentRef = self._talentsRef.child('data').child(talentKey)
+
+  const newTalent = {
+    name: data.name,
+    talenttype: data.talenttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newTalentRef.update(newTalent, function(error) {
+    if (!error) {
+      callback(newTalentRef.key)
+    }
+  })
+}
+
 Firechat.prototype.addTalentApplication = function(talentKey, applications, callback) {
   const self = this
   const newApplcationsRef = self._talentsRef.child('data').child(talentKey).child('applications').push()
@@ -1640,6 +1772,33 @@ Firechat.prototype.createConsultant = function(data, callback) {
           callback(newConsultantRef.key)
         }
       })
+    }
+  })
+}
+
+Firechat.prototype.updateConsultant = function(consultantKey, data, callback) {
+  const self = this
+  const newConsultantRef = self._consultantsRef.child('data').child(consultantKey)
+
+  const newConsultant = {
+    name: data.name,
+    consultanttype: data.consultanttype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newConsultantRef.update(newConsultant, function(error) {
+    if (!error) {
+      callback(newConsultantRef.key)
     }
   })
 }
@@ -1822,6 +1981,33 @@ Firechat.prototype.createDispatcher = function(data, callback) {
   })
 }
 
+Firechat.prototype.updateDispatcher = function(dispatcherKey, data, callback) {
+  const self = this
+  const newDispatcherRef = self._dispatchersRef.child('data').child(dispatcherKey)
+
+  const newDispatcher = {
+    name: data.name,
+    dispatchertype: data.dispatchertype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newDispatcherRef.update(newDispatcher, function(error) {
+    if (!error) {
+      callback(newDispatcherRef.key)
+    }
+  })
+}
+
 Firechat.prototype.addDispatcherApplication = function(dispatcherKey, applications, callback) {
   const self = this
   const newApplcationsRef = self._dispatchersRef.child('data').child(dispatcherKey).child('applications').push()
@@ -1996,6 +2182,33 @@ Firechat.prototype.createKnowledge = function(data, callback) {
           callback(newKnowledgeRef.key)
         }
       })
+    }
+  })
+}
+
+Firechat.prototype.updateKnowledge = function(knowledgeKey, data, callback) {
+  const self = this
+  const newKnowledgeRef = self._knowledgesRef.child('data').child(knowledgeKey)
+
+  const newKnowledge = {
+    name: data.name,
+    knowledgetype: data.knowledgetype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newKnowledgeRef.update(newKnowledge, function(error) {
+    if (!error) {
+      callback(newKnowledgeRef.key)
     }
   })
 }
@@ -2178,6 +2391,33 @@ Firechat.prototype.createTool = function(data, callback) {
   })
 }
 
+Firechat.prototype.updateTool = function(toolKey, data, callback) {
+  const self = this
+  const newToolRef = self._toolsRef.child('data').child(toolKey)
+
+  const newTool = {
+    name: data.name,
+    tooltype: data.tooltype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newToolRef.update(newTool, function(error) {
+    if (!error) {
+      callback(newToolRef.key)
+    }
+  })
+}
+
 Firechat.prototype.addToolApplication = function(toolKey, applications, callback) {
   const self = this
   const newApplcationsRef = self._toolsRef.child('data').child(toolKey).child('applications').push()
@@ -2352,6 +2592,33 @@ Firechat.prototype.createEvent = function(data, callback) {
           callback(newEventRef.key)
         }
       })
+    }
+  })
+}
+
+Firechat.prototype.updateEvent = function(eventKey, data, callback) {
+  const self = this
+  const newEventRef = self._eventsRef.child('data').child(eventKey)
+
+  const newEvent = {
+    name: data.name,
+    eventtype: data.eventtype,
+    industry: data.industry,
+    area: data.area,
+    address: data.address,
+    Tel: data.Tel,
+    Fax: data.Fax,
+    Manager: data.Manager,
+    HP: data.HP,
+    photo: data.photo,
+    avatar: this._userId,
+    nickname: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newEventRef.update(newEvent, function(error) {
+    if (!error) {
+      callback(newEventRef.key)
     }
   })
 }

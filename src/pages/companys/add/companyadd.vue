@@ -33,14 +33,14 @@
         <input type="text" :placeholder="$t('company.HP_')" @input="HP = $event.target.value" />
       </f7-list-item>
     </f7-list>
-    <f7-block v-if="$root.user">
+    <f7-block v-if="isUserLogin">
       <f7-button big raised color="green" fill @click="updateCompany">{{$t('company.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="$root.user">
+    <f7-block v-if="isUserLogin">
       <imageuploader
-        :store="'companys/' + $root.user.uid"
-        :db="'companys/' + $root.user.uid + '/photo'" />
+        :store="'companys/' + userid"
+        :db="'companys/' + userid + '/photo'" />
     </f7-block>
 
     <!-- Image -->
@@ -51,7 +51,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import imageuploader from '../../../popup/imageuploader'
 import { getIndustryConfig, getAreaConfig } from '@/code'
 
@@ -65,12 +64,13 @@ export default {
       Fax: '',
       Manager: '',
       HP: '',
-      like: 0,
       showSuccess: null,
       photo: null,
       companytype: '',
       industry: '1',
-      area: '1'
+      area: '1',
+      isUserLogin: !!window.user,
+      userid: null
     }
   },
   created() {
@@ -79,9 +79,14 @@ export default {
   },
   // Update user name, title and photo from Firebase
   mounted: function () {
+    const query = this.$f7route.query
+    this.id = query.mid
+    this.companytype = query.companytype
+    if (this.isUserLogin) {
+      this.userid = window.user.uid
+    }
     if (this.id) {
-      window.db('companys/' + window.user.uid + '/' + this.id).on('value', snapshot => {
-        const data = snapshot.val()
+      this.$root.chat.getCompanyByKey(this.id, data => {
         if (data) {
           this.name = data.name
           this.address = data.address
@@ -89,46 +94,42 @@ export default {
           this.Fax = data.Fax
           this.Manager = data.Manager
           this.HP = data.HP
-          this.like = data.like
           this.photo = data.photo
-          this.companytype = data.companytype
         }
       })
     }
   },
-  computed: {
-    ...mapState(['updateCompany'])
-  },
   methods: {
     updateCompany() {
       if (this.id) {
-        this.$store.dispatch('updateCompany', {
-          id: this.id,
+        this.$root.chat.updateCompany(this.id, {
           name: this.name,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
           Manager: this.Manager,
           HP: this.HP,
-          like: this.like,
           photo: this.photo,
           companytype: this.companytype,
           area: this.area,
           industry: this.industry
+        }, function(companyKey) {
+          console.log('update success')
         })
       } else {
-        this.$store.dispatch('addCompany', {
+        this.$root.chat.createCompany({
           name: this.name,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
           Manager: this.Manager,
           HP: this.HP,
-          like: this.like,
           photo: this.photo,
           companytype: this.companytype,
           area: this.area,
           industry: this.industry
+        }, function(companyKey) {
+          console.log('add success')
         })
       }
 
@@ -138,7 +139,6 @@ export default {
       this.Fax = ''
       this.Manager = ''
       this.HP = ''
-      this.like = ''
       this.photo = ''
       this.showSuccess = true
 
