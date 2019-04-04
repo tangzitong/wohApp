@@ -97,3 +97,19 @@ export function getIndustryConfig() {
 export function setIndustryConfig(industry) {
   cache.set('industry', industry)
 }
+
+export function setDataType(datatype) {
+  cache.set('datatype', datatype)
+}
+
+export function getDataType() {
+  return cache.get('datatype')
+}
+
+export function setDataId(dataid) {
+  cache.set('dataid', dataid)
+}
+
+export function getDataId() {
+  return cache.get('dataid')
+}

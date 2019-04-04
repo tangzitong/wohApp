@@ -115,6 +115,7 @@
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapActions } from 'vuex'
+import { setDataType, setDataId } from '@/code'
 
 export default {
   props: {
@@ -138,6 +139,8 @@ export default {
       'updateApplication'
     ]),
     applicationCompany() {
+      setDataType('Company')
+      setDataId(this.id)
       this.updateApplication({
         key: 'applicationOpened',
         value: true
