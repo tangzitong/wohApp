@@ -114,6 +114,7 @@
 <script>
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
+import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -129,11 +130,18 @@ export default {
     },
     isOwner: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   methods: {
+    ...mapActions([
+      'updateApplication'
+    ]),
     applicationCompany() {
+      this.updateApplication({
+        key: 'applicationOpened',
+        value: true
+      })
     },
     updateCompany() {
       this.$f7router.navigate(`/companys/add/?mid=${this.id}`)
@@ -155,15 +163,14 @@ export default {
       pb.open()
     },
     formatTime(time) {
-      return distanceInWordsToNow(time * 1000, { addSuffix: true })
+      return distanceInWordsToNow(time / (24 * 3600), { addSuffix: true })
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
-        mid,
-        type: status ? 'unlike' : 'like'
+      this.$root.chat.likeCompany(mid, function(likeKey) {
+        console.log('delete success')
       })
     }
   }

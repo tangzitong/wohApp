@@ -39,7 +39,7 @@ export default {
     },
     closeApplication() {
       this.updateApplication({
-        key: 'ApplicationOpened',
+        key: 'applicationOpened',
         value: false
       })
     }
