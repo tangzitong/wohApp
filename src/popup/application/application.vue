@@ -59,7 +59,7 @@ export default {
           })
           break
         case 'Talent':
-          this.$root.chat.addTalentlication(id_, this.text, function(applicationkey) {
+          this.$root.chat.addTalentApplication(id_, this.text, function(applicationkey) {
             console.log('Add Talent Application success')
           })
           break
@@ -69,22 +69,22 @@ export default {
           })
           break
         case 'Consultant':
-          this.$root.chat.adConsultantApplication(id_, this.text, function(applicationkey) {
+          this.$root.chat.addConsultantApplication(id_, this.text, function(applicationkey) {
             console.log('Add Consultant Application success')
           })
           break
         case 'Knowledge':
-          this.$root.chat.adKnowledgeApplication(id_, this.text, function(applicationkey) {
+          this.$root.chat.addKnowledgeApplication(id_, this.text, function(applicationkey) {
             console.log('Add Knowledge Application success')
           })
           break
         case 'Tool':
-          this.$root.chat.adToolApplication(id_, this.text, function(applicationkey) {
+          this.$root.chat.addToolApplication(id_, this.text, function(applicationkey) {
             console.log('Add Tool Application success')
           })
           break
         case 'Event':
-          this.$root.chat.adEventApplication(id_, this.text, function(applicationkey) {
+          this.$root.chat.addEventApplication(id_, this.text, function(applicationkey) {
             console.log('Add Event Application success')
           })
           break
