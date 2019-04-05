@@ -105,11 +105,3 @@ export function setDataType(datatype) {
 export function getDataType() {
   return cache.get('datatype')
 }
-
-export function setDataId(dataid) {
-  cache.set('dataid', dataid)
-}
-
-export function getDataId() {
-  return cache.get('dataid')
-}

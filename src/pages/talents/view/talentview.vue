@@ -131,7 +131,7 @@
 
 <script>
 import axios from 'axios'
-import Talent from '@/components/resume'
+import Talent from '@/components/talent'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapState, mapActions } from 'vuex'

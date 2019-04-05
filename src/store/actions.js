@@ -761,26 +761,76 @@ export function updateProjects({ commit }, { mid, type }) {
   })
 }
 
-export function initResumes({ commit }, resumes) {
-  commit(types.INIT_RESUMES, {
-    resumes
+export function initTalents({ commit }, talents) {
+  commit(types.INIT_TALENTS, {
+    talents
   })
 }
 
-export function infiniteResumes({ commit }, resumes) {
-  commit(types.APPEND_RESUMES, {
-    resumes
+export function infiniteTalents({ commit }, talents) {
+  commit(types.APPEND_TALENTS, {
+    talents
   })
 }
 
-export function refreshResumes({ commit }, resumes) {
-  commit(types.PREPEND_RESUMES, {
-    resumes
+export function refreshTalents({ commit }, talents) {
+  commit(types.PREPEND_TALENTS, {
+    talents
   })
 }
 
-export function updateResumes({ commit }, { mid, type }) {
-  commit(types.UPDATE_RESUMES, {
+export function updateTalents({ commit }, { mid, type }) {
+  commit(types.UPDATE_TALENTS, {
+    mid,
+    type
+  })
+}
+
+export function initConsultants({ commit }, consultants) {
+  commit(types.INIT_CONSULTANTS, {
+    consultants
+  })
+}
+
+export function infiniteConsultants({ commit }, consultants) {
+  commit(types.APPEND_CONSULTANTS, {
+    consultants
+  })
+}
+
+export function refreshConsultants({ commit }, consultants) {
+  commit(types.PREPEND_CONSULTANTS, {
+    consultants
+  })
+}
+
+export function updateConsultants({ commit }, { mid, type }) {
+  commit(types.UPDATE_CONSULTANTS, {
+    mid,
+    type
+  })
+}
+
+export function initDispatchers({ commit }, dispatchers) {
+  commit(types.INIT_DISPATCHERS, {
+    dispatchers
+  })
+}
+
+export function infiniteDispatchers({ commit }, dispatchers) {
+  commit(types.APPEND_DISPATCHERS, {
+    dispatchers
+  })
+}
+
+export function refreshDispatchers({ commit }, dispatchers) {
+  commit(types.PREPEND_DISPATCHERS, {
+    dispatchers
+  })
+}
+
+export function updateDispatchers({ commit }, { mid, type }) {
+  commit(types.UPDATE_DISPATCHERS, {
     mid,
     type
   })

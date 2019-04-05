@@ -1,18 +1,18 @@
 <template>
-  <f7-page id="resumesView" class="resumes-view"
+  <f7-page id="dispatchersView" class="dispatchers-view"
            ptr
            infinite
            @ptr:refresh="onRefresh"
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.dispatchers')" :back-link="$t('app.back')">
     </f7-navbar>
-    <resume v-for="item in resumes" :key="item.id" :data="item" @resume:content-click="routeToPost"></resume>
+    <dispatcher v-for="item in dispatchers" :key="item.id" :data="item" @dispatcher:content-click="routeToPost"></dispatcher>
   </f7-page>
 </template>
 
 <script>
 import axios from 'axios'
-import Resume from '@/components/resume'
+import Dispatcher from '@/components/dispatcher'
 import { mapState, mapActions } from 'vuex'
 
 export default {
@@ -25,23 +25,23 @@ export default {
   },
   computed: {
     ...mapState({
-      resumes: state => state.resumes,
+      dispatchers: state => state.dispatchers,
     })
   },
   mounted() {
-    this.getResumes()
+    this.getDispatchers()
   },
   methods: {
     ...mapActions([
-      'initResumes',
-      'infiniteResumes',
-      'refreshResumes'
+      'initDispatchers',
+      'infiniteDispatchers',
+      'refreshDispatchers'
     ]),
-    getResumes() {
+    getDispatchers() {
       this.$f7.preloader.show()
-      axios.get('/resumes.json').then(res => {
-        const resumes = res.data
-        this.initResumes(resumes)
+      axios.get('/dispatchers.json').then(res => {
+        const dispatchers = res.data
+        this.initDispatchers(dispatchers)
         this.$f7.preloader.hide()
       })
     },
@@ -49,12 +49,12 @@ export default {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/resumes.json').then(res => {
-        if (parseInt(this.resumes[0].id) === 48) {
+      axios.get('/dispatchers.json').then(res => {
+        if (parseInt(this.dispatchers[0].id) === 48) {
           this.$emit('show-tip')
         } else {
-          const resumes = res.data
-          this.refreshResumes(resumes)
+          const dispatchers = res.data
+          this.refreshDispatchers(dispatchers)
         }
         this.refreshing = false
         this.$f7.ptr.done()
@@ -64,15 +64,15 @@ export default {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/resumes.json').then(res => {
-        const id = parseInt(this.resumes[this.resumes.length - 1].id)
+      axios.get('/dispatchers.json').then(res => {
+        const id = parseInt(this.dispatchers[this.dispatchers.length - 1].id)
         if (id === 24) {
           this.loadedEnd = true
           this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
           this.$$('#homeView .infinite-scroll-preloader').remove()
         } else {
-          const resumes = res.data
-          this.infiniteResumes(resumes)
+          const dispatchers = res.data
+          this.infiniteDispatchers(dispatchers)
         }
         this.loadingMore = false
       })
@@ -82,7 +82,7 @@ export default {
     }
   },
   components: {
-    Resume
+    Dispatcher
   }
 }
 </script>

@@ -2,22 +2,26 @@
   <div class="job post-job" @click="contentClick(data)">
     <div class="job-header">
       <div class="avatar">
-        <img :src="getAvatar(data.id)" alt="Image">
+        <img :src="getAvatar(data.avatar)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{data.title}}</div>
-        <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
+        <div class="name">{{data.name}}</div>
+        <div class="time">{{`#${data.nickname} `}}{{formatTime(data.created_at)}}</div>
       </div>
     </div>
     <div class="job-content">
-      <div class="text">{{data.Content}}</div>
-      <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
-        <img :src="data.Image">
+      <div class="text">{{data.address}}</div>
+      <div v-if="data.photo" class="image" @click.stop="openPhotoBrowser(data.photo)">
+        <img :src="data.photo">
       </div>
+      <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
+      <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
+      <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
+      <div v-if="data.HP" class="link" @click.stop="openPhotoBrowser(data.HP)">HP:{{data.HP}}</div>
     </div>
     <div class="job-footer flex-row" v-if="enableToolbar">
       <f7-button big raised color="green" fill @click="applicationJob">{{$t('job.application')}}</f7-button>
-      <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
+      <f7-link class="tool flex-rest-width" :class="{liked: data.like_count}" @click.stop="toggleLike(data.id, data.like_count)">
         <span class="iconfont icon-like"></span>
         <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('job.like')"></span>
       </f7-link>
@@ -110,6 +114,7 @@
 <script>
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
+import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -129,11 +134,26 @@ export default {
     }
   },
   methods: {
-    applicatoinJob() {
+    ...mapActions([
+      'updateApplication'
+    ]),
+    applicationJob() {
+      this.updateApplication({
+        key1: 'applicationOpened',
+        value1: true,
+        key2: 'applicationType',
+        value2: 'Job',
+        key3: 'applicationKey',
+        value3: `${this.data.id}`
+      })
     },
     updateJob() {
+      this.$f7router.navigate(`/jobs/add/?mid=${this.data.id}`)
     },
-    deletejob() {
+    deleteJob() {
+      this.$root.chat.removeJob(`${this.data.id}`, function() {
+        console.log('delete success')
+      })
     },
     contentClick(data) {
       this.$emit('card:content-click', data)
@@ -147,15 +167,14 @@ export default {
       pb.open()
     },
     formatTime(time) {
-      return distanceInWordsToNow(time * 1000, { addSuffix: true })
+      return distanceInWordsToNow(time / (24 * 3600), { addSuffix: true })
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
-        mid,
-        type: status ? 'unlike' : 'like'
+      this.$root.chat.likeJob(mid, function(likeKey) {
+        console.log('delete success')
       })
     }
   }

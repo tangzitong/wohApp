@@ -111,17 +111,67 @@ export default {
     // Yes, Object.assign can update state and UI component at same time.
     item = Object.assign(item, update)
   },
-  [types.INIT_RESUMES](state, { resumes }) {
-    Vue.set(state, 'resumes', resumes)
+  [types.INIT_TALENTS](state, { talents }) {
+    Vue.set(state, 'talents', talents)
   },
-  [types.APPEND_RESUMES](state, { resumes }) {
-    Vue.set(state, 'resumes', [...state.resumes, ...resumes])
+  [types.APPEND_TALENTS](state, { talents }) {
+    Vue.set(state, 'talents', [...state.talents, ...talents])
   },
-  [types.PREPEND_RESUMES](state, { resumes }) {
-    Vue.set(state, 'resumes', [...resumes, ...state.resumes])
+  [types.PREPEND_TALENTS](state, { talents }) {
+    Vue.set(state, 'talents', [...talents, ...state.talents])
   },
-  [types.UPDATE_RESUMES](state, { mid, type }) {
-    let item = find(state.projects, p => p.id === mid)
+  [types.UPDATE_TALENTS](state, { mid, type }) {
+    let item = find(state.talents, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_CONSULTANTS](state, { consultants }) {
+    Vue.set(state, 'consultants', consultants)
+  },
+  [types.APPEND_CONSULTANTS](state, { consultants }) {
+    Vue.set(state, 'consultants', [...state.consultants, ...consultants])
+  },
+  [types.PREPEND_CONSULTANTS](state, { consultants }) {
+    Vue.set(state, 'consultants', [...consultants, ...state.consultants])
+  },
+  [types.UPDATE_CONSULTANTS](state, { mid, type }) {
+    let item = find(state.consultants, p => p.id === mid)
+    const update = {}
+    switch (type) {
+      case 'like':
+        update.like_count = item.like_count + 1
+        update.liked = true
+        break
+      case 'unlike':
+        update.like_count = item.like_count - 1
+        update.liked = false
+        break
+    }
+    // Yes, Object.assign can update state and UI component at same time.
+    item = Object.assign(item, update)
+  },
+  [types.INIT_DISPATCHERS](state, { dispatchers }) {
+    Vue.set(state, 'dispatchers', dispatchers)
+  },
+  [types.APPEND_DISPATCHERS](state, { dispatchers }) {
+    Vue.set(state, 'dispatchers', [...state.dispatchers, ...dispatchers])
+  },
+  [types.PREPEND_DISPATCHERS](state, { dispatchers }) {
+    Vue.set(state, 'dispatchers', [...dispatchers, ...state.dispatchers])
+  },
+  [types.UPDATE_DISPATCHERS](state, { mid, type }) {
+    let item = find(state.dispatchers, p => p.id === mid)
     const update = {}
     switch (type) {
       case 'like':

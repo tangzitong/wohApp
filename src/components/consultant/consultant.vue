@@ -1,6 +1,6 @@
 <template>
-  <div class="project post-project" @click="contentClick(data)">
-    <div class="project-header">
+  <div class="consultant post-consultant" @click="contentClick(data)">
+    <div class="consultant-header">
       <div class="avatar">
         <img :src="getAvatar(data.avatar)" alt="Image">
       </div>
@@ -9,7 +9,7 @@
         <div class="time">{{`#${data.nickname} `}}{{formatTime(data.created_at)}}</div>
       </div>
     </div>
-    <div class="project-content">
+    <div class="consultant-content">
       <div class="text">{{data.address}}</div>
       <div v-if="data.photo" class="image" @click.stop="openPhotoBrowser(data.photo)">
         <img :src="data.photo">
@@ -19,16 +19,16 @@
       <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
       <div v-if="data.HP" class="link" @click.stop="openPhotoBrowser(data.HP)">HP:{{data.HP}}</div>
     </div>
-    <div class="project-footer flex-row" v-if="enableToolbar">
-      <f7-button big raised color="green" fill @click="applicationProject">{{$t('project.application')}}</f7-button>
+    <div class="consultant-footer flex-row" v-if="enableToolbar">
+      <f7-button big raised color="green" fill @click="applicationConsultant">{{$t('consultant.application')}}</f7-button>
       <f7-link class="tool flex-rest-width" :class="{liked: data.like_count}" @click.stop="toggleLike(data.id, data.like_count)">
         <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('project.like')"></span>
+        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('consultant.like')"></span>
       </f7-link>
     </div>
-    <div class="project-footer flex-row" v-if="isOwner">
-      <f7-button big raised color="green" fill @click="updateProject">{{$t('project.update')}}</f7-button>
-      <f7-button big raised color="green" fill @click="deleteProject">{{$t('project.delete')}}</f7-button>
+    <div class="consultant-footer flex-row" v-if="isOwner">
+      <f7-button big raised color="green" fill @click="updateConsultant">{{$t('consultant.update')}}</f7-button>
+      <f7-button big raised color="green" fill @click="deleteConsultant">{{$t('consultant.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -36,13 +36,13 @@
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
-  .project.post-project {
+  .consultant.post-consultant {
     background-color: white;
     margin: 10px 0;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
-    .project-header {
+    .consultant-header {
       padding: 10px;
       padding-bottom: 5px;
       justify-content: inherit;
@@ -70,7 +70,7 @@
         }
       }
     }
-    .project-content{
+    .consultant-content{
       padding: 5px 10px;
       .image {
         margin-top: 5px;
@@ -79,7 +79,7 @@
         }
       }
     }
-    .project-footer{
+    .consultant-footer{
       min-height: 35px;
       padding: 0;
       a.link {
@@ -137,21 +137,21 @@ export default {
     ...mapActions([
       'updateApplication'
     ]),
-    applicationProject() {
+    applicationConsultant() {
       this.updateApplication({
         key1: 'applicationOpened',
         value1: true,
         key2: 'applicationType',
-        value2: 'Project',
+        value2: 'Consultant',
         key3: 'applicationKey',
         value3: `${this.data.id}`
       })
     },
-    updateProject() {
-      this.$f7router.navigate(`/projects/add/?mid=${this.data.id}`)
+    updateConsultant() {
+      this.$f7router.navigate(`/consultants/add/?mid=${this.data.id}`)
     },
-    deleteProject() {
-      this.$root.chat.removeProject(`${this.data.id}`, function() {
+    deleteConsultant() {
+      this.$root.chat.removeConsultant(`${this.data.id}`, function() {
         console.log('delete success')
       })
     },
@@ -173,7 +173,7 @@ export default {
       return getRemoteAvatar(id)
     },
     toggleLike(mid, status) {
-      this.$root.chat.likeProject(mid, function(likeKey) {
+      this.$root.chat.likeConsultant(mid, function(likeKey) {
         console.log('delete success')
       })
     }

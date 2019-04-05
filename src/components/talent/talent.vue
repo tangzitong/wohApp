@@ -1,29 +1,34 @@
 <template>
-  <div class="resume post-resume" @click="contentClick(data)">
-    <div class="resume-header">
+  <div class="talent post-talent" @click="contentClick(data)">
+    <div class="talent-header">
       <div class="avatar">
-        <img :src="getAvatar(data.id)" alt="Image">
+        <img :src="getAvatar(data.avatar)" alt="Image">
       </div>
       <div class="user flex-column">
-        <div class="name">{{data.title}}</div>
-        <div class="time">{{`#${data.id} `}}{{formatTime(data.CreateDate)}}</div>
+        <div class="name">{{data.name}}</div>
+        <div class="time">{{`#${data.nickname} `}}{{formatTime(data.created_at)}}</div>
       </div>
     </div>
-    <div class="resume-content">
-      <div class="text">{{data.Content}}</div>
-      <div v-if="data.Image" class="image" @click.stop="openPhotoBrowser(data.Image)">
-        <img :src="data.Image">
+    <div class="talent-content">
+      <div class="text">{{data.address}}</div>
+      <div v-if="data.photo" class="image" @click.stop="openPhotoBrowser(data.photo)">
+        <img :src="data.photo">
       </div>
+      <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
+      <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
+      <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
+      <div v-if="data.HP" class="link" @click.stop="openPhotoBrowser(data.HP)">HP:{{data.HP}}</div>
     </div>
-    <div class="resume-footer flex-row" v-if="enableToolbar">
-      <f7-link class="tool tool-border flex-rest-width">
-        <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="data.ApplicationNum ? data.ApplicationNum : $t('resume.application')"></span>
-      </f7-link>
-      <f7-link class="tool flex-rest-width" :class="{liked: data.LikeNum}" @click.stop="toggleLike(data.id, data.LikeNum)">
+    <div class="talent-footer flex-row" v-if="enableToolbar">
+      <f7-button big raised color="green" fill @click="applicationTalent">{{$t('talent.application')}}</f7-button>
+      <f7-link class="tool flex-rest-width" :class="{liked: data.like_count}" @click.stop="toggleLike(data.id, data.like_count)">
         <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('resume.like')"></span>
+        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('talent.like')"></span>
       </f7-link>
+    </div>
+    <div class="talent-footer flex-row" v-if="isOwner">
+      <f7-button big raised color="green" fill @click="updateTalent">{{$t('talent.update')}}</f7-button>
+      <f7-button big raised color="green" fill @click="deleteTalent">{{$t('talent.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -31,13 +36,13 @@
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
-  .resume.post-resume {
+  .talent.post-talent {
     background-color: white;
     margin: 10px 0;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
-    .resume-header {
+    .talent-header {
       padding: 10px;
       padding-bottom: 5px;
       justify-content: inherit;
@@ -65,7 +70,7 @@
         }
       }
     }
-    .resume-content{
+    .talent-content{
       padding: 5px 10px;
       .image {
         margin-top: 5px;
@@ -74,7 +79,7 @@
         }
       }
     }
-    .resume-footer{
+    .talent-footer{
       min-height: 35px;
       padding: 0;
       a.link {
@@ -109,6 +114,7 @@
 <script>
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
+import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -121,9 +127,34 @@ export default {
     enableToolbar: {
       type: Boolean,
       default: true
+    },
+    isOwner: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
+    ...mapActions([
+      'updateApplication'
+    ]),
+    applicationTalent() {
+      this.updateApplication({
+        key1: 'applicationOpened',
+        value1: true,
+        key2: 'applicationType',
+        value2: 'Talent',
+        key3: 'applicationKey',
+        value3: `${this.data.id}`
+      })
+    },
+    updateTalent() {
+      this.$f7router.navigate(`/talents/add/?mid=${this.data.id}`)
+    },
+    deleteTalent() {
+      this.$root.chat.removeTalent(`${this.data.id}`, function() {
+        console.log('delete success')
+      })
+    },
     contentClick(data) {
       this.$emit('card:content-click', data)
     },
@@ -136,15 +167,14 @@ export default {
       pb.open()
     },
     formatTime(time) {
-      return distanceInWordsToNow(time * 1000, { addSuffix: true })
+      return distanceInWordsToNow(time / (24 * 3600), { addSuffix: true })
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
-        mid,
-        type: status ? 'unlike' : 'like'
+      this.$root.chat.likeTalent(mid, function(likeKey) {
+        console.log('delete success')
       })
     }
   }

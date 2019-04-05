@@ -131,7 +131,7 @@
 
 <script>
 import axios from 'axios'
-import Dispatcher from '@/components/resume'
+import Dispatcher from '@/components/dispatcher'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapState, mapActions } from 'vuex'
