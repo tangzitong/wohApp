@@ -18,8 +18,8 @@ const state = {
     publisherOpened: false,
     commentOpened: false,
     applicationOpened: false,
-    applicationType: null,
-    applicationKey: null,
+    applicationType: '',
+    applicationKey: '',
     loginOpened: false
   }
 }

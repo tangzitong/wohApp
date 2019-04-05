@@ -264,8 +264,10 @@ export default {
   [types.UPDATE_POPUP] (state, { key, value }) {
     Vue.set(state.popup, key, value)
   },
-  [types.UPDATE_APPLICATION](state, { key, value }) {
-    Vue.set(state.popup, key, value)
+  [types.UPDATE_APPLICATION](state, { key1, value1, key2, value2, key3, value3 }) {
+    Vue.set(state.popup, key1, value1)
+    Vue.set(state.popup, key2, value2)
+    Vue.set(state.popup, key3, value3)
   },
   [types.INIT_FEEDBACK](state, { feedbacks }) {
     Vue.set(state, 'feedbacks', feedbacks)

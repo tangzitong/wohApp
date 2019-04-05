@@ -115,7 +115,6 @@
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapActions } from 'vuex'
-import { setDataType, setDataId } from '@/code'
 
 export default {
   props: {
@@ -139,18 +138,20 @@ export default {
       'updateApplication'
     ]),
     applicationCompany() {
-      setDataType('Company')
-      setDataId(this.id)
       this.updateApplication({
-        key: 'applicationOpened',
-        value: true
+        key1: 'applicationOpened',
+        value1: true,
+        key2: 'applicationType',
+        value2: 'Company',
+        key3: 'applicationKey',
+        value3: `${this.data.id}`
       })
     },
     updateCompany() {
-      this.$f7router.navigate(`/companys/add/?mid=${this.id}`)
+      this.$f7router.navigate(`/companys/add/?mid=${this.data.id}`)
     },
     deleteCompany() {
-      this.$root.chat.removeCompany(this.id, function() {
+      this.$root.chat.removeCompany(`${this.data.id}`, function() {
         console.log('delete success')
       })
     },

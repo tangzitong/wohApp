@@ -893,10 +893,14 @@ export function updatePopup({commit}, { key, value }) {
   })
 }
 
-export function updateApplication({ commit }, { key, value }) {
+export function updateApplication({ commit }, { key1, value1, key2, value2, key3, value3 }) {
   commit(types.UPDATE_APPLICATION, {
-    key,
-    value
+    key1,
+    value1,
+    key2,
+    value2,
+    key3,
+    value3
   })
 }
 
