@@ -10,27 +10,27 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label>{{$t('event.name')}}</label><br/>
-        <input type="text" :placeholder="$t('event.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('event.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('event.address')}}</label><br/>
-        <input type="text" :placeholder="$t('event.address_')" @input="address = $event.target.value" />
+        <input type="text" :placeholder="$t('event.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('event.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('event.Tel_')" @input="Tel = $event.target.value" />
+        <input type="text" :placeholder="$t('event.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('event.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('event.Fax_')" @input="Fax = $event.target.value" />
+        <input type="text" :placeholder="$t('event.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('event.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('event.Manager_')" @input="Manager = $event.target.value" />
+        <input type="text" :placeholder="$t('event.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('event.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('event.HP_')" @input="HP = $event.target.value" />
+        <input type="text" :placeholder="$t('event.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
@@ -95,6 +95,7 @@ export default {
           this.Manager = data.Manager
           this.HP = data.HP
           this.photo = data.photo
+          this.eventtype = data.eventtype
         }
       })
     }

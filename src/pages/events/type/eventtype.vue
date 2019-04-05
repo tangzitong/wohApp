@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       eventtype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isOwner: 'false'
     }
   },
   created() {
@@ -52,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getEventtypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveEventtype() {
       const eventtype = this.$$('input[name="eventtype-radio"]:checked').val()
       setEventtypeConfig(eventtype)
-      this.$f7router.navigate(`/events/?eventtype=${eventtype}`)
+      this.$f7router.navigate(`/events/?eventtype=${eventtype}&isowner=${this.isOwner}`)
     }
   }
 }

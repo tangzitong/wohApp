@@ -6,14 +6,13 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.jobs')" :back-link="$t('app.back')">
     </f7-navbar>
-    <job v-for="item in jobs" :key="item.id" :data="item" @job:content-click="routeToPost"></job>
+    <job v-for="item in jobs" :isOwner="isOwner" :key="item.id" :data="item" @job:content-click="routeToPost"></job>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Job from '@/components/job'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      jobType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getJobs()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.jobType = query.jobtype
+    this.getJobs(this.isOwner, this.jobType)
   },
   methods: {
-    ...mapActions([
-      'initJobs',
-      'infiniteJobs',
-      'refreshJobs'
-    ]),
-    getJobs() {
+    getJobs(isOwner, jobType) {
       this.$f7.preloader.show()
-      axios.get('/jobs.json').then(res => {
-        const jobs = res.data
-        this.initJobs(jobs)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getJobListByOwner(window.user.uid, function(jobs) {
+          window.store.dispatch('initJobs', jobs)
+        })
+      } else if (jobType) {
+        this.$root.chat.getJobListByType(jobType, function(jobs) {
+          window.store.dispatch('initJobs', jobs)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/jobs.json').then(res => {
-        if (parseInt(this.jobs[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const jobs = res.data
-          this.refreshJobs(jobs)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getJobListByOwner(window.user.uid, function(jobs) {
+          window.store.dispatch('refreshJobs', jobs)
+        })
+      } else if (this.jobType) {
+        this.$root.chat.getJobListByType(this.jobType, function(jobs) {
+          window.store.dispatch('refreshJobs', jobs)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/jobs.json').then(res => {
-        const id = parseInt(this.jobs[this.jobs.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const jobs = res.data
-          this.infiniteJobs(jobs)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getJobListByOwner(window.user.uid, function(jobs) {
+          window.store.dispatch('infiniteJobs', jobs)
+        })
+      } else if (this.jobType) {
+        this.$root.chat.getJobListByType(this.jobType, function(jobs) {
+          window.store.dispatch('infiniteJobs', jobs)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/jobs/view/?mid=${data.id}`)

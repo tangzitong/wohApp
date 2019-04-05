@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       talenttype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isOwner: 'false'
     }
   },
   created() {
@@ -52,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getResumetypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveTalenttype() {
       const talenttype = this.$$('input[name="talenttype-radio"]:checked').val()
       setTalenttypeConfig(talenttype)
-      this.$f7router.navigate(`/talents/?talenttype=${talenttype}`)
+      this.$f7router.navigate(`/talents/?talenttype=${talenttype}&isowner=${this.isOwner}`)
     }
   }
 }

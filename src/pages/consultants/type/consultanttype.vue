@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       consultanttype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isOwner: 'false'
     }
   },
   created() {
@@ -52,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getResumetypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveConsultanttype() {
       const consultanttype = this.$$('input[name="consultanttype-radio"]:checked').val()
       setConsultanttypeConfig(consultanttype)
-      this.$f7router.navigate(`/consultants/?consultanttype=${consultanttype}`)
+      this.$f7router.navigate(`/consultants/?consultanttype=${consultanttype}&isowner=${this.isOwner}`)
     }
   }
 }

@@ -6,14 +6,13 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.consultants')" :back-link="$t('app.back')">
     </f7-navbar>
-    <consultant v-for="item in consultants" :key="item.id" :data="item" @consultant:content-click="routeToPost"></consultant>
+    <consultant v-for="item in consultants" :isOwner="isOwner" :key="item.id" :data="item" @consultant:content-click="routeToPost"></consultant>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Consultant from '@/components/consultant'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      consultantType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getConsultants()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.consultantType = query.consultanttype
+    this.getConsultants(this.isOwner, this.consultantType)
   },
   methods: {
-    ...mapActions([
-      'initConsultants',
-      'infiniteConsultants',
-      'refreshConsultants'
-    ]),
-    getConsultants() {
+    getConsultants(isOwner, consultantType) {
       this.$f7.preloader.show()
-      axios.get('/consultants.json').then(res => {
-        const consultants = res.data
-        this.initConsultants(consultants)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getConsultantListByOwner(window.user.uid, function(consultants) {
+          window.store.dispatch('initConsultants', consultants)
+        })
+      } else if (consultantType) {
+        this.$root.chat.getConsultantListByType(consultantType, function(consultants) {
+          window.store.dispatch('initConsultants', consultants)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/consultants.json').then(res => {
-        if (parseInt(this.consultants[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const consultants = res.data
-          this.refreshConsultants(consultants)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getConsultantListByOwner(window.user.uid, function(consultants) {
+          window.store.dispatch('refreshConsultants', consultants)
+        })
+      } else if (this.consultantType) {
+        this.$root.chat.getConsultantListByType(this.consultantType, function(consultants) {
+          window.store.dispatch('refreshConsultants', consultants)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/consultants.json').then(res => {
-        const id = parseInt(this.consultants[this.consultants.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const consultants = res.data
-          this.infiniteConsultants(consultants)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getConsultantListByOwner(window.user.uid, function(consultants) {
+          window.store.dispatch('infiniteConsultants', consultants)
+        })
+      } else if (this.consultantType) {
+        this.$root.chat.getConsultantListByType(this.consultantType, function(consultants) {
+          window.store.dispatch('infiniteConsultants', consultants)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/consultants/view/?mid=${data.id}`)

@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       dispatchertype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isOwner: 'false'
     }
   },
   created() {
@@ -52,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getResumetypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveDispatchertype() {
       const dispatchertype = this.$$('input[name="dispatchertype-radio"]:checked').val()
       setDispatchertypeConfig(dispatchertype)
-      this.$f7router.navigate(`/dispatchers/?dispatchertype=${dispatchertype}`)
+      this.$f7router.navigate(`/dispatchers/?dispatchertype=${dispatchertype}&isowner=${this.isOwner}`)
     }
   }
 }

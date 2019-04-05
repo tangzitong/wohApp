@@ -6,14 +6,13 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.projects')" :back-link="$t('app.back')">
     </f7-navbar>
-    <project v-for="item in projects" :key="item.id" :data="item" @project:content-click="routeToPost"></project>
+    <project v-for="item in projects" :isOwner="isOwner" :key="item.id" :data="item" @project:content-click="routeToPost"></project>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Project from '@/components/project'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      projectType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getProjects()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.projectType = query.projecttype
+    this.getProjects(this.isOwner, this.projectType)
   },
   methods: {
-    ...mapActions([
-      'initProjects',
-      'infiniteProjects',
-      'refreshProjects'
-    ]),
-    getProjects() {
+    getProjects(isOwner, projectType) {
       this.$f7.preloader.show()
-      axios.get('/projects.json').then(res => {
-        const projects = res.data
-        this.initProjects(projects)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getProjectListByOwner(window.user.uid, function(projects) {
+          window.store.dispatch('initProjects', projects)
+        })
+      } else if (projectType) {
+        this.$root.chat.getProjectListByType(projectType, function(projects) {
+          window.store.dispatch('initProjects', projects)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/projects.json').then(res => {
-        if (parseInt(this.projects[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const projects = res.data
-          this.refreshProjects(projects)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getProjectListByOwner(window.user.uid, function(projects) {
+          window.store.dispatch('refreshProjects', projects)
+        })
+      } else if (this.projectType) {
+        this.$root.chat.getProjectListByType(this.projectType, function(projects) {
+          window.store.dispatch('refreshProjects', projects)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/projects.json').then(res => {
-        const id = parseInt(this.projects[this.projects.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const projects = res.data
-          this.infiniteProjects(projects)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getProjectListByOwner(window.user.uid, function(projects) {
+          window.store.dispatch('infiniteProjects', projects)
+        })
+      } else if (this.projectType) {
+        this.$root.chat.getProjectListByType(this.projectType, function(projects) {
+          window.store.dispatch('infiniteProjects', projects)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/projects/view/?mid=${data.id}`)

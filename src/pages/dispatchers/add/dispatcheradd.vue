@@ -10,27 +10,27 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label>{{$t('dispatcher.name')}}</label><br/>
-        <input type="text" :placeholder="$t('dispatcher.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('dispatcher.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('dispatcher.address')}}</label><br/>
-        <input type="text" :placeholder="$t('dispatcher.address_')" @input="address = $event.target.value" />
+        <input type="text" :placeholder="$t('dispatcher.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('dispatcher.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('dispatcher.Tel_')" @input="Tel = $event.target.value" />
+        <input type="text" :placeholder="$t('dispatcher.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('dispatcher.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('dispatcher.Fax_')" @input="Fax = $event.target.value" />
+        <input type="text" :placeholder="$t('dispatcher.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('dispatcher.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('dispatcher.Manager_')" @input="Manager = $event.target.value" />
+        <input type="text" :placeholder="$t('dispatcher.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('dispatcher.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('dispatcher.HP_')" @input="HP = $event.target.value" />
+        <input type="text" :placeholder="$t('dispatcher.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
@@ -95,6 +95,7 @@ export default {
           this.Manager = data.Manager
           this.HP = data.HP
           this.photo = data.photo
+          this.dispatchertype = data.dispatchertype
         }
       })
     }

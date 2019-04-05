@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       projecttype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isOwner: 'false'
     }
   },
   created() {
@@ -52,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getProjecttypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveProjecttype() {
       const projecttype = this.$$('input[name="projecttype-radio"]:checked').val()
       setProjecttypeConfig(projecttype)
-      this.$f7router.navigate(`/projects/?projecttype=${projecttype}`)
+      this.$f7router.navigate(`/projects/?projecttype=${projecttype}&isowner=${this.isOwner}`)
     }
   }
 }

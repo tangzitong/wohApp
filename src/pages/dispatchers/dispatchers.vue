@@ -6,14 +6,13 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.dispatchers')" :back-link="$t('app.back')">
     </f7-navbar>
-    <dispatcher v-for="item in dispatchers" :key="item.id" :data="item" @dispatcher:content-click="routeToPost"></dispatcher>
+    <dispatcher v-for="item in dispatchers" :isOwner="isOwner" :key="item.id" :data="item" @dispatcher:content-click="routeToPost"></dispatcher>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Dispatcher from '@/components/dispatcher'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      dispatcherType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getDispatchers()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.dispatcherType = query.dispatchertype
+    this.getDispatchers(this.isOwner, this.dispatcherType)
   },
   methods: {
-    ...mapActions([
-      'initDispatchers',
-      'infiniteDispatchers',
-      'refreshDispatchers'
-    ]),
-    getDispatchers() {
+    getDispatchers(isOwner, dispatcherType) {
       this.$f7.preloader.show()
-      axios.get('/dispatchers.json').then(res => {
-        const dispatchers = res.data
-        this.initDispatchers(dispatchers)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getDispatcherListByOwner(window.user.uid, function(dispatchers) {
+          window.store.dispatch('initDispatchers', dispatchers)
+        })
+      } else if (dispatcherType) {
+        this.$root.chat.getDispatcherListByType(dispatcherType, function(dispatchers) {
+          window.store.dispatch('initDispatchers', dispatchers)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/dispatchers.json').then(res => {
-        if (parseInt(this.dispatchers[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const dispatchers = res.data
-          this.refreshDispatchers(dispatchers)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getDispatcherListByOwner(window.user.uid, function(dispatchers) {
+          window.store.dispatch('refreshDispatchers', dispatchers)
+        })
+      } else if (this.dispatcherType) {
+        this.$root.chat.getDispatcherListByType(this.dispatcherType, function(dispatchers) {
+          window.store.dispatch('refreshDispatchers', dispatchers)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/dispatchers.json').then(res => {
-        const id = parseInt(this.dispatchers[this.dispatchers.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const dispatchers = res.data
-          this.infiniteDispatchers(dispatchers)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getDispatcherListByOwner(window.user.uid, function(dispatchers) {
+          window.store.dispatch('infiniteDispatchers', dispatchers)
+        })
+      } else if (this.dispatcherType) {
+        this.$root.chat.getDispatcherListByType(this.dispatcherType, function(dispatchers) {
+          window.store.dispatch('infiniteDispatchers', dispatchers)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/dispatchers/view/?mid=${data.id}`)

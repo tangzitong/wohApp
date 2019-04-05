@@ -36,7 +36,7 @@ export default {
     return {
       jobtype: '1',
       lang: 'enUS',
-      isowner: false
+      isOwner: 'false'
     }
   },
   created() {
@@ -53,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getJobtypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveJobtype() {
       const jobtype = this.$$('input[name="jobtype-radio"]:checked').val()
       setJobtypeConfig(jobtype)
-      this.$f7router.navigate(`/jobs/?jobtype=${jobtype}&isowner=${this.isowner}`)
+      this.$f7router.navigate(`/jobs/?jobtype=${jobtype}&isowner=${this.isOwner}`)
     }
   }
 }

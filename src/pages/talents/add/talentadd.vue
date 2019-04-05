@@ -10,27 +10,27 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label>{{$t('talent.name')}}</label><br/>
-        <input type="text" :placeholder="$t('talent.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('talent.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('talent.address')}}</label><br/>
-        <input type="text" :placeholder="$t('talent.address_')" @input="address = $event.target.value" />
+        <input type="text" :placeholder="$t('talent.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('talent.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('talent.Tel_')" @input="Tel = $event.target.value" />
+        <input type="text" :placeholder="$t('talent.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('talent.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('talent.Fax_')" @input="Fax = $event.target.value" />
+        <input type="text" :placeholder="$t('talent.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('talent.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('talent.Manager_')" @input="Manager = $event.target.value" />
+        <input type="text" :placeholder="$t('talent.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('talent.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('talent.HP_')" @input="HP = $event.target.value" />
+        <input type="text" :placeholder="$t('talent.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
@@ -95,6 +95,7 @@ export default {
           this.Manager = data.Manager
           this.HP = data.HP
           this.photo = data.photo
+          this.talenttype = data.talenttype
         }
       })
     }

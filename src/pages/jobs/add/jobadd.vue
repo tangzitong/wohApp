@@ -10,27 +10,27 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label>{{$t('job.name')}}</label><br/>
-        <input type="text" :placeholder="$t('job.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('job.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('job.address')}}</label><br/>
-        <input type="text" :placeholder="$t('job.address_')" @input="address = $event.target.value" />
+        <input type="text" :placeholder="$t('job.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('job.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('job.Tel_')" @input="Tel = $event.target.value" />
+        <input type="text" :placeholder="$t('job.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('job.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('job.Fax_')" @input="Fax = $event.target.value" />
+        <input type="text" :placeholder="$t('job.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('job.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('job.Manager_')" @input="Manager = $event.target.value" />
+        <input type="text" :placeholder="$t('job.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('job.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('job.HP_')" @input="HP = $event.target.value" />
+        <input type="text" :placeholder="$t('job.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
@@ -95,6 +95,7 @@ export default {
           this.Manager = data.Manager
           this.HP = data.HP
           this.photo = data.photo
+          this.jobtype = data.jobtype
         }
       })
     }

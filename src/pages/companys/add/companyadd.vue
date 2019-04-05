@@ -10,27 +10,27 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label>{{$t('company.name')}}</label><br/>
-        <input type="text" :placeholder="$t('company.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('company.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('company.address')}}</label><br/>
-        <input type="text" :placeholder="$t('company.address_')" @input="address = $event.target.value" />
+        <input type="text" :placeholder="$t('company.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('company.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('company.Tel_')" @input="Tel = $event.target.value" />
+        <input type="text" :placeholder="$t('company.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('company.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('company.Fax_')" @input="Fax = $event.target.value" />
+        <input type="text" :placeholder="$t('company.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('company.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('company.Manager_')" @input="Manager = $event.target.value" />
+        <input type="text" :placeholder="$t('company.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('company.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('company.HP_')" @input="HP = $event.target.value" />
+        <input type="text" :placeholder="$t('company.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
@@ -95,6 +95,7 @@ export default {
           this.Manager = data.Manager
           this.HP = data.HP
           this.photo = data.photo
+          this.companytype = data.companytype
         }
       })
     }

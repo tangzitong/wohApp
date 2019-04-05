@@ -174,7 +174,7 @@ export default {
     },
     toggleLike(mid, status) {
       this.$root.chat.likeEvent(mid, function(likeKey) {
-        console.log('delete success')
+        console.log('likeEvent success')
       })
     }
   }

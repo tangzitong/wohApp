@@ -6,14 +6,13 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.tools')" :back-link="$t('app.back')">
     </f7-navbar>
-    <tool v-for="item in tools" :key="item.id" :data="item" @tool:content-click="routeToPost"></tool>
+    <tool v-for="item in tools" :isOwner="isOwner" :key="item.id" :data="item" @tool:content-click="routeToPost"></tool>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Tool from '@/components/tool'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      toolType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getTools()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.toolType = query.tooltype
+    this.getTools(this.isOwner, this.toolType)
   },
   methods: {
-    ...mapActions([
-      'initTools',
-      'infiniteTools',
-      'refreshTools'
-    ]),
-    getTools() {
+    getTools(isOwner, toolType) {
       this.$f7.preloader.show()
-      axios.get('/tools.json').then(res => {
-        const tools = res.data
-        this.initTools(tools)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getToolListByOwner(window.user.uid, function(tools) {
+          window.store.dispatch('initTools', tools)
+        })
+      } else if (toolType) {
+        this.$root.chat.getToolListByType(toolType, function(tools) {
+          window.store.dispatch('initTools', tools)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/tools.json').then(res => {
-        if (parseInt(this.tools[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const tools = res.data
-          this.refreshTools(tools)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getToolListByOwner(window.user.uid, function(tools) {
+          window.store.dispatch('refreshTools', tools)
+        })
+      } else if (this.toolType) {
+        this.$root.chat.getToolListByType(this.toolType, function(tools) {
+          window.store.dispatch('refreshTools', tools)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/tools.json').then(res => {
-        const id = parseInt(this.tools[this.tools.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const tools = res.data
-          this.infiniteTools(tools)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getToolListByOwner(window.user.uid, function(tools) {
+          window.store.dispatch('infiniteTools', tools)
+        })
+      } else if (this.toolType) {
+        this.$root.chat.getToolListByType(this.toolType, function(tools) {
+          window.store.dispatch('infiniteTools', tools)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/tools/view/?mid=${data.id}`)

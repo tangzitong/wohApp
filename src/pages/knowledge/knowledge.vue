@@ -4,16 +4,15 @@
            infinite
            @ptr:refresh="onRefresh"
            @infinite="onInfiniteScroll">
-    <f7-navbar :title="$t('app.knowledge')" :back-link="$t('app.back')">
+    <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')">
     </f7-navbar>
-    <knowledge v-for="item in knowledges" :key="item.id" :data="item" @knowledge:content-click="routeToPost"></knowledge>
+    <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item" @knowledge:content-click="routeToPost"></knowledge>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Knowledge from '@/components/knowledge'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      knowledgeType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getKnowledges()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.knowledgeType = query.knowledgetype
+    this.getKnowledges(this.isOwner, this.knowledgeType)
   },
   methods: {
-    ...mapActions([
-      'initKnowledges',
-      'infiniteKnowledges',
-      'refreshKnowledges'
-    ]),
-    getKnowledges() {
+    getKnowledges(isOwner, knowledgeType) {
       this.$f7.preloader.show()
-      axios.get('/knowledges.json').then(res => {
-        const knowledges = res.data
-        this.initKnowledges(knowledges)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+          window.store.dispatch('initKnowledges', knowledges)
+        })
+      } else if (knowledgeType) {
+        this.$root.chat.getKnowledgeListByType(knowledgeType, function(knowledges) {
+          window.store.dispatch('initKnowledges', knowledges)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/knowledges.json').then(res => {
-        if (parseInt(this.knowledges[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const knowledges = res.data
-          this.refreshKnowledges(knowledges)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+          window.store.dispatch('refreshKnowledges', knowledges)
+        })
+      } else if (this.knowledgeType) {
+        this.$root.chat.getKnowledgeListByType(this.knowledgeType, function(knowledges) {
+          window.store.dispatch('refreshKnowledges', knowledges)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/knowledges.json').then(res => {
-        const id = parseInt(this.knowledges[this.knowledges.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const knowledges = res.data
-          this.infiniteKnowledges(knowledges)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+          window.store.dispatch('infiniteKnowledges', knowledges)
+        })
+      } else if (this.knowledgeType) {
+        this.$root.chat.getKnowledgeListByType(this.knowledgeType, function(knowledges) {
+          window.store.dispatch('infiniteKnowledges', knowledges)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/knowledges/view/?mid=${data.id}`)

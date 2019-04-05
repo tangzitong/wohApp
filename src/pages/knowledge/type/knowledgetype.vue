@@ -36,7 +36,7 @@ export default {
     return {
       knowledgetype: '1',
       lang: 'enUS',
-      isowner: false
+      isOwner: 'false'
     }
   },
   created() {
@@ -53,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getKnowledgetypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveKnowledgetype() {
       const knowledgetype = this.$$('input[name="knowledgetype-radio"]:checked').val()
       setKnowledgetypeConfig(knowledgetype)
-      this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}&isowner=${this.isowner}`)
+      this.$f7router.navigate(`/knowledges/?knowledgetype=${knowledgetype}&isowner=${this.isOwner}`)
     }
   }
 }

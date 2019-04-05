@@ -10,27 +10,27 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label>{{$t('project.name')}}</label><br/>
-        <input type="text" :placeholder="$t('project.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('project.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('project.address')}}</label><br/>
-        <input type="text" :placeholder="$t('project.address_')" @input="address = $event.target.value" />
+        <input type="text" :placeholder="$t('project.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('project.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('project.Tel_')" @input="Tel = $event.target.value" />
+        <input type="text" :placeholder="$t('project.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('project.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('project.Fax_')" @input="Fax = $event.target.value" />
+        <input type="text" :placeholder="$t('project.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('project.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('project.Manager_')" @input="Manager = $event.target.value" />
+        <input type="text" :placeholder="$t('project.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('project.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('project.HP_')" @input="HP = $event.target.value" />
+        <input type="text" :placeholder="$t('project.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
@@ -95,6 +95,7 @@ export default {
           this.Manager = data.Manager
           this.HP = data.HP
           this.photo = data.photo
+          this.projecttype = data.projecttype
         }
       })
     }
