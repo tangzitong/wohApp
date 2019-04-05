@@ -91,6 +91,7 @@ window.vm = new Vue({
   },
   beforeCreate: function () {
     window.sortObject = require('./sort-object')
+    window.store = store
   },
   created: function () {
     // Use auth service

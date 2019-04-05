@@ -6,14 +6,13 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.companys')" :back-link="$t('app.back')">
     </f7-navbar>
-    <company v-for="item in companys" :key="item.id" :data="item" @company:content-click="routeToPost"></company>
+    <company v-for="item in companys" :isOwner="isOwner" :key="item.id" :data="item" @company:content-click="routeToPost"></company>
   </f7-page>
 </template>
 
 <script>
-import axios from 'axios'
 import Company from '@/components/company'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -21,6 +20,8 @@ export default {
       refreshing: false,
       loadingMore: false,
       loadedEnd: false,
+      isOwner: false,
+      companyType: ''
     }
   },
   computed: {
@@ -29,53 +30,56 @@ export default {
     })
   },
   mounted() {
-    this.getCompanys()
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    this.companyType = query.companytype
+    this.getCompanys(this.isOwner, this.companyType)
   },
   methods: {
-    ...mapActions([
-      'initCompanys',
-      'infiniteCompanys',
-      'refreshCompanys'
-    ]),
-    getCompanys() {
+    getCompanys(isOwner, companyType) {
       this.$f7.preloader.show()
-      axios.get('/companys.json').then(res => {
-        const companys = res.data
-        this.initCompanys(companys)
-        this.$f7.preloader.hide()
-      })
+      if (isOwner) {
+        this.$root.chat.getCompanyListByOwner(window.user.uid, function(companys) {
+          window.store.dispatch('initCompanys', companys)
+        })
+      } else if (companyType) {
+        this.$root.chat.getCompanyListByType(companyType, function(companys) {
+          window.store.dispatch('initCompanys', companys)
+        })
+      }
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/companys.json').then(res => {
-        if (parseInt(this.companys[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const companys = res.data
-          this.refreshCompanys(companys)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
-      })
+      if (this.isOwner) {
+        this.$root.chat.getCompanyListByOwner(window.user.uid, function(companys) {
+          window.store.dispatch('refreshCompanys', companys)
+        })
+      } else if (this.companyType) {
+        this.$root.chat.getCompanyListByType(this.companyType, function(companys) {
+          window.store.dispatch('refreshCompanys', companys)
+        })
+      }
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/companys.json').then(res => {
-        const id = parseInt(this.companys[this.companys.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const companys = res.data
-          this.infiniteCompanys(companys)
-        }
-        this.loadingMore = false
-      })
+      if (this.isOwner) {
+        this.$root.chat.getCompanyListByOwner(window.user.uid, function(companys) {
+          window.store.dispatch('infiniteCompanys', companys)
+        })
+      } else if (this.companyType) {
+        this.$root.chat.getCompanyListByType(this.companyType, function(companys) {
+          window.store.dispatch('infiniteCompanys', companys)
+        })
+      }
+      this.loadingMore = false
+      this.$f7.ptr.done()
     },
     routeToPost(data) {
       this.$f7router.navigate(`/companys/view/?mid=${data.id}`)

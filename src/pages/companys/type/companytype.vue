@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       companytype: '1',
-      lang: 'enUS'
+      lang: 'enUS',
+      isOwner: 'false'
     }
   },
   created() {
@@ -52,12 +53,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getCompanytypes', this.lang)
+    const query = this.$f7route.query
+    this.isOwner = query.isowner
   },
   methods: {
     saveCompanytype() {
       const companytype = this.$$('input[name="companytype-radio"]:checked').val()
       setCompanytypeConfig(companytype)
-      this.$f7router.navigate(`/companys/?companytype=${companytype}`)
+      this.$f7router.navigate(`/companys/?companytype=${companytype}&isowner=${this.isOwner}`)
     }
   }
 }
