@@ -98,7 +98,7 @@ export default {
   mounted() {
     // Workaround to close login popup on initial load and shift it back to the left -->
     // Close only if there are no login requiring pages on start or the user is logged in
-    if ((!this.$root.loginRequiringPagesOnStart && !this.$root.loginRequiredForAllPages) || this.$root.user) {
+    if ((!this.$root.loginRequiringPagesOnStart && !this.$root.loginRequiredForAllPages) || window.user) {
       this.updatePopup({
         key: 'loginOpened',
         value: false

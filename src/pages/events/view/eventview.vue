@@ -1,20 +1,20 @@
 <template>
   <f7-page class="event-page">
-    <f7-navbar :title="$t('event.event')" :back-link="$t('app.back')" sliding>
+    <f7-navbar :title="$t('app.events')" :back-link="$t('app.back')" sliding>
     </f7-navbar>
     <Event :enableToolbar="false" :data="event"></Event>
-    <div class="comments">
+    <div class="applications">
       <div class="title">
-        <span>{{$t('home.comment')}}</span>
+        <span>{{$t('event.application')}}</span>
       </div>
       <div class="clist">
-        <template v-if="comments.length">
-          <div class="comment flex-row" v-for="comment in comments" :key="comment.name">
-            <img class="avatar" :src="getAvatar(comment.avatar)" />
+        <template v-if="applications.length">
+          <div class="application flex-row" v-for="application in applications" :key="application.name">
+            <img class="avatar" :src="getAvatar(application.avatar)" />
             <div class="detail flex-rest-width">
-              <div class="name"><span>{{comment.name}}</span></div>
-              <div class="time"><span>{{formatTime(comment.time)}}</span></div>
-              <div class="text"><span>{{comment.text}}</span></div>
+              <div class="name"><span>{{application.name}}</span></div>
+              <div class="time"><span>{{formatTime(application.time)}}</span></div>
+              <div class="text"><span>{{application.text}}</span></div>
             </div>
           </div>
         </template>
@@ -27,9 +27,9 @@
       </div>
     </div>
     <f7-toolbar class="custom-toolbar flex-row" bottom-md>
-      <f7-link class="tool tool-border flex-rest-width" @click="openCommentPopup">
-        <span class="iconfont icon-comment"></span>
-        <span class="text" v-text="event.comment_count ? event.comment_count : $t('home.comment')"></span>
+      <f7-link class="tool tool-border flex-rest-width" @click="openApplicationPopup">
+        <span class="iconfont icon-application"></span>
+        <span class="text" v-text="event.application_count ? event.application_count : $t('event.application')"></span>
       </f7-link>
       <f7-link class="tool flex-rest-width" :class="{liked: event.liked}" @click="toggleLike(event.id, event.liked)">
         <span class="iconfont icon-like"></span>
@@ -70,7 +70,7 @@
       }
     }
   }
-  .comments {
+  .applications {
     background-color: #fff;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
@@ -81,7 +81,7 @@
       padding: 0 10px;
       font-size: 13px;
     }
-    .comment {
+    .application {
       border-top: 1px solid #dadada;
       padding: 10px;
       font-size: 14px;
@@ -130,7 +130,6 @@
 </style>
 
 <script>
-import axios from 'axios'
 import Event from '@/components/event'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
@@ -141,28 +140,28 @@ export default {
   data() {
     return {
       event: {},
-      comments: []
+      applications: []
     }
   },
   computed: {
     ...mapState({
-      timeline: state => state.timeline
+      events: state => state.events
     })
   },
   mounted() {
     const query = this.$f7route.query
-    this.event = find(this.timeline, p => p.id === query.mid)
-    this.getComments()
+    this.event = find(this.events, p => p.id === query.mid)
+    this.getApplications()
   },
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
-    getComments() {
+    getApplications() {
       const random = Math.floor(Math.random() * 2)
       if (!random) return []
-      axios.get('/comments.json').then(res => {
-        this.comments = res.data
+      this.$root.chat.getEventApplications(this.event.id, function(applications) {
+        this.applications = applications
       })
     },
     formatTime(time) {
@@ -171,16 +170,15 @@ export default {
     getAvatar(id) {
       return getRemoteAvatar(id)
     },
-    openCommentPopup() {
+    openApplicationPopup() {
       this.updatePopup({
-        key: 'commentOpened',
+        key: 'applicationOpened',
         value: true
       })
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
-        mid,
-        type: status ? 'unlike' : 'like'
+      this.$root.chat.likeEvent(this.event.id, function(likeKey) {
+        console.log('likeEvent success')
       })
     }
   },

@@ -9,9 +9,8 @@
 </template>
 
 <script>
-import axios from 'axios'
 import Card from '@/components/card'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -30,50 +29,31 @@ export default {
     this.getTimeline()
   },
   methods: {
-    ...mapActions([
-      'initTimeline',
-      'infiniteTimeline',
-      'refreshTimeline'
-    ]),
     getTimeline() {
       this.$f7.preloader.show()
-      axios.get('/timeline.json').then(res => {
-        const timeline = res.data
-        this.initTimeline(timeline)
-        this.$f7.preloader.hide()
+      this.$root.chat.getPostList(function(posts) {
+        window.store.dispatch('initTimeline', posts)
       })
+      this.$f7.preloader.hide()
     },
     onRefresh() {
       if (this.refreshing) return false
 
       this.refreshing = true
-      axios.get('/refresh_timeline.json').then(res => {
-        if (parseInt(this.timeline[0].id) === 48) {
-          this.$emit('show-tip')
-        } else {
-          const timeline = res.data
-          this.refreshTimeline(timeline)
-        }
-        this.refreshing = false
-        this.$f7.ptr.done()
+      this.$root.chat.getPostList(function(posts) {
+        window.store.dispatch('refreshTimeline', posts)
       })
+      this.refreshing = false
+      this.$f7.ptr.done()
     },
     onInfiniteScroll() {
       if (this.loadingMore || this.loadedEnd) return false
 
       this.loadingMore = true
-      axios.get('/more_timeline.json').then(res => {
-        const id = parseInt(this.timeline[this.timeline.length - 1].id)
-        if (id === 24) {
-          this.loadedEnd = true
-          this.$f7.infiniteScroll.destroy('#homeView .infinite-scroll-content')
-          this.$$('#homeView .infinite-scroll-preloader').remove()
-        } else {
-          const timeline = res.data
-          this.infiniteTimeline(timeline)
-        }
-        this.loadingMore = false
+      this.$root.chat.getPostList(function(posts) {
+        window.store.dispatch('infiniteTimeline', posts)
       })
+      this.loadingMore = false
     },
     routeToPost(data) {
       this.$f7router.navigate(`/post/?mid=${data.id}`)

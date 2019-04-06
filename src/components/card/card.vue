@@ -142,9 +142,8 @@ export default {
       return getRemoteAvatar(id)
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
-        mid,
-        type: status ? 'unlike' : 'like'
+      this.$root.chat.likePost(mid, function(likeKey) {
+        console.log('likePost success')
       })
     }
   }

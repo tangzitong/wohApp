@@ -156,7 +156,7 @@ export default {
       })
     },
     contentClick(data) {
-      this.$emit('card:content-click', data)
+      this.$emit('company:content-click', data)
     },
     openPhotoBrowser(url) {
       const pb = this.$f7.photoBrowser.create({

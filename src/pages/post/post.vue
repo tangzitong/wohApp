@@ -130,7 +130,6 @@
 </style>
 
 <script>
-import axios from 'axios'
 import Card from '@/components/card'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
@@ -161,8 +160,8 @@ export default {
     getComments() {
       const random = Math.floor(Math.random() * 2)
       if (!random) return []
-      axios.get('/comments.json').then(res => {
-        this.comments = res.data
+      this.$root.chat.getPostComments(this.post.id, function(comments) {
+        this.comments = comments
       })
     },
     formatTime(time) {
@@ -178,9 +177,8 @@ export default {
       })
     },
     toggleLike(mid, status) {
-      this.$store.dispatch('updateTimeline', {
-        mid,
-        type: status ? 'unlike' : 'like'
+      this.$root.chat.likePost(mid, function(likeKey) {
+        console.log('likePost success')
       })
     }
   },
