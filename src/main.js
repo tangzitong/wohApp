@@ -26,7 +26,7 @@ import App from './app.vue'
 
 // Import Vuex store
 import store from './store'
-import { getLoginUser, setCurrentUser } from './store/actions'
+import { getLoginUser, setUserProfile } from './store/actions'
 import VueRouter from 'vue-router'
 
 // import network framework
@@ -58,7 +58,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const currentUser = this.$root.user
+  const currentUser = window.user
 
   if (requiresAuth && !currentUser) {
     next('/login')
@@ -92,6 +92,7 @@ window.vm = new Vue({
   beforeCreate: function () {
     window.sortObject = require('./sort-object')
     window.store = store
+    window.text = i18n
   },
   created: function () {
     // Use auth service
@@ -103,18 +104,15 @@ window.vm = new Vue({
     fb.auth.onAuthStateChanged(user => {
       if (user) {
         fb.database.ref().child('users').child(user.uid).once('value', function(snapshot) {
-          const user_ = snapshot ? {
-            uid: snapshot.key,
-            email: snapshot.child('login_name').val(),
-            name: snapshot.child('name').val(),
-            photo: snapshot.child('photo').val()
-          } : null
-          setCurrentUser(store, user_)
-          window.user = user_
+          setUserProfile(store, snapshot.val())
+          window.user = user
           fb.chat.setUser(user.uid, snapshot.child('name').val(), function() {
             fb.chat.resumeSession()
           })
         })
+      } else {
+        window.user = null
+        setUserProfile(store, {})
       }
     })
     // Use database service
@@ -169,7 +167,7 @@ window.vm = new Vue({
       return window.firebase && window.firebase.auth ? window.firebase.auth : null
     },
     $user () {
-      return this.$root.user
+      return window.user
     },
     // Realtime Database
     $fireDB () {

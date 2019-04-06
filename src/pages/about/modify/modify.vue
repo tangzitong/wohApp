@@ -11,21 +11,21 @@
     <f7-list form @submit.prevent>
       <f7-list-item>
         <label for="name">{{$t('modify.name')}}</label>
-        <input type="text" :placeholder="$t('modify.name_')" @input="name = $event.target.value" />
+        <input type="text" :placeholder="$t('modify.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
         <label for="title">{{$t('modify.usertitle')}}</label>
-        <input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" />
+        <input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" :value="title" />
       </f7-list-item>
     </f7-list>
-    <f7-block v-if="$root.user">
+    <f7-block v-if="isUserLogin">
       <f7-button big raised color="red" fill @click="updateProfile">{{$t('modify.btn')}}</f7-button>
     </f7-block>
     <!-- Image uploader component -->
-    <f7-block v-if="$root.user">
+    <f7-block v-if="isUserLogin">
       <imageuploader
-        :store="'users/' + $root.user.uid"
-        :db="'users/' + $root.user.uid + '/photo'" />
+        :store="'users/' + id"
+        :db="'users/' + id + '/photo'" />
     </f7-block>
 
     <!-- Image -->
@@ -42,10 +42,12 @@ import imageuploader from '../../../popup/imageuploader'
 export default {
   data() {
     return {
+      id: '',
       name: '',
       title: '',
       showSuccess: false,
-      photo: null
+      photo: null,
+      isUserLogin: !!window.user
     }
   },
   // Update user name, title and photo from Firebase
@@ -53,8 +55,9 @@ export default {
     window.db('users/' + window.user.uid).on('value', snapshot => {
       const data = snapshot.val()
       if (data) {
-        this.name = data.name
-        this.title = data.title
+        this.id = data.id
+        this.name = data.login_name
+        this.title = data.name
         this.photo = data.photo
       }
     })
@@ -65,8 +68,8 @@ export default {
   methods: {
     updateProfile() {
       this.$store.dispatch('updateProfile', {
-        name: this.name !== '' ? this.name : this.userProfile.name,
-        title: this.title !== '' ? this.title : this.userProfile.title,
+        name: this.name !== '' ? this.name : this.userProfile.login_name,
+        title: this.title !== '' ? this.title : this.userProfile.name,
         photo: this.photo !== '' ? this.photo : this.userProfile.photo
       })
 

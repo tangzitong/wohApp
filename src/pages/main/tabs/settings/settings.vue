@@ -128,7 +128,7 @@ export default {
     logout() {
       window.firebase.auth().signOut().then(() => {
         window.user = null
-        this.$store.dispatch('clearData')
+        window.store.dispatch('clearData')
         this.$f7router.navigate('/')
       }).catch(err => {
         console.log(err)

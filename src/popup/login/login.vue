@@ -92,7 +92,7 @@ export default {
     }
   },
   created: function () {
-    this.mode = this.$root.user ? 'signOut' : 'signIn'
+    this.mode = window.user ? 'signOut' : 'signIn'
     this.$root.$signOut = this.handleSignOut
   },
   mounted() {
@@ -111,13 +111,13 @@ export default {
     ]),
     cancel: function () {
       if (this.mode === 'reset' || this.mode === 'registration') {
-        this.mode = this.$root.user ? 'signOut' : 'signIn'
+        this.mode = window.user ? 'signOut' : 'signIn'
       } else {
         // Reset form
         this.email = ''
         this.password = ''
         this.passwordConfirmation = ''
-        this.mode = this.$root.user ? 'signOut' : 'signIn'
+        this.mode = window.user ? 'signOut' : 'signIn'
         // Reset required URLs
         this.$root.loginRequiringPages = []
         // Close popup
@@ -164,7 +164,7 @@ export default {
         // Accounts successfully linked.
         // var credential = result.credential
         const user = result.user
-        this.$store.dispatch('addProfile', {
+        window.store.dispatch('addProfile', {
           id: user.uid,
           name: user.email,
           title: '',
@@ -191,7 +191,7 @@ export default {
         // Accounts successfully linked.
         // var credential = result.credential
         const user = result.user
-        this.$store.dispatch('addProfile', {
+        window.store.dispatch('addProfile', {
           id: user.uid,
           name: user.email,
           title: '',
@@ -218,7 +218,7 @@ export default {
         // Accounts successfully linked.
         // var credential = result.credential
         const user = result.user
-        this.$store.dispatch('addProfile', {
+        window.store.dispatch('addProfile', {
           id: user.uid,
           name: user.email,
           title: '',
@@ -245,7 +245,7 @@ export default {
         // Accounts successfully linked.
         // var credential = result.credential
         const user = result.user
-        this.$store.dispatch('addProfile', {
+        window.store.dispatch('addProfile', {
           id: user.uid,
           name: user.email,
           title: '',
@@ -349,7 +349,7 @@ export default {
           // On success, sign in user
           .then(user => {
             // Hide loading indicator
-            this.$store.dispatch('addProfile', {
+            window.store.dispatch('addProfile', {
               id: user.uid,
               name: this.email,
               title: '',

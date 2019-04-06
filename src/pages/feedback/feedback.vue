@@ -10,7 +10,7 @@
       <f7-list-group v-for="(group, key) in feedbackGroups" :key="key">
         <f7-list-item :title="key" group-title></f7-list-item>
         <f7-list-item v-for="feedback_ in group"
-          :key="feedback_.userid"
+          :key="feedback_.key"
           :value="feedback_.userid"
           :title="feedback_.content"></f7-list-item>
       </f7-list-group>
@@ -46,13 +46,13 @@ export default {
     },
     sendFeedback() {
       const feedback = {
-        'userid': this.$root.user.email,
+        'userid': window.user.email,
         'content': this.text,
         'CreateDate': (new Date()).toLocaleDateString()
       }
-      this.$store.dispatch('putFeedback', feedback).then(function() {
-        this.$store.dispatch('getFeedback').then(function() {
-          window.$$.alert(this.$t('feedback.result'))
+      window.store.dispatch('putFeedback', feedback).then(function() {
+        window.store.dispatch('getFeedback').then(function() {
+          window.$$.alert(window.text.$t('feedback.result'))
         })
       })
     }
