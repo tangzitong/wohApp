@@ -7,10 +7,10 @@
         v-for="(message, index) in messagesData"
         :key="index"
         :type="message.type"
-        :text="message.text"
+        :text="message.message"
         :image="message.image"
         :name="message.name"
-        :avatar="message.avatar"
+        :avatar="message.userId"
         :first="isFirstMessage(message, index)"
         :last="isLastMessage(message, index)"
         :tail="isTailMessage(message, index)"
@@ -33,94 +33,56 @@ export default {
   computed: {
     nickname() {
       const query = this.$f7route.query
-      return query.nickname || this.$t('app.chat')
+      return query.name || this.$t('app.chat')
+    },
+    roomid() {
+      const query = this.$f7route.query
+      return query.id
     }
   },
   data() {
     return {
       // Initial messages
-      messagesData: [
-        {
-          type: 'sent',
-          text: 'Hi, Kate'
-        },
-        {
-          type: 'sent',
-          text: 'How are you?'
-        },
-        {
-          name: 'Kate',
-          type: 'received',
-          text: 'Hi, I am good!',
-          avatar: 'https://loremflickr.com/70/70/people?lock=9'
-        },
-        {
-          name: 'Blue Ninja',
-          type: 'received',
-          text: 'Hi there, I am also fine, thanks! And how are you?',
-          avatar: 'https://loremflickr.com/70/70/people?lock=7'
-        },
-        {
-          type: 'sent',
-          text: 'Hey, Blue Ninja! Glad to see you ;)'
-        },
-        {
-          type: 'sent',
-          text: 'Hey, look, cutest kitten ever!'
-        },
-        {
-          type: 'sent',
-          image: 'https://loremflickr.com/300/200/cat?lock=6'
-        },
-        {
-          name: 'Kate',
-          type: 'received',
-          text: 'Nice!',
-          avatar: 'https://loremflickr.com/70/70/people?lock=9'
-        },
-        {
-          name: 'Kate',
-          type: 'received',
-          text: 'Like it very much!',
-          avatar: 'https://loremflickr.com/70/70/people?lock=9'
-        },
-        {
-          name: 'Blue Ninja',
-          type: 'received',
-          text: 'Awesome!',
-          avatar: 'https://loremflickr.com/70/70/people?lock=7'
-        }
-      ],
+      messagesData: [],
       // Dummy data
-      people: [
-        {
-          name: 'Kate Johnson',
-          avatar: 'https://loremflickr.com/70/70/people?lock=9'
-        },
-        {
-          name: 'Blue Ninja',
-          avatar: 'https://loremflickr.com/70/70/people?lock=7'
-        }
-      ],
-      answers: [
-        'Yes!',
-        'No',
-        'Hm...',
-        'I am not sure',
-        'And what about you?',
-        'May be ;)',
-        'Lorem ipsum dolor sit amet, consectetur',
-        'What?',
-        'Are you sure?',
-        'Of course',
-        'Need to think about it',
-        'Amazing!!!'
-      ],
+      people: [],
+      answers: [],
       // Response in progress flag
       responseInProgress: false
     }
   },
+  mounted() {
+    this.enterRoom()
+    this.getRoomMessages()
+    this.getRoomUsers()
+    this.receiveMessages()
+  },
   methods: {
+    enterRoom() {
+      this.$root.chat.enterRoom(this.roomid)
+    },
+    getRoomMessages() {
+      this.$f7.preloader.show()
+      this.$root.chat.getRoomMessages(this.roomid, function(roommessages) {
+        window.store.dispatch('initRoomMessages', roommessages)
+      })
+      this.$f7.preloader.hide()
+    },
+    getRoomUsers() {
+      this.$f7.preloader.show()
+      this.$root.chat.getUsersByRoom(this.roomid, function(roomusers) {
+        window.store.dispatch('initRoomUsers', roomusers)
+      })
+      this.$f7.preloader.hide()
+    },
+    receiveMessages() {
+      this.$root.chat.on('message-add', function(roomid, message) {
+        if (roomid === this.roomid) {
+          self.messagesData.push(message)
+          window.store.dispatch('infiniteRoomMessages', {message})
+        }
+      })
+    },
     // Messages rules for correct styling
     isFirstMessage(message, index) {
       const self = this
@@ -183,29 +145,7 @@ export default {
         text
       })
 
-      // Mock response
-      if (self.responseInProgress) return
-      self.responseInProgress = true
-      setTimeout(() => {
-        const answer =
-          self.answers[Math.floor(Math.random() * self.answers.length)]
-        const person =
-          self.people[Math.floor(Math.random() * self.people.length)]
-        // self.messages.showTyping({
-        //   header: `${person.name} is typing`,
-        //   avatar: person.avatar
-        // })
-        setTimeout(() => {
-          self.messagesData.push({
-            text: answer,
-            type: 'received',
-            name: person.name,
-            avatar: person.avatar
-          })
-          // self.messages.hideTyping()
-          self.responseInProgress = false
-        }, 1000)
-      }, 1000)
+      this.$root.chat.sendMessage(this.roomid, this.text, 'messageType')
     },
     onF7Ready() {
       const self = this

@@ -9,6 +9,30 @@ export default {
   [types.INIT_CONTACTS] (state, { contacts }) {
     Vue.set(state, 'contacts', contacts)
   },
+  [types.APPEND_CONTACTS](state, { contacts }) {
+    Vue.set(state, 'contacts', [...state.contacts, ...contacts])
+  },
+  [types.PREPEND_CONTACTS](state, { contacts }) {
+    Vue.set(state, 'contacts', [...contacts, ...state.contacts])
+  },
+  [types.INIT_ROOMUSERS] (state, { roomusers }) {
+    Vue.set(state, 'roomusers', roomusers)
+  },
+  [types.APPEND_ROOMUSERS](state, { roomusers }) {
+    Vue.set(state, 'roomusers', [...state.roomusers, ...roomusers])
+  },
+  [types.PREPEND_ROOMUSERS](state, { roomusers }) {
+    Vue.set(state, 'roomusers', [...roomusers, ...state.roomusers])
+  },
+  [types.INIT_ROOMMESSAGES] (state, { roommessages }) {
+    Vue.set(state, 'roommessages', roommessages)
+  },
+  [types.APPEND_ROOMMESSAGES](state, { roommessages }) {
+    Vue.set(state, 'roommessages', [...state.roommessages, ...roommessages])
+  },
+  [types.PREPEND_ROOMMESSAGES](state, { roommessages }) {
+    Vue.set(state, 'roommessages', [...roommessages, ...state.roommessages])
+  },
   [types.INIT_AREAS](state, { areas }) {
     Vue.set(state, 'areas', areas)
   },

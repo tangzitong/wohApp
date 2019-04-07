@@ -20,8 +20,10 @@ const dbConfig = {
   allowEmailLogin: true,
   allowEmailRegistration: true
 }
-// firebase app
+// firebase app for dev & product
 window.firebase = firebase.initializeApp(dbConfig)
+// firebase app for nodeunit test
+// firebase.initializeApp(dbConfig)
 
 // firebase utils
 const auth = firebase.auth()

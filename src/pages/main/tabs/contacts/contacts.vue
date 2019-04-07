@@ -11,9 +11,9 @@
       <f7-list-group v-for="(group, key) in contactGroups" :key="key">
         <f7-list-item :title="key" group-title></f7-list-item>
         <f7-list-item v-for="contact in group"
-          :link="getLink(contact.nickname)"
-          :key="contact.nickname"
-          :title="contact.nickname"
+          :link="getLink(contact.name, contact.id)"
+          :key="contact.id"
+          :title="contact.name"
           :after="contact.location"
           :media="getAvatarMedia(contact.avatar)"
         ></f7-list-item>
@@ -78,14 +78,21 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('getContacts')
+    this.getRoomList()
   },
   methods: {
+    getRoomList() {
+      this.$f7.preloader.show()
+      this.$root.chat.getRoomList(function(contacts) {
+        window.store.dispatch('initContacts', contacts)
+      })
+      this.$f7.preloader.hide()
+    },
     getAvatarMedia(id) {
       return getRemoteAvatar(id)
     },
-    getLink(name) {
-      return `/message/?nickname=${name}`
+    getLink(name, id) {
+      return `/message/?name=${name}&id=${id}`
     }
   }
 }

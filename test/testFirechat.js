@@ -476,11 +476,11 @@ exports['createRoom'] = function(test) {
       ref.once('value', function(snapshot) {
         console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          chat.createRoom('room1', 'private', roomkey => {
+          chat.createRoom('test2', 'private', 'Vn8NjeM3yCh7vsK6mwhEdk9d1h73', 'A', 'Tokyo', roomkey => {
             database.ref().child('room-metadata').child(roomkey).once('value', function(snapshot2) {
               console.log('snapshot2.name=' + snapshot2.child('name').val())
               console.log('snapshot2.createdByUserId=' + snapshot2.child('createdByUserId').val())
-              test.equal(snapshot2.child('name').val(), 'room1')
+              test.equal(snapshot2.child('name').val(), 'test2')
               test.equal(snapshot2.child('createdByUserId').val(), user.uid)
               test.done()
             })
@@ -507,7 +507,7 @@ exports['enterRoom'] = function(test) {
               database.ref().child('users').child(user.uid).child('rooms').child(roomid).once('value', function(snapshot3) {
                 console.log('snapshot3.name=' + snapshot3.child('name').val())
                 console.log('snapshot3.active=' + snapshot3.child('active').val())
-                test.equal(snapshot3.child('name').val(), 'room1')
+                test.equal(snapshot3.child('name').val(), 'test2')
                 test.equal(snapshot3.child('active').val(), true)
                 test.done()
               })
@@ -583,7 +583,41 @@ exports['sendMessage'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/
 
+exports['getRoomMessages'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        // console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          database.ref().child('room-metadata').once('value', function(rooms) {
+            console.log(rooms.val())
+            for (const roomid in rooms.val()) {
+              chat.getRoomMessages(roomid, function(messages) {
+                console.log(messages)
+                for (const messageid in messages) {
+                  database.ref().child('room-messages').child(roomid).child(messageid).once('value', function(snapshot2) {
+                    console.log('snapshot2.message=' + snapshot2.child('message').val())
+                    console.log('snapshot2.type=' + snapshot2.child('type').val())
+                    test.equal(snapshot2.child('message').val(), 'test message')
+                    test.equal(snapshot2.child('type').val(), 'messageType')
+                    test.done()
+                  })
+                }
+              })
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+/*
 exports['toggleUserMute'] = function(test) {
   test.done()
 }
@@ -3750,7 +3784,7 @@ exports['updateEvent'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
+
 exports['getCompanyByKey'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4530,3 +4564,4 @@ exports['getEventListByOwner'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/

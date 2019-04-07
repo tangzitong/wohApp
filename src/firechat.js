@@ -299,7 +299,7 @@ Firechat.prototype.on = function(eventType, cb) {
 }
 
 // Create and automatically enter a new chat room.
-Firechat.prototype.createRoom = function(roomName, roomType, callback) {
+Firechat.prototype.createRoom = function(roomName, roomType, avatar, header, location, callback) {
   const self = this
   const newRoomRef = this._roomRef.push()
 
@@ -307,6 +307,9 @@ Firechat.prototype.createRoom = function(roomName, roomType, callback) {
     id: newRoomRef.key,
     name: roomName,
     type: roomType || 'public',
+    avatar: avatar,
+    header: header,
+    location: location,
     createdByUserId: this._userId,
     createdAt: firebase.database.ServerValue.TIMESTAMP
   }
@@ -331,6 +334,9 @@ Firechat.prototype.enterRoom = function(roomId) {
   const self = this
   self.getRoom(roomId, function(room) {
     const roomName = room.name
+    const avatar = room.avatar
+    const header = room.header
+    const location = room.location
 
     if (!roomId || !roomName) return
 
@@ -346,6 +352,9 @@ Firechat.prototype.enterRoom = function(roomId) {
       self._userRef.child('rooms').child(roomId).set({
         id: roomId,
         name: roomName,
+        avatar: avatar,
+        header: header,
+        location: location,
         active: true
       })
 
@@ -584,6 +593,28 @@ Firechat.prototype.getUsersByRoom = function() {
 
     global.setTimeout(function() {
       cb(usernamesUnique)
+    }, 0)
+  })
+}
+
+Firechat.prototype.getRoomMessages = function() {
+  const self = this
+  const roomId = arguments[0]
+  let query = self._firechatRef.child('room-messages').child(roomId)
+  const cb = arguments[arguments.length - 1]
+  let limit = null
+
+  if (arguments.length > 2) {
+    limit = arguments[1]
+  }
+
+  query = (limit) ? query.limitToLast(limit) : query
+
+  query.once('value', function(snapshot) {
+    const roommessages = snapshot.val() || {}
+
+    global.setTimeout(function() {
+      cb(roommessages)
     }, 0)
   })
 }

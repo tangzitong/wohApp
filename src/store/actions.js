@@ -50,12 +50,57 @@ export function getLoginUser({commit}) {
   })
 }
 
-export function getContacts({commit}) {
-  axios.get('/contacts.json').then(res => {
-    const contacts = res.data
-    commit(types.INIT_CONTACTS, {
-      contacts
-    })
+export function initContacts({commit}, contacts) {
+  commit(types.INIT_CONTACTS, {
+    contacts
+  })
+}
+
+export function infiniteContacts({ commit }, contacts) {
+  commit(types.APPEND_CONTACTS, {
+    contacts
+  })
+}
+
+export function refreshContacts({ commit }, contacts) {
+  commit(types.PREPEND_CONTACTS, {
+    contacts
+  })
+}
+
+export function initRoomUsers({commit}, roomusers) {
+  commit(types.INIT_ROOMUSERS, {
+    roomusers
+  })
+}
+
+export function infiniteRoomUsers({ commit }, roomusers) {
+  commit(types.APPEND_ROOMUSERS, {
+    roomusers
+  })
+}
+
+export function refreshRoomUsers({ commit }, roomusers) {
+  commit(types.PREPEND_ROOMUSERS, {
+    roomusers
+  })
+}
+
+export function initRoomMessages({commit}, roommessages) {
+  commit(types.INIT_ROOMMESSAGES, {
+    roommessages
+  })
+}
+
+export function infiniteRoomMessages({ commit }, roommessages) {
+  commit(types.APPEND_ROOMMESSAGES, {
+    roommessages
+  })
+}
+
+export function refreshRoomMessages({ commit }, roommessages) {
+  commit(types.PREPEND_ROOMMESSAGES, {
+    roommessages
   })
 }
 
