@@ -7,6 +7,8 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 const state = {
+  isUserLogin: false,
+  userInfo: {},
   userProfile: {},
   contacts: [],
   timeline: [],

@@ -464,10 +464,35 @@ exports['removeContact'] = function(test) {
 exports['resumeSession'] = function(test) {
   test.done()
 }
+*/
 exports['on'] = function(test) {
-  test.done()
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        // console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.on('message-add', function(roomid, message) {
+            console.log('roomid=' + roomid)
+            console.log(message)
+            test.done()
+          })
+          database.ref().child('room-metadata').once('value', function(rooms) {
+            console.log(rooms.val())
+            for (const roomid in rooms.val()) {
+              chat.enterRoom(roomid)
+              chat.sendMessage(roomid, 'test message', 'messageType')
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-
+/*
 exports['createRoom'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -583,7 +608,6 @@ exports['sendMessage'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
 
 exports['getRoomMessages'] = function(test) {
   auth.onAuthStateChanged(function(user) {
@@ -617,7 +641,7 @@ exports['getRoomMessages'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-/*
+
 exports['toggleUserMute'] = function(test) {
   test.done()
 }

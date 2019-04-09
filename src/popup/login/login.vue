@@ -267,21 +267,21 @@ export default {
       // window.f7.hideIndicator()
       this.performingRequest = false
       // Reset form
-      this.email = ''
-      this.password = ''
-      this.passwordConfirmation = ''
-      this.mode = 'signOut'
+      // this.email = ''
+      // this.password = ''
+      // this.passwordConfirmation = ''
+      // this.mode = 'signOut'
       // Load required URL per view
-      const loginRequiringPages = this.$root.loginRequiringPages
-      this.$f7.views.forEach((view) => {
-        if (loginRequiringPages[view.selector]) {
-          this.$nextTick(() => {
-            view.router.load({url: loginRequiringPages[view.selector], animatePages: false})
-          })
-        }
-      })
+      // const loginRequiringPages = this.$root.loginRequiringPages
+      // this.$f7.views.forEach((view) => {
+      //  if (loginRequiringPages[view.selector]) {
+      //    this.$nextTick(() => {
+      //      view.router.load({url: loginRequiringPages[view.selector], animatePages: false})
+      //    })
+      //  }
+      // })
       // Reset required URLs
-      this.$root.loginRequiringPages = []
+      // this.$root.loginRequiringPages = []
       // Close popup
       this.updatePopup({
         key: 'loginOpened',

@@ -3,12 +3,14 @@ import * as types from './mutation-types'
 
 export function clearData({ commit }) {
   commit(types.SET_USERPROFILE, {})
-  commit(types.SET_POSTS, null)
-  commit(types.SET_HIDDENPOSTS, null)
+  commit(types.SET_POSTS, {})
+  commit(types.SET_HIDDENPOSTS, {})
 }
 
-export function setUserProfile({ commit, state }, user) {
-  commit(types.SET_USERPROFILE, user)
+export function setUserProfile({ commit, state }, userProfile) {
+  commit(types.SET_USERPROFILE, {
+    userProfile
+  })
 }
 
 export function addProfile({ commit, state }, data) {
@@ -32,7 +34,7 @@ export function addProfile({ commit, state }, data) {
 }
 
 export function updateProfile({ commit, state }, data) {
-  window.db('users').child(state.currentUser.uid).update({
+  window.db('users').child(data.id).update({
     login_name: data.name,
     name: data.title,
     photo: data.photo
@@ -43,9 +45,9 @@ export function updateProfile({ commit, state }, data) {
 
 export function getLoginUser({commit}) {
   axios.get('/user_login.json').then(res => {
-    const user = res.data.user
+    const userInfo = res.data.user
     commit(types.INIT_USER_INFO, {
-      user
+      userInfo
     })
   })
 }

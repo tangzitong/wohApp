@@ -3,8 +3,8 @@ import * as types from './mutation-types'
 import find from 'lodash/find'
 
 export default {
-  [types.INIT_USER_INFO] (state, { user }) {
-    Vue.set(state, 'user', user)
+  [types.INIT_USER_INFO] (state, { userInfo }) {
+    Vue.set(state, 'userInfo', userInfo)
   },
   [types.INIT_CONTACTS] (state, { contacts }) {
     Vue.set(state, 'contacts', contacts)
@@ -349,11 +349,13 @@ export default {
   [types.APPEND_FEEDBACK](state, { feedback }) {
     Vue.set(state, 'feedback', [...state.feedback, ...feedback])
   },
-  [types.SET_CURRENTUSER](state, { currentUser }) {
-    Vue.set(state, 'currentUser', currentUser)
-  },
   [types.SET_USERPROFILE](state, { userProfile }) {
     Vue.set(state, 'userProfile', userProfile)
+    if (userProfile && userProfile.id) {
+      Vue.set(state, 'isUserLogin', true)
+    } else {
+      Vue.set(state, 'isUserLogin', false)
+    }
   },
   [types.SET_POSTS](state, { posts }) {
     if (posts) {

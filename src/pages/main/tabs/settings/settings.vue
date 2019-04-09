@@ -2,7 +2,7 @@
   <div class="settings-view">
     <f7-list class="user-profile">
       <f7-list-item link="/profile/">
-        <img :src="this.userInfo.avatar_url" class="avatar" slot="media">
+        <img :src="userInfo.avatar_url" class="avatar" slot="media">
         <div slot="inner-start" class="detail">
           <div class="name">{{userInfo.nick_name}}</div>
           <div class="location">
@@ -37,22 +37,22 @@
         <i class='iconfont icon-about1' slot="media"></i>
       </f7-list-item>
     </f7-list>
-    <f7-list>
-      <template v-if="!isUserLogin">
+    <f7-list v-if="!isUserLogin">
       <f7-list-item :title="$t('login.titleSignIn')">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
         <a @click="openLogin">{{$t('login.titleSignIn')}}</a>
       </f7-list-item>
-      </template>
-      <template v-else>
-      <f7-list-item v-if="isUserLogin" :title="$t('modify.title')" link="/about/modify/">
+    </f7-list>
+    <f7-list v-if="isUserLogin">
+      <f7-list-item :title="$t('modify.title')" link="/about/modify/">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
       </f7-list-item>
+    </f7-list>
+    <f7-list v-if="isUserLogin">
       <f7-list-item :title="$t('logout.title')">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
         <a @click="logout">{{$t('logout.btn')}}</a>
       </f7-list-item>
-      </template>
     </f7-list>
   </div>
 </template>
@@ -105,14 +105,10 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-  data() {
-    return {
-      isUserLogin: !!window.user
-    }
-  },
   computed: {
     ...mapState({
-      userInfo: state => state.user
+      userInfo: state => state.userInfo,
+      isUserLogin: state => state.isUserLogin
     })
   },
   methods: {
@@ -129,7 +125,7 @@ export default {
       window.firebase.auth().signOut().then(() => {
         window.user = null
         window.store.dispatch('clearData')
-        this.$f7router.navigate('/')
+        // this.$f7router.navigate('/')
       }).catch(err => {
         console.log(err)
       })
