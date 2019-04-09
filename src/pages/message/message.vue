@@ -29,26 +29,27 @@
 </style>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
+  data() {
+    return {
+      // Response in progress flag
+      responseInProgress: false
+    }
+  },
   computed: {
-    nickname() {
+    ...mapState({
+      messagesData: state => state.roommessages,
+      people: state => state.roomusers,
+    }),
+    nickname: function() {
       const query = this.$f7route.query
       return query.name || this.$t('app.chat')
     },
-    roomid() {
+    roomid: function() {
       const query = this.$f7route.query
       return query.id
-    }
-  },
-  data() {
-    return {
-      // Initial messages
-      messagesData: [],
-      // Dummy data
-      people: [],
-      answers: [],
-      // Response in progress flag
-      responseInProgress: false
     }
   },
   mounted() {
@@ -77,10 +78,7 @@ export default {
     },
     receiveMessages() {
       this.$root.chat.on('message-add', function(roomid, message) {
-        if (roomid === this.roomid) {
-          self.messagesData.push(message)
-          window.store.dispatch('infiniteRoomMessages', {message})
-        }
+        window.store.dispatch('infiniteRoomMessages', message)
       })
     },
     // Messages rules for correct styling
@@ -140,12 +138,7 @@ export default {
       // Focus area
       if (text.length) self.messagebar.focus()
 
-      // Add sent message
-      self.messagesData.push({
-        text
-      })
-
-      this.$root.chat.sendMessage(this.roomid, this.text, 'messageType')
+      this.$root.chat.sendMessage(this.roomid, text, 'messageType')
     },
     onF7Ready() {
       const self = this

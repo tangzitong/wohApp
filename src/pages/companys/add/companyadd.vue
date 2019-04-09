@@ -39,8 +39,8 @@
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin">
       <imageuploader
-        :store="'companys/' + userid"
-        :db="'companys/' + userid + '/photo'" />
+        :store="'companys/' + imageid"
+        :db="'companys/' + imageid + '/photo'" />
     </f7-block>
 
     <!-- Image -->
@@ -53,6 +53,7 @@
 <script>
 import imageuploader from '../../../popup/imageuploader'
 import { getIndustryConfig, getAreaConfig } from '@/code'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -69,9 +70,14 @@ export default {
       companytype: '',
       industry: '1',
       area: '1',
-      isUserLogin: !!window.user,
-      userid: null
+      imageid: null
     }
+  },
+  computed: {
+    ...mapState({
+      isUserLogin: state => state.isUserLogin,
+      userProfile: state => state.userProfile
+    })
   },
   created() {
     this.area = getAreaConfig()
@@ -83,7 +89,11 @@ export default {
     this.id = query.mid
     this.companytype = query.companytype
     if (this.isUserLogin) {
-      this.userid = window.user.uid
+      if (this.id) {
+        this.imageid = this.id
+      } else {
+        this.imageid = this.userProfile.id
+      }
     }
     if (this.id) {
       this.$root.chat.getCompanyByKey(this.id, data => {
