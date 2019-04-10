@@ -60,11 +60,20 @@ export default {
   },
   methods: {
     enterRoom() {
+      window.roomid = this.roomid
+      window.messageReceived = false
       this.$root.chat.enterRoom(this.roomid)
     },
     getRoomMessages() {
       this.$f7.preloader.show()
       this.$root.chat.getRoomMessages(this.roomid, function(roommessages) {
+        for (const messageid in roommessages) {
+          if (window.user.uid === roommessages[messageid].userId) {
+            roommessages[messageid].type = 'sent'
+          } else {
+            roommessages[messageid].type = 'received'
+          }
+        }
         window.store.dispatch('initRoomMessages', roommessages)
       })
       this.$f7.preloader.hide()
@@ -78,7 +87,20 @@ export default {
     },
     receiveMessages() {
       this.$root.chat.on('message-add', function(roomid, message) {
-        window.store.dispatch('infiniteRoomMessages', message)
+        if (roomid === window.roomid && !window.messageReceived) {
+          if (window.user.uid === message.userId) {
+            message.type = 'sent'
+          } else {
+            message.type = 'received'
+          }
+          const roommessages = []
+          roommessages.push(message)
+          window.store.dispatch('infiniteRoomMessages', roommessages)
+          window.messageReceived = true
+          setTimeout(function () {
+            window.messageReceived = false
+          }, 1000)
+        }
       })
     },
     // Messages rules for correct styling

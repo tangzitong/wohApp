@@ -6,7 +6,7 @@
       </div>
       <div class="user flex-column">
         <div class="name">{{data.nickname}}</div>
-        <div class="time">{{`#${data.id} `}}{{formatTime(data.created_at)}}</div>
+        <div class="time">{{`#${data.nickname} `}}{{formatTime(data.created_at)}}</div>
       </div>
     </div>
     <div class="card-content">
