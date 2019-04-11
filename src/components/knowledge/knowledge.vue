@@ -156,7 +156,7 @@ export default {
       })
     },
     contentClick(data) {
-      this.$emit('knowledege:content-click', data)
+      this.$emit('knowledge:content-click', data)
     },
     openPhotoBrowser(url) {
       const pb = this.$f7.photoBrowser.create({
