@@ -1,5 +1,5 @@
 <template>
-  <div class="knowledge post-knowledge" @click="contentClick(data)">
+  <div class="knowledge post-knowledge">
     <div class="knowledge-header">
       <div class="avatar">
         <img :src="getAvatar(data.avatar)" alt="Image">
@@ -9,11 +9,12 @@
         <div class="time">{{`#${data.nickname} `}}{{formatTime(data.created_at)}}</div>
       </div>
     </div>
-    <div class="knowledge-content">
-      <div class="text">{{data.address}}</div>
+    <div class="knowledge-content" @click="contentClick(data)">
+      <div class="text">{{data.introduce}}</div>
       <div v-if="data.photo" class="image" @click.stop="openPhotoBrowser(data.photo)">
         <img :src="data.photo">
       </div>
+      <div v-if="data.address" class="text">Address:{{data.address}}</div>
       <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
       <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
       <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
@@ -23,12 +24,12 @@
       <f7-button big raised color="green" fill @click="applicationKnowledge">{{$t('knowledge.application')}}</f7-button>
       <f7-link class="tool flex-rest-width" :class="{liked: data.like_count}" @click.stop="toggleLike(data.id, data.like_count)">
         <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('knowledge.like')"></span>
+        <span class="text" v-text="data.like_count ? data.like_count : $t('knowledge.like')"></span>
       </f7-link>
-    </div>
-    <div class="knowledge-footer flex-row" v-if="isOwner">
-      <f7-button big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
-      <f7-button big raised color="green" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
+      <f7-button big raised color="green" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}</f7-button>
+      <f7-button big raised color="green" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}</f7-button>
+      <f7-button v-if="isOwner" big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
+      <f7-button v-if="isOwner" big raised color="green" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -147,8 +148,14 @@ export default {
         value3: `${this.data.id}`
       })
     },
+    knowledgecertificates() {
+      this.$f7router.navigate(`/knowledge/certificates/?mid=${this.data.id}`)
+    },
+    knowledgecontents() {
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.data.id}`)
+    },
     updateKnowledge() {
-      this.$f7router.navigate(`/knowledges/add/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/knowledge/add/?mid=${this.data.id}`)
     },
     deleteKnowledge() {
       this.$root.chat.removeKnowledge(`${this.data.id}`, function() {

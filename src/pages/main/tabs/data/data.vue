@@ -31,7 +31,7 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.knowledge')" link="/knowledge/type/?isowner=true">
+      <f7-list-item :title="$t('app.knowledges')" link="/knowledge/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">book_fill</i>
       </f7-list-item>
     </f7-list>

@@ -464,7 +464,7 @@ exports['removeContact'] = function(test) {
 exports['resumeSession'] = function(test) {
   test.done()
 }
-*/
+
 exports['on'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -492,7 +492,7 @@ exports['on'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-/*
+
 exports['createRoom'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4588,4 +4588,166 @@ exports['getEventListByOwner'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+
+exports['updateKnowledgeApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getKnowledgeApplications(knowledges[knowledge].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    chat.updateKnowledgeApplication(knowledge, application, true)
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['addKnowledgeContent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                const content = {
+                  type: 'Html',
+                  data: '<div>this is Knowledge about Java Basic</div>'
+                }
+                chat.addKnowledgeContent(knowledge, 1, 'Java Basic', content, contentkey => {
+                  console.log('contentkey=' + contentkey)
+                  database.ref().child('knowledges').child('data').child(knowledge).child('contents').child(contentkey).once('value', function(contents) {
+                    console.log(contents.val())
+                    console.log('ord=' + contents.child('ord').val())
+                    console.log('title=' + contents.child('title').val())
+                    test.equal(contents.child('ord').val(), 1)
+                    test.equal(contents.child('title').val(), 'Java Basic')
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['updateKnowledgeContent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                const content = {
+                  type: 'Select',
+                  title: '<div>this is Knowledge about Java Basic</div>',
+                  options: {
+                    '1': 'select option1',
+                    '2': 'select option2'
+                  },
+                  answer: '1'
+                }
+                chat.addKnowledgeContent(knowledge, 2, 'Java Basic Test', content, contentkey => {
+                  console.log('contentkey=' + contentkey)
+                  database.ref().child('knowledges').child('data').child(knowledge).child('contents').child(contentkey).once('value', function(contents) {
+                    console.log(contents.val())
+                    console.log('ord=' + contents.child('ord').val())
+                    console.log('title=' + contents.child('title').val())
+                    test.equal(contents.child('ord').val(), 1)
+                    test.equal(contents.child('title').val(), 'Java Basic')
+                    test.done()
+                  })
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeContents'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getKnowledgeContents(knowledge, function(contents) {
+                  for (const content in contents) {
+                    console.log(contents[content])
+                    test.done()
+                  }
+                })
+                break
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
 */
+exports['updateKnowledgeContent'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.updateLearningStatus(knowledge, 2, true, knowledgeKey => {
+                  console.log('knowledgeKey=' + knowledgeKey)
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}

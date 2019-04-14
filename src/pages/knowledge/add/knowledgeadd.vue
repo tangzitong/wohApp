@@ -13,6 +13,10 @@
         <input type="text" :placeholder="$t('knowledge.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
+        <label>{{$t('knowledge.introduce')}}</label><br/>
+        <input type="textarea" :placeholder="$t('knowledge.introduce_')" @input="introduce = $event.target.value" :value="introduce" />
+      </f7-list-item>
+      <f7-list-item>
         <label>{{$t('knowledge.address')}}</label><br/>
         <input type="text" :placeholder="$t('knowledge.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
@@ -59,6 +63,7 @@ export default {
     return {
       id: null,
       name: '',
+      introduce: '',
       address: '',
       Tel: '',
       Fax: '',
@@ -89,6 +94,7 @@ export default {
       this.$root.chat.getKnowledgeByKey(this.id, data => {
         if (data) {
           this.name = data.name
+          this.introduce = data.introduce
           this.address = data.address
           this.Tel = data.Tel
           this.Fax = data.Fax
@@ -105,6 +111,7 @@ export default {
       if (this.id) {
         this.$root.chat.updateKnowledge(this.id, {
           name: this.name,
+          introduce: this.introduce,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
@@ -120,6 +127,7 @@ export default {
       } else {
         this.$root.chat.createKnowledge({
           name: this.name,
+          introduce: this.introduce,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
@@ -135,6 +143,7 @@ export default {
       }
 
       this.name = ''
+      this.introduce = ''
       this.address = ''
       this.Tel = ''
       this.Fax = ''

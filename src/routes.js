@@ -42,6 +42,16 @@ import knowledgetypePage from './pages/knowledge/type'
 import knowledgeaddtypePage from './pages/knowledge/addtype'
 import knowledgeaddPage from './pages/knowledge/add'
 import knowledgeviewPage from './pages/knowledge/view'
+import knowledgecertificatesPage from './pages/knowledge/certificates'
+import knowledgecontentsPage from './pages/knowledge/contents'
+import knowledgecontentsaddCPage from './pages/knowledge/contents/addCertificate'
+import knowledgecontentsaddHPage from './pages/knowledge/contents/addHtml'
+import knowledgecontentsaddIPage from './pages/knowledge/contents/addInput'
+import knowledgecontentsaddSPage from './pages/knowledge/contents/addSelect'
+import knowledgecontentsviewCPage from './pages/knowledge/contents/viewCertificate'
+import knowledgecontentsviewHPage from './pages/knowledge/contents/viewHtml'
+import knowledgecontentsviewIPage from './pages/knowledge/contents/viewInput'
+import knowledgecontentsviewSPage from './pages/knowledge/contents/viewSelect'
 import toolsPage from './pages/tools'
 import tooltypePage from './pages/tools/type'
 import tooladdtypePage from './pages/tools/addtype'
@@ -315,6 +325,82 @@ export default [
     path: '/knowledge/view/',
     component: knowledgeviewPage,
     name: 'viewKnowledge',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/certificates/',
+    component: knowledgecertificatesPage
+  },
+  {
+    path: '/knowledge/contents/',
+    component: knowledgecontentsPage,
+    name: 'KnowledgeContents',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addCertificate',
+    component: knowledgecontentsaddCPage,
+    name: 'KnowledgeContentsaddC',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addHtml',
+    component: knowledgecontentsaddHPage,
+    name: 'KnowledgeContentsaddH',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addInput',
+    component: knowledgecontentsaddIPage,
+    name: 'KnowledgeContentsaddI',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addSelect',
+    component: knowledgecontentsaddSPage,
+    name: 'KnowledgeContentsaddS',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewCertificate',
+    component: knowledgecontentsviewCPage,
+    name: 'KnowledgeContentsviewC',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewHtml',
+    component: knowledgecontentsviewHPage,
+    name: 'KnowledgeContentsviewH',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewInput',
+    component: knowledgecontentsviewIPage,
+    name: 'KnowledgeContentsviewI',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewSelect',
+    component: knowledgecontentsviewSPage,
+    name: 'KnowledgeContentsviewS',
     meta: {
       requiresAuth: true
     }

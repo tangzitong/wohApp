@@ -82,7 +82,7 @@ export default {
       this.$f7.ptr.done()
     },
     routeToPost(data) {
-      this.$f7router.navigate(`/knowledges/view/?mid=${data.id}`)
+      this.$f7router.navigate(`/knowledge/view/?mid=${data.id}`)
     }
   },
   components: {

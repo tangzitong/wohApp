@@ -45,7 +45,7 @@ export default {
     saveKnowledgetype() {
       const knowledgetype = this.$$('input[name="knowledgetype-radio"]:checked').val()
       setKnowledgetypeConfig(knowledgetype)
-      this.$f7router.navigate(`/knowledges/add/?knowledgetype=${knowledgetype}`)
+      this.$f7router.navigate(`/knowledge/add/?knowledgetype=${knowledgetype}`)
     }
   }
 }

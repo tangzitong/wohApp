@@ -13,6 +13,33 @@ service firebase.storage {
     match /users/{uid} {
       allow read, write: if uid == request.auth.uid;
     }
+    match /jobs/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /companys/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /projects/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /talents/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /consultants/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /dispatchers/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /knowledges/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /tools/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
+    match /events/{uid} {
+      allow read, write: if uid == request.auth.uid;
+    }
   }
 }
 

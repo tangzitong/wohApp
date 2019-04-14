@@ -64,6 +64,7 @@
     "framework7-vue": "^2.3.0",
     "fs-extra": "^7.0.1",
     "hex-rgb": "^4.0.0",
+    "images": "^3.0.2",
     "ionicons": "^3.0.0",
     "jimp": "^0.6.0",
     "jquery": "^3.3.1",

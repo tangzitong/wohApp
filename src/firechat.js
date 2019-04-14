@@ -60,6 +60,8 @@ function Firechat(firebaseRef, options) {
   this._dispatchersRef = this._firechatRef.child('dispatchers')
   this._consultantsRef = this._firechatRef.child('consultants')
   this._knowledgesRef = this._firechatRef.child('knowledges')
+  this._knowledgecontentsRef = this._firechatRef.child('knowledgecontents')
+  this._knowledgecertificatesRef = this._firechatRef.child('knowledgecertificates')
   this._toolsRef = this._firechatRef.child('tools')
   this._eventsRef = this._firechatRef.child('events')
 
@@ -2301,6 +2303,7 @@ Firechat.prototype.createKnowledge = function(data, callback) {
   const newKnowledge = {
     id: newKnowledgeRef.key,
     name: data.name,
+    introduce: data.introduce,
     knowledgetype: data.knowledgetype,
     industry: data.industry,
     area: data.area,
@@ -2312,6 +2315,8 @@ Firechat.prototype.createKnowledge = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     applications: [],
+    content_count: 0,
+    certificate_count: 0,
     like_count: 0,
     likes: [],
     avatar: this._userId,
@@ -2387,6 +2392,144 @@ Firechat.prototype.addKnowledgeApplication = function(knowledgeKey, applications
           callback(newApplcationsRef.key)
         }
       })
+    }
+  })
+}
+
+Firechat.prototype.updateKnowledgeApplication = function(knowledgeKey, applicationKey, approvalStatus, callback) {
+  const self = this
+  const newApplicationsRef = self._knowledgesRef.child('data').child(knowledgeKey).child('applications').child(applicationKey)
+  const newApplication = {
+    approvalStatus: approvalStatus,
+    approvalAvatar: this._userId,
+    approvalName: this._userName,
+    approval_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newApplicationsRef.update(newApplication, function(error) {
+    if (!error) {
+      callback(newApplicationsRef.key)
+    }
+  })
+}
+
+Firechat.prototype.updateLearningStatus = function(knowledgeKey, contentOrd, LearningStatus, callback) {
+  const self = this
+  const newLearningsRef = self._userRef.child('learnings').child(knowledgeKey)
+  const newLearning = {
+    contentOrd: contentOrd,
+    LearningStatus: LearningStatus,
+    approval_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newLearningsRef.update(newLearning, function(error) {
+    if (!error) {
+      callback(newLearningsRef.key)
+    }
+  })
+}
+
+Firechat.prototype.addKnowledgeContent = function(knowledgeKey, ord, title, content, callback) {
+  const self = this
+  const newContentsRef = self._knowledgecontentsRef.child('data').child(knowledgeKey).child('contents').push()
+  const newContent = {
+    id: newContentsRef.key,
+    ord: ord,
+    title: title,
+    content: content,
+    comment_count: 0,
+    comments: [],
+    knowledgeid: knowledgeKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newContentsRef.set(newContent, function(error) {
+    if (!error) {
+      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.content_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newContentsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addKnowledgeCertificate = function(knowledgeKey, certificatePath, callback) {
+  const self = this
+  const newCertificatesRef = self._knowledgecertificatesRef.child('data').child(knowledgeKey).push()
+  const newCertificate = {
+    id: newCertificatesRef.key,
+    certificatePath: certificatePath,
+    knowledgeid: knowledgeKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newCertificatesRef.set(newCertificate, function(error) {
+    if (!error) {
+      self._knowledgecontentsRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.certificate_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newCertificatesRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.addKnowledgeContentComment = function(knowledgeKey, contentKey, comment, callback) {
+  const self = this
+  const newCommentsRef = self._knowledgecontentsRef.child('data').child(knowledgeKey).child('contents').child(contentKey).child('comments').push()
+  const newComment = {
+    id: newCommentsRef.key,
+    comment: comment,
+    contentid: contentKey,
+    avatar: this._userId,
+    name: this._userName,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }
+  newCommentsRef.set(newComment, function(error) {
+    if (!error) {
+      self._knowledgecontentsRef.child('data').child(knowledgeKey).child('contents').child(contentKey).transaction(function(current) {
+        if (current) {
+          current.comment_count++
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback(newCommentsRef.key)
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.updateKnowledgeContent = function(knowledgeKey, contentKey, ord, title, content, callback) {
+  const self = this
+  const newContentsRef = self._knowledgecontentsRef.child('data').child(knowledgeKey).child('contents').child(contentKey)
+  const newContent = {
+    ord: ord,
+    title: title,
+    content: content,
+    knowledgeid: knowledgeKey,
+    avatar: this._userId,
+    name: this._userName,
+    update_at: firebase.database.ServerValue.TIMESTAMP
+  }
+
+  newContentsRef.update(newContent, function(error) {
+    if (!error) {
+      callback(newContentsRef.key)
     }
   })
 }
@@ -2479,6 +2622,30 @@ Firechat.prototype.getKnowledgeApplications = function(knowledgekey, cb) {
   })
 }
 
+Firechat.prototype.getKnowledgeContents = function(knowledgekey, cb) {
+  const self = this
+
+  self._knowledgecontentsRef.child('data').child(knowledgekey).child('contents').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getKnowledgeCertificates = function(knowledgekey, cb) {
+  const self = this
+
+  self._knowledgecertificatesRef.child('data').child(knowledgekey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getLearningStatus = function(cb) {
+  const self = this
+
+  self._userRef.child('learnings').once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeKnowledgeApplication = function(knowledgeKey, applicationKey, callback) {
   const self = this
   self._knowledgesRef.child('data').child(knowledgeKey).child('applications').child(applicationKey).remove(function(error) {
@@ -2486,6 +2653,24 @@ Firechat.prototype.removeKnowledgeApplication = function(knowledgeKey, applicati
       self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
         if (current) {
           current.application_count--
+        }
+        return current
+      }, function(error, committed, snapshot) {
+        if (!error && callback) {
+          callback()
+        }
+      })
+    }
+  })
+}
+
+Firechat.prototype.removeKnowledgeContent = function(knowledgeKey, contentKey, callback) {
+  const self = this
+  self._knowledgecontentsRef.child('data').child(knowledgeKey).child('contents').child(contentKey).remove(function(error) {
+    if (!error) {
+      self._knowledgecontentsRef.child('data').child(knowledgeKey).transaction(function(current) {
+        if (current) {
+          current.content_count--
         }
         return current
       }, function(error, committed, snapshot) {

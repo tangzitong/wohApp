@@ -1,6 +1,6 @@
 <template>
   <f7-page class="knowledge-page">
-    <f7-navbar :title="$t('app.knowledge')" :back-link="$t('app.back')" sliding>
+    <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')" sliding>
     </f7-navbar>
     <Knowledge :enableToolbar="false" :data="knowledge"></Knowledge>
     <div class="applications">

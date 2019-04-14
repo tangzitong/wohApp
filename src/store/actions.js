@@ -367,6 +367,24 @@ export function initKnowledges({ commit }, knowledges) {
   })
 }
 
+export function initKnowledgecontents({ commit }, knowledgecontents) {
+  commit(types.INIT_KNOWLEDGECONTENTS, {
+    knowledgecontents
+  })
+}
+
+export function initKnowledgecertificates({ commit }, knowledgecertificates) {
+  commit(types.INIT_KNOWLEDGECERTIFICATES, {
+    knowledgecertificates
+  })
+}
+
+export function initLearningstatus({ commit }, learningstatus) {
+  commit(types.INIT_LEARNINGSTATUS, {
+    learningstatus
+  })
+}
+
 export function infiniteKnowledges({ commit }, knowledges) {
   commit(types.APPEND_KNOWLEDGES, {
     knowledges
