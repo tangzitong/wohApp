@@ -20,6 +20,7 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
+      postKey: '',
       text: ''
     }
   },
@@ -32,6 +33,9 @@ export default {
     },
     sendComment() {
       this.$f7.preloader.show(this.$t('app.submitting'))
+      this.$root.chat.addComment(this.postKey, this.text, function(commmentkey) {
+        console.log(commmentkey + 'created')
+      })
       setTimeout(_ => {
         this.$f7.preloader.hide()
         this.closePopup()

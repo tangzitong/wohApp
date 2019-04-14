@@ -31,6 +31,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getFeedback')
+    window.msg = this.$t('feedback.result')
   },
   computed: {
     ...mapState({
@@ -44,15 +45,23 @@ export default {
     editorTextChange(text) {
       this.text = text
     },
+    getNowYMD() {
+      const dt = new Date()
+      const y = dt.getFullYear()
+      const m = ('00' + (dt.getMonth() + 1)).slice(-2)
+      const d = ('00' + dt.getDate()).slice(-2)
+      const result = y + '/' + m + '/' + d
+      return result
+    },
     sendFeedback() {
       const feedback = {
         'userid': window.user.email,
         'content': this.text,
-        'CreateDate': (new Date()).toLocaleDateString()
+        'CreateDate': this.getNowYMD()
       }
       window.store.dispatch('putFeedback', feedback).then(function() {
         window.store.dispatch('getFeedback').then(function() {
-          window.$$.alert(window.text.$t('feedback.result'))
+          window.$$.alert(window.msg)
         })
       })
     }

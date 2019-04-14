@@ -17,6 +17,7 @@ const state = {
   popup: {
     publisherOpened: false,
     commentOpened: false,
+    postKey: '',
     applicationOpened: false,
     applicationType: '',
     applicationKey: '',

@@ -122,7 +122,7 @@ export default {
       pb.open()
     },
     formatTime(time) {
-      return distanceInWordsToNow(time * 1000, { addSuffix: true })
+      return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
