@@ -53,6 +53,8 @@ function Firechat(firebaseRef, options) {
   this._suspensionsRef = this._firechatRef.child('suspensions')
   this._usersOnlineRef = this._firechatRef.child('user-names-online')
   this._postsRef = this._firechatRef.child('posts')
+  this._commentsRef = this._firechatRef.child('comments')
+  this._likesRef = this._firechatRef.child('likes')
   this._jobsRef = this._firechatRef.child('jobs')
   this._companysRef = this._firechatRef.child('companys')
   this._projectsRef = this._firechatRef.child('projects')
@@ -700,9 +702,7 @@ Firechat.prototype.createPost = function(content, pic, callback) {
     id: newPostRef.key,
     text: content,
     comment_count: 0,
-    comments: [],
     like_count: 0,
-    likes: [],
     original_pic: pic,
     avatar: this._userId,
     nickname: this._userName,
@@ -729,7 +729,7 @@ Firechat.prototype.createPost = function(content, pic, callback) {
 
 Firechat.prototype.addComment = function(postKey, comments, callback) {
   const self = this
-  const newCommentsRef = self._postsRef.child('data').child(postKey).child('comments').push()
+  const newCommentsRef = self._commentsRef.child('data').child(postKey).push()
   const newComment = {
     id: newCommentsRef.key,
     text: comments,
@@ -747,7 +747,7 @@ Firechat.prototype.addComment = function(postKey, comments, callback) {
         return current
       }, function(error, committed, snapshot) {
         if (!error && callback) {
-          callback(newCommentsRef.key)
+          callback(postKey)
         }
       })
     }
@@ -756,7 +756,7 @@ Firechat.prototype.addComment = function(postKey, comments, callback) {
 
 Firechat.prototype.likePost = function(postKey, callback) {
   const self = this
-  const newLikesRef = self._postsRef.child('data').child(postKey).child('likes').push()
+  const newLikesRef = self._likesRef.child('data').child(postKey).push()
 
   const newlike = {
     id: newLikesRef.key,
@@ -813,14 +813,14 @@ Firechat.prototype.removePost = function(postKey, callback) {
 Firechat.prototype.getPostComments = function(postkey, cb) {
   const self = this
 
-  self._postsRef.child('data').child(postkey).child('comments').once('value', function(snapshot) {
+  self._commentsRef.child('data').child(postkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
   const self = this
-  self._postsRef.child('data').child(postKey).child('comments').child(commentKey).remove(function(error) {
+  self._commentsRef.child('data').child(postKey).child(commentKey).remove(function(error) {
     if (!error) {
       self._postsRef.child('data').child(postKey).transaction(function(current) {
         if (current) {
@@ -839,14 +839,14 @@ Firechat.prototype.removePostComment = function(postKey, commentKey, callback) {
 Firechat.prototype.getPostLikes = function(postkey, cb) {
   const self = this
 
-  self._postsRef.child('data').child(postkey).child('likes').once('value', function(snapshot) {
+  self._likesRef.child('data').child(postkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.unlikePost = function(postKey, likeKey, callback) {
   const self = this
-  self._postsRef.child('data').child(postKey).child('likes').child(likeKey).remove(function(error) {
+  self._likesRef.child('data').child(postKey).child(likeKey).remove(function(error) {
     if (!error) {
       self._postsRef.child('data').child(postKey).transaction(function(current) {
         if (current) {

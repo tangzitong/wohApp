@@ -8,8 +8,8 @@
         <span>{{$t('home.comment')}}</span>
       </div>
       <div class="clist">
-        <template v-if="comments.length">
-          <div class="comment flex-row" v-for="comment in comments" :key="comment.name">
+        <template v-if="comments">
+          <div class="comment flex-row" v-for="comment in comments" :key="comment.id">
             <img class="avatar" :src="getAvatar(comment.avatar)" />
             <div class="detail flex-rest-width">
               <div class="name"><span>{{comment.name}}</span></div>
@@ -139,13 +139,13 @@ import find from 'lodash/find'
 export default {
   data() {
     return {
-      post: {},
-      comments: []
+      post: {}
     }
   },
   computed: {
     ...mapState({
-      timeline: state => state.timeline
+      timeline: state => state.timeline,
+      comments: state => state.comments
     })
   },
   mounted() {
@@ -158,10 +158,8 @@ export default {
       'updatePopup'
     ]),
     getComments() {
-      const random = Math.floor(Math.random() * 2)
-      if (!random) return []
       this.$root.chat.getPostComments(this.post.id, function(comments) {
-        this.comments = comments
+        window.store.dispatch('initComments', comments)
       })
     },
     formatTime(time) {

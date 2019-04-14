@@ -328,6 +328,15 @@ export default {
   [types.PREPEND_TIMETIME](state, { timeline }) {
     Vue.set(state, 'timeline', [...timeline, ...state.timeline])
   },
+  [types.INIT_COMMENT](state, { comments }) {
+    Vue.set(state, 'comments', comments)
+  },
+  [types.APPEND_COMMENT](state, { comments }) {
+    Vue.set(state, 'comments', [...state.comments, ...comments])
+  },
+  [types.PREPEND_COMMENT](state, { comments }) {
+    Vue.set(state, 'comments', [...comments, ...state.comments])
+  },
   [types.UPDATE_TIMETIME] (state, { mid, type }) {
     let item = find(state.timeline, p => p.id === mid)
     const update = {}

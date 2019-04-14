@@ -12,6 +12,7 @@ const state = {
   userProfile: {},
   contacts: [],
   timeline: [],
+  comments: [],
   posts: [],
   hiddenPosts: [],
   popup: {

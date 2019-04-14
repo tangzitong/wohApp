@@ -15,14 +15,18 @@
 
 <script>
 import Editor from '@/components/editor'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data() {
     return {
-      postKey: '',
       text: ''
     }
+  },
+  computed: {
+    ...mapState({
+      postKey: state => state.popup.postKey
+    })
   },
   methods: {
     ...mapActions([
@@ -31,12 +35,20 @@ export default {
     editorTextChange(text) {
       this.text = text
     },
+    getComments() {
+      this.$root.chat.getPostComments(this.postKey, function(comments) {
+        window.store.dispatch('initComments', comments)
+      })
+    },
     sendComment() {
       this.$f7.preloader.show(this.$t('app.submitting'))
-      this.$root.chat.addComment(this.postKey, this.text, function(commmentkey) {
-        console.log(commmentkey + 'created')
+      this.$root.chat.addComment(this.postKey, this.text, function(postKey) {
+        console.log(postKey + ' comment added')
       })
       setTimeout(_ => {
+        this.$root.chat.getPostComments(this.postKey, function(comments) {
+          window.store.dispatch('initComments', comments)
+        })
         this.$f7.preloader.hide()
         this.closePopup()
       }, 1500)

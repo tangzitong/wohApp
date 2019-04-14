@@ -205,6 +205,24 @@ export function refreshTimeline({commit}, timeline) {
   })
 }
 
+export function initComments({commit}, comments) {
+  commit(types.INIT_COMMENT, {
+    comments
+  })
+}
+
+export function infiniteComments({commit}, comments) {
+  commit(types.APPEND_COMMENT, {
+    comments
+  })
+}
+
+export function refreshComments({commit}, comments) {
+  commit(types.PREPEND_COMMENT, {
+    comments
+  })
+}
+
 export function updateTimeline({commit}, { mid, type }) {
   commit(types.UPDATE_TIMETIME, {
     mid,
