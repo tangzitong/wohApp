@@ -1,17 +1,18 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('knowledge.addhtml')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar :title="$t('app.study')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addhtml')}}</h3>
+      <h3>{{title}}</h3>
     </f7-block>
     <f7-list>
-      <f7-list-item>{{title}}
-      </f7-list-item>
-      <f7-list-item>{{htmlcontent}}
-      </f7-list-item>
       <f7-list-item>
-      <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
-      <f7-button v-if="ord < content_count" big raised color="green" fill @click="goNext">{{$t('app.next')}}</f7-button>
+        {{htmlcontent}}
+      </f7-list-item>
+    </f7-list>
+    <f7-list>
+      <f7-list-item>
+        <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
+        <f7-button v-if="ord < content_count" big raised color="green" fill @click="goNext">{{$t('app.next')}}</f7-button>
       </f7-list-item>
     </f7-list>
 </f7-page>

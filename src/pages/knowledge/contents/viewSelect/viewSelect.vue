@@ -1,19 +1,25 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('knowledge.addselect')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar :title="$t('app.study')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addselect')}}</h3>
+      <h3>{{title}}</h3>
     </f7-block>
     <f7-list>
-      <f7-list-item>{{title}}
-      </f7-list-item>
-      <f7-list-item>{{htmlcontent}}
-      </f7-list-item>
-      <f7-list-item>{{inputcontent}}
-      </f7-list-item>
       <f7-list-item>
-      <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
-      <f7-button v-if="ord < content_count" big raised color="green" fill @click="goNext">{{$t('app.next')}}</f7-button>
+        {{htmlcontent}}
+      </f7-list-item>
+    </f7-list>
+    <f7-list>
+      <f7-list-group v-for="knowledgeoption_ in knowledgeoptions" :key="knowledgeoption_.id">
+        <f7-list-item radio name="knowledgeoption-radio"
+          :value="knowledgeoption_.id"
+          :title="knowledgeoption_.name"></f7-list-item>
+      </f7-list-group>
+    </f7-list>
+    <f7-list>
+      <f7-list-item>
+        <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
+        <f7-button v-if="ord < content_count" big raised color="green" fill @click="goNext">{{$t('app.next')}}</f7-button>
       </f7-list-item>
     </f7-list>
 </f7-page>
@@ -33,10 +39,7 @@ export default {
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
       htmlcontent: null,
-      select1: null,
-      select2: null,
-      select3: null,
-      select4: null,
+      knowledgeoptions: null,
       answer: null,
       ord: 0,
       title: '',
@@ -68,6 +71,14 @@ export default {
     this.getKnowledgeContentsCount()
   },
   methods: {
+    getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    },
+    swap(datas, i, j) {
+      const data = datas[i]
+      datas[i] = datas[j]
+      datas[j] = data
+    },
     getKnowledgeContentsCount() {
       if (this.knowledgekey) {
         for (const knowledge in this.knowledges) {
@@ -85,10 +96,17 @@ export default {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
             this.htmlcontent = this.knowledgecontents[knowledgecontent].content.title
-            this.select1 = this.knowledgecontents[knowledgecontent].content.options.a
-            this.select2 = this.knowledgecontents[knowledgecontent].content.options.b
-            this.select3 = this.knowledgecontents[knowledgecontent].content.options.c
-            this.select4 = this.knowledgecontents[knowledgecontent].content.options.d
+            const datas = [
+              {id: 'a', name: this.knowledgecontents[knowledgecontent].content.options.a},
+              {id: 'b', name: this.knowledgecontents[knowledgecontent].content.options.b},
+              {id: 'c', name: this.knowledgecontents[knowledgecontent].content.options.c},
+              {id: 'd', name: this.knowledgecontents[knowledgecontent].content.options.d}
+            ]
+            for (let i = 0; i < 4; i++) {
+              const j = this.getRandomInt(4)
+              this.swap(datas, i, j)
+            }
+            this.knowledgeoptions = datas
             this.answer = this.knowledgecontents[knowledgecontent].content.answer
             break
           }
@@ -131,6 +149,11 @@ export default {
       }
     },
     goNext() {
+      const knowledgeoption = this.$$('input[name="knowledgeoption-radio"]:checked').val()
+      if (knowledgeoption !== this.answer) {
+        this.getKnowledgeSelect()
+        return
+      }
       this.getNextContentType()
       switch (this.nextContentType) {
         case 'Html':

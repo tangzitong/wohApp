@@ -1,18 +1,18 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('knowledge.addcertificate')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar :title="$t('app.study')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addcertificate')}}</h3>
+      <h3>{{title}}</h3>
     </f7-block>
     <f7-list>
-      <f7-list-item>{{title}}
-      </f7-list-item>
+      <f7-list-item>
         <!-- Image -->
         <f7-block inset v-if="certificatePath">
           <img :src="certificatePath" width="50%" />
         </f7-block>
-      <f7-list-item>
       </f7-list-item>
+    </f7-list>
+    <f7-list>
       <f7-list-item>
         <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
       </f7-list-item>

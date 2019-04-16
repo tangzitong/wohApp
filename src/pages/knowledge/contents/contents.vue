@@ -7,7 +7,7 @@
         <f7-link v-if="isOwner" :text="$t('app.delete')" @click="deleteLearningContent"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.knowledgecontents')}}</f7-block-title>
+    <f7-block-title>{{this.name}}</f7-block-title>
     <f7-list>
       <f7-list-group v-for="knowledgecontent_ in knowledgecontents" :key="knowledgecontent_.id">
         <f7-list-item radio name="knowledgecontent-radio"
@@ -43,7 +43,8 @@ export default {
       knowledgekey: null,
       selectedOrd: 0,
       selectedContentType: 'Html',
-      isOwner: false
+      isOwner: false,
+      name: null
     }
   },
   computed: {
@@ -56,7 +57,7 @@ export default {
   mounted: function () {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
-    if (this.id) {
+    if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
           this.$store.dispatch('initKnowledgecontents', data)
@@ -84,6 +85,7 @@ export default {
       for (const knowledge in this.knowledges) {
         if (this.knowledges[knowledge].avatar === window.user.uid) {
           this.isOwner = true
+          this.name = this.knowledges[knowledge].name
           break
         }
       }
