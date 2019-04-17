@@ -100,7 +100,7 @@ export default {
     },
     startLearning() {
       const knowledgecontent = this.$$('input[name="knowledgecontent-radio"]:checked').val()
-      this.getContentType()
+      this.getContentType(knowledgecontent)
       switch (this.selectedContentType) {
         case 'Html':
           this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
@@ -118,7 +118,7 @@ export default {
     },
     editLearningContent() {
       const knowledgecontent = this.$$('input[name="knowledgecontent-radio"]:checked').val()
-      this.getContentType()
+      this.getContentType(knowledgecontent)
       switch (this.selectedContentType) {
         case 'Html':
           this.$f7router.navigate(`/knowledge/contents/addHtml/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
