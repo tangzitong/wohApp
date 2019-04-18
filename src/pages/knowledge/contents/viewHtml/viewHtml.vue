@@ -92,7 +92,7 @@ export default {
     },
     getNextContentType() {
       for (const knowledgecontent in this.knowledgecontents) {
-        if (this.knowledgecontents[knowledgecontent].ord === (this.ord + 1)) {
+        if (this.knowledgecontents[knowledgecontent].ord === (parseInt(this.ord) + 1).toString()) {
           this.nextContentType = this.knowledgecontents[knowledgecontent].content.type
           this.nextknowledgecontentkey = knowledgecontent
           break
@@ -101,7 +101,7 @@ export default {
     },
     getPrevContentType() {
       for (const knowledgecontent in this.knowledgecontents) {
-        if (this.knowledgecontents[knowledgecontent].ord === (this.ord - 1)) {
+        if (this.knowledgecontents[knowledgecontent].ord === (parseInt(this.ord) - 1).toString()) {
           this.prevContentType = this.knowledgecontents[knowledgecontent].content.type
           this.prevknowledgecontentkey = knowledgecontent
           break
@@ -110,6 +110,9 @@ export default {
     },
     goPrev() {
       this.getPrevContentType()
+      if (this.ord < '2') {
+        return
+      }
       switch (this.prevContentType) {
         case 'Html':
           this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)

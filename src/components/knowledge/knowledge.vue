@@ -27,6 +27,8 @@
         <span class="text" v-text="data.like_count ? data.like_count : $t('knowledge.like')"></span>
       </f7-link>
       <f7-button big raised color="green" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}</f7-button>
+    </div>
+    <div class="knowledge-footer flex-row" v-if="enableToolbar">
       <f7-button big raised color="green" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}</f7-button>
       <f7-button v-if="isOwner" big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
       <f7-button v-if="isOwner" big raised color="green" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
