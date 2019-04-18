@@ -254,7 +254,10 @@ export default {
       inputcontent: '输入内容',
       inputcontent_: '请输入输入内容',
       inputanswer: '输入答案',
-      inputanswer_: '请输入输入答案'
+      inputanswer_: '请输入输入答案',
+      input: '输入',
+      inputerror: '输入错误，请重试',
+      input_: '请输入答案'
     }
   },
   tool: {

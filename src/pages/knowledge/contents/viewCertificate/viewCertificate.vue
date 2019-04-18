@@ -40,6 +40,7 @@ export default {
     ...mapState({
       knowledges: state => state.knowledges,
       knowledgecontents: state => state.knowledgecontents,
+      learningstatus: state => state.learningstatus,
       isUserLogin: state => state.isUserLogin
     })
   },
@@ -54,6 +55,11 @@ export default {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
           this.$store.dispatch('initKnowledgecontents', data)
+        }
+      })
+      this.$root.chat.getLearningStatus(data => {
+        if (data) {
+          this.$store.dispatch('initLearningstatus', data)
         }
       })
     }
@@ -74,7 +80,7 @@ export default {
     },
     getPrevContentType() {
       for (const knowledgecontent in this.knowledgecontents) {
-        if (this.knowledgecontents[knowledgecontent].ord === this.ord - 1) {
+        if (this.knowledgecontents[knowledgecontent].ord === (this.ord - 1)) {
           this.prevContentType = this.knowledgecontents[knowledgecontent].content.type
           this.prevknowledgecontentkey = knowledgecontent
           break

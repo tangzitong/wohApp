@@ -254,7 +254,10 @@ export default {
       inputcontent: '入力コンテンツ',
       inputcontent_: '入力コンテンツを入力してください',
       inputanswer: '入力答え',
-      inputanswer_: '入力答えを入力してください'
+      inputanswer_: '入力答えを入力してください',
+      input: '入力',
+      inputerror: '入力が間違いました。',
+      input_: '答えを入力してください'
     }
   },
   tool: {

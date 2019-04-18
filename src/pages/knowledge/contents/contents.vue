@@ -13,11 +13,11 @@
         <f7-list-item radio name="knowledgecontent-radio"
                       :value="knowledgecontent_.id"
                       :title="knowledgecontent_.title"
-                      :disabled = "knowledgecontent_.ord > selectedOrd && !isOwner"
+                      :disabled = "knowledgecontent_.ord > 1 && knowledgecontent_.ord > selectedOrd && !isOwner"
                       :checked="selectedOrd === knowledgecontent_.ord"></f7-list-item>
       </f7-list-group>
     </f7-list>
-    <f7-list>
+    <f7-list v-if="isOwner">
       <f7-list-item>
         <f7-button big raised color="green" fill @click="addHtml">{{$t('knowledge.addhtml')}}</f7-button>
       </f7-list-item>

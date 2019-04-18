@@ -254,7 +254,10 @@ export default {
       inputcontent: 'Input Content',
       inputcontent_: 'Please input Input Content',
       inputanswer: 'Input Answer',
-      inputanswer_: 'Please input Input Answer'
+      inputanswer_: 'Please input Input Answer',
+      input: 'Input',
+      inputerror: 'Input Error',
+      input_: 'Please input Answer'
     }
   },
   tool: {

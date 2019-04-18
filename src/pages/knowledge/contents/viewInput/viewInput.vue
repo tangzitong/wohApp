@@ -11,6 +11,10 @@
       <f7-list-item>
         {{inputcontent}}
       </f7-list-item>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.input')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.input_')" @input="inputvalue = $event.target.value" />
+      </f7-list-item>
     </f7-list>
     <f7-list>
       <f7-list-item>
@@ -39,13 +43,15 @@ export default {
       inputanswer: null,
       ord: 0,
       title: '',
-      userid: null
+      userid: null,
+      inputvalue: null
     }
   },
   computed: {
     ...mapState({
       knowledges: state => state.knowledges,
       knowledgecontents: state => state.knowledgecontents,
+      learningstatus: state => state.learningstatus,
       isUserLogin: state => state.isUserLogin
     })
   },
@@ -60,6 +66,11 @@ export default {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
           this.$store.dispatch('initKnowledgecontents', data)
+        }
+      })
+      this.$root.chat.getLearningStatus(data => {
+        if (data) {
+          this.$store.dispatch('initLearningstatus', data)
         }
       })
     }
@@ -93,7 +104,7 @@ export default {
     },
     getNextContentType() {
       for (const knowledgecontent in this.knowledgecontents) {
-        if (this.knowledgecontents[knowledgecontent].ord === this.ord + 1) {
+        if (this.knowledgecontents[knowledgecontent].ord === (this.ord + 1)) {
           this.nextContentType = this.knowledgecontents[knowledgecontent].content.type
           this.nextknowledgecontentkey = knowledgecontent
           break
@@ -102,7 +113,7 @@ export default {
     },
     getPrevContentType() {
       for (const knowledgecontent in this.knowledgecontents) {
-        if (this.knowledgecontents[knowledgecontent].ord === this.ord - 1) {
+        if (this.knowledgecontents[knowledgecontent].ord === (this.ord - 1)) {
           this.prevContentType = this.knowledgecontents[knowledgecontent].content.type
           this.prevknowledgecontentkey = knowledgecontent
           break
@@ -127,6 +138,13 @@ export default {
       }
     },
     goNext() {
+      if (this.inputvalue !== this.inputanswer) {
+        window.$$.alert(this.$t('knowledge.content.inputerror'))
+        return
+      }
+      this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
+        console.log('knowledgeKey=' + knowledgeKey)
+      })
       this.getNextContentType()
       switch (this.nextContentType) {
         case 'Html':
