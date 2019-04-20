@@ -1,5 +1,7 @@
 // import firebase from 'firebase'
 const firebase = require('firebase/app')
+const images = require('pureimage')
+const fs = require('fs')
 // Firechat is a simple, easily-extensible data layer for multi-user,
 // multi-room chat, built entirely on [Firebase](https://firebase.google.com).
 //
@@ -2348,6 +2350,7 @@ Firechat.prototype.updateKnowledge = function(knowledgeKey, data, callback) {
 
   const newKnowledge = {
     name: data.name,
+    introduce: data.introduce,
     knowledgetype: data.knowledgetype,
     industry: data.industry,
     area: data.area,
@@ -2473,7 +2476,7 @@ Firechat.prototype.addKnowledgeCertificate = function(knowledgeKey, certificateP
   }
   newCertificatesRef.set(newCertificate, function(error) {
     if (!error) {
-      self._knowledgecontentsRef.child('data').child(knowledgeKey).transaction(function(current) {
+      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
         if (current) {
           current.certificate_count++
         }
@@ -2634,6 +2637,14 @@ Firechat.prototype.getKnowledgeCertificates = function(knowledgekey, cb) {
   const self = this
 
   self._knowledgecertificatesRef.child('data').child(knowledgekey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getMyKnowledgeCertificate = function(knowledgekey, cb) {
+  const self = this
+
+  self._knowledgecertificatesRef.child('data').child(knowledgekey).orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3163,6 +3174,31 @@ Firechat.prototype.unlikeEvent = function(eventKey, likeKey, callback) {
         }
       })
     }
+  })
+}
+
+Firechat.prototype.createCertificate = function(certificatePath, myCertificatePath, knowledge, callback) {
+  const self = this
+  const fnt = images.registerFont('src/assets/fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
+  fnt.load(() => {
+    images.decodePNGFromStream(fs.createReadStream(certificatePath)).then((img) => {
+      const ctx = img.getContext('2d')
+      ctx.fillStyle = '#ffffff'
+      ctx.font = "48pt 'Source Sans Pro'"
+      const dt = new Date()
+      const y = dt.getFullYear()
+      const m = ('00' + (dt.getMonth() + 1)).slice(-2)
+      const d = ('00' + dt.getDate()).slice(-2)
+      const result = y + '/' + m + '/' + d
+      ctx.fillText(knowledge, 377, 426)
+      ctx.fillText(self._userName, 377, 490)
+      ctx.fillText(result, 377, 543)
+      images.encodePNGToStream(img, fs.createWriteStream(myCertificatePath)).then(() => {
+        if (callback) {
+          callback()
+        }
+      })
+    })
   })
 }
 

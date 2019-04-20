@@ -7,8 +7,8 @@
     <f7-list>
       <f7-list-item>
         <!-- Image -->
-        <f7-block inset v-if="certificatePath">
-          <img :src="certificatePath" width="50%" />
+        <f7-block inset v-if="myCertificatePath">
+          <img :src="myCertificatePath" width="50%" />
         </f7-block>
       </f7-list-item>
     </f7-list>
@@ -31,6 +31,7 @@ export default {
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
       certificatePath: null,
+      myCertificatePath: null,
       ord: 0,
       title: '',
       userid: null
@@ -41,6 +42,7 @@ export default {
       knowledges: state => state.knowledges,
       knowledgecontents: state => state.knowledgecontents,
       learningstatus: state => state.learningstatus,
+      knowledgecertificates: state => state.knowledgecertificates,
       isUserLogin: state => state.isUserLogin
     })
   },
@@ -62,10 +64,35 @@ export default {
           this.$store.dispatch('initLearningstatus', data)
         }
       })
+      this.$root.chat.getMyKnowledgeCertificate(this.knowledgekey, data => {
+        if (data) {
+          this.$store.dispatch('initKnowledgecertificates', data)
+        }
+      })
     }
     this.getKnowledgeCertificate()
+    this.getMyKnowledgeCertificate()
+    if (!this.myCertificatePath) {
+      this.createCertificate()
+      this.getMyKnowledgeCertificate()
+    }
   },
   methods: {
+    createCertificate() {
+      this.$root.chat.addKnowledgeCertificate(this.knowledgekey, this.myCertificatePath, knowledgeKey => {
+        console.log('knowledgeKey=' + knowledgeKey)
+      })
+    },
+    getMyKnowledgeCertificate() {
+      if (this.knowledgecontentkey) {
+        for (const knowledgecertificate in this.knowledgecertificates) {
+          if (this.knowledgecertificates[knowledgecertificate].knowledgeid === this.knowledgecontentkey) {
+            this.myCertificatePath = this.knowledgecontents[this.knowledgecontentkey].certificatePath
+            break
+          }
+        }
+      }
+    },
     getKnowledgeCertificate() {
       if (this.knowledgecontentkey) {
         for (const knowledgecontent in this.knowledgecontents) {

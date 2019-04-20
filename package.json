@@ -73,6 +73,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^2.1.6",
+    "pureimage": "^0.1.6",
     "recursive-readdir": "^2.2.2",
     "recursive-readdir-sync": "^1.0.6",
     "sass-loader": "^7.1.0",

@@ -1,50 +1,368 @@
 {
   "comments" : {
-    "data" : [ {
-      "avatar" : "1",
-      "name" : "Cory Bergman",
-      "postid" : "11",
-      "text" : "wow that's some serious chat action",
-      "time" : "1404705240"
-    }, {
-      "avatar" : "2",
-      "name" : "Rhonda Irvine",
-      "postid" : "12",
-      "text" : "what country is covered by your food app?",
-      "time" : "1404705260"
-    }, {
-      "avatar" : "3",
-      "name" : "Nathan Lawson",
-      "postid" : "13",
-      "text" : "much  more interesting than a stupid grumpy cat",
-      "time" : "1404705300"
-    }, {
-      "avatar" : "4",
-      "name" : "Vaughn",
-      "postid" : "14",
-      "text" : "Signed the petition. Hope it's not too late.",
-      "time" : "1404705400"
-    } ],
+    "data" : {
+      "0" : {
+        "avatar" : "1",
+        "name" : "Cory Bergman",
+        "postid" : "11",
+        "text" : "wow that's some serious chat action",
+        "time" : "1404705240"
+      },
+      "1" : {
+        "avatar" : "2",
+        "name" : "Rhonda Irvine",
+        "postid" : "12",
+        "text" : "what country is covered by your food app?",
+        "time" : "1404705260"
+      },
+      "2" : {
+        "avatar" : "3",
+        "name" : "Nathan Lawson",
+        "postid" : "13",
+        "text" : "much  more interesting than a stupid grumpy cat",
+        "time" : "1404705300"
+      },
+      "3" : {
+        "avatar" : "4",
+        "name" : "Vaughn",
+        "postid" : "14",
+        "text" : "Signed the petition. Hope it's not too late.",
+        "time" : "1404705400"
+      },
+      "-LbRHgPyDAMcmJnsf_nF" : {
+        "-LcRMrWF6UJfJ3gH8-I-" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRMrWF6UJfJ3gH8-I-",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "text" : "sss",
+          "time" : 1555254181076
+        },
+        "-LcRN4UeAaJJZuoRZyEP" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRN4UeAaJJZuoRZyEP",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "text" : "xxx",
+          "time" : 1555254238316
+        },
+        "-LcRNklevQTeQlpBWx0U" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRNklevQTeQlpBWx0U",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "text" : "sss",
+          "time" : 1555254414666
+        },
+        "-LcRPW2iMEZ6GsX-wg5u" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRPW2iMEZ6GsX-wg5u",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "text" : "test comment",
+          "time" : 1555254874587
+        },
+        "-LcRQ3lb9EYPAUMiuq26" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRQ3lb9EYPAUMiuq26",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "text" : "sssxxxx",
+          "time" : 1555255021307
+        },
+        "-LcRQvxtzTCO8pP38pV1" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRQvxtzTCO8pP38pV1",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "text" : "test for the last time",
+          "time" : 1555255247166
+        }
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
   "companys" : {
-    "data" : [ {
-      "ApplicationNum" : 0,
-      "AreaId" : "1",
-      "Capital" : "2500万",
-      "CompanyTypeList" : "1,4",
-      "Content" : "お客様に対して、常に最善のシステムを提供し、ビジネス価値の向上に貢献する。\\nＩＴの革新と向き合い、ソフトウェア価値の向上に貢献する。\\n日本と中国でネットワークを展開し、ソフトウェア開発サービスの充実をはかる。\\nソフトウェア開発者から発想することで、人々の次世代の豊かさを創造し、社会の発展に寄与する。\\n自由と自律を尊重し、多様な個性とチーム力を価値創造の源泉とする。\\n競争と協調の精神で、新しい挑戦を続け、世界で有名な会社を目指す\\n企業価値の継続的な向上をはかり、株主からの信頼と期待に応える。",
-      "CreateDate" : "2019年2月13日",
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "IndustryId" : "1",
-      "LikeNum" : 0,
-      "Title" : "海威コンサルティング株式会社",
-      "UserId" : "1",
-      "id" : "1"
-    } ],
+    "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+      "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/companys%2FCIxg5db1wHWTu1eeymVp4EkLzfg1?alt=media&token=201b3f8d-926d-480e-8800-d2243f197954"
+    },
+    "data" : {
+      "-LbW068uZTzWv84W5fNq" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 10,
+        "applications" : {
+          "-LbfaQIqniO4AlkJPda-" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbfaQIqniO4AlkJPda-",
+            "name" : "test1",
+            "text" : "asasdasdasd",
+            "time" : 1554435913092
+          },
+          "-LbkB_ApXWR5-qulHddw" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbkB_ApXWR5-qulHddw",
+            "name" : "test1",
+            "text" : "xsss",
+            "time" : 1554513023890
+          },
+          "-Lc-qFLyogKLxVNH7doX" : {
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lc-qFLyogKLxVNH7doX",
+            "text" : "",
+            "time" : 1554792384071
+          },
+          "-LcA8HOhpZhtYnWWNcvS" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LcA8HOhpZhtYnWWNcvS",
+            "name" : "test1",
+            "text" : "this is test",
+            "time" : 1554965145460
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "companytype" : "1",
+        "created_at" : 1554258359052,
+        "id" : "-LbW068uZTzWv84W5fNq",
+        "industry" : "2",
+        "like_count" : 11,
+        "likes" : {
+          "-LbaREdUKoMYDm_eZ502" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbaREdUKoMYDm_eZ502",
+            "name" : "test1",
+            "time" : 1554349357804
+          },
+          "-LbaYHfnxioJAEFglZSw" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbaYHfnxioJAEFglZSw",
+            "name" : "test1",
+            "time" : 1554351205272
+          },
+          "-LbaYRZMws1mqWQT0Zdw" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbaYRZMws1mqWQT0Zdw",
+            "name" : "test1",
+            "time" : 1554351245732
+          },
+          "-Lba_ma2UMCOD3bWUHmd" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lba_ma2UMCOD3bWUHmd",
+            "name" : "test1",
+            "time" : 1554351860236
+          },
+          "-LbaakqLqer5R_xyBAR9" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbaakqLqer5R_xyBAR9",
+            "name" : "test1",
+            "time" : 1554352115307
+          },
+          "-Lbaal77DIRjXdwdWV_p" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lbaal77DIRjXdwdWV_p",
+            "name" : "test1",
+            "time" : 1554352116444
+          },
+          "-Lbachdo_8LrN4GlAWRa" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lbachdo_8LrN4GlAWRa",
+            "name" : "test1",
+            "time" : 1554352627560
+          },
+          "-Lbachu0LbD1VZ8n36ju" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lbachu0LbD1VZ8n36ju",
+            "name" : "test1",
+            "time" : 1554352627563
+          },
+          "-Lbefn_UC5_OG4ClEXYb" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lbefn_UC5_OG4ClEXYb",
+            "name" : "test1",
+            "time" : 1554420546231
+          },
+          "-LbkF7cTxKMEtKb_ZYWr" : {
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-LbkF7cTxKMEtKb_ZYWr",
+            "time" : 1554513955509
+          },
+          "-Lc9t5NL_siFQnf--Mcr" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-LbW068uZTzWv84W5fNq",
+            "id" : "-Lc9t5NL_siFQnf--Mcr",
+            "name" : "test1",
+            "time" : 1554960901832
+          }
+        },
+        "name" : "test company3",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1554461027867
+      },
+      "-Lbfb0NmorPWFCnG4IA8" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+        "companytype" : "1",
+        "created_at" : 1554436069051,
+        "id" : "-Lbfb0NmorPWFCnG4IA8",
+        "like_count" : 2,
+        "likes" : {
+          "-LbgV6SwgCCWnrLtFd2t" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "companyid" : "-Lbfb0NmorPWFCnG4IA8",
+            "id" : "-LbgV6SwgCCWnrLtFd2t",
+            "name" : "test1",
+            "time" : 1554451036167
+          },
+          "-Lbmf91L7U27YDm6yPqz" : {
+            "companyid" : "-Lbfb0NmorPWFCnG4IA8",
+            "id" : "-Lbmf91L7U27YDm6yPqz",
+            "time" : 1554554593660
+          }
+        },
+        "name" : "",
+        "nickname" : "test1"
+      },
+      "-LbkD4fQjqDyGK1j_3dH" : {
+        "Fax" : "sss",
+        "HP" : "sss",
+        "Manager" : "sss",
+        "Tel" : "sss",
+        "address" : "ssss",
+        "application_count" : 0,
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "companytype" : "1",
+        "created_at" : 1554513419106,
+        "id" : "-LbkD4fQjqDyGK1j_3dH",
+        "like_count" : 0,
+        "name" : "ssss",
+        "nickname" : "test1"
+      },
+      "-Lc-YqFE4hBsd-Wk1DP5" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "companytype" : "1",
+        "created_at" : 1554787558607,
+        "id" : "-Lc-YqFE4hBsd-Wk1DP5",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "",
+        "nickname" : "test1"
+      },
+      "-Lc-ZGlYd_AoMNoW4ArZ" : {
+        "Fax" : "vvvv",
+        "HP" : "https://console.firebase.google.com/",
+        "Manager" : "bbb",
+        "Tel" : "hjhh",
+        "address" : "ssss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "companytype" : "1",
+        "created_at" : 1554787671328,
+        "id" : "-Lc-ZGlYd_AoMNoW4ArZ",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "sss",
+        "nickname" : "test1",
+        "photo" : ""
+      },
+      "-Lc-aDeujDxx19uVyXZp" : {
+        "Fax" : "ｓｓｓ",
+        "HP" : "jp.highwayns.com",
+        "Manager" : "ｓｓｓ",
+        "Tel" : "sss",
+        "address" : "sss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "companytype" : "1",
+        "created_at" : 1554788183520,
+        "id" : "-Lc-aDeujDxx19uVyXZp",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "海威",
+        "nickname" : "test1"
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
+  },
+  "consultants" : {
+    "data" : {
+      "-LbW06mrQIcnI-hUSrnL" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 1,
+        "applications" : {
+          "-LbfMHo-iE6E5YxLV3Er" : {
+            "consultantid" : "-LbW06mrQIcnI-hUSrnL",
+            "id" : "-LbfMHo-iE6E5YxLV3Er",
+            "text" : "xss",
+            "time" : 1554431946121
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "consultanttype" : "1",
+        "created_at" : 1554258361670,
+        "id" : "-LbW06mrQIcnI-hUSrnL",
+        "industry" : "1",
+        "like_count" : 0,
+        "name" : "test consultant2",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1554258362097
+      },
+      "-LbYYDCsAdRcUcrTtndD" : {
+        "Fax" : "xxx",
+        "HP" : "sss",
+        "Manager" : "xxx",
+        "Tel" : "xzxx",
+        "address" : "xzxx",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "consultanttype" : "2",
+        "created_at" : 1554300856662,
+        "id" : "-LbYYDCsAdRcUcrTtndD",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "xxx",
+        "nickname" : "test1"
+      }
+    }
   },
   "contacts" : {
     "data" : [ {
@@ -338,7 +656,7 @@
           "text" : "北京"
         }, {
           "id" : "3",
-          "text" : "纽约"
+          "text" : "ニューヨーク"
         }, {
           "id" : "4",
           "text" : "大阪"
@@ -474,8 +792,8 @@
       "projecttype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "最高価格",
-          "nickname" : "高"
+          "name" : "最低価格",
+          "nickname" : "低"
         }, {
           "id" : "2",
           "name" : "指定価格",
@@ -535,16 +853,16 @@
       "area" : {
         "data" : [ {
           "id" : "1",
-          "text" : "Tokyo"
+          "text" : "东京"
         }, {
           "id" : "2",
-          "text" : "Beijing"
+          "text" : "北京"
         }, {
           "id" : "3",
-          "text" : "Newyork"
+          "text" : "纽约"
         }, {
           "id" : "4",
-          "text" : "Osaka"
+          "text" : "大阪"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -552,19 +870,19 @@
       "companytype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "株式会社",
-          "nickname" : "株"
-        }, {
-          "id" : "2",
-          "name" : "有限会社",
+          "name" : "有限责任公司",
           "nickname" : "有"
         }, {
+          "id" : "2",
+          "name" : "无限责任公司",
+          "nickname" : "无"
+        }, {
           "id" : "3",
-          "name" : "合同会社",
+          "name" : "合同公司",
           "nickname" : "合"
         }, {
           "id" : "4",
-          "name" : "国際会社",
+          "name" : "跨国公司",
           "nickname" : "国"
         } ],
         "err_code" : 0,
@@ -573,19 +891,19 @@
       "eventtype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "AI勉強会",
+          "name" : "AI学习活动",
           "nickname" : "A"
         }, {
           "id" : "2",
-          "name" : "派遣営業会",
+          "name" : "派遣营业活动",
           "nickname" : "H"
         }, {
           "id" : "3",
-          "name" : "開発勉強会",
+          "name" : "开发学习活动",
           "nickname" : "K"
         }, {
           "id" : "4",
-          "name" : "プロジェクト説明会",
+          "name" : "项目招标活动",
           "nickname" : "P"
         } ],
         "err_code" : 0,
@@ -594,16 +912,16 @@
       "industry" : {
         "data" : [ {
           "id" : "1",
-          "text" : "System Development"
+          "text" : "系统设计"
         }, {
           "id" : "2",
-          "text" : "Software Development"
+          "text" : "软件开发"
         }, {
           "id" : "3",
-          "text" : "Mobile Development"
+          "text" : "移动开发"
         }, {
           "id" : "4",
-          "text" : "System Mantainence"
+          "text" : "系统维护"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -611,19 +929,19 @@
       "jobtype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "正社員",
+          "name" : "正社员",
           "nickname" : "正"
         }, {
           "id" : "2",
-          "name" : "契約社員",
+          "name" : "契约社员",
           "nickname" : "契"
         }, {
           "id" : "3",
-          "name" : "アルバイト",
-          "nickname" : "ア"
+          "name" : "临时工",
+          "nickname" : "临"
         }, {
           "id" : "4",
-          "name" : "派遣社員",
+          "name" : "派遣社员",
           "nickname" : "派"
         } ],
         "err_code" : 0,
@@ -632,44 +950,44 @@
       "knowledgetype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "プログラム",
-          "nickname" : "プ"
+          "name" : "程序设计",
+          "nickname" : "程"
         }, {
           "id" : "2",
-          "name" : "データベース",
-          "nickname" : "デ"
+          "name" : "数据库",
+          "nickname" : "数"
         }, {
           "id" : "3",
-          "name" : "モベル開発",
-          "nickname" : "モ"
+          "name" : "移动开发",
+          "nickname" : "移"
         }, {
           "id" : "4",
           "name" : "数学",
-          "nickname" : "す"
+          "nickname" : "数"
         }, {
           "id" : "5",
-          "name" : "OS",
-          "nickname" : "お"
+          "name" : "操作系统",
+          "nickname" : "操"
         }, {
           "id" : "6",
-          "name" : "フレームワーク",
-          "nickname" : "フ"
+          "name" : "系统架构",
+          "nickname" : "系"
         }, {
           "id" : "7",
-          "name" : "ハードウェア",
-          "nickname" : "ハ"
+          "name" : "硬件",
+          "nickname" : "硬"
         }, {
           "id" : "8",
-          "name" : "クラウド",
-          "nickname" : "ク"
+          "name" : "云服务",
+          "nickname" : "云"
         }, {
           "id" : "9",
-          "name" : "アプリケーション",
-          "nickname" : "ア"
+          "name" : "应用开发",
+          "nickname" : "应"
         }, {
           "id" : "10",
-          "name" : "マネジメント",
-          "nickname" : "マ"
+          "name" : "项目管理",
+          "nickname" : "项"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -677,20 +995,20 @@
       "projecttype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "最高価格",
-          "nickname" : "高"
+          "name" : "最低价格",
+          "nickname" : "低"
         }, {
           "id" : "2",
-          "name" : "指定価格",
-          "nickname" : "定"
+          "name" : "指定价格",
+          "nickname" : "指"
         }, {
           "id" : "3",
-          "name" : "中間価格",
+          "name" : "中间价格",
           "nickname" : "中"
         }, {
           "id" : "4",
-          "name" : "評価",
-          "nickname" : "評"
+          "name" : "评标",
+          "nickname" : "评"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -698,12 +1016,12 @@
       "resumetype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "タレント",
-          "nickname" : "タ"
+          "name" : "人才",
+          "nickname" : "才"
         }, {
           "id" : "2",
-          "name" : "コンサルタント",
-          "nickname" : "コ"
+          "name" : "咨询师",
+          "nickname" : "咨"
         }, {
           "id" : "3",
           "name" : "派遣者",
@@ -715,19 +1033,19 @@
       "tooltype" : {
         "data" : [ {
           "id" : "1",
-          "name" : "音声認識",
+          "name" : "语音识别",
           "nickname" : "音"
         }, {
           "id" : "2",
-          "name" : "画像認識",
-          "nickname" : "画"
+          "name" : "图像识别",
+          "nickname" : "图"
         }, {
           "id" : "3",
-          "name" : "文字認識",
+          "name" : "文字识别",
           "nickname" : "文"
         }, {
           "id" : "4",
-          "name" : "その他",
+          "name" : "其他",
           "nickname" : "他"
         } ],
         "err_code" : 0,
@@ -735,40 +1053,165 @@
       }
     }
   },
+  "dispatchers" : {
+    "data" : {
+      "-LbW07-Ak4hTKCxzuXdf" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 2,
+        "applications" : {
+          "-LbfMKxVp4rj5MCZl_gq" : {
+            "dispatcherid" : "-LbW07-Ak4hTKCxzuXdf",
+            "id" : "-LbfMKxVp4rj5MCZl_gq",
+            "text" : "xss",
+            "time" : 1554431959019
+          },
+          "-LbfVhvjDTZrDfF_Kd89" : {
+            "dispatcherid" : "-LbW07-Ak4hTKCxzuXdf",
+            "id" : "-LbfVhvjDTZrDfF_Kd89",
+            "text" : "sssss",
+            "time" : 1554434416580
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554258362520,
+        "dispatchertype" : "1",
+        "id" : "-LbW07-Ak4hTKCxzuXdf",
+        "industry" : "1",
+        "like_count" : 0,
+        "name" : "test dispatcher2",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1554258362971
+      },
+      "-LbYYS1-2FHP8nrlR4C_" : {
+        "Fax" : "sss",
+        "HP" : "sss",
+        "Manager" : "sss",
+        "Tel" : "sss",
+        "address" : "xsss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554300917341,
+        "dispatchertype" : "3",
+        "id" : "-LbYYS1-2FHP8nrlR4C_",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "sss",
+        "nickname" : "test1"
+      }
+    }
+  },
   "events" : {
-    "data" : [ {
-      "ApplicationNum" : 0,
-      "AreaId" : "1",
-      "Content" : "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
-      "CreateDate" : "2019年2月13日",
-      "EventTypeList" : "1,2,3",
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "IndustryId" : "1",
-      "LikeNum" : 0,
-      "Title" : "日中友好交流会",
-      "UserId" : "1",
-      "id" : "1"
-    } ],
+    "data" : {
+      "-LbW07cKyWoNzVpJvAZ5" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 1,
+        "applications" : {
+          "-LbfMVFZ6pyHT-3QXzGg" : {
+            "eventid" : "-LbW07cKyWoNzVpJvAZ5",
+            "id" : "-LbfMVFZ6pyHT-3QXzGg",
+            "text" : "ssss",
+            "time" : 1554432001246
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554258365093,
+        "eventtype" : "1",
+        "id" : "-LbW07cKyWoNzVpJvAZ5",
+        "industry" : "1",
+        "like_count" : 1,
+        "likes" : {
+          "-LbacepXVepYsrpdd4xa" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "eventid" : "-LbW07cKyWoNzVpJvAZ5",
+            "id" : "-LbacepXVepYsrpdd4xa",
+            "name" : "test1",
+            "time" : 1554352614969
+          }
+        },
+        "name" : "test event2",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1554258365514
+      },
+      "-LbYZw56kD55Q0BYxpAa" : {
+        "Fax" : "sss",
+        "HP" : "sss",
+        "Manager" : "sss",
+        "Tel" : "sss",
+        "address" : "sss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554301306706,
+        "eventtype" : "1",
+        "id" : "-LbYZw56kD55Q0BYxpAa",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "sss",
+        "nickname" : "test1"
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
   "feedback" : {
     "data" : {
-      "0" : {
-        "CreateDate" : "2019年2月13日",
+      "-LcQhUJS38a_tNLZ68QO" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "ssss",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcQhZg3xkG-JGlWsdqA" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "you are welcome",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcQi6C6yENbBkd1K9YV" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "Thank you very much",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcQjXB_dX6HNZoHaAm0" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "You have a good job in AI Times",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcQk-r3oBWFdCE2kfwu" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "お送りいたします。",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcQk3BnMUXb8HTlrUyC" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "お送りいたします。",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcQk6z0zItVlzYQKV_M" : {
+        "CreateDate" : "2019/04/14",
+        "content" : "ありがとうございました。",
+        "userid" : "test1@gmail.com"
+      },
+      "-LchbsZDi8P9QUkuyEcJ" : {
+        "CreateDate" : "2019/04/18",
+        "content" : "出自唐代王维的《送刘司直赴安西》\n\n绝域阳关道，胡沙与塞尘。\n三春时有雁，万里少行人。\n苜蓿随天马，葡萄逐汉臣。\n当令外国惧，不敢觅和亲。",
+        "userid" : "test1@gmail.com"
+      },
+      "-LcsZ3wCrGpQk9Iymtey" : {
+        "CreateDate" : "2019/04/20",
         "content" : "test",
-        "id" : "1",
-        "userid" : "1"
-      },
-      "-Lb7l52N1BWe0Sx_lFAB" : {
-        "CreateDate" : "2019-03-29T09:25:08.686Z",
-        "content" : "ggg",
-        "userid" : "tei952@gmail.com"
-      },
-      "-Lb7lGkqj6m_HtrWxbiI" : {
-        "CreateDate" : "2019-03-29T09:25:57.403Z",
-        "content" : "dddd",
-        "userid" : "tei952@gmail.com"
+        "userid" : "test1@gmail.com"
       }
     },
     "err_code" : 0,
@@ -826,68 +1269,375 @@
     "err_msg" : "success"
   },
   "jobs" : {
-    "data" : [ {
-      "ApplicationNum" : 0,
-      "AreaId" : "2",
-      "Content" : "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
-      "CreateDate" : "2019年2月13日",
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "IndustryId" : "4",
-      "JobTypeList" : "1,2,3",
-      "LikeNum" : 0,
-      "Title" : "C#開発者募集",
-      "UserId" : "1",
-      "id" : "1"
-    } ],
+    "data" : {
+      "-LbW05tjlGqALVI2K445" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 4,
+        "applications" : {
+          "-LbfVVIUnv-0OmP-doaW" : {
+            "id" : "-LbfVVIUnv-0OmP-doaW",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "text" : "sssss",
+            "time" : 1554434360752
+          },
+          "-Lbl6_opfFYfNUUN9TPk" : {
+            "id" : "-Lbl6_opfFYfNUUN9TPk",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "text" : "rrrrrr",
+            "time" : 1554528493009
+          },
+          "-LcA7vXQmiFK6L_FecPT" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LcA7vXQmiFK6L_FecPT",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "name" : "test1",
+            "text" : "eddd",
+            "time" : 1554965051725
+          },
+          "-LcsQ4oVEjjSwCh-Lz6l" : {
+            "id" : "-LcsQ4oVEjjSwCh-Lz6l",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "text" : "dfsfsdfsdfsdfdsf",
+            "time" : 1555724787399
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554258358025,
+        "id" : "-LbW05tjlGqALVI2K445",
+        "industry" : "2",
+        "jobtype" : "1",
+        "like_count" : 2,
+        "likes" : {
+          "-LbgT0uACX887_LzuhED" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LbgT0uACX887_LzuhED",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "name" : "test1",
+            "time" : 1554450489116
+          },
+          "-Lbmeo1_azdm9ZpKSqIK" : {
+            "id" : "-Lbmeo1_azdm9ZpKSqIK",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "time" : 1554554503581
+          }
+        },
+        "name" : "test job3",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1554464408234
+      },
+      "-LbYX4GNelvo-RDc_LOb" : {
+        "Fax" : "ssss",
+        "HP" : "ssss",
+        "Manager" : "sss",
+        "Tel" : "ssss",
+        "address" : "sssss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554300557881,
+        "id" : "-LbYX4GNelvo-RDc_LOb",
+        "industry" : "2",
+        "jobtype" : "3",
+        "like_count" : 0,
+        "name" : "ssss",
+        "nickname" : "test1"
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
+  "knowledgecontents" : {
+    "data" : {
+      "-LbW07Cj8C37LDyZeKHF" : {
+        "contents" : {
+          "-LcPpPauyQT7nMHxsSDI" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "人工知能基本知識",
+              "type" : "Html"
+            },
+            "id" : "-LcPpPauyQT7nMHxsSDI",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "ord" : "1",
+            "time" : 1555228371611,
+            "title" : "第一節 人工知能基本知識",
+            "update_at" : 1555629380206
+          },
+          "-LcPtGVHXPZU2lKmAWBg" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "answer" : "d",
+              "options" : {
+                "a" : "人工知能人類を消滅する",
+                "b" : "人類は人工知能がいらない",
+                "c" : "人類は人工知能と共存する",
+                "d" : "以上全部間違い"
+              },
+              "title" : "人工知能について、正しいことはどちらは正しいですか",
+              "type" : "Select"
+            },
+            "id" : "-LcPtGVHXPZU2lKmAWBg",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "ord" : "2",
+            "time" : 1555229382921,
+            "title" : "第二課",
+            "update_at" : 1555726491762
+          },
+          "-LcPuOOzxujK4Z-uAWMA" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "inputanswer" : "深層学習",
+              "inputcontent" : "人工知能活躍の原因は()アルゴリズムを広げている",
+              "title" : "人工知能について下記の空欄に適切な内容を入力してください",
+              "type" : "Input"
+            },
+            "id" : "-LcPuOOzxujK4Z-uAWMA",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "ord" : "3",
+            "time" : 1555229677411,
+            "title" : "第三節 人工知能基本知識入力テスト",
+            "update_at" : 1555629400189
+          },
+          "-LcPuq3uP8_kKl9Si9yX" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "type" : "Certificate"
+            },
+            "id" : "-LcPuq3uP8_kKl9Si9yX",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "ord" : "4",
+            "time" : 1555229794842,
+            "title" : "人工知能学習終了頂きまして、おめでとうございます！"
+          },
+          "-LcsRuLUQb_mlJbgE3As" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "type" : "Certificate"
+            },
+            "id" : "-LcsRuLUQb_mlJbgE3As",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "ord" : 0,
+            "time" : 1555725264688,
+            "title" : ""
+          },
+          "-LcsRuZsg7xqRMFFNNKI" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "certificatePath" : "",
+              "type" : "Certificate"
+            },
+            "id" : "-LcsRuZsg7xqRMFFNNKI",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "ord" : 0,
+            "time" : 1555725265616,
+            "title" : ""
+          }
+        }
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "contents" : {
+          "-LcVaE3TSJd2ov2URtTG" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "cd D:\\work\\wohapp git init git clone https://github.com/highwayns/wohApp.git git remote add origin/master https://github.com/highwayns/wohApp.git",
+              "type" : "Html"
+            },
+            "id" : "-LcVaE3TSJd2ov2URtTG",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test1",
+            "ord" : "1",
+            "time" : 1555325055426,
+            "title" : "create local repository"
+          }
+        }
+      }
+    }
+  },
   "knowledges" : {
-    "data" : [ {
-      "CreateDate" : "2019年2月13日",
-      "Description" : "C#プロジェクト開発入門",
-      "Detail" : [ {
-        "Content" : "",
-        "SubDetail" : "第一章",
-        "SubId" : "1"
-      }, {
-        "Content" : "",
-        "SubDetail" : "第二章",
-        "SubId" : "2"
-      } ],
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "KnowledgeTypeList" : "1",
-      "LikeNum" : 0,
-      "StudentsNum" : 0,
-      "Title" : "C#プロジェクト開発",
-      "UserId" : "1",
-      "id" : "1"
-    } ],
+    "data" : {
+      "-LbW07Cj8C37LDyZeKHF" : {
+        "Fax" : "03-3532-6513",
+        "HP" : "http://jp.highwayns.com",
+        "Manager" : "鄭軍",
+        "Tel" : "03-5244-9853",
+        "address" : "東京都中央区八丁堀4-10-1-604",
+        "application_count" : 3,
+        "applications" : {
+          "-LbfMOLr-5uzm5dK948r" : {
+            "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "approvalName" : "test1",
+            "approvalStatus" : true,
+            "approval_at" : 1554947166904,
+            "id" : "-LbfMOLr-5uzm5dK948r",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "text" : "xss",
+            "time" : 1554431972930
+          },
+          "-LcsRbHwYmyl_vXvWF6x" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LcsRbHwYmyl_vXvWF6x",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "text" : "dfsfsdfsdfsdfdsf",
+            "time" : 1555725186650
+          },
+          "-LctaPg8nKdhZhFk1bG9" : {
+            "id" : "-LctaPg8nKdhZhFk1bG9",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "text" : "哈哈5555555555好好好",
+            "time" : 1555744533413
+          }
+        },
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "content_count" : 6,
+        "created_at" : 1554258363397,
+        "id" : "-LbW07Cj8C37LDyZeKHF",
+        "introduce" : "人工知能人工人工知能入門人工知能入",
+        "knowledgetype" : "1",
+        "like_count" : 3,
+        "likes" : {
+          "-LcO4qCSxBlpiTOZNTN-" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LcO4qCSxBlpiTOZNTN-",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "time" : 1555199124541
+          },
+          "-LctYSUAbvqfKWjO-lr6" : {
+            "id" : "-LctYSUAbvqfKWjO-lr6",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "time" : 1555743758448
+          },
+          "-LctfMSCGNG233Yz7d7g" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LctfMSCGNG233Yz7d7g",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "time" : 1555745831085
+          }
+        },
+        "name" : "人工知能入門",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1555734741655
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "Fax" : "sss",
+        "HP" : "sss",
+        "Manager" : "sss",
+        "Tel" : "sss",
+        "address" : "ss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "content_count" : 2,
+        "contents" : {
+          "-Lc9GJ3qxxcBtG3Rn72-" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "content" : {
+              "anwser" : "1",
+              "options" : [ null, "select option1", "select option2" ],
+              "title" : "<div>this is Knowledge about Java Basic</div>",
+              "type" : "Select"
+            },
+            "id" : "-Lc9GJ3qxxcBtG3Rn72-",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test1",
+            "ord" : 2,
+            "time" : 1554950472132,
+            "title" : "Java Basic Test"
+          }
+        },
+        "created_at" : 1554301210432,
+        "id" : "-LbYZZXvYQxtpo2AWpzL",
+        "industry" : "2",
+        "knowledgetype" : "1",
+        "like_count" : 1,
+        "likes" : {
+          "-LcQ1vZ2W8ZS7dHl9Ag_" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LcQ1vZ2W8ZS7dHl9Ag_",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test1",
+            "time" : 1555231914460
+          }
+        },
+        "name" : "sss",
+        "nickname" : "test1"
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
   "likes" : {
-    "data" : [ {
-      "avatar" : "1",
-      "name" : "Cory Bergman",
-      "postid" : "11",
-      "time" : "1404705240"
-    }, {
-      "avatar" : "2",
-      "name" : "Nathan Lawson",
-      "postid" : "12",
-      "time" : "1404705260"
-    }, {
-      "avatar" : "3",
-      "name" : "Nathan Lawson",
-      "postid" : "13",
-      "time" : "1404705300"
-    }, {
-      "avatar" : "4",
-      "name" : "Vaughn",
-      "postid" : "14",
-      "time" : "1404705400"
-    } ],
+    "data" : {
+      "0" : {
+        "avatar" : "1",
+        "name" : "Cory Bergman",
+        "postid" : "11",
+        "time" : "1404705240"
+      },
+      "1" : {
+        "avatar" : "2",
+        "name" : "Nathan Lawson",
+        "postid" : "12",
+        "time" : "1404705260"
+      },
+      "2" : {
+        "avatar" : "3",
+        "name" : "Nathan Lawson",
+        "postid" : "13",
+        "time" : "1404705300"
+      },
+      "3" : {
+        "avatar" : "4",
+        "name" : "Vaughn",
+        "postid" : "14",
+        "time" : "1404705400"
+      },
+      "-LbRHgPyDAMcmJnsf_nF" : {
+        "-LcRJl3HboJ_Wdy9OGmR" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRJl3HboJ_Wdy9OGmR",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "time" : 1555253367296
+        },
+        "-LcRKaog4rXNw24T_s5x" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRKaog4rXNw24T_s5x",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "time" : 1555253587466
+        },
+        "-LcRNB3lUczQABiJS-a1" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LcRNB3lUczQABiJS-a1",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "time" : 1555254265276
+        }
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
@@ -1002,164 +1752,103 @@
   },
   "posts" : {
     "data" : {
-      "0" : {
-        "avatar" : "1",
-        "comment_count" : 2,
-        "created_at" : "1504709434",
-        "id" : "41",
-        "like_count" : 1,
-        "nickname" : "Bob Brown",
+      "-LbRHgPyDAMcmJnsf_nF" : {
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "comment_count" : 6,
+        "created_at" : 1554179082055,
+        "id" : "-LbRHgPyDAMcmJnsf_nF",
+        "like_count" : 3,
+        "nickname" : "test1",
         "original_pic" : "",
-        "text" : "Behind every successful man there's a lot u unsuccessful years. https://www.google.com/"
+        "text" : "ddddd"
       },
-      "1" : {
-        "avatar" : "7",
-        "comment_count" : 0,
-        "created_at" : "1504708544",
-        "id" : "40",
-        "like_count" : 0,
-        "nickname" : "Jean Kerr",
-        "original_pic" : "",
-        "text" : "I think success has no rules, but you can learn a lot from failure. "
-      },
-      "2" : {
-        "avatar" : "3",
-        "comment_count" : 2,
-        "created_at" : "1504708455",
-        "id" : "39",
-        "like_count" : 0,
-        "nickname" : "Colin L. Powell",
-        "original_pic" : "",
-        "text" : "There are no secrets to success. It is the result of preparation, hard work, and learning from failure. www.youtube.com "
-      },
-      "3" : {
-        "avatar" : "5",
-        "comment_count" : 0,
-        "created_at" : "1504707590",
-        "id" : "38",
-        "like_count" : 2,
-        "nickname" : "Balzac",
-        "original_pic" : "https://loremflickr.com/1000/700/nature?lock=5",
-        "text" : "There is no such thing as a great talent without great will - power."
-      },
-      "4" : {
-        "avatar" : "7",
-        "comment_count" : 0,
-        "created_at" : "1504707580",
-        "id" : "37",
-        "like_count" : 0,
-        "nickname" : "Charles Chaplin",
-        "original_pic" : "",
-        "text" : "You have to believe in yourself. That's the secret of success."
-      },
-      "5" : {
-        "avatar" : "4",
-        "comment_count" : 1,
-        "created_at" : "1504707197",
-        "id" : "36",
-        "like_count" : 0,
-        "nickname" : "R.M. Nixon",
-        "original_pic" : "",
-        "text" : "Our destiny offers not the cup of despair, but the chalice of opportunity. So let us seize it, not in fear, but in gladness."
-      },
-      "6" : {
-        "avatar" : "8",
-        "comment_count" : 0,
-        "created_at" : "1504706070",
-        "id" : "35",
-        "like_count" : 1,
-        "nickname" : "Erasmus",
-        "original_pic" : "https://loremflickr.com/1000/700/nature?lock=3",
-        "text" : "None is of freedom or of life deserving unless he daily conquers it anew."
-      },
-      "7" : {
-        "avatar" : "3",
-        "comment_count" : 0,
-        "created_at" : "1504706060",
-        "id" : "34",
-        "like_count" : 0,
-        "nickname" : "John Ruskin",
-        "original_pic" : "",
-        "text" : "Living without an aim is like sailing without a compass."
-      },
-      "8" : {
-        "avatar" : "6",
-        "comment_count" : 0,
-        "created_at" : "1504705260",
-        "id" : "33",
-        "like_count" : 0,
-        "nickname" : "George Eliot",
-        "original_pic" : "https://loremflickr.com/1000/700/nature?lock=7",
-        "text" : "What makes life dreary is the want of motive."
-      },
-      "9" : {
-        "avatar" : "6",
-        "comment_count" : 1,
-        "created_at" : "1504705240",
-        "id" : "32",
-        "like_count" : 1,
-        "nickname" : "Lincoln",
-        "original_pic" : "",
-        "text" : "Towering genius disdains a beaten path. It seeks regions hitherto unexplored."
-      },
-      "10" : {
-        "avatar" : "10",
-        "comment_count" : 1,
-        "created_at" : "1504705133",
-        "id" : "31",
-        "like_count" : 2,
-        "nickname" : "Erasmus",
-        "original_pic" : "",
-        "text" : "None is of freedom or of life deserving unless he daily conquers it anew. "
-      },
-      "11" : {
-        "avatar" : "8",
-        "comment_count" : 0,
-        "created_at" : "1504704742",
-        "id" : "30",
-        "like_count" : 0,
-        "nickname" : "Thomas Addison",
-        "original_pic" : "",
-        "text" : "A strong man will struggle with the storms of fate."
-      },
-      "-Lb8unSr8wwGrDNXOu40" : {
+      "-LbRJGq96GZR5TzYhpNI" : {
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "comment_count" : 0,
-        "created_at" : 1553870829666,
-        "id" : "-Lb8unSr8wwGrDNXOu40",
+        "created_at" : 1554179497492,
+        "id" : "-LbRJGq96GZR5TzYhpNI",
         "like_count" : 0,
         "nickname" : "test1",
         "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "test content"
+        "text" : "ssss"
       },
-      "-Lb8vMgU5W3FEZXxjZRT" : {
+      "-Lb_nRjO4acOcnmT0YDo" : {
+        "comment_count" : 0,
+        "created_at" : 1554338663756,
+        "id" : "-Lb_nRjO4acOcnmT0YDo",
+        "like_count" : 0,
+        "original_pic" : "",
+        "text" : "gggg"
+      },
+      "-LbkS5fwgqPoZHiYemmY" : {
+        "comment_count" : 0,
+        "created_at" : 1554517355403,
+        "id" : "-LbkS5fwgqPoZHiYemmY",
+        "like_count" : 0,
+        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
+        "text" : "ssssss"
+      },
+      "-LbkScA7O38oTZZNaEwm" : {
+        "comment_count" : 0,
+        "created_at" : 1554517492569,
+        "id" : "-LbkScA7O38oTZZNaEwm",
+        "like_count" : 0,
+        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
+        "text" : "xxxx"
+      },
+      "-Lblq6e_MAgCrFwQ8mKe" : {
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "comment_count" : 0,
-        "created_at" : 1553870978056,
-        "id" : "-Lb8vMgU5W3FEZXxjZRT",
+        "created_at" : 1554540690238,
+        "id" : "-Lblq6e_MAgCrFwQ8mKe",
         "like_count" : 0,
         "nickname" : "test1",
         "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "test content"
+        "text" : "hhhh"
       }
     },
     "err_code" : 0,
     "err_msg" : "success"
   },
   "projects" : {
-    "data" : [ {
-      "ApplicationNum" : 0,
-      "AreaId" : "1",
-      "Content" : "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
-      "CreateDate" : "2019年2月13日",
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "IndustryId" : "1",
-      "LikeNum" : 0,
-      "ProjectTypeList" : "1,2,3",
-      "Title" : "C#開発者募集",
-      "UserId" : "1",
-      "id" : "1"
-    } ],
+    "data" : {
+      "-LbW06MHXWWiH_5qTsNa" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554258359951,
+        "id" : "-LbW06MHXWWiH_5qTsNa",
+        "industry" : "1",
+        "like_count" : 0,
+        "name" : "test project2",
+        "nickname" : "test1",
+        "photo" : "",
+        "projecttype" : "1",
+        "update_at" : 1554258360368
+      },
+      "-LbYX_su44sUSukdzHMZ" : {
+        "Fax" : "sss",
+        "HP" : "sss",
+        "Manager" : "asss",
+        "Tel" : "sss",
+        "address" : "sss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554300691482,
+        "id" : "-LbYX_su44sUSukdzHMZ",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "sss",
+        "nickname" : "test1",
+        "projecttype" : "2"
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
@@ -1495,26 +2184,633 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
+  "room-messages" : {
+    "-LbpDP3nLIekOaNV6i9R" : {
+      "-Lbz6BqsfiRMQSNY5FlI" : {
+        ".priority" : 1.554763271916E12,
+        "message" : "test message",
+        "name" : "test1",
+        "timestamp" : 1554763271916,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-qutezZa6KGRSqV2a" : {
+        ".priority" : 1.554792558355E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554792558355,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-rGEhSY3vQ58qgjWG" : {
+        ".priority" : 1.554792650678E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554792650678,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-rl_isGtyeGz7luC-" : {
+        ".priority" : 1.554792782327E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554792782327,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-uITy9CACDfU3ghdy" : {
+        ".priority" : 1.554793445449E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793445449,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-uaMGwSf_PTcocZ_B" : {
+        ".priority" : 1.55479352278E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793522780,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-uiUWuuNIBLbgRIgH" : {
+        ".priority" : 1.554793556074E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793556074,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-v34zBASISWQsJhKu" : {
+        ".priority" : 1.554793644552E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793644552,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-vOdYE-xrd0W1exe1" : {
+        ".priority" : 1.554793732878E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793732878,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-vlR74jnOpP05UdxP" : {
+        ".priority" : 1.554793830324E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793830324,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-vvv5h90HWvVgcDIS" : {
+        ".priority" : 1.554793873229E12,
+        "message" : "this.text",
+        "name" : "test1",
+        "timestamp" : 1554793873229,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc-whV-cdlmrlzCXRlL" : {
+        ".priority" : 1.554794076296E12,
+        "message" : "ffff",
+        "name" : "test1",
+        "timestamp" : 1554794076296,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc03SgBAbIUN9UJVwzv" : {
+        ".priority" : 1.554796108693E12,
+        "message" : "123",
+        "name" : "test1",
+        "timestamp" : 1554796108693,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc03VTZbY8BJ6CbFDTJ" : {
+        ".priority" : 1.554796120114E12,
+        "message" : "333",
+        "name" : "test1",
+        "timestamp" : 1554796120114,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1Ii9yP0Amiu_np5EO" : {
+        ".priority" : 1.554816885686E12,
+        "message" : "sss",
+        "name" : "test1",
+        "timestamp" : 1554816885686,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1PnQ4ElEATAntoR2n" : {
+        ".priority" : 1.554818742246E12,
+        "message" : "sss",
+        "name" : "test1",
+        "timestamp" : 1554818742246,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1Qt3QT4IThIzPl7e4" : {
+        ".priority" : 1.554819027686E12,
+        "message" : "test",
+        "name" : "test1",
+        "timestamp" : 1554819027686,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1REfFh2CxCnr7bsnu" : {
+        ".priority" : 1.554819120296E12,
+        "message" : "window",
+        "name" : "test1",
+        "timestamp" : 1554819120296,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1RUwSymUWT55LAfp_" : {
+        ".priority" : 1.554819186726E12,
+        "message" : "sss",
+        "name" : "test1",
+        "timestamp" : 1554819186726,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1UkrPXGWMfcU-dFIo" : {
+        ".priority" : 1.554820042445E12,
+        "message" : "xxx",
+        "name" : "test1",
+        "timestamp" : 1554820042445,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1Uw4O9tjaOTgrPqB4" : {
+        ".priority" : 1.554820088526E12,
+        "message" : "vvv",
+        "name" : "test1",
+        "timestamp" : 1554820088526,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1Wurv-2TLvkB1NCm1" : {
+        ".priority" : 1.554820607726E12,
+        "message" : "www",
+        "name" : "test1",
+        "timestamp" : 1554820607726,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1X-71vWTyw31ijZuE" : {
+        ".priority" : 1.554820629235E12,
+        "message" : "wwww",
+        "name" : "test1",
+        "timestamp" : 1554820629235,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1XHMFH6t7gUMIM2O1" : {
+        ".priority" : 1.554820703935E12,
+        "message" : "sss",
+        "name" : "test1",
+        "timestamp" : 1554820703935,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc1XNRv9g2lUYPTbJkf" : {
+        ".priority" : 1.554820728946E12,
+        "message" : "www",
+        "name" : "test1",
+        "timestamp" : 1554820728946,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc348s0Qg7e6caMSrd9" : {
+        ".priority" : 1.554846621411E12,
+        "message" : "sss",
+        "name" : "test1",
+        "timestamp" : 1554846621411,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc34gu98khx6dIKwolr" : {
+        ".priority" : 1.554846764912E12,
+        "message" : "eee",
+        "name" : "test1",
+        "timestamp" : 1554846764912,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc35a7aubU08uhzhdJu" : {
+        ".priority" : 1.554846999311E12,
+        "message" : "life",
+        "name" : "test2",
+        "timestamp" : 1554846999311,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc37Y0lHmFX1wjZGOrw" : {
+        ".priority" : 1.554847510872E12,
+        "message" : "sss",
+        "name" : "test2",
+        "timestamp" : 1554847510872,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc37nTIUxaqkkN0ei-K" : {
+        ".priority" : 1.554847578391E12,
+        "message" : "zzz",
+        "name" : "test2",
+        "timestamp" : 1554847578391,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc3BAcN0nlPltZkdgCz" : {
+        ".priority" : 1.554848463771E12,
+        "message" : "www",
+        "name" : "test2",
+        "timestamp" : 1554848463771,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc3BENo17qULUs8HOL6" : {
+        ".priority" : 1.554848479151E12,
+        "message" : "rrr",
+        "name" : "test2",
+        "timestamp" : 1554848479151,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc3BKuYu01OczPj7lwx" : {
+        ".priority" : 1.554848505891E12,
+        "message" : "33333",
+        "name" : "test2",
+        "timestamp" : 1554848505891,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc3BQnbzQ6W27mYg8aA" : {
+        ".priority" : 1.554848530031E12,
+        "message" : "444",
+        "name" : "test2",
+        "timestamp" : 1554848530031,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc3Fdy2vCSVkh_ikR8L" : {
+        ".priority" : 1.554849636641E12,
+        "message" : "www",
+        "name" : "test2",
+        "timestamp" : 1554849636641,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc3Fltrtq41wvbuz8Lw" : {
+        ".priority" : 1.554849669142E12,
+        "message" : "33",
+        "name" : "test2",
+        "timestamp" : 1554849669142,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4UTpPAEYSEprdc1Y8" : {
+        ".priority" : 1.554870300132E12,
+        "message" : "sss",
+        "name" : "test2",
+        "timestamp" : 1554870300132,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4UWMjcd9ZHUEGpn08" : {
+        ".priority" : 1.55487031053E12,
+        "message" : "www",
+        "name" : "test2",
+        "timestamp" : 1554870310530,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4Udk2BZTwL6wqeTca" : {
+        ".priority" : 1.554870344847E12,
+        "message" : "hello",
+        "name" : "test2",
+        "timestamp" : 1554870344847,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4UrQ-1sT_sK6I_ddB" : {
+        ".priority" : 1.554870400925E12,
+        "message" : "wwww",
+        "name" : "test1",
+        "timestamp" : 1554870400925,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4UuSebj4CshWNXvvV" : {
+        ".priority" : 1.55487041351E12,
+        "message" : "kkk",
+        "name" : "test1",
+        "timestamp" : 1554870413510,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4Uz-smpDmqFzzOWPn" : {
+        ".priority" : 1.554870431956E12,
+        "message" : "www",
+        "name" : "test1",
+        "timestamp" : 1554870431956,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4V-IDez8dzpZe0v6i" : {
+        ".priority" : 1.554870437242E12,
+        "message" : "eee",
+        "name" : "test1",
+        "timestamp" : 1554870437242,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4VS3hh_tUo8eNqGwp" : {
+        ".priority" : 1.554870555065E12,
+        "message" : "www",
+        "name" : "test1",
+        "timestamp" : 1554870555065,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4ywIMwD5xc8tFUnvY" : {
+        ".priority" : 1.5548785473E12,
+        "message" : "在 下雨",
+        "name" : "test1",
+        "timestamp" : 1554878547300,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4z55iOhyYmJc6bTKa" : {
+        ".priority" : 1.554878587449E12,
+        "message" : "是的",
+        "name" : "test2",
+        "timestamp" : 1554878587449,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4z7jSc2zx8SXGvuON" : {
+        ".priority" : 1.554878598248E12,
+        "message" : "OK",
+        "name" : "test2",
+        "timestamp" : 1554878598248,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4z8t9Dgc5sSqTlZbO" : {
+        ".priority" : 1.554878602962E12,
+        "message" : "あなた",
+        "name" : "test1",
+        "timestamp" : 1554878602962,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4zFYGxLM8ditcxiGR" : {
+        ".priority" : 1.554878630899E12,
+        "message" : "牛了",
+        "name" : "test2",
+        "timestamp" : 1554878630899,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc4zPZLEOVCdtTL8Dcd" : {
+        ".priority" : 1.554878671262E12,
+        "message" : "what 是那么ものだ",
+        "name" : "test1",
+        "timestamp" : 1554878671262,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc4zyYfffBIlfqKzU3F" : {
+        ".priority" : 1.554878818685E12,
+        "message" : "是大大",
+        "name" : "test2",
+        "timestamp" : 1554878818685,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc5-2sgpsOsdi3-f9WC" : {
+        ".priority" : 1.554878840489E12,
+        "message" : "压顶  顶替 枯无可奈何花落去枯无可奈何地",
+        "name" : "test2",
+        "timestamp" : 1554878840489,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc5-4pEiv6j9qLuECGf" : {
+        ".priority" : 1.554878848767E12,
+        "message" : "324234234",
+        "name" : "test2",
+        "timestamp" : 1554878848767,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc5-Qmgimm3mSDytTHk" : {
+        ".priority" : 1.554878938422E12,
+        "message" : "he",
+        "name" : "test1",
+        "timestamp" : 1554878938422,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc50Uj0pSTroAtb0PcW" : {
+        ".priority" : 1.554879216688E12,
+        "message" : "554456456",
+        "name" : "test2",
+        "timestamp" : 1554879216688,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-Lc52taT3Cx7SWTbrqIu" : {
+        ".priority" : 1.554879846955E12,
+        "message" : "哒哒哒vwダミーいい",
+        "name" : "test1",
+        "timestamp" : 1554879846955,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc9e6vZ5MGnqHn5k4ab" : {
+        ".priority" : 1.554956976121E12,
+        "message" : "大家好！欢迎👏大家使用本系统",
+        "name" : "test1",
+        "timestamp" : 1554956976121,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Lc9eJWD8lqt1QlfHsWE" : {
+        ".priority" : 1.554957027665E12,
+        "message" : "本系统还有一些问题，请大家多多包涵！",
+        "name" : "test1",
+        "timestamp" : 1554957027665,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LcJbU6Fn6LWU0tsBfv_" : {
+        ".priority" : 1.555124056662E12,
+        "message" : "test",
+        "name" : "test1",
+        "timestamp" : 1555124056662,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LcJboA8Wuy5GPFr3Fn9" : {
+        ".priority" : 1.555124142961E12,
+        "message" : "Hello",
+        "name" : "test2",
+        "timestamp" : 1555124142961,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-LcJbx3Am8Pi2HUhjo5V" : {
+        ".priority" : 1.555124179388E12,
+        "message" : "What are you dining",
+        "name" : "test2",
+        "timestamp" : 1555124179388,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-LcJh-4WK-igvbPcTj0u" : {
+        ".priority" : 1.555125502632E12,
+        "message" : "hi",
+        "name" : "test1",
+        "timestamp" : 1555125502632,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LcJh0gGMAOx99C4ifJ-" : {
+        ".priority" : 1.555125509101E12,
+        "message" : "Hello",
+        "name" : "test2",
+        "timestamp" : 1555125509101,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-LcJh6B6d9KDqQqBeloU" : {
+        ".priority" : 1.555125531727E12,
+        "message" : "🐸",
+        "name" : "test1",
+        "timestamp" : 1555125531727,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LcJh87c5vbWHx1JiM8M" : {
+        ".priority" : 1.555125539581E12,
+        "message" : "🌹",
+        "name" : "test2",
+        "timestamp" : 1555125539581,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-LcJhFcmXgexgdvG6zNS" : {
+        ".priority" : 1.555125570442E12,
+        "message" : "😊",
+        "name" : "test1",
+        "timestamp" : 1555125570442,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LcsQX8AW6XVfGbtosY2" : {
+        ".priority" : 1.555724903417E12,
+        "message" : "你好",
+        "name" : "test2",
+        "timestamp" : 1555724903417,
+        "type" : "messageType",
+        "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      }
+    }
+  },
   "room-metadata" : {
-    "data" : [ {
-      "rid" : "e651771fe37dc17c17421331a87721",
-      "room" : {
-        "createdAt" : "1404705240",
-        "createdByUserId" : "1",
-        "id" : 10001,
-        "name" : "room1"
+    "-LbpDP3nLIekOaNV6i9R" : {
+      "authorizedUsers" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : true
+      },
+      "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+      "createdAt" : 1554597388817,
+      "createdByUserId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+      "header" : "A",
+      "id" : "-LbpDP3nLIekOaNV6i9R",
+      "location" : "Tokyo",
+      "name" : "test2",
+      "type" : "private"
+    }
+  },
+  "talents" : {
+    "data" : {
+      "-LbW06_C0f7YZbS0UVec" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 1,
+        "applications" : {
+          "-LbfMERRbVMg7OvUuNs_" : {
+            "id" : "-LbfMERRbVMg7OvUuNs_",
+            "talentid" : "-LbW06_C0f7YZbS0UVec",
+            "text" : "xss",
+            "time" : 1554431932328
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554258360796,
+        "id" : "-LbW06_C0f7YZbS0UVec",
+        "industry" : "1",
+        "like_count" : 0,
+        "name" : "test talent2",
+        "nickname" : "test1",
+        "photo" : "",
+        "talenttype" : "1",
+        "update_at" : 1554258361238
+      },
+      "-LbYXsmSycY_ip8MMMCF" : {
+        "Fax" : "ddd",
+        "HP" : "sss",
+        "Manager" : "sss",
+        "Tel" : "ddd",
+        "address" : "dsdd",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554300768882,
+        "id" : "-LbYXsmSycY_ip8MMMCF",
+        "industry" : "2",
+        "like_count" : 0,
+        "name" : "sss",
+        "nickname" : "test1",
+        "talenttype" : "1"
+      },
+      "-LbloZda0z9U_gs11lT9" : {
+        "Fax" : "dsdsds",
+        "HP" : "ssss",
+        "Manager" : "sss",
+        "Tel" : "sdss",
+        "address" : "sss",
+        "application_count" : 1,
+        "applications" : {
+          "-LblopuSjigOK62kkam_" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LblopuSjigOK62kkam_",
+            "name" : "test1",
+            "talentid" : "-LbloZda0z9U_gs11lT9",
+            "text" : "sss",
+            "time" : 1554540355376
+          }
+        },
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554540284663,
+        "id" : "-LbloZda0z9U_gs11lT9",
+        "like_count" : 0,
+        "name" : "ssss",
+        "nickname" : "test1",
+        "talenttype" : "1"
       }
-    }, {
-      "rid" : "e651771fe37dc17c17421331a87722",
-      "romm" : {
-        "createdAt" : "1404705240",
-        "createdByUserId" : "2",
-        "id" : 10002,
-        "name" : "room2"
-      }
-    } ],
-    "err_code" : 0,
-    "err_msg" : "success"
+    }
   },
   "timeline" : {
     "data" : [ {
@@ -1630,19 +2926,70 @@
     "err_msg" : "success"
   },
   "tools" : {
-    "data" : [ {
-      "ApplicationNum" : 0,
-      "AreaId" : "1",
-      "Content" : "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
-      "CreateDate" : "2019年2月13日",
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "IndustryId" : "1",
-      "LikeNum" : 0,
-      "Title" : "税金計算",
-      "ToolTypeList" : "1,2,3",
-      "UserId" : "1",
-      "id" : "1"
-    } ],
+    "data" : {
+      "-LbW07QDVIQO5CWJ6-Xy" : {
+        "Fax" : "1",
+        "HP" : "1",
+        "Manager" : "1",
+        "Tel" : "1",
+        "address" : "11",
+        "application_count" : 1,
+        "applications" : {
+          "-LbfMRTfKye_3sxDm8Mp" : {
+            "id" : "-LbfMRTfKye_3sxDm8Mp",
+            "text" : "xss",
+            "time" : 1554431985720,
+            "toolid" : "-LbW07QDVIQO5CWJ6-Xy"
+          }
+        },
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554258364254,
+        "id" : "-LbW07QDVIQO5CWJ6-Xy",
+        "industry" : "1",
+        "like_count" : 1,
+        "likes" : {
+          "-LckQx7fB4yet8qrIZz9" : {
+            "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+            "id" : "-LckQx7fB4yet8qrIZz9",
+            "name" : "test2",
+            "time" : 1555590796040,
+            "toolid" : "-LbW07QDVIQO5CWJ6-Xy"
+          }
+        },
+        "name" : "test tool2",
+        "nickname" : "test1",
+        "photo" : "",
+        "tooltype" : "1",
+        "update_at" : 1554258364678
+      },
+      "-LbYZjcGci7H_jDGoD-F" : {
+        "Fax" : "sss",
+        "HP" : "sss",
+        "Manager" : "sss",
+        "Tel" : "sss",
+        "address" : "sss",
+        "application_count" : 0,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "created_at" : 1554301255816,
+        "id" : "-LbYZjcGci7H_jDGoD-F",
+        "industry" : "2",
+        "like_count" : 1,
+        "likes" : {
+          "-LckQynkxnRgHHZeqDf3" : {
+            "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+            "id" : "-LckQynkxnRgHHZeqDf3",
+            "name" : "test2",
+            "time" : 1555590802881,
+            "toolid" : "-LbYZjcGci7H_jDGoD-F"
+          }
+        },
+        "name" : "sss",
+        "nickname" : "test1",
+        "tooltype" : "1"
+      }
+    },
     "err_code" : 0,
     "err_msg" : "success"
   },
@@ -1665,23 +3012,83 @@
   "users" : {
     "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
       "avatar_url" : "",
+      "company_count" : 8,
+      "consultant_count" : 2,
+      "contact_count" : 0,
+      "dispatcher_count" : 2,
+      "event_count" : 2,
       "gender" : "",
       "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+      "job_count" : 6,
+      "knowledge_count" : 2,
+      "learnings" : {
+        "-LbW07Cj8C37LDyZeKHF" : {
+          "LearningStatus" : true,
+          "approval_at" : 1555743493997,
+          "contentOrd" : "2"
+        },
+        "-LbYZZXvYQxtpo2AWpzL" : {
+          "LearningStatus" : true,
+          "approval_at" : 1554951668780,
+          "contentOrd" : 2
+        }
+      },
       "location" : "",
       "login_name" : "test1@gmail.com",
       "name" : "test1",
-      "photo" : "",
-      "points" : 0
+      "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/users%2FCIxg5db1wHWTu1eeymVp4EkLzfg1?alt=media&token=c3889a1d-9cf5-4c58-9fdc-6f078f1ce32e",
+      "points" : 0,
+      "post_count" : 3,
+      "project_count" : 2,
+      "rooms" : {
+        "-LbpDP3nLIekOaNV6i9R" : {
+          "active" : true,
+          "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+          "header" : "A",
+          "id" : "-LbpDP3nLIekOaNV6i9R",
+          "location" : "Tokyo",
+          "name" : "test2"
+        }
+      },
+      "talent_count" : 3,
+      "tool_count" : 2
     },
     "Vn8NjeM3yCh7vsK6mwhEdk9d1h73" : {
       "avatar_url" : "",
       "gender" : "",
       "id" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+      "invites" : {
+        "-LbM7zO3wA7flCWYyECk" : {
+          "fromUserId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "fromUserName" : "test1",
+          "id" : "-LbM7zO3wA7flCWYyECk",
+          "roomId" : "-LbLowCug333-9BAkwM9",
+          "status" : "declined",
+          "toUserName" : "test2"
+        }
+      },
+      "learnings" : {
+        "-LbW07Cj8C37LDyZeKHF" : {
+          "LearningStatus" : true,
+          "approval_at" : 1555734299671,
+          "contentOrd" : "3"
+        }
+      },
       "location" : "",
       "login_name" : "test2@gmail.com",
       "name" : "test2",
-      "photo" : "",
-      "points" : 0
+      "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/users%2FVn8NjeM3yCh7vsK6mwhEdk9d1h73?alt=media&token=c483679f-b290-41b1-b5c6-7512118e3c70",
+      "points" : 0,
+      "rooms" : {
+        "-LbpDP3nLIekOaNV6i9R" : {
+          "active" : true,
+          "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+          "header" : "A",
+          "id" : "-LbpDP3nLIekOaNV6i9R",
+          "location" : "Tokyo",
+          "name" : "test2"
+        }
+      }
     },
     "err_code" : 0,
     "err_msg" : "success"

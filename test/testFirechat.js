@@ -4725,8 +4725,8 @@ exports['getKnowledgeContents'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
-exports['updateKnowledgeContent'] = function(test) {
+
+exports['updateLearningStatus'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
       const ref = database.ref('users/' + user.uid)
@@ -4740,6 +4740,56 @@ exports['updateKnowledgeContent'] = function(test) {
               if (knowledges[knowledge].avatar === user.uid) {
                 chat.updateLearningStatus(knowledge, 2, true, knowledgeKey => {
                   console.log('knowledgeKey=' + knowledgeKey)
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+exports['addKnowledgeCertificate'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.addKnowledgeCertificate(knowledge, 'https://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%98%8E%E4%B9%A6&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=undefined&latest=undefined&copyright=undefined&cs=5659746,4131529913&os=2045183806,206696368&simid=3410681258,295304104&pn=2&rn=1&di=81730&ln=1642&fr=&fmq=1555750763902_R&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimgsa.baidu.com%2Fexp%2Fw%3D500%2Fsign%3D9a7fec740a24ab18e016e13705fae69a%2F4b90f603738da977f10b8f79b351f8198618e3b8.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined', knowledgeKey => {
+                  console.log('knowledgeKey=' + knowledgeKey)
+                  test.done()
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+*/
+exports['createCertificate'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.createCertificate('src/assets/images/certificate.png', 'src/assets/images/' + knowledges[knowledge].id + knowledges[knowledge].avatar + '.png', knowledges[knowledge].name, () => {
                   test.done()
                 })
               }

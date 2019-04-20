@@ -10,7 +10,8 @@
       <f7-list-group v-for="knowledgecertificates_ in knowledgecertificates" :key="knowledgecertificates_.id">
         <f7-list-item radio name="knowledgecertificates-radio"
                       :value="knowledgecertificates_.id"
-                      :title="knowledgecertificates_.certificatePath"
+                      :title="knowledgecertificates_.name + '@' + formatTime(knowledgecertificates_.time)"
+                      :media="getAvatar(knowledgecertificates_.avatar)"
                       :checked="knowledgecertificates === knowledgecertificates_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
@@ -19,6 +20,8 @@
 
 <script>
 import { mapState } from 'vuex'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import { getRemoteAvatar } from '@/utils/appFunc'
 
 export default {
   data() {
@@ -34,7 +37,7 @@ export default {
   mounted() {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
-    if (this.id) {
+    if (this.knowledgekey) {
       this.$root.chat.getKnowledgeCertificates(this.knowledgekey, data => {
         if (data) {
           this.$store.dispatch('initKnowledgecertificates', data)
@@ -50,6 +53,12 @@ export default {
         photos: [url]
       })
       pb.open()
+    },
+    formatTime(time) {
+      return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
+    },
+    getAvatar(id) {
+      return getRemoteAvatar(id)
     },
     viewCertificate() {
       const knowledgecertificate = this.$$('input[name="knowledgecertificates-radio"]:checked').val()
