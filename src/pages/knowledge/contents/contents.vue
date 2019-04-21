@@ -60,17 +60,18 @@ export default {
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
-          this.$store.dispatch('initKnowledgecontents', data)
+          window.store.dispatch('initKnowledgecontents', data)
         }
       })
       this.$root.chat.getLearningStatus(data => {
         if (data) {
-          this.$store.dispatch('initLearningstatus', data)
+          window.store.dispatch('initLearningstatus', data)
         }
       })
     }
     this.getSelectedOrd()
     this.setIsOwner()
+    this.setName()
   },
   methods: {
     getSelectedOrd() {
@@ -85,6 +86,13 @@ export default {
       for (const knowledge in this.knowledges) {
         if (this.knowledges[knowledge].avatar === window.user.uid) {
           this.isOwner = true
+          break
+        }
+      }
+    },
+    setName() {
+      for (const knowledge in this.knowledges) {
+        if (this.knowledges[knowledge].id === this.knowledgekey) {
           this.name = this.knowledges[knowledge].name
           break
         }

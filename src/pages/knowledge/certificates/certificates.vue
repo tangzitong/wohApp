@@ -40,7 +40,7 @@ export default {
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeCertificates(this.knowledgekey, data => {
         if (data) {
-          this.$store.dispatch('initKnowledgecertificates', data)
+          window.store.dispatch('initKnowledgecertificates', data)
         }
       })
     }

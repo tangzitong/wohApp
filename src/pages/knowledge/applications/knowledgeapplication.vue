@@ -7,9 +7,15 @@
       <div class="title">
         <span>{{$t('knowledge.application')}}</span>
       </div>
+      <f7-toolbar class="custom-toolbar flex-row" bottom-md>
+        <f7-link class="tool tool-border flex-rest-width" @click="applicationKnowledge">
+          <span class="iconfont icon-application"></span>
+          <span class="text" v-text="knowledge.application_count ? knowledge.application_count : $t('knowledge.application')"></span>
+        </f7-link>
+      </f7-toolbar>
       <div class="clist">
-        <template v-if="applications.length">
-          <div class="application flex-row" v-for="application in applications" :key="application.name">
+        <template v-if="knowledgeapplications">
+          <div class="application flex-row" v-for="application in knowledgeapplications" :key="application.name">
             <img class="avatar" :src="getAvatar(application.avatar)" />
             <div class="detail flex-rest-width">
               <div class="name"><span>{{application.name}}</span></div>
@@ -26,16 +32,6 @@
         </div>
       </div>
     </div>
-    <f7-toolbar class="custom-toolbar flex-row" bottom-md>
-      <f7-link class="tool tool-border flex-rest-width" @click="openApplicationPopup">
-        <span class="iconfont icon-application"></span>
-        <span class="text" v-text="knowledge.application_count ? knowledge.application_count : $t('knowledge.application')"></span>
-      </f7-link>
-      <f7-link class="tool flex-rest-width" :class="{liked: knowledge.liked}" @click="toggleLike(knowledge.id, knowledge.liked)">
-        <span class="iconfont icon-like"></span>
-        <span class="text" v-text="knowledge.like_count ? knowledge.like_count : $t('home.like')"></span>
-      </f7-link>
-    </f7-toolbar>
   </f7-page>
 </template>
 
@@ -139,29 +135,34 @@ import find from 'lodash/find'
 export default {
   data() {
     return {
-      knowledge: {},
-      applications: []
+      knowledge: {}
     }
   },
   computed: {
     ...mapState({
-      knowledges: state => state.knowledges
+      knowledges: state => state.knowledges,
+      knowledgeapplications: state => state.knowledgeapplications
     })
   },
   mounted() {
     const query = this.$f7route.query
     this.knowledge = find(this.knowledges, p => p.id === query.mid)
-    this.getApplications()
+    this.$root.chat.getKnowledgeApplications(this.knowledge.id, function(applications) {
+      window.store.dispatch('initKnowledgeApplications', applications)
+    })
   },
   methods: {
     ...mapActions([
-      'updatePopup'
+      'updateApplication'
     ]),
-    getApplications() {
-      const random = Math.floor(Math.random() * 2)
-      if (!random) return []
-      this.$root.chat.getKnowledgeApplications(this.knowledge.id, function(applications) {
-        this.applications = applications
+    applicationKnowledge() {
+      this.updateApplication({
+        key1: 'applicationOpened',
+        value1: true,
+        key2: 'applicationType',
+        value2: 'Knowledge',
+        key3: 'applicationKey',
+        value3: `${this.knowledge.id}`
       })
     },
     formatTime(time) {
@@ -169,17 +170,6 @@ export default {
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
-    },
-    openApplicationPopup() {
-      this.updatePopup({
-        key: 'applicationOpened',
-        value: true
-      })
-    },
-    toggleLike(mid, status) {
-      this.$root.chat.likeKnowledge(this.knowledge.id, function(likeKey) {
-        console.log('likeKnowledge success')
-      })
     }
   },
   components: {

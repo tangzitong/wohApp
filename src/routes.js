@@ -43,6 +43,8 @@ import knowledgeaddtypePage from './pages/knowledge/addtype'
 import knowledgeaddPage from './pages/knowledge/add'
 import knowledgeviewPage from './pages/knowledge/view'
 import knowledgecertificatesPage from './pages/knowledge/certificates'
+import knowledgeapplicationsPage from './pages/knowledge/applications'
+import knowledgelikesPage from './pages/knowledge/likes'
 import knowledgecontentsPage from './pages/knowledge/contents'
 import knowledgecontentsaddCPage from './pages/knowledge/contents/addCertificate'
 import knowledgecontentsaddHPage from './pages/knowledge/contents/addHtml'
@@ -332,6 +334,14 @@ export default [
   {
     path: '/knowledge/certificates/',
     component: knowledgecertificatesPage
+  },
+  {
+    path: '/knowledge/applications/',
+    component: knowledgeapplicationsPage
+  },
+  {
+    path: '/knowledge/likes/',
+    component: knowledgelikesPage
   },
   {
     path: '/knowledge/contents/',

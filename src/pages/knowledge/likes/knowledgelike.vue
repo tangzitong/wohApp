@@ -3,18 +3,23 @@
     <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')" sliding>
     </f7-navbar>
     <Knowledge :enableToolbar="false" :data="knowledge"></Knowledge>
-    <div class="applications">
+    <div class="likes">
       <div class="title">
-        <span>{{$t('knowledge.application')}}</span>
+        <span>{{$t('knowledge.like')}}</span>
       </div>
+      <f7-toolbar class="custom-toolbar flex-row" bottom-md>
+        <f7-link class="tool flex-rest-width" :class="{liked: knowledge.liked}" @click="LikeKnowledge(knowledge.id)">
+          <span class="iconfont icon-like"></span>
+          <span class="text" v-text="knowledge.like_count ? knowledge.like_count : $t('home.like')"></span>
+        </f7-link>
+      </f7-toolbar>
       <div class="clist">
-        <template v-if="applications.length">
-          <div class="application flex-row" v-for="application in applications" :key="application.name">
-            <img class="avatar" :src="getAvatar(application.avatar)" />
+        <template v-if="knowledgelikes">
+          <div class="like flex-row" v-for="like in knowledgelikes" :key="like.name">
+            <img class="avatar" :src="getAvatar(like.avatar)" />
             <div class="detail flex-rest-width">
-              <div class="name"><span>{{application.name}}</span></div>
-              <div class="time"><span>{{formatTime(application.time)}}</span></div>
-              <div class="text"><span>{{application.text}}</span></div>
+              <div class="name"><span>{{like.name}}</span></div>
+              <div class="time"><span>{{formatTime(like.time)}}</span></div>
             </div>
           </div>
         </template>
@@ -26,16 +31,6 @@
         </div>
       </div>
     </div>
-    <f7-toolbar class="custom-toolbar flex-row" bottom-md>
-      <f7-link class="tool tool-border flex-rest-width" @click="openApplicationPopup">
-        <span class="iconfont icon-application"></span>
-        <span class="text" v-text="knowledge.application_count ? knowledge.application_count : $t('knowledge.application')"></span>
-      </f7-link>
-      <f7-link class="tool flex-rest-width" :class="{liked: knowledge.liked}" @click="toggleLike(knowledge.id, knowledge.liked)">
-        <span class="iconfont icon-like"></span>
-        <span class="text" v-text="knowledge.like_count ? knowledge.like_count : $t('home.like')"></span>
-      </f7-link>
-    </f7-toolbar>
   </f7-page>
 </template>
 
@@ -70,7 +65,7 @@
       }
     }
   }
-  .applications {
+  .likes {
     background-color: #fff;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
@@ -81,7 +76,7 @@
       padding: 0 10px;
       font-size: 13px;
     }
-    .application {
+    .like {
       border-top: 1px solid #dadada;
       padding: 10px;
       font-size: 14px;
@@ -133,52 +128,45 @@
 import Knowledge from '@/components/knowledge'
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import find from 'lodash/find'
 
 export default {
   data() {
     return {
-      knowledge: {},
-      applications: []
+      knowledge: {}
     }
   },
   computed: {
     ...mapState({
-      knowledges: state => state.knowledges
+      knowledges: state => state.knowledges,
+      knowledgelikes: state => state.knowledgelikes
     })
   },
   mounted() {
     const query = this.$f7route.query
     this.knowledge = find(this.knowledges, p => p.id === query.mid)
-    this.getApplications()
+    this.$root.chat.getKnowledgeLikes(this.knowledge.id, function(likes) {
+      window.store.dispatch('initKnowledgeLikes', likes)
+    })
   },
   methods: {
-    ...mapActions([
-      'updatePopup'
-    ]),
-    getApplications() {
-      const random = Math.floor(Math.random() * 2)
-      if (!random) return []
-      this.$root.chat.getKnowledgeApplications(this.knowledge.id, function(applications) {
-        this.applications = applications
-      })
-    },
     formatTime(time) {
       return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
     },
-    openApplicationPopup() {
-      this.updatePopup({
-        key: 'applicationOpened',
-        value: true
+    LikeKnowledge(mid) {
+      this.$root.chat.likeKnowledge(mid, function(likeKey) {
+        console.log('likeKnowledge success')
+        this.getLikes()
       })
     },
-    toggleLike(mid, status) {
-      this.$root.chat.likeKnowledge(this.knowledge.id, function(likeKey) {
-        console.log('likeKnowledge success')
+    UnLikeKnowledge(mid, likeKey) {
+      this.$root.chat.unlikeKnowledge(mid, likeKey, function(likeKey) {
+        console.log('unlikeKnowledge success')
+        this.getLikes()
       })
     }
   },

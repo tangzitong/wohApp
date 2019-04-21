@@ -68,7 +68,7 @@ export default {
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
-          this.$store.dispatch('initKnowledgecontents', data)
+          window.store.dispatch('initKnowledgecontents', data)
         }
       })
     }

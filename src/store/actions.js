@@ -440,6 +440,18 @@ export function updateKnowledges({ commit }, { mid, type }) {
   })
 }
 
+export function initKnowledgeApplications({commit}, knowledgeapplications) {
+  commit(types.INIT_KNOWLEDGEAPPLICATIONS, {
+    knowledgeapplications
+  })
+}
+
+export function initKnowledgeLikes({commit}, knowledgelikes) {
+  commit(types.INIT_KNOWLEDGELIKES, {
+    knowledgelikes
+  })
+}
+
 export function initTools({ commit }, tools) {
   commit(types.INIT_TOOLS, {
     tools

@@ -54,7 +54,7 @@ export default {
     consultants: '咨询师',
     dispatchers: '派遣者',
     knowledges: '知识',
-    knowledgecertificates: '学习证明书',
+    knowledgecertificates: '学习证明',
     knowledgecontents: '知识内容',
     tools: '工具',
     events: '活动',

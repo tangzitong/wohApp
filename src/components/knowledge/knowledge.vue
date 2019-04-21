@@ -21,15 +21,20 @@
       <div v-if="data.HP" class="link" @click.stop="openPhotoBrowser(data.HP)">HP:{{data.HP}}</div>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button big raised color="green" fill @click="applicationKnowledge">{{$t('knowledge.application')}}</f7-button>
-      <f7-link class="tool flex-rest-width" :class="{liked: data.like_count}" @click.stop="toggleLike(data.id, data.like_count)">
-        <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.like_count ? data.like_count : $t('knowledge.like')"></span>
-      </f7-link>
-      <f7-button big raised color="green" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}</f7-button>
+      <f7-button big raised color="green" fill @click="applicationKnowledge">{{$t('knowledge.application')}}
+        <span class="text" v-text="data.application_count ? '(' + data.application_count + ')' : ''"></span>
+      </f7-button>
+      <f7-button big raised color="green" fill @click="likeKnowledge">{{$t('knowledge.like')}}
+        <span class="text" v-text="data.like_count ? '(' + data.like_count + ')' : ''"></span>
+      </f7-button>
+      <f7-button big raised color="green" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
+        <span class="text" v-text="data.certificate_count ? '(' + data.certificate_count + ')' : ''"></span>
+      </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button big raised color="green" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}</f7-button>
+      <f7-button big raised color="green" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}
+        <span class="text" v-text="data.content_count ? '(' + data.content_count + ')' : ''"></span>
+      </f7-button>
       <f7-button v-if="isOwner" big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
       <f7-button v-if="isOwner" big raised color="green" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
     </div>
@@ -117,7 +122,6 @@
 <script>
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
-import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -137,18 +141,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'updateApplication'
-    ]),
+    likeKnowledge() {
+      this.$f7router.navigate(`/knowledge/likes/?mid=${this.data.id}`)
+    },
     applicationKnowledge() {
-      this.updateApplication({
-        key1: 'applicationOpened',
-        value1: true,
-        key2: 'applicationType',
-        value2: 'Knowledge',
-        key3: 'applicationKey',
-        value3: `${this.data.id}`
-      })
+      this.$f7router.navigate(`/knowledge/applications/?mid=${this.data.id}`)
     },
     knowledgecertificates() {
       this.$f7router.navigate(`/knowledge/certificates/?mid=${this.data.id}`)
@@ -180,11 +177,6 @@ export default {
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
-    },
-    toggleLike(mid, status) {
-      this.$root.chat.likeKnowledge(mid, function(likeKey) {
-        console.log('likeKnowledge success')
-      })
     }
   }
 }

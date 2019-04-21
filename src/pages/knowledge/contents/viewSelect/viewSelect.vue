@@ -187,12 +187,12 @@ export default {
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
-          this.$store.dispatch('initKnowledgecontents', data)
+          window.store.dispatch('initKnowledgecontents', data)
         }
       })
       this.$root.chat.getLearningStatus(data => {
         if (data) {
-          this.$store.dispatch('initLearningstatus', data)
+          window.store.dispatch('initLearningstatus', data)
         }
       })
     }
@@ -201,7 +201,7 @@ export default {
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
         if (knowledgecomments) {
-          this.$store.dispatch('initKnowledgeComments', knowledgecomments)
+          window.store.dispatch('initKnowledgeComments', knowledgecomments)
         }
       })
     }
