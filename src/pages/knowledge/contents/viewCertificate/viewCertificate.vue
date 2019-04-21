@@ -17,11 +17,132 @@
         <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
       </f7-list-item>
     </f7-list>
-</f7-page>
+    <div class="comments">
+      <div class="title">
+        <span>{{$t('home.comment')}}</span>
+      </div>
+      <f7-toolbar class="custom-toolbar flex-row" bottom-md>
+        <f7-link class="tool tool-border flex-rest-width" @click="openKnowledgecommentPopup">
+          <span class="iconfont icon-comment"></span>
+          <span class="text" v-text="comment_count ? comment_count : $t('home.comment')"></span>
+        </f7-link>
+      </f7-toolbar>
+      <div class="clist">
+        <template v-if="knowledgecomments">
+          <div class="comment flex-row" v-for="comment in knowledgecomments" :key="comment.id">
+            <img class="avatar" :src="getAvatar(comment.avatar)" />
+            <div class="detail flex-rest-width">
+              <div class="name"><span>{{comment.name}}</span></div>
+              <div class="time"><span>{{formatTime(comment.time)}}</span></div>
+              <div class="text"><span>{{comment.comment}}</span></div>
+            </div>
+          </div>
+        </template>
+        <div class="empty-content" v-else>
+          <i class="iconfont icon-wujieguoyangshi"/>
+          <div class="text">
+            <span>{{$t('app.empty_container')}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </f7-page>
 </template>
 
+<style lang="less">
+@import '../../../../assets/styles/mixins.less';
+
+.knowledge {
+  .custom-toolbar {
+    background: #fff;
+    &:before {
+      background: #e1e1e1;
+    }
+    .tool {
+      justify-content: center;
+      &.tool-border {
+        border-right: 1px solid #e1e1e1;
+      }
+      &.liked {
+        > span {
+          color: @mainColor;
+        }
+      }
+      > span {
+        color: #6d6d78;
+        vertical-align: middle;
+      }
+      .iconfont {
+        font-size: 18px;
+      }
+      .text {
+        font-size: 15px;
+      }
+    }
+  }
+  .comments {
+    background-color: #fff;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 15px;
+    .title {
+      height: 35px;
+      line-height: 35px;
+      padding: 0 10px;
+      font-size: 13px;
+    }
+    .comment {
+      border-top: 1px solid #dadada;
+      padding: 10px;
+      font-size: 14px;
+      .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+      }
+      .detail {
+        margin-left: 8px;
+        .name {
+          font-size: 13px;
+          color: #333;
+        }
+        .time {
+          font-size: 11px;
+          color: #929292;
+          margin-bottom: 2px;
+        }
+        .text {
+          line-height: 20px;
+          color: #5d5d5d;
+        }
+      }
+    }
+  }
+}
+
+.md {
+  .knowledge {
+    .custom-toolbar {
+      .tool {
+        &.liked {
+          > span {
+            color: #fff;
+          }
+        }
+        > span {
+          color: rgba(255, 255, 255, 0.7);;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+</style>
+
 <script>
-import { mapState } from 'vuex'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import { getRemoteAvatar } from '@/utils/appFunc'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data() {
@@ -34,7 +155,8 @@ export default {
       myCertificatePath: null,
       ord: 0,
       title: '',
-      userid: null
+      userid: null,
+      comment_count: 0
     }
   },
   computed: {
@@ -43,6 +165,7 @@ export default {
       knowledgecontents: state => state.knowledgecontents,
       learningstatus: state => state.learningstatus,
       knowledgecertificates: state => state.knowledgecertificates,
+      knowledgecomments: state => state.knowledgecomments,
       isUserLogin: state => state.isUserLogin
     })
   },
@@ -76,8 +199,18 @@ export default {
       this.createCertificate()
       this.getMyKnowledgeCertificate()
     }
+    if (this.knowledgekey && this.knowledgecontentkey) {
+      this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
+        if (knowledgecomments) {
+          this.$store.dispatch('initKnowledgeComments', knowledgecomments)
+        }
+      })
+    }
   },
   methods: {
+    ...mapActions([
+      'updatePopup'
+    ]),
     createCertificate() {
       this.$root.chat.addKnowledgeCertificate(this.knowledgekey, this.myCertificatePath, knowledgeKey => {
         console.log('knowledgeKey=' + knowledgeKey)
@@ -100,6 +233,7 @@ export default {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
             this.certificatePath = this.knowledgecontents[knowledgecontent].content.certificatePath
+            this.comment_count = this.knowledgecontents[knowledgecontent].comment_count
             break
           }
         }
@@ -130,6 +264,26 @@ export default {
           this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
           break
       }
+    },
+    formatTime(time) {
+      return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
+    },
+    getAvatar(id) {
+      return getRemoteAvatar(id)
+    },
+    openKnowledgecommentPopup() {
+      this.updatePopup({
+        key: 'knowledgekey',
+        value: this.knowledgekey
+      })
+      this.updatePopup({
+        key: 'knowledgecontentkey',
+        value: this.knowledgecontentkey
+      })
+      this.updatePopup({
+        key: 'knowledgecommentOpened',
+        value: true
+      })
     }
   }
 }

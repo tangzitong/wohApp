@@ -253,6 +253,15 @@ export default {
   [types.PREPEND_KNOWLEDGES](state, { knowledges }) {
     Vue.set(state, 'knowledges', [...knowledges, ...state.knowledges])
   },
+  [types.INIT_KNOWLEDGECOMMENT](state, { knowledgecomments }) {
+    Vue.set(state, 'knowledgecomments', knowledgecomments)
+  },
+  [types.APPEND_KNOWLEDGECOMMENT](state, { knowledgecomments }) {
+    Vue.set(state, 'knowledgecomments', [...state.knowledgecomments, ...knowledgecomments])
+  },
+  [types.PREPEND_KNOWLEDGECOMMENT](state, { knowledgecomments }) {
+    Vue.set(state, 'knowledgecomments', [...knowledgecomments, ...state.knowledgecomments])
+  },
   [types.UPDATE_KNOWLEDGES](state, { mid, type }) {
     let item = find(state.knowledges, p => p.id === mid)
     const update = {}

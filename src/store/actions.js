@@ -415,6 +415,24 @@ export function refreshKnowledges({ commit }, knowledges) {
   })
 }
 
+export function initKnowledgeComments({commit}, knowledgecomments) {
+  commit(types.INIT_KNOWLEDGECOMMENT, {
+    knowledgecomments
+  })
+}
+
+export function infiniteKnowledgeComments({commit}, knowledgecomments) {
+  commit(types.APPEND_KNOWLEDGECOMMENT, {
+    knowledgecomments
+  })
+}
+
+export function refreshKnowledgeComments({commit}, knowledgecomments) {
+  commit(types.PREPEND_KNOWLEDGECOMMENT, {
+    knowledgecomments
+  })
+}
+
 export function updateKnowledges({ commit }, { mid, type }) {
   commit(types.UPDATE_KNOWLEDGES, {
     mid,
