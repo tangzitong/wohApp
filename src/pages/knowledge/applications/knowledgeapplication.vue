@@ -15,12 +15,24 @@
       </f7-toolbar>
       <div class="clist">
         <template v-if="knowledgeapplications">
-          <div class="application flex-row" v-for="application in knowledgeapplications" :key="application.name">
+          <div class="application flex-row" v-for="application in knowledgeapplications" :key="application.id">
             <img class="avatar" :src="getAvatar(application.avatar)" />
             <div class="detail flex-rest-width">
               <div class="name"><span>{{application.name}}</span></div>
               <div class="time"><span>{{formatTime(application.time)}}</span></div>
               <div class="text"><span>{{application.text}}</span></div>
+              <f7-link v-if="application.avatar === userid" class="tool tool-border flex-rest-width" @click="removeApplication(knowledge.id, application.id)">
+                <span class="iconfont icon-application"></span>
+                <span class="text" v-text="$t('knowledge.removeapplication')"></span>
+              </f7-link>
+              <f7-link v-if="application.avatar !== userid && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(knowledge.id, application.id)">
+                <span class="iconfont icon-thumbup"></span>
+                <span class="text" v-text="$t('knowledge.disagreeapplication')"></span>
+              </f7-link>
+              <f7-link v-if="application.avatar !== userid && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(knowledge.id, application.id)">
+                <span class="iconfont icon-close"></span>
+                <span class="text" v-text="$t('knowledge.agreeapplication')"></span>
+              </f7-link>
             </div>
           </div>
         </template>
@@ -135,13 +147,15 @@ import find from 'lodash/find'
 export default {
   data() {
     return {
-      knowledge: {}
+      knowledge: {},
+      userid: null
     }
   },
   computed: {
     ...mapState({
       knowledges: state => state.knowledges,
-      knowledgeapplications: state => state.knowledgeapplications
+      knowledgeapplications: state => state.knowledgeapplications,
+      isUserLogin: state => state.isUserLogin
     })
   },
   mounted() {
@@ -150,6 +164,9 @@ export default {
     this.$root.chat.getKnowledgeApplications(this.knowledge.id, function(applications) {
       window.store.dispatch('initKnowledgeApplications', applications)
     })
+    if (this.isUserLogin) {
+      this.userid = window.user.uid
+    }
   },
   methods: {
     ...mapActions([
@@ -165,11 +182,34 @@ export default {
         value3: `${this.knowledge.id}`
       })
     },
+    getApplications(knowledgeid) {
+      this.$root.chat.getKnowledgeApplications(knowledgeid, function(applications) {
+        window.store.dispatch('initKnowledgeApplications', applications)
+      })
+    },
     formatTime(time) {
       return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
+    },
+    agreeApplication(mid, applicationKey) {
+      this.$root.chat.updateKnowledgeApplication(mid, applicationKey, true, function(applicationKey) {
+        console.log('updateKnowledgeApplication success')
+      })
+      this.getApplications(mid)
+    },
+    disagreeApplication(mid, applicationKey) {
+      this.$root.chat.updateKnowledgeApplication(mid, applicationKey, false, function(applicationKey) {
+        console.log('updateKnowledgeApplication success')
+      })
+      this.getApplications(mid)
+    },
+    removeApplication(mid, applicationKey) {
+      this.$root.chat.removeKnowledgeApplication(mid, applicationKey, function(applicationKey) {
+        console.log('removeKnowledgeApplication success')
+      })
+      this.getApplications(mid)
     }
   },
   components: {

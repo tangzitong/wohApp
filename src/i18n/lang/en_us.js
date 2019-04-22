@@ -200,7 +200,10 @@ export default {
     complete: 'Dispatcher Add or Update complete'
   },
   knowledge: {
-    application: 'Knowledge Application',
+    application: 'Application',
+    removeapplication: 'Cancel Application',
+    agreeapplication: 'Agree Application',
+    disagreeapplication: 'Disagree Application',
     add: 'Add Knowledge',
     update: 'Update Knowledge',
     delete: 'Delete Knowledge',

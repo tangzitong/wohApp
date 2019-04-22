@@ -201,6 +201,9 @@ export default {
   },
   knowledge: {
     application: '学習申請',
+    removeapplication: '申請取消',
+    agreeapplication: '申請同意',
+    disagreeapplication: '申請拒否',
     add: '知識追加',
     update: '知識更新',
     delete: '知識削除',

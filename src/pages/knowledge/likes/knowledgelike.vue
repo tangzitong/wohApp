@@ -15,11 +15,14 @@
       </f7-toolbar>
       <div class="clist">
         <template v-if="knowledgelikes">
-          <div class="like flex-row" v-for="like in knowledgelikes" :key="like.name">
+          <div class="like flex-row" v-for="like in knowledgelikes" :key="like.id">
             <img class="avatar" :src="getAvatar(like.avatar)" />
             <div class="detail flex-rest-width">
               <div class="name"><span>{{like.name}}</span></div>
               <div class="time"><span>{{formatTime(like.time)}}</span></div>
+              <f7-link v-if="like.avatar === userid" class="tool flex-rest-width" :class="{liked: knowledge.liked}" @click="UnLikeKnowledge(knowledge.id, like.id)">
+                <span class="text" v-text="$t('home.like')"></span>
+              </f7-link>
             </div>
           </div>
         </template>
@@ -134,18 +137,23 @@ import find from 'lodash/find'
 export default {
   data() {
     return {
-      knowledge: {}
+      knowledge: {},
+      userid: null
     }
   },
   computed: {
     ...mapState({
       knowledges: state => state.knowledges,
-      knowledgelikes: state => state.knowledgelikes
+      knowledgelikes: state => state.knowledgelikes,
+      isUserLogin: state => state.isUserLogin
     })
   },
   mounted() {
     const query = this.$f7route.query
     this.knowledge = find(this.knowledges, p => p.id === query.mid)
+    if (this.isUserLogin) {
+      this.userid = window.user.uid
+    }
     this.$root.chat.getKnowledgeLikes(this.knowledge.id, function(likes) {
       window.store.dispatch('initKnowledgeLikes', likes)
     })
@@ -157,17 +165,22 @@ export default {
     getAvatar(id) {
       return getRemoteAvatar(id)
     },
+    getLikes(knowledgeid) {
+      this.$root.chat.getKnowledgeLikes(knowledgeid, function(likes) {
+        window.store.dispatch('initKnowledgeLikes', likes)
+      })
+    },
     LikeKnowledge(mid) {
       this.$root.chat.likeKnowledge(mid, function(likeKey) {
         console.log('likeKnowledge success')
-        this.getLikes()
       })
+      this.getLikes(mid)
     },
     UnLikeKnowledge(mid, likeKey) {
       this.$root.chat.unlikeKnowledge(mid, likeKey, function(likeKey) {
         console.log('unlikeKnowledge success')
-        this.getLikes()
       })
+      this.getLikes(mid)
     }
   },
   components: {
