@@ -1,6 +1,10 @@
 <template>
   <f7-page no-navbar no-toolbar no-swipeback layout="white">
-
+    <transition name="fade">
+        <div v-if="performingRequest" class="loading">
+            <p>Loading...</p>
+        </div>
+    </transition>
     <!-- Title -->
     <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-block>
 
@@ -11,21 +15,33 @@
     <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
       <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{$t('login.email')}}</f7-label>
-        <f7-input type="email" :placeholder="$t('login.email')" v-model="email" />
+        <f7-input type="email" :placeholder="$t('login.email')" @input="email = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{$t('login.password')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.password')" v-model="password" />
+        <f7-input type="password" :placeholder="$t('login.password')" @input="password = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <f7-label>{{$t('login.password')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" v-model="passwordConfirmation" />
+        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
     </f7-list>
 
     <!-- Email sign in buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <f7-button big raised color="green" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInFB">{{$t('login.signInFB')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInGG">{{$t('login.signInGG')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInTW">{{$t('login.signInTW')}}</f7-button>
+    </f7-block>
+    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button big raised color="green" fill @click="handleSignInGH">{{$t('login.signInGH')}}</f7-button>
     </f7-block>
 
     <!-- Email registration buttons -->
@@ -66,7 +82,8 @@ export default {
       email: '',
       password: '',
       passwordConfirmation: '',
-      mode: ''
+      mode: '',
+      performingRequest: false
     }
   },
   computed: {
@@ -75,13 +92,13 @@ export default {
     }
   },
   created: function () {
-    this.mode = this.$root.user ? 'signOut' : 'signIn'
+    this.mode = window.user ? 'signOut' : 'signIn'
     this.$root.$signOut = this.handleSignOut
   },
   mounted() {
     // Workaround to close login popup on initial load and shift it back to the left -->
     // Close only if there are no login requiring pages on start or the user is logged in
-    if ((!this.$root.loginRequiringPagesOnStart && !this.$root.loginRequiredForAllPages) || this.$root.user) {
+    if ((!this.$root.loginRequiringPagesOnStart && !this.$root.loginRequiredForAllPages) || window.user) {
       this.updatePopup({
         key: 'loginOpened',
         value: false
@@ -94,13 +111,13 @@ export default {
     ]),
     cancel: function () {
       if (this.mode === 'reset' || this.mode === 'registration') {
-        this.mode = this.$root.user ? 'signOut' : 'signIn'
+        this.mode = window.user ? 'signOut' : 'signIn'
       } else {
         // Reset form
         this.email = ''
         this.password = ''
         this.passwordConfirmation = ''
-        this.mode = this.$root.user ? 'signOut' : 'signIn'
+        this.mode = window.user ? 'signOut' : 'signIn'
         // Reset required URLs
         this.$root.loginRequiringPages = []
         // Close popup
@@ -112,14 +129,15 @@ export default {
     },
     handleSignIn: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else if (this.password === '') {
-        window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else {
         // Show loading indicator
-        window.f7.showIndicator()
+        // window.f7.showIndicator()
+        this.performingRequest = true
         // Sign in user
         window.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
           // On success
@@ -129,31 +147,141 @@ export default {
           // On error, show alert
           .catch(err => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show error alert
-            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     },
+    handleSignInGG: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.GoogleAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        window.store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
+    handleSignInFB: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.FacebookAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        window.store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
+    handleSignInTW: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.TwitterAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        window.store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
+    handleSignInGH: function () {
+      // Show loading indicator
+      // window.f7.showIndicator()
+      this.performingRequest = true
+      // Sign in user
+      const provider = new window.firebase.auth.GithubAuthProvider()
+      window.firebase.auth.currentUser.linkWithPopup(provider).then(function(result) {
+        // Accounts successfully linked.
+        // var credential = result.credential
+        const user = result.user
+        window.store.dispatch('addProfile', {
+          id: user.uid,
+          name: user.email,
+          title: '',
+          photo: ''
+        })
+        this.handleSignInDone()
+        // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        // Hide loading indicator
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+        // Show error alert
+        window.$$.alert(this.$t('login.firebaseErrors')[error.code], this.$t('login.error'))
+      })
+    },
     handleSignInDone: function () {
       // Hide loading indicator
-      window.f7.hideIndicator()
+      // window.f7.hideIndicator()
+      this.performingRequest = false
       // Reset form
-      this.email = ''
-      this.password = ''
-      this.passwordConfirmation = ''
-      this.mode = 'signOut'
+      // this.email = ''
+      // this.password = ''
+      // this.passwordConfirmation = ''
+      // this.mode = 'signOut'
       // Load required URL per view
-      const loginRequiringPages = this.$root.loginRequiringPages
-      this.$f7.views.forEach((view) => {
-        if (loginRequiringPages[view.selector]) {
-          this.$nextTick(() => {
-            view.router.load({url: loginRequiringPages[view.selector], animatePages: false})
-          })
-        }
-      })
+      // const loginRequiringPages = this.$root.loginRequiringPages
+      // this.$f7.views.forEach((view) => {
+      //  if (loginRequiringPages[view.selector]) {
+      //    this.$nextTick(() => {
+      //      view.router.load({url: loginRequiringPages[view.selector], animatePages: false})
+      //    })
+      //  }
+      // })
       // Reset required URLs
-      this.$root.loginRequiringPages = []
+      // this.$root.loginRequiringPages = []
       // Close popup
       this.updatePopup({
         key: 'loginOpened',
@@ -194,7 +322,7 @@ export default {
               value: false
             })
             // Show notification
-            window.f7.addNotification({
+            this.$f7.addNotification({
               title: this.$t('login.signOut'),
               message: this.$t('login.signOutDone'),
               hold: 3000,
@@ -205,24 +333,32 @@ export default {
     },
     handleRegistration: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else if (this.password === '') {
-        window.f7.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoPassword'), this.$t('login.error'))
       } else if (this.passwordConfirmation !== this.password) {
-        window.f7.alert(this.$t('login.errorPasswordsDifferent'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorPasswordsDifferent'), this.$t('login.error'))
       } else {
         // Show loading indicator
-        window.f7.showIndicator()
+        // window.f7.showIndicator()
+        this.performingRequest = true
         // Create new user
         window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
           // On success, sign in user
           .then(user => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            window.store.dispatch('addProfile', {
+              id: user.uid,
+              name: this.email,
+              title: '',
+              photo: ''
+            })
+            // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show notification
-            window.f7.addNotification({
+            this.$f7.addNotification({
               title: this.$t('login.accountCreated'),
               message: this.$t('login.checkYourInbox'),
               hold: 3000,
@@ -234,29 +370,32 @@ export default {
           // On error, show alert
           .catch(err => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show error alert
-            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     },
     handleReset: function () {
       if (navigator.onLine === false) {
-        window.f7.alert(this.$t('login.errorOffline'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorOffline'), this.$t('login.error'))
       } else if (this.email === '') {
-        window.f7.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
+        window.$$.alert(this.$t('login.errorNoEmail'), this.$t('login.error'))
       } else {
         // Show loading indicator
-        window.f7.showIndicator()
+        // window.f7.showIndicator()
+        this.performingRequest = true
         // Send reset link
         window.firebase.auth().sendPasswordResetEmail(this.email)
           .then(user => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
+            this.performingRequest = false
             // Update mode
             this.mode = 'signIn'
             // On success, show notfication and login screen again
-            window.f7.addNotification({
+            this.$f7.addNotification({
               title: this.$t('login.emailSent'),
               message: this.$t('login.checkYourInbox'),
               hold: 3000,
@@ -266,9 +405,10 @@ export default {
           })
           .catch(err => {
             // Hide loading indicator
-            window.f7.hideIndicator()
+            // window.f7.hideIndicator()
+            this.performingRequest = false
             // Show error alert
-            window.f7.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
           })
       }
     }

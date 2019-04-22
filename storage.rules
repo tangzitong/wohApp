@@ -11,34 +11,34 @@ service firebase.storage {
       allow read;
     }
     match /users/{uid} {
-      allow read, write: if uid == request.auth.uid;
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /jobs/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /jobs/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /companys/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /companys/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /projects/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /projects/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /talents/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /talents/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /consultants/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /consultants/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /dispatchers/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /dispatchers/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /knowledges/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /knowledges/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /tools/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /tools/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
-    match /events/{uid} {
-      allow read, write: if uid == request.auth.uid;
+    match /events/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
   }
 }

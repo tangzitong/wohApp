@@ -41,7 +41,6 @@ import knowledgePage from './pages/knowledge'
 import knowledgetypePage from './pages/knowledge/type'
 import knowledgeaddtypePage from './pages/knowledge/addtype'
 import knowledgeaddPage from './pages/knowledge/add'
-import knowledgeviewPage from './pages/knowledge/view'
 import knowledgecertificatesPage from './pages/knowledge/certificates'
 import knowledgeapplicationsPage from './pages/knowledge/applications'
 import knowledgelikesPage from './pages/knowledge/likes'
@@ -305,7 +304,11 @@ export default [
   },
   {
     path: '/knowledge/',
-    component: knowledgePage
+    component: knowledgePage,
+    name: 'knowledges',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/knowledge/type/',
@@ -319,14 +322,6 @@ export default [
     path: '/knowledge/add/',
     component: knowledgeaddPage,
     name: 'addKnowledge',
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/knowledge/view/',
-    component: knowledgeviewPage,
-    name: 'viewKnowledge',
     meta: {
       requiresAuth: true
     }

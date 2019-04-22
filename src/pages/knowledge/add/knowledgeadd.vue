@@ -41,10 +41,10 @@
       <f7-button big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin">
+    <f7-block v-if="isUserLogin && id">
       <imageuploader
-        :store="'knowledges/' + userid"
-        :db="'knowledges/' + userid + '/photo'" />
+        :store="'knowledges/' + userid + '/' + id"
+        :db="'knowledges/data/' + id + '/photo'" />
     </f7-block>
 
     <!-- Image -->

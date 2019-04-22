@@ -61,8 +61,7 @@ router.beforeEach((to, from, next) => {
   const currentUser = window.user
 
   if (requiresAuth && !currentUser) {
-    next('/login')
-  } else if (requiresAuth && currentUser) {
+    next({path: '/login', query: { redirect: to.fullPath }})
     next()
   } else {
     next()
