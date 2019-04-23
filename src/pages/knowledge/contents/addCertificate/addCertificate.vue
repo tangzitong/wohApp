@@ -21,10 +21,10 @@
       <f7-button big raised color="green" fill @click="updateKnowledgeCertificate">{{$t('knowledge.addcertificate')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin">
+    <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
       <imageuploader
-        :store="'knowledges/' + knowledgekey"
-        :db="'knowledges/' + knowledgekey + '/photo'" />
+        :store="'knowledgecontents/' + userid + '/' + knowledgekey + knowledgecontentkey"
+        :db="'knowledgecontents/data/' + knowledgekey + '/contents/' + knowledgecontentkey + '/content/certificatePath'" />
     </f7-block>
 
     <!-- Image -->

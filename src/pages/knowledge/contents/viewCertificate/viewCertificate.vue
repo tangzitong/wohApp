@@ -17,6 +17,14 @@
         <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
       </f7-list-item>
     </f7-list>
+    <f7-list>
+        <!-- Image uploader component -->
+      <f7-block v-if="isUserLogin && knowledgekey">
+        <imageuploader
+          :store="'knowledgecertificates/' + userid + '/' + knowledgekey"
+          :db="'knowledgecertificates/data/' + knowledgekey + '/' + userid + '/certificatePath'" />
+      </f7-block>
+    </f7-list>
     <div class="comments">
       <div class="title">
         <span>{{$t('home.comment')}}</span>
@@ -143,6 +151,7 @@
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapState, mapActions } from 'vuex'
+import imageuploader from '../../../../popup/imageuploader'
 
 export default {
   data() {
@@ -212,7 +221,7 @@ export default {
       'updatePopup'
     ]),
     createCertificate() {
-      this.$root.chat.addKnowledgeCertificate(this.knowledgekey, this.myCertificatePath, knowledgeKey => {
+      this.$root.chat.addKnowledgeCertificate(this.knowledgekey, knowledgeKey => {
         console.log('knowledgeKey=' + knowledgeKey)
       })
     },
@@ -285,6 +294,9 @@ export default {
         value: true
       })
     }
+  },
+  components: {
+    imageuploader
   }
 }
 </script>

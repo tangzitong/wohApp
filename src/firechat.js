@@ -2464,18 +2464,17 @@ Firechat.prototype.addKnowledgeContent = function(knowledgeKey, ord, title, cont
   })
 }
 
-Firechat.prototype.addKnowledgeCertificate = function(knowledgeKey, certificatePath, callback) {
+Firechat.prototype.addKnowledgeCertificate = function(knowledgeKey, callback) {
   const self = this
-  const newCertificatesRef = self._knowledgecertificatesRef.child('data').child(knowledgeKey).push()
+  const newCertificatesRef = self._knowledgecertificatesRef.child('data').child(knowledgeKey).child(this._userId)
   const newCertificate = {
     id: newCertificatesRef.key,
-    certificatePath: certificatePath,
     knowledgeid: knowledgeKey,
     avatar: this._userId,
     name: this._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
-  newCertificatesRef.set(newCertificate, function(error) {
+  newCertificatesRef.update(newCertificate, function(error) {
     if (!error) {
       self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
         if (current) {

@@ -34,6 +34,12 @@ service firebase.storage {
     match /knowledges/{uid}/{fileName} {
       allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
+    match /knowledgecertificates/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
+    }
+    match /knowledgecontents/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
+    }
     match /tools/{uid}/{fileName} {
       allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
