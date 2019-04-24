@@ -1,9 +1,7 @@
 <template>
   <f7-page id="knowledgesView" class="knowledges-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')">
     </f7-navbar>
     <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item"></knowledge>
