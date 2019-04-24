@@ -6,7 +6,7 @@
            @infinite="onInfiniteScroll">
     <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')">
     </f7-navbar>
-    <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item" @knowledge:content-click="routeToPost"></knowledge>
+    <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item"></knowledge>
   </f7-page>
 </template>
 
@@ -80,9 +80,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/knowledge/view/?mid=${data.id}`)
     }
   },
   components: {

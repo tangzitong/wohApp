@@ -18,7 +18,7 @@
       <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
       <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
       <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
-      <div v-if="data.HP" class="link" @click.stop="openPhotoBrowser(data.HP)">HP:{{data.HP}}</div>
+      <div v-if="data.HP" class="link">HP:{{data.HP}}</div>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
       <f7-button big raised color="green" fill @click="applicationKnowledge">{{$t('knowledge.application')}}
@@ -162,7 +162,7 @@ export default {
       })
     },
     contentClick(data) {
-      this.$emit('knowledge:content-click', data)
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.data.id}`)
     },
     openPhotoBrowser(url) {
       const pb = this.$f7.photoBrowser.create({

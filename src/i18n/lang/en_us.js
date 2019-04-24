@@ -237,6 +237,7 @@ export default {
     noNewestKnowledge: 'No Knowledge Added.',
     placeholder: 'Please input Knowledge keyword',
     complete: 'Knowledge Add or Update complete',
+    empty: 'Empty Knowledge Type',
     content: {
       ord: 'Order',
       ord_: 'Please input content Order',

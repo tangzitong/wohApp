@@ -237,6 +237,7 @@ export default {
     noNewestKnowledge: '知識は追加されていません.',
     placeholder: '知識キーワードを入力してください。',
     complete: '知識追加または更新完了しました。',
+    empty: '知識タイプなし',
     content: {
       ord: '順番',
       ord_: 'コンテンツ順番を入力してください',

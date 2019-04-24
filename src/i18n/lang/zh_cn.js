@@ -237,6 +237,7 @@ export default {
     noNewestKnowledge: '没有知识追加.',
     placeholder: '请输入知识关键词。',
     complete: '知识追加或更新完了',
+    empty: '知识类型为空',
     content: {
       ord: '顺序',
       ord_: '请输入内容的顺序',
