@@ -2597,6 +2597,14 @@ Firechat.prototype.getKnowledgeListByOwner = function(owner, cb) {
   })
 }
 
+Firechat.prototype.getKnowledgeListByLearner = function(owner, cb) {
+  const self = this
+
+  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeKnowledge = function(knowledgeKey, callback) {
   const self = this
   self._knowledgesRef.child('data').child(knowledgeKey).remove(function(error) {
