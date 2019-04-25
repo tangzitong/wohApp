@@ -2,7 +2,8 @@
   <f7-page class="knowledgetype-page">
     <f7-navbar :title="$t('app.knowledgetype')" :back-link="$t('app.back')">
       <f7-nav-right>
-        <f7-link :text="$t('app.display')" @click="saveKnowledgetype"></f7-link>
+        <f7-link :text="$t('app.display')" @click="viewKnowledgetype"></f7-link>
+        <f7-link v-if="isOwner === 'true'" :text="$t('app.add')" @click="addKnowledgetype"></f7-link>
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.knowledgetype')}}</f7-block-title>
@@ -98,10 +99,15 @@ export default {
     this.isOwner = query.isowner
   },
   methods: {
-    saveKnowledgetype() {
+    viewKnowledgetype() {
       const knowledgetype = this.$$('input[name="knowledgetype-radio"]:checked').val()
       setKnowledgetypeConfig(knowledgetype)
       this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}&isowner=${this.isOwner}`)
+    },
+    addKnowledgetype() {
+      const knowledgetype = this.$$('input[name="knowledgetype-radio"]:checked').val()
+      setKnowledgetypeConfig(knowledgetype)
+      this.$f7router.navigate(`/knowledge/add/?knowledgetype=${knowledgetype}`)
     }
   }
 }

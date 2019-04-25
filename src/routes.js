@@ -1,4 +1,5 @@
 import mainPage from './pages/main'
+import mainLearningPage from './pages/main.learning'
 import aboutPage from './pages/about'
 import loginPage from './pages/about/login'
 import modifyPage from './pages/about/modify'
@@ -70,8 +71,12 @@ import messagePage from './pages/message'
 import postPage from './pages/post'
 export default [
   {
-    path: '/',
+    path: '/learning/',
     component: mainPage,
+  },
+  {
+    path: '/',
+    component: mainLearningPage,
   },
   {
     path: '/profile/',

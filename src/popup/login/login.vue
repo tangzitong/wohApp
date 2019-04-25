@@ -31,6 +31,7 @@
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <f7-button big raised color="green" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
     </f7-block>
+    <!--
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <f7-button big raised color="green" fill @click="handleSignInFB">{{$t('login.signInFB')}}</f7-button>
     </f7-block>
@@ -42,7 +43,7 @@
     </f7-block>
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <f7-button big raised color="green" fill @click="handleSignInGH">{{$t('login.signInGH')}}</f7-button>
-    </f7-block>
+    </f7-block-->
 
     <!-- Email registration buttons -->
     <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
