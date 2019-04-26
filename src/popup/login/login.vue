@@ -25,6 +25,10 @@
         <f7-label>{{$t('login.password')}}</f7-label>
         <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
+      <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
+        <label for="title">{{$t('modify.usertitle')}}</label>
+        <input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" :value="title" />
+      </f7-list-item>
     </f7-list>
 
     <!-- Email sign in buttons -->
@@ -83,6 +87,7 @@ export default {
       email: '',
       password: '',
       passwordConfirmation: '',
+      title: '',
       mode: '',
       performingRequest: false
     }
@@ -118,6 +123,7 @@ export default {
         this.email = ''
         this.password = ''
         this.passwordConfirmation = ''
+        this.title = ''
         this.mode = window.user ? 'signOut' : 'signIn'
         // Reset required URLs
         this.$root.loginRequiringPages = []
@@ -290,7 +296,7 @@ export default {
       })
     },
     handleSignOut: function () {
-      this.$f7.popup('#app-framework-login-popup')
+      // this.$f7.popup('#app-framework-login-popup')
       window.firebase.auth().signOut()
         .then(() => {
           // Reset form
@@ -345,6 +351,9 @@ export default {
         // Show loading indicator
         // window.f7.showIndicator()
         this.performingRequest = true
+        window.email = this.email
+        window.title = this.title
+        window.isRegisting = true
         // Create new user
         window.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
           // On success, sign in user
@@ -352,10 +361,11 @@ export default {
             // Hide loading indicator
             window.store.dispatch('addProfile', {
               id: user.uid,
-              name: this.email,
-              title: '',
+              name: window.email,
+              title: window.title,
               photo: ''
             })
+            window.isRegisting = false
             // window.f7.hideIndicator()
             this.performingRequest = false
             // Show notification
@@ -370,11 +380,12 @@ export default {
           })
           // On error, show alert
           .catch(err => {
+            console.log(err)
             // Hide loading indicator
             // window.f7.hideIndicator()
             this.performingRequest = false
-            // Show error alert
-            window.$$.alert(this.$t('login.firebaseErrors')[err.code], this.$t('login.error'))
+            // Handle sign in
+            this.handleSignInDone()
           })
       }
     },

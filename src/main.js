@@ -101,13 +101,41 @@ window.vm = new Vue({
     if (!window.localStorage.user) this.cleanLocalStorageAfterLogut()
     // Monitor user changes
     fb.auth.onAuthStateChanged(user => {
-      if (user) {
+      if (user && !window.isRegisting) {
         fb.database.ref().child('users').child(user.uid).once('value', function(snapshot) {
           setUserProfile(store, snapshot.val())
           window.user = user
           fb.chat.setUser(user.uid, snapshot.child('name').val(), function() {
             fb.chat.resumeSession()
           })
+        }).catch(err => {
+          console.log(err)
+        })
+      } else if (user && window.isRegisting) {
+        fb.database.ref().child('users').child(user.uid).set({
+          id: user.uid,
+          login_name: window.email,
+          name: window.title,
+          points: 0,
+          avatar_url: '',
+          gender: '',
+          location: '',
+          invites: [],
+          muted: [],
+          rooms: [],
+          contacts: [],
+          posts: [],
+          photo: ''
+        })
+        window.isRegisting = false
+        fb.database.ref().child('users').child(user.uid).once('value', function(snapshot) {
+          setUserProfile(store, snapshot.val())
+          window.user = user
+          fb.chat.setUser(user.uid, snapshot.child('name').val(), function() {
+            fb.chat.resumeSession()
+          })
+        }).catch(err => {
+          console.log(err)
         })
       } else {
         window.user = null
