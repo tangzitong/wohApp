@@ -272,6 +272,7 @@ export default {
     handleSignInDone: function () {
       // Hide loading indicator
       // window.f7.hideIndicator()
+      this.getLearnerKnowledges()
       this.performingRequest = false
       // Reset form
       // this.email = ''
@@ -294,6 +295,13 @@ export default {
         key: 'loginOpened',
         value: false
       })
+    },
+    getLearnerKnowledges() {
+      this.$f7.preloader.show()
+      this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
+        window.store.dispatch('initLearnerKnowledges', learnerknowledges)
+      })
+      this.$f7.preloader.hide()
     },
     handleSignOut: function () {
       // this.$f7.popup('#app-framework-login-popup')

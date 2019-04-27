@@ -385,6 +385,18 @@ export function initKnowledges({ commit }, knowledges) {
   })
 }
 
+export function initOwnerKnowledges({ commit }, ownerknowledges) {
+  commit(types.INIT_OWNERKNOWLEDGES, {
+    ownerknowledges
+  })
+}
+
+export function initLearnerKnowledges({ commit }, learnerknowledges) {
+  commit(types.INIT_LEARNERKNOWLEDGES, {
+    learnerknowledges
+  })
+}
+
 export function initKnowledgecontents({ commit }, knowledgecontents) {
   commit(types.INIT_KNOWLEDGECONTENTS, {
     knowledgecontents

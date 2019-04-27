@@ -2608,8 +2608,8 @@ Firechat.prototype.getKnowledgeListByLearner = function(cb) {
     const val = []
     for (const knowledge in knowledges) {
       for (const status in learningStatus) {
-        if (status.key === knowledge.id) {
-          val.push(knowledge)
+        if (status === knowledge) {
+          val.push(knowledges[knowledge])
         }
       }
     }

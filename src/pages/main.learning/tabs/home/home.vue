@@ -45,7 +45,7 @@ export default {
   computed: {
     ...mapState({
       userInfo: state => state.userInfo,
-      knowledges: state => state.knowledges,
+      knowledges: state => state.learnerknowledges,
       isUserLogin: state => state.isUserLogin
     })
   },
@@ -57,21 +57,14 @@ export default {
       this.getKnowledges()
     }
   },
-  watch: {
-    isUserLogin: function (isUserLogin_) {
-      if (isUserLogin_) {
-        this.getKnowledges()
-      }
-    }
-  },
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
     getKnowledges() {
       this.$f7.preloader.show()
-      this.$root.chat.getKnowledgeListByLearner(function(knowledges) {
-        window.store.dispatch('initKnowledges', knowledges)
+      this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
+        window.store.dispatch('initLearnerKnowledges', learnerknowledges)
       })
       this.$f7.preloader.hide()
     },

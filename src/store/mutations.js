@@ -238,6 +238,12 @@ export default {
   [types.INIT_KNOWLEDGES](state, { knowledges }) {
     Vue.set(state, 'knowledges', knowledges)
   },
+  [types.INIT_OWNERKNOWLEDGES](state, { ownerknowledges }) {
+    Vue.set(state, 'ownerknowledges', ownerknowledges)
+  },
+  [types.INIT_LEARNERKNOWLEDGES](state, { learnerknowledges }) {
+    Vue.set(state, 'learnerknowledges', learnerknowledges)
+  },
   [types.INIT_KNOWLEDGECONTENTS](state, { knowledgecontents }) {
     Vue.set(state, 'knowledgecontents', knowledgecontents)
   },

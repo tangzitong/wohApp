@@ -98,6 +98,28 @@ export default {
     ]),
     tabActived(tab) {
       this.activedTab = tab
+      switch (this.activedTab) {
+        case 'home':
+          this.getLearnerKnowledges()
+          break
+        case 'data':
+          this.getOwnerKnowledges()
+          break
+      }
+    },
+    getLearnerKnowledges() {
+      this.$f7.preloader.show()
+      this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
+        window.store.dispatch('initLearnerKnowledges', learnerknowledges)
+      })
+      this.$f7.preloader.hide()
+    },
+    getOwnerKnowledges() {
+      this.$f7.preloader.show()
+      this.$root.chat.getKnowledgeListByOwner(function(ownerknowledges) {
+        window.store.dispatch('initOwnerKnowledges', ownerknowledges)
+      })
+      this.$f7.preloader.hide()
     },
     showLoadResult() {
       setTimeout(_ => {
