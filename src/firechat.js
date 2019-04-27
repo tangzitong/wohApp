@@ -2589,19 +2589,31 @@ Firechat.prototype.getKnowledgeListByType = function(knowledgeType, cb) {
   })
 }
 
-Firechat.prototype.getKnowledgeListByOwner = function(owner, cb) {
+Firechat.prototype.getKnowledgeListByOwner = function(cb) {
   const self = this
 
-  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
+  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
-Firechat.prototype.getKnowledgeListByLearner = function(owner, cb) {
+Firechat.prototype.getKnowledgeListByLearner = function(cb) {
   const self = this
-
-  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(owner).once('value', function(snapshot) {
-    cb(snapshot.val())
+  let learningStatus = {}
+  self._userRef.child('learnings').once('value', function(snapshot) {
+    learningStatus = snapshot.val()
+  })
+  self._knowledgesRef.child('data').once('value', function(snapshot) {
+    const knowledges = snapshot.val()
+    const val = []
+    for (const knowledge in knowledges) {
+      for (const status in learningStatus) {
+        if (status.key === knowledge.id) {
+          val.push(knowledge)
+        }
+      }
+    }
+    cb(val)
   })
 }
 

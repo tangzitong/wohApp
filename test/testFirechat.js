@@ -4776,7 +4776,6 @@ exports['addKnowledgeCertificate'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
 exports['createCertificate'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4794,6 +4793,44 @@ exports['createCertificate'] = function(test) {
                 })
               }
             }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+*/
+exports['getKnowledgeListByOwner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeListByOwner(function(knowledges) {
+            console.log(knowledges)
+            test.done()
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
+}
+
+exports['getKnowledgeListByLearner'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeListByLearner(function(knowledges) {
+            console.log(knowledges)
+            test.done()
           })
         })
       })

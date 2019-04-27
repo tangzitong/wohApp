@@ -70,7 +70,7 @@ export default {
     ]),
     getKnowledges() {
       this.$f7.preloader.show()
-      this.$root.chat.getKnowledgeListByLearner(window.user.uid, function(knowledges) {
+      this.$root.chat.getKnowledgeListByLearner(function(knowledges) {
         window.store.dispatch('initKnowledges', knowledges)
       })
       this.$f7.preloader.hide()

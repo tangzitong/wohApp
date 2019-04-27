@@ -2,15 +2,15 @@
   <f7-page id="newsView" class="news-view"
            ptr
            infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
-    <card v-for="item in timeline" :key="item.id" :data="item" @card:content-click="routeToPost"></card>
+           >
+    <card v-for="item in orderBytimeline" :key="item.id" :data="item" @card:content-click="routeToPost"></card>
   </f7-page>
 </template>
 
 <script>
 import Card from '@/components/card'
 import { mapState } from 'vuex'
+import orderBy from 'lodash/orderBy'
 
 export default {
   data() {
@@ -23,7 +23,10 @@ export default {
   computed: {
     ...mapState({
       timeline: state => state.timeline,
-    })
+    }),
+    orderBytimeline() {
+      return orderBy(this.timeline, 'created_at', 'desc')
+    }
   },
   mounted() {
     this.getTimeline()

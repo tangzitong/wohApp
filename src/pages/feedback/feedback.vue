@@ -20,6 +20,7 @@
 
 <script>
 import groupBy from 'lodash/groupBy'
+import orderBy from 'lodash/orderBy'
 import Editor from '@/components/editor'
 import { mapState } from 'vuex'
 
@@ -38,7 +39,7 @@ export default {
       feedbacks: state => state.feedbacks,
     }),
     feedbackGroups() {
-      return groupBy(this.feedbacks, 'CreateDate')
+      return groupBy(orderBy(this.feedbacks, 'CreateDate', 'desc'), 'CreateDate')
     }
   },
   methods: {

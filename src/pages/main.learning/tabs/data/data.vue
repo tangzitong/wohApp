@@ -64,7 +64,7 @@ export default {
     ]),
     getKnowledges() {
       this.$f7.preloader.show()
-      this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+      this.$root.chat.getKnowledgeListByOwner(function(knowledges) {
         window.store.dispatch('initKnowledges', knowledges)
       })
       this.$f7.preloader.hide()
