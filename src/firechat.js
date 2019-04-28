@@ -2419,7 +2419,13 @@ Firechat.prototype.updateKnowledgeApplication = function(knowledgeKey, applicati
 
   newApplicationsRef.update(newApplication, function(error) {
     if (!error) {
-      callback(newApplicationsRef.key)
+      if (approvalStatus) { // create room for knowledge owner and learner
+        newApplicationsRef.once('value', function(snapshot) {
+          self.createRoom(snapshot.child('name').val(), 'private', snapshot.child('avatar').val(), 'A', 'Tokyo', roomkey => {
+            callback(newApplicationsRef.key)
+          })
+        })
+      }
     }
   })
 }
@@ -2510,6 +2516,18 @@ Firechat.prototype.addKnowledgeContentComment = function(knowledgeKey, contentKe
   }
   newCommentsRef.set(newComment, function(error) {
     if (!error) {
+      self._knowledgesRef.child('data').child(knowledgeKey).once('value', function(snapshot) {
+        const ownerid = snapshot.child('avatar').val()
+        self._roomRef.once('value', function(snapshot2) {
+          const roomlist = snapshot2.val()
+          for (const room in roomlist) {
+            if (roomlist[room].createdByUserId === ownerid && roomlist[room].avatar === self._userId) {
+              self.sendMessage(room, comment, 'messageType')
+              break
+            }
+          }
+        })
+      })
       self._knowledgecontentsRef.child('data').child(knowledgeKey).child('contents').child(contentKey).transaction(function(current) {
         if (current) {
           current.comment_count++
