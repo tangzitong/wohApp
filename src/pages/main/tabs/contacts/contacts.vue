@@ -13,7 +13,7 @@
         <f7-list-item v-for="contact in group"
           :link="getLink(contact)"
           :key="contact.id"
-          :title="contact.name"
+          :title="getName(contact)"
           :after="contact.location"
           :media="getAvatarMedia(contact.avatar)"
         ></f7-list-item>
@@ -98,6 +98,13 @@ export default {
         return `/message/?name=${contact.name}&id=${contact.id}`
       } else if (this.isUserLogin && this.userProfile.id === contact.avatar) {
         return `/message/?name=${contact.createdByUserName}&id=${contact.id}`
+      }
+    },
+    getName(contact) {
+      if (this.isUserLogin && this.userProfile.id === contact.createdByUserId) {
+        return `${contact.name}`
+      } else if (this.isUserLogin && this.userProfile.id === contact.avatar) {
+        return `${contact.createdByUserName}`
       }
     }
   }

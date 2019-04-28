@@ -102,10 +102,20 @@ export default {
         case 'home':
           this.getLearnerKnowledges()
           break
+        case 'contacts':
+          this.getRoomList()
+          break
         case 'data':
           this.getOwnerKnowledges()
           break
       }
+    },
+    getRoomList() {
+      this.$f7.preloader.show()
+      this.$root.chat.getRoomList(function(contacts) {
+        window.store.dispatch('initContacts', contacts)
+      })
+      this.$f7.preloader.hide()
     },
     getLearnerKnowledges() {
       this.$f7.preloader.show()
