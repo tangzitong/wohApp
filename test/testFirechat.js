@@ -746,24 +746,20 @@ exports['declineInvite'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
 }
-
-exports['getRoomList'] = function(test) {
+*/
+exports['getRoomList1'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
       const ref = database.ref('users/' + user.uid)
       console.log(ref.toJSON())
       ref.once('value', function(snapshot) {
-        // console.log(snapshot.val())
+        console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          database.ref().child('room-metadata').once('value', function(rooms) {
-            console.log(rooms.val())
-            for (const roomid in rooms.val()) {
-              chat.getRoomList(function(rooms_) {
-                for (const roomid_ in rooms_) {
-                  test.equal(roomid, roomid_)
-                  test.done()
-                }
-              })
+          chat.getRoomList(function(rooms_) {
+            console.log(rooms_)
+            for (const roomid_ in rooms_) {
+              test.equal(rooms_[roomid_].name, 'test2')
+              test.done()
               break
             }
           })
@@ -774,6 +770,30 @@ exports['getRoomList'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 
+exports['getRoomList2'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getRoomList(function(rooms_) {
+            console.log(rooms_)
+            for (const roomid_ in rooms_) {
+              test.equal(rooms_[roomid_].createdByUserName, 'test1')
+              test.done()
+              break
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
+}
+
+/*
 exports['getUsersByPrefix'] = function(test) {
   test.done()
 }
@@ -4800,7 +4820,7 @@ exports['createCertificate'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
+
 exports['getKnowledgeListByOwner'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4838,3 +4858,4 @@ exports['getKnowledgeListByLearner'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/

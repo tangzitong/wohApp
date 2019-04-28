@@ -11,9 +11,9 @@
       <f7-list-group v-for="(group, key) in contactGroups" :key="key">
         <f7-list-item :title="key" group-title></f7-list-item>
         <f7-list-item v-for="contact in group"
-          :link="getLink(contact.name, contact.id)"
+          :link="getLink(contact)"
           :key="contact.id"
-          :title="contact.name"
+          :title="getName(contact)"
           :after="contact.location"
           :media="getAvatarMedia(contact.avatar)"
         ></f7-list-item>
@@ -71,6 +71,8 @@ import { getRemoteAvatar } from '@/utils/appFunc'
 export default {
   computed: {
     ...mapState({
+      userProfile: state => state.userProfile,
+      isUserLogin: state => state.isUserLogin,
       contacts: state => state.contacts
     }),
     contactGroups() {
@@ -91,8 +93,19 @@ export default {
     getAvatarMedia(id) {
       return getRemoteAvatar(id)
     },
-    getLink(name, id) {
-      return `/message/?name=${name}&id=${id}`
+    getLink(contact) {
+      if (this.isUserLogin && this.userProfile.id === contact.createdByUserId) {
+        return `/message/?name=${contact.name}&id=${contact.id}`
+      } else if (this.isUserLogin && this.userProfile.id === contact.avatar) {
+        return `/message/?name=${contact.createdByUserName}&id=${contact.id}`
+      }
+    },
+    getName(contact) {
+      if (this.isUserLogin && this.userProfile.id === contact.createdByUserId) {
+        return `${contact.name}`
+      } else if (this.isUserLogin && this.userProfile.id === contact.avatar) {
+        return `${contact.createdByUserName}`
+      }
     }
   }
 }

@@ -320,6 +320,7 @@ Firechat.prototype.createRoom = function(roomName, roomType, avatar, header, loc
     header: header,
     location: location,
     createdByUserId: this._userId,
+    createdByUserName: this._userName,
     createdAt: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -569,9 +570,15 @@ Firechat.prototype.declineInvite = function(inviteId, cb) {
 
 Firechat.prototype.getRoomList = function(cb) {
   const self = this
-
   self._roomRef.once('value', function(snapshot) {
-    cb(snapshot.val())
+    const roomlist = snapshot.val()
+    const val = []
+    for (const room in roomlist) {
+      if (roomlist[room].createdByUserId === self._userId || roomlist[room].avatar === self._userId) {
+        val.push(roomlist[room])
+      }
+    }
+    cb(val)
   })
 }
 
