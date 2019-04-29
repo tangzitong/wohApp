@@ -4356,7 +4356,7 @@ exports['getKnowledgeListByOwner'] = function(test) {
       ref.once('value', function(snapshot) {
         console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          chat.getKnowledgeListByOwner('CIxg5db1wHWTu1eeymVp4EkLzfg1', function(knowledges) {
+          chat.getKnowledgeListByOwner(function(knowledges) {
             console.log(knowledges)
             for (const knowledge in knowledges) {
               if (knowledges[knowledge].avatar === user.uid) {

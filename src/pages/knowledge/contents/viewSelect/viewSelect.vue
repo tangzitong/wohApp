@@ -6,7 +6,7 @@
     </f7-block>
     <f7-list>
       <f7-list-item>
-        {{htmlcontent}}
+        <p v-html="htmlcontent"></p>
       </f7-list-item>
     </f7-list>
     <f7-list>

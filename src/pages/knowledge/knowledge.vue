@@ -4,7 +4,7 @@
            infinite>
     <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')">
     </f7-navbar>
-    <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item"></knowledge>
+    <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item" @knowledge:content-click="routeToContent"></knowledge>
   </f7-page>
 </template>
 
@@ -37,7 +37,7 @@ export default {
     getKnowledges(isOwner, knowledgeType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+        this.$root.chat.getKnowledgeListByOwner(function(knowledges) {
           window.store.dispatch('initKnowledges', knowledges)
         })
       } else if (knowledgeType) {
@@ -52,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+        this.$root.chat.getKnowledgeListByOwner(function(knowledges) {
           window.store.dispatch('refreshKnowledges', knowledges)
         })
       } else if (this.knowledgeType) {
@@ -68,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getKnowledgeListByOwner(window.user.uid, function(knowledges) {
+        this.$root.chat.getKnowledgeListByOwner(function(knowledges) {
           window.store.dispatch('infiniteKnowledges', knowledges)
         })
       } else if (this.knowledgeType) {
@@ -78,6 +78,9 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
+    },
+    routeToContent(data) {
+      this.$f7router.navigate(`/knowledge/contents/?mid=${data.id}&isowner=${this.isOwner}`)
     }
   },
   components: {

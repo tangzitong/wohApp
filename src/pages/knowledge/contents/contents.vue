@@ -2,7 +2,7 @@
   <f7-page class="knowledgecontent-page">
     <f7-navbar :title="$t('app.knowledgecontents')" :back-link="$t('app.back')">
       <f7-nav-right>
-        <f7-link :text="$t('app.study')" @click="startLearning"></f7-link>
+        <f7-link v-if="isApproved" :text="$t('app.study')" @click="startLearning"></f7-link>
         <f7-link v-if="isOwner" :text="$t('app.update')" @click="editLearningContent"></f7-link>
         <f7-link v-if="isOwner" :text="$t('app.delete')" @click="deleteLearningContent"></f7-link>
       </f7-nav-right>
@@ -44,6 +44,7 @@ export default {
       selectedOrd: 0,
       selectedContentType: 'Html',
       isOwner: false,
+      isApproved: false,
       name: null
     }
   },
@@ -51,17 +52,22 @@ export default {
     ...mapState({
       knowledges: state => state.knowledges,
       knowledgecontents: state => state.knowledgecontents,
+      knowledgeapplications: state => state.knowledgeapplications,
       learningstatus: state => state.learningstatus
     })
   },
   mounted: function () {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
+    this.isOwner = (query.isowner === 'true')
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
           window.store.dispatch('initKnowledgecontents', data)
         }
+      })
+      this.$root.chat.getMyKnowledgeApplication(this.knowledgekey, function(applications) {
+        window.store.dispatch('initKnowledgeApplications', applications)
       })
       this.$root.chat.getLearningStatus(data => {
         if (data) {
@@ -70,8 +76,8 @@ export default {
       })
     }
     this.getSelectedOrd()
-    this.setIsOwner()
     this.setName()
+    this.setIsApproved()
   },
   methods: {
     getSelectedOrd() {
@@ -82,10 +88,10 @@ export default {
         }
       }
     },
-    setIsOwner() {
-      for (const knowledge in this.knowledges) {
-        if (this.knowledges[knowledge].avatar === window.user.uid) {
-          this.isOwner = true
+    setIsApproved() {
+      for (const knowledgeapplication in this.knowledgeapplications) {
+        if (this.knowledgeapplications[knowledgeapplication].approvalStatus === 'true') {
+          this.isApproved = true
           break
         }
       }

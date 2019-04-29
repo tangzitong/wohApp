@@ -2670,6 +2670,14 @@ Firechat.prototype.getKnowledgeApplications = function(knowledgekey, cb) {
   })
 }
 
+Firechat.prototype.getMyKnowledgeApplication = function(knowledgekey, cb) {
+  const self = this
+
+  self._knowledgeapplicationsRef.child('data').child(knowledgekey).child('applications').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.getKnowledgeContents = function(knowledgekey, cb) {
   const self = this
 

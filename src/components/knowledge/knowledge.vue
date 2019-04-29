@@ -151,7 +151,7 @@ export default {
       this.$f7router.navigate(`/knowledge/certificates/?mid=${this.data.id}`)
     },
     knowledgecontents() {
-      this.$f7router.navigate(`/knowledge/contents/?mid=${this.data.id}`)
+      this.$emit('knowledge:content-click', this.data)
     },
     updateKnowledge() {
       this.$f7router.navigate(`/knowledge/add/?mid=${this.data.id}`)
@@ -162,7 +162,7 @@ export default {
       })
     },
     contentClick(data) {
-      this.$f7router.navigate(`/knowledge/contents/?mid=${this.data.id}`)
+      this.$emit('knowledge:content-click', data)
     },
     openPhotoBrowser(url) {
       const pb = this.$f7.photoBrowser.create({

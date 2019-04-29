@@ -64,7 +64,7 @@ import ContactsView from './tabs/contacts'
 import NewsView from './tabs/news'
 import DataView from './tabs/data'
 import SettingsView from './tabs/settings'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { isAndroid } from '@/utils/appFunc'
 
 export default {
@@ -74,6 +74,9 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      isUserLogin: state => state.isUserLogin
+    }),
     navbarTitle() {
       switch (this.activedTab) {
         case 'home':
@@ -111,6 +114,7 @@ export default {
       }
     },
     getRoomList() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getRoomList(function(contacts) {
         window.store.dispatch('initContacts', contacts)
@@ -118,6 +122,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getLearnerKnowledges() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
         window.store.dispatch('initLearnerKnowledges', learnerknowledges)
@@ -125,6 +130,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerKnowledges() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getKnowledgeListByOwner(function(ownerknowledges) {
         window.store.dispatch('initOwnerKnowledges', ownerknowledges)

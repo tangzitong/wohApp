@@ -75,7 +75,7 @@ export default {
       })
     },
     getLink(id) {
-      return `/knowledge/contents/?mid=${id}`
+      return `/knowledge/contents/?mid=${id}&isowner=false`
     }
   }
 }
