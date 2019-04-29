@@ -1,12 +1,10 @@
 <template>
   <f7-page id="companysView" class="companys-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.companys')" :back-link="$t('app.back')">
     </f7-navbar>
-    <company v-for="item in companys" :isOwner="isOwner" :key="item.id" :data="item" @company:content-click="routeToPost"></company>
+    <company v-for="item in companys" :isOwner="isOwner" :key="item.id" :data="item"></company>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getCompanys(isOwner, companyType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getCompanyListByOwner(window.user.uid, function(companys) {
+        this.$root.chat.getCompanyListByOwner(function(companys) {
           window.store.dispatch('initCompanys', companys)
         })
       } else if (companyType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getCompanyListByOwner(window.user.uid, function(companys) {
+        this.$root.chat.getCompanyListByOwner(function(companys) {
           window.store.dispatch('refreshCompanys', companys)
         })
       } else if (this.companyType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getCompanyListByOwner(window.user.uid, function(companys) {
+        this.$root.chat.getCompanyListByOwner(function(companys) {
           window.store.dispatch('infiniteCompanys', companys)
         })
       } else if (this.companyType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/companys/view/?mid=${data.id}`)
     }
   },
   components: {

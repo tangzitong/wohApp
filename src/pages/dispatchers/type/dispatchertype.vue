@@ -2,7 +2,8 @@
   <f7-page class="dispatchertype-page">
     <f7-navbar :title="$t('app.dispatchertype')" :back-link="$t('app.back')">
       <f7-nav-right>
-        <f7-link :text="$t('app.display')" @click="saveDispatchertype"></f7-link>
+        <f7-link :text="$t('app.display')" @click="viewDispatchertype"></f7-link>
+        <f7-link v-if="isOwner === 'true'" :text="$t('app.add')" @click="addDispatchertype"></f7-link>
       </f7-nav-right>
     </f7-navbar>
     <f7-block-title>{{$t('app.dispatchertype')}}</f7-block-title>
@@ -12,7 +13,7 @@
       :placeholder="$t('dispatcher.placeholder')"
       :clear-button="true"
     ></f7-searchbar>
-    <f7-list>
+    <f7-list dispatcher-list id="search-list" class="searchbar-found">
       <f7-list-group v-for="(group, key) in dispatchertypeGroups" :key="key">
         <f7-list-item :title="key" group-title></f7-list-item>
         <f7-list-item radio name="dispatchertype-radio" v-for="dispatchertype_ in group"
@@ -22,8 +23,49 @@
           :checked="dispatchertype === dispatchertype_.id"></f7-list-item>
       </f7-list-group>
     </f7-list>
+    <f7-list class="searchbar-not-found">
+      <div class="empty-content">
+        <i class="iconfont icon-wujieguoyangshi"></i>
+        <div class="text">{{$t('dispatcher.empty')}}</div>
+      </div>
+    </f7-list>
   </f7-page>
 </template>
+
+<style lang="less">
+.dispatchertype-page {
+  .searchbar{
+    top: 44px;
+  }
+  .dispatcher-list {
+    margin: 20px 0;
+    padding-top: 44px;
+    .list-group-title {
+      line-height: 25px;
+      background: #f7f7f7;
+      color: #8e8e93;
+      font-weight: normal !important;
+      font-size: 14px;
+    }
+    .item-media {
+      > img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+.md {
+  .dispatchertype-page {
+    .searchbar {
+      display: none;
+    }
+    .dispatcher-list {
+      padding-top: 0;
+    }
+  }
+}
+</style>
 
 <script>
 import groupBy from 'lodash/groupBy'
@@ -45,22 +87,27 @@ export default {
   },
   computed: {
     ...mapState({
-      dispatchertypes: state => state.resumetypes,
+      dispatchertypes: state => state.dispatchertypes,
     }),
     dispatchertypeGroups() {
       return groupBy(this.dispatchertypes, 'nickname')
     }
   },
   mounted() {
-    this.$store.dispatch('getResumetypes', this.lang)
+    this.$store.dispatch('getDispatchertypes', this.lang)
     const query = this.$f7route.query
     this.isOwner = query.isowner
   },
   methods: {
-    saveDispatchertype() {
+    viewDispatchertype() {
       const dispatchertype = this.$$('input[name="dispatchertype-radio"]:checked').val()
       setDispatchertypeConfig(dispatchertype)
-      this.$f7router.navigate(`/dispatchers/?dispatchertype=${dispatchertype}&isowner=${this.isOwner}`)
+      this.$f7router.navigate(`/dispatcher/?dispatchertype=${dispatchertype}&isowner=${this.isOwner}`)
+    },
+    addDispatchertype() {
+      const dispatchertype = this.$$('input[name="dispatchertype-radio"]:checked').val()
+      setDispatchertypeConfig(dispatchertype)
+      this.$f7router.navigate(`/dispatcher/add/?dispatchertype=${dispatchertype}`)
     }
   }
 }

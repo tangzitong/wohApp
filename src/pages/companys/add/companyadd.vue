@@ -13,6 +13,10 @@
         <input type="text" :placeholder="$t('company.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
+        <label>{{$t('company.introduce')}}</label><br/>
+        <input type="textarea" :placeholder="$t('company.introduce_')" @input="introduce = $event.target.value" :value="introduce" />
+      </f7-list-item>
+      <f7-list-item>
         <label>{{$t('company.address')}}</label><br/>
         <input type="text" :placeholder="$t('company.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
@@ -37,10 +41,10 @@
       <f7-button big raised color="green" fill @click="updateCompany">{{$t('company.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin">
+    <f7-block v-if="isUserLogin && id">
       <imageuploader
-        :store="'companys/' + imageid"
-        :db="'companys/' + imageid + '/photo'" />
+        :store="'companys/' + userid + '/' + id"
+        :db="'companys/data/' + id + '/photo'" />
     </f7-block>
 
     <!-- Image -->
@@ -53,13 +57,13 @@
 <script>
 import imageuploader from '../../../popup/imageuploader'
 import { getIndustryConfig, getAreaConfig } from '@/code'
-import { mapState } from 'vuex'
 
 export default {
   data() {
     return {
       id: null,
       name: '',
+      introduce: '',
       address: '',
       Tel: '',
       Fax: '',
@@ -70,14 +74,9 @@ export default {
       companytype: '',
       industry: '1',
       area: '1',
-      imageid: null
+      isUserLogin: !!window.user,
+      userid: null
     }
-  },
-  computed: {
-    ...mapState({
-      isUserLogin: state => state.isUserLogin,
-      userProfile: state => state.userProfile
-    })
   },
   created() {
     this.area = getAreaConfig()
@@ -89,16 +88,13 @@ export default {
     this.id = query.mid
     this.companytype = query.companytype
     if (this.isUserLogin) {
-      if (this.id) {
-        this.imageid = this.id
-      } else {
-        this.imageid = this.userProfile.id
-      }
+      this.userid = window.user.uid
     }
     if (this.id) {
       this.$root.chat.getCompanyByKey(this.id, data => {
         if (data) {
           this.name = data.name
+          this.introduce = data.introduce
           this.address = data.address
           this.Tel = data.Tel
           this.Fax = data.Fax
@@ -115,6 +111,7 @@ export default {
       if (this.id) {
         this.$root.chat.updateCompany(this.id, {
           name: this.name,
+          introduce: this.introduce,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
@@ -130,6 +127,7 @@ export default {
       } else {
         this.$root.chat.createCompany({
           name: this.name,
+          introduce: this.introduce,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
@@ -145,6 +143,7 @@ export default {
       }
 
       this.name = ''
+      this.introduce = ''
       this.address = ''
       this.Tel = ''
       this.Fax = ''

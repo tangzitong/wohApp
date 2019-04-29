@@ -1,12 +1,10 @@
 <template>
   <f7-page id="eventsView" class="events-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.events')" :back-link="$t('app.back')">
     </f7-navbar>
-    <event v-for="item in events" :isOwner="isOwner" :key="item.id" :data="item" @event:content-click="routeToPost"></event>
+    <event v-for="item in events" :isOwner="isOwner" :key="item.id" :data="item"></event>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getEvents(isOwner, eventType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getEventListByOwner(window.user.uid, function(events) {
+        this.$root.chat.getEventListByOwner(function(events) {
           window.store.dispatch('initEvents', events)
         })
       } else if (eventType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getEventListByOwner(window.user.uid, function(events) {
+        this.$root.chat.getEventListByOwner(function(events) {
           window.store.dispatch('refreshEvents', events)
         })
       } else if (this.eventType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getEventListByOwner(window.user.uid, function(events) {
+        this.$root.chat.getEventListByOwner(function(events) {
           window.store.dispatch('infiniteEvents', events)
         })
       } else if (this.eventType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/events/view/?mid=${data.id}`)
     }
   },
   components: {

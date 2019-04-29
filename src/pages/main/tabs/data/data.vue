@@ -1,32 +1,32 @@
 <template>
   <div class="data-view">
     <f7-list>
-      <f7-list-item :title="$t('app.jobs')" link="/jobs/type/?isowner=true">
+      <f7-list-item :title="$t('app.jobs')" link="/job/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">bag</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.companys')" link="/companys/type/?isowner=true">
+      <f7-list-item :title="$t('app.companys')" link="/company/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">home</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.projects')" link="/projects/type/?isowner=true">
+      <f7-list-item :title="$t('app.projects')" link="/project/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">home_fill</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.talents')" link="/talents/type/?isowner=true">
+      <f7-list-item :title="$t('app.talents')" link="/talent/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">person</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.consultants')" link="/consultants/type/?isowner=true">
+      <f7-list-item :title="$t('app.consultants')" link="/consultant/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">person_fill</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.dispatchers')" link="/dispatchers/type/?isowner=true">
+      <f7-list-item :title="$t('app.dispatchers')" link="/dispatcher/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">persons_fill</i>
       </f7-list-item>
     </f7-list>
@@ -36,12 +36,12 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.tools')" link="/tools/type/?isowner=true">
+      <f7-list-item :title="$t('app.tools')" link="/tool/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">cloud_fill</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.events')" link="/events/type/?isowner=true">
+      <f7-list-item :title="$t('app.events')" link="/event/type/?isowner=true">
         <i class="f7-icons size-25" slot="media">calendar</i>
       </f7-list-item>
     </f7-list>

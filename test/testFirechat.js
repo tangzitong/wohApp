@@ -746,7 +746,7 @@ exports['declineInvite'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
 }
-*/
+
 exports['getRoomList1'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -793,7 +793,6 @@ exports['getRoomList2'] = function(test) {
   auth.signInWithEmailAndPassword('test2@gmail.com', '12345qwert')
 }
 
-/*
 exports['getUsersByPrefix'] = function(test) {
   test.done()
 }
@@ -4859,3 +4858,34 @@ exports['getKnowledgeListByLearner'] = function(test) {
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
 */
+exports['getMyKnowledgeApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeList(function(knowledges) {
+            // console.log(knowledges)
+            for (const knowledge in knowledges) {
+              if (knowledges[knowledge].avatar === user.uid) {
+                chat.getMyKnowledgeApplication(knowledges[knowledge].id, function(applications) {
+                  console.log(applications)
+                  for (const application in applications) {
+                    console.log(applications[application].id)
+                    console.log('text=' + applications[application].text)
+                    console.log('name=' + applications[application].name)
+                    test.equal(applications[application].name, snapshot.child('name').val())
+                    test.done()
+                  }
+                })
+              }
+            }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('zhengjun@jp.highwayns.com', 'zjhuen1915')
+}

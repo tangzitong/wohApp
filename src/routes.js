@@ -12,32 +12,38 @@ import jobsPage from './pages/jobs'
 import jobtypePage from './pages/jobs/type'
 import jobaddtypePage from './pages/jobs/addtype'
 import jobaddPage from './pages/jobs/add'
-import jobviewPage from './pages/jobs/view'
+import jobapplicationPage from './pages/jobs/applications'
+import joblikePage from './pages/jobs/likes'
 import companysPage from './pages/companys'
 import companytypePage from './pages/companys/type'
 import companyaddtypePage from './pages/companys/addtype'
 import companyaddPage from './pages/companys/add'
-import companyviewPage from './pages/companys/view'
+import companyapplicationPage from './pages/companys/applications'
+import companylikePage from './pages/companys/likes'
 import projectsPage from './pages/projects'
 import projecttypePage from './pages/projects/type'
 import projectaddtypePage from './pages/projects/addtype'
 import projectaddPage from './pages/projects/add'
-import projectviewPage from './pages/projects/view'
+import projectapplicationPage from './pages/projects/applications'
+import projectlikePage from './pages/projects/likes'
 import talentsPage from './pages/talents'
 import talenttypePage from './pages/talents/type'
 import talentaddtypePage from './pages/talents/addtype'
 import talentaddPage from './pages/talents/add'
-import talentviewPage from './pages/talents/view'
+import talentapplicationPage from './pages/talents/applications'
+import talentlikePage from './pages/talents/likes'
 import consultantsPage from './pages/consultants'
 import consultanttypePage from './pages/consultants/type'
 import consultantaddtypePage from './pages/consultants/addtype'
 import consultantaddPage from './pages/consultants/add'
-import consultantviewPage from './pages/consultants/view'
+import consultantapplicationPage from './pages/consultants/applications'
+import consultantlikePage from './pages/consultants/likes'
 import dispatchersPage from './pages/dispatchers'
 import dispatchertypePage from './pages/dispatchers/type'
 import dispatcheraddtypePage from './pages/dispatchers/addtype'
 import dispatcheraddPage from './pages/dispatchers/add'
-import dispatcherviewPage from './pages/dispatchers/view'
+import dispatcherapplicationPage from './pages/dispatchers/applications'
+import dispatcherlikePage from './pages/dispatchers/likes'
 import knowledgePage from './pages/knowledge'
 import knowledgetypePage from './pages/knowledge/type'
 import knowledgeaddtypePage from './pages/knowledge/addtype'
@@ -58,12 +64,14 @@ import toolsPage from './pages/tools'
 import tooltypePage from './pages/tools/type'
 import tooladdtypePage from './pages/tools/addtype'
 import tooladdPage from './pages/tools/add'
-import toolviewPage from './pages/tools/view'
+import toolapplicationPage from './pages/tools/applications'
+import toollikePage from './pages/tools/likes'
 import eventsPage from './pages/events'
 import eventtypePage from './pages/events/type'
 import eventaddtypePage from './pages/events/addtype'
 import eventaddPage from './pages/events/add'
-import eventviewPage from './pages/events/view'
+import eventapplicationPage from './pages/events/applications'
+import eventlikePage from './pages/events/likes'
 import reportsPage from './pages/reports'
 import reporttypePage from './pages/reports/type'
 import reportaddPage from './pages/reports/add'
@@ -71,11 +79,11 @@ import messagePage from './pages/message'
 import postPage from './pages/post'
 export default [
   {
-    path: '/learning/',
+    path: '/',
     component: mainPage,
   },
   {
-    path: '/',
+    path: '/learning/',
     component: mainLearningPage,
   },
   {
@@ -140,19 +148,19 @@ export default [
     }
   },
   {
-    path: '/jobs/',
+    path: '/job/',
     component: jobsPage
   },
   {
-    path: '/jobs/type/',
+    path: '/job/type/',
     component: jobtypePage
   },
   {
-    path: '/jobs/addtype/',
+    path: '/job/addtype/',
     component: jobaddtypePage
   },
   {
-    path: '/jobs/add/',
+    path: '/job/add/',
     component: jobaddPage,
     name: 'addJob',
     meta: {
@@ -160,27 +168,35 @@ export default [
     }
   },
   {
-    path: '/jobs/view/',
-    component: jobviewPage,
-    name: 'viewJob',
+    path: '/job/applications/',
+    component: jobapplicationPage,
+    name: 'applicationJob',
     meta: {
       requiresAuth: true
     }
   },
   {
-    path: '/companys/',
+    path: '/job/likes/',
+    component: joblikePage,
+    name: 'likeJob',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/company/',
     component: companysPage
   },
   {
-    path: '/companys/type/',
+    path: '/company/type/',
     component: companytypePage
   },
   {
-    path: '/companys/addtype/',
+    path: '/company/addtype/',
     component: companyaddtypePage
   },
   {
-    path: '/companys/add',
+    path: '/company/add',
     component: companyaddPage,
     name: 'addCompany',
     meta: {
@@ -188,27 +204,35 @@ export default [
     }
   },
   {
-    path: '/company/view/',
-    component: companyviewPage,
-    name: 'viewCompany',
+    path: '/company/applications/',
+    component: companyapplicationPage,
+    name: 'applicationCompany',
     meta: {
       requiresAuth: true
     }
   },
   {
-    path: '/projects/',
+    path: '/company/likes/',
+    component: companylikePage,
+    name: 'likeCompany',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/project/',
     component: projectsPage
   },
   {
-    path: '/projects/type/',
+    path: '/project/type/',
     component: projecttypePage
   },
   {
-    path: '/projects/addtype/',
+    path: '/project/addtype/',
     component: projectaddtypePage
   },
   {
-    path: '/projects/add/',
+    path: '/project/add/',
     component: projectaddPage,
     name: 'addProject',
     meta: {
@@ -216,27 +240,35 @@ export default [
     }
   },
   {
-    path: '/projects/view/',
-    component: projectviewPage,
-    name: 'viewProject',
+    path: '/project/applications/',
+    component: projectapplicationPage,
+    name: 'applicationProject',
     meta: {
       requiresAuth: true
     }
   },
   {
-    path: '/talents/',
+    path: '/project/likes/',
+    component: projectlikePage,
+    name: 'likeProject',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/talent/',
     component: talentsPage
   },
   {
-    path: '/talents/type/',
+    path: '/talent/type/',
     component: talenttypePage
   },
   {
-    path: '/talents/addtype/',
+    path: '/talent/addtype/',
     component: talentaddtypePage
   },
   {
-    path: '/talents/add/',
+    path: '/talent/add/',
     component: talentaddPage,
     name: 'addTalent',
     meta: {
@@ -244,23 +276,31 @@ export default [
     }
   },
   {
-    path: '/talents/view/',
-    component: talentviewPage,
-    name: 'viewTalent',
+    path: '/talent/applications/',
+    component: talentapplicationPage,
+    name: 'applicationTalent',
     meta: {
       requiresAuth: true
     }
   },
   {
-    path: '/consultants/type/',
+    path: '/talent/likes/',
+    component: talentlikePage,
+    name: 'likeTalent',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/consultant/type/',
     component: consultanttypePage
   },
   {
-    path: '/consultants/addtype/',
+    path: '/consultant/addtype/',
     component: consultantaddtypePage
   },
   {
-    path: '/consultants/add/',
+    path: '/consultant/add/',
     component: consultantaddPage,
     name: 'addConsultant',
     meta: {
@@ -268,31 +308,39 @@ export default [
     }
   },
   {
-    path: '/consultants/view/',
-    component: consultantviewPage,
-    name: 'viewConsultant',
+    path: '/consultant/applications/',
+    component: consultantapplicationPage,
+    name: 'applicationConsultant',
     meta: {
       requiresAuth: true
     }
   },
   {
-    path: '/consultants/',
+    path: '/consultant/likes/',
+    component: consultantlikePage,
+    name: 'likeConsultant',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/consultant/',
     component: consultantsPage
   },
   {
-    path: '/dispatchers/',
+    path: '/dispatcher/',
     component: dispatchersPage
   },
   {
-    path: '/dispatchers/type/',
+    path: '/dispatcher/type/',
     component: dispatchertypePage
   },
   {
-    path: '/dispatchers/addtype/',
+    path: '/dispatcher/addtype/',
     component: dispatcheraddtypePage
   },
   {
-    path: '/dispatchers/add/',
+    path: '/dispatcher/add/',
     component: dispatcheraddPage,
     name: 'addDispatcher',
     meta: {
@@ -300,9 +348,25 @@ export default [
     }
   },
   {
-    path: '/dispatchers/view/',
-    component: dispatcherviewPage,
-    name: 'viewDispatcher',
+    path: '/dispatcher/applications/',
+    component: dispatcherapplicationPage,
+    name: 'applicationDispatcher',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/dispatcher/applications/',
+    component: dispatcherapplicationPage,
+    name: 'applicationDispatcher',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/dispatcher/likes/',
+    component: dispatcherlikePage,
+    name: 'likeDispatcher',
     meta: {
       requiresAuth: true
     }
@@ -416,19 +480,19 @@ export default [
     }
   },
   {
-    path: '/tools/',
+    path: '/tool/',
     component: toolsPage
   },
   {
-    path: '/tools/type/',
+    path: '/tool/type/',
     component: tooltypePage
   },
   {
-    path: '/tools/addtype/',
+    path: '/tool/addtype/',
     component: tooladdtypePage
   },
   {
-    path: '/tools/add/',
+    path: '/tool/add/',
     component: tooladdPage,
     name: 'addTool',
     meta: {
@@ -436,27 +500,35 @@ export default [
     }
   },
   {
-    path: '/tools/view/',
-    component: toolviewPage,
-    name: 'viewTool',
+    path: '/tool/applications/',
+    component: toolapplicationPage,
+    name: 'applicationTool',
     meta: {
       requiresAuth: true
     }
   },
   {
-    path: '/events/',
+    path: '/tool/likes/',
+    component: toollikePage,
+    name: 'likeTool',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/event/',
     component: eventsPage
   },
   {
-    path: '/events/type/',
+    path: '/event/type/',
     component: eventtypePage
   },
   {
-    path: '/events/addtype/',
+    path: '/event/addtype/',
     component: eventaddtypePage
   },
   {
-    path: '/events/add/',
+    path: '/event/add/',
     component: eventaddPage,
     name: 'addEvent',
     meta: {
@@ -464,9 +536,17 @@ export default [
     }
   },
   {
-    path: '/events/view/',
-    component: eventviewPage,
-    name: 'viewEvent',
+    path: '/event/applications/',
+    component: eventapplicationPage,
+    name: 'applicationEvent',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/event/likes/',
+    component: eventlikePage,
+    name: 'likeEvent',
     meta: {
       requiresAuth: true
     }

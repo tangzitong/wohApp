@@ -1,12 +1,10 @@
 <template>
   <f7-page id="projectsView" class="projects-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.projects')" :back-link="$t('app.back')">
     </f7-navbar>
-    <project v-for="item in projects" :isOwner="isOwner" :key="item.id" :data="item" @project:content-click="routeToPost"></project>
+    <project v-for="item in projects" :isOwner="isOwner" :key="item.id" :data="item"></project>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getProjects(isOwner, projectType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getProjectListByOwner(window.user.uid, function(projects) {
+        this.$root.chat.getProjectListByOwner(function(projects) {
           window.store.dispatch('initProjects', projects)
         })
       } else if (projectType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getProjectListByOwner(window.user.uid, function(projects) {
+        this.$root.chat.getProjectListByOwner(function(projects) {
           window.store.dispatch('refreshProjects', projects)
         })
       } else if (this.projectType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getProjectListByOwner(window.user.uid, function(projects) {
+        this.$root.chat.getProjectListByOwner(function(projects) {
           window.store.dispatch('infiniteProjects', projects)
         })
       } else if (this.projectType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/projects/view/?mid=${data.id}`)
     }
   },
   components: {

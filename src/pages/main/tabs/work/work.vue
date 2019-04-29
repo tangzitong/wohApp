@@ -1,32 +1,32 @@
 <template>
   <div class="work-view">
     <f7-list>
-      <f7-list-item :title="$t('app.jobs')" link="/jobs/addtype/">
+      <f7-list-item :title="$t('app.jobs')" link="/job/addtype/">
         <i class="f7-icons size-25" slot="media">bag</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.companys')" link="/companys/addtype/">
+      <f7-list-item :title="$t('app.companys')" link="/company/addtype/">
         <i class="f7-icons size-25" slot="media">home</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.projects')" link="/projects/addtype/">
+      <f7-list-item :title="$t('app.projects')" link="/project/addtype/">
         <i class="f7-icons size-25" slot="media">home_fill</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.talents')" link="/talents/addtype/">
+      <f7-list-item :title="$t('app.talents')" link="/talent/addtype/">
         <i class="f7-icons size-25" slot="media">person</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.consultants')" link="/consultants/addtype/">
+      <f7-list-item :title="$t('app.consultants')" link="/consultant/addtype/">
         <i class="f7-icons size-25" slot="media">person_fill</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.dispatchers')" link="/dispatchers/addtype/">
+      <f7-list-item :title="$t('app.dispatchers')" link="/dispatcher/addtype/">
         <i class="f7-icons size-25" slot="media">persons_fill</i>
       </f7-list-item>
     </f7-list>
@@ -36,12 +36,12 @@
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.tools')" link="/tools/addtype/">
+      <f7-list-item :title="$t('app.tools')" link="/tool/addtype/">
         <i class="f7-icons size-25" slot="media">cloud_fill</i>
       </f7-list-item>
     </f7-list>
     <f7-list>
-      <f7-list-item :title="$t('app.events')" link="/events/addtype/">
+      <f7-list-item :title="$t('app.events')" link="/event/addtype/">
         <i class="f7-icons size-25" slot="media">calendar</i>
       </f7-list-item>
     </f7-list>

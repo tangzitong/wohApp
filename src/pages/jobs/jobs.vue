@@ -1,12 +1,10 @@
 <template>
   <f7-page id="jobsView" class="jobs-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.jobs')" :back-link="$t('app.back')">
     </f7-navbar>
-    <job v-for="item in jobs" :isOwner="isOwner" :key="item.id" :data="item" @job:content-click="routeToPost"></job>
+    <job v-for="item in jobs" :isOwner="isOwner" :key="item.id" :data="item"></job>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getJobs(isOwner, jobType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getJobListByOwner(window.user.uid, function(jobs) {
+        this.$root.chat.getJobListByOwner(function(jobs) {
           window.store.dispatch('initJobs', jobs)
         })
       } else if (jobType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getJobListByOwner(window.user.uid, function(jobs) {
+        this.$root.chat.getJobListByOwner(function(jobs) {
           window.store.dispatch('refreshJobs', jobs)
         })
       } else if (this.jobType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getJobListByOwner(window.user.uid, function(jobs) {
+        this.$root.chat.getJobListByOwner(function(jobs) {
           window.store.dispatch('infiniteJobs', jobs)
         })
       } else if (this.jobType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/jobs/view/?mid=${data.id}`)
     }
   },
   components: {

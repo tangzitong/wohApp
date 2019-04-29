@@ -236,6 +236,18 @@ export function initJobs({ commit }, jobs) {
   })
 }
 
+export function initJobApplications({ commit }, jobapplications) {
+  commit(types.INIT_JOBAPPLICATIONS, {
+    jobapplications
+  })
+}
+
+export function initJobLikes({ commit }, joblikes) {
+  commit(types.INIT_JOBLIKES, {
+    joblikes
+  })
+}
+
 export function infiniteJobs({ commit }, jobs) {
   commit(types.APPEND_JOBS, {
     jobs
@@ -257,6 +269,18 @@ export function updateJobs({ commit }, { mid, type }) {
 export function initCompanys({ commit }, companys) {
   commit(types.INIT_COMPANYS, {
     companys
+  })
+}
+
+export function initCompanyApplications({ commit }, companyapplications) {
+  commit(types.INIT_COMPANYAPPLICATIONS, {
+    companyapplications
+  })
+}
+
+export function initCompanyLikes({ commit }, companylikes) {
+  commit(types.INIT_COMPANYLIKES, {
+    companylikes
   })
 }
 
@@ -285,6 +309,18 @@ export function initProjects({ commit }, projects) {
   })
 }
 
+export function initProjectApplications({ commit }, projectapplications) {
+  commit(types.INIT_PROJECTAPPLICATIONS, {
+    projectapplications
+  })
+}
+
+export function initProjectLikes({ commit }, projectlikes) {
+  commit(types.INIT_PROJECTLIKES, {
+    projectlikes
+  })
+}
+
 export function infiniteProjects({ commit }, projects) {
   commit(types.APPEND_PROJECTS, {
     projects
@@ -310,6 +346,18 @@ export function initTalents({ commit }, talents) {
   })
 }
 
+export function initTalentApplications({ commit }, talentapplications) {
+  commit(types.INIT_TALENTAPPLICATIONS, {
+    talentapplications
+  })
+}
+
+export function initTalentLikes({ commit }, talentlikes) {
+  commit(types.INIT_TALENTLIKES, {
+    talentlikes
+  })
+}
+
 export function infiniteTalents({ commit }, talents) {
   commit(types.APPEND_TALENTS, {
     talents
@@ -326,6 +374,18 @@ export function updateTalents({ commit }, { mid, type }) {
   commit(types.UPDATE_TALENTS, {
     mid,
     type
+  })
+}
+
+export function initConsultantApplications({ commit }, consultantapplications) {
+  commit(types.INIT_CONSULTANTAPPLICATIONS, {
+    consultantapplications
+  })
+}
+
+export function initConsultantLikes({ commit }, consultantlikes) {
+  commit(types.INIT_CONSULTANTLIKES, {
+    consultantlikes
   })
 }
 
@@ -357,6 +417,18 @@ export function updateConsultants({ commit }, { mid, type }) {
 export function initDispatchers({ commit }, dispatchers) {
   commit(types.INIT_DISPATCHERS, {
     dispatchers
+  })
+}
+
+export function initDispatcherApplications({ commit }, dispatcherapplications) {
+  commit(types.INIT_DISPATCHERAPPLICATIONS, {
+    dispatcherapplications
+  })
+}
+
+export function initDispatcherLikes({ commit }, dispatcherlikes) {
+  commit(types.INIT_DISPATCHERLIKES, {
+    dispatcherlikes
   })
 }
 
@@ -470,6 +542,18 @@ export function initTools({ commit }, tools) {
   })
 }
 
+export function initToolApplications({ commit }, toolapplications) {
+  commit(types.INIT_TOOLAPPLICATIONS, {
+    toolapplications
+  })
+}
+
+export function initToolLikes({ commit }, toollikes) {
+  commit(types.INIT_TOOLLIKES, {
+    toollikes
+  })
+}
+
 export function infiniteTools({ commit }, tools) {
   commit(types.APPEND_TOOLS, {
     tools
@@ -492,6 +576,18 @@ export function updateTools({ commit }, { mid, type }) {
 export function initEvents({ commit }, events) {
   commit(types.INIT_EVENTS, {
     events
+  })
+}
+
+export function initEventApplications({ commit }, eventapplications) {
+  commit(types.INIT_EVENTAPPLICATIONS, {
+    eventapplications
+  })
+}
+
+export function initEventLikes({ commit }, eventlikes) {
+  commit(types.INIT_EVENTLIKES, {
+    eventlikes
   })
 }
 

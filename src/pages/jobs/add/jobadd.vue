@@ -13,6 +13,10 @@
         <input type="text" :placeholder="$t('job.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
+        <label>{{$t('job.introduce')}}</label><br/>
+        <input type="textarea" :placeholder="$t('job.introduce_')" @input="introduce = $event.target.value" :value="introduce" />
+      </f7-list-item>
+      <f7-list-item>
         <label>{{$t('job.address')}}</label><br/>
         <input type="text" :placeholder="$t('job.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
@@ -37,10 +41,10 @@
       <f7-button big raised color="green" fill @click="updateJob">{{$t('job.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin">
+    <f7-block v-if="isUserLogin && id">
       <imageuploader
-        :store="'jobs/' + userid"
-        :db="'jobs/' + userid + '/photo'" />
+        :store="'jobs/' + userid + '/' + id"
+        :db="'jobs/data/' + id + '/photo'" />
     </f7-block>
 
     <!-- Image -->
@@ -59,6 +63,7 @@ export default {
     return {
       id: null,
       name: '',
+      introduce: '',
       address: '',
       Tel: '',
       Fax: '',
@@ -89,6 +94,7 @@ export default {
       this.$root.chat.getJobByKey(this.id, data => {
         if (data) {
           this.name = data.name
+          this.introduce = data.introduce
           this.address = data.address
           this.Tel = data.Tel
           this.Fax = data.Fax
@@ -105,6 +111,7 @@ export default {
       if (this.id) {
         this.$root.chat.updateJob(this.id, {
           name: this.name,
+          introduce: this.introduce,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
@@ -120,6 +127,7 @@ export default {
       } else {
         this.$root.chat.createJob({
           name: this.name,
+          introduce: this.introduce,
           address: this.address,
           Tel: this.Tel,
           Fax: this.Fax,
@@ -135,6 +143,7 @@ export default {
       }
 
       this.name = ''
+      this.introduce = ''
       this.address = ''
       this.Tel = ''
       this.Fax = ''

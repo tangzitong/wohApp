@@ -63,6 +63,12 @@ export default {
   [types.INIT_JOBS](state, { jobs }) {
     Vue.set(state, 'jobs', jobs)
   },
+  [types.INIT_JOBAPPLICATIONS](state, { jobapplications }) {
+    Vue.set(state, 'jobapplications', jobapplications)
+  },
+  [types.INIT_JOBLIKES](state, { joblikes }) {
+    Vue.set(state, 'joblikes', joblikes)
+  },
   [types.APPEND_JOBS](state, { jobs }) {
     Vue.set(state, 'jobs', [...state.jobs, ...jobs])
   },
@@ -87,6 +93,12 @@ export default {
   },
   [types.INIT_COMPANYS](state, { companys }) {
     Vue.set(state, 'companys', companys)
+  },
+  [types.INIT_COMPANYAPPLICATIONS](state, { companyapplications }) {
+    Vue.set(state, 'companyapplications', companyapplications)
+  },
+  [types.INIT_COMPANYLIKES](state, { companylikes }) {
+    Vue.set(state, 'companylikes', companylikes)
   },
   [types.APPEND_COMPANYS](state, { companys }) {
     Vue.set(state, 'companys', [...state.companys, ...companys])
@@ -113,6 +125,12 @@ export default {
   [types.INIT_PROJECTS](state, { projects }) {
     Vue.set(state, 'projects', projects)
   },
+  [types.INIT_PROJECTAPPLICATIONS](state, { projectapplications }) {
+    Vue.set(state, 'projectapplications', projectapplications)
+  },
+  [types.INIT_PROJECTLIKES](state, { projectlikes }) {
+    Vue.set(state, 'projectlikes', projectlikes)
+  },
   [types.APPEND_PROJECTS](state, { projects }) {
     Vue.set(state, 'projects', [...state.projects, ...projects])
   },
@@ -137,6 +155,12 @@ export default {
   },
   [types.INIT_TALENTS](state, { talents }) {
     Vue.set(state, 'talents', talents)
+  },
+  [types.INIT_TALENTAPPLICATIONS](state, { talentapplications }) {
+    Vue.set(state, 'talentapplications', talentapplications)
+  },
+  [types.INIT_TALENTLIKES](state, { talentlikes }) {
+    Vue.set(state, 'talentlikes', talentlikes)
   },
   [types.APPEND_TALENTS](state, { talents }) {
     Vue.set(state, 'talents', [...state.talents, ...talents])
@@ -163,6 +187,12 @@ export default {
   [types.INIT_CONSULTANTS](state, { consultants }) {
     Vue.set(state, 'consultants', consultants)
   },
+  [types.INIT_CONSULTANTAPPLICATIONS](state, { consultantapplications }) {
+    Vue.set(state, 'consultantapplications', consultantapplications)
+  },
+  [types.INIT_CONSULTANTLIKES](state, { consultantlikes }) {
+    Vue.set(state, 'consultantlikes', consultantlikes)
+  },
   [types.APPEND_CONSULTANTS](state, { consultants }) {
     Vue.set(state, 'consultants', [...state.consultants, ...consultants])
   },
@@ -188,6 +218,12 @@ export default {
   [types.INIT_DISPATCHERS](state, { dispatchers }) {
     Vue.set(state, 'dispatchers', dispatchers)
   },
+  [types.INIT_DISPATCHERAPPLICATIONS](state, { dispatcherapplications }) {
+    Vue.set(state, 'dispatcherapplications', dispatcherapplications)
+  },
+  [types.INIT_DISPATCHERLIKES](state, { dispatcherlikes }) {
+    Vue.set(state, 'dispatcherlikes', dispatcherlikes)
+  },
   [types.APPEND_DISPATCHERS](state, { dispatchers }) {
     Vue.set(state, 'dispatchers', [...state.dispatchers, ...dispatchers])
   },
@@ -212,6 +248,12 @@ export default {
   },
   [types.INIT_TOOLS](state, { tools }) {
     Vue.set(state, 'tools', tools)
+  },
+  [types.INIT_TOOLAPPLICATIONS](state, { toolapplications }) {
+    Vue.set(state, 'toolapplications', toolapplications)
+  },
+  [types.INIT_TOOLLIKES](state, { toollikes }) {
+    Vue.set(state, 'toollikes', toollikes)
   },
   [types.APPEND_TOOLS](state, { tools }) {
     Vue.set(state, 'tools', [...state.tools, ...tools])
@@ -292,6 +334,12 @@ export default {
   },
   [types.INIT_EVENTS](state, { events }) {
     Vue.set(state, 'events', events)
+  },
+  [types.INIT_EVENTAPPLICATIONS](state, { eventapplications }) {
+    Vue.set(state, 'eventapplications', eventapplications)
+  },
+  [types.INIT_EVENTLIKES](state, { eventlikes }) {
+    Vue.set(state, 'eventlikes', eventlikes)
   },
   [types.APPEND_EVENTS](state, { events }) {
     Vue.set(state, 'events', [...state.events, ...events])

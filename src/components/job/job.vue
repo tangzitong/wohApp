@@ -1,5 +1,5 @@
 <template>
-  <div class="job post-job" @click="contentClick(data)">
+  <div class="job post-job">
     <div class="job-header">
       <div class="avatar">
         <img :src="getAvatar(data.avatar)" alt="Image">
@@ -10,25 +10,27 @@
       </div>
     </div>
     <div class="job-content">
-      <div class="text">{{data.address}}</div>
+      <div class="text">{{data.introduce}}</div>
       <div v-if="data.photo" class="image" @click.stop="openPhotoBrowser(data.photo)">
         <img :src="data.photo">
       </div>
+      <div v-if="data.address" class="text">Address:{{data.address}}</div>
       <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
       <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
       <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
-      <div v-if="data.HP" class="link" @click.stop="openPhotoBrowser(data.HP)">HP:{{data.HP}}</div>
+      <div v-if="data.HP" class="link">HP:{{data.HP}}</div>
     </div>
     <div class="job-footer flex-row" v-if="enableToolbar">
-      <f7-button big raised color="green" fill @click="applicationJob">{{$t('job.application')}}</f7-button>
-      <f7-link class="tool flex-rest-width" :class="{liked: data.like_count}" @click.stop="toggleLike(data.id, data.like_count)">
-        <span class="iconfont icon-like"></span>
-        <span class="text" v-text="data.LikeNum ? data.LikeNum : $t('job.like')"></span>
-      </f7-link>
+      <f7-button big raised color="green" fill @click="applicationJob">{{$t('job.application')}}
+        <span class="text" v-text="data.application_count ? '(' + data.application_count + ')' : ''"></span>
+      </f7-button>
+      <f7-button big raised color="green" fill @click="likeJob">{{$t('job.like')}}
+        <span class="text" v-text="data.like_count ? '(' + data.like_count + ')' : ''"></span>
+      </f7-button>
     </div>
-    <div class="job-footer flex-row" v-if="isOwner">
-      <f7-button big raised color="green" fill @click="updateJob">{{$t('job.update')}}</f7-button>
-      <f7-button big raised color="green" fill @click="deleteJob">{{$t('job.delete')}}</f7-button>
+    <div class="job-footer flex-row" v-if="enableToolbar">
+      <f7-button v-if="isOwner" big raised color="green" fill @click="updateJob">{{$t('job.update')}}</f7-button>
+      <f7-button v-if="isOwner" big raised color="green" fill @click="deleteJob">{{$t('job.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -114,7 +116,6 @@
 <script>
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
-import { mapActions } from 'vuex'
 
 export default {
   props: {
@@ -134,29 +135,19 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'updateApplication'
-    ]),
+    likeJob() {
+      this.$f7router.navigate(`/job/likes/?mid=${this.data.id}`)
+    },
     applicationJob() {
-      this.updateApplication({
-        key1: 'applicationOpened',
-        value1: true,
-        key2: 'applicationType',
-        value2: 'Job',
-        key3: 'applicationKey',
-        value3: `${this.data.id}`
-      })
+      this.$f7router.navigate(`/job/applications/?mid=${this.data.id}`)
     },
     updateJob() {
-      this.$f7router.navigate(`/jobs/add/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/job/add/?mid=${this.data.id}`)
     },
     deleteJob() {
       this.$root.chat.removeJob(`${this.data.id}`, function() {
         console.log('delete success')
       })
-    },
-    contentClick(data) {
-      this.$emit('job:content-click', data)
     },
     openPhotoBrowser(url) {
       const pb = this.$f7.photoBrowser.create({
@@ -171,11 +162,6 @@ export default {
     },
     getAvatar(id) {
       return getRemoteAvatar(id)
-    },
-    toggleLike(mid, status) {
-      this.$root.chat.likeJob(mid, function(likeKey) {
-        console.log('likeJob success')
-      })
     }
   }
 }

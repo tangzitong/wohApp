@@ -1,12 +1,10 @@
 <template>
   <f7-page id="toolsView" class="tools-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.tools')" :back-link="$t('app.back')">
     </f7-navbar>
-    <tool v-for="item in tools" :isOwner="isOwner" :key="item.id" :data="item" @tool:content-click="routeToPost"></tool>
+    <tool v-for="item in tools" :isOwner="isOwner" :key="item.id" :data="item"></tool>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getTools(isOwner, toolType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getToolListByOwner(window.user.uid, function(tools) {
+        this.$root.chat.getToolListByOwner(function(tools) {
           window.store.dispatch('initTools', tools)
         })
       } else if (toolType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getToolListByOwner(window.user.uid, function(tools) {
+        this.$root.chat.getToolListByOwner(function(tools) {
           window.store.dispatch('refreshTools', tools)
         })
       } else if (this.toolType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getToolListByOwner(window.user.uid, function(tools) {
+        this.$root.chat.getToolListByOwner(function(tools) {
           window.store.dispatch('infiniteTools', tools)
         })
       } else if (this.toolType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/tools/view/?mid=${data.id}`)
     }
   },
   components: {

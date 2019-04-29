@@ -1,12 +1,10 @@
 <template>
   <f7-page id="talentsView" class="talents-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.talents')" :back-link="$t('app.back')">
     </f7-navbar>
-    <talent v-for="item in talents" :isOwner="isOwner" :key="item.id" :data="item" @talent:content-click="routeToPost"></talent>
+    <talent v-for="item in talents" :isOwner="isOwner" :key="item.id" :data="item"></talent>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getTalents(isOwner, talentType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getTalentListByOwner(window.user.uid, function(talents) {
+        this.$root.chat.getTalentListByOwner(function(talents) {
           window.store.dispatch('initTalents', talents)
         })
       } else if (talentType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getTalentListByOwner(window.user.uid, function(talents) {
+        this.$root.chat.getTalentListByOwner(function(talents) {
           window.store.dispatch('refreshTalents', talents)
         })
       } else if (this.talentType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getTalentListByOwner(window.user.uid, function(talents) {
+        this.$root.chat.getTalentListByOwner(function(talents) {
           window.store.dispatch('infiniteTalents', talents)
         })
       } else if (this.talentType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/talents/view/?mid=${data.id}`)
     }
   },
   components: {

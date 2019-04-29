@@ -105,6 +105,19 @@ export default {
     ]),
     tabActived(tab) {
       this.activedTab = tab
+      switch (this.activedTab) {
+        case 'contacts':
+          this.getRoomList()
+          break
+      }
+    },
+    getRoomList() {
+      if (!this.isUserLogin) return
+      this.$f7.preloader.show()
+      this.$root.chat.getRoomList(function(contacts) {
+        window.store.dispatch('initContacts', contacts)
+      })
+      this.$f7.preloader.hide()
     },
     showLoadResult() {
       setTimeout(_ => {

@@ -1,7 +1,7 @@
 <template>
   <div class="settings-view">
     <f7-list class="user-profile">
-      <f7-list-item link="/profile/">
+      <f7-list-item link="/about/">
         <img :src="userInfo.avatar_url" class="avatar" slot="media">
         <div slot="inner-start" class="detail">
           <div class="name">{{userInfo.nick_name}}</div>
@@ -30,11 +30,6 @@
     <f7-list>
       <f7-list-item :title="$t('app.feedback')" link="/feedback/">
         <i class='iconfont icon-feedback2' slot="media"></i>
-      </f7-list-item>
-    </f7-list>
-    <f7-list>
-      <f7-list-item :title="$t('app.about')" link="/about/">
-        <i class='iconfont icon-about1' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list v-if="!isUserLogin">
@@ -125,7 +120,6 @@ export default {
       window.firebase.auth().signOut().then(() => {
         window.user = null
         window.store.dispatch('clearData')
-        // this.$f7router.navigate('/')
       }).catch(err => {
         console.log(err)
       })

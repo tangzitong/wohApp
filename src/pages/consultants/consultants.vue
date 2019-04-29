@@ -1,12 +1,10 @@
 <template>
   <f7-page id="consultantsView" class="consultants-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.consultants')" :back-link="$t('app.back')">
     </f7-navbar>
-    <consultant v-for="item in consultants" :isOwner="isOwner" :key="item.id" :data="item" @consultant:content-click="routeToPost"></consultant>
+    <consultant v-for="item in consultants" :isOwner="isOwner" :key="item.id" :data="item"></consultant>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getConsultants(isOwner, consultantType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getConsultantListByOwner(window.user.uid, function(consultants) {
+        this.$root.chat.getConsultantListByOwner(function(consultants) {
           window.store.dispatch('initConsultants', consultants)
         })
       } else if (consultantType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getConsultantListByOwner(window.user.uid, function(consultants) {
+        this.$root.chat.getConsultantListByOwner(function(consultants) {
           window.store.dispatch('refreshConsultants', consultants)
         })
       } else if (this.consultantType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getConsultantListByOwner(window.user.uid, function(consultants) {
+        this.$root.chat.getConsultantListByOwner(function(consultants) {
           window.store.dispatch('infiniteConsultants', consultants)
         })
       } else if (this.consultantType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/consultants/view/?mid=${data.id}`)
     }
   },
   components: {

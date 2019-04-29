@@ -1,12 +1,10 @@
 <template>
   <f7-page id="dispatchersView" class="dispatchers-view"
            ptr
-           infinite
-           @ptr:refresh="onRefresh"
-           @infinite="onInfiniteScroll">
+           infinite>
     <f7-navbar :title="$t('app.dispatchers')" :back-link="$t('app.back')">
     </f7-navbar>
-    <dispatcher v-for="item in dispatchers" :isOwner="isOwner" :key="item.id" :data="item" @dispatcher:content-click="routeToPost"></dispatcher>
+    <dispatcher v-for="item in dispatchers" :isOwner="isOwner" :key="item.id" :data="item"></dispatcher>
   </f7-page>
 </template>
 
@@ -39,7 +37,7 @@ export default {
     getDispatchers(isOwner, dispatcherType) {
       this.$f7.preloader.show()
       if (isOwner) {
-        this.$root.chat.getDispatcherListByOwner(window.user.uid, function(dispatchers) {
+        this.$root.chat.getDispatcherListByOwner(function(dispatchers) {
           window.store.dispatch('initDispatchers', dispatchers)
         })
       } else if (dispatcherType) {
@@ -54,7 +52,7 @@ export default {
 
       this.refreshing = true
       if (this.isOwner) {
-        this.$root.chat.getDispatcherListByOwner(window.user.uid, function(dispatchers) {
+        this.$root.chat.getDispatcherListByOwner(function(dispatchers) {
           window.store.dispatch('refreshDispatchers', dispatchers)
         })
       } else if (this.dispatcherType) {
@@ -70,7 +68,7 @@ export default {
 
       this.loadingMore = true
       if (this.isOwner) {
-        this.$root.chat.getDispatcherListByOwner(window.user.uid, function(dispatchers) {
+        this.$root.chat.getDispatcherListByOwner(function(dispatchers) {
           window.store.dispatch('infiniteDispatchers', dispatchers)
         })
       } else if (this.dispatcherType) {
@@ -80,9 +78,6 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
-    },
-    routeToPost(data) {
-      this.$f7router.navigate(`/dispatchers/view/?mid=${data.id}`)
     }
   },
   components: {
