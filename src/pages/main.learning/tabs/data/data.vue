@@ -69,7 +69,7 @@ export default {
       })
     },
     getLink(id) {
-      return `/knowledge/contents/?mid=${id}&isowner=true`
+      return `/knowledge/?mid=${id}&isowner=true`
     }
   }
 }

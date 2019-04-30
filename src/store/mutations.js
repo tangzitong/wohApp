@@ -48,8 +48,14 @@ export default {
   [types.INIT_PROJECTTYPES](state, { projecttypes }) {
     Vue.set(state, 'projecttypes', projecttypes)
   },
-  [types.INIT_RESUMETYPES](state, { resumetypes }) {
-    Vue.set(state, 'resumetypes', resumetypes)
+  [types.INIT_TALENTTYPES](state, { talenttypes }) {
+    Vue.set(state, 'talenttypes', talenttypes)
+  },
+  [types.INIT_CONSULTANTTYPES](state, { consultanttypes }) {
+    Vue.set(state, 'consultanttypes', consultanttypes)
+  },
+  [types.INIT_DISPATCHERTYPES](state, { dispatchertypes }) {
+    Vue.set(state, 'dispatchertypes', dispatchertypes)
   },
   [types.INIT_KNOWLEDGETYPES](state, { knowledgetypes }) {
     Vue.set(state, 'knowledgetypes', knowledgetypes)
@@ -62,6 +68,12 @@ export default {
   },
   [types.INIT_JOBS](state, { jobs }) {
     Vue.set(state, 'jobs', jobs)
+  },
+  [types.INIT_OWNERJOBS](state, { ownerjobs }) {
+    Vue.set(state, 'ownerjobs', ownerjobs)
+  },
+  [types.INIT_APPLICATIONJOBS](state, { applicationjobs }) {
+    Vue.set(state, 'applicationjobs', applicationjobs)
   },
   [types.INIT_JOBAPPLICATIONS](state, { jobapplications }) {
     Vue.set(state, 'jobapplications', jobapplications)
@@ -94,6 +106,12 @@ export default {
   [types.INIT_COMPANYS](state, { companys }) {
     Vue.set(state, 'companys', companys)
   },
+  [types.INIT_OWNERCOMPANYS](state, { ownercompanys }) {
+    Vue.set(state, 'ownercompanys', ownercompanys)
+  },
+  [types.INIT_APPLICATIONCOMPANYS](state, { applicationcompanys }) {
+    Vue.set(state, 'applicationcompanys', applicationcompanys)
+  },
   [types.INIT_COMPANYAPPLICATIONS](state, { companyapplications }) {
     Vue.set(state, 'companyapplications', companyapplications)
   },
@@ -124,6 +142,12 @@ export default {
   },
   [types.INIT_PROJECTS](state, { projects }) {
     Vue.set(state, 'projects', projects)
+  },
+  [types.INIT_OWNERPROJECTS](state, { ownerprojects }) {
+    Vue.set(state, 'ownercompownerprojectsanys', ownerprojects)
+  },
+  [types.INIT_APPLICATIONPROJECTS](state, { applicationprojects }) {
+    Vue.set(state, 'applicationprojects', applicationprojects)
   },
   [types.INIT_PROJECTAPPLICATIONS](state, { projectapplications }) {
     Vue.set(state, 'projectapplications', projectapplications)
@@ -156,6 +180,12 @@ export default {
   [types.INIT_TALENTS](state, { talents }) {
     Vue.set(state, 'talents', talents)
   },
+  [types.INIT_OWNERTALENTS](state, { ownertalents }) {
+    Vue.set(state, 'ownertalents', ownertalents)
+  },
+  [types.INIT_APPLICATIONTALENTS](state, { applicationtalents }) {
+    Vue.set(state, 'applicationtalents', applicationtalents)
+  },
   [types.INIT_TALENTAPPLICATIONS](state, { talentapplications }) {
     Vue.set(state, 'talentapplications', talentapplications)
   },
@@ -186,6 +216,12 @@ export default {
   },
   [types.INIT_CONSULTANTS](state, { consultants }) {
     Vue.set(state, 'consultants', consultants)
+  },
+  [types.INIT_OWNERCONSULTANTS](state, { ownerconsultants }) {
+    Vue.set(state, 'ownerconsultants', ownerconsultants)
+  },
+  [types.INIT_APPLICATIONCONSULTANTS](state, { applicationconsultants }) {
+    Vue.set(state, 'applicationconsultants', applicationconsultants)
   },
   [types.INIT_CONSULTANTAPPLICATIONS](state, { consultantapplications }) {
     Vue.set(state, 'consultantapplications', consultantapplications)
@@ -218,6 +254,12 @@ export default {
   [types.INIT_DISPATCHERS](state, { dispatchers }) {
     Vue.set(state, 'dispatchers', dispatchers)
   },
+  [types.INIT_OWNERDISPATCHERS](state, { ownerdispatchers }) {
+    Vue.set(state, 'ownerdispatchers', ownerdispatchers)
+  },
+  [types.INIT_APPLICATIONDISPATCHERS](state, { applicationdispatchers }) {
+    Vue.set(state, 'applicationdispatchers', applicationdispatchers)
+  },
   [types.INIT_DISPATCHERAPPLICATIONS](state, { dispatcherapplications }) {
     Vue.set(state, 'dispatcherapplications', dispatcherapplications)
   },
@@ -248,6 +290,12 @@ export default {
   },
   [types.INIT_TOOLS](state, { tools }) {
     Vue.set(state, 'tools', tools)
+  },
+  [types.INIT_OWNERTOOLS](state, { ownertools }) {
+    Vue.set(state, 'ownertools', ownertools)
+  },
+  [types.INIT_APPLICATIONTOOLS](state, { applicationtools }) {
+    Vue.set(state, 'applicationtools', applicationtools)
   },
   [types.INIT_TOOLAPPLICATIONS](state, { toolapplications }) {
     Vue.set(state, 'toolapplications', toolapplications)
@@ -282,6 +330,9 @@ export default {
   },
   [types.INIT_OWNERKNOWLEDGES](state, { ownerknowledges }) {
     Vue.set(state, 'ownerknowledges', ownerknowledges)
+  },
+  [types.INIT_APPLICATIONKNOWLEDGES](state, { applicationknowledges }) {
+    Vue.set(state, 'applicationknowledges', applicationknowledges)
   },
   [types.INIT_LEARNERKNOWLEDGES](state, { learnerknowledges }) {
     Vue.set(state, 'learnerknowledges', learnerknowledges)
@@ -334,6 +385,12 @@ export default {
   },
   [types.INIT_EVENTS](state, { events }) {
     Vue.set(state, 'events', events)
+  },
+  [types.INIT_OWNEREVENTS](state, { ownerevents }) {
+    Vue.set(state, 'ownerevents', ownerevents)
+  },
+  [types.INIT_APPLICATIONEVENTS](state, { applicationevents }) {
+    Vue.set(state, 'applicationevents', applicationevents)
   },
   [types.INIT_EVENTAPPLICATIONS](state, { eventapplications }) {
     Vue.set(state, 'eventapplications', eventapplications)

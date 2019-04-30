@@ -272,7 +272,7 @@ export default {
     handleSignInDone: function () {
       // Hide loading indicator
       // window.f7.hideIndicator()
-      this.getLearnerKnowledges()
+      this.getApplicationKnowledges()
       this.performingRequest = false
       // Reset form
       // this.email = ''
@@ -296,10 +296,10 @@ export default {
         value: false
       })
     },
-    getLearnerKnowledges() {
+    getApplicationKnowledges() {
       this.$f7.preloader.show()
-      this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
-        window.store.dispatch('initLearnerKnowledges', learnerknowledges)
+      this.$root.chat.getKnowledgeListByApplication(function(applicationknowledges) {
+        window.store.dispatch('initApplicationKnowledges', applicationknowledges)
       })
       this.$f7.preloader.hide()
     },

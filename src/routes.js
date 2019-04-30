@@ -1,5 +1,13 @@
 import mainPage from './pages/main'
 import mainLearningPage from './pages/main.learning'
+import mainJobPage from './pages/main.job'
+import mainYellowPage from './pages/main.yellowpage'
+import mainProjectPage from './pages/main.bid'
+import mainTalentPage from './pages/main.talent'
+import mainConsultantPage from './pages/main.consultant'
+import mainDispatcherPage from './pages/main.dispatcher'
+import mainToolPage from './pages/main.ai'
+import mainEventPage from './pages/main.event'
 import aboutPage from './pages/about'
 import loginPage from './pages/about/login'
 import modifyPage from './pages/about/modify'
@@ -83,8 +91,40 @@ export default [
     component: mainPage,
   },
   {
-    path: '/learning/',
+    path: '/knowledgemain/',
     component: mainLearningPage,
+  },
+  {
+    path: '/jobmain/',
+    component: mainJobPage,
+  },
+  {
+    path: '/companymain/',
+    component: mainYellowPage,
+  },
+  {
+    path: '/projectmain/',
+    component: mainProjectPage,
+  },
+  {
+    path: '/talentmain/',
+    component: mainTalentPage,
+  },
+  {
+    path: '/consultantmain/',
+    component: mainConsultantPage,
+  },
+  {
+    path: '/dispatchermain/',
+    component: mainDispatcherPage,
+  },
+  {
+    path: '/toolmain/',
+    component: mainToolPage,
+  },
+  {
+    path: '/eventmain/',
+    component: mainEventPage,
   },
   {
     path: '/profile/',

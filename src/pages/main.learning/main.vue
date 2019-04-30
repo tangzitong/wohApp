@@ -1,7 +1,6 @@
 <template>
   <f7-page>
-    <f7-navbar>
-      <f7-nav-left></f7-nav-left>
+    <f7-navbar :back-link="$t('app.back')">
       <f7-nav-title>{{navbarTitle}}</f7-nav-title>
       <f7-nav-right>
         <f7-link icon="iconfont icon-feedback3" icon-size="22" v-show="activedTab === 'news'" @click="openPublisher"></f7-link>
@@ -103,7 +102,7 @@ export default {
       this.activedTab = tab
       switch (this.activedTab) {
         case 'home':
-          this.getLearnerKnowledges()
+          this.getApplicationKnowledges()
           break
         case 'contacts':
           this.getRoomList()
@@ -121,11 +120,10 @@ export default {
       })
       this.$f7.preloader.hide()
     },
-    getLearnerKnowledges() {
-      if (!this.isUserLogin) return
+    getApplicationKnowledges() {
       this.$f7.preloader.show()
-      this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
-        window.store.dispatch('initLearnerKnowledges', learnerknowledges)
+      this.$root.chat.getKnowledgeListByApplication(function(applicationknowledges) {
+        window.store.dispatch('initApplicationKnowledges', applicationknowledges)
       })
       this.$f7.preloader.hide()
     },

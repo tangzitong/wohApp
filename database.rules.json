@@ -7,6 +7,60 @@
     "industry":{
       ".indexOn": ["language"]
     },
+    "jobapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "companyapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "projectapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "talentapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "consultantapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "dispatcherapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "knowledgeapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "toolapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "eventapplications":{
+      ".indexOn": ["avatar"]
+    },
+    "jobs":{
+      ".indexOn": ["jobtype", "avatar"]
+    },
+    "companys":{
+      ".indexOn": ["companytype", "avatar"]
+    },
+    "projects":{
+      ".indexOn": ["projecttype", "avatar"]
+    },
+    "talents":{
+      ".indexOn": ["talenttype", "avatar"]
+    },
+    "consultants":{
+      ".indexOn": ["consultanttype", "avatar"]
+    },
+    "dispatchers":{
+      ".indexOn": ["dispatchertype", "avatar"]
+    },
+    "knowledges":{
+      ".indexOn": ["knowledgetype", "avatar"]
+    },
+    "tools":{
+      ".indexOn": ["tooltype", "avatar"]
+    },
+    "events":{
+      ".indexOn": ["eventtype", "avatar"]
+    },
     ".read": true,
     ".write": true,
     "room-metadata": {

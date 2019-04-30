@@ -151,11 +151,29 @@ export function getProjecttypes({ commit }, language) {
   })
 }
 
-export function getResumetypes({ commit }, language) {
-  axios.get(`/datatype/${language}/resumetype.json`).then(res => {
-    const resumetypes = res.data
-    commit(types.INIT_RESUMETYPES, {
-      resumetypes
+export function getTalenttypes({ commit }, language) {
+  axios.get(`/datatype/${language}/talenttype.json`).then(res => {
+    const talenttypes = res.data
+    commit(types.INIT_TALENTTYPES, {
+      talenttypes
+    })
+  })
+}
+
+export function getConsultanttypes({ commit }, language) {
+  axios.get(`/datatype/${language}/consultanttype.json`).then(res => {
+    const consultanttypes = res.data
+    commit(types.INIT_CONSULTANTTYPES, {
+      consultanttypes
+    })
+  })
+}
+
+export function getDispatchertypes({ commit }, language) {
+  axios.get(`/datatype/${language}/dispatchertype.json`).then(res => {
+    const dispatchertypes = res.data
+    commit(types.INIT_DISPATCHERTYPES, {
+      dispatchertypes
     })
   })
 }
@@ -236,6 +254,18 @@ export function initJobs({ commit }, jobs) {
   })
 }
 
+export function initOwnerJobs({ commit }, ownerjobs) {
+  commit(types.INIT_OWNERJOBS, {
+    ownerjobs
+  })
+}
+
+export function initApplicationJobs({ commit }, applicationjobs) {
+  commit(types.INIT_APPLICATIONJOBS, {
+    applicationjobs
+  })
+}
+
 export function initJobApplications({ commit }, jobapplications) {
   commit(types.INIT_JOBAPPLICATIONS, {
     jobapplications
@@ -269,6 +299,18 @@ export function updateJobs({ commit }, { mid, type }) {
 export function initCompanys({ commit }, companys) {
   commit(types.INIT_COMPANYS, {
     companys
+  })
+}
+
+export function initOwnerCompanys({ commit }, ownercompanys) {
+  commit(types.INIT_OWNERCOMPANYS, {
+    ownercompanys
+  })
+}
+
+export function initApplicationCompanys({ commit }, applicationcompanys) {
+  commit(types.INIT_APPLICATIONCOMPANYS, {
+    applicationcompanys
   })
 }
 
@@ -309,6 +351,18 @@ export function initProjects({ commit }, projects) {
   })
 }
 
+export function initOwnerProjects({ commit }, ownerprojects) {
+  commit(types.INIT_OWNERPROJECTS, {
+    ownerprojects
+  })
+}
+
+export function initApplicationProjects({ commit }, applicationprojects) {
+  commit(types.INIT_APPLICATIONPROJECTS, {
+    applicationprojects
+  })
+}
+
 export function initProjectApplications({ commit }, projectapplications) {
   commit(types.INIT_PROJECTAPPLICATIONS, {
     projectapplications
@@ -343,6 +397,18 @@ export function updateProjects({ commit }, { mid, type }) {
 export function initTalents({ commit }, talents) {
   commit(types.INIT_TALENTS, {
     talents
+  })
+}
+
+export function initOwnerTalents({ commit }, ownertalents) {
+  commit(types.INIT_OWNERTALENTS, {
+    ownertalents
+  })
+}
+
+export function initApplicationTalents({ commit }, applicationtalents) {
+  commit(types.INIT_APPLICATIONTALENTS, {
+    applicationtalents
   })
 }
 
@@ -395,6 +461,18 @@ export function initConsultants({ commit }, consultants) {
   })
 }
 
+export function initOwnerConsultants({ commit }, ownerconsultants) {
+  commit(types.INIT_OWNERCONSULTANTS, {
+    ownerconsultants
+  })
+}
+
+export function initApplicationConsultants({ commit }, applicationconsultants) {
+  commit(types.INIT_APPLICATIONCONSULTANTS, {
+    applicationconsultants
+  })
+}
+
 export function infiniteConsultants({ commit }, consultants) {
   commit(types.APPEND_CONSULTANTS, {
     consultants
@@ -417,6 +495,18 @@ export function updateConsultants({ commit }, { mid, type }) {
 export function initDispatchers({ commit }, dispatchers) {
   commit(types.INIT_DISPATCHERS, {
     dispatchers
+  })
+}
+
+export function initOwnerDispatchers({ commit }, ownerdispatchers) {
+  commit(types.INIT_OWNERDISPATCHERS, {
+    ownerdispatchers
+  })
+}
+
+export function initApplicationDispatchers({ commit }, applicationdispatchers) {
+  commit(types.INIT_APPLICATIONDISPATCHERS, {
+    applicationdispatchers
   })
 }
 
@@ -460,6 +550,12 @@ export function initKnowledges({ commit }, knowledges) {
 export function initOwnerKnowledges({ commit }, ownerknowledges) {
   commit(types.INIT_OWNERKNOWLEDGES, {
     ownerknowledges
+  })
+}
+
+export function initApplicationKnowledges({ commit }, applicationknowledges) {
+  commit(types.INIT_APPLICATIONKNOWLEDGES, {
+    applicationknowledges
   })
 }
 
@@ -542,6 +638,18 @@ export function initTools({ commit }, tools) {
   })
 }
 
+export function initOwnerTools({ commit }, ownertools) {
+  commit(types.INIT_OWNERTOOLS, {
+    ownertools
+  })
+}
+
+export function initApplicationTools({ commit }, applicationtools) {
+  commit(types.INIT_APPLICATIONTOOLS, {
+    applicationtools
+  })
+}
+
 export function initToolApplications({ commit }, toolapplications) {
   commit(types.INIT_TOOLAPPLICATIONS, {
     toolapplications
@@ -576,6 +684,18 @@ export function updateTools({ commit }, { mid, type }) {
 export function initEvents({ commit }, events) {
   commit(types.INIT_EVENTS, {
     events
+  })
+}
+
+export function initOwnerEvents({ commit }, ownerevents) {
+  commit(types.INIT_OWNEREVENTS, {
+    ownerevents
+  })
+}
+
+export function initApplicationEvents({ commit }, applicationevents) {
+  commit(types.INIT_APPLICATIONEVENTS, {
+    applicationevents
   })
 }
 

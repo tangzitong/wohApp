@@ -45,7 +45,7 @@ export default {
   computed: {
     ...mapState({
       userInfo: state => state.userInfo,
-      knowledges: state => state.learnerknowledges,
+      knowledges: state => state.applicationknowledges,
       isUserLogin: state => state.isUserLogin
     })
   },
@@ -63,8 +63,8 @@ export default {
     ]),
     getKnowledges() {
       this.$f7.preloader.show()
-      this.$root.chat.getKnowledgeListByLearner(function(learnerknowledges) {
-        window.store.dispatch('initLearnerKnowledges', learnerknowledges)
+      this.$root.chat.getKnowledgeListByApplication(function(applicationknowledges) {
+        window.store.dispatch('initApplicationKnowledges', applicationknowledges)
       })
       this.$f7.preloader.hide()
     },
@@ -75,7 +75,7 @@ export default {
       })
     },
     getLink(id) {
-      return `/knowledge/contents/?mid=${id}&isowner=false`
+      return `/knowledge/?mid=${id}&isowner=false`
     }
   }
 }

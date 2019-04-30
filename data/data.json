@@ -78,15 +78,22 @@
           "text" : "test for the last time",
           "time" : 1555255247166
         }
+      },
+      "-LdLmvv2SvIuEAO7e-ch" : {
+        "-LdRfOl7dPjSLNuhUrCL" : {
+          "avatar" : "GQxxS27YoMV4aMVZ69C9uVimoG63",
+          "id" : "-LdRfOl7dPjSLNuhUrCL",
+          "name" : "test5",
+          "postid" : "-LdLmvv2SvIuEAO7e-ch",
+          "text" : "test",
+          "time" : 1556333042903
+        }
       }
     },
     "err_code" : 0,
     "err_msg" : "success"
   },
   "companys" : {
-    "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
-      "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/companys%2FCIxg5db1wHWTu1eeymVp4EkLzfg1?alt=media&token=201b3f8d-926d-480e-8800-d2243f197954"
-    },
     "data" : {
       "-LbW068uZTzWv84W5fNq" : {
         "Fax" : "1",
@@ -605,7 +612,41 @@
         "err_code" : 0,
         "err_msg" : "success"
       },
-      "resumetype" : {
+      "talenttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "Talent",
+          "nickname" : "T"
+        }, {
+          "id" : "2",
+          "name" : "Consultant",
+          "nickname" : "C"
+        }, {
+          "id" : "3",
+          "name" : "Dispatcher",
+          "nickname" : "D"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "consultanttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "Talent",
+          "nickname" : "T"
+        }, {
+          "id" : "2",
+          "name" : "Consultant",
+          "nickname" : "C"
+        }, {
+          "id" : "3",
+          "name" : "Dispatcher",
+          "nickname" : "D"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "dispatchertype" : {
         "data" : [ {
           "id" : "1",
           "name" : "Talent",
@@ -810,7 +851,41 @@
         "err_code" : 0,
         "err_msg" : "success"
       },
-      "resumetype" : {
+      "talenttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "タレント",
+          "nickname" : "タ"
+        }, {
+          "id" : "2",
+          "name" : "コンサルタント",
+          "nickname" : "コ"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "consultanttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "タレント",
+          "nickname" : "タ"
+        }, {
+          "id" : "2",
+          "name" : "コンサルタント",
+          "nickname" : "コ"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "dispatchertype" : {
         "data" : [ {
           "id" : "1",
           "name" : "タレント",
@@ -1013,7 +1088,41 @@
         "err_code" : 0,
         "err_msg" : "success"
       },
-      "resumetype" : {
+      "talenttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "人才",
+          "nickname" : "才"
+        }, {
+          "id" : "2",
+          "name" : "咨询师",
+          "nickname" : "咨"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "consultanttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "人才",
+          "nickname" : "才"
+        }, {
+          "id" : "2",
+          "name" : "咨询师",
+          "nickname" : "咨"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "dispatchertype" : {
         "data" : [ {
           "id" : "1",
           "name" : "人才",
@@ -1212,6 +1321,61 @@
         "CreateDate" : "2019/04/20",
         "content" : "test",
         "userid" : "test1@gmail.com"
+      },
+      "-LdSF8KI53EpZ7Lzl_dO" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "hhhhhh",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSF9gF_exURV9E6Svg" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "hhhhhh",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSFCsuhS1y7-FKc6Wh" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "zzzzzz",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSGb7kqBZ7NS7JiXmw" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "123123123",
+        "userid" : "test1@gmail.com"
+      },
+      "-LdSTo_vkgPBlJBKIybX" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "yyyyyy",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSTs67uljXTvx1deSP" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "uuuuuuu",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSUfaxMysRy4EUYts8" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "你好好节",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSUgvqFhnvklKOm_1X" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "你好好节",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSWdDnxHnEN61HLd0r" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "6666666666666",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSWeiolQUvPA1hSiON" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "6666666666666",
+        "userid" : "test2@gmail.com"
+      },
+      "-LdSWjIm3eJH4cAadymP" : {
+        "CreateDate" : "2019/04/27",
+        "content" : "你OK",
+        "userid" : "test2@gmail.com"
       }
     },
     "err_code" : 0,
@@ -1268,6 +1432,22 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
+  "jobapplications" : {
+    "data" : {
+      "-LbW05tjlGqALVI2K445" : {
+        "applications" : {
+          "-Ldd2NGkZeU-LOqt7bnr" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-Ldd2NGkZeU-LOqt7bnr",
+            "jobid" : "-LbW05tjlGqALVI2K445",
+            "name" : "test1",
+            "text" : "请提供工作详细信息",
+            "time" : 1556540656127
+          }
+        }
+      }
+    }
+  },
   "jobs" : {
     "data" : {
       "-LbW05tjlGqALVI2K445" : {
@@ -1276,7 +1456,7 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 4,
+        "application_count" : 5,
         "applications" : {
           "-LbfVVIUnv-0OmP-doaW" : {
             "id" : "-LbfVVIUnv-0OmP-doaW",
@@ -1352,15 +1532,227 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
+  "knowledgeapplications" : {
+    "data" : {
+      "-LbW07Cj8C37LDyZeKHF" : {
+        "applications" : {
+          "-Ld3rF_kKs2COfauzpcq" : {
+            "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "approvalName" : "test1",
+            "approvalStatus" : false,
+            "approval_at" : 1556459759200,
+            "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+            "id" : "-Ld3rF_kKs2COfauzpcq",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test2",
+            "text" : "鄭軍と申します。\n学習を参加させてください。",
+            "time" : 1555933498065
+          }
+        }
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "applications" : {
+          "-Ld46PwJ_JKL7qbeCYBt" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-Ld46PwJ_JKL7qbeCYBt",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test1",
+            "text" : "鄭軍と申します。よろしくお願いいたします。",
+            "time" : 1555937734685
+          },
+          "-LdZFR0rwBmjHfofRX6Q" : {
+            "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "approvalName" : "test1",
+            "approvalStatus" : true,
+            "approval_at" : 1556461808067,
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "id" : "-LdZFR0rwBmjHfofRX6Q",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "tei952",
+            "text" : "C#入門を勉強したいです、よろしくお願いいたします。",
+            "time" : 1556460192206
+          }
+        }
+      },
+      "-Ld495mtWIyObJzEEK7s" : {
+        "applications" : {
+          "-Ld49uljA8Kdj9-mavJy" : {
+            "approvalAvatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+            "approvalName" : "test2",
+            "approvalStatus" : true,
+            "approval_at" : 1555976946576,
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-Ld49uljA8Kdj9-mavJy",
+            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+            "name" : "test1",
+            "text" : "鄭軍と申します。よろしくお願いいたします。",
+            "time" : 1555938651475
+          }
+        }
+      },
+      "-LdLtODpcc-J83q1aU5f" : {
+        "applications" : {
+          "-LdMdo02l1Fwbn1ZighN" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LdMdo02l1Fwbn1ZighN",
+            "knowledgeid" : "-LdLtODpcc-J83q1aU5f",
+            "name" : "test1",
+            "text" : "d d d",
+            "time" : 1556248740280
+          }
+        }
+      }
+    }
+  },
+  "knowledgecertificates" : {
+    "data" : {
+      "-LbW07Cj8C37LDyZeKHF" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecertificates%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF?alt=media&token=0a84788e-8a4f-4a7a-a83f-2bab43c82566",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+          "name" : "test1",
+          "time" : 1556058992137
+        },
+        "Vn8NjeM3yCh7vsK6mwhEdk9d1h73" : {
+          "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+          "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecertificates%2FVn8NjeM3yCh7vsK6mwhEdk9d1h73%2F-LbW07Cj8C37LDyZeKHF?alt=media&token=b444bde7-74d6-4d89-bdda-51039271784f",
+          "id" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+          "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+          "name" : "test2",
+          "time" : 1556060905896
+        }
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "-LctyLWU1ERkDV29z2rk" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "certificatePath" : "https://image.baidu.com/search/detail?ct=503316480&z=&tn=baiduimagedetail&ipn=d&word=%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%98%8E%E4%B9%A6&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=undefined&latest=undefined&copyright=undefined&cs=5659746,4131529913&os=2045183806,206696368&simid=3410681258,295304104&pn=2&rn=1&di=81730&ln=1642&fr=&fmq=1555750763902_R&ic=0&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimgsa.baidu.com%2Fexp%2Fw%3D500%2Fsign%3D9a7fec740a24ab18e016e13705fae69a%2F4b90f603738da977f10b8f79b351f8198618e3b8.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined",
+          "id" : "-LctyLWU1ERkDV29z2rk",
+          "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+          "name" : "test1",
+          "time" : 1555750807868
+        }
+      }
+    }
+  },
+  "knowledgecomments" : {
+    "data" : {
+      "-LbW07Cj8C37LDyZeKHF" : {
+        "contents" : {
+          "-LcPpPauyQT7nMHxsSDI" : {
+            "-LcxVmYndkXWm-77gAEA" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "ｃｃｃ",
+              "contentid" : "-LcPpPauyQT7nMHxsSDI",
+              "id" : "-LcxVmYndkXWm-77gAEA",
+              "name" : "test2",
+              "time" : 1555810167344
+            },
+            "-LdMchK9BuyD5k8KGL53" : {
+              "comment" : "ddd",
+              "contentid" : "-LcPpPauyQT7nMHxsSDI",
+              "id" : "-LdMchK9BuyD5k8KGL53",
+              "time" : 1556248450583
+            },
+            "-LdRL6pbWRNI1nmQABMV" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "请老师告诉我答案",
+              "contentid" : "-LcPpPauyQT7nMHxsSDI",
+              "id" : "-LdRL6pbWRNI1nmQABMV",
+              "name" : "tei952",
+              "time" : 1556327464435
+            }
+          },
+          "-LcPtGVHXPZU2lKmAWBg" : {
+            "-LcxYOh92HaZ7OhFDqD_" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "ｃｃｃ",
+              "contentid" : "-LcPtGVHXPZU2lKmAWBg",
+              "id" : "-LcxYOh92HaZ7OhFDqD_",
+              "name" : "test2",
+              "time" : 1555810851964
+            }
+          },
+          "-LcPuOOzxujK4Z-uAWMA" : {
+            "-LcxYTmeA2BEr_x0WLQI" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "ｄｄｄ",
+              "contentid" : "-LcPuOOzxujK4Z-uAWMA",
+              "id" : "-LcxYTmeA2BEr_x0WLQI",
+              "name" : "test2",
+              "time" : 1555810872804
+            }
+          },
+          "-LcPuq3uP8_kKl9Si9yX" : {
+            "-LcxS6qcmuVQz0OZJPsw" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "ｓｓｓｓ",
+              "contentid" : "-LcPuq3uP8_kKl9Si9yX",
+              "id" : "-LcxS6qcmuVQz0OZJPsw",
+              "name" : "test2",
+              "time" : 1555809205965
+            },
+            "-LcxUU9sie73l12gKQt_" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "ｓｓｓ２",
+              "contentid" : "-LcPuq3uP8_kKl9Si9yX",
+              "id" : "-LcxUU9sie73l12gKQt_",
+              "name" : "test2",
+              "time" : 1555809825754
+            }
+          }
+        }
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "contents" : {
+          "-LcVaE3TSJd2ov2URtTG" : {
+            "-Ld6NM34oRR_yPqyWhmU" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "没做完吧",
+              "contentid" : "-LcVaE3TSJd2ov2URtTG",
+              "id" : "-Ld6NM34oRR_yPqyWhmU",
+              "name" : "test2",
+              "time" : 1555975730873
+            },
+            "-Ld6NRqWGg-bFf6Ela0v" : {
+              "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+              "comment" : "可以加新的吗？",
+              "contentid" : "-LcVaE3TSJd2ov2URtTG",
+              "id" : "-Ld6NRqWGg-bFf6Ela0v",
+              "name" : "test2",
+              "time" : 1555975753516
+            },
+            "-LdZRdOXR_eosBk5jm3Q" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "测试在评论时发消息通知",
+              "contentid" : "-LcVaE3TSJd2ov2URtTG",
+              "id" : "-LdZRdOXR_eosBk5jm3Q",
+              "name" : "tei952",
+              "time" : 1556463393491
+            },
+            "-LdZV1Iymxfm4YV1UQRy" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "ありがとうございました。",
+              "contentid" : "-LcVaE3TSJd2ov2URtTG",
+              "id" : "-LdZV1Iymxfm4YV1UQRy",
+              "name" : "tei952",
+              "time" : 1556464281580
+            }
+          }
+        }
+      }
+    }
+  },
   "knowledgecontents" : {
     "data" : {
       "-LbW07Cj8C37LDyZeKHF" : {
         "contents" : {
           "-LcPpPauyQT7nMHxsSDI" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 3,
             "content" : {
-              "data" : "人工知能基本知識",
+              "data" : "<p>最近、<strong>「人工知能」</strong>に関するニュースが何かと話題になりますね。特に<strong>「Deep Learning」</strong>という言葉は、IT系のエンジニアや研究者でなくても、よく耳にするようになりましたね。 </p><p>  さて、そんな人工知能ですが、みなさんどのくらい理解されているでしょうか？ ちゃんと理解されている方は少ないのではないかと思います。気になっているけど難しそうだし手が出ない、という人が多いでしょう。  </p><p> そこで今回は、人工知能の基礎知識（エッセンス的な部分）について、広く浅く丁寧に説明していきたいと思います。 </p>",
               "type" : "Html"
             },
             "id" : "-LcPpPauyQT7nMHxsSDI",
@@ -1369,11 +1761,11 @@
             "ord" : "1",
             "time" : 1555228371611,
             "title" : "第一節 人工知能基本知識",
-            "update_at" : 1555629380206
+            "update_at" : 1556488166377
           },
           "-LcPtGVHXPZU2lKmAWBg" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 1,
             "content" : {
               "answer" : "d",
               "options" : {
@@ -1390,12 +1782,12 @@
             "name" : "test1",
             "ord" : "2",
             "time" : 1555229382921,
-            "title" : "第二課",
-            "update_at" : 1555726491762
+            "title" : "第二節 人工知能選択テスト",
+            "update_at" : 1555890674760
           },
           "-LcPuOOzxujK4Z-uAWMA" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 1,
             "content" : {
               "inputanswer" : "深層学習",
               "inputcontent" : "人工知能活躍の原因は()アルゴリズムを広げている",
@@ -1412,8 +1804,9 @@
           },
           "-LcPuq3uP8_kKl9Si9yX" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 2,
             "content" : {
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&token=ef82522e-644f-4d58-9379-64d9667254b2",
               "type" : "Certificate"
             },
             "id" : "-LcPuq3uP8_kKl9Si9yX",
@@ -1422,33 +1815,6 @@
             "ord" : "4",
             "time" : 1555229794842,
             "title" : "人工知能学習終了頂きまして、おめでとうございます！"
-          },
-          "-LcsRuLUQb_mlJbgE3As" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
-            "content" : {
-              "type" : "Certificate"
-            },
-            "id" : "-LcsRuLUQb_mlJbgE3As",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "name" : "test1",
-            "ord" : 0,
-            "time" : 1555725264688,
-            "title" : ""
-          },
-          "-LcsRuZsg7xqRMFFNNKI" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
-            "content" : {
-              "certificatePath" : "",
-              "type" : "Certificate"
-            },
-            "id" : "-LcsRuZsg7xqRMFFNNKI",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "name" : "test1",
-            "ord" : 0,
-            "time" : 1555725265616,
-            "title" : ""
           }
         }
       },
@@ -1456,7 +1822,7 @@
         "contents" : {
           "-LcVaE3TSJd2ov2URtTG" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 4,
             "content" : {
               "data" : "cd D:\\work\\wohapp git init git clone https://github.com/highwayns/wohApp.git git remote add origin/master https://github.com/highwayns/wohApp.git",
               "type" : "Html"
@@ -1467,6 +1833,164 @@
             "ord" : "1",
             "time" : 1555325055426,
             "title" : "create local repository"
+          },
+          "-LdZOOlUTIAEShOttgO2" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "answer" : "b",
+              "options" : {
+                "a" : "Gitは唯一のバージョン管理システム",
+                "b" : "Gitはリモートソース管理サーバです",
+                "c" : "Gitは公開リポジトリだけサポートします",
+                "d" : "Gitは商用できません"
+              },
+              "title" : "Gitの役割について正しいものを選んでください",
+              "type" : "Select"
+            },
+            "id" : "-LdZOOlUTIAEShOttgO2",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test1",
+            "ord" : "2",
+            "time" : 1556462542137,
+            "title" : "Gitの役割"
+          },
+          "-LdZOt-Zkrwc4mXRAKAo" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "inputanswer" : "git pull",
+              "inputcontent" : "Gitデータ更新コマンドは「」です。",
+              "title" : "Gitデータ更新コマンド",
+              "type" : "Input"
+            },
+            "id" : "-LdZOt-Zkrwc4mXRAKAo",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test1",
+            "ord" : "3",
+            "time" : 1556462670126,
+            "title" : "Gitコマンド"
+          }
+        }
+      },
+      "-Ld495mtWIyObJzEEK7s" : {
+        "contents" : {
+          "-LdbFsAs5WP_X-oZcb48" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "github是世界最大的代码托管网站。使用的工具是git",
+              "type" : "Html"
+            },
+            "id" : "-LdbFsAs5WP_X-oZcb48",
+            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+            "name" : "test1",
+            "ord" : "1",
+            "time" : 1556510639230,
+            "title" : "git基础知识"
+          },
+          "-LdbGhgolkcAj3-hWuYY" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "answer" : "b",
+              "options" : {
+                "a" : "git",
+                "b" : "github.com",
+                "c" : "gitlab.com",
+                "d" : "highwayns.com"
+              },
+              "title" : "世界上最大的代码托管网站（）",
+              "type" : "Select"
+            },
+            "id" : "-LdbGhgolkcAj3-hWuYY",
+            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+            "name" : "test1",
+            "ord" : "2",
+            "time" : 1556510858502,
+            "title" : "关于git请选择一个正确答案",
+            "update_at" : 1556510903151
+          },
+          "-LdbI7XNCSuE9gJKgFM9" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "取最新源代码命令：git clone<BR>代码更新：git pull<br>代码上传：git Add .<br>",
+              "type" : "Html"
+            },
+            "id" : "-LdbI7XNCSuE9gJKgFM9",
+            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+            "name" : "test1",
+            "ord" : "3",
+            "time" : 1556511230502,
+            "title" : "git命令"
+          },
+          "-LdbJJq-IoVIwDiyErF3" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "comment_count" : 0,
+            "content" : {
+              "inputanswer" : "git pull",
+              "inputcontent" : "关于git命令，请输入正确的git代码更新命令[]",
+              "title" : "填写正确答案",
+              "type" : "Input"
+            },
+            "id" : "-LdbJJq-IoVIwDiyErF3",
+            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+            "name" : "test1",
+            "ord" : "4",
+            "time" : 1556511543010,
+            "title" : "git 命令填空"
+          }
+        }
+      }
+    }
+  },
+  "knowledgelikes" : {
+    "data" : {
+      "-LbW07Cj8C37LDyZeKHF" : {
+        "likes" : {
+          "-Ld3sLqhvbJJvSgZmxCQ" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-Ld3sLqhvbJJvSgZmxCQ",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "time" : 1555933785875
+          },
+          "-Ld6RsR6U0Nh6__e94gV" : {
+            "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+            "id" : "-Ld6RsR6U0Nh6__e94gV",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test2",
+            "time" : 1555976914980
+          },
+          "-Ld7JTZref-l0VHV0ezB" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-Ld7JTZref-l0VHV0ezB",
+            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+            "name" : "test1",
+            "time" : 1555991488967
+          }
+        }
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "likes" : {
+          "-LdBSqN2qD5za07MH9KQ" : {
+            "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+            "id" : "-LdBSqN2qD5za07MH9KQ",
+            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+            "name" : "test2",
+            "time" : 1556061054857
+          }
+        }
+      },
+      "-Ld495mtWIyObJzEEK7s" : {
+        "likes" : {
+          "-Ld49xIGcvb6y2V3Jwki" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-Ld49xIGcvb6y2V3Jwki",
+            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+            "name" : "test1",
+            "time" : 1555938661815
           }
         }
       }
@@ -1480,109 +2004,306 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 3,
-        "applications" : {
-          "-LbfMOLr-5uzm5dK948r" : {
-            "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "approvalName" : "test1",
-            "approvalStatus" : true,
-            "approval_at" : 1554947166904,
-            "id" : "-LbfMOLr-5uzm5dK948r",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "text" : "xss",
-            "time" : 1554431972930
-          },
-          "-LcsRbHwYmyl_vXvWF6x" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LcsRbHwYmyl_vXvWF6x",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "name" : "test1",
-            "text" : "dfsfsdfsdfsdfdsf",
-            "time" : 1555725186650
-          },
-          "-LctaPg8nKdhZhFk1bG9" : {
-            "id" : "-LctaPg8nKdhZhFk1bG9",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "text" : "哈哈5555555555好好好",
-            "time" : 1555744533413
-          }
-        },
-        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "content_count" : 6,
-        "created_at" : 1554258363397,
-        "id" : "-LbW07Cj8C37LDyZeKHF",
-        "introduce" : "人工知能人工人工知能入門人工知能入",
-        "knowledgetype" : "1",
-        "like_count" : 3,
-        "likes" : {
-          "-LcO4qCSxBlpiTOZNTN-" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LcO4qCSxBlpiTOZNTN-",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "name" : "test1",
-            "time" : 1555199124541
-          },
-          "-LctYSUAbvqfKWjO-lr6" : {
-            "id" : "-LctYSUAbvqfKWjO-lr6",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "time" : 1555743758448
-          },
-          "-LctfMSCGNG233Yz7d7g" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LctfMSCGNG233Yz7d7g",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "name" : "test1",
-            "time" : 1555745831085
-          }
-        },
-        "name" : "人工知能入門",
-        "nickname" : "test1",
-        "photo" : "",
-        "update_at" : 1555734741655
-      },
-      "-LbYZZXvYQxtpo2AWpzL" : {
-        "Fax" : "sss",
-        "HP" : "sss",
-        "Manager" : "sss",
-        "Tel" : "sss",
-        "address" : "ss",
-        "application_count" : 0,
+        "application_count" : 2,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "content_count" : 2,
-        "contents" : {
-          "-Lc9GJ3qxxcBtG3Rn72-" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "content" : {
-              "anwser" : "1",
-              "options" : [ null, "select option1", "select option2" ],
-              "title" : "<div>this is Knowledge about Java Basic</div>",
-              "type" : "Select"
-            },
-            "id" : "-Lc9GJ3qxxcBtG3Rn72-",
-            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
-            "name" : "test1",
-            "ord" : 2,
-            "time" : 1554950472132,
-            "title" : "Java Basic Test"
-          }
-        },
+        "certificate_count" : 21,
+        "content_count" : 4,
+        "created_at" : 1554258363397,
+        "id" : "-LbW07Cj8C37LDyZeKHF",
+        "industry" : "2",
+        "introduce" : "人工知能人工人工知能入門人工知能入",
+        "knowledgetype" : "1",
+        "like_count" : 2,
+        "name" : "人工知能入門",
+        "nickname" : "test1",
+        "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF?alt=media&token=f4093689-0f1e-4441-a641-165ba8b40e32",
+        "update_at" : 1555936196190
+      },
+      "-LbYZZXvYQxtpo2AWpzL" : {
+        "Fax" : "03-3532-6513",
+        "HP" : "http://jp.highwayns.com/",
+        "Manager" : "鄭軍",
+        "Tel" : "03-5244-9853",
+        "address" : "東京都中央区八丁堀４－１０－１甲東ビル６０４号室",
+        "application_count" : 2,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "certificate_count" : 1,
+        "content_count" : 3,
         "created_at" : 1554301210432,
         "id" : "-LbYZZXvYQxtpo2AWpzL",
         "industry" : "2",
+        "introduce" : "C#入門C#入門C#入門C#入門C#入門",
+        "knowledgetype" : "1",
+        "like_count" : 2,
+        "name" : "C#入門",
+        "nickname" : "test1",
+        "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbYZZXvYQxtpo2AWpzL?alt=media&token=1f40f726-848c-4fe6-ab2f-187128c1f418",
+        "update_at" : 1555937610237
+      },
+      "-Ld495mtWIyObJzEEK7s" : {
+        "Fax" : "03-3532-6513",
+        "HP" : "http://jp.highwayns.com/",
+        "Manager" : "鄭軍",
+        "Tel" : "03-5244-9853",
+        "address" : "東京都中央区八丁堀４－１０－１　甲東ビル６０４号室",
+        "application_count" : 1,
+        "area" : "1",
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "certificate_count" : 0,
+        "content_count" : 4,
+        "created_at" : 1555938439185,
+        "id" : "-Ld495mtWIyObJzEEK7s",
+        "industry" : "2",
+        "introduce" : "ハイブリッド応用システム開発の基礎知識",
         "knowledgetype" : "1",
         "like_count" : 1,
-        "likes" : {
-          "-LcQ1vZ2W8ZS7dHl9Ag_" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LcQ1vZ2W8ZS7dHl9Ag_",
-            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
-            "name" : "test1",
-            "time" : 1555231914460
-          }
-        },
-        "name" : "sss",
-        "nickname" : "test1"
+        "name" : "ハイブリッド応用システム開発",
+        "nickname" : "test1",
+        "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-Ld495mtWIyObJzEEK7s?alt=media&token=65834569-9775-4a51-aeae-8e39e3a69776"
+      },
+      "-LdLtODpcc-J83q1aU5f" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "东京",
+        "application_count" : 1,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236050753,
+        "id" : "-LdLtODpcc-J83q1aU5f",
+        "introduce" : "Oracle数据库从入门到精通",
+        "knowledgetype" : "2",
+        "like_count" : 0,
+        "name" : "Oracle数据库"
+      },
+      "-LdLtaiBADqiIat-6k_5" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "东京",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236102724,
+        "id" : "-LdLtaiBADqiIat-6k_5",
+        "introduce" : "MySql数据库从入门到精通",
+        "knowledgetype" : "2",
+        "like_count" : 0,
+        "name" : "MySql数据库",
+        "photo" : ""
+      },
+      "-LdLuLklhwL7keqLFNmD" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236299544,
+        "id" : "-LdLuLklhwL7keqLFNmD",
+        "introduce" : "nodejs从入门到精通",
+        "knowledgetype" : "3",
+        "like_count" : 0,
+        "name" : "nodejs入门"
+      },
+      "-LdLuU-AHWwvMHDT-QpQ" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236333406,
+        "id" : "-LdLuU-AHWwvMHDT-QpQ",
+        "introduce" : "vue入门",
+        "knowledgetype" : "3",
+        "like_count" : 0,
+        "name" : "vue从入门到精通",
+        "photo" : ""
+      },
+      "-LdLubY6J4gW1t94t63x" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236368285,
+        "id" : "-LdLubY6J4gW1t94t63x",
+        "introduce" : "firebase入门",
+        "knowledgetype" : "3",
+        "like_count" : 0,
+        "name" : "firebsae从入门到精通",
+        "photo" : ""
+      },
+      "-LdLv2K4G35jI5thkNgR" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236482059,
+        "id" : "-LdLv2K4G35jI5thkNgR",
+        "introduce" : "Spring框架从入门到精通",
+        "knowledgetype" : "6",
+        "like_count" : 0,
+        "name" : "Spring框架"
+      },
+      "-LdLvCzZr_W7DeKwDw9w" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236525757,
+        "id" : "-LdLvCzZr_W7DeKwDw9w",
+        "introduce" : "gpu从入门到精通",
+        "knowledgetype" : "7",
+        "like_count" : 0,
+        "name" : "gpu入门"
+      },
+      "-LdLvKb6JZ4xEuew0npf" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236556983,
+        "id" : "-LdLvKb6JZ4xEuew0npf",
+        "introduce" : "docker从入门到精通",
+        "knowledgetype" : "8",
+        "like_count" : 0,
+        "name" : "docker入门"
+      },
+      "-LdLvYhoIN8mERmK7vQo" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236616193,
+        "id" : "-LdLvYhoIN8mERmK7vQo",
+        "introduce" : "kubernetes从入门到精通",
+        "knowledgetype" : "8",
+        "like_count" : 0,
+        "name" : "kubernetes入门",
+        "photo" : ""
+      },
+      "-LdLvjsjW3CGLyxi3Qb2" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236664578,
+        "id" : "-LdLvjsjW3CGLyxi3Qb2",
+        "introduce" : "openshift从入门到精通",
+        "knowledgetype" : "8",
+        "like_count" : 0,
+        "name" : "openshift入门"
+      },
+      "-LdLvzsimpPWmPNFJwdO" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236730161,
+        "id" : "-LdLvzsimpPWmPNFJwdO",
+        "introduce" : "人工智能数学基础教育",
+        "knowledgetype" : "4",
+        "like_count" : 0,
+        "name" : "人工智能数学基础"
+      },
+      "-LdLwA6JjJepFe9MTwD2" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236776080,
+        "id" : "-LdLwA6JjJepFe9MTwD2",
+        "introduce" : "windows基础知识",
+        "knowledgetype" : "6",
+        "like_count" : 0,
+        "name" : "windows入门"
+      },
+      "-LdLwITanyNoAGvVvlCh" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236810433,
+        "id" : "-LdLwITanyNoAGvVvlCh",
+        "introduce" : "linux基础教程",
+        "knowledgetype" : "5",
+        "like_count" : 0,
+        "name" : "linux入门"
+      },
+      "-LdLwZEoLZc4i2v8T5QR" : {
+        "Fax" : "",
+        "HP" : "",
+        "Manager" : "",
+        "Tel" : "",
+        "address" : "",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 0,
+        "created_at" : 1556236879200,
+        "id" : "-LdLwZEoLZc4i2v8T5QR",
+        "introduce" : "pmp项目管理基础知识",
+        "knowledgetype" : "10",
+        "like_count" : 0,
+        "name" : "pmp项目管理基础"
       }
     },
     "err_code" : 0,
@@ -1635,6 +2356,13 @@
           "name" : "test1",
           "postid" : "-LbRHgPyDAMcmJnsf_nF",
           "time" : 1555254265276
+        },
+        "-Ld4JLmSAlBpV0R3yigs" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-Ld4JLmSAlBpV0R3yigs",
+          "name" : "test1",
+          "postid" : "-LbRHgPyDAMcmJnsf_nF",
+          "time" : 1555941125500
         }
       }
     },
@@ -1757,7 +2485,7 @@
         "comment_count" : 6,
         "created_at" : 1554179082055,
         "id" : "-LbRHgPyDAMcmJnsf_nF",
-        "like_count" : 3,
+        "like_count" : 4,
         "nickname" : "test1",
         "original_pic" : "",
         "text" : "ddddd"
@@ -1805,6 +2533,26 @@
         "nickname" : "test1",
         "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
         "text" : "hhhh"
+      },
+      "-LdLmvv2SvIuEAO7e-ch" : {
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "comment_count" : 1,
+        "created_at" : 1556234354590,
+        "id" : "-LdLmvv2SvIuEAO7e-ch",
+        "like_count" : 0,
+        "nickname" : "test1",
+        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
+        "text" : "海威学习app即将发布，欢迎大家关注"
+      },
+      "-LdSWsjVAbtoV6Mttgvm" : {
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "comment_count" : 0,
+        "created_at" : 1556347325520,
+        "id" : "-LdSWsjVAbtoV6Mttgvm",
+        "like_count" : 0,
+        "nickname" : "test1",
+        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
+        "text" : ""
       }
     },
     "err_code" : 0,
@@ -2163,23 +2911,6 @@
         "endTime" : "19:00",
         "startTime" : "9:00"
       } ]
-    } ],
-    "err_code" : 0,
-    "err_msg" : "success"
-  },
-  "resumes" : {
-    "data" : [ {
-      "ApplicationNum" : 0,
-      "AreaId" : "1",
-      "Content" : "◼︎职位要求:\\n①.大专以上学历，计算机软件或理工科专业毕业；文科类毕业生要求有两年以上软件开发经验。\\n◆中国国内招聘的経験少日本語弱的技術者，可在蘇州带薪培训半年左右后再来日本工作。\\n②.掌握MCFrame、JAVA、SAP 、ERP、EBS、 dynamics、oracle cloud、BI publisher、Ruby、Python、.NET(ASP・VB・C#)、C/C++、iOS、android、PHP、PL/SQL 等其中任意一种开发语言。\\n◼︎日语要求：\\n日语能力2级以上，能够阅读理解日文式样书，能够用日语简单交流。\\n◼︎工作地点：\\n日本东京都及周边地区，大阪，京都，名古屋，广岛，富山，福冈等地区。\\n◼︎薪资水平：\\n20万～100万日元/月収。\\n（完全视日语水平和技术水平而定）\\n■福利制度：\\n带薪休假+健康保险+厚生年金+加班费+交通费+雇佣保险+社员旅行等。\\n■联系方式：\\nInfor@jp.highwayns.com\\n■欢迎朋友帮助扩散\\n",
-      "CreateDate" : "2019年2月13日",
-      "Image" : "http://woh.highwayns.com/mock/top.jpg",
-      "IndustryId" : "1",
-      "LikeNum" : 0,
-      "ResumeTypeList" : "1,2,3",
-      "Title" : "C#開発応募者",
-      "UserId" : "1",
-      "id" : "1"
     } ],
     "err_code" : 0,
     "err_msg" : "success"
@@ -2721,6 +3452,96 @@
         "timestamp" : 1555724903417,
         "type" : "messageType",
         "userId" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73"
+      },
+      "-LdLm-WhFaIqh3ms7VOB" : {
+        ".priority" : 1.5562341113E12,
+        "message" : "大家好！本系统开发将优先发布海威学习模块，该模块即将进入测试阶段。明天学习会详细和大家讲解！",
+        "name" : "test1",
+        "timestamp" : 1556234111300,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LdO9NQDGw8l5w8xfWA8" : {
+        ".priority" : 1.556274055005E12,
+        "message" : "wqeqeqwe",
+        "name" : "test1",
+        "timestamp" : 1556274055005,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LdO9Of7XCqP8siD8cVk" : {
+        ".priority" : 1.556274060117E12,
+        "message" : "qweqweqwe",
+        "name" : "test1",
+        "timestamp" : 1556274060117,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LdPIWGx0DTubHil8OQK" : {
+        ".priority" : 1.556293227965E12,
+        "message" : "行",
+        "name" : "tei952",
+        "timestamp" : 1556293227965,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LdSWuiIhfkW7WGoX3ov" : {
+        ".priority" : 1.556347333633E12,
+        "message" : "qweqweqw",
+        "name" : "test1",
+        "timestamp" : 1556347333633,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LdSqjSwKYGsGkwjq0AU" : {
+        ".priority" : 1.556352792746E12,
+        "message" : "l",
+        "name" : "hally601",
+        "timestamp" : 1556352792746,
+        "type" : "messageType",
+        "userId" : "icC70eXYlkOrVQayAOrPo0Os7is2"
+      },
+      "-LdYe6BVznurbL64NKzk" : {
+        ".priority" : 1.556450145422E12,
+        "message" : "测试",
+        "name" : "test1",
+        "timestamp" : 1556450145422,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      }
+    },
+    "-LdZLabGR1N_h0cosQNI" : {
+      "-LdZLkytk_-RSEtTN9VV" : {
+        ".priority" : 1.556461850756E12,
+        "message" : "hello",
+        "name" : "test1",
+        "timestamp" : 1556461850756,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LdZLz8oeDXMPIu_EwtM" : {
+        ".priority" : 1.556461908796E12,
+        "message" : "Thank you",
+        "name" : "tei952",
+        "timestamp" : 1556461908796,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LdZRdfWX9k-arAZ6_-b" : {
+        ".priority" : 1.556463394656E12,
+        "message" : "测试在评论时发消息通知",
+        "name" : "tei952",
+        "timestamp" : 1556463394656,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LdZV1VF2pc5BGxMv-Lt" : {
+        ".priority" : 1.55646428235E12,
+        "message" : "ありがとうございました。",
+        "name" : "tei952",
+        "timestamp" : 1556464282350,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
       }
     }
   },
@@ -2732,11 +3553,52 @@
       "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
       "createdAt" : 1554597388817,
       "createdByUserId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+      "createdByUserName" : "test1",
       "header" : "A",
       "id" : "-LbpDP3nLIekOaNV6i9R",
       "location" : "Tokyo",
       "name" : "test2",
       "type" : "private"
+    },
+    "-LdZLabGR1N_h0cosQNI" : {
+      "authorizedUsers" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : true
+      },
+      "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+      "createdAt" : 1556461808316,
+      "createdByUserId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+      "createdByUserName" : "test1",
+      "header" : "A",
+      "id" : "-LdZLabGR1N_h0cosQNI",
+      "location" : "Tokyo",
+      "name" : "tei952",
+      "type" : "private"
+    }
+  },
+  "room-users" : {
+    "-LbpDP3nLIekOaNV6i9R" : {
+      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+        "-LcswklWn161epTCpFaA" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        },
+        "-LdSfrrWbLS1qpkfebBw" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        },
+        "-LdiQfG4gh4avk_OYXEj" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        }
+      }
+    },
+    "-LdZLabGR1N_h0cosQNI" : {
+      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+        "-LdiQfG4gh4avk_OYXEj" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        }
+      }
     }
   },
   "talents" : {
@@ -2993,6 +3855,26 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
+  "user-names-online" : {
+    "test1" : {
+      "-LcswklWn161epTCpFaA" : {
+        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "name" : "test1"
+      },
+      "-LdS9TiUDVUXwSXEaL1O" : {
+        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "name" : "test1"
+      },
+      "-LdSfrrWbLS1qpkfebBw" : {
+        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "name" : "test1"
+      },
+      "-LdiQfG4gh4avk_OYXEj" : {
+        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "name" : "test1"
+      }
+    }
+  },
   "user_login" : {
     "data" : {
       "sid" : "e651771fe37dc17c17421331a87721",
@@ -3020,11 +3902,11 @@
       "gender" : "",
       "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
       "job_count" : 6,
-      "knowledge_count" : 2,
+      "knowledge_count" : 3,
       "learnings" : {
         "-LbW07Cj8C37LDyZeKHF" : {
           "LearningStatus" : true,
-          "approval_at" : 1555743493997,
+          "approval_at" : 1556488258616,
           "contentOrd" : "2"
         },
         "-LbYZZXvYQxtpo2AWpzL" : {
@@ -3038,7 +3920,7 @@
       "name" : "test1",
       "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/users%2FCIxg5db1wHWTu1eeymVp4EkLzfg1?alt=media&token=c3889a1d-9cf5-4c58-9fdc-6f078f1ce32e",
       "points" : 0,
-      "post_count" : 3,
+      "post_count" : 5,
       "project_count" : 2,
       "rooms" : {
         "-LbpDP3nLIekOaNV6i9R" : {
@@ -3048,10 +3930,54 @@
           "id" : "-LbpDP3nLIekOaNV6i9R",
           "location" : "Tokyo",
           "name" : "test2"
+        },
+        "-LdZLabGR1N_h0cosQNI" : {
+          "active" : true,
+          "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "header" : "A",
+          "id" : "-LdZLabGR1N_h0cosQNI",
+          "location" : "Tokyo",
+          "name" : "tei952"
         }
+      },
+      "sessions" : {
+        "-LcswklWn161epTCpFaA" : true,
+        "-LdS9TiUDVUXwSXEaL1O" : true,
+        "-LdSfrrWbLS1qpkfebBw" : true,
+        "-LdiQfG4gh4avk_OYXEj" : true
       },
       "talent_count" : 3,
       "tool_count" : 2
+    },
+    "GQxxS27YoMV4aMVZ69C9uVimoG63" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "GQxxS27YoMV4aMVZ69C9uVimoG63",
+      "location" : "",
+      "login_name" : "test5@gmail.com",
+      "name" : "test5",
+      "photo" : "",
+      "points" : 0
+    },
+    "PHa92muIF0Vl4DmIaSrAYSn2sFz1" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "PHa92muIF0Vl4DmIaSrAYSn2sFz1",
+      "location" : "",
+      "login_name" : "xhdpgroop@123.com",
+      "name" : "无",
+      "photo" : "",
+      "points" : 0
+    },
+    "SltouNWndEXkvLg3nCWCiHXdmnx1" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "SltouNWndEXkvLg3nCWCiHXdmnx1",
+      "location" : "",
+      "login_name" : "test3@gmail.com",
+      "name" : "test3",
+      "photo" : "",
+      "points" : 0
     },
     "Vn8NjeM3yCh7vsK6mwhEdk9d1h73" : {
       "avatar_url" : "",
@@ -3070,7 +3996,7 @@
       "learnings" : {
         "-LbW07Cj8C37LDyZeKHF" : {
           "LearningStatus" : true,
-          "approval_at" : 1555734299671,
+          "approval_at" : 1556060905815,
           "contentOrd" : "3"
         }
       },
@@ -3090,7 +4016,82 @@
         }
       }
     },
+    "ejGASFLSr1RsV2ZiVGtENSZ0JP33" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "ejGASFLSr1RsV2ZiVGtENSZ0JP33",
+      "location" : "",
+      "login_name" : "zhoumeiqi77@icloud.com",
+      "name" : "IT",
+      "photo" : "",
+      "points" : 0
+    },
     "err_code" : 0,
-    "err_msg" : "success"
+    "err_msg" : "success",
+    "fxsAVCvXnrfUbJ1XJXa8ptBAAZv2" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "fxsAVCvXnrfUbJ1XJXa8ptBAAZv2",
+      "location" : "",
+      "login_name" : "test4@gmail.com",
+      "name" : "test4",
+      "photo" : "",
+      "points" : 0
+    },
+    "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+      "learnings" : {
+        "-LbW07Cj8C37LDyZeKHF" : {
+          "LearningStatus" : true,
+          "approval_at" : 1556327486570,
+          "contentOrd" : "2"
+        }
+      },
+      "location" : "",
+      "login_name" : "zhengjun@jp.highwayns.com",
+      "name" : "tei952",
+      "photo" : "",
+      "points" : 0,
+      "rooms" : {
+        "-LbpDP3nLIekOaNV6i9R" : {
+          "active" : true,
+          "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+          "header" : "A",
+          "id" : "-LbpDP3nLIekOaNV6i9R",
+          "location" : "Tokyo",
+          "name" : "test2"
+        },
+        "-LdZLabGR1N_h0cosQNI" : {
+          "active" : true,
+          "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "header" : "A",
+          "id" : "-LdZLabGR1N_h0cosQNI",
+          "location" : "Tokyo",
+          "name" : "tei952"
+        }
+      }
+    },
+    "icC70eXYlkOrVQayAOrPo0Os7is2" : {
+      "avatar_url" : "",
+      "gender" : "",
+      "id" : "icC70eXYlkOrVQayAOrPo0Os7is2",
+      "location" : "",
+      "login_name" : "hally601@yahoo.co.jp",
+      "name" : "hally601",
+      "photo" : "",
+      "points" : 0,
+      "rooms" : {
+        "-LbpDP3nLIekOaNV6i9R" : {
+          "active" : true,
+          "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
+          "header" : "A",
+          "id" : "-LbpDP3nLIekOaNV6i9R",
+          "location" : "Tokyo",
+          "name" : "test2"
+        }
+      }
+    }
   }
 }
