@@ -1161,7 +1161,7 @@ Firechat.prototype.getJobListByOwner = function(cb) {
 Firechat.prototype.getJobListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._jobapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._jobapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._jobsRef.child('data').once('value', function(snapshot) {
@@ -1170,7 +1170,11 @@ Firechat.prototype.getJobListByApplication = function(cb) {
     for (const job in jobs) {
       for (const application in applications) {
         if (application === job) {
-          val.push(jobs[job])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(jobs[job])
+            }
+          }
         }
       }
     }
@@ -1435,7 +1439,7 @@ Firechat.prototype.getCompanyListByOwner = function(cb) {
 Firechat.prototype.getCompanyListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._companyapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._companyapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._companysRef.child('data').once('value', function(snapshot) {
@@ -1444,7 +1448,11 @@ Firechat.prototype.getCompanyListByApplication = function(cb) {
     for (const company in companys) {
       for (const application in applications) {
         if (application === company) {
-          val.push(companys[company])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(companys[company])
+            }
+          }
         }
       }
     }
@@ -1709,7 +1717,7 @@ Firechat.prototype.getProjectListByOwner = function(cb) {
 Firechat.prototype.getProjectListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._projectapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._projectapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._projectsRef.child('data').once('value', function(snapshot) {
@@ -1718,7 +1726,11 @@ Firechat.prototype.getProjectListByApplication = function(cb) {
     for (const project in projects) {
       for (const application in applications) {
         if (application === project) {
-          val.push(projects[project])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(projects[project])
+            }
+          }
         }
       }
     }
@@ -1983,7 +1995,7 @@ Firechat.prototype.getTalentListByOwner = function(cb) {
 Firechat.prototype.getTalentListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._talentapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._talentapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._talentsRef.child('data').once('value', function(snapshot) {
@@ -1992,7 +2004,11 @@ Firechat.prototype.getTalentListByApplication = function(cb) {
     for (const talent in talents) {
       for (const application in applications) {
         if (application === talent) {
-          val.push(talents[talent])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(talents[talent])
+            }
+          }
         }
       }
     }
@@ -2257,7 +2273,7 @@ Firechat.prototype.getConsultantListByOwner = function(cb) {
 Firechat.prototype.getConsultantListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._consultantapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._consultantapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._consultantsRef.child('data').once('value', function(snapshot) {
@@ -2266,7 +2282,11 @@ Firechat.prototype.getConsultantListByApplication = function(cb) {
     for (const consultant in consultants) {
       for (const application in applications) {
         if (application === consultant) {
-          val.push(consultants[consultant])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(consultants[consultant])
+            }
+          }
         }
       }
     }
@@ -2531,7 +2551,7 @@ Firechat.prototype.getDispatcherListByOwner = function(cb) {
 Firechat.prototype.getDispatcherListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._dispatcherapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._dispatcherapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._dispatchersRef.child('data').once('value', function(snapshot) {
@@ -2540,7 +2560,11 @@ Firechat.prototype.getDispatcherListByApplication = function(cb) {
     for (const dispatcher in dispatchers) {
       for (const application in applications) {
         if (application === dispatcher) {
-          val.push(dispatchers[dispatcher])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(dispatchers[dispatcher])
+            }
+          }
         }
       }
     }
@@ -2939,7 +2963,7 @@ Firechat.prototype.getKnowledgeListByOwner = function(cb) {
 Firechat.prototype.getKnowledgeListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._knowledgeapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._knowledgeapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._knowledgesRef.child('data').once('value', function(snapshot) {
@@ -2948,7 +2972,11 @@ Firechat.prototype.getKnowledgeListByApplication = function(cb) {
     for (const knowledge in knowledges) {
       for (const application in applications) {
         if (application === knowledge) {
-          val.push(knowledges[knowledge])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(knowledges[knowledge])
+            }
+          }
         }
       }
     }
@@ -3299,7 +3327,7 @@ Firechat.prototype.getToolListByOwner = function(cb) {
 Firechat.prototype.getToolListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._toolapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._toolapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._toolsRef.child('data').once('value', function(snapshot) {
@@ -3308,7 +3336,11 @@ Firechat.prototype.getToolListByApplication = function(cb) {
     for (const tool in tools) {
       for (const application in applications) {
         if (application === tool) {
-          val.push(tools[tool])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(tools[tool])
+            }
+          }
         }
       }
     }
@@ -3573,7 +3605,7 @@ Firechat.prototype.getEventListByOwner = function(cb) {
 Firechat.prototype.getEventListByApplication = function(cb) {
   const self = this
   let applications = {}
-  self._eventapplicationsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._eventapplicationsRef.child('data').once('value', function(snapshot) {
     applications = snapshot.val()
   })
   self._eventsRef.child('data').once('value', function(snapshot) {
@@ -3582,7 +3614,11 @@ Firechat.prototype.getEventListByApplication = function(cb) {
     for (const event in events) {
       for (const application in applications) {
         if (application === event) {
-          val.push(events[event])
+          for (const app in applications[application].applications) {
+            if (applications[application].applications[app].avatar === self._userId) {
+              val.push(events[event])
+            }
+          }
         }
       }
     }

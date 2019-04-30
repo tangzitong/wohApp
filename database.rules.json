@@ -1,65 +1,167 @@
 {
   /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
   "rules": {
-    "area": {
-      ".indexOn": ["language"]
-    },
-    "industry":{
-      ".indexOn": ["language"]
-    },
     "jobapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$jobkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "companyapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$companykey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "projectapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$projectkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "talentapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$talentkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "consultantapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$consultantkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "dispatcherapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$dispatcherkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "knowledgeapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$knowledgekey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "toolapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$toolkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "eventapplications":{
-      ".indexOn": ["avatar"]
+      "data": {
+        "$eventkey": {
+          "applications": {
+            "$applicationkey": {
+              ".indexOn": ["avatar"]
+            }
+          }
+        }
+      }
     },
     "jobs":{
-      ".indexOn": ["jobtype", "avatar"]
+      "data": {
+        "$jobkey": {
+          ".indexOn": ["jobtype", "avatar"]
+        }
+      }
     },
     "companys":{
-      ".indexOn": ["companytype", "avatar"]
+      "data": {
+        "$companykey": {
+          ".indexOn": ["companytype", "avatar"]
+        }
+      }
     },
     "projects":{
-      ".indexOn": ["projecttype", "avatar"]
+      "data": {
+        "$projectkey": {
+          ".indexOn": ["projecttype", "avatar"]
+        }
+      }
     },
     "talents":{
-      ".indexOn": ["talenttype", "avatar"]
+      "data": {
+        "$talentkey": {
+          ".indexOn": ["talenttype", "avatar"]
+        }
+      }
     },
     "consultants":{
-      ".indexOn": ["consultanttype", "avatar"]
+      "data": {
+        "$consultantkey": {
+          ".indexOn": ["consultanttype", "avatar"]
+        }
+      }
     },
     "dispatchers":{
-      ".indexOn": ["dispatchertype", "avatar"]
+      "data": {
+        "$dispatcherkey": {
+          ".indexOn": ["dispatchertype", "avatar"]
+        }
+      }
     },
     "knowledges":{
-      ".indexOn": ["knowledgetype", "avatar"]
+      "data": {
+        "$knowledgekey": {
+          ".indexOn": ["knowledgetype", "avatar"]
+        }
+      }
     },
     "tools":{
-      ".indexOn": ["tooltype", "avatar"]
+      "data": {
+        "$toolkey": {
+          ".indexOn": ["tooltype", "avatar"]
+        }
+      }
     },
     "events":{
-      ".indexOn": ["eventtype", "avatar"]
+      "data": {
+        "$eventkey": {
+          ".indexOn": ["eventtype", "avatar"]
+        }
+      }
     },
     ".read": true,
     ".write": true,

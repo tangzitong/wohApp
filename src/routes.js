@@ -87,11 +87,11 @@ import messagePage from './pages/message'
 import postPage from './pages/post'
 export default [
   {
-    path: '/',
+    path: '/knowledgemain/',
     component: mainPage,
   },
   {
-    path: '/knowledgemain/',
+    path: '/',
     component: mainLearningPage,
   },
   {

@@ -4857,7 +4857,7 @@ exports['getKnowledgeListByLearner'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-*/
+
 exports['getMyKnowledgeApplication'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4882,6 +4882,27 @@ exports['getMyKnowledgeApplication'] = function(test) {
                 })
               }
             }
+          })
+        })
+      })
+    }
+  })
+  auth.signInWithEmailAndPassword('zhengjun@jp.highwayns.com', 'zjhuen1915')
+}
+*/
+exports['getKnowledgeListByApplication'] = function(test) {
+  auth.onAuthStateChanged(function(user) {
+    if (user) {
+      const ref = database.ref('users/' + user.uid)
+      console.log(ref.toJSON())
+      ref.once('value', function(snapshot) {
+        console.log(snapshot.val())
+        chat.setUser(user.uid, snapshot.child('name').val(), function() {
+          chat.getKnowledgeListByApplication(function(knowledges) {
+            for (const knowledge in knowledges) {
+              console.log(knowledges[knowledge])
+            }
+            test.done()
           })
         })
       })
