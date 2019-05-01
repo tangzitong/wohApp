@@ -25,11 +25,11 @@
                 <span class="iconfont icon-application"></span>
                 <span class="text" v-text="$t('knowledge.removeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(knowledge.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(knowledge.id, application.id)">
                 <span class="iconfont icon-thumbup"></span>
                 <span class="text" v-text="$t('knowledge.disagreeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(knowledge.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(knowledge.id, application.id)">
                 <span class="iconfont icon-close"></span>
                 <span class="text" v-text="$t('knowledge.agreeapplication')"></span>
               </f7-link>
@@ -148,6 +148,7 @@ export default {
   data() {
     return {
       knowledge: {},
+      isOwner: false,
       userid: null
     }
   },
@@ -161,6 +162,7 @@ export default {
   mounted() {
     const query = this.$f7route.query
     this.knowledge = find(this.knowledges, p => p.id === query.mid)
+    this.isOwner = (query.isowner === 'true')
     this.$root.chat.getKnowledgeApplications(this.knowledge.id, function(applications) {
       window.store.dispatch('initKnowledgeApplications', applications)
     })

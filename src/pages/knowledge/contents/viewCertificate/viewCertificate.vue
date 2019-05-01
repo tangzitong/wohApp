@@ -207,6 +207,9 @@ export default {
     if (!this.myCertificatePath) {
       this.createCertificate()
       this.getMyKnowledgeCertificate()
+      this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
+        console.log('knowledgeKey=' + knowledgeKey)
+      })
     }
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {

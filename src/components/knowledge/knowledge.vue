@@ -145,7 +145,7 @@ export default {
       this.$f7router.navigate(`/knowledge/likes/?mid=${this.data.id}`)
     },
     applicationKnowledge() {
-      this.$f7router.navigate(`/knowledge/applications/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/knowledge/applications/?mid=${this.data.id}&isowner=${this.isOwner}`)
     },
     knowledgecertificates() {
       this.$f7router.navigate(`/knowledge/certificates/?mid=${this.data.id}`)

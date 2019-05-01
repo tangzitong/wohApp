@@ -4,10 +4,8 @@
     "jobapplications":{
       "data": {
         "$jobkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -15,10 +13,8 @@
     "companyapplications":{
       "data": {
         "$companykey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -26,10 +22,8 @@
     "projectapplications":{
       "data": {
         "$projectkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -37,10 +31,8 @@
     "talentapplications":{
       "data": {
         "$talentkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -48,10 +40,8 @@
     "consultantapplications":{
       "data": {
         "$consultantkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -59,10 +49,8 @@
     "dispatcherapplications":{
       "data": {
         "$dispatcherkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -70,10 +58,8 @@
     "knowledgeapplications":{
       "data": {
         "$knowledgekey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -81,10 +67,8 @@
     "toolapplications":{
       "data": {
         "$toolkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }
@@ -92,10 +76,8 @@
     "eventapplications":{
       "data": {
         "$eventkey": {
-          "applications": {
-            "$applicationkey": {
-              ".indexOn": ["avatar"]
-            }
+          "$applicationkey": {
+            ".indexOn": ["avatar"]
           }
         }
       }

@@ -13,6 +13,8 @@
         <f7-list-item radio name="knowledgecontent-radio"
                       :value="knowledgecontent_.id"
                       :title="knowledgecontent_.title"
+                      :badge="knowledgecontent_.ord"
+                      :badge-color="getColor(knowledgecontent_)"
                       :disabled = "knowledgecontent_.ord > 1 && knowledgecontent_.ord > selectedOrd && !isOwner"
                       :checked="selectedOrd === knowledgecontent_.ord"></f7-list-item>
       </f7-list-group>
@@ -165,6 +167,13 @@ export default {
     },
     addCertificate() {
       this.$f7router.navigate(`/knowledge/contents/addCertificate/?mid=${this.knowledgekey}`)
+    },
+    getColor(knowledgecontent_) {
+      if (knowledgecontent_.ord > 1 && knowledgecontent_.ord > this.selectedOrd && !this.isOwner) {
+        return 'gray'
+      } else {
+        return 'red'
+      }
     }
   }
 }

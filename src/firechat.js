@@ -1048,7 +1048,7 @@ Firechat.prototype.updateJob = function(jobKey, data, callback) {
 
 Firechat.prototype.addJobApplication = function(jobKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._jobapplicationsRef.child('data').child(jobKey).child('applications').push()
+  const newApplcationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -1075,7 +1075,7 @@ Firechat.prototype.addJobApplication = function(jobKey, applications, callback) 
 
 Firechat.prototype.updateJobApplication = function(jobKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._jobapplicationsRef.child('data').child(jobKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -1160,23 +1160,15 @@ Firechat.prototype.getJobListByOwner = function(cb) {
 
 Firechat.prototype.getJobListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._jobapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._jobsRef.child('data').once('value', function(snapshot) {
     const jobs = snapshot.val()
     const val = []
     for (const job in jobs) {
-      for (const application in applications) {
-        if (application === job) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(jobs[job])
-            }
-          }
+      self._jobapplicationsRef.child('data').child(job).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(jobs[job])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -1205,14 +1197,14 @@ Firechat.prototype.removeJob = function(jobKey, callback) {
 Firechat.prototype.getJobApplications = function(jobkey, cb) {
   const self = this
 
-  self._jobapplicationsRef.child('data').child(jobkey).child('applications').once('value', function(snapshot) {
+  self._jobapplicationsRef.child('data').child(jobkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeJobApplication = function(jobKey, applicationKey, callback) {
   const self = this
-  self._jobapplicationsRef.child('data').child(jobKey).child('applications').child(applicationKey).remove(function(error) {
+  self._jobapplicationsRef.child('data').child(jobKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._jobsRef.child('data').child(jobKey).transaction(function(current) {
         if (current) {
@@ -1326,7 +1318,7 @@ Firechat.prototype.updateCompany = function(companyKey, data, callback) {
 
 Firechat.prototype.addCompanyApplication = function(companyKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._companyapplicationsRef.child('data').child(companyKey).child('applications').push()
+  const newApplcationsRef = self._companyapplicationsRef.child('data').child(companyKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -1353,7 +1345,7 @@ Firechat.prototype.addCompanyApplication = function(companyKey, applications, ca
 
 Firechat.prototype.updateCompanyApplication = function(companyKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._companyapplicationsRef.child('data').child(companyKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._companyapplicationsRef.child('data').child(companyKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -1438,23 +1430,15 @@ Firechat.prototype.getCompanyListByOwner = function(cb) {
 
 Firechat.prototype.getCompanyListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._companyapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._companysRef.child('data').once('value', function(snapshot) {
     const companys = snapshot.val()
     const val = []
     for (const company in companys) {
-      for (const application in applications) {
-        if (application === company) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(companys[company])
-            }
-          }
+      self._companyapplicationsRef.child('data').child(company).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(companys[company])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -1483,14 +1467,14 @@ Firechat.prototype.removeCompany = function(companyKey, callback) {
 Firechat.prototype.getCompanyApplications = function(companykey, cb) {
   const self = this
 
-  self._companyapplicationsRef.child('data').child(companykey).child('applications').once('value', function(snapshot) {
+  self._companyapplicationsRef.child('data').child(companykey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeCompanyApplication = function(companyKey, applicationKey, callback) {
   const self = this
-  self._companyapplicationsRef.child('data').child(companyKey).child('applications').child(applicationKey).remove(function(error) {
+  self._companyapplicationsRef.child('data').child(companyKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._companysRef.child('data').child(companyKey).transaction(function(current) {
         if (current) {
@@ -1604,7 +1588,7 @@ Firechat.prototype.updateProject = function(projectKey, data, callback) {
 
 Firechat.prototype.addProjectApplication = function(projectKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._projectapplicationsRef.child('data').child(projectKey).child('applications').push()
+  const newApplcationsRef = self._projectapplicationsRef.child('data').child(projectKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -1631,7 +1615,7 @@ Firechat.prototype.addProjectApplication = function(projectKey, applications, ca
 
 Firechat.prototype.updateProjectApplication = function(projectKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._projectapplicationsRef.child('data').child(projectKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._projectapplicationsRef.child('data').child(projectKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -1716,23 +1700,15 @@ Firechat.prototype.getProjectListByOwner = function(cb) {
 
 Firechat.prototype.getProjectListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._projectapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._projectsRef.child('data').once('value', function(snapshot) {
     const projects = snapshot.val()
     const val = []
     for (const project in projects) {
-      for (const application in applications) {
-        if (application === project) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(projects[project])
-            }
-          }
+      self._projectapplicationsRef.child('data').child(project).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(projects[project])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -1761,14 +1737,14 @@ Firechat.prototype.removeProject = function(projectKey, callback) {
 Firechat.prototype.getProjectApplications = function(projectkey, cb) {
   const self = this
 
-  self._projectapplicationsRef.child('data').child(projectkey).child('applications').once('value', function(snapshot) {
+  self._projectapplicationsRef.child('data').child(projectkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeProjectApplication = function(projectKey, applicationKey, callback) {
   const self = this
-  self._projectapplicationsRef.child('data').child(projectKey).child('applications').child(applicationKey).remove(function(error) {
+  self._projectapplicationsRef.child('data').child(projectKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._projectsRef.child('data').child(projectKey).transaction(function(current) {
         if (current) {
@@ -1882,7 +1858,7 @@ Firechat.prototype.updateTalent = function(talentKey, data, callback) {
 
 Firechat.prototype.addTalentApplication = function(talentKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._talentapplicationsRef.child('data').child(talentKey).child('applications').push()
+  const newApplcationsRef = self._talentapplicationsRef.child('data').child(talentKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -1909,7 +1885,7 @@ Firechat.prototype.addTalentApplication = function(talentKey, applications, call
 
 Firechat.prototype.updateTalentApplication = function(talentKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._talentapplicationsRef.child('data').child(talentKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._talentapplicationsRef.child('data').child(talentKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -1994,23 +1970,15 @@ Firechat.prototype.getTalentListByOwner = function(cb) {
 
 Firechat.prototype.getTalentListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._talentapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._talentsRef.child('data').once('value', function(snapshot) {
     const talents = snapshot.val()
     const val = []
     for (const talent in talents) {
-      for (const application in applications) {
-        if (application === talent) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(talents[talent])
-            }
-          }
+      self._talentapplicationsRef.child('data').child(talent).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(talents[talent])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -2039,14 +2007,14 @@ Firechat.prototype.removeTalent = function(talentKey, callback) {
 Firechat.prototype.getTalentApplications = function(talentkey, cb) {
   const self = this
 
-  self._talentapplicationsRef.child('data').child(talentkey).child('applications').once('value', function(snapshot) {
+  self._talentapplicationsRef.child('data').child(talentkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeTalentApplication = function(talentKey, applicationKey, callback) {
   const self = this
-  self._talentapplicationsRef.child('data').child(talentKey).child('applications').child(applicationKey).remove(function(error) {
+  self._talentapplicationsRef.child('data').child(talentKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._talentsRef.child('data').child(talentKey).transaction(function(current) {
         if (current) {
@@ -2160,7 +2128,7 @@ Firechat.prototype.updateConsultant = function(consultantKey, data, callback) {
 
 Firechat.prototype.addConsultantApplication = function(consultantKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child('applications').push()
+  const newApplcationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -2187,7 +2155,7 @@ Firechat.prototype.addConsultantApplication = function(consultantKey, applicatio
 
 Firechat.prototype.updateConsultantApplication = function(consultantKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -2272,23 +2240,15 @@ Firechat.prototype.getConsultantListByOwner = function(cb) {
 
 Firechat.prototype.getConsultantListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._consultantapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._consultantsRef.child('data').once('value', function(snapshot) {
     const consultants = snapshot.val()
     const val = []
     for (const consultant in consultants) {
-      for (const application in applications) {
-        if (application === consultant) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(consultants[consultant])
-            }
-          }
+      self._consultantapplicationsRef.child('data').child(consultant).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(consultants[consultant])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -2317,14 +2277,14 @@ Firechat.prototype.removeConsultant = function(consultantKey, callback) {
 Firechat.prototype.getConsultantApplications = function(consultantkey, cb) {
   const self = this
 
-  self._consultantapplicationsRef.child('data').child(consultantkey).child('applications').once('value', function(snapshot) {
+  self._consultantapplicationsRef.child('data').child(consultantkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeConsultantApplication = function(consultantKey, applicationKey, callback) {
   const self = this
-  self._consultantapplicationsRef.child('data').child(consultantKey).child('applications').child(applicationKey).remove(function(error) {
+  self._consultantapplicationsRef.child('data').child(consultantKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._consultantsRef.child('data').child(consultantKey).transaction(function(current) {
         if (current) {
@@ -2438,7 +2398,7 @@ Firechat.prototype.updateDispatcher = function(dispatcherKey, data, callback) {
 
 Firechat.prototype.addDispatcherApplication = function(dispatcherKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child('applications').push()
+  const newApplcationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -2465,7 +2425,7 @@ Firechat.prototype.addDispatcherApplication = function(dispatcherKey, applicatio
 
 Firechat.prototype.updateDispatcherApplication = function(dispatcherKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -2550,23 +2510,15 @@ Firechat.prototype.getDispatcherListByOwner = function(cb) {
 
 Firechat.prototype.getDispatcherListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._dispatcherapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._dispatchersRef.child('data').once('value', function(snapshot) {
     const dispatchers = snapshot.val()
     const val = []
     for (const dispatcher in dispatchers) {
-      for (const application in applications) {
-        if (application === dispatcher) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(dispatchers[dispatcher])
-            }
-          }
+      self._dispatcherapplicationsRef.child('data').child(dispatcher).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(dispatchers[dispatcher])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -2595,14 +2547,14 @@ Firechat.prototype.removeDispatcher = function(dispatcherKey, callback) {
 Firechat.prototype.getDispatcherApplications = function(dispatcherkey, cb) {
   const self = this
 
-  self._dispatcherapplcationsRef.child('data').child(dispatcherkey).child('applications').once('value', function(snapshot) {
+  self._dispatcherapplcationsRef.child('data').child(dispatcherkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeDispatcherApplication = function(dispatcherKey, applicationKey, callback) {
   const self = this
-  self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child('applications').child(applicationKey).remove(function(error) {
+  self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._dispatchersRef.child('data').child(dispatcherKey).transaction(function(current) {
         if (current) {
@@ -2718,7 +2670,7 @@ Firechat.prototype.updateKnowledge = function(knowledgeKey, data, callback) {
 
 Firechat.prototype.addKnowledgeApplication = function(knowledgeKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child('applications').push()
+  const newApplcationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -2745,7 +2697,7 @@ Firechat.prototype.addKnowledgeApplication = function(knowledgeKey, applications
 
 Firechat.prototype.updateKnowledgeApplication = function(knowledgeKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -2962,23 +2914,15 @@ Firechat.prototype.getKnowledgeListByOwner = function(cb) {
 
 Firechat.prototype.getKnowledgeListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._knowledgeapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._knowledgesRef.child('data').once('value', function(snapshot) {
     const knowledges = snapshot.val()
     const val = []
     for (const knowledge in knowledges) {
-      for (const application in applications) {
-        if (application === knowledge) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(knowledges[knowledge])
-            }
-          }
+      self._knowledgeapplicationsRef.child('data').child(knowledge).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(knowledges[knowledge])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -3027,7 +2971,7 @@ Firechat.prototype.removeKnowledge = function(knowledgeKey, callback) {
 Firechat.prototype.getKnowledgeApplications = function(knowledgekey, cb) {
   const self = this
 
-  self._knowledgeapplicationsRef.child('data').child(knowledgekey).child('applications').once('value', function(snapshot) {
+  self._knowledgeapplicationsRef.child('data').child(knowledgekey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3035,7 +2979,7 @@ Firechat.prototype.getKnowledgeApplications = function(knowledgekey, cb) {
 Firechat.prototype.getMyKnowledgeApplication = function(knowledgekey, cb) {
   const self = this
 
-  self._knowledgeapplicationsRef.child('data').child(knowledgekey).child('applications').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._knowledgeapplicationsRef.child('data').child(knowledgekey).orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3082,7 +3026,7 @@ Firechat.prototype.getLearningStatus = function(cb) {
 
 Firechat.prototype.removeKnowledgeApplication = function(knowledgeKey, applicationKey, callback) {
   const self = this
-  self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child('applications').child(applicationKey).remove(function(error) {
+  self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
         if (current) {
@@ -3214,7 +3158,7 @@ Firechat.prototype.updateTool = function(toolKey, data, callback) {
 
 Firechat.prototype.addToolApplication = function(toolKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._toolapplicationsRef.child('data').child(toolKey).child('applications').push()
+  const newApplcationsRef = self._toolapplicationsRef.child('data').child(toolKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -3241,7 +3185,7 @@ Firechat.prototype.addToolApplication = function(toolKey, applications, callback
 
 Firechat.prototype.updateToolApplication = function(toolKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._toolapplicationsRef.child('data').child(toolKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._toolapplicationsRef.child('data').child(toolKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -3326,23 +3270,15 @@ Firechat.prototype.getToolListByOwner = function(cb) {
 
 Firechat.prototype.getToolListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._toolapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._toolsRef.child('data').once('value', function(snapshot) {
     const tools = snapshot.val()
     const val = []
     for (const tool in tools) {
-      for (const application in applications) {
-        if (application === tool) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(tools[tool])
-            }
-          }
+      self._toolapplicationsRef.child('data').child(tool).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(tools[tool])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -3371,14 +3307,14 @@ Firechat.prototype.removeTool = function(toolKey, callback) {
 Firechat.prototype.getToolApplications = function(toolkey, cb) {
   const self = this
 
-  self._toolapplicationsRef.child('data').child(toolkey).child('applications').once('value', function(snapshot) {
+  self._toolapplicationsRef.child('data').child(toolkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeToolApplication = function(toolKey, applicationKey, callback) {
   const self = this
-  self._toolapplicationsRef.child('data').child(toolKey).child('applications').child(applicationKey).remove(function(error) {
+  self._toolapplicationsRef.child('data').child(toolKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._toolsRef.child('data').child(toolKey).transaction(function(current) {
         if (current) {
@@ -3492,7 +3428,7 @@ Firechat.prototype.updateEvent = function(eventKey, data, callback) {
 
 Firechat.prototype.addEventApplication = function(eventKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._eventapplicationsRef.child('data').child(eventKey).child('applications').push()
+  const newApplcationsRef = self._eventapplicationsRef.child('data').child(eventKey).child(this._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
@@ -3519,7 +3455,7 @@ Firechat.prototype.addEventApplication = function(eventKey, applications, callba
 
 Firechat.prototype.updateEventApplication = function(eventKey, applicationKey, approvalStatus, callback) {
   const self = this
-  const newApplicationsRef = self._eventapplicationsRef.child('data').child(eventKey).child('applications').child(applicationKey)
+  const newApplicationsRef = self._eventapplicationsRef.child('data').child(eventKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
     approvalAvatar: this._userId,
@@ -3604,23 +3540,15 @@ Firechat.prototype.getEventListByOwner = function(cb) {
 
 Firechat.prototype.getEventListByApplication = function(cb) {
   const self = this
-  let applications = {}
-  self._eventapplicationsRef.child('data').once('value', function(snapshot) {
-    applications = snapshot.val()
-  })
   self._eventsRef.child('data').once('value', function(snapshot) {
     const events = snapshot.val()
     const val = []
     for (const event in events) {
-      for (const application in applications) {
-        if (application === event) {
-          for (const app in applications[application].applications) {
-            if (applications[application].applications[app].avatar === self._userId) {
-              val.push(events[event])
-            }
-          }
+      self._eventapplicationsRef.child('data').child(event).child(self._userId).once('value', function(snapshot2) {
+        if (snapshot2.exists()) {
+          val.push(events[event])
         }
-      }
+      })
     }
     cb(val)
   })
@@ -3649,14 +3577,14 @@ Firechat.prototype.removeEvent = function(eventKey, callback) {
 Firechat.prototype.getEventApplications = function(eventkey, cb) {
   const self = this
 
-  self._eventapplicationsRef.child('data').child(eventkey).child('applications').once('value', function(snapshot) {
+  self._eventapplicationsRef.child('data').child(eventkey).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
 
 Firechat.prototype.removeEventApplication = function(eventKey, applicationKey, callback) {
   const self = this
-  self._eventapplicationsRef.child('data').child(eventKey).child('applications').child(applicationKey).remove(function(error) {
+  self._eventapplicationsRef.child('data').child(eventKey).child(applicationKey).remove(function(error) {
     if (!error) {
       self._eventsRef.child('data').child(eventKey).transaction(function(current) {
         if (current) {
