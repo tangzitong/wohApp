@@ -68,8 +68,12 @@ export default {
           window.store.dispatch('initKnowledgecontents', data)
         }
       })
-      this.$root.chat.getMyKnowledgeApplication(this.knowledgekey, function(applications) {
-        window.store.dispatch('initKnowledgeApplications', applications)
+      this.$root.chat.getMyKnowledgeApplication(this.knowledgekey, data => {
+        if (data) {
+          const val = []
+          val.push(data)
+          window.store.dispatch('initKnowledgeApplications', val)
+        }
       })
       this.$root.chat.getLearningStatus(data => {
         if (data) {
@@ -92,7 +96,7 @@ export default {
     },
     setIsApproved() {
       for (const knowledgeapplication in this.knowledgeapplications) {
-        if (this.knowledgeapplications[knowledgeapplication].approvalStatus === 'true') {
+        if (this.knowledgeapplications[knowledgeapplication].approvalStatus === true) {
           this.isApproved = true
           break
         }
