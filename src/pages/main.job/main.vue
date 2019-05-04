@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationJobs() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getJobListByApplication(function(applicationjobs) {
         window.store.dispatch('initApplicationJobs', applicationjobs)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerJobs() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getJobListByOwner(function(ownerjobs) {
         window.store.dispatch('initOwnerJobs', ownerjobs)

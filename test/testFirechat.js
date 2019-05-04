@@ -4795,6 +4795,7 @@ exports['addKnowledgeCertificate'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
+*/
 exports['createCertificate'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4807,7 +4808,7 @@ exports['createCertificate'] = function(test) {
             // console.log(knowledges)
             for (const knowledge in knowledges) {
               if (knowledges[knowledge].avatar === user.uid) {
-                chat.createCertificate('src/assets/images/certificate.png', 'src/assets/images/' + knowledges[knowledge].id + knowledges[knowledge].avatar + '.png', knowledges[knowledge].name, () => {
+                chat.createCertificate('src/assets/images/certificate.png', 'src/assets/images/' + knowledges[knowledge].id + knowledges[knowledge].avatar + '.png', () => {
                   test.done()
                 })
               }
@@ -4819,7 +4820,7 @@ exports['createCertificate'] = function(test) {
   })
   auth.signInWithEmailAndPassword('test1@gmail.com', '12345qwert')
 }
-
+/*
 exports['getKnowledgeListByOwner'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4889,7 +4890,7 @@ exports['getMyKnowledgeApplication'] = function(test) {
   })
   auth.signInWithEmailAndPassword('zhengjun@jp.highwayns.com', 'zjhuen1915')
 }
-*/
+
 exports['getKnowledgeListByApplication'] = function(test) {
   auth.onAuthStateChanged(function(user) {
     if (user) {
@@ -4910,3 +4911,4 @@ exports['getKnowledgeListByApplication'] = function(test) {
   })
   auth.signInWithEmailAndPassword('zhengjun@jp.highwayns.com', 'zjhuen1915')
 }
+*/

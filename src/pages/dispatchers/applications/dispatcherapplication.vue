@@ -25,11 +25,11 @@
                 <span class="iconfont icon-application"></span>
                 <span class="text" v-text="$t('dispatcher.removeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(dispatcher.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(dispatcher.id, application.id)">
                 <span class="iconfont icon-thumbup"></span>
                 <span class="text" v-text="$t('dispatcher.disagreeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(dispatcher.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(dispatcher.id, application.id)">
                 <span class="iconfont icon-close"></span>
                 <span class="text" v-text="$t('dispatcher.agreeapplication')"></span>
               </f7-link>
@@ -148,6 +148,7 @@ export default {
   data() {
     return {
       dispatcher: {},
+      isOwner: false,
       userid: null
     }
   },
@@ -161,6 +162,7 @@ export default {
   mounted() {
     const query = this.$f7route.query
     this.dispatcher = find(this.dispatchers, p => p.id === query.mid)
+    this.isOwner = (query.isowner === 'true')
     this.$root.chat.getDispatcherApplications(this.dispatcher.id, function(applications) {
       window.store.dispatch('initDispatcherApplications', applications)
     })

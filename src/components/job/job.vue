@@ -139,7 +139,7 @@ export default {
       this.$f7router.navigate(`/job/likes/?mid=${this.data.id}`)
     },
     applicationJob() {
-      this.$f7router.navigate(`/job/applications/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/job/applications/?mid=${this.data.id}&isowner=${this.isOwner}`)
     },
     updateJob() {
       this.$f7router.navigate(`/job/add/?mid=${this.data.id}`)

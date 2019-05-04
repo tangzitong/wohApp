@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationProjects() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getProjectListByApplication(function(applicationprojects) {
         window.store.dispatch('initApplicationProjects', applicationprojects)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerProjects() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getProjectListByOwner(function(ownerprojects) {
         window.store.dispatch('initOwnerProjects', ownerprojects)

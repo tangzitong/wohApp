@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationCompanys() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getCompanyListByApplication(function(applicationcompanys) {
         window.store.dispatch('initApplicationCompanys', applicationcompanys)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerCompanys() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getCompanyListByOwner(function(ownercompanys) {
         window.store.dispatch('initOwnerCompanys', ownercompanys)

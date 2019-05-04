@@ -139,7 +139,7 @@ export default {
       this.$f7router.navigate(`/event/likes/?mid=${this.data.id}`)
     },
     applicationEvent() {
-      this.$f7router.navigate(`/event/applications/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/event/applications/?mid=${this.data.id}&isowner=${this.isOwner}`)
     },
     updateEvent() {
       this.$f7router.navigate(`/event/add/?mid=${this.data.id}`)

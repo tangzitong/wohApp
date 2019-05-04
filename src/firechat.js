@@ -1,6 +1,7 @@
 // import firebase from 'firebase'
 const firebase = require('firebase/app')
-const images = require('pureimage')
+const pureimage = require('pureimage')
+const axios = require('axios')
 const fs = require('fs')
 // Firechat is a simple, easily-extensible data layer for multi-user,
 // multi-room chat, built entirely on [Firebase](https://firebase.google.com).
@@ -1202,6 +1203,14 @@ Firechat.prototype.getJobApplications = function(jobkey, cb) {
   })
 }
 
+Firechat.prototype.getMyJobApplication = function(jobkey, cb) {
+  const self = this
+
+  self._jobapplicationsRef.child('data').child(jobkey).child(this._userId).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeJobApplication = function(jobKey, applicationKey, callback) {
   const self = this
   self._jobapplicationsRef.child('data').child(jobKey).child(applicationKey).remove(function(error) {
@@ -1468,6 +1477,14 @@ Firechat.prototype.getCompanyApplications = function(companykey, cb) {
   const self = this
 
   self._companyapplicationsRef.child('data').child(companykey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getMyCompanyApplication = function(companykey, cb) {
+  const self = this
+
+  self._companyapplicationsRef.child('data').child(companykey).child(this._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1742,6 +1759,14 @@ Firechat.prototype.getProjectApplications = function(projectkey, cb) {
   })
 }
 
+Firechat.prototype.getMyProjectApplication = function(projectkey, cb) {
+  const self = this
+
+  self._projectapplicationsRef.child('data').child(projectkey).child(this._userId).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeProjectApplication = function(projectKey, applicationKey, callback) {
   const self = this
   self._projectapplicationsRef.child('data').child(projectKey).child(applicationKey).remove(function(error) {
@@ -2008,6 +2033,14 @@ Firechat.prototype.getTalentApplications = function(talentkey, cb) {
   const self = this
 
   self._talentapplicationsRef.child('data').child(talentkey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getMyTalentApplication = function(talentkey, cb) {
+  const self = this
+
+  self._talentapplicationsRef.child('data').child(talentkey).child(this._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2282,6 +2315,14 @@ Firechat.prototype.getConsultantApplications = function(consultantkey, cb) {
   })
 }
 
+Firechat.prototype.getMyConsultantApplication = function(consultantkey, cb) {
+  const self = this
+
+  self._consultantapplicationsRef.child('data').child(consultantkey).child(this._userId).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeConsultantApplication = function(consultantKey, applicationKey, callback) {
   const self = this
   self._consultantapplicationsRef.child('data').child(consultantKey).child(applicationKey).remove(function(error) {
@@ -2548,6 +2589,14 @@ Firechat.prototype.getDispatcherApplications = function(dispatcherkey, cb) {
   const self = this
 
   self._dispatcherapplcationsRef.child('data').child(dispatcherkey).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
+Firechat.prototype.getMyDispatcherApplication = function(dispatcherkey, cb) {
+  const self = this
+
+  self._dispatcherapplicationsRef.child('data').child(dispatcherkey).child(this._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3312,6 +3361,14 @@ Firechat.prototype.getToolApplications = function(toolkey, cb) {
   })
 }
 
+Firechat.prototype.getMyToolApplication = function(toolkey, cb) {
+  const self = this
+
+  self._toolapplicationsRef.child('data').child(toolkey).child(this._userId).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeToolApplication = function(toolKey, applicationKey, callback) {
   const self = this
   self._toolapplicationsRef.child('data').child(toolKey).child(applicationKey).remove(function(error) {
@@ -3582,6 +3639,14 @@ Firechat.prototype.getEventApplications = function(eventkey, cb) {
   })
 }
 
+Firechat.prototype.getMyEventApplication = function(eventkey, cb) {
+  const self = this
+
+  self._eventapplicationsRef.child('data').child(eventkey).child(this._userId).once('value', function(snapshot) {
+    cb(snapshot.val())
+  })
+}
+
 Firechat.prototype.removeEventApplication = function(eventKey, applicationKey, callback) {
   const self = this
   self._eventapplicationsRef.child('data').child(eventKey).child(applicationKey).remove(function(error) {
@@ -3626,11 +3691,20 @@ Firechat.prototype.unlikeEvent = function(eventKey, likeKey, callback) {
   })
 }
 
-Firechat.prototype.createCertificate = function(certificatePath, myCertificatePath, knowledge, callback) {
+Firechat.prototype.downloadCertificateTemplate = function(certificateUrl, certificatePath, callback) {
+  axios.get(certificateUrl, {responseType: 'arraybuffer'}).then(res => {
+    fs.writeFileSync(certificatePath, new Buffer.From(res.data), 'binary')
+    if (callback) {
+      callback()
+    }
+  })
+}
+
+Firechat.prototype.createCertificate = function(certificatePath, myCertificatePath, callback) {
   const self = this
-  const fnt = images.registerFont('src/assets/fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
+  const fnt = pureimage.registerFont('src/assets/fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
   fnt.load(() => {
-    images.decodePNGFromStream(fs.createReadStream(certificatePath)).then((img) => {
+    pureimage.decodePNGFromStream(fs.createReadStream(certificatePath)).then((img) => {
       const ctx = img.getContext('2d')
       ctx.fillStyle = '#ffffff'
       ctx.font = "48pt 'Source Sans Pro'"
@@ -3639,10 +3713,9 @@ Firechat.prototype.createCertificate = function(certificatePath, myCertificatePa
       const m = ('00' + (dt.getMonth() + 1)).slice(-2)
       const d = ('00' + dt.getDate()).slice(-2)
       const result = y + '/' + m + '/' + d
-      ctx.fillText(knowledge, 377, 426)
-      ctx.fillText(self._userName, 377, 490)
-      ctx.fillText(result, 377, 543)
-      images.encodePNGToStream(img, fs.createWriteStream(myCertificatePath)).then(() => {
+      ctx.fillText(self._userName, 377, 520)
+      ctx.fillText(result, 377, 573)
+      pureimage.encodePNGToStream(img, fs.createWriteStream(myCertificatePath)).then(() => {
         if (callback) {
           callback()
         }

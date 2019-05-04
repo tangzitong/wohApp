@@ -4,8 +4,7 @@
       <f7-list-group v-for="talent_ in talents" :key="talent_.id">
         <f7-list-item :link="getLink(talent_.id)"
           :value="talent_.id"
-          :title="talent_.name"
-          :after="$t('app.study')">
+          :title="talent_.name">
           <i class="f7-icons size-25" slot="media">book_fill</i>
           </f7-list-item>
       </f7-list-group>

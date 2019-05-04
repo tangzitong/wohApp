@@ -17,14 +17,6 @@
         <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
       </f7-list-item>
     </f7-list>
-    <f7-list>
-        <!-- Image uploader component -->
-      <f7-block v-if="isUserLogin && knowledgekey">
-        <imageuploader
-          :store="'knowledgecertificates/' + userid + '/' + knowledgekey"
-          :db="'knowledgecertificates/data/' + knowledgekey + '/' + userid + '/certificatePath'" />
-      </f7-block>
-    </f7-list>
     <div class="comments">
       <div class="title">
         <span>{{$t('home.comment')}}</span>
@@ -151,7 +143,6 @@
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapState, mapActions } from 'vuex'
-import imageuploader from '../../../../popup/imageuploader'
 
 export default {
   data() {
@@ -176,7 +167,9 @@ export default {
       knowledgecertificates: state => state.knowledgecertificates,
       knowledgecomments: state => state.knowledgecomments,
       isUserLogin: state => state.isUserLogin
-    })
+    }),
+    store: 'knowledgecertificates/' + this.userid + '/' + this.knowledgekey,
+    db: 'knowledgecertificates/data/' + this.knowledgekey + '/' + this.userid + '/certificatePath'
   },
   mounted: function () {
     const query = this.$f7route.query
@@ -223,9 +216,63 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
+    uploadFile(imageUri) {
+      this.performingRequest = true
+      window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
+        fileEntry.file(function (file) {
+          const reader = new window.FileReader()
+          reader.onloadend = function () {
+            const blob = new window.Blob([new Uint8Array(this.result)], {type: file.type})
+            window.storage(this.store).put(blob, {contentType: blob.type})
+              .then(() => {
+                this.handleFileUploaded()
+              })
+              .catch(() => {
+                // window.f7.hideIndicator()
+                this.performingRequest = false
+                window.$$.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
+              })
+          }
+          reader.readAsArrayBuffer(file)
+        })
+      })
+    },
+    handleFileUploaded: function () {
+      if (this.db !== '') {
+        // Get download URL
+        window.storage(this.store).getDownloadURL()
+          .then(url => {
+            // Save download URL to user data
+            window.db(this.db).set(url)
+              .then(() => {
+                // window.f7.hideIndicator()
+                this.performingRequest = false
+              })
+              .catch(() => {
+                // window.f7.hideIndicator()
+                this.performingRequest = false
+                window.$$.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
+              })
+          })
+          .catch(() => {
+            // window.f7.hideIndicator()
+            this.performingRequest = false
+            window.$$.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
+          })
+      } else {
+        // window.f7.hideIndicator()
+        this.performingRequest = false
+      }
+    },
     createCertificate() {
+      this.$root.chat.downloadCertificateTemplate(this.certificatePath, 'src/assets/images/' + this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png', knowledgeKey => {
+        console.log('knowledgeKey=' + knowledgeKey)
+      })
       this.$root.chat.addKnowledgeCertificate(this.knowledgekey, knowledgeKey => {
         console.log('knowledgeKey=' + knowledgeKey)
+      })
+      this.$root.chat.createCertificate(this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png', 'src/assets/images/' + this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png', () => {
+        this.uploadFile('src/assets/images/' + this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png')
       })
     },
     getMyKnowledgeCertificate() {
@@ -297,9 +344,6 @@ export default {
         value: true
       })
     }
-  },
-  components: {
-    imageuploader
   }
 }
 </script>

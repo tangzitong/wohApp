@@ -121,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getApplicationKnowledges() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getKnowledgeListByApplication(function(applicationknowledges) {
         window.store.dispatch('initApplicationKnowledges', applicationknowledges)

@@ -25,11 +25,11 @@
                 <span class="iconfont icon-application"></span>
                 <span class="text" v-text="$t('event.removeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(event.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(event.id, application.id)">
                 <span class="iconfont icon-thumbup"></span>
                 <span class="text" v-text="$t('event.disagreeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(event.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(event.id, application.id)">
                 <span class="iconfont icon-close"></span>
                 <span class="text" v-text="$t('event.agreeapplication')"></span>
               </f7-link>
@@ -148,6 +148,7 @@ export default {
   data() {
     return {
       event: {},
+      isOwner: false,
       userid: null
     }
   },
@@ -161,6 +162,7 @@ export default {
   mounted() {
     const query = this.$f7route.query
     this.event = find(this.events, p => p.id === query.mid)
+    this.isOwner = (query.isowner === 'true')
     this.$root.chat.getEventApplications(this.event.id, function(applications) {
       window.store.dispatch('initEventApplications', applications)
     })

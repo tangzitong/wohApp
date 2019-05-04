@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationEvents() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getEventListByApplication(function(applicationevents) {
         window.store.dispatch('initApplicationEvents', applicationevents)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerEvents() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getEventListByOwner(function(ownerevents) {
         window.store.dispatch('initOwnerEvents', ownerevents)

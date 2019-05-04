@@ -4,8 +4,7 @@
       <f7-list-group v-for="consultant_ in consultants" :key="consultant_.id">
         <f7-list-item :link="getLink(consultant_.id)"
           :value="consultant_.id"
-          :title="consultant_.name"
-          :after="$t('app.study')">
+          :title="consultant_.name">
           <i class="f7-icons size-25" slot="media">book_fill</i>
           </f7-list-item>
       </f7-list-group>

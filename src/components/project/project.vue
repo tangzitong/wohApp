@@ -139,7 +139,7 @@ export default {
       this.$f7router.navigate(`/project/likes/?mid=${this.data.id}`)
     },
     applicationProject() {
-      this.$f7router.navigate(`/project/applications/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/project/applications/?mid=${this.data.id}&isowner=${this.isOwner}`)
     },
     updateProject() {
       this.$f7router.navigate(`/project/add/?mid=${this.data.id}`)

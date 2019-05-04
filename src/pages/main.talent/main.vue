@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationTalents() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getTalentListByApplication(function(applicationtalents) {
         window.store.dispatch('initApplicationTalents', applicationtalents)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerTalents() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getTalentListByOwner(function(ownertalents) {
         window.store.dispatch('initOwnerTalents', ownertalents)

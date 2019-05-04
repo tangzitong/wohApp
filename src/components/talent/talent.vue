@@ -139,7 +139,7 @@ export default {
       this.$f7router.navigate(`/talent/likes/?mid=${this.data.id}`)
     },
     applicationTalent() {
-      this.$f7router.navigate(`/talent/applications/?mid=${this.data.id}`)
+      this.$f7router.navigate(`/talent/applications/?mid=${this.data.id}&isowner=${this.isOwner}`)
     },
     updateTalent() {
       this.$f7router.navigate(`/talent/add/?mid=${this.data.id}`)

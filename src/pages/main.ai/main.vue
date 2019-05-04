@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationTools() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getToolListByApplication(function(applicationtools) {
         window.store.dispatch('initApplicationTools', applicationtools)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerTools() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getToolListByOwner(function(ownertools) {
         window.store.dispatch('initOwnerTools', ownertools)

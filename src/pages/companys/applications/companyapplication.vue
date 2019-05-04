@@ -25,11 +25,11 @@
                 <span class="iconfont icon-application"></span>
                 <span class="text" v-text="$t('company.removeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(company.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus === true" class="tool tool-border flex-rest-width" @click="disagreeApplication(company.id, application.id)">
                 <span class="iconfont icon-thumbup"></span>
                 <span class="text" v-text="$t('company.disagreeapplication')"></span>
               </f7-link>
-              <f7-link v-if="application.avatar !== userid && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(company.id, application.id)">
+              <f7-link v-if="isOwner && application.approvalStatus !== true" class="tool tool-border flex-rest-width" @click="agreeApplication(company.id, application.id)">
                 <span class="iconfont icon-close"></span>
                 <span class="text" v-text="$t('company.agreeapplication')"></span>
               </f7-link>
@@ -148,6 +148,7 @@ export default {
   data() {
     return {
       company: {},
+      isOwner: false,
       userid: null
     }
   },
@@ -161,6 +162,7 @@ export default {
   mounted() {
     const query = this.$f7route.query
     this.company = find(this.companys, p => p.id === query.mid)
+    this.isOwner = (query.isowner === 'true')
     this.$root.chat.getCompanyApplications(this.company.id, function(applications) {
       window.store.dispatch('initCompanyApplications', applications)
     })

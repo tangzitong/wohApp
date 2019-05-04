@@ -121,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getApplicationConsultants() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getConsultantListByApplication(function(applicationconsultants) {
         window.store.dispatch('initApplicationConsultants', applicationconsultants)
@@ -128,6 +129,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerConsultants() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getConsultantListByOwner(function(ownerconsultants) {
         window.store.dispatch('initOwnerConsultants', ownerconsultants)

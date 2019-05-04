@@ -113,6 +113,7 @@ export default {
       }
     },
     getApplicationDispatchers() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getDispatcherListByApplication(function(applicationdispatchers) {
         window.store.dispatch('initApplicationDispatchers', applicationdispatchers)
@@ -120,6 +121,7 @@ export default {
       this.$f7.preloader.hide()
     },
     getOwnerDispatchers() {
+      if (!this.isUserLogin) return
       this.$f7.preloader.show()
       this.$root.chat.getDispatcherListByOwner(function(ownerdispatchers) {
         window.store.dispatch('initOwnerDispatchers', ownerdispatchers)

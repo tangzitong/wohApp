@@ -101,123 +101,14 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 10,
-        "applications" : {
-          "-LbfaQIqniO4AlkJPda-" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbfaQIqniO4AlkJPda-",
-            "name" : "test1",
-            "text" : "asasdasdasd",
-            "time" : 1554435913092
-          },
-          "-LbkB_ApXWR5-qulHddw" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbkB_ApXWR5-qulHddw",
-            "name" : "test1",
-            "text" : "xsss",
-            "time" : 1554513023890
-          },
-          "-Lc-qFLyogKLxVNH7doX" : {
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lc-qFLyogKLxVNH7doX",
-            "text" : "",
-            "time" : 1554792384071
-          },
-          "-LcA8HOhpZhtYnWWNcvS" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LcA8HOhpZhtYnWWNcvS",
-            "name" : "test1",
-            "text" : "this is test",
-            "time" : 1554965145460
-          }
-        },
+        "application_count" : 0,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "companytype" : "1",
         "created_at" : 1554258359052,
         "id" : "-LbW068uZTzWv84W5fNq",
         "industry" : "2",
-        "like_count" : 11,
-        "likes" : {
-          "-LbaREdUKoMYDm_eZ502" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbaREdUKoMYDm_eZ502",
-            "name" : "test1",
-            "time" : 1554349357804
-          },
-          "-LbaYHfnxioJAEFglZSw" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbaYHfnxioJAEFglZSw",
-            "name" : "test1",
-            "time" : 1554351205272
-          },
-          "-LbaYRZMws1mqWQT0Zdw" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbaYRZMws1mqWQT0Zdw",
-            "name" : "test1",
-            "time" : 1554351245732
-          },
-          "-Lba_ma2UMCOD3bWUHmd" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lba_ma2UMCOD3bWUHmd",
-            "name" : "test1",
-            "time" : 1554351860236
-          },
-          "-LbaakqLqer5R_xyBAR9" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbaakqLqer5R_xyBAR9",
-            "name" : "test1",
-            "time" : 1554352115307
-          },
-          "-Lbaal77DIRjXdwdWV_p" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lbaal77DIRjXdwdWV_p",
-            "name" : "test1",
-            "time" : 1554352116444
-          },
-          "-Lbachdo_8LrN4GlAWRa" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lbachdo_8LrN4GlAWRa",
-            "name" : "test1",
-            "time" : 1554352627560
-          },
-          "-Lbachu0LbD1VZ8n36ju" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lbachu0LbD1VZ8n36ju",
-            "name" : "test1",
-            "time" : 1554352627563
-          },
-          "-Lbefn_UC5_OG4ClEXYb" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lbefn_UC5_OG4ClEXYb",
-            "name" : "test1",
-            "time" : 1554420546231
-          },
-          "-LbkF7cTxKMEtKb_ZYWr" : {
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-LbkF7cTxKMEtKb_ZYWr",
-            "time" : 1554513955509
-          },
-          "-Lc9t5NL_siFQnf--Mcr" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-LbW068uZTzWv84W5fNq",
-            "id" : "-Lc9t5NL_siFQnf--Mcr",
-            "name" : "test1",
-            "time" : 1554960901832
-          }
-        },
+        "like_count" : 0,
         "name" : "test company3",
         "nickname" : "test1",
         "photo" : "",
@@ -234,21 +125,7 @@
         "companytype" : "1",
         "created_at" : 1554436069051,
         "id" : "-Lbfb0NmorPWFCnG4IA8",
-        "like_count" : 2,
-        "likes" : {
-          "-LbgV6SwgCCWnrLtFd2t" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "companyid" : "-Lbfb0NmorPWFCnG4IA8",
-            "id" : "-LbgV6SwgCCWnrLtFd2t",
-            "name" : "test1",
-            "time" : 1554451036167
-          },
-          "-Lbmf91L7U27YDm6yPqz" : {
-            "companyid" : "-Lbfb0NmorPWFCnG4IA8",
-            "id" : "-Lbmf91L7U27YDm6yPqz",
-            "time" : 1554554593660
-          }
-        },
+        "like_count" : 0,
         "name" : "",
         "nickname" : "test1"
       },
@@ -331,15 +208,7 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 1,
-        "applications" : {
-          "-LbfMHo-iE6E5YxLV3Er" : {
-            "consultantid" : "-LbW06mrQIcnI-hUSrnL",
-            "id" : "-LbfMHo-iE6E5YxLV3Er",
-            "text" : "xss",
-            "time" : 1554431946121
-          }
-        },
+        "application_count" : 0,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "consultanttype" : "1",
@@ -482,6 +351,40 @@
           "id" : "4",
           "name" : "International Corporation",
           "nickname" : "I"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "consultanttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "Talent",
+          "nickname" : "T"
+        }, {
+          "id" : "2",
+          "name" : "Consultant",
+          "nickname" : "C"
+        }, {
+          "id" : "3",
+          "name" : "Dispatcher",
+          "nickname" : "D"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "dispatchertype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "Talent",
+          "nickname" : "T"
+        }, {
+          "id" : "2",
+          "name" : "Consultant",
+          "nickname" : "C"
+        }, {
+          "id" : "3",
+          "name" : "Dispatcher",
+          "nickname" : "D"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -629,40 +532,6 @@
         "err_code" : 0,
         "err_msg" : "success"
       },
-      "consultanttype" : {
-        "data" : [ {
-          "id" : "1",
-          "name" : "Talent",
-          "nickname" : "T"
-        }, {
-          "id" : "2",
-          "name" : "Consultant",
-          "nickname" : "C"
-        }, {
-          "id" : "3",
-          "name" : "Dispatcher",
-          "nickname" : "D"
-        } ],
-        "err_code" : 0,
-        "err_msg" : "success"
-      },
-      "dispatchertype" : {
-        "data" : [ {
-          "id" : "1",
-          "name" : "Talent",
-          "nickname" : "T"
-        }, {
-          "id" : "2",
-          "name" : "Consultant",
-          "nickname" : "C"
-        }, {
-          "id" : "3",
-          "name" : "Dispatcher",
-          "nickname" : "D"
-        } ],
-        "err_code" : 0,
-        "err_msg" : "success"
-      },
       "tooltype" : {
         "data" : [ {
           "id" : "1",
@@ -722,6 +591,40 @@
           "id" : "4",
           "name" : "国際会社",
           "nickname" : "国"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "consultanttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "タレント",
+          "nickname" : "タ"
+        }, {
+          "id" : "2",
+          "name" : "コンサルタント",
+          "nickname" : "コ"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "dispatchertype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "タレント",
+          "nickname" : "タ"
+        }, {
+          "id" : "2",
+          "name" : "コンサルタント",
+          "nickname" : "コ"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -868,40 +771,6 @@
         "err_code" : 0,
         "err_msg" : "success"
       },
-      "consultanttype" : {
-        "data" : [ {
-          "id" : "1",
-          "name" : "タレント",
-          "nickname" : "タ"
-        }, {
-          "id" : "2",
-          "name" : "コンサルタント",
-          "nickname" : "コ"
-        }, {
-          "id" : "3",
-          "name" : "派遣者",
-          "nickname" : "派"
-        } ],
-        "err_code" : 0,
-        "err_msg" : "success"
-      },
-      "dispatchertype" : {
-        "data" : [ {
-          "id" : "1",
-          "name" : "タレント",
-          "nickname" : "タ"
-        }, {
-          "id" : "2",
-          "name" : "コンサルタント",
-          "nickname" : "コ"
-        }, {
-          "id" : "3",
-          "name" : "派遣者",
-          "nickname" : "派"
-        } ],
-        "err_code" : 0,
-        "err_msg" : "success"
-      },
       "tooltype" : {
         "data" : [ {
           "id" : "1",
@@ -959,6 +828,40 @@
           "id" : "4",
           "name" : "跨国公司",
           "nickname" : "国"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "consultanttype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "人才",
+          "nickname" : "才"
+        }, {
+          "id" : "2",
+          "name" : "咨询师",
+          "nickname" : "咨"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
+        } ],
+        "err_code" : 0,
+        "err_msg" : "success"
+      },
+      "dispatchertype" : {
+        "data" : [ {
+          "id" : "1",
+          "name" : "人才",
+          "nickname" : "才"
+        }, {
+          "id" : "2",
+          "name" : "咨询师",
+          "nickname" : "咨"
+        }, {
+          "id" : "3",
+          "name" : "派遣者",
+          "nickname" : "派"
         } ],
         "err_code" : 0,
         "err_msg" : "success"
@@ -1105,40 +1008,6 @@
         "err_code" : 0,
         "err_msg" : "success"
       },
-      "consultanttype" : {
-        "data" : [ {
-          "id" : "1",
-          "name" : "人才",
-          "nickname" : "才"
-        }, {
-          "id" : "2",
-          "name" : "咨询师",
-          "nickname" : "咨"
-        }, {
-          "id" : "3",
-          "name" : "派遣者",
-          "nickname" : "派"
-        } ],
-        "err_code" : 0,
-        "err_msg" : "success"
-      },
-      "dispatchertype" : {
-        "data" : [ {
-          "id" : "1",
-          "name" : "人才",
-          "nickname" : "才"
-        }, {
-          "id" : "2",
-          "name" : "咨询师",
-          "nickname" : "咨"
-        }, {
-          "id" : "3",
-          "name" : "派遣者",
-          "nickname" : "派"
-        } ],
-        "err_code" : 0,
-        "err_msg" : "success"
-      },
       "tooltype" : {
         "data" : [ {
           "id" : "1",
@@ -1170,21 +1039,7 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 2,
-        "applications" : {
-          "-LbfMKxVp4rj5MCZl_gq" : {
-            "dispatcherid" : "-LbW07-Ak4hTKCxzuXdf",
-            "id" : "-LbfMKxVp4rj5MCZl_gq",
-            "text" : "xss",
-            "time" : 1554431959019
-          },
-          "-LbfVhvjDTZrDfF_Kd89" : {
-            "dispatcherid" : "-LbW07-Ak4hTKCxzuXdf",
-            "id" : "-LbfVhvjDTZrDfF_Kd89",
-            "text" : "sssss",
-            "time" : 1554434416580
-          }
-        },
+        "application_count" : 0,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "created_at" : 1554258362520,
@@ -1224,31 +1079,14 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 1,
-        "applications" : {
-          "-LbfMVFZ6pyHT-3QXzGg" : {
-            "eventid" : "-LbW07cKyWoNzVpJvAZ5",
-            "id" : "-LbfMVFZ6pyHT-3QXzGg",
-            "text" : "ssss",
-            "time" : 1554432001246
-          }
-        },
+        "application_count" : 0,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "created_at" : 1554258365093,
         "eventtype" : "1",
         "id" : "-LbW07cKyWoNzVpJvAZ5",
         "industry" : "1",
-        "like_count" : 1,
-        "likes" : {
-          "-LbacepXVepYsrpdd4xa" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "eventid" : "-LbW07cKyWoNzVpJvAZ5",
-            "id" : "-LbacepXVepYsrpdd4xa",
-            "name" : "test1",
-            "time" : 1554352614969
-          }
-        },
+        "like_count" : 0,
         "name" : "test event2",
         "nickname" : "test1",
         "photo" : "",
@@ -1432,22 +1270,6 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
-  "jobapplications" : {
-    "data" : {
-      "-LbW05tjlGqALVI2K445" : {
-        "applications" : {
-          "-Ldd2NGkZeU-LOqt7bnr" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-Ldd2NGkZeU-LOqt7bnr",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "name" : "test1",
-            "text" : "请提供工作详细信息",
-            "time" : 1556540656127
-          }
-        }
-      }
-    }
-  },
   "jobs" : {
     "data" : {
       "-LbW05tjlGqALVI2K445" : {
@@ -1456,56 +1278,14 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 5,
-        "applications" : {
-          "-LbfVVIUnv-0OmP-doaW" : {
-            "id" : "-LbfVVIUnv-0OmP-doaW",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "text" : "sssss",
-            "time" : 1554434360752
-          },
-          "-Lbl6_opfFYfNUUN9TPk" : {
-            "id" : "-Lbl6_opfFYfNUUN9TPk",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "text" : "rrrrrr",
-            "time" : 1554528493009
-          },
-          "-LcA7vXQmiFK6L_FecPT" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LcA7vXQmiFK6L_FecPT",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "name" : "test1",
-            "text" : "eddd",
-            "time" : 1554965051725
-          },
-          "-LcsQ4oVEjjSwCh-Lz6l" : {
-            "id" : "-LcsQ4oVEjjSwCh-Lz6l",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "text" : "dfsfsdfsdfsdfdsf",
-            "time" : 1555724787399
-          }
-        },
+        "application_count" : 0,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "created_at" : 1554258358025,
         "id" : "-LbW05tjlGqALVI2K445",
         "industry" : "2",
         "jobtype" : "1",
-        "like_count" : 2,
-        "likes" : {
-          "-LbgT0uACX887_LzuhED" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LbgT0uACX887_LzuhED",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "name" : "test1",
-            "time" : 1554450489116
-          },
-          "-Lbmeo1_azdm9ZpKSqIK" : {
-            "id" : "-Lbmeo1_azdm9ZpKSqIK",
-            "jobid" : "-LbW05tjlGqALVI2K445",
-            "time" : 1554554503581
-          }
-        },
+        "like_count" : 0,
         "name" : "test job3",
         "nickname" : "test1",
         "photo" : "",
@@ -1535,71 +1315,31 @@
   "knowledgeapplications" : {
     "data" : {
       "-LbW07Cj8C37LDyZeKHF" : {
-        "applications" : {
-          "-Ld3rF_kKs2COfauzpcq" : {
-            "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "approvalName" : "test1",
-            "approvalStatus" : false,
-            "approval_at" : 1556459759200,
-            "avatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
-            "id" : "-Ld3rF_kKs2COfauzpcq",
-            "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
-            "name" : "test2",
-            "text" : "鄭軍と申します。\n学習を参加させてください。",
-            "time" : 1555933498065
-          }
+        "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
+          "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "approvalName" : "test1",
+          "approvalStatus" : true,
+          "approval_at" : 1556717302575,
+          "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "knowledgeid" : "-LbW07Cj8C37LDyZeKHF",
+          "name" : "tei952",
+          "text" : "よろしくお願いいたします。",
+          "time" : 1556717203100
         }
       },
       "-LbYZZXvYQxtpo2AWpzL" : {
-        "applications" : {
-          "-Ld46PwJ_JKL7qbeCYBt" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-Ld46PwJ_JKL7qbeCYBt",
-            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
-            "name" : "test1",
-            "text" : "鄭軍と申します。よろしくお願いいたします。",
-            "time" : 1555937734685
-          },
-          "-LdZFR0rwBmjHfofRX6Q" : {
-            "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "approvalName" : "test1",
-            "approvalStatus" : true,
-            "approval_at" : 1556461808067,
-            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
-            "id" : "-LdZFR0rwBmjHfofRX6Q",
-            "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
-            "name" : "tei952",
-            "text" : "C#入門を勉強したいです、よろしくお願いいたします。",
-            "time" : 1556460192206
-          }
-        }
-      },
-      "-Ld495mtWIyObJzEEK7s" : {
-        "applications" : {
-          "-Ld49uljA8Kdj9-mavJy" : {
-            "approvalAvatar" : "Vn8NjeM3yCh7vsK6mwhEdk9d1h73",
-            "approvalName" : "test2",
-            "approvalStatus" : true,
-            "approval_at" : 1555976946576,
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-Ld49uljA8Kdj9-mavJy",
-            "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
-            "name" : "test1",
-            "text" : "鄭軍と申します。よろしくお願いいたします。",
-            "time" : 1555938651475
-          }
-        }
-      },
-      "-LdLtODpcc-J83q1aU5f" : {
-        "applications" : {
-          "-LdMdo02l1Fwbn1ZighN" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LdMdo02l1Fwbn1ZighN",
-            "knowledgeid" : "-LdLtODpcc-J83q1aU5f",
-            "name" : "test1",
-            "text" : "d d d",
-            "time" : 1556248740280
-          }
+        "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
+          "approvalAvatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "approvalName" : "test1",
+          "approvalStatus" : true,
+          "approval_at" : 1556744058368,
+          "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "knowledgeid" : "-LbYZZXvYQxtpo2AWpzL",
+          "name" : "tei952",
+          "text" : "sss",
+          "time" : 1556743958723
         }
       }
     }
@@ -1672,6 +1412,22 @@
               "id" : "-LcxYOh92HaZ7OhFDqD_",
               "name" : "test2",
               "time" : 1555810851964
+            },
+            "-Ldv9-JFOVF5t8H0W3mc" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "",
+              "contentid" : "-LcPtGVHXPZU2lKmAWBg",
+              "id" : "-Ldv9-JFOVF5t8H0W3mc",
+              "name" : "tei952",
+              "time" : 1556844381819
+            },
+            "-Ldv9JYj9Yjt004w758w" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "你好！",
+              "contentid" : "-LcPtGVHXPZU2lKmAWBg",
+              "id" : "-Ldv9JYj9Yjt004w758w",
+              "name" : "tei952",
+              "time" : 1556844464712
             }
           },
           "-LcPuOOzxujK4Z-uAWMA" : {
@@ -1739,6 +1495,16 @@
               "name" : "tei952",
               "time" : 1556464281580
             }
+          },
+          "-LdZOt-Zkrwc4mXRAKAo" : {
+            "-Ldpr732CLcdK6ReeCqX" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "请告诉我答案",
+              "contentid" : "-LdZOt-Zkrwc4mXRAKAo",
+              "id" : "-Ldpr732CLcdK6ReeCqX",
+              "name" : "tei952",
+              "time" : 1556755546715
+            }
           }
         }
       }
@@ -1765,7 +1531,7 @@
           },
           "-LcPtGVHXPZU2lKmAWBg" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 1,
+            "comment_count" : 3,
             "content" : {
               "answer" : "d",
               "options" : {
@@ -1857,7 +1623,7 @@
           },
           "-LdZOt-Zkrwc4mXRAKAo" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 1,
             "content" : {
               "inputanswer" : "git pull",
               "inputcontent" : "Gitデータ更新コマンドは「」です。",
@@ -2004,7 +1770,7 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 2,
+        "application_count" : 4,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "certificate_count" : 21,
@@ -2026,7 +1792,7 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀４－１０－１甲東ビル６０４号室",
-        "application_count" : 2,
+        "application_count" : 3,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "certificate_count" : 1,
@@ -2364,6 +2130,15 @@
           "postid" : "-LbRHgPyDAMcmJnsf_nF",
           "time" : 1555941125500
         }
+      },
+      "-LdLmvv2SvIuEAO7e-ch" : {
+        "-LdkisnbIV5pE9F4cVsm" : {
+          "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "id" : "-LdkisnbIV5pE9F4cVsm",
+          "name" : "tei952",
+          "postid" : "-LdLmvv2SvIuEAO7e-ch",
+          "time" : 1556669500985
+        }
       }
     },
     "err_code" : 0,
@@ -2539,7 +2314,7 @@
         "comment_count" : 1,
         "created_at" : 1556234354590,
         "id" : "-LdLmvv2SvIuEAO7e-ch",
-        "like_count" : 0,
+        "like_count" : 1,
         "nickname" : "test1",
         "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
         "text" : "海威学习app即将发布，欢迎大家关注"
@@ -3508,6 +3283,14 @@
         "timestamp" : 1556450145422,
         "type" : "messageType",
         "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LdsVbCINPZJVMJfSyRv" : {
+        ".priority" : 1.556799976476E12,
+        "message" : "１１１",
+        "name" : "test1",
+        "timestamp" : 1556799976476,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
       }
     },
     "-LdZLabGR1N_h0cosQNI" : {
@@ -3540,6 +3323,38 @@
         "message" : "ありがとうございました。",
         "name" : "tei952",
         "timestamp" : 1556464282350,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-Ldpr7BnNFjy3FITXJue" : {
+        ".priority" : 1.556755547145E12,
+        "message" : "请告诉我答案",
+        "name" : "tei952",
+        "timestamp" : 1556755547145,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LdsVgc6cM3G4uiM4efI" : {
+        ".priority" : 1.556799998686E12,
+        "message" : "HELLO",
+        "name" : "test1",
+        "timestamp" : 1556799998686,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-Ldv9-Sdub6cT9i9tDET" : {
+        ".priority" : 1.556844382269E12,
+        "message" : "",
+        "name" : "tei952",
+        "timestamp" : 1556844382269,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-Ldv9JgQkZroRermQQ9j" : {
+        ".priority" : 1.55684446513E12,
+        "message" : "你好！",
+        "name" : "tei952",
+        "timestamp" : 1556844465130,
         "type" : "messageType",
         "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
       }
@@ -3575,32 +3390,6 @@
       "type" : "private"
     }
   },
-  "room-users" : {
-    "-LbpDP3nLIekOaNV6i9R" : {
-      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
-        "-LcswklWn161epTCpFaA" : {
-          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-          "name" : "test1"
-        },
-        "-LdSfrrWbLS1qpkfebBw" : {
-          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-          "name" : "test1"
-        },
-        "-LdiQfG4gh4avk_OYXEj" : {
-          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-          "name" : "test1"
-        }
-      }
-    },
-    "-LdZLabGR1N_h0cosQNI" : {
-      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
-        "-LdiQfG4gh4avk_OYXEj" : {
-          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-          "name" : "test1"
-        }
-      }
-    }
-  },
   "talents" : {
     "data" : {
       "-LbW06_C0f7YZbS0UVec" : {
@@ -3609,15 +3398,7 @@
         "Manager" : "1",
         "Tel" : "1",
         "address" : "11",
-        "application_count" : 1,
-        "applications" : {
-          "-LbfMERRbVMg7OvUuNs_" : {
-            "id" : "-LbfMERRbVMg7OvUuNs_",
-            "talentid" : "-LbW06_C0f7YZbS0UVec",
-            "text" : "xss",
-            "time" : 1554431932328
-          }
-        },
+        "application_count" : 0,
         "area" : "1",
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "created_at" : 1554258360796,
@@ -3653,17 +3434,7 @@
         "Manager" : "sss",
         "Tel" : "sdss",
         "address" : "sss",
-        "application_count" : 1,
-        "applications" : {
-          "-LblopuSjigOK62kkam_" : {
-            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "id" : "-LblopuSjigOK62kkam_",
-            "name" : "test1",
-            "talentid" : "-LbloZda0z9U_gs11lT9",
-            "text" : "sss",
-            "time" : 1554540355376
-          }
-        },
+        "application_count" : 0,
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "created_at" : 1554540284663,
         "id" : "-LbloZda0z9U_gs11lT9",
@@ -3855,31 +3626,11 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
-  "user-names-online" : {
-    "test1" : {
-      "-LcswklWn161epTCpFaA" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      },
-      "-LdS9TiUDVUXwSXEaL1O" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      },
-      "-LdSfrrWbLS1qpkfebBw" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      },
-      "-LdiQfG4gh4avk_OYXEj" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      }
-    }
-  },
   "user_login" : {
     "data" : {
       "sid" : "e651771fe37dc17c17421331a87721",
       "user" : {
-        "avatar_url" : "http://woh.highwayns.com/mock/top.jpg",
+        "avatar_url" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/android-icon-xxhdpi-144x144.png?alt=media&token=d6e43d58-52c6-4ed6-ac2d-d68072d5a12a",
         "gender" : "m",
         "id" : 10001,
         "location" : "Tokyo",
@@ -3939,12 +3690,6 @@
           "location" : "Tokyo",
           "name" : "tei952"
         }
-      },
-      "sessions" : {
-        "-LcswklWn161epTCpFaA" : true,
-        "-LdS9TiUDVUXwSXEaL1O" : true,
-        "-LdSfrrWbLS1qpkfebBw" : true,
-        "-LdiQfG4gh4avk_OYXEj" : true
       },
       "talent_count" : 3,
       "tool_count" : 2
@@ -4045,7 +3790,12 @@
       "learnings" : {
         "-LbW07Cj8C37LDyZeKHF" : {
           "LearningStatus" : true,
-          "approval_at" : 1556327486570,
+          "approval_at" : 1556844271625,
+          "contentOrd" : "2"
+        },
+        "-LbYZZXvYQxtpo2AWpzL" : {
+          "LearningStatus" : true,
+          "approval_at" : 1556755528559,
           "contentOrd" : "2"
         }
       },
