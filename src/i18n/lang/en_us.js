@@ -29,7 +29,7 @@ export default {
     consultantfinder: 'Finder',
     consultant: 'Consultant',
     dispatcherfinder: 'Finder',
-    dispatacher: 'Dispatcher',
+    dispatcher: 'Dispatcher',
     toolfinder: 'Finder',
     toolmanager: 'Manager',
     eventfinder: 'Participater',

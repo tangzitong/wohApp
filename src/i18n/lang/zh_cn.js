@@ -26,7 +26,7 @@ export default {
     consultantfinder: '咨询人',
     consultant: '咨询师',
     dispatcherfinder: '求职者',
-    dispatacher: '派遣人',
+    dispatcher: '派遣人',
     toolfinder: '工具检索人',
     toolmanager: '工具管理者',
     eventfinder: '参加者',
