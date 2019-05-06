@@ -1,8 +1,8 @@
-* knowledge: JS For Beginer
+JS For Beginer
+===
 * knowledgeid: -LbW07Cj8C37LDyZeKHF
 * author: test1
 * authorid: CIxg5db1wHWTu1eeymVp4EkLzfg1
-===
 
 # 1.0 内置类型
 * 基本类型有六种： null，undefined，boolean，number，string，symbol
@@ -26,12 +26,17 @@ typeof console.log // 'function'
 typeof null // 'object'
 ```
 # 1.1 内置类型选择题
-* title: typeof Symbol()的结果师
-* a:symbol
-* b:undefined
-* c:object
-* d:function
+* title: typeof Symbol()的结果是
+* a: symbol
+* b: undefined
+* c: object
+* d: function
 * answer: a
+
+# 1.2 内置类型天空题
+* title: 在（）中填入正确文字
+* inputcontent: 对象（）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题
+* inputanswer: Object
 
 # 2.0 类型转换
 * 在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
