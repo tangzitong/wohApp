@@ -1,10 +1,10 @@
-knowledge: JS For Beginer
-knowledgeid: -LbW07Cj8C37LDyZeKHF
-author: test1
-authorid: CIxg5db1wHWTu1eeymVp4EkLzfg1
+* knowledge: JS For Beginer
+* knowledgeid: -LbW07Cj8C37LDyZeKHF
+* author: test1
+* authorid: CIxg5db1wHWTu1eeymVp4EkLzfg1
 ===
 
-# 1.内置类型
+# 1.0 内置类型
 * 基本类型有六种： null，undefined，boolean，number，string，symbol
 * 对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。
 ```
@@ -25,8 +25,15 @@ typeof {} // 'object'
 typeof console.log // 'function'
 typeof null // 'object'
 ```
+# 1.1 内置类型选择题
+* title: typeof Symbol()的结果师
+* a:symbol
+* b:undefined
+* c:object
+* d:function
+* answer: a
 
-# 2.类型转换
+# 2.0 类型转换
 * 在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
 * 对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。
 ```
@@ -45,7 +52,7 @@ let a = {
 '1' + a // => '12'
 ```
 
-# 3.== 操作符
+# 3.0 == 操作符
 ```
 // [] 转成 true，然后取反变成 false
 [] == false
@@ -60,7 +67,7 @@ ToPrimitive([]) == 0
 0 == 0 // -> true
 ```
 
-# 4.prototype
+# 4.0 prototype
 * 每个函数都有 prototype 属性，除了 Function.prototype.bind()，该属性指向原型。
 * 每个对象都有 __proto__ 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
 * 对象可以通过 __proto__ 来寻找不属于该对象的属性，__proto__ 将对象连接起来组成了原型链。
@@ -93,7 +100,7 @@ new Foo.getName();   // -> 1
 new Foo().getName(); // -> 2       
 ```
 
-# 5.instanceof
+# 5.0 instanceof
 ```
 function instanceof(left, right) {
     // 获得类型的原型
@@ -111,7 +118,7 @@ function instanceof(left, right) {
 }
 ```
 
-# 6.this
+# 6.0 this
 ```
 function foo() {
 	console.log(this.a)
@@ -127,7 +134,7 @@ obj.foo()
 // 以上两者情况 `this` 只依赖于调用函数前的对象，优先级是第二个情况大于第一个情况
 ```
 
-# 7.执行上下文
+# 7.0 执行上下文
 * 全局执行上下文
 * 函数执行上下文
 * eval 执行上下文
@@ -141,7 +148,7 @@ var foo = 1
 
 * var 会产生很多错误，所以在 ES6中引入了 let。let 不能在声明前使用，但是这并不是常说的 let 不会提升，let 提升了声明但没有赋值，因为临时死区导致了并不能在声明前使用。
 
-# 8.闭包:
+# 8.0 闭包:
 函数 A 返回了一个函数 B，并且函数 B 中使用了函数 A 的变量，函数 B 就被称为闭包。
 ```
 for ( var i=1; i<=5; i++) {
@@ -171,7 +178,7 @@ for ( let i=1; i<=5; i++) {
 }
 ```
 
-# 9.浅拷贝
+# 9.0 浅拷贝
 ```
 let a = {
     age: 1
@@ -194,7 +201,7 @@ a.age = 2
 console.log(b.age) // 1
 ```
 
-# 10.深拷贝
+# 10.0 深拷贝
 ```
 let a = {
     age: 1,
@@ -281,7 +288,7 @@ var load = function (module) {
 };
 ```
 
-# 11.AMD:AMD 是由 RequireJS 提出的
+# 11.0 AMD:AMD 是由 RequireJS 提出的
 ```
 // AMD
 define(['./a', './b'], function(a, b) {
@@ -296,7 +303,7 @@ define(function(require, exports, module) {
 })
 ```
 
-# 12.防抖
+# 12.0 防抖
 ```
 // func是用户传入需要防抖的函数
 // wait是等待时间
@@ -365,7 +372,7 @@ function debounce (func, wait = 50, immediate = true) {
 }
 ```
 
-# 13.节流
+# 13.0 节流
 ```
 /**
  * underscore 节流函数，返回函数连续调用时，func 执行频率限定为 次 / wait
@@ -434,7 +441,7 @@ _.throttle = function(func, wait, options) {
   };
 ```
 
-# 14.继承
+# 14.0 继承
 在 ES5 中，我们可以使用如下方式解决继承的问题
 ```
 function Super() {}
@@ -537,7 +544,7 @@ Function.prototype.myBind = function (context) {
 }
 ```
 
-# 15.Promise 实现
+# 15.0 Promise 实现
 Promise 是 ES6 新增的语法，解决了回调地狱的问题。
 ```
 // 三种状态
@@ -771,7 +778,7 @@ function test() {
 }
 ```
 
-# 16.Map、FlatMap 和 Reduce
+# 16.0 Map、FlatMap 和 Reduce
 ```
 [1, 2, 3].map((v) => v + 1)
 // -> [2, 3, 4]
@@ -803,7 +810,7 @@ function b() {
 // -> 2 1
 ```
 
-# 17.async 和 await
+# 17.0 async 和 await
 一个函数如果加上 async ，那么该函数就会返回一个 Promise
 ```
 async function test() {
@@ -829,7 +836,7 @@ async function test() {
 test()
 ```
 
-# 18.Proxy
+# 18.0 Proxy
 Proxy 是 ES6 中新增的功能，可以用来自定义对象中的操作
 ```
 let p = new Proxy(target, handler);
