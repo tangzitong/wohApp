@@ -33,7 +33,7 @@ typeof null // 'object'
 * d: function
 * answer: a
 
-# 1.2 内置类型天空题
+# 1.2 内置类型填空题
 * title: 在（）中填入正确文字
 * inputcontent: 对象（）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题
 * inputanswer: Object
@@ -56,6 +56,18 @@ let a = {
 1 + a // => 3
 '1' + a // => '12'
 ```
+# 2.1 类型转换选择题
+* title: 在条件判断时转化为true的是
+* a: undefined
+* b: null
+* c: false
+* d: '1'
+* answer: d
+
+# 2.2 类型转换填空题
+* title: 在（）中填入正确文字
+* inputcontent: 在条件判断时-0转化为（）
+* inputanswer: false
 
 # 3.0 == 操作符
 ```
@@ -873,3 +885,5 @@ let p = onWatch(obj, (v) => {
 p.a = 2 // bind `value` to `2`
 p.a // -> Get 'a' = 2
 ```
+# 19.3 学習終了頂きまして、おめでとうございます！
+* certificatePath: https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&token=22d159ac-ead7-4465-9279-35ce0d322b20
