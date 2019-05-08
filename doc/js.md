@@ -41,10 +41,9 @@ typeof null // 'object'
 * inputanswer: Object
 
 ## 2.0 类型转换
-
+```
 * 在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
 * 对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。
-```
 let a = {
   valueOf() {
     return 0;
@@ -107,10 +106,10 @@ ToPrimitive([]) == 0
 
 
 ## 4.0 prototype
+```
 * 每个函数都有 prototype 属性，除了 Function.prototype.bind()，该属性指向原型。
 * 每个对象都有 __proto__ 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
 * 对象可以通过 __proto__ 来寻找不属于该对象的属性，__proto__ 将对象连接起来组成了原型链。
-```
 new
 function create() {
     // 创建一个空的对象
@@ -261,10 +260,8 @@ let a = {
 let b = JSON.parse(JSON.stringify(a))
 a.jobs.first = 'native'
 console.log(b.jobs.first) // FE
-```
 
 但是在通常情况下，复杂数据都是可以序列化的，所以这个函数可以解决大部分问题，并且该函数是内置函数中处理深拷贝性能最快的。当然如果你的数据中含有以上三种情况下，可以使用 lodash 的深拷贝函数。
-```
 function structuralClone(obj) {
   return new Promise(resolve => {
     const {port1, port2} = new MessageChannel();
