@@ -1,13 +1,13 @@
-JS For Beginer
+JS For Advance Progromer
 ===
-* knowledgeid: -LbW07Cj8C37LDyZeKHF
-* author: test1
-* authorid: CIxg5db1wHWTu1eeymVp4EkLzfg1
+* knowledgeid: -LdLuLklhwL7keqLFNmD
+* author: tei952
+* authorid: iHmcxnnRDWPOJAE38On1nCdq0ir2
 
 ## 1.0 内置类型
 ```
-* 基本类型有六种： null，undefined，boolean，number，string，symbol
-* 对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。
+基本类型有六种： null，undefined，boolean，number，string，symbol
+对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。
 let a = { name: 'FE' }
 let b = a
 b.name = 'EF'
@@ -25,6 +25,7 @@ typeof {} // 'object'
 typeof console.log // 'function'
 typeof null // 'object'
 ```
+
 ## 1.1 内置类型选择题
 
 * title: typeof Symbol()的结果是
@@ -42,8 +43,8 @@ typeof null // 'object'
 
 ## 2.0 类型转换
 ```
-* 在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
-* 对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。
+在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
+对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。
 let a = {
   valueOf() {
     return 0;
@@ -75,7 +76,6 @@ let a = {
 * inputanswer: false
 
 ## 3.0 == 操作符
-
 ```
 // [] 转成 true，然后取反变成 false
 [] == false
@@ -102,14 +102,14 @@ ToPrimitive([]) == 0
 ## 3.2 == 操作符填空题
 * title: 在（）中填入正确文字
 * inputcontent: 0 == 0的结果是（）
-* inputanswer: ·true
+* inputanswer: true
 
 
 ## 4.0 prototype
 ```
-* 每个函数都有 prototype 属性，除了 Function.prototype.bind()，该属性指向原型。
-* 每个对象都有 __proto__ 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
-* 对象可以通过 __proto__ 来寻找不属于该对象的属性，__proto__ 将对象连接起来组成了原型链。
+每个函数都有 prototype 属性，除了 Function.prototype.bind()，该属性指向原型。
+每个对象都有 __proto__ 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
+对象可以通过 __proto__ 来寻找不属于该对象的属性，__proto__ 将对象连接起来组成了原型链。
 new
 function create() {
     // 创建一个空的对象
@@ -169,21 +169,21 @@ var obj = {
 	foo: foo
 }
 obj.foo()
-// 以上两者情况 `this` 只依赖于调用函数前的对象，优先级是第二个情况大于第一个情况
+// 以上两者情况 this 只依赖于调用函数前的对象，优先级是第二个情况大于第一个情况
 ```
 
 ## 7.0 执行上下文
 ```
-* 全局执行上下文
-* 函数执行上下文
-* eval 执行上下文
+全局执行上下文
+函数执行上下文
+eval 执行上下文
 var foo = 1
 (function foo() {
     foo = 10
     console.log(foo)
 }()) // -> ƒ foo() { foo = 10 ; console.log(foo) }
 
-* var 会产生很多错误，所以在 ES6中引入了 let。let 不能在声明前使用，但是这并不是常说的 let 不会提升，let 提升了声明但没有赋值，因为临时死区导致了并不能在声明前使用。
+var 会产生很多错误，所以在 ES6中引入了 let。let 不能在声明前使用，但是这并不是常说的 let 不会提升，let 提升了声明但没有赋值，因为临时死区导致了并不能在声明前使用。
 ```
 
 ## 8.0 闭包:
@@ -278,9 +278,9 @@ var obj = {a: 1, b: {
 (async () => {
   const clone = await structuralClone(obj)
 })()
-```
+
 在有 Babel 的情况下，我们可以直接使用 ES6 的模块化
-```
+
 // file a.js
 export function a() {}
 export function b() {}
@@ -873,8 +873,8 @@ test()
 ```
 Proxy 是 ES6 中新增的功能，可以用来自定义对象中的操作
 let p = new Proxy(target, handler);
-// `target` 代表需要添加代理的对象
-// `handler` 用来自定义对象中的操作
+// target 代表需要添加代理的对象
+// handler 用来自定义对象中的操作
 
 可以很方便的使用 Proxy 来实现一个数据绑定和监听
 let onWatch = (obj, setBind, getLogger) => {
@@ -896,9 +896,9 @@ let value
 let p = onWatch(obj, (v) => {
   value = v
 }, (target, property) => {
-  console.log(`Get '${property}' = ${target[property]}`);
+  console.log(Get '${property}' = ${target[property]});
 })
-p.a = 2 // bind `value` to `2`
+p.a = 2 // bind value to 2
 p.a // -> Get 'a' = 2
 ```
 
