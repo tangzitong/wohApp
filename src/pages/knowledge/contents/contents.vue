@@ -27,7 +27,25 @@
         <f7-button big raised color="green" fill @click="addSelect">{{$t('knowledge.addselect')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
+        <f7-button big raised color="green" fill @click="addMultiSelect">{{$t('knowledge.addmultiselect')}}</f7-button>
+      </f7-list-item>
+      <f7-list-item>
         <f7-button big raised color="green" fill @click="addInput">{{$t('knowledge.addinput')}}</f7-button>
+      </f7-list-item>
+      <f7-list-item>
+        <f7-button big raised color="green" fill @click="addPicture">{{$t('knowledge.addpicture')}}</f7-button>
+      </f7-list-item>
+      <f7-list-item>
+        <f7-button big raised color="green" fill @click="addAdvertisment">{{$t('knowledge.addadvertisment')}}</f7-button>
+      </f7-list-item>
+      <f7-list-item>
+        <f7-button big raised color="green" fill @click="addAudio">{{$t('knowledge.addaudio')}}</f7-button>
+      </f7-list-item>
+      <f7-list-item>
+        <f7-button big raised color="green" fill @click="addFlash">{{$t('knowledge.addflash')}}</f7-button>
+      </f7-list-item>
+      <f7-list-item>
+        <f7-button big raised color="green" fill @click="addYoutube">{{$t('knowledge.addyoutube')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
         <f7-button big raised color="green" fill @click="addCertificate">{{$t('knowledge.addcertificate')}}</f7-button>
@@ -128,8 +146,26 @@ export default {
         case 'Select':
           this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
           break
+        case 'MultiSelect':
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
         case 'Input':
           this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Picture':
+          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Advertisment':
+          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Audio':
+          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Flash':
+          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Youtube':
+          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
           break
         case 'Certificate':
           this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
@@ -146,8 +182,26 @@ export default {
         case 'Select':
           this.$f7router.navigate(`/knowledge/contents/addSelect/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
           break
+        case 'MultiSelect':
+          this.$f7router.navigate(`/knowledge/contents/addMultiSelect/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
         case 'Input':
           this.$f7router.navigate(`/knowledge/contents/addInput/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Picture':
+          this.$f7router.navigate(`/knowledge/contents/addPicture/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Advertisment':
+          this.$f7router.navigate(`/knowledge/contents/addAdvertisment/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Audio':
+          this.$f7router.navigate(`/knowledge/contents/addAudio/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Flash':
+          this.$f7router.navigate(`/knowledge/contents/addFlash/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
+          break
+        case 'Youtube':
+          this.$f7router.navigate(`/knowledge/contents/addYoutube/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
           break
         case 'Certificate':
           this.$f7router.navigate(`/knowledge/contents/addCertificate/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
@@ -166,8 +220,26 @@ export default {
     addSelect() {
       this.$f7router.navigate(`/knowledge/contents/addSelect/?mid=${this.knowledgekey}`)
     },
+    addMultiSelect() {
+      this.$f7router.navigate(`/knowledge/contents/addMultiSelect/?mid=${this.knowledgekey}`)
+    },
     addInput() {
       this.$f7router.navigate(`/knowledge/contents/addInput/?mid=${this.knowledgekey}`)
+    },
+    addPicture() {
+      this.$f7router.navigate(`/knowledge/contents/addPicture/?mid=${this.knowledgekey}`)
+    },
+    addAdvertisment() {
+      this.$f7router.navigate(`/knowledge/contents/addAdvertisment/?mid=${this.knowledgekey}`)
+    },
+    addAudio() {
+      this.$f7router.navigate(`/knowledge/contents/addAudio/?mid=${this.knowledgekey}`)
+    },
+    addFlash() {
+      this.$f7router.navigate(`/knowledge/contents/addFlash/?mid=${this.knowledgekey}`)
+    },
+    addYoutube() {
+      this.$f7router.navigate(`/knowledge/contents/addYoutube/?mid=${this.knowledgekey}`)
     },
     addCertificate() {
       this.$f7router.navigate(`/knowledge/contents/addCertificate/?mid=${this.knowledgekey}`)

@@ -8,13 +8,13 @@
       <f7-list-item>
         <p v-html="htmlcontent"></p>
       </f7-list-item>
-      <f7-list-item>
-        {{inputcontent}}
-      </f7-list-item>
-      <f7-list-item>
-        <label>{{$t('knowledge.content.input')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.content.input_')" @input="inputvalue = $event.target.value" />
-      </f7-list-item>
+    </f7-list>
+    <f7-list>
+      <f7-list-group v-for="knowledgeoption_ in knowledgeoptions" :key="knowledgeoption_.id">
+        <f7-list-item radio name="knowledgeoption-radio"
+          :value="knowledgeoption_.id"
+          :title="knowledgeoption_.name"></f7-list-item>
+      </f7-list-group>
     </f7-list>
     <f7-list>
       <f7-list-item>
@@ -160,13 +160,12 @@ export default {
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
       htmlcontent: null,
-      inputcontent: null,
-      inputanswer: null,
+      knowledgeoptions: null,
+      answer: null,
       ord: 0,
       title: '',
       userid: null,
-      comment_count: 0,
-      inputvalue: null
+      comment_count: 0
     }
   },
   computed: {
@@ -197,7 +196,7 @@ export default {
         }
       })
     }
-    this.getKnowledgeInput()
+    this.getKnowledgeMultiSelect()
     this.getKnowledgeContentsCount()
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
@@ -211,6 +210,14 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
+    getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    },
+    swap(datas, i, j) {
+      const data = datas[i]
+      datas[i] = datas[j]
+      datas[j] = data
+    },
     getKnowledgeContentsCount() {
       if (this.knowledgekey) {
         for (const knowledge in this.knowledges) {
@@ -221,15 +228,25 @@ export default {
         }
       }
     },
-    getKnowledgeInput() {
+    getKnowledgeMultiSelect() {
       if (this.knowledgecontentkey) {
         for (const knowledgecontent in this.knowledgecontents) {
           if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
             this.htmlcontent = this.knowledgecontents[knowledgecontent].content.title
-            this.inputcontent = this.knowledgecontents[knowledgecontent].content.inputcontent
-            this.inputanswer = this.knowledgecontents[knowledgecontent].content.inputanswer
+            const datas = [
+              {id: 'a', name: this.knowledgecontents[knowledgecontent].content.options.a},
+              {id: 'b', name: this.knowledgecontents[knowledgecontent].content.options.b},
+              {id: 'c', name: this.knowledgecontents[knowledgecontent].content.options.c},
+              {id: 'd', name: this.knowledgecontents[knowledgecontent].content.options.d}
+            ]
+            for (let i = 0; i < 4; i++) {
+              const j = this.getRandomInt(4)
+              this.swap(datas, i, j)
+            }
+            this.knowledgeoptions = datas
+            this.answer = this.knowledgecontents[knowledgecontent].content.answer
             this.comment_count = this.knowledgecontents[knowledgecontent].comment_count
             break
           }
@@ -290,8 +307,9 @@ export default {
       }
     },
     goNext() {
-      if (this.inputvalue !== this.inputanswer) {
-        window.$$.alert(this.$t('knowledge.content.inputerror'))
+      const knowledgeoption = this.$$('input[name="knowledgeoption-radio"]:checked').val()
+      if (knowledgeoption !== this.answer) {
+        this.getKnowledgeMultiSelect()
         return
       }
       this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
@@ -306,7 +324,7 @@ export default {
           this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'MultiSelect':
-          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Input':
           this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)

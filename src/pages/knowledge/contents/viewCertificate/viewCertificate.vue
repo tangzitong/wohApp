@@ -300,7 +300,7 @@ export default {
     },
     getPrevContentType() {
       for (const knowledgecontent in this.knowledgecontents) {
-        if (this.knowledgecontents[knowledgecontent].ord === (parseInt(this.ord) - 1).toString()) {
+        if (parseInt(this.knowledgecontents[knowledgecontent].ord) === parseInt(this.ord) - 1) {
           this.prevContentType = this.knowledgecontents[knowledgecontent].content.type
           this.prevknowledgecontentkey = knowledgecontent
           break
@@ -316,8 +316,26 @@ export default {
         case 'Select':
           this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
           break
+        case 'MultiSelect':
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
         case 'Input':
           this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
+        case 'Picture':
+          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
+        case 'Advertisment':
+          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
+        case 'Audio':
+          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
+        case 'Flash':
+          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          break
+        case 'Youtube':
+          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
           break
         case 'Certificate':
           this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)

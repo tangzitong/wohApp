@@ -64,10 +64,22 @@ import knowledgecontentsaddCPage from './pages/knowledge/contents/addCertificate
 import knowledgecontentsaddHPage from './pages/knowledge/contents/addHtml'
 import knowledgecontentsaddIPage from './pages/knowledge/contents/addInput'
 import knowledgecontentsaddSPage from './pages/knowledge/contents/addSelect'
+import knowledgecontentsaddAdPage from './pages/knowledge/contents/addAdvertisment'
+import knowledgecontentsaddAuPage from './pages/knowledge/contents/addAudio'
+import knowledgecontentsaddPiPage from './pages/knowledge/contents/addPicture'
+import knowledgecontentsaddFlPage from './pages/knowledge/contents/addFlash'
+import knowledgecontentsaddMsPage from './pages/knowledge/contents/addMultiSelect'
+import knowledgecontentsaddYtPage from './pages/knowledge/contents/addYoutube'
 import knowledgecontentsviewCPage from './pages/knowledge/contents/viewCertificate'
 import knowledgecontentsviewHPage from './pages/knowledge/contents/viewHtml'
 import knowledgecontentsviewIPage from './pages/knowledge/contents/viewInput'
 import knowledgecontentsviewSPage from './pages/knowledge/contents/viewSelect'
+import knowledgecontentsviewAdPage from './pages/knowledge/contents/viewAdvertisment'
+import knowledgecontentsviewAuPage from './pages/knowledge/contents/viewAudio'
+import knowledgecontentsviewPiPage from './pages/knowledge/contents/viewPicture'
+import knowledgecontentsviewFlPage from './pages/knowledge/contents/viewFlash'
+import knowledgecontentsviewMsPage from './pages/knowledge/contents/viewMultiSelect'
+import knowledgecontentsviewYtPage from './pages/knowledge/contents/viewYoutube'
 import toolsPage from './pages/tools'
 import tooltypePage from './pages/tools/type'
 import tooladdtypePage from './pages/tools/addtype'
@@ -488,6 +500,54 @@ export default [
     }
   },
   {
+    path: '/knowledge/contents/addAdvertisment',
+    component: knowledgecontentsaddAdPage,
+    name: 'KnowledgeContentsaddAd',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addAudio',
+    component: knowledgecontentsaddAuPage,
+    name: 'KnowledgeContentsaddAu',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addPicture',
+    component: knowledgecontentsaddPiPage,
+    name: 'KnowledgeContentsaddPi',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addFlash',
+    component: knowledgecontentsaddFlPage,
+    name: 'KnowledgeContentsaddFl',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addMultiSelect',
+    component: knowledgecontentsaddMsPage,
+    name: 'KnowledgeContentsaddMs',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/addYoutube',
+    component: knowledgecontentsaddYtPage,
+    name: 'KnowledgeContentsaddYt',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/knowledge/contents/viewCertificate',
     component: knowledgecontentsviewCPage,
     name: 'KnowledgeContentsviewC',
@@ -515,6 +575,54 @@ export default [
     path: '/knowledge/contents/viewSelect',
     component: knowledgecontentsviewSPage,
     name: 'KnowledgeContentsviewS',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewAdvertisment',
+    component: knowledgecontentsviewAdPage,
+    name: 'KnowledgeContentsviewAd',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewAudio',
+    component: knowledgecontentsviewAuPage,
+    name: 'KnowledgeContentsviewAu',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewPicture',
+    component: knowledgecontentsviewPiPage,
+    name: 'KnowledgeContentsviewPi',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewFlash',
+    component: knowledgecontentsviewFlPage,
+    name: 'KnowledgeContentsviewFl',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewMultiSelect',
+    component: knowledgecontentsviewMsPage,
+    name: 'KnowledgeContentsviewMs',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/knowledge/contents/viewYoutube',
+    component: knowledgecontentsviewYtPage,
+    name: 'KnowledgeContentsviewYt',
     meta: {
       requiresAuth: true
     }

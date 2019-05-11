@@ -6,14 +6,10 @@
     </f7-block>
     <f7-list>
       <f7-list-item>
-        <p v-html="htmlcontent"></p>
-      </f7-list-item>
-      <f7-list-item>
-        {{inputcontent}}
-      </f7-list-item>
-      <f7-list-item>
-        <label>{{$t('knowledge.content.input')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.content.input_')" @input="inputvalue = $event.target.value" />
+        <!-- Image -->
+        <f7-block inset v-if="advertismentPath" @click.stop="openPhotoBrowser(link)">
+          <img :src="advertismentPath" width="50%" />
+        </f7-block>
       </f7-list-item>
     </f7-list>
     <f7-list>
@@ -153,20 +149,15 @@ export default {
   data() {
     return {
       knowledgekey: null,
-      content_count: 0,
       knowledgecontentkey: null,
-      nextContentType: 'Html',
-      nextknowledgecontentkey: null,
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
-      htmlcontent: null,
-      inputcontent: null,
-      inputanswer: null,
+      advertismentPath: null,
       ord: 0,
       title: '',
+      link: '',
       userid: null,
-      comment_count: 0,
-      inputvalue: null
+      comment_count: 0
     }
   },
   computed: {
@@ -176,7 +167,7 @@ export default {
       learningstatus: state => state.learningstatus,
       knowledgecomments: state => state.knowledgecomments,
       isUserLogin: state => state.isUserLogin
-    })
+    }),
   },
   mounted: function () {
     const query = this.$f7route.query
@@ -197,8 +188,7 @@ export default {
         }
       })
     }
-    this.getKnowledgeInput()
-    this.getKnowledgeContentsCount()
+    this.getKnowledgeAdvertisment()
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
         if (knowledgecomments) {
@@ -211,25 +201,14 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
-    getKnowledgeContentsCount() {
-      if (this.knowledgekey) {
-        for (const knowledge in this.knowledges) {
-          if (this.knowledges[knowledge].id === this.knowledgekey) {
-            this.content_count = this.knowledges[knowledge].content_count
-            break
-          }
-        }
-      }
-    },
-    getKnowledgeInput() {
+    getKnowledgeAdvertisment() {
       if (this.knowledgecontentkey) {
         for (const knowledgecontent in this.knowledgecontents) {
           if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
-            this.htmlcontent = this.knowledgecontents[knowledgecontent].content.title
-            this.inputcontent = this.knowledgecontents[knowledgecontent].content.inputcontent
-            this.inputanswer = this.knowledgecontents[knowledgecontent].content.inputanswer
+            this.advertismentPath = this.knowledgecontents[knowledgecontent].content.advertismentPath
+            this.link = this.knowledgecontents[knowledgecontent].content.link
             this.comment_count = this.knowledgecontents[knowledgecontent].comment_count
             break
           }
@@ -290,13 +269,6 @@ export default {
       }
     },
     goNext() {
-      if (this.inputvalue !== this.inputanswer) {
-        window.$$.alert(this.$t('knowledge.content.inputerror'))
-        return
-      }
-      this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
-        console.log('knowledgeKey=' + knowledgeKey)
-      })
       this.getNextContentType()
       switch (this.nextContentType) {
         case 'Html':

@@ -1,12 +1,13 @@
-﻿JS study guildline
+﻿JS For Advance Progromer
 ===
+* knowledgeid: -LdLuLklhwL7keqLFNmD
+* author: tei952
+* authorid: iHmcxnnRDWPOJAE38On1nCdq0ir2
 
-> This page is part of the [wohApp Devlopment Guidline](dev.md)
-
-# 内置类型
-* 基本类型有六种： null，undefined，boolean，number，string，symbol
-* 对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。
+## 1.0 内置类型
 ```
+基本类型有六种： null，undefined，boolean，number，string，symbol
+对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。
 let a = { name: 'FE' }
 let b = a
 b.name = 'EF'
@@ -25,10 +26,25 @@ typeof console.log // 'function'
 typeof null // 'object'
 ```
 
-# 类型转换
-* 在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
-* 对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。
+## 1.1 内置类型选择题
+
+* title: typeof Symbol()的结果是
+* a: symbol
+* b: undefined
+* c: object
+* d: function
+* answer: a
+
+## 1.2 内置类型填空题
+
+* title: 在（）中填入正确文字
+* inputcontent: 对象（）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题
+* inputanswer: Object
+
+## 2.0 类型转换
 ```
+在条件判断时，除了 undefined， null， false， NaN， ''， 0， -0，其他所有值都转为 true，包括所有对象。
+对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。
 let a = {
   valueOf() {
     return 0;
@@ -44,7 +60,22 @@ let a = {
 '1' + a // => '12'
 ```
 
-# == 操作符
+## 2.1 类型转换选择题
+
+* title: 在条件判断时转化为true的是
+* a: undefined
+* b: null
+* c: false
+* d: '1'
+* answer: d
+
+## 2.2 类型转换填空题
+
+* title: 在（）中填入正确文字
+* inputcontent: 在条件判断时-0转化为（）
+* inputanswer: false
+
+## 3.0 == 操作符
 ```
 // [] 转成 true，然后取反变成 false
 [] == false
@@ -59,11 +90,26 @@ ToPrimitive([]) == 0
 0 == 0 // -> true
 ```
 
-# prototype
-* 每个函数都有 prototype 属性，除了 Function.prototype.bind()，该属性指向原型。
-* 每个对象都有 __proto__ 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
-* 对象可以通过 __proto__ 来寻找不属于该对象的属性，__proto__ 将对象连接起来组成了原型链。
+## 3.1 == 操作符选择题
+
+* title: 下述选择答案为false的是
+* a: [] == false
+* b: [] == 0
+* c: ToPrimitive([]) ！== 0
+* d: '' == 0
+* answer: c
+
+## 3.2 == 操作符填空题
+* title: 在（）中填入正确文字
+* inputcontent: 0 == 0的结果是（）
+* inputanswer: true
+
+
+## 4.0 prototype
 ```
+每个函数都有 prototype 属性，除了 Function.prototype.bind()，该属性指向原型。
+每个对象都有 __proto__ 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 [[prototype]]，但是 [[prototype]] 是内部属性，我们并不能访问到，所以使用 _proto_ 来访问。
+对象可以通过 __proto__ 来寻找不属于该对象的属性，__proto__ 将对象连接起来组成了原型链。
 new
 function create() {
     // 创建一个空的对象
@@ -92,7 +138,7 @@ new Foo.getName();   // -> 1
 new Foo().getName(); // -> 2       
 ```
 
-# instanceof
+## 5.0 instanceof
 ```
 function instanceof(left, right) {
     // 获得类型的原型
@@ -110,7 +156,7 @@ function instanceof(left, right) {
 }
 ```
 
-# this
+## 6.0 this
 ```
 function foo() {
 	console.log(this.a)
@@ -123,26 +169,26 @@ var obj = {
 	foo: foo
 }
 obj.foo()
-// 以上两者情况 `this` 只依赖于调用函数前的对象，优先级是第二个情况大于第一个情况
+// 以上两者情况 this 只依赖于调用函数前的对象，优先级是第二个情况大于第一个情况
 ```
 
-# 执行上下文
-* 全局执行上下文
-* 函数执行上下文
-* eval 执行上下文
+## 7.0 执行上下文
 ```
+全局执行上下文
+函数执行上下文
+eval 执行上下文
 var foo = 1
 (function foo() {
     foo = 10
     console.log(foo)
 }()) // -> ƒ foo() { foo = 10 ; console.log(foo) }
+
+var 会产生很多错误，所以在 ES6中引入了 let。let 不能在声明前使用，但是这并不是常说的 let 不会提升，let 提升了声明但没有赋值，因为临时死区导致了并不能在声明前使用。
 ```
 
-* var 会产生很多错误，所以在 ES6中引入了 let。let 不能在声明前使用，但是这并不是常说的 let 不会提升，let 提升了声明但没有赋值，因为临时死区导致了并不能在声明前使用。
-
-# 闭包:
+## 8.0 闭包:
+```
 函数 A 返回了一个函数 B，并且函数 B 中使用了函数 A 的变量，函数 B 就被称为闭包。
-```
 for ( var i=1; i<=5; i++) {
 	setTimeout( function timer() {
 		console.log( i );
@@ -170,7 +216,7 @@ for ( let i=1; i<=5; i++) {
 }
 ```
 
-# 浅拷贝
+## 9.0 浅拷贝
 ```
 let a = {
     age: 1
@@ -193,7 +239,7 @@ a.age = 2
 console.log(b.age) // 1
 ```
 
-# 深拷贝
+## 10.0 深拷贝
 ```
 let a = {
     age: 1,
@@ -214,10 +260,8 @@ let a = {
 let b = JSON.parse(JSON.stringify(a))
 a.jobs.first = 'native'
 console.log(b.jobs.first) // FE
-```
 
 但是在通常情况下，复杂数据都是可以序列化的，所以这个函数可以解决大部分问题，并且该函数是内置函数中处理深拷贝性能最快的。当然如果你的数据中含有以上三种情况下，可以使用 lodash 的深拷贝函数。
-```
 function structuralClone(obj) {
   return new Promise(resolve => {
     const {port1, port2} = new MessageChannel();
@@ -234,9 +278,9 @@ var obj = {a: 1, b: {
 (async () => {
   const clone = await structuralClone(obj)
 })()
-```
+
 在有 Babel 的情况下，我们可以直接使用 ES6 的模块化
-```
+
 // file a.js
 export function a() {}
 export function b() {}
@@ -280,7 +324,7 @@ var load = function (module) {
 };
 ```
 
-# AMD:AMD 是由 RequireJS 提出的
+## 11.0 AMD:AMD 是由 RequireJS 提出的
 ```
 // AMD
 define(['./a', './b'], function(a, b) {
@@ -295,7 +339,7 @@ define(function(require, exports, module) {
 })
 ```
 
-# 防抖
+## 12.0 防抖
 ```
 // func是用户传入需要防抖的函数
 // wait是等待时间
@@ -364,7 +408,7 @@ function debounce (func, wait = 50, immediate = true) {
 }
 ```
 
-# 节流
+## 13.0 节流
 ```
 /**
  * underscore 节流函数，返回函数连续调用时，func 执行频率限定为 次 / wait
@@ -433,9 +477,9 @@ _.throttle = function(func, wait, options) {
   };
 ```
 
-# 继承
-在 ES5 中，我们可以使用如下方式解决继承的问题
+## 14.0 继承
 ```
+在 ES5 中，我们可以使用如下方式解决继承的问题
 function Super() {}
 Super.prototype.getNumber = function() {
   return 1
@@ -451,10 +495,9 @@ Sub.prototype = Object.create(Super.prototype, {
     configurable: true
   }
 })
-```
 
 在 ES6 中，我们可以通过 class 语法轻松解决这个问题
-```
+
 class MyDate extends Date {
   test() {
     return this.getTime()
@@ -536,9 +579,9 @@ Function.prototype.myBind = function (context) {
 }
 ```
 
-# Promise 实现
-Promise 是 ES6 新增的语法，解决了回调地狱的问题。
+## 15.0 Promise 实现
 ```
+Promise 是 ES6 新增的语法，解决了回调地狱的问题。
 // 三种状态
 const PENDING = "pending";
 const RESOLVED = "resolved";
@@ -770,7 +813,7 @@ function test() {
 }
 ```
 
-# Map、FlatMap 和 Reduce
+## 16.0 Map、FlatMap 和 Reduce
 ```
 [1, 2, 3].map((v) => v + 1)
 // -> [2, 3, 4]
@@ -802,17 +845,15 @@ function b() {
 // -> 2 1
 ```
 
-# async 和 await
-一个函数如果加上 async ，那么该函数就会返回一个 Promise
+## 17.0 async 和 await
 ```
+一个函数如果加上 async ，那么该函数就会返回一个 Promise
 async function test() {
   return "1";
 }
 console.log(test()); // -> Promise {<resolved>: "1"}
-```
 
 await 只能在 async 函数中使用
-```
 function sleep() {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -828,12 +869,12 @@ async function test() {
 test()
 ```
 
-# Proxy
-Proxy 是 ES6 中新增的功能，可以用来自定义对象中的操作
+## 18.0 Proxy
 ```
+Proxy 是 ES6 中新增的功能，可以用来自定义对象中的操作
 let p = new Proxy(target, handler);
-// `target` 代表需要添加代理的对象
-// `handler` 用来自定义对象中的操作
+// target 代表需要添加代理的对象
+// handler 用来自定义对象中的操作
 
 可以很方便的使用 Proxy 来实现一个数据绑定和监听
 let onWatch = (obj, setBind, getLogger) => {
@@ -855,8 +896,11 @@ let value
 let p = onWatch(obj, (v) => {
   value = v
 }, (target, property) => {
-  console.log(`Get '${property}' = ${target[property]}`);
+  console.log(Get '${property}' = ${target[property]});
 })
-p.a = 2 // bind `value` to `2`
+p.a = 2 // bind value to 2
 p.a // -> Get 'a' = 2
 ```
+
+## 19.9 学習終了頂きまして、おめでとうございます！
+* certificatePath: https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&token=22d159ac-ead7-4465-9279-35ce0d322b20
