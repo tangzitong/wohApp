@@ -309,6 +309,9 @@ export default {
     },
     goPrev() {
       this.getPrevContentType()
+      this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
+        console.log('knowledgeKey=' + knowledgeKey)
+      })
       switch (this.prevContentType) {
         case 'Html':
           this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
