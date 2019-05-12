@@ -1,4 +1,4 @@
-﻿JS For Advance Progromer
+JS For Advance Progromer
 ===
 * knowledgeid: -LdLuLklhwL7keqLFNmD
 * author: tei952
