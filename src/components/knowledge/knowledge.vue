@@ -11,7 +11,7 @@
     </div>
     <div class="knowledge-content" @click="contentClick(data)">
       <div class="text">{{data.introduce}}</div>
-      <div v-if="data.photo" class="image" @click.stop="openPhotoBrowser(data.photo)">
+      <div v-if="data.photo" class="image">
         <img :src="data.photo">
       </div>
       <div v-if="data.address" class="text">Address:{{data.address}}</div>
@@ -21,24 +21,24 @@
       <div v-if="data.HP" class="link">HP:{{data.HP}}</div>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button big raised color="green" fill @click="applicationKnowledge">{{$t('knowledge.application')}}
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="applicationKnowledge">{{$t('knowledge.application')}}
         <span class="text" v-text="data.application_count ? '(' + data.application_count + ')' : ''"></span>
       </f7-button>
-      <f7-button big raised color="green" fill @click="likeKnowledge">{{$t('knowledge.like')}}
+      <f7-button class="tool flex-rest-width" big raised color="blue" fill @click="likeKnowledge">{{$t('knowledge.like')}}
         <span class="text" v-text="data.like_count ? '(' + data.like_count + ')' : ''"></span>
       </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button big raised color="green" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}
         <span class="text" v-text="data.content_count ? '(' + data.content_count + ')' : ''"></span>
       </f7-button>
-      <f7-button big raised color="green" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
+      <f7-button class="tool flex-rest-width" big raised color="blue" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
         <span class="text" v-text="data.certificate_count ? '(' + data.certificate_count + ')' : ''"></span>
       </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button v-if="isOwner" big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
-      <f7-button v-if="isOwner" big raised color="green" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width"  v-if="isOwner" big raised color="blue" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
+      <f7-button class="tool flex-rest-width" v-if="isOwner" big raised color="blue" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
     </div>
   </div>
 </template>

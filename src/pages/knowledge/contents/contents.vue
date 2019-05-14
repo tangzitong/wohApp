@@ -15,7 +15,7 @@
                       :title="knowledgecontent_.title"
                       :badge="knowledgecontent_.ord"
                       :badge-color="getColor(knowledgecontent_)"
-                      :disabled = "parseInt(knowledgecontent_.ord) > 1 && parseInt(knowledgecontent_.ord) > selectedOrd && !isOwner"
+                      :disabled = "parseInt(knowledgecontent_.ord) > 1 && parseInt(knowledgecontent_.ord) > parseInt(selectedOrd) && !isOwner"
                       :checked="selectedOrd === parseInt(knowledgecontent_.ord)"></f7-list-item>
       </f7-list-group>
     </f7-list>
@@ -61,7 +61,7 @@ export default {
   data() {
     return {
       knowledgekey: null,
-      selectedOrd: 0,
+      selectedOrd: '01',
       selectedContentType: 'Html',
       isOwner: false,
       isApproved: false,
@@ -84,6 +84,7 @@ export default {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
           window.store.dispatch('initKnowledgecontents', data)
+          this.setName()
         }
       })
       this.$root.chat.getMyKnowledgeApplication(this.knowledgekey, data => {
@@ -91,17 +92,16 @@ export default {
           const val = []
           val.push(data)
           window.store.dispatch('initKnowledgeApplications', val)
+          this.setIsApproved()
         }
       })
       this.$root.chat.getLearningStatus(data => {
         if (data) {
           window.store.dispatch('initLearningstatus', data)
+          this.getSelectedOrd()
         }
       })
     }
-    this.getSelectedOrd()
-    this.setName()
-    this.setIsApproved()
   },
   methods: {
     getSelectedOrd() {
@@ -245,7 +245,7 @@ export default {
       this.$f7router.navigate(`/knowledge/contents/addCertificate/?mid=${this.knowledgekey}`)
     },
     getColor(knowledgecontent_) {
-      if (knowledgecontent_.ord > 1 && knowledgecontent_.ord > this.selectedOrd && !this.isOwner) {
+      if (parseInt(knowledgecontent_.ord) > 1 && parseInt(knowledgecontent_.ord) > parseInt(this.selectedOrd) && !this.isOwner) {
         return 'gray'
       } else {
         return 'red'

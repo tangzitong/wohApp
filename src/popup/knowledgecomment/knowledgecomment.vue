@@ -20,19 +20,39 @@ import { mapState, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      text: ''
+      text: '',
+      name: null,
+      title: null
     }
   },
   computed: {
     ...mapState({
       knowledgekey: state => state.popup.knowledgekey,
-      knowledgecontentkey: state => state.popup.knowledgecontentkey
+      knowledgecontentkey: state => state.popup.knowledgecontentkey,
+      knowledges: state => state.knowledges,
+      knowledgecontents: state => state.knowledgecontents,
     })
   },
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
+    setName() {
+      for (const knowledge in this.knowledges) {
+        if (this.knowledges[knowledge].id === this.knowledgekey) {
+          this.name = this.knowledges[knowledge].name
+          break
+        }
+      }
+    },
+    setTitle() {
+      for (const knowledgecontent in this.knowledgecontents) {
+        if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
+          this.title = this.knowledgecontents[knowledgecontent].title
+          break
+        }
+      }
+    },
     editorTextChange(text) {
       this.text = text
     },
@@ -43,7 +63,9 @@ export default {
     },
     sendComment() {
       this.$f7.preloader.show(this.$t('app.submitting'))
-      this.$root.chat.addKnowledgeContentComment(this.knowledgekey, this.knowledgecontentkey, this.text, function(commentKey) {
+      this.setName()
+      this.setTitle()
+      this.$root.chat.addKnowledgeContentComment(this.knowledgekey, this.knowledgecontentkey, this.name, this.title, this.text, function(commentKey) {
         console.log(commentKey + ' comment added')
       })
       setTimeout(_ => {

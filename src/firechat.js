@@ -2842,7 +2842,7 @@ Firechat.prototype.addKnowledgeCertificate = function(knowledgeKey, callback) {
   })
 }
 
-Firechat.prototype.addKnowledgeContentComment = function(knowledgeKey, contentKey, comment, callback) {
+Firechat.prototype.addKnowledgeContentComment = function(knowledgeKey, contentKey, name, title, comment, callback) {
   const self = this
   const newCommentsRef = self._knowledgecommentsRef.child('data').child(knowledgeKey).child('contents').child(contentKey).push()
   const newComment = {
@@ -2861,7 +2861,7 @@ Firechat.prototype.addKnowledgeContentComment = function(knowledgeKey, contentKe
           const roomlist = snapshot2.val()
           for (const room in roomlist) {
             if (roomlist[room].createdByUserId === ownerid && roomlist[room].avatar === self._userId) {
-              self.sendMessage(room, comment, 'messageType')
+              self.sendMessage(room, name + '\\' + title + '\\' + comment, 'messageType')
               break
             }
           }
