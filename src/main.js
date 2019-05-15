@@ -9,6 +9,9 @@ import Vue from 'vue'
 // Import F7, F7-Vue
 import Framework7 from 'framework7/dist/framework7.esm.bundle.js'
 import Framework7Vue from 'framework7-vue/dist/framework7-vue.esm.bundle.js'
+import VueYoutube from 'vue-youtube'
+import VideoPlayer from 'vue-video-player'
+import VueAudio from 'vue-audio'
 
 // Import F7 Styles
 import 'framework7/dist/css/framework7.css'
@@ -48,6 +51,11 @@ const VueFire = require('vuefire')
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
 Vue.use(VueFire)
+Vue.use(VueYoutube)
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
+Vue.use(VideoPlayer)
+Vue.use(VueAudio)
 // Load image-uploader component
 // Vue.component('image-uploader', require('./popup/imageuploader/imageuploader.vue'))
 

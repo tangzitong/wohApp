@@ -16,7 +16,7 @@
                       :badge="knowledgecontent_.ord"
                       :badge-color="getColor(knowledgecontent_)"
                       :disabled = "parseInt(knowledgecontent_.ord) > 1 && parseInt(knowledgecontent_.ord) > parseInt(selectedOrd) && !isOwner"
-                      :checked="selectedOrd === parseInt(knowledgecontent_.ord)"></f7-list-item>
+                      :checked="parseInt(selectedOrd) === parseInt(knowledgecontent_.ord)"></f7-list-item>
       </f7-list-group>
     </f7-list>
     <f7-list v-if="isOwner">

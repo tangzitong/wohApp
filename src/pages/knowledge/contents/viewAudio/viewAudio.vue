@@ -6,9 +6,9 @@
     </f7-block>
     <f7-list>
       <f7-list-item>
-        <!-- Image -->
+        <!-- Audio -->
         <f7-block inset v-if="audioPath">
-          <img :src="audioPath" width="50%" />
+          <VueAudio :file="audioPath"></VueAudio>
         </f7-block>
       </f7-list-item>
     </f7-list>

@@ -6,9 +6,9 @@
     </f7-block>
     <f7-list>
       <f7-list-item>
-        <!-- Image -->
+        <!-- Youtube -->
         <f7-block inset v-if="youtubePath">
-          <img :src="youtubePath" width="50%" />
+          <youtube :video-id="youtubePath" :player-vars="playerVars" @playing="playing"></youtube>
         </f7-block>
       </f7-list-item>
     </f7-list>
@@ -156,7 +156,10 @@ export default {
       ord: 0,
       title: '',
       userid: null,
-      comment_count: 0
+      comment_count: 0,
+      playerVars: {
+        autoplay: 1
+      }
     }
   },
   computed: {
@@ -303,6 +306,9 @@ export default {
           this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
       }
+    },
+    playing() {
+      console.log('we are watching!!!')
     },
     formatTime(time) {
       return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
