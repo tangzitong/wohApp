@@ -156,6 +156,8 @@ export default {
       knowledgecontentkey: null,
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
+      nextContentType: 'Html',
+      nextknowledgecontentkey: null,
       content_count: 0,
       audioPath: null,
       ord: 0,

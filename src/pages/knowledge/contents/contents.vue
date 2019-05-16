@@ -1,6 +1,10 @@
 <template>
   <f7-page class="knowledgecontent-page">
-    <f7-navbar :title="$t('app.knowledgecontents')" :back-link="$t('app.back')">
+    <f7-navbar>
+      <f7-nav-left>
+        <f7-link :text="$t('app.back')" @click="routeToKnowledge"></f7-link>
+      </f7-nav-left>
+      <f7-nav-title :title="$t('app.knowledgecontents')"></f7-nav-title>
       <f7-nav-right>
         <f7-link v-if="isApproved" :text="$t('app.study')" @click="startLearning"></f7-link>
         <f7-link v-if="isOwner" :text="$t('app.update')" @click="editLearningContent"></f7-link>
@@ -207,6 +211,9 @@ export default {
           this.$f7router.navigate(`/knowledge/contents/addCertificate/?mid=${this.knowledgekey}&contentid=${knowledgecontent}`)
           break
       }
+    },
+    routeToKnowledge() {
+      this.$f7router.navigate(`/knowledge/?mid=${this.knowledgekey}&isowner=${this.isOwner}`)
     },
     deleteLearningContent() {
       const knowledgecontent = this.$$('input[name="knowledgecontent-radio"]:checked').val()
