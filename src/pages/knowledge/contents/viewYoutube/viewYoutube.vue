@@ -152,6 +152,7 @@ export default {
       knowledgecontentkey: null,
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
+      content_count: 0,
       youtubePath: null,
       ord: 0,
       title: '',
@@ -191,6 +192,7 @@ export default {
       })
     }
     this.getKnowledgeYoutube()
+    this.getKnowledgeContentsCount()
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
         if (knowledgecomments) {
@@ -203,6 +205,16 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
+    getKnowledgeContentsCount() {
+      if (this.knowledgekey) {
+        for (const knowledge in this.knowledges) {
+          if (this.knowledges[knowledge].id === this.knowledgekey) {
+            this.content_count = this.knowledges[knowledge].content_count
+            break
+          }
+        }
+      }
+    },
     getKnowledgeYoutube() {
       if (this.knowledgecontentkey) {
         for (const knowledgecontent in this.knowledgecontents) {
