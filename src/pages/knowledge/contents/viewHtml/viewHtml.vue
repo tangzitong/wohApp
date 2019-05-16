@@ -1,6 +1,10 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('app.study')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar :title="$t('app.study')" :back-link="$t('app.back')">
+      <f7-nav-right>
+        <f7-link :text="$t('app.directory')" @click="routeToContent"></f7-link>
+      </f7-nav-right>
+    </f7-navbar>
     <f7-block>
       <h3>{{title}}</h3>
     </f7-block>
@@ -11,7 +15,7 @@
     </f7-list>
     <f7-list>
       <f7-list-item>
-        <f7-button v-if="ord > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
+        <f7-button v-if="parseInt(ord) > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
         <f7-button v-if="parseInt(ord) < content_count" big raised color="green" fill @click="goNext">{{$t('app.next')}}</f7-button>
       </f7-list-item>
     </f7-list>
@@ -317,6 +321,9 @@ export default {
           this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
       }
+    },
+    routeToContent(data) {
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.knowledgekey}&isowner=false`)
     },
     formatTime(time) {
       return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })

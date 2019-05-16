@@ -15,6 +15,7 @@ export default {
     next: '次へ',
     save: '保存',
     study: '学習',
+    directory: '目録',
     add: '追加',
     student: '学生',
     teacher: '先生',

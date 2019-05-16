@@ -15,6 +15,7 @@ export default {
     next: 'Next',
     save: 'Save',
     study: 'study',
+    directory: 'Directory',
     add: 'add',
     student: 'student',
     teacher: 'teacher',

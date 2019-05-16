@@ -15,6 +15,7 @@ export default {
     next: '后页',
     save: '保存',
     study: '学习',
+    directory: '目录',
     jobfinder: '求职者',
     jobprovider: '提供者',
     companyworker: '工作人员',
