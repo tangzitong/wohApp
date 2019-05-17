@@ -5,17 +5,15 @@
             <p>Loading...</p>
         </div>
     </transition>
-    <div class="login-header">
-      <div class="avatar">
+    <f7-navbar class="login-header">
+      <f7-nav-left class="avatar">
         <img :src="userInfo.avatar_url" class="avatar" alt="Image">
-      </div>
-      <div class="user flex-column">
+      </f7-nav-left>
+      <f7-nav-title style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-nav-title>
+      <f7-nav-right class="user flex-column">
         <div class="name">{{$t('app.app_knowledge')}}</div>
-      </div>
-    </div>
-    <!-- Title -->
-    <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-block>
-
+      </f7-nav-right>
+    </f7-navbar>
     <!-- Sign in disabled alert -->
     <f7-block inner inset v-if="!firebaseConfig.allowEmailLogin && mode === 'signIn'">{{$t('login.currentlyDisabled')}}</f7-block>
 
@@ -46,12 +44,6 @@
       <f7-button class="tool flex-rest-width" big raised color="blue" @click="mode='registration'">{{$t('login.createAccount')}}</f7-button>
     </div>
 
-    <!-- Email reset buttons -->
-    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" @click="mode='reset'">{{$t('login.resetPassword')}}</f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
-    </div>
-
     <!-- Email regist buttons -->
     <div class="login-footer flex-row" v-if="mode === 'registration' && firebaseConfig.allowEmailLogin">
       <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleRegistration">{{$t('login.handleRegistration')}}</f7-button>
@@ -69,12 +61,19 @@
       <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleSignOut">{{$t('login.signOut')}}</f7-button>
       <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
     </div>
+
     <f7-block-title>{{$t('app.language')}}</f7-block-title>
     <f7-list>
         <f7-list-item radio name="language-radio" value="enUS" title="English" :checked="lang === 'enUS'" @change="saveLang"></f7-list-item>
         <f7-list-item radio name="language-radio" value="zhCN" title="简体中文" :checked="lang === 'zhCN'" @change="saveLang"></f7-list-item>
         <f7-list-item radio name="language-radio" value="jaJP" title="日本語" :checked="lang === 'jaJP'" @change="saveLang"></f7-list-item>
     </f7-list>
+
+    <!-- Email reset buttons -->
+    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" @click="mode='reset'">{{$t('login.resetPassword')}}</f7-button>
+      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+    </div>
 
   </f7-page>
 </template>
@@ -110,7 +109,7 @@
           margin-top: 3px;
         }
         .name {
-          color: #ff9800;
+          color: blue;
           font-weight: bold;
           font-size: 20px;
           text-align: right;
