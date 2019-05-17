@@ -1,6 +1,6 @@
 <template>
   <div class="knowledge post-knowledge">
-    <div class="knowledge-header">
+    <f7-navbar class="knowledge-header">
       <div class="avatar">
         <img :src="getAvatar(data.avatar)" alt="Image">
       </div>
@@ -8,7 +8,7 @@
         <div class="name">{{data.name}}</div>
         <div class="time">{{`#${data.nickname} `}}{{formatTime(data.created_at)}}</div>
       </div>
-    </div>
+    </f7-navbar>
     <div class="knowledge-content" @click="contentClick(data)">
       <div class="text">{{data.introduce}}</div>
       <div v-if="data.photo" class="image">
@@ -21,24 +21,24 @@
       <div v-if="data.HP" class="link">HP:{{data.HP}}</div>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="applicationKnowledge">{{$t('knowledge.application')}}
+      <f7-button class="tool tool-border flex-rest-width"  big color="blue" style = "line-height:27px" @click="applicationKnowledge">{{$t('knowledge.application')}}
         <span class="text" v-text="data.application_count ? '(' + data.application_count + ')' : ''"></span>
       </f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" fill @click="likeKnowledge">{{$t('knowledge.like')}}
+      <f7-button class="tool flex-rest-width"  big color="blue" style = "line-height:27px" @click="likeKnowledge">{{$t('knowledge.like')}}
         <span class="text" v-text="data.like_count ? '(' + data.like_count + ')' : ''"></span>
       </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="knowledgecontents">{{$t('app.knowledgecontents')}}
+      <f7-button class="tool tool-border flex-rest-width"  big color="blue" style = "line-height:27px" @click="knowledgecontents">{{$t('app.knowledgecontents')}}
         <span class="text" v-text="data.content_count ? '(' + data.content_count + ')' : ''"></span>
       </f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" fill @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
+      <f7-button class="tool flex-rest-width"  big color="blue" style = "line-height:27px" @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
         <span class="text" v-text="data.certificate_count ? '(' + data.certificate_count + ')' : ''"></span>
       </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button class="tool tool-border flex-rest-width"  v-if="isOwner" big raised color="blue" fill @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
-      <f7-button class="tool flex-rest-width" v-if="isOwner" big raised color="blue" fill @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width"  v-if="isOwner"  big color="blue" style = "line-height:27px" @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
+      <f7-button class="tool flex-rest-width" v-if="isOwner"  big color="blue" style = "line-height:27px" @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -74,7 +74,7 @@
           margin-top: 3px;
         }
         .name {
-          color: #ff9800;
+          color: blue;
           font-weight: bold;
           font-size: 14px;
         }
@@ -107,14 +107,15 @@
           }
         }
         > span {
-          color: #6D6D78;
+          color: white;
           vertical-align: middle;
         }
         .iconfont{
           font-size: 16px;
         }
         .text {
-          font-size: 13px;
+          font-size: 20px;
+          color: white;
         }
       }
     }
