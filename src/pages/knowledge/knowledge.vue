@@ -2,7 +2,11 @@
   <f7-page id="knowledgesView" class="knowledges-view"
            ptr
            infinite>
-    <f7-navbar :title="$t('app.knowledges')" :back-link="$t('app.back')">
+    <f7-navbar>
+      <f7-nav-left>
+        <f7-link :text="$t('app.back')" @click="routeToMain"></f7-link>
+      </f7-nav-left>
+      <f7-nav-title :title="$t('app.knowledges')"></f7-nav-title>
     </f7-navbar>
     <knowledge v-for="item in knowledges" :isOwner="isOwner" :key="item.id" :data="item" @knowledge:content-click="routeToContent"></knowledge>
   </f7-page>
@@ -86,6 +90,9 @@ export default {
       }
       this.loadingMore = false
       this.$f7.ptr.done()
+    },
+    routeToMain() {
+      this.$f7router.navigate(`/`)
     },
     routeToContent(data) {
       this.$f7router.navigate(`/knowledge/contents/?mid=${data.id}&isowner=${this.isOwner}`)

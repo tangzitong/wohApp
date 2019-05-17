@@ -1,6 +1,6 @@
 <template>
   <f7-page>
-    <f7-navbar :back-link="$t('app.back')">
+    <f7-navbar>
       <f7-nav-title>{{navbarTitle}}</f7-nav-title>
       <f7-nav-right>
         <f7-link icon="iconfont icon-feedback3" icon-size="22" v-show="activedTab === 'news'" @click="openPublisher"></f7-link>

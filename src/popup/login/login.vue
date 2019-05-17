@@ -1,10 +1,18 @@
 <template>
-  <f7-page no-navbar no-toolbar no-swipeback layout="white">
+  <f7-page  class="login post-login" no-navbar no-toolbar no-swipeback layout="gray">
     <transition name="fade">
         <div v-if="performingRequest" class="loading">
             <p>Loading...</p>
         </div>
     </transition>
+    <div class="login-header">
+      <div class="avatar">
+        <img :src="userInfo.avatar_url" class="avatar" alt="Image">
+      </div>
+      <div class="user flex-column">
+        <div class="name">{{$t('app.app_knowledge')}}</div>
+      </div>
+    </div>
     <!-- Title -->
     <f7-block style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-block>
 
@@ -31,54 +39,128 @@
       </f7-list-item>
     </f7-list>
 
-    <!-- Email sign in buttons -->
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
-    </f7-block>
-    <!--
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignInFB">{{$t('login.signInFB')}}</f7-button>
-    </f7-block>
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignInGG">{{$t('login.signInGG')}}</f7-button>
-    </f7-block>
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignInTW">{{$t('login.signInTW')}}</f7-button>
-    </f7-block>
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="green" fill @click="handleSignInGH">{{$t('login.signInGH')}}</f7-button>
-    </f7-block-->
-
-    <!-- Email registration buttons -->
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailRegistration">
-      <f7-button big raised color="green" @click="mode='registration'">{{$t('login.createAccount')}}</f7-button>
-    </f7-block>
-    <f7-block v-if="mode === 'registration' && firebaseConfig.allowEmailRegistration">
-      <f7-button big raised color="green" fill @click="handleRegistration">{{$t('login.handleRegistration')}}</f7-button>
-    </f7-block>
+    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <!-- Email sign in buttons -->
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
+      <!-- Email registration buttons -->
+      <f7-button class="tool flex-rest-width" big raised color="blue" @click="mode='registration'">{{$t('login.createAccount')}}</f7-button>
+    </div>
 
     <!-- Email reset buttons -->
-    <f7-block v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="orange" @click="mode='reset'">{{$t('login.resetPassword')}}</f7-button>
-    </f7-block>
-    <f7-block v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
-      <f7-button big raised color="orange" fill @click="handleReset">{{$t('login.handleReset')}}</f7-button>
-    </f7-block>
+    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" @click="mode='reset'">{{$t('login.resetPassword')}}</f7-button>
+      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+    </div>
+
+    <!-- Email regist buttons -->
+    <div class="login-footer flex-row" v-if="mode === 'registration' && firebaseConfig.allowEmailLogin">
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleRegistration">{{$t('login.handleRegistration')}}</f7-button>
+      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+    </div>
+
+    <!-- Email handle reset buttons -->
+    <div class="login-footer flex-row" v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleReset">{{$t('login.handleReset')}}</f7-button>
+      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+    </div>
 
     <!-- Logout button -->
-    <f7-block v-if="mode === 'signOut'">
-      <f7-button big raised color="red" fill @click="handleSignOut">{{$t('login.signOut')}}</f7-button>
-    </f7-block>
-
-    <!-- Cancel button -->
-    <f7-block v-if="(!$root.loginRequiringPagesOnStart && !$root.loginRequiredForAllPages) || mode !== 'signIn'">
-      <f7-button big raised color="red" @click="cancel">{{$t('login.cancel')}}</f7-button>
-    </f7-block>
+    <div class="login-footer flex-row" v-if="mode === 'signOut'">
+      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleSignOut">{{$t('login.signOut')}}</f7-button>
+      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+    </div>
+    <f7-block-title>{{$t('app.language')}}</f7-block-title>
+    <f7-list>
+        <f7-list-item radio name="language-radio" value="enUS" title="English" :checked="lang === 'enUS'" @change="saveLang"></f7-list-item>
+        <f7-list-item radio name="language-radio" value="zhCN" title="简体中文" :checked="lang === 'zhCN'" @change="saveLang"></f7-list-item>
+        <f7-list-item radio name="language-radio" value="jaJP" title="日本語" :checked="lang === 'jaJP'" @change="saveLang"></f7-list-item>
+    </f7-list>
 
   </f7-page>
 </template>
+
+<style lang="less">
+  @import "../../assets/styles/mixins.less";
+
+  .login.post-login {
+    background-color: white;
+    margin: 10px 0;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    box-shadow: none;
+    .login-header {
+      padding: 10px;
+      padding-bottom: 5px;
+      justify-content: inherit;
+      align-items: inherit;
+      &:after {
+        height: 0;
+      }
+      .avatar, .avatar > img {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        margin-right: 9px;
+      }
+      .user {
+        justify-content: center;
+        .time {
+          font-size: 12px;
+          color: #8999a5;
+          margin-top: 3px;
+        }
+        .name {
+          color: #ff9800;
+          font-weight: bold;
+          font-size: 20px;
+          text-align: right;
+        }
+      }
+    }
+    .login-content{
+      padding: 5px 10px;
+      .image {
+        margin-top: 5px;
+        > img {
+          width: 100%;
+        }
+      }
+    }
+    .login-footer{
+      min-height: 35px;
+      padding: 0;
+      a.link {
+        line-height: 35px;
+        height: 35px;
+      }
+      .tool {
+        justify-content: center;
+        &.tool-border{
+          border-right: 1px solid #e1e1e1;
+        }
+        &.liked{
+          > span {
+            color: @mainColor;
+          }
+        }
+        > span {
+          color: #6D6D78;
+          vertical-align: middle;
+        }
+        .iconfont{
+          font-size: 16px;
+        }
+        .text {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+</style>
+
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
+import { getLangConfig, setLangConfig } from '@/i18n'
 
 // Export module
 export default {
@@ -89,15 +171,20 @@ export default {
       passwordConfirmation: '',
       title: '',
       mode: '',
-      performingRequest: false
+      performingRequest: false,
+      lang: 'enUS'
     }
   },
   computed: {
+    ...mapState({
+      userInfo: state => state.userInfo
+    }),
     firebaseConfig: function () {
       return this.$root.config
     }
   },
   created: function () {
+    this.lang = getLangConfig()
     this.mode = window.user ? 'signOut' : 'signIn'
     this.$root.$signOut = this.handleSignOut
   },
@@ -115,6 +202,10 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
+    saveLang() {
+      const lang = this.$$('input[name="language-radio"]:checked').val()
+      setLangConfig(lang)
+    },
     cancel: function () {
       if (this.mode === 'reset' || this.mode === 'registration') {
         this.mode = window.user ? 'signOut' : 'signIn'
