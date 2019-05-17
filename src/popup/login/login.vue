@@ -39,27 +39,35 @@
 
     <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <!-- Email sign in buttons -->
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleSignIn">{{$t('login.signIn')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleSignIn">
+        <span class="text" v-text="$t('login.signIn')"></span></f7-button>
       <!-- Email registration buttons -->
-      <f7-button class="tool flex-rest-width" big raised color="blue" @click="mode='registration'">{{$t('login.createAccount')}}</f7-button>
+      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px"  @click="mode='registration'">
+        <span class="text" v-text="$t('login.createAccount')"></span></f7-button>
     </div>
 
     <!-- Email regist buttons -->
     <div class="login-footer flex-row" v-if="mode === 'registration' && firebaseConfig.allowEmailLogin">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleRegistration">{{$t('login.handleRegistration')}}</f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleRegistration">
+        <span class="text" v-text="$t('login.handleRegistration')"></span></f7-button>
+      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px"  @click="cancel">
+        <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
     <!-- Email handle reset buttons -->
     <div class="login-footer flex-row" v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleReset">{{$t('login.handleReset')}}</f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleReset">
+        <span class="text" v-text="$t('login.handleReset')"></span></f7-button>
+      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px"  @click="cancel">
+        <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
     <!-- Logout button -->
     <div class="login-footer flex-row" v-if="mode === 'signOut'">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" fill @click="handleSignOut">{{$t('login.signOut')}}</f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleSignOut">
+        <span class="text" v-text="$t('login.signOut')"></span></f7-button>
+      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px" @click="cancel">
+        <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
     <f7-block-title>{{$t('app.language')}}</f7-block-title>
@@ -71,8 +79,10 @@
 
     <!-- Email reset buttons -->
     <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button class="tool tool-border flex-rest-width" big raised color="blue" @click="mode='reset'">{{$t('login.resetPassword')}}</f7-button>
-      <f7-button class="tool flex-rest-width" big raised color="blue" @click="cancel">{{$t('login.cancel')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="mode='reset'">
+        <span class="text" v-text="$t('login.resetPassword')"></span></f7-button>
+      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px" @click="cancel">
+        <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
   </f7-page>
@@ -84,6 +94,7 @@
   .login.post-login {
     background-color: white;
     margin: 10px 0;
+    margin-top: 0px;
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
@@ -143,14 +154,14 @@
           }
         }
         > span {
-          color: #6D6D78;
+          color: white;
           vertical-align: middle;
         }
         .iconfont{
           font-size: 16px;
         }
         .text {
-          font-size: 13px;
+          font-size: 23px;
         }
       }
     }
