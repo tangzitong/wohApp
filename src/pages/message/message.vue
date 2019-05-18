@@ -93,9 +93,7 @@ export default {
           } else {
             message.type = 'received'
           }
-          const roommessages = []
-          roommessages.push(message)
-          window.store.dispatch('infiniteRoomMessages', roommessages)
+          window.store.dispatch('infiniteRoomMessages', message)
           window.messageReceived = true
           setTimeout(function () {
             window.messageReceived = false

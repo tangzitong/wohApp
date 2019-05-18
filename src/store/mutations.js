@@ -28,7 +28,8 @@ export default {
     Vue.set(state, 'roommessages', roommessages)
   },
   [types.APPEND_ROOMMESSAGES](state, { roommessages }) {
-    Vue.set(state, 'roommessages', [...state.roommessages, ...roommessages])
+    // Vue.set(state, 'roommessages', {...state.roommessages, roommessages})
+    Vue.set(state.roommessages, roommessages.id, roommessages)
   },
   [types.PREPEND_ROOMMESSAGES](state, { roommessages }) {
     Vue.set(state, 'roommessages', [...roommessages, ...state.roommessages])
