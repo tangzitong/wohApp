@@ -248,7 +248,7 @@ export default {
     },
     goPrev() {
       this.getPrevContentType()
-      if (this.ord < '2') {
+      if (parseInt(this.ord) < 2) {
         return
       }
       switch (this.prevContentType) {
