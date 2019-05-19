@@ -344,7 +344,11 @@ export default {
       inputanswer_: 'Please input Input Answer',
       input: 'Input',
       inputerror: 'Input Error',
-      input_: 'Please input Answer'
+      input_: 'Please input Answer',
+      link: 'AdLink',
+      link_: 'Please input AdLink',
+      youtubePath: 'Youtube id',
+      youtubePath_: 'Please input Youtube id'
     }
   },
   tool: {

@@ -18,7 +18,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big raised color="green" fill @click="updateKnowledgeAudio">{{$t('knowledge.addaudio')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeAudio">{{$t('knowledge.addaudio')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
@@ -27,9 +27,9 @@
         :db="'knowledgecontents/data/' + knowledgekey + '/contents/' + knowledgecontentkey + '/content/audioPath'" />
     </f7-block>
 
-    <!-- Image -->
-    <f7-block inset v-if="audioPath">
-      <img :src="audioPath" width="50%" />
+    <!-- Audio -->
+    <f7-block inset v-if="imagePath">
+      <VueAudio :file="imagePath"></VueAudio>
     </f7-block>
 </f7-page>
 </template>
@@ -43,7 +43,6 @@ export default {
     return {
       knowledgekey: null,
       knowledgecontentkey: null,
-      audioPath: null,
       ord: 0,
       title: '',
       userid: null,
@@ -53,7 +52,8 @@ export default {
   computed: {
     ...mapState({
       knowledgecontents: state => state.knowledgecontents,
-      isUserLogin: state => state.isUserLogin
+      isUserLogin: state => state.isUserLogin,
+      imagePath: state => state.imagePath
     })
   },
   mounted: function () {
@@ -79,7 +79,8 @@ export default {
           if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
-            this.audioPath = this.knowledgecontents[knowledgecontent].content.audioPath
+            const audioPath = this.knowledgecontents[knowledgecontent].content.audioPath
+            window.store.dispatch('setImagePath', audioPath)
             break
           }
         }
@@ -89,14 +90,14 @@ export default {
       if (this.knowledgecontentkey) {
         this.$root.chat.updateKnowledgeContent(this.knowledgekey, this.knowledgecontentkey, this.ord, this.title, {
           type: 'Audio',
-          audioPath: this.audioPath
+          audioPath: this.imagePath
         }, function(knowledgecontentkey) {
           console.log('update success')
         })
       } else {
         this.$root.chat.addKnowledgeContent(this.knowledgekey, this.ord, this.title, {
           type: 'Audio',
-          audioPath: this.audioPath
+          audioPath: this.imagePath
         }, function(knowledgecontentkey) {
           console.log('update success')
         })
@@ -104,7 +105,7 @@ export default {
 
       this.ord = 0
       this.title = ''
-      this.audioPath = ''
+      window.store.dispatch('setImagePath', '')
       this.showSuccess = true
 
       setTimeout(() => { this.showSuccess = false }, 2000)

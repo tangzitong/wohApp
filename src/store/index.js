@@ -26,7 +26,8 @@ const state = {
     applicationType: '',
     applicationKey: '',
     loginOpened: false
-  }
+  },
+  imagePath: ''
 }
 
 export default new Vuex.Store({

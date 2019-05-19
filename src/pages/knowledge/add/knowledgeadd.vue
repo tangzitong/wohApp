@@ -38,7 +38,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big raised color="green" fill @click="updateKnowledge">{{$t('knowledge.add')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledge">{{$t('knowledge.add')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin && id">

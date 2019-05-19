@@ -18,7 +18,7 @@
       </f7-actions-group>
     </f7-actions>
     <!-- Upload button -->
-    <f7-button big raised @click="handleUploadClicked">{{$t('modify.image')}}</f7-button>
+    <f7-button big color="blue" style = "line-height:27px" @click="handleUploadClicked">{{$t('modify.image')}}</f7-button>
   </div>
 </template>
 <script>
@@ -148,6 +148,7 @@ export default {
             window.db(this.db).set(url)
               .then(() => {
                 // window.f7.hideIndicator()
+                window.store.dispatch('setImagePath', url)
                 this.performingRequest = false
               })
               .catch(() => {

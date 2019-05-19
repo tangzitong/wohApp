@@ -25,34 +25,34 @@
     </f7-list>
     <f7-list v-if="isOwner">
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addHtml">{{$t('knowledge.addhtml')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addHtml">{{$t('knowledge.addhtml')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addSelect">{{$t('knowledge.addselect')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addSelect">{{$t('knowledge.addselect')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addMultiSelect">{{$t('knowledge.addmultiselect')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addMultiSelect">{{$t('knowledge.addmultiselect')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addInput">{{$t('knowledge.addinput')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addInput">{{$t('knowledge.addinput')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addPicture">{{$t('knowledge.addpicture')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addPicture">{{$t('knowledge.addpicture')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addAdvertisment">{{$t('knowledge.addadvertisment')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addAdvertisment">{{$t('knowledge.addadvertisment')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addAudio">{{$t('knowledge.addaudio')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addAudio">{{$t('knowledge.addaudio')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addFlash">{{$t('knowledge.addflash')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addFlash">{{$t('knowledge.addflash')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addYoutube">{{$t('knowledge.addyoutube')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addYoutube">{{$t('knowledge.addyoutube')}}</f7-button>
       </f7-list-item>
       <f7-list-item>
-        <f7-button big raised color="green" fill @click="addCertificate">{{$t('knowledge.addcertificate')}}</f7-button>
+        <f7-button big color="blue" style = "line-height:27px" @click="addCertificate">{{$t('knowledge.addcertificate')}}</f7-button>
       </f7-list-item>
     </f7-list>
   </f7-page>

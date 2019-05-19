@@ -10,9 +10,8 @@
     </f7-block>
     <f7-list>
       <f7-list-item>
-        <!-- Image -->
+        <!-- Flash -->
         <f7-block inset v-if="flashPath">
-          <img :src="flashPath" width="50%" />
           <video-player  class="video-player vjs-custom-skin"
               ref="videoPlayer"
               :playsinline="true"
@@ -23,8 +22,8 @@
     </f7-list>
     <f7-list>
       <f7-list-item>
-        <f7-button v-if="parseInt(ord) > 0" big raised color="green" fill @click="goPrev">{{$t('app.prev')}}</f7-button>
-        <f7-button v-if="parseInt(ord) < content_count" big raised color="green" fill @click="goNext">{{$t('app.next')}}</f7-button>
+        <f7-button v-if="parseInt(ord) > 0" big color="blue" style = "line-height:27px" @click="goPrev">{{$t('app.prev')}}</f7-button>
+        <f7-button v-if="parseInt(ord) < content_count" big color="blue" style = "line-height:27px" @click="goNext">{{$t('app.next')}}</f7-button>
       </f7-list-item>
     </f7-list>
     <div class="comments">

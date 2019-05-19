@@ -787,3 +787,9 @@ export function putFeedback({ commit }, feedback) {
     console.log(err)
   })
 }
+
+export function setImagePath({ commit }, imagePath) {
+  commit(types.SET_IMAGEPATH, {
+    imagePath
+  })
+}

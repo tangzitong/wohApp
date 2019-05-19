@@ -517,6 +517,9 @@ export default {
     } else {
       Vue.set(state, 'hiddenPosts', [])
     }
-  }
+  },
+  [types.SET_IMAGEPATH] (state, { imagePath }) {
+    Vue.set(state, 'imagePath', imagePath)
+  },
 
 }

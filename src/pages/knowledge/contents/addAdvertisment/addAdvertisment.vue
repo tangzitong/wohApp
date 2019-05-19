@@ -22,7 +22,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big raised color="green" fill @click="updateKnowledgeAdvertisment">{{$t('knowledge.addadvertisment')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeAdvertisment">{{$t('knowledge.addadvertisment')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
@@ -32,8 +32,8 @@
     </f7-block>
 
     <!-- Image -->
-    <f7-block inset v-if="advertismentPath">
-      <img :src="advertismentPath" width="50%" />
+    <f7-block inset v-if="imagePath" @click.stop="openPhotoBrowser(link)">
+      <img :src="imagePath" width="50%" />
     </f7-block>
 </f7-page>
 </template>
@@ -47,7 +47,6 @@ export default {
     return {
       knowledgekey: null,
       knowledgecontentkey: null,
-      advertismentPath: null,
       ord: 0,
       title: '',
       link: '',
@@ -58,7 +57,8 @@ export default {
   computed: {
     ...mapState({
       knowledgecontents: state => state.knowledgecontents,
-      isUserLogin: state => state.isUserLogin
+      isUserLogin: state => state.isUserLogin,
+      imagePath: state => state.imagePath
     })
   },
   mounted: function () {
@@ -85,7 +85,8 @@ export default {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
             this.link = this.knowledgecontents[knowledgecontent].link
-            this.advertismentPath = this.knowledgecontents[knowledgecontent].content.advertismentPath
+            const advertismentPath = this.knowledgecontents[knowledgecontent].content.advertismentPath
+            window.store.dispatch('setImagePath', advertismentPath)
             break
           }
         }
@@ -95,7 +96,7 @@ export default {
       if (this.knowledgecontentkey) {
         this.$root.chat.updateKnowledgeContent(this.knowledgekey, this.knowledgecontentkey, this.ord, this.title, {
           type: 'Advertisment',
-          advertismentPath: this.advertismentPath,
+          advertismentPath: this.imagePath,
           link: this.link
         }, function(knowledgecontentkey) {
           console.log('update success')
@@ -103,7 +104,7 @@ export default {
       } else {
         this.$root.chat.addKnowledgeContent(this.knowledgekey, this.ord, this.title, {
           type: 'Advertisment',
-          advertismentPath: this.advertismentPath,
+          advertismentPath: this.imagePath,
           link: this.link
         }, function(knowledgecontentkey) {
           console.log('update success')
@@ -112,7 +113,7 @@ export default {
 
       this.ord = 0
       this.title = ''
-      this.advertismentPath = ''
+      window.store.dispatch('setImagePath', '')
       this.link = ''
       this.showSuccess = true
 

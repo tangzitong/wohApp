@@ -17,25 +17,22 @@
         <input type="text" :placeholder="$t('knowledge.content.title_')" @input="title = $event.target.value" :value="title" />
       </f7-list-item>
     </f7-list>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.youtubePath')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.youtubePath_')" @input="link = $event.target.value" :value="youtubePath" />
+      </f7-list-item>
     <f7-block v-if="isUserLogin">
-      <f7-button big raised color="green" fill @click="updateKnowledgeYoutube">{{$t('knowledge.addyoutube')}}</f7-button>
-    </f7-block>
-      <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
-      <imageuploader
-        :store="'knowledgecontents/' + userid + '/' + knowledgekey + knowledgecontentkey"
-        :db="'knowledgecontents/data/' + knowledgekey + '/contents/' + knowledgecontentkey + '/content/youtubePath'" />
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeYoutube">{{$t('knowledge.addyoutube')}}</f7-button>
     </f7-block>
 
-    <!-- Image -->
+    <!-- Youtube -->
     <f7-block inset v-if="youtubePath">
-      <img :src="youtubePath" width="50%" />
+      <youtube :video-id="youtubePath" :player-vars="playerVars" @playing="playing"></youtube>
     </f7-block>
 </f7-page>
 </template>
 
 <script>
-import imageuploader from '../../../../popup/imageuploader'
 import { mapState } from 'vuex'
 
 export default {
@@ -47,7 +44,10 @@ export default {
       ord: 0,
       title: '',
       userid: null,
-      showSuccess: false
+      showSuccess: false,
+      playerVars: {
+        autoplay: 1
+      }
     }
   },
   computed: {
@@ -108,10 +108,10 @@ export default {
       this.showSuccess = true
 
       setTimeout(() => { this.showSuccess = false }, 2000)
+    },
+    playing() {
+      console.log('we are watching!!!')
     }
-  },
-  components: {
-    imageuploader
   }
 }
 </script>

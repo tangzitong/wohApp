@@ -344,7 +344,11 @@ export default {
       inputanswer_: '入力答えを入力してください',
       input: '入力',
       inputerror: '入力が間違いました。',
-      input_: '答えを入力してください'
+      input_: '答えを入力してください',
+      link: 'Adリンク',
+      link_: 'Adリンクを入力してください',
+      youtubePath: 'Youtube id',
+      youtubePath_: 'Youtube idを入力してください'
     }
   },
   tool: {

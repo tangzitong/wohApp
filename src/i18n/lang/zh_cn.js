@@ -342,7 +342,11 @@ export default {
       inputanswer_: '请输入输入答案',
       input: '输入',
       inputerror: '输入错误，请重试',
-      input_: '请输入答案'
+      input_: '请输入答案',
+      link: '广告链接',
+      link_: '请输入广告链接',
+      youtubePath: 'Youtube id',
+      youtubePath_: '请输入Youtube id'
     }
   },
   tool: {

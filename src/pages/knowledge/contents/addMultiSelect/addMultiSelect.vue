@@ -42,7 +42,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big raised color="green" fill @click="updateKnowledgeMultiSelect">{{$t('knowledge.addselect')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeMultiSelect">{{$t('knowledge.addselect')}}</f7-button>
     </f7-block>
 </f7-page>
 </template>
