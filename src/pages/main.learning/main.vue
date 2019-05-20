@@ -69,7 +69,8 @@ import { isAndroid } from '@/utils/appFunc'
 export default {
   data() {
     return {
-      activedTab: 'home'
+      activedTab: 'home',
+      isOwner: false
     }
   },
   computed: {
@@ -92,6 +93,14 @@ export default {
     },
     isAndroid() {
       return isAndroid()
+    }
+  },
+  mounted() {
+    const query = this.$f7route.query
+    this.isOwner = (query.isowner === 'true')
+    if (this.isOwner) {
+      // $('#home').removeClass('tab-active')
+      // $('#data').addClass('tab-active')
     }
   },
   methods: {

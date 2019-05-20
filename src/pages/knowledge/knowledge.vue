@@ -42,19 +42,19 @@ export default {
   methods: {
     getKnowledges(isOwner, knowledgeType, knowledgekey) {
       this.$f7.preloader.show()
-      if (isOwner) {
+      if (knowledgekey) {
+        this.$root.chat.getKnowledgeByKey(knowledgekey, function(knowledges) {
+          const val = []
+          val.push(knowledges)
+          window.store.dispatch('initKnowledges', val)
+        })
+      } else if (isOwner) {
         this.$root.chat.getKnowledgeListByOwner(function(knowledges) {
           window.store.dispatch('initKnowledges', knowledges)
         })
       } else if (knowledgeType) {
         this.$root.chat.getKnowledgeListByType(knowledgeType, function(knowledges) {
           window.store.dispatch('initKnowledges', knowledges)
-        })
-      } else if (knowledgekey) {
-        this.$root.chat.getKnowledgeByKey(knowledgekey, function(knowledges) {
-          const val = []
-          val.push(knowledges)
-          window.store.dispatch('initKnowledges', val)
         })
       }
       this.$f7.preloader.hide()
@@ -92,7 +92,7 @@ export default {
       this.$f7.ptr.done()
     },
     routeToMain() {
-      this.$f7router.navigate(`/`)
+      this.$f7router.navigate(`/?isowner=${this.isOwner}`)
     },
     routeToContent(data) {
       this.$f7router.navigate(`/knowledge/contents/?mid=${data.id}&isowner=${this.isOwner}`)

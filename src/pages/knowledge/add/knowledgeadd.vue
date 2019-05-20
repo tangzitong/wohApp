@@ -48,8 +48,8 @@
     </f7-block>
 
     <!-- Image -->
-    <f7-block inset v-if="photo">
-      <img :src="photo" width="50%" />
+    <f7-block inset v-if="imagePath">
+      <img :src="imagePath" width="50%" />
     </f7-block>
 </f7-page>
 </template>
@@ -57,6 +57,7 @@
 <script>
 import imageuploader from '../../../popup/imageuploader'
 import { getIndustryConfig, getAreaConfig } from '@/code'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -70,7 +71,6 @@ export default {
       Manager: '',
       HP: '',
       showSuccess: null,
-      photo: null,
       knowledgetype: '',
       industry: '1',
       area: '1',
@@ -81,6 +81,11 @@ export default {
   created() {
     this.area = getAreaConfig()
     this.industry = getIndustryConfig()
+  },
+  computed: {
+    ...mapState({
+      imagePath: state => state.imagePath
+    })
   },
   // Update user name, title and photo from Firebase
   mounted: function () {
@@ -100,7 +105,7 @@ export default {
           this.Fax = data.Fax
           this.Manager = data.Manager
           this.HP = data.HP
-          this.photo = data.photo
+          window.store.dispatch('setImagePath', data.photo)
           this.knowledgetype = data.knowledgetype
         }
       })
@@ -117,7 +122,7 @@ export default {
           Fax: this.Fax,
           Manager: this.Manager,
           HP: this.HP,
-          photo: this.photo,
+          photo: this.imagePath,
           knowledgetype: this.knowledgetype,
           area: this.area,
           industry: this.industry
@@ -133,7 +138,7 @@ export default {
           Fax: this.Fax,
           Manager: this.Manager,
           HP: this.HP,
-          photo: this.photo,
+          photo: this.imagePath,
           knowledgetype: this.knowledgetype,
           area: this.area,
           industry: this.industry
@@ -149,7 +154,7 @@ export default {
       this.Fax = ''
       this.Manager = ''
       this.HP = ''
-      this.photo = ''
+      window.store.dispatch('setImagePath', '')
       this.showSuccess = true
 
       setTimeout(() => { this.showSuccess = false }, 2000)
