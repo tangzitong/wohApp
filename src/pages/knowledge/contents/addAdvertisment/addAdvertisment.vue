@@ -4,10 +4,10 @@
       <f7-nav-left>
         <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
       </f7-nav-left>
-      <f7-nav-title :title="$t('knowledge.addadvertisment')"></f7-nav-title>
+      <f7-nav-title :title="!knowledgecontentkey ? $t('knowledge.addadvertisment') : $t('knowledge.updateadvertisment')"></f7-nav-title>
     </f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addadvertisment')}}</h3>
+      <h3>{{!knowledgecontentkey ? $t('knowledge.addadvertisment') : $t('knowledge.updateadvertisment')}}</h3>
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
@@ -27,7 +27,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeAdvertisment">{{$t('knowledge.addadvertisment')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeAdvertisment">{{!knowledgecontentkey ? $t('knowledge.addadvertisment') : $t('knowledge.updateadvertisment')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
@@ -113,7 +113,7 @@ export default {
           advertismentPath: this.imagePath,
           link: this.link
         }, function(knowledgecontentkey) {
-          console.log('update success')
+          console.log('add success')
         })
       }
 

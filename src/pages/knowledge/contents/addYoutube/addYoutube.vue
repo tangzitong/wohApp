@@ -4,10 +4,10 @@
       <f7-nav-left>
         <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
       </f7-nav-left>
-      <f7-nav-title :title="$t('app.addyoutube')"></f7-nav-title>
+      <f7-nav-title :title="!knowledgecontentkey ? $t('knowledge.addyoutube') : $t('knowledge.updateyoutube')"></f7-nav-title>
     </f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addyoutube')}}</h3>
+      <h3>{{!knowledgecontentkey ? $t('knowledge.addyoutube') : $t('knowledge.updateyoutube')}}</h3>
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
@@ -21,13 +21,13 @@
         <label>{{$t('knowledge.content.title')}}</label><br/>
         <input type="text" :placeholder="$t('knowledge.content.title_')" @input="title = $event.target.value" :value="title" />
       </f7-list-item>
-    </f7-list>
       <f7-list-item>
         <label>{{$t('knowledge.content.youtubePath')}}</label><br/>
         <input type="text" :placeholder="$t('knowledge.content.youtubePath_')" @input="link = $event.target.value" :value="youtubePath" />
       </f7-list-item>
+    </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeYoutube">{{$t('knowledge.addyoutube')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeYoutube">{{!knowledgecontentkey ? $t('knowledge.addyoutube') : $t('knowledge.updateyoutube')}}</f7-button>
     </f7-block>
 
     <!-- Youtube -->
@@ -106,7 +106,7 @@ export default {
           type: 'Youtube',
           youtubePath: this.youtubePath
         }, function(knowledgecontentkey) {
-          console.log('update success')
+          console.log('add success')
         })
       }
 

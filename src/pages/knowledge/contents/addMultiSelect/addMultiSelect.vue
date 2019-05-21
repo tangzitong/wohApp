@@ -4,10 +4,10 @@
       <f7-nav-left>
         <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
       </f7-nav-left>
-      <f7-nav-title :title="$t('app.addmultiselect')"></f7-nav-title>
+      <f7-nav-title :title="!knowledgecontentkey ? $t('knowledge.addmultiselect') : $t('knowledge.updatemultiselect')"></f7-nav-title>
     </f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addmultiselect')}}</h3>
+      <h3>{{!knowledgecontentkey ? $t('knowledge.addmultiselect') : $t('knowledge.updatemultiselect')}}</h3>
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
@@ -47,7 +47,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeMultiSelect">{{$t('knowledge.addselect')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeMultiSelect">{{!knowledgecontentkey ? $t('knowledge.addmultiselect') : $t('knowledge.updatemultiselect')}}</f7-button>
     </f7-block>
 </f7-page>
 </template>
@@ -142,7 +142,7 @@ export default {
             d: this.select4
           }
         }, function(knowledgecontentkey) {
-          console.log('update success')
+          console.log('add success')
         })
       }
 

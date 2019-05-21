@@ -4,10 +4,10 @@
       <f7-nav-left>
         <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
       </f7-nav-left>
-      <f7-nav-title :title="$t('app.addflash')"></f7-nav-title>
+      <f7-nav-title :title="!knowledgecontentkey ? $t('knowledge.addflash') : $t('knowledge.updateflash')"></f7-nav-title>
     </f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.addflash')}}</h3>
+      <h3>{{!knowledgecontentkey ? $t('knowledge.addflash') : $t('knowledge.updateflash')}}</h3>
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
@@ -23,7 +23,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeFlash">{{$t('knowledge.addflash')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeFlash">{{!knowledgecontentkey ? $t('knowledge.addflash') : $t('knowledge.updateflash')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
@@ -145,7 +145,7 @@ export default {
           type: 'Flash',
           flashPath: this.imagePath
         }, function(knowledgecontentkey) {
-          console.log('update success')
+          console.log('add success')
         })
       }
 
