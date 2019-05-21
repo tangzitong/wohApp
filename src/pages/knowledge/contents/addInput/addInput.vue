@@ -1,6 +1,11 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('knowledge.addinput')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar>
+      <f7-nav-left>
+        <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
+      </f7-nav-left>
+      <f7-nav-title :title="$t('app.addinput')"></f7-nav-title>
+    </f7-navbar>
     <f7-block>
       <h3>{{$t('knowledge.addinput')}}</h3>
       <transition name="fade">
@@ -88,6 +93,9 @@ export default {
           }
         }
       }
+    },
+    routeToContent(data) {
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.knowledgekey}&isowner=true`)
     },
     updateKnowledgeInput() {
       if (this.knowledgecontentkey) {

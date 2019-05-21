@@ -1,6 +1,11 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('knowledge.addadvertisment')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar>
+      <f7-nav-left>
+        <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
+      </f7-nav-left>
+      <f7-nav-title :title="$t('knowledge.addadvertisment')"></f7-nav-title>
+    </f7-navbar>
     <f7-block>
       <h3>{{$t('knowledge.addadvertisment')}}</h3>
       <transition name="fade">
@@ -32,9 +37,7 @@
     </f7-block>
 
     <!-- Image -->
-    <f7-block inset v-if="imagePath" @click.stop="openPhotoBrowser(link)">
-      <img :src="imagePath" width="50%" />
-    </f7-block>
+    <f7-link v-if="imagePath" :href="link" external><img :src="imagePath" width="50%"/></f7-link>
 </f7-page>
 </template>
 
@@ -84,13 +87,16 @@ export default {
           if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
-            this.link = this.knowledgecontents[knowledgecontent].link
+            this.link = this.knowledgecontents[knowledgecontent].content.link
             const advertismentPath = this.knowledgecontents[knowledgecontent].content.advertismentPath
             window.store.dispatch('setImagePath', advertismentPath)
             break
           }
         }
       }
+    },
+    routeToContent(data) {
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.knowledgekey}&isowner=true`)
     },
     updateKnowledgeAdvertisment() {
       if (this.knowledgecontentkey) {

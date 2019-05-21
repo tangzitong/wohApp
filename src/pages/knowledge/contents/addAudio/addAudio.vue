@@ -1,6 +1,11 @@
 <template>
   <f7-page class="knowledge">
-    <f7-navbar :title="$t('knowledge.addaudio')" :back-link="$t('app.back')"></f7-navbar>
+    <f7-navbar>
+      <f7-nav-left>
+        <f7-link :text="$t('app.back')" @click="routeToContent"></f7-link>
+      </f7-nav-left>
+      <f7-nav-title :title="$t('app.addaudio')"></f7-nav-title>
+    </f7-navbar>
     <f7-block>
       <h3>{{$t('knowledge.addaudio')}}</h3>
       <transition name="fade">
@@ -85,6 +90,9 @@ export default {
           }
         }
       }
+    },
+    routeToContent(data) {
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.knowledgekey}&isowner=true`)
     },
     updateKnowledgeAudio() {
       if (this.knowledgecontentkey) {
