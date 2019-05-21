@@ -28,7 +28,7 @@
         <f7-input type="password" :placeholder="$t('login.password')" @input="password = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
-        <f7-label>{{$t('login.password')}}</f7-label>
+        <f7-label>{{$t('login.passwordConfirmation')}}</f7-label>
         <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">

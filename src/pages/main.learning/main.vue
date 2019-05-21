@@ -7,10 +7,10 @@
       </f7-nav-right>
     </f7-navbar>
     <f7-toolbar tabbar :labels="!isAndroid">
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7homeoutline' : ''" :text="$t('app.student')" tab-link="#home" tab-link-active></f7-link>
+      <f7-link id="homelink" :icon="!isAndroid ? 'iconfont icon-ios7homeoutline' : ''" :text="$t('app.student')" tab-link="#home" tab-link-active></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubble' : ''" :text="$t('app.chat')" tab-link="#contacts"></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7cameraoutline' : ''" :text="$t('app.news')" tab-link="#news"></f7-link>
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7person' : ''" :text="$t('app.teacher')" tab-link="#data"></f7-link>
+      <f7-link id="datalink" :icon="!isAndroid ? 'iconfont icon-ios7person' : ''" :text="$t('app.teacher')" tab-link="#data"></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7gearoutline' : ''" :text="$t('app.settings')" tab-link="#settings"></f7-link>
     </f7-toolbar>
 
@@ -99,8 +99,11 @@ export default {
     const query = this.$f7route.query
     this.isOwner = (query.isowner === 'true')
     if (this.isOwner) {
-      // $('#home').removeClass('tab-active')
-      // $('#data').addClass('tab-active')
+      this.$$('a#homelink.tab-link').removeClass('tab-link-active')
+      this.$$('a#datalink.tab-link').addClass('tab-link-active')
+      this.$$('div#home.tab-active').removeClass('tab-active')
+      this.$$('div#data').addClass('tab-active')
+      this.tabActived('data')
     }
   },
   methods: {

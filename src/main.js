@@ -45,6 +45,8 @@ import { isAndroid } from './utils/appFunc'
 
 import * as fb from './firebaseConfig.js'
 
+import InfiniteLoading from 'vue-infinite-loading'
+
 // Import vuefire
 const VueFire = require('vuefire')
 
@@ -58,6 +60,7 @@ Vue.use(VideoPlayer)
 Vue.use(VueAudio)
 // Load image-uploader component
 // Vue.component('image-uploader', require('./popup/imageuploader/imageuploader.vue'))
+Vue.use(InfiniteLoading, { /* options */ })
 
 const router = new VueRouter({
   Routes,
