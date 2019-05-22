@@ -11,7 +11,7 @@
     <f7-list>
       <f7-list-item>
         <!-- Image -->
-        <f7-link v-if="imagePath" :href="link" external><img :src="imagePath" width="50%"/></f7-link>
+        <f7-link v-if="advertismentPath" :href="link" external><img :src="advertismentPath" width="50%"/></f7-link>
       </f7-list-item>
     </f7-list>
     <f7-list>

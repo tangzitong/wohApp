@@ -12,7 +12,7 @@
       <f7-list-item>
         <!-- Audio -->
         <f7-block inset v-if="audioPath">
-          <VueAudio :file="audioPath"></VueAudio>
+          <vue-audio :file="audioPath"></vue-audio>
         </f7-block>
       </f7-list-item>
     </f7-list>
@@ -148,6 +148,7 @@
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 import { getRemoteAvatar } from '@/utils/appFunc'
 import { mapState, mapActions } from 'vuex'
+import VueAudio from 'vue-audio'
 
 export default {
   data() {
@@ -297,25 +298,25 @@ export default {
           this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'MultiSelect':
-          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Input':
           this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Picture':
-          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Advertisment':
-          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Audio':
-          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Flash':
-          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Youtube':
-          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
           break
         case 'Certificate':
           this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
@@ -345,6 +346,9 @@ export default {
         value: true
       })
     }
+  },
+  components: {
+    VueAudio
   }
 }
 </script>

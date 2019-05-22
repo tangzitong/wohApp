@@ -15,7 +15,7 @@
     </f7-list>
     <f7-list>
       <f7-list-group v-for="knowledgeoption_ in knowledgeoptions" :key="knowledgeoption_.id">
-        <f7-list-item checkbox name="knowledgeoption-checkbox "
+        <f7-list-item checkbox name="knowledgeoption-checkbox"
           :value="knowledgeoption_.id"
           :title="knowledgeoption_.name"></f7-list-item>
       </f7-list-group>
@@ -311,8 +311,25 @@ export default {
       }
     },
     goNext() {
-      const knowledgeoption = this.$$('input[name="knowledgeoption-checkbox"]:checked').val()
-      if (knowledgeoption !== this.answer) {
+      let result = ''
+      const knowledgeoptionA = this.$$('input[value="a"]:checked').val()
+      if (knowledgeoptionA) {
+        result += ',a'
+      }
+      const knowledgeoptionB = this.$$('input[value="b"]:checked').val()
+      if (knowledgeoptionB) {
+        result += ',b'
+      }
+      const knowledgeoptionC = this.$$('input[value="c"]:checked').val()
+      if (knowledgeoptionC) {
+        result += ',c'
+      }
+      const knowledgeoptionD = this.$$('input[value="d"]:checked').val()
+      if (knowledgeoptionD) {
+        result += ',d'
+      }
+      console.log(result)
+      if (result !== ',' + this.answer) {
         this.getKnowledgeMultiSelect()
         return
       }

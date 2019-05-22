@@ -1394,6 +1394,62 @@
           "time" : 1558006972937
         }
       },
+      "-LdLtaiBADqiIat-6k_3" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "approvalAvatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "approvalName" : "tei952",
+          "approvalStatus" : true,
+          "approval_at" : 1558393191289,
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LdLtaiBADqiIat-6k_3",
+          "name" : "test1",
+          "text" : "よろしくお願がいします",
+          "time" : 1558393068116
+        }
+      },
+      "-LdLtaiBADqiIat-6k_4" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "approvalAvatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "approvalName" : "tei952",
+          "approvalStatus" : true,
+          "approval_at" : 1558393206202,
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LdLtaiBADqiIat-6k_4",
+          "name" : "test1",
+          "text" : "よろしくお願がいします",
+          "time" : 1558393088002
+        }
+      },
+      "-LdLtaiBADqiIat-6k_6" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "approvalAvatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "approvalName" : "tei952",
+          "approvalStatus" : true,
+          "approval_at" : 1558393217175,
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LdLtaiBADqiIat-6k_6",
+          "name" : "test1",
+          "text" : "よろしくお願がいします",
+          "time" : 1558393097841
+        }
+      },
+      "-LdLtaiBADqiIat-6k_7" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "approvalAvatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "approvalName" : "tei952",
+          "approvalStatus" : true,
+          "approval_at" : 1558393228087,
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LdLtaiBADqiIat-6k_7",
+          "name" : "test1",
+          "text" : "よろしくお願がいします",
+          "time" : 1558393108429
+        }
+      },
       "-LdLuLklhwL7keqLFNmD" : {
         "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
           "approvalAvatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
@@ -1458,6 +1514,20 @@
           "name" : "test1",
           "text" : "よろしくお願いいたします。",
           "time" : 1558006897384
+        }
+      },
+      "-LdLvzsimpPWmPNFJwdO" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "approvalAvatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "approvalName" : "tei952",
+          "approvalStatus" : true,
+          "approval_at" : 1558531124536,
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+          "name" : "test1",
+          "text" : "よろしくお願いいたします。",
+          "time" : 1558531057296
         }
       },
       "-LedXZi8fzaKO45rL-Kv" : {
@@ -1611,6 +1681,16 @@
               "name" : "tei952",
               "time" : 1557840845561
             }
+          },
+          "x04" : {
+            "-LfRcO6qWOrxc17How1r" : {
+              "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+              "comment" : "测试",
+              "contentid" : "x04",
+              "id" : "-LfRcO6qWOrxc17How1r",
+              "name" : "tei952",
+              "time" : 1558479737557
+            }
           }
         }
       },
@@ -1725,7 +1805,7 @@
           },
           "x04" : {
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-            "comment_count" : 0,
+            "comment_count" : 1,
             "content" : {
               "data" : "<pre><code>インストール\nnpm install -g @angular/cli\nワークスペースと初期アプリケーションの作成\nng new my-app\nアプリケーションをサーブする\ncd my-app\nng serve --open\nng serve コマンドはサーバーを起動します。\nプロジェクトのファイル変更を監視して、変更があれば再度ビルドを行います。\n--open （または -o ）オプションはhttp://localhost:4200/ を自動的\nにブラウザで開きます。</code></pre>",
               "type" : "Html"
@@ -7931,6 +8011,146 @@
           }
         }
       },
+      "-LdLvzsimpPWmPNFJwdO" : {
+        "contents" : {
+          "-LfR-PYJVrIx7jdltM1t" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "Test",
+              "type" : "Html"
+            },
+            "id" : "-LfR-PYJVrIx7jdltM1t",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "1",
+            "time" : 1558469257878,
+            "title" : "Test",
+            "update_at" : 1558469293851
+          },
+          "-LfR51DfewzV-j29eL2w" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "advertismentPath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLvzsimpPWmPNFJwdO-LfR51DfewzV-j29eL2w?alt=media&token=18694dfe-9cc5-485b-a531-55537edad6ef",
+              "link" : "http://jp.highwayns.com",
+              "type" : "Advertisment"
+            },
+            "id" : "-LfR51DfewzV-j29eL2w",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "2",
+            "time" : 1558470730962,
+            "title" : "广告",
+            "update_at" : 1558472715481
+          },
+          "-LfRHiVOD9-g9R2spLp4" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "type" : "Youtube",
+              "youtubePath" : "lqywEafvq_Q"
+            },
+            "id" : "-LfRHiVOD9-g9R2spLp4",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "3",
+            "time" : 1558474057987,
+            "title" : "youtubeテスト"
+          },
+          "-LfRR7Tl3O5h4qf_5yqZ" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "type" : "Youtube",
+              "youtubePath" : "ffAN0f5s48M"
+            },
+            "id" : "-LfRR7Tl3O5h4qf_5yqZ",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "4",
+            "time" : 1558476523672,
+            "title" : "youtubeテスト"
+          },
+          "-LfRS8XC1TSgokbUSFVu" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "audioPath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLvzsimpPWmPNFJwdO-LfRS8XC1TSgokbUSFVu?alt=media&token=c0acf19c-9df7-4316-8ee1-0d6c6d0602ee",
+              "type" : "Audio"
+            },
+            "id" : "-LfRS8XC1TSgokbUSFVu",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "5",
+            "time" : 1558476792577,
+            "title" : "音声テスト"
+          },
+          "-LfU3cSSJlv7kJgwJ0ww" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "picturePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLvzsimpPWmPNFJwdO-LfU3cSSJlv7kJgwJ0ww?alt=media&token=dce780cf-a91a-4bdc-8d7e-1291bddb31f6",
+              "type" : "Picture"
+            },
+            "id" : "-LfU3cSSJlv7kJgwJ0ww",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "6",
+            "time" : 1558520694962,
+            "title" : "图片测试"
+          },
+          "-LfU4aGWgRdGkk254YxH" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "answer" : "a,b,d",
+              "options" : {
+                "a" : "由单选到多选控件改变",
+                "b" : "结果判断变复杂",
+                "c" : "原来页面可以直接使用",
+                "d" : "答案用逗号分隔"
+              },
+              "title" : "多项选择和单项选择有哪些改变？",
+              "type" : "MultiSelect"
+            },
+            "id" : "-LfU4aGWgRdGkk254YxH",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "7",
+            "time" : 1558520948068,
+            "title" : "多项选择测试"
+          },
+          "-LfU4t0aquIoZi2tAzfb" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "flashPath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLvzsimpPWmPNFJwdO-LfU3cSSJlv7kJgwJ0ww?alt=media&token=dce780cf-a91a-4bdc-8d7e-1291bddb31f6",
+              "type" : "Flash"
+            },
+            "id" : "-LfU4t0aquIoZi2tAzfb",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "8",
+            "time" : 1558521025037,
+            "title" : "Flash测试"
+          },
+          "-LfU5FS9Mum8mhsp6AC3" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLvzsimpPWmPNFJwdO-LfU5FS9Mum8mhsp6AC3?alt=media&token=e3b5ed1c-61ea-40bd-b2b6-2b7c65d31ab6",
+              "type" : "Certificate"
+            },
+            "id" : "-LfU5FS9Mum8mhsp6AC3",
+            "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+            "name" : "tei952",
+            "ord" : "9",
+            "time" : 1558521120965,
+            "title" : "ご修了ありがとうございます。"
+          }
+        }
+      },
       "-LedXZi8fzaKO45rL-Kv" : {
         "contents" : {
           "x01" : {
@@ -8061,6 +8281,17 @@
           }
         }
       },
+      "-LdLtODpcc-J83q1aU5f" : {
+        "likes" : {
+          "-LfMS-dItcRgF244SeMv" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LfMS-dItcRgF244SeMv",
+            "knowledgeid" : "-LdLtODpcc-J83q1aU5f",
+            "name" : "test1",
+            "time" : 1558392867651
+          }
+        }
+      },
       "-LdLuLklhwL7keqLFNmD" : {
         "likes" : {
           "-LezO67cMTwl2mqIo2bv" : {
@@ -8069,6 +8300,28 @@
             "knowledgeid" : "-LdLuLklhwL7keqLFNmD",
             "name" : "test1",
             "time" : 1557989192438
+          }
+        }
+      },
+      "-LdLuU-AHWwvMHDT-QpQ" : {
+        "likes" : {
+          "-LfMSEGe3PghlfNAwRf2" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LfMSEGe3PghlfNAwRf2",
+            "knowledgeid" : "-LdLuU-AHWwvMHDT-QpQ",
+            "name" : "test1",
+            "time" : 1558392927571
+          }
+        }
+      },
+      "-LdLubY6J4gW1t94t63x" : {
+        "likes" : {
+          "-LfMSKDs_kRn6wjPPolW" : {
+            "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+            "id" : "-LfMSKDs_kRn6wjPPolW",
+            "knowledgeid" : "-LdLubY6J4gW1t94t63x",
+            "name" : "test1",
+            "time" : 1558392952015
           }
         }
       },
@@ -8165,7 +8418,7 @@
         "id" : "-LdLtODpcc-J83q1aU5f",
         "introduce" : "Springbootウェブ開発入門です、Springbootで素晴らしいウェブシステムを開発しましょう。",
         "knowledgetype" : "2",
-        "like_count" : 0,
+        "like_count" : 1,
         "name" : "Springboot",
         "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtODpcc-J83q1aU5f?alt=media&token=2de1184f-a1af-48fa-abd0-7ddc24a7cf04"
       },
@@ -8175,7 +8428,7 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 0,
+        "application_count" : 1,
         "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
         "certificate_count" : 0,
         "content_count" : 36,
@@ -8193,7 +8446,7 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 0,
+        "application_count" : 1,
         "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
         "certificate_count" : 0,
         "content_count" : 10,
@@ -8229,7 +8482,7 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 0,
+        "application_count" : 1,
         "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
         "certificate_count" : 0,
         "content_count" : 20,
@@ -8247,7 +8500,7 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 0,
+        "application_count" : 1,
         "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
         "certificate_count" : 0,
         "content_count" : 12,
@@ -8292,7 +8545,7 @@
         "industry" : "1",
         "introduce" : "vue入门助你成为VUE前端工程师",
         "knowledgetype" : "3",
-        "like_count" : 0,
+        "like_count" : 1,
         "name" : "vue从入门",
         "nickname" : "tei952",
         "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLuU-AHWwvMHDT-QpQ?alt=media&token=43afbf8b-b726-43d8-8350-ceafda9b8393",
@@ -8310,11 +8563,13 @@
         "content_count" : 69,
         "created_at" : 1556236368285,
         "id" : "-LdLubY6J4gW1t94t63x",
-        "introduce" : "Python　入門,Python基本知識を勉強しましょう。",
+        "introduce" : "Python入門,Python基本知識を勉強しましょう。",
         "knowledgetype" : "3",
-        "like_count" : 0,
-        "name" : "Python　入門",
-        "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLubY6J4gW1t94t63x?alt=media&token=0ca38135-5abe-49fa-b5b7-e9e37dc59642"
+        "like_count" : 1,
+        "name" : "Python入門",
+        "nickname" : "tei952",
+        "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLubY6J4gW1t94t63x?alt=media&token=0ca38135-5abe-49fa-b5b7-e9e37dc59642",
+        "update_at" : 1558521228934
       },
       "-LdLv2K4G35jI5thkNgR" : {
         "Fax" : "03-3532-6513",
@@ -8409,10 +8664,10 @@
         "Manager" : "鄭軍",
         "Tel" : "03-5244-9853",
         "address" : "東京都中央区八丁堀4-10-1-604",
-        "application_count" : 0,
+        "application_count" : 1,
         "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
         "certificate_count" : 0,
-        "content_count" : 0,
+        "content_count" : 9,
         "created_at" : 1556236730161,
         "id" : "-LdLvzsimpPWmPNFJwdO",
         "introduce" : "人工智能数学基础教育",
@@ -9984,6 +10239,54 @@
         "timestamp" : 1558047762785,
         "type" : "messageType",
         "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LfMVO3tCJo-PMhjiZOL" : {
+        ".priority" : 1.558393754262E12,
+        "message" : "人工智能方面增加了Mikit课程和tensorflow.js课程，欢迎大家学习参考",
+        "name" : "test1",
+        "timestamp" : 1558393754262,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LfRcCobSOvZCUbXxpe3" : {
+        ".priority" : 1.558479691266E12,
+        "message" : "广告，YouTube的功能基本实现，聊天不连续问题已经解决，另外画面导航问题也以解决",
+        "name" : "tei952",
+        "timestamp" : 1558479691266,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LfRcOD4d9-W1ZnxxvTa" : {
+        ".priority" : 1.558479737938E12,
+        "message" : "Angularシステム開発入門\\4.0 Angular CLI\\测试",
+        "name" : "tei952",
+        "timestamp" : 1558479737938,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LfRdZGILuflw4lDmUDa" : {
+        ".priority" : 1.558480045537E12,
+        "message" : "申请确认要建聊天室，这个问题需要测试和确认，另外7、8两项问题后期重点解决",
+        "name" : "tei952",
+        "timestamp" : 1558480045537,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LfU5sMRclNVa1vrB8JH" : {
+        ".priority" : 1.558521284288E12,
+        "message" : "更新知识的时候显示增加",
+        "name" : "tei952",
+        "timestamp" : 1558521284288,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LfU63DeRNm3Y2zkqcA3" : {
+        ".priority" : 1.558521332906E12,
+        "message" : "flash页面增加是显示图片上传",
+        "name" : "tei952",
+        "timestamp" : 1558521332906,
+        "type" : "messageType",
+        "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
       }
     }
   },
@@ -10015,34 +10318,6 @@
       "location" : "Tokyo",
       "name" : "tei952",
       "type" : "private"
-    }
-  },
-  "room-users" : {
-    "-LbpDP3nLIekOaNV6i9R" : {
-      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
-        "-LcswklWn161epTCpFaA" : {
-          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-          "name" : "test1"
-        },
-        "-LdSfrrWbLS1qpkfebBw" : {
-          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-          "name" : "test1"
-        }
-      },
-      "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
-        "-LfKgC5DZSo5SJSKErHi" : {
-          "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
-          "name" : "tei952"
-        }
-      }
-    },
-    "-LdZLabGR1N_h0cosQNI" : {
-      "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
-        "-LfKgC5DZSo5SJSKErHi" : {
-          "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
-          "name" : "tei952"
-        }
-      }
     }
   },
   "talents" : {
@@ -10281,32 +10556,6 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
-  "user-names-online" : {
-    "tei952" : {
-      "-LfKgC5DZSo5SJSKErHi" : {
-        "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
-        "name" : "tei952"
-      }
-    },
-    "test1" : {
-      "-LcswklWn161epTCpFaA" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      },
-      "-LdS9TiUDVUXwSXEaL1O" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      },
-      "-LdSfrrWbLS1qpkfebBw" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      },
-      "-LfKlXDBUl9n729W1JCK" : {
-        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "name" : "test1"
-      }
-    }
-  },
   "user_login" : {
     "data" : {
       "sid" : "e651771fe37dc17c17421331a87721",
@@ -10351,6 +10600,11 @@
           "approval_at" : 1558071268381,
           "contentOrd" : "06"
         },
+        "-LdLtaiBADqiIat-6k_6" : {
+          "LearningStatus" : true,
+          "approval_at" : 1558393442051,
+          "contentOrd" : "08"
+        },
         "-LdLuLklhwL7keqLFNmD" : {
           "LearningStatus" : true,
           "approval_at" : 1558012714405,
@@ -10363,13 +10617,18 @@
         },
         "-LdLubY6J4gW1t94t63x" : {
           "LearningStatus" : true,
-          "approval_at" : 1558018085797,
-          "contentOrd" : "10"
+          "approval_at" : 1558393531887,
+          "contentOrd" : "05"
+        },
+        "-LdLvzsimpPWmPNFJwdO" : {
+          "LearningStatus" : true,
+          "approval_at" : 1558537213678,
+          "contentOrd" : "7"
         },
         "-LedXZi8fzaKO45rL-Kv" : {
           "LearningStatus" : true,
-          "approval_at" : 1557988190953,
-          "contentOrd" : "03"
+          "approval_at" : 1558393899490,
+          "contentOrd" : "04"
         }
       },
       "location" : "",
@@ -10396,12 +10655,6 @@
           "location" : "Tokyo",
           "name" : "tei952"
         }
-      },
-      "sessions" : {
-        "-LcswklWn161epTCpFaA" : true,
-        "-LdS9TiUDVUXwSXEaL1O" : true,
-        "-LdSfrrWbLS1qpkfebBw" : true,
-        "-LfKlXDBUl9n729W1JCK" : true
       },
       "talent_count" : 3,
       "tool_count" : 2
@@ -10539,9 +10792,6 @@
           "location" : "Tokyo",
           "name" : "tei952"
         }
-      },
-      "sessions" : {
-        "-LfKgC5DZSo5SJSKErHi" : true
       }
     },
     "icC70eXYlkOrVQayAOrPo0Os7is2" : {

@@ -34,7 +34,7 @@
 
     <!-- Audio -->
     <f7-block inset v-if="imagePath">
-      <VueAudio :file="imagePath"></VueAudio>
+      <vue-audio :file="imagePath"></vue-audio>
     </f7-block>
 </f7-page>
 </template>
@@ -42,6 +42,7 @@
 <script>
 import imageuploader from '../../../../popup/imageuploader'
 import { mapState } from 'vuex'
+import VueAudio from 'vue-audio'
 
 export default {
   data() {
@@ -120,7 +121,8 @@ export default {
     }
   },
   components: {
-    imageuploader
+    imageuploader,
+    VueAudio
   }
 }
 </script>
