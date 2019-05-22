@@ -15,7 +15,7 @@
     </f7-list>
     <f7-list>
       <f7-list-group v-for="knowledgeoption_ in knowledgeoptions" :key="knowledgeoption_.id">
-        <f7-list-item radio name="knowledgeoption-radio"
+        <f7-list-item checkbox name="knowledgeoption-checkbox "
           :value="knowledgeoption_.id"
           :title="knowledgeoption_.name"></f7-list-item>
       </f7-list-group>
@@ -311,7 +311,7 @@ export default {
       }
     },
     goNext() {
-      const knowledgeoption = this.$$('input[name="knowledgeoption-radio"]:checked').val()
+      const knowledgeoption = this.$$('input[name="knowledgeoption-checkbox"]:checked').val()
       if (knowledgeoption !== this.answer) {
         this.getKnowledgeMultiSelect()
         return
