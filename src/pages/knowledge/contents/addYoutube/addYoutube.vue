@@ -23,7 +23,7 @@
       </f7-list-item>
       <f7-list-item>
         <label>{{$t('knowledge.content.youtubePath')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.content.youtubePath_')" @input="link = $event.target.value" :value="youtubePath" />
+        <input type="text" :placeholder="$t('knowledge.content.youtubePath_')" @input="youtubePath = $event.target.value" :value="youtubePath" />
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
