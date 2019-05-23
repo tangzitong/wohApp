@@ -13,6 +13,9 @@ service firebase.storage {
     match /users/{uid} {
       allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
+    match /posts/{uid}/{fileName} {
+      allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
+    }
     match /jobs/{uid}/{fileName} {
       allow read, write: if uid == request.auth.uid && isImageBelowMaxSize(1);
     }
