@@ -2,7 +2,9 @@
 const firebase = require('firebase/app')
 const pureimage = require('pureimage')
 const axios = require('axios')
-const fs = require('fs')
+const STREAM = require('stream')
+const PassThrough = STREAM.PassThrough
+
 // Firechat is a simple, easily-extensible data layer for multi-user,
 // multi-room chat, built entirely on [Firebase](https://firebase.google.com).
 //
@@ -3691,34 +3693,31 @@ Firechat.prototype.unlikeEvent = function(eventKey, likeKey, callback) {
   })
 }
 
-Firechat.prototype.downloadCertificateTemplate = function(certificateUrl, certificatePath, callback) {
-  axios.get(certificateUrl, {responseType: 'arraybuffer'}).then(res => {
-    fs.writeFileSync(certificatePath, new Buffer.From(res.data), 'binary')
-    if (callback) {
-      callback()
-    }
-  })
-}
-
-Firechat.prototype.createCertificate = function(certificatePath, myCertificatePath, callback) {
+Firechat.prototype.createCertificate = function(certificateUrl, callback) {
   const self = this
-  const fnt = pureimage.registerFont('src/assets/fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
+  const fnt = pureimage.registerFont('./assets/fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
   fnt.load(() => {
-    pureimage.decodePNGFromStream(fs.createReadStream(certificatePath)).then((img) => {
-      const ctx = img.getContext('2d')
-      ctx.fillStyle = '#ffffff'
-      ctx.font = "48pt 'Source Sans Pro'"
-      const dt = new Date()
-      const y = dt.getFullYear()
-      const m = ('00' + (dt.getMonth() + 1)).slice(-2)
-      const d = ('00' + dt.getDate()).slice(-2)
-      const result = y + '/' + m + '/' + d
-      ctx.fillText(self._userName, 377, 520)
-      ctx.fillText(result, 377, 573)
-      pureimage.encodePNGToStream(img, fs.createWriteStream(myCertificatePath)).then(() => {
-        if (callback) {
-          callback()
-        }
+    axios.get(certificateUrl, {responseType: 'arraybuffer'}).then(res => {
+      pureimage.decodePNGFromStream(new Buffer.From(res.data)).then((img) => {
+        const ctx = img.getContext('2d')
+        ctx.fillStyle = '#ffffff'
+        ctx.font = "48pt 'Source Sans Pro'"
+        const dt = new Date()
+        const y = dt.getFullYear()
+        const m = ('00' + (dt.getMonth() + 1)).slice(-2)
+        const d = ('00' + dt.getDate()).slice(-2)
+        const result = y + '/' + m + '/' + d
+        ctx.fillText(self._userName, 377, 520)
+        ctx.fillText(result, 377, 573)
+        const passThroughStream = new PassThrough()
+        const PNGData = []
+        pureimage.encodePNGToStream(img, passThroughStream)
+        passThroughStream.on('data', chunk => PNGData.push(chunk))
+        passThroughStream.on('end', () => {
+          if (callback) {
+            callback(PNGData)
+          }
+        })
       })
     })
   })

@@ -11,8 +11,8 @@
     <f7-list>
       <f7-list-item>
         <!-- Image -->
-        <f7-block inset v-if="myCertificatePath">
-          <img :src="myCertificatePath" width="50%" />
+        <f7-block inset v-if="imagePath">
+          <img :src="imagePath" width="50%" />
         </f7-block>
       </f7-list-item>
     </f7-list>
@@ -156,11 +156,12 @@ export default {
       prevContentType: 'Html',
       prevknowledgecontentkey: null,
       certificatePath: null,
-      myCertificatePath: null,
+      imageid: null,
       ord: 0,
       title: '',
-      userid: null,
-      comment_count: 0
+      comment_count: 0,
+      store: null,
+      db: null
     }
   },
   computed: {
@@ -170,18 +171,15 @@ export default {
       learningstatus: state => state.learningstatus,
       knowledgecertificates: state => state.knowledgecertificates,
       knowledgecomments: state => state.knowledgecomments,
-      isUserLogin: state => state.isUserLogin
-    }),
-    store: 'knowledgecertificates/' + this.userid + '/' + this.knowledgekey,
-    db: 'knowledgecertificates/data/' + this.knowledgekey + '/' + this.userid + '/certificatePath'
+      imagePath: state => state.imagePath,
+      isUserLogin: state => state.isUserLogin,
+      userid: state => state.userProfile.id
+    })
   },
   mounted: function () {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
     this.knowledgecontentkey = query.contentid
-    if (this.isUserLogin) {
-      this.userid = window.user.uid
-    }
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
@@ -201,7 +199,7 @@ export default {
     }
     this.getKnowledgeCertificate()
     this.getMyKnowledgeCertificate()
-    if (!this.myCertificatePath) {
+    if (!this.imagePath) {
       this.createCertificate()
       this.getMyKnowledgeCertificate()
       this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
@@ -215,38 +213,33 @@ export default {
         }
       })
     }
+    this.store = 'knowledgecertificates/' + this.userid + '/' + this.knowledgekey
+    this.db = 'knowledgecertificates/data/' + this.knowledgekey + '/' + this.userid + '/certificatePath'
   },
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
-    uploadFile(imageUri) {
+    uploadFile(PNGData) {
       this.performingRequest = true
-      window.resolveLocalFileSystemURL(imageUri, function (fileEntry) {
-        fileEntry.file(function (file) {
-          const reader = new window.FileReader()
-          reader.onloadend = function () {
-            const blob = new window.Blob([new Uint8Array(this.result)], {type: file.type})
-            window.storage(this.store).put(blob, {contentType: blob.type})
-              .then(() => {
-                this.handleFileUploaded()
-              })
-              .catch(() => {
-                // window.f7.hideIndicator()
-                this.performingRequest = false
-                window.$$.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
-              })
-          }
-          reader.readAsArrayBuffer(file)
+      const blob = new window.Blob(PNGData, {type: 'application/octet-binary'})
+      window.storage(this.store).put(blob, {contentType: blob.type})
+        .then(() => {
+          this.handleFileUploaded()
         })
-      })
+        .catch(() => {
+          // window.f7.hideIndicator()
+          this.performingRequest = false
+          window.$$.alert('Cannot upload the photo :-(<br />Please try again later', 'Trouble with Firebase')
+        })
     },
     handleFileUploaded: function () {
-      if (this.db !== '') {
-        // Get download URL
-        window.storage(this.store).getDownloadURL()
-          .then(url => {
-            // Save download URL to user data
+      // Get download URL
+      window.storage(this.store).getDownloadURL()
+        .then(url => {
+          // Save download URL to user data
+          window.store.dispatch('setImagePath', url)
+          if (this.db !== '') {
             window.db(this.db).set(url)
               .then(() => {
                 // window.f7.hideIndicator()
@@ -257,33 +250,31 @@ export default {
                 this.performingRequest = false
                 window.$$.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
               })
-          })
-          .catch(() => {
+          } else {
             // window.f7.hideIndicator()
             this.performingRequest = false
-            window.$$.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
-          })
-      } else {
-        // window.f7.hideIndicator()
-        this.performingRequest = false
-      }
+          }
+        })
+        .catch(() => {
+          // window.f7.hideIndicator()
+          this.performingRequest = false
+          window.$$.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
+        })
     },
     createCertificate() {
-      this.$root.chat.downloadCertificateTemplate(this.certificatePath, 'src/assets/images/' + this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png', knowledgeKey => {
-        console.log('knowledgeKey=' + knowledgeKey)
+      this.$root.chat.createCertificate(this.certificatePath, PNGData => {
+        this.uploadFile(PNGData)
       })
       this.$root.chat.addKnowledgeCertificate(this.knowledgekey, knowledgeKey => {
         console.log('knowledgeKey=' + knowledgeKey)
-      })
-      this.$root.chat.createCertificate(this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png', 'src/assets/images/' + this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png', () => {
-        this.uploadFile('src/assets/images/' + this.knowledges[this.knowledgekey].id + this.knowledges[this.knowledgekey].avatar + '.png')
       })
     },
     getMyKnowledgeCertificate() {
       if (this.knowledgecontentkey) {
         for (const knowledgecertificate in this.knowledgecertificates) {
           if (this.knowledgecertificates[knowledgecertificate].knowledgeid === this.knowledgecontentkey) {
-            this.myCertificatePath = this.knowledgecontents[this.knowledgecontentkey].certificatePath
+            const myCertificatePath = this.knowledgecontents[this.knowledgecontentkey].certificatePath
+            window.store.dispatch('setImagePath', myCertificatePath)
             break
           }
         }
