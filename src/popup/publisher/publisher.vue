@@ -10,18 +10,45 @@
       </f7-nav-right>
     </f7-navbar>
     <editor :placeholder="$t('publisher.placeholder')" @text:change="editorTextChange"></editor>
+    <!-- Image -->
+    <f7-block v-if="isUserLogin && imageid">
+      <imageuploader
+        :store="'posts/' + userid + '/' + imageid"
+        :db="'posts/data/' + imageid + '/photo'" />
+    </f7-block>
+    <f7-block inset v-if="imagePath">
+      <img :src="imagePath" width="50%" />
+    </f7-block>    
   </f7-page>
 </template>
 
 <script>
 import Editor from '@/components/editor'
 import { mapActions } from 'vuex'
+import imageuploader from './imageuploader'
+import { mapState } from 'vuex'
 
 export default {
   data() {
     return {
-      text: ''
+      text: '',
+      imageid: null,
+      isUserLogin: !!window.user,
+      userid: null
     }
+  },
+  computed: {
+    ...mapState({
+      imagePath: state => state.imagePath
+    })
+  },
+  // Update user name, title and photo from Firebase
+  mounted: function () {
+    if (this.isUserLogin) {
+      this.userid = window.user.uid
+    }
+    const uuid = require('node-uuid')
+    this.imageid = uuid.v4().split('-').join('')    
   },
   methods: {
     ...mapActions([
@@ -32,7 +59,7 @@ export default {
     },
     sendTweet() {
       this.$f7.preloader.show(this.$t('app.submitting'))
-      this.$root.chat.createPost(this.text, 'https://wohapp-3a179.firebaseapp.com/', postkey => {
+      this.$root.chat.createPost(this.text, this.imagePath, postkey => {
         this.$f7.addNotification({
           title: this.$t('publisher.publisher'),
           message: this.$t('publisher.published'),
@@ -53,7 +80,8 @@ export default {
     }
   },
   components: {
-    Editor
+    Editor,
+    imageuploader
   }
 }
 </script>
