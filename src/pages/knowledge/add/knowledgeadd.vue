@@ -2,7 +2,7 @@
   <f7-page class="knowledge">
     <f7-navbar :title="$t('knowledge.add')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
-      <h3>{{$t('knowledge.add')}}</h3>
+      <h3>{{!id ? $t('knowledge.add') : $t('knowledge.update')}}</h3>
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
@@ -38,7 +38,7 @@
       </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
-      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledge">{{$t('knowledge.add')}}</f7-button>
+      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledge">{{!id ? $t('knowledge.add') : $t('knowledge.update')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
     <f7-block v-if="isUserLogin && id">
