@@ -14,46 +14,48 @@
     <f7-block v-if="isUserLogin && imageid">
       <imageuploader
         :store="'posts/' + userid + '/' + imageid"
-        :db="'posts/data/' + imageid + '/photo'" />
+        :db="''" />
     </f7-block>
     <f7-block inset v-if="imagePath">
       <img :src="imagePath" width="50%" />
-    </f7-block>    
+    </f7-block>
   </f7-page>
 </template>
 
 <script>
 import Editor from '@/components/editor'
-import { mapActions } from 'vuex'
-import imageuploader from './imageuploader'
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
+import imageuploader from '../imageuploader'
 
 export default {
   data() {
     return {
       text: '',
-      imageid: null,
-      isUserLogin: !!window.user,
-      userid: null
+      imageid: null
     }
   },
   computed: {
     ...mapState({
-      imagePath: state => state.imagePath
+      imagePath: state => state.imagePath,
+      isUserLogin: state => state.isUserLogin,
+      userid: state => state.userProfile.id
     })
   },
   // Update user name, title and photo from Firebase
   mounted: function () {
-    if (this.isUserLogin) {
-      this.userid = window.user.uid
-    }
-    const uuid = require('node-uuid')
-    this.imageid = uuid.v4().split('-').join('')    
+    this.imageid = window.uuid.v4().split('-').join('')
   },
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
+    getTimeline() {
+      this.$f7.preloader.show()
+      this.$root.chat.getPostList(function(posts) {
+        window.store.dispatch('initTimeline', posts)
+      })
+      this.$f7.preloader.hide()
+    },
     editorTextChange(text) {
       this.text = text
     },
@@ -69,6 +71,7 @@ export default {
       })
       setTimeout(_ => {
         this.$f7.preloader.hide()
+        this.getTimeline()
         this.closePopup()
       }, 1500)
     },

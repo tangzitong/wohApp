@@ -140,15 +140,15 @@ export default {
       }
     },
     handleFileUploaded: function () {
-      if (this.db !== '') {
-        // Get download URL
-        window.storage(this.store).getDownloadURL()
-          .then(url => {
-            // Save download URL to user data
+      // Get download URL
+      window.storage(this.store).getDownloadURL()
+        .then(url => {
+          // Save download URL to user data
+          window.store.dispatch('setImagePath', url)
+          if (this.db) {
             window.db(this.db).set(url)
               .then(() => {
                 // window.f7.hideIndicator()
-                window.store.dispatch('setImagePath', url)
                 this.performingRequest = false
               })
               .catch(() => {
@@ -156,16 +156,15 @@ export default {
                 this.performingRequest = false
                 window.$$.alert('Cannot update the photo url :-(<br />Please try again later', 'Trouble with Firebase')
               })
-          })
-          .catch(() => {
-            // window.f7.hideIndicator()
+          } else {
             this.performingRequest = false
-            window.$$.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
-          })
-      } else {
-        // window.f7.hideIndicator()
-        this.performingRequest = false
-      }
+          }
+        })
+        .catch(() => {
+          // window.f7.hideIndicator()
+          this.performingRequest = false
+          window.$$.alert('Cannot load the photo url :-(<br />Please try again later', 'Trouble with Firebase')
+        })
     }
   }
 }

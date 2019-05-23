@@ -49,6 +49,7 @@ import InfiniteLoading from 'vue-infinite-loading'
 
 // Import vuefire
 const VueFire = require('vuefire')
+const uuid = require('node-uuid')
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue, Framework7)
@@ -103,6 +104,7 @@ window.vm = new Vue({
     window.sortObject = require('./sort-object')
     window.store = store
     window.text = i18n
+    window.uuid = uuid
   },
   created: function () {
     // Use auth service

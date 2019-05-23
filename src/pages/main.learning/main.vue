@@ -119,10 +119,20 @@ export default {
         case 'contacts':
           this.getRoomList()
           break
+        case 'news':
+          this.getTimeline()
+          break
         case 'data':
           this.getOwnerKnowledges()
           break
       }
+    },
+    getTimeline() {
+      this.$f7.preloader.show()
+      this.$root.chat.getPostList(function(posts) {
+        window.store.dispatch('initTimeline', posts)
+      })
+      this.$f7.preloader.hide()
     },
     getRoomList() {
       if (!this.isUserLogin) return
