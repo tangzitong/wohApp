@@ -348,7 +348,17 @@ export default {
       link: 'AdLink',
       link_: 'Please input AdLink',
       youtubePath: 'Youtube id',
-      youtubePath_: 'Please input Youtube id'
+      youtubePath_: 'Please input Youtube id',
+      flashPath: 'Flash Url',
+      flashPath_: 'Please input Flash Url',
+      source0type: 'Source0 Type',
+      source0type_: 'Please input Source0 Type',
+      source0src: 'Source0 Src',
+      source0src_: 'Please input Source0 Src',
+      source1type: 'Source1 Type',
+      source1type_: 'Please input Source1 Type',
+      source1src: 'Source1 Src',
+      source1src_: 'Please input Source1 Src'
     }
   },
   tool: {
