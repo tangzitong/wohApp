@@ -57,7 +57,6 @@
 </template>
 
 <script>
-import imageuploader from '../../../../popup/imageuploader'
 import { mapState } from 'vuex'
 
 export default {
@@ -183,9 +182,6 @@ export default {
 
       setTimeout(() => { this.showSuccess = false }, 2000)
     }
-  },
-  components: {
-    imageuploader
   }
 }
 </script>
