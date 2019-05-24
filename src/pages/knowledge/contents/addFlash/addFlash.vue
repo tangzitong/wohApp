@@ -21,17 +21,30 @@
         <label>{{$t('knowledge.content.title')}}</label><br/>
         <input type="text" :placeholder="$t('knowledge.content.title_')" @input="title = $event.target.value" :value="title" />
       </f7-list-item>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.flashPath')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.flashPath_')" @input="playerOptions.flash.swf = $event.target.value" :value="playerOptions.flash.swf" />
+      </f7-list-item>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.source0type')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.source0type_')" @input="playerOptions.sources[0].type = $event.target.value" :value="playerOptions.sources[0].type" />
+      </f7-list-item>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.source0src')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.source0src_')" @input="playerOptions.sources[0].src = $event.target.value" :value="playerOptions.sources[0].src" />
+      </f7-list-item>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.source1type')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.source1type_')" @input="playerOptions.sources[1].type = $event.target.value" :value="playerOptions.sources[1].type" />
+      </f7-list-item>
+      <f7-list-item>
+        <label>{{$t('knowledge.content.source1src')}}</label><br/>
+        <input type="text" :placeholder="$t('knowledge.content.source1src_')" @input="playerOptions.sources[0].src = $event.target.value" :value="playerOptions.sources[1].src" />
+      </f7-list-item>
     </f7-list>
     <f7-block v-if="isUserLogin">
       <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeFlash">{{!knowledgecontentkey ? $t('knowledge.addflash') : $t('knowledge.updateflash')}}</f7-button>
     </f7-block>
-      <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin && knowledgekey && knowledgecontentkey">
-      <imageuploader
-        :store="'knowledgecontents/' + userid + '/' + knowledgekey + knowledgecontentkey"
-        :db="'knowledgecontents/data/' + knowledgekey + '/contents/' + knowledgecontentkey + '/content/flashPath'" />
-    </f7-block>
-
     <!-- Flash -->
     <f7-block inset v-if="flashPath">
       <video-player  class="video-player vjs-custom-skin"
@@ -95,8 +108,7 @@ export default {
   computed: {
     ...mapState({
       knowledgecontents: state => state.knowledgecontents,
-      isUserLogin: state => state.isUserLogin,
-      imagePath: state => state.imagePath
+      isUserLogin: state => state.isUserLogin
     })
   },
   mounted: function () {
@@ -122,8 +134,11 @@ export default {
           if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
-            const flashPath = this.knowledgecontents[knowledgecontent].content.flashPath
-            window.store.dispatch('setImagePath', flashPath)
+            this.playerOptions.flash.swf = this.knowledgecontents[knowledgecontent].content.flashPath
+            this.playerOptions.sources[0].type = this.knowledgecontents[knowledgecontent].content.source0type
+            this.playerOptions.sources[0].src = this.knowledgecontents[knowledgecontent].content.source0src
+            this.playerOptions.sources[1].type = this.knowledgecontents[knowledgecontent].content.source1type
+            this.playerOptions.sources[1].src = this.knowledgecontents[knowledgecontent].content.source1src
             break
           }
         }
@@ -136,14 +151,22 @@ export default {
       if (this.knowledgecontentkey) {
         this.$root.chat.updateKnowledgeContent(this.knowledgekey, this.knowledgecontentkey, this.ord, this.title, {
           type: 'Flash',
-          flashPath: this.imagePath
+          flashPath: this.playerOptions.flash.swf,
+          source0type: this.playerOptions.sources[0].type,
+          source0src: this.playerOptions.sources[0].src,
+          source1type: this.playerOptions.sources[1].type,
+          source1src: this.playerOptions.sources[1].src
         }, function(knowledgecontentkey) {
           console.log('update success')
         })
       } else {
         this.$root.chat.addKnowledgeContent(this.knowledgekey, this.ord, this.title, {
           type: 'Flash',
-          flashPath: this.imagePath
+          flashPath: this.playerOptions.flash.swf,
+          source0type: this.playerOptions.sources[0].type,
+          source0src: this.playerOptions.sources[0].src,
+          source1type: this.playerOptions.sources[1].type,
+          source1src: this.playerOptions.sources[1].src
         }, function(knowledgecontentkey) {
           console.log('add success')
         })
@@ -151,7 +174,11 @@ export default {
 
       this.ord = 0
       this.title = ''
-      window.store.dispatch('setImagePath', '')
+      this.playerOptions.flash.swf = ''
+      this.playerOptions.sources[0].type = ''
+      this.playerOptions.sources[0].src = ''
+      this.playerOptions.sources[1].type = ''
+      this.playerOptions.sources[1].src = ''
       this.showSuccess = true
 
       setTimeout(() => { this.showSuccess = false }, 2000)
