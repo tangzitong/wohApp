@@ -346,7 +346,17 @@ export default {
       link: '广告链接',
       link_: '请输入广告链接',
       youtubePath: 'Youtube id',
-      youtubePath_: '请输入Youtube id'
+      youtubePath_: '请输入Youtube id',
+      flashPath: 'Flash Url',
+      flashPath_: '请输入Flash Url',
+      source0type: 'Source0 Type',
+      source0type_: '请输入Source0 Type',
+      source0src: 'Source0 Src',
+      source0src_: '请输入Source0 Src',
+      source1type: 'Source1 Type',
+      source1type_: '请输入Source1 Type',
+      source1src: 'Source1 Src',
+      source1src_: '请输入Source1 Src'
     }
   },
   tool: {
