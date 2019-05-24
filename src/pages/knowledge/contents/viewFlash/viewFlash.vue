@@ -11,7 +11,7 @@
     <f7-list>
       <f7-list-item>
         <!-- Flash -->
-        <f7-block inset v-if="flashPath">
+        <f7-block inset v-if="playerOptions.flash.swf">
           <video-player  class="video-player vjs-custom-skin"
               ref="videoPlayer"
               :playsinline="true"
@@ -163,7 +163,6 @@ export default {
       nextContentType: 'Html',
       nextknowledgecontentkey: null,
       content_count: 0,
-      flashPath: null,
       ord: 0,
       title: '',
       userid: null,
@@ -261,7 +260,11 @@ export default {
           if (this.knowledgecontents[knowledgecontent].id === this.knowledgecontentkey) {
             this.ord = this.knowledgecontents[knowledgecontent].ord
             this.title = this.knowledgecontents[knowledgecontent].title
-            this.flashPath = this.knowledgecontents[knowledgecontent].content.flashPath
+            this.playerOptions.flash.swf = this.knowledgecontents[knowledgecontent].content.flashPath
+            this.playerOptions.sources[0].type = this.knowledgecontents[knowledgecontent].content.source0type
+            this.playerOptions.sources[0].src = this.knowledgecontents[knowledgecontent].content.source0src
+            this.playerOptions.sources[1].type = this.knowledgecontents[knowledgecontent].content.source1type
+            this.playerOptions.sources[1].src = this.knowledgecontents[knowledgecontent].content.source1src
             this.comment_count = this.knowledgecontents[knowledgecontent].comment_count
             break
           }
