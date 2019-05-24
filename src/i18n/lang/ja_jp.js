@@ -348,7 +348,17 @@ export default {
       link: 'Adリンク',
       link_: 'Adリンクを入力してください',
       youtubePath: 'Youtube id',
-      youtubePath_: 'Youtube idを入力してください'
+      youtubePath_: 'Youtube idを入力してください',
+      flashPath: 'Flash Url',
+      flashPath_: 'Flash Urlを入力してください',
+      source0type: 'Source0 Type',
+      source0type_: 'Source0 Typeを入力してください',
+      source0src: 'Source0 Src',
+      source0src_: 'Source0 Srcを入力してください',
+      source1type: 'Source1 Type',
+      source1type_: 'Source1 Typeを入力してください',
+      source1src: 'Source1 Src',
+      source1src_: 'Source1 Srcを入力してください'
     }
   },
   tool: {
