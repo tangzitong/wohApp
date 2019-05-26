@@ -3697,7 +3697,12 @@ Firechat.prototype.createCertificate = function(certificateUrl, callback) {
   const self = this
   const fnt = pureimage.registerFont('./fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
   fnt.load(() => {
-    axios.get(certificateUrl, {responseType: 'arraybuffer'}).then(res => {
+    axios.get(certificateUrl, {
+      responseType: 'arraybuffer',
+      headers: {
+        'Content-Type': 'image/png'
+      }
+    }).then(res => {
       pureimage.decodePNGFromStream(new Buffer.From(res.data)).then((img) => {
         const ctx = img.getContext('2d')
         ctx.fillStyle = '#ffffff'
