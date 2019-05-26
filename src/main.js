@@ -21,7 +21,6 @@ import './assets/fonts/iconfont.css'
 import './assets/styles/app.less'
 import './assets/scss/app.scss'
 import './assets/css/framework7-icons.css'
-import './assets/fonts/SourceSansPro-Regular.ttf'
 
 // Import Routes
 import Routes from './routes.js'

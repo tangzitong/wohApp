@@ -3695,7 +3695,7 @@ Firechat.prototype.unlikeEvent = function(eventKey, likeKey, callback) {
 
 Firechat.prototype.createCertificate = function(certificateUrl, callback) {
   const self = this
-  const fnt = pureimage.registerFont('./assets/fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
+  const fnt = pureimage.registerFont('./fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
   fnt.load(() => {
     axios.get(certificateUrl, {responseType: 'arraybuffer'}).then(res => {
       pureimage.decodePNGFromStream(new Buffer.From(res.data)).then((img) => {

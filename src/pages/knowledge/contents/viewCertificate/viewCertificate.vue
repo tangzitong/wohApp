@@ -12,7 +12,7 @@
       <f7-list-item>
         <!-- Image -->
         <f7-block inset v-if="imagePath">
-          <img :src="imagePath" width="50%" />
+          <img :src="imagePath"/>
         </f7-block>
       </f7-list-item>
     </f7-list>
