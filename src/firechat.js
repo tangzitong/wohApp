@@ -1,6 +1,6 @@
 // import firebase from 'firebase'
 const firebase = require('firebase/app')
-const pureimage = require('pureimage/src')
+const pureimage = require('pureimage/dist/pureimage')
 const axios = require('axios')
 const STREAM = require('stream')
 const PassThrough = STREAM.PassThrough
