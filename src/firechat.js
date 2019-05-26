@@ -1,6 +1,6 @@
 // import firebase from 'firebase'
 const firebase = require('firebase/app')
-const pureimage = require('pureimage')
+const pureimage = require('pureimage/src')
 const axios = require('axios')
 const STREAM = require('stream')
 const PassThrough = STREAM.PassThrough
@@ -337,8 +337,8 @@ Firechat.prototype.on = function(eventType, cb) {
 Firechat.prototype.createRoom = function(roomName, roomType, avatar, header, location, callback) {
   const self = this
   self.checkRoomExists(avatar, function(roomlist) {
-    if (!roomlist) {
-      const newRoomRef = this._roomRef.push()
+    if (roomlist.length === 0) {
+      const newRoomRef = self._roomRef.push()
 
       const newRoom = {
         id: newRoomRef.key,
@@ -347,14 +347,14 @@ Firechat.prototype.createRoom = function(roomName, roomType, avatar, header, loc
         avatar: avatar,
         header: header,
         location: location,
-        createdByUserId: this._userId,
-        createdByUserName: this._userName,
+        createdByUserId: self._userId,
+        createdByUserName: self._userName,
         createdAt: firebase.database.ServerValue.TIMESTAMP
       }
 
       if (roomType === 'private') {
         newRoom.authorizedUsers = {}
-        newRoom.authorizedUsers[this._userId] = true
+        newRoom.authorizedUsers[self._userId] = true
       }
 
       newRoomRef.set(newRoom, function(error) {
@@ -761,8 +761,8 @@ Firechat.prototype.createPost = function(content, pic, callback) {
     comment_count: 0,
     like_count: 0,
     original_pic: pic,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -791,8 +791,8 @@ Firechat.prototype.addComment = function(postKey, comments, callback) {
     id: newCommentsRef.key,
     text: comments,
     postid: postKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newCommentsRef.set(newComment, function(error) {
@@ -818,8 +818,8 @@ Firechat.prototype.likePost = function(postKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     postid: postKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -998,8 +998,8 @@ Firechat.prototype.createJob = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1037,8 +1037,8 @@ Firechat.prototype.updateJob = function(jobKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1051,13 +1051,13 @@ Firechat.prototype.updateJob = function(jobKey, data, callback) {
 
 Firechat.prototype.addJobApplication = function(jobKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(this._userId)
+  const newApplcationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     jobid: jobKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -1081,8 +1081,8 @@ Firechat.prototype.updateJobApplication = function(jobKey, applicationKey, appro
   const newApplicationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1108,8 +1108,8 @@ Firechat.prototype.likeJob = function(jobKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     jobid: jobKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1156,7 +1156,7 @@ Firechat.prototype.getJobListByType = function(jobType, cb) {
 Firechat.prototype.getJobListByOwner = function(cb) {
   const self = this
 
-  self._jobsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._jobsRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1208,7 +1208,7 @@ Firechat.prototype.getJobApplications = function(jobkey, cb) {
 Firechat.prototype.getMyJobApplication = function(jobkey, cb) {
   const self = this
 
-  self._jobapplicationsRef.child('data').child(jobkey).child(this._userId).once('value', function(snapshot) {
+  self._jobapplicationsRef.child('data').child(jobkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1276,8 +1276,8 @@ Firechat.prototype.createCompany = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1315,8 +1315,8 @@ Firechat.prototype.updateCompany = function(companyKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1329,13 +1329,13 @@ Firechat.prototype.updateCompany = function(companyKey, data, callback) {
 
 Firechat.prototype.addCompanyApplication = function(companyKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._companyapplicationsRef.child('data').child(companyKey).child(this._userId)
+  const newApplcationsRef = self._companyapplicationsRef.child('data').child(companyKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     companyid: companyKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -1359,8 +1359,8 @@ Firechat.prototype.updateCompanyApplication = function(companyKey, applicationKe
   const newApplicationsRef = self._companyapplicationsRef.child('data').child(companyKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1386,8 +1386,8 @@ Firechat.prototype.likeCompany = function(companyKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     companyid: companyKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1434,7 +1434,7 @@ Firechat.prototype.getCompanyListByType = function(companyType, cb) {
 Firechat.prototype.getCompanyListByOwner = function(cb) {
   const self = this
 
-  self._companysRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._companysRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1486,7 +1486,7 @@ Firechat.prototype.getCompanyApplications = function(companykey, cb) {
 Firechat.prototype.getMyCompanyApplication = function(companykey, cb) {
   const self = this
 
-  self._companyapplicationsRef.child('data').child(companykey).child(this._userId).once('value', function(snapshot) {
+  self._companyapplicationsRef.child('data').child(companykey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1554,8 +1554,8 @@ Firechat.prototype.createProject = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1593,8 +1593,8 @@ Firechat.prototype.updateProject = function(projectKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1607,13 +1607,13 @@ Firechat.prototype.updateProject = function(projectKey, data, callback) {
 
 Firechat.prototype.addProjectApplication = function(projectKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._projectapplicationsRef.child('data').child(projectKey).child(this._userId)
+  const newApplcationsRef = self._projectapplicationsRef.child('data').child(projectKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     projectid: projectKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -1637,8 +1637,8 @@ Firechat.prototype.updateProjectApplication = function(projectKey, applicationKe
   const newApplicationsRef = self._projectapplicationsRef.child('data').child(projectKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1664,8 +1664,8 @@ Firechat.prototype.likeProject = function(projectKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     projectid: projectKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1712,7 +1712,7 @@ Firechat.prototype.getProjectListByType = function(projectType, cb) {
 Firechat.prototype.getProjectListByOwner = function(cb) {
   const self = this
 
-  self._projectsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._projectsRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1764,7 +1764,7 @@ Firechat.prototype.getProjectApplications = function(projectkey, cb) {
 Firechat.prototype.getMyProjectApplication = function(projectkey, cb) {
   const self = this
 
-  self._projectapplicationsRef.child('data').child(projectkey).child(this._userId).once('value', function(snapshot) {
+  self._projectapplicationsRef.child('data').child(projectkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -1832,8 +1832,8 @@ Firechat.prototype.createTalent = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1871,8 +1871,8 @@ Firechat.prototype.updateTalent = function(talentKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1885,13 +1885,13 @@ Firechat.prototype.updateTalent = function(talentKey, data, callback) {
 
 Firechat.prototype.addTalentApplication = function(talentKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._talentapplicationsRef.child('data').child(talentKey).child(this._userId)
+  const newApplcationsRef = self._talentapplicationsRef.child('data').child(talentKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     talentid: talentKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -1915,8 +1915,8 @@ Firechat.prototype.updateTalentApplication = function(talentKey, applicationKey,
   const newApplicationsRef = self._talentapplicationsRef.child('data').child(talentKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1942,8 +1942,8 @@ Firechat.prototype.likeTalent = function(talentKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     talentid: talentKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -1990,7 +1990,7 @@ Firechat.prototype.getTalentListByType = function(talentType, cb) {
 Firechat.prototype.getTalentListByOwner = function(cb) {
   const self = this
 
-  self._talentsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._talentsRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2042,7 +2042,7 @@ Firechat.prototype.getTalentApplications = function(talentkey, cb) {
 Firechat.prototype.getMyTalentApplication = function(talentkey, cb) {
   const self = this
 
-  self._talentapplicationsRef.child('data').child(talentkey).child(this._userId).once('value', function(snapshot) {
+  self._talentapplicationsRef.child('data').child(talentkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2110,8 +2110,8 @@ Firechat.prototype.createConsultant = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2149,8 +2149,8 @@ Firechat.prototype.updateConsultant = function(consultantKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2163,13 +2163,13 @@ Firechat.prototype.updateConsultant = function(consultantKey, data, callback) {
 
 Firechat.prototype.addConsultantApplication = function(consultantKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child(this._userId)
+  const newApplcationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     consultantid: consultantKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -2193,8 +2193,8 @@ Firechat.prototype.updateConsultantApplication = function(consultantKey, applica
   const newApplicationsRef = self._consultantapplicationsRef.child('data').child(consultantKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2220,8 +2220,8 @@ Firechat.prototype.likeConsultant = function(consultantKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     consultantid: consultantKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2268,7 +2268,7 @@ Firechat.prototype.getConsultantListByType = function(consultantType, cb) {
 Firechat.prototype.getConsultantListByOwner = function(cb) {
   const self = this
 
-  self._consultantsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._consultantsRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2320,7 +2320,7 @@ Firechat.prototype.getConsultantApplications = function(consultantkey, cb) {
 Firechat.prototype.getMyConsultantApplication = function(consultantkey, cb) {
   const self = this
 
-  self._consultantapplicationsRef.child('data').child(consultantkey).child(this._userId).once('value', function(snapshot) {
+  self._consultantapplicationsRef.child('data').child(consultantkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2388,8 +2388,8 @@ Firechat.prototype.createDispatcher = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2427,8 +2427,8 @@ Firechat.prototype.updateDispatcher = function(dispatcherKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2441,13 +2441,13 @@ Firechat.prototype.updateDispatcher = function(dispatcherKey, data, callback) {
 
 Firechat.prototype.addDispatcherApplication = function(dispatcherKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child(this._userId)
+  const newApplcationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     dispatcherid: dispatcherKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -2471,8 +2471,8 @@ Firechat.prototype.updateDispatcherApplication = function(dispatcherKey, applica
   const newApplicationsRef = self._dispatcherapplicationsRef.child('data').child(dispatcherKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2498,8 +2498,8 @@ Firechat.prototype.likeDispatcher = function(dispatcherKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     dispatcherid: dispatcherKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2546,7 +2546,7 @@ Firechat.prototype.getDispatcherListByType = function(dispatcherType, cb) {
 Firechat.prototype.getDispatcherListByOwner = function(cb) {
   const self = this
 
-  self._dispatchersRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._dispatchersRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2598,7 +2598,7 @@ Firechat.prototype.getDispatcherApplications = function(dispatcherkey, cb) {
 Firechat.prototype.getMyDispatcherApplication = function(dispatcherkey, cb) {
   const self = this
 
-  self._dispatcherapplicationsRef.child('data').child(dispatcherkey).child(this._userId).once('value', function(snapshot) {
+  self._dispatcherapplicationsRef.child('data').child(dispatcherkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -2668,8 +2668,8 @@ Firechat.prototype.createKnowledge = function(data, callback) {
     content_count: 0,
     certificate_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2707,8 +2707,8 @@ Firechat.prototype.updateKnowledge = function(knowledgeKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2721,13 +2721,13 @@ Firechat.prototype.updateKnowledge = function(knowledgeKey, data, callback) {
 
 Firechat.prototype.addKnowledgeApplication = function(knowledgeKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(this._userId)
+  const newApplcationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     knowledgeid: knowledgeKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -2751,8 +2751,8 @@ Firechat.prototype.updateKnowledgeApplication = function(knowledgeKey, applicati
   const newApplicationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2798,8 +2798,8 @@ Firechat.prototype.addKnowledgeContent = function(knowledgeKey, ord, title, cont
     comment_count: 0,
     comments: [],
     knowledgeid: knowledgeKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newContentsRef.set(newContent, function(error) {
@@ -2820,12 +2820,12 @@ Firechat.prototype.addKnowledgeContent = function(knowledgeKey, ord, title, cont
 
 Firechat.prototype.addKnowledgeCertificate = function(knowledgeKey, callback) {
   const self = this
-  const newCertificatesRef = self._knowledgecertificatesRef.child('data').child(knowledgeKey).child(this._userId)
+  const newCertificatesRef = self._knowledgecertificatesRef.child('data').child(knowledgeKey).child(self._userId)
   const newCertificate = {
     id: newCertificatesRef.key,
     knowledgeid: knowledgeKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newCertificatesRef.update(newCertificate, function(error) {
@@ -2851,8 +2851,8 @@ Firechat.prototype.addKnowledgeContentComment = function(knowledgeKey, contentKe
     id: newCommentsRef.key,
     comment: comment,
     contentid: contentKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newCommentsRef.set(newComment, function(error) {
@@ -2891,8 +2891,8 @@ Firechat.prototype.updateKnowledgeContent = function(knowledgeKey, contentKey, o
     title: title,
     content: content,
     knowledgeid: knowledgeKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2910,8 +2910,8 @@ Firechat.prototype.likeKnowledge = function(knowledgeKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     knowledgeid: knowledgeKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -2958,7 +2958,7 @@ Firechat.prototype.getKnowledgeListByType = function(knowledgeType, cb) {
 Firechat.prototype.getKnowledgeListByOwner = function(cb) {
   const self = this
 
-  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._knowledgesRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3030,7 +3030,7 @@ Firechat.prototype.getKnowledgeApplications = function(knowledgekey, cb) {
 Firechat.prototype.getMyKnowledgeApplication = function(knowledgekey, cb) {
   const self = this
 
-  self._knowledgeapplicationsRef.child('data').child(knowledgekey).child(this._userId).once('value', function(snapshot) {
+  self._knowledgeapplicationsRef.child('data').child(knowledgekey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3062,7 +3062,7 @@ Firechat.prototype.getKnowledgeCertificates = function(knowledgekey, cb) {
 Firechat.prototype.getMyKnowledgeCertificate = function(knowledgekey, cb) {
   const self = this
 
-  self._knowledgecertificatesRef.child('data').child(knowledgekey).orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._knowledgecertificatesRef.child('data').child(knowledgekey).orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3156,8 +3156,8 @@ Firechat.prototype.createTool = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3195,8 +3195,8 @@ Firechat.prototype.updateTool = function(toolKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3209,13 +3209,13 @@ Firechat.prototype.updateTool = function(toolKey, data, callback) {
 
 Firechat.prototype.addToolApplication = function(toolKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._toolapplicationsRef.child('data').child(toolKey).child(this._userId)
+  const newApplcationsRef = self._toolapplicationsRef.child('data').child(toolKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     toolid: toolKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -3239,8 +3239,8 @@ Firechat.prototype.updateToolApplication = function(toolKey, applicationKey, app
   const newApplicationsRef = self._toolapplicationsRef.child('data').child(toolKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3266,8 +3266,8 @@ Firechat.prototype.likeTool = function(toolKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     toolid: toolKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3314,7 +3314,7 @@ Firechat.prototype.getToolListByType = function(toolType, cb) {
 Firechat.prototype.getToolListByOwner = function(cb) {
   const self = this
 
-  self._toolsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._toolsRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3366,7 +3366,7 @@ Firechat.prototype.getToolApplications = function(toolkey, cb) {
 Firechat.prototype.getMyToolApplication = function(toolkey, cb) {
   const self = this
 
-  self._toolapplicationsRef.child('data').child(toolkey).child(this._userId).once('value', function(snapshot) {
+  self._toolapplicationsRef.child('data').child(toolkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3434,8 +3434,8 @@ Firechat.prototype.createEvent = function(data, callback) {
     photo: data.photo,
     application_count: 0,
     like_count: 0,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     created_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3473,8 +3473,8 @@ Firechat.prototype.updateEvent = function(eventKey, data, callback) {
     Manager: data.Manager,
     HP: data.HP,
     photo: data.photo,
-    avatar: this._userId,
-    nickname: this._userName,
+    avatar: self._userId,
+    nickname: self._userName,
     update_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3487,13 +3487,13 @@ Firechat.prototype.updateEvent = function(eventKey, data, callback) {
 
 Firechat.prototype.addEventApplication = function(eventKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._eventapplicationsRef.child('data').child(eventKey).child(this._userId)
+  const newApplcationsRef = self._eventapplicationsRef.child('data').child(eventKey).child(self._userId)
   const newApplication = {
     id: newApplcationsRef.key,
     text: applications,
     eventid: eventKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
   newApplcationsRef.set(newApplication, function(error) {
@@ -3517,8 +3517,8 @@ Firechat.prototype.updateEventApplication = function(eventKey, applicationKey, a
   const newApplicationsRef = self._eventapplicationsRef.child('data').child(eventKey).child(applicationKey)
   const newApplication = {
     approvalStatus: approvalStatus,
-    approvalAvatar: this._userId,
-    approvalName: this._userName,
+    approvalAvatar: self._userId,
+    approvalName: self._userName,
     approval_at: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3544,8 +3544,8 @@ Firechat.prototype.likeEvent = function(eventKey, callback) {
   const newlike = {
     id: newLikesRef.key,
     eventid: eventKey,
-    avatar: this._userId,
-    name: this._userName,
+    avatar: self._userId,
+    name: self._userName,
     time: firebase.database.ServerValue.TIMESTAMP
   }
 
@@ -3592,7 +3592,7 @@ Firechat.prototype.getEventListByType = function(eventType, cb) {
 Firechat.prototype.getEventListByOwner = function(cb) {
   const self = this
 
-  self._eventsRef.child('data').orderByChild('avatar').equalTo(this._userId).once('value', function(snapshot) {
+  self._eventsRef.child('data').orderByChild('avatar').equalTo(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }
@@ -3644,7 +3644,7 @@ Firechat.prototype.getEventApplications = function(eventkey, cb) {
 Firechat.prototype.getMyEventApplication = function(eventkey, cb) {
   const self = this
 
-  self._eventapplicationsRef.child('data').child(eventkey).child(this._userId).once('value', function(snapshot) {
+  self._eventapplicationsRef.child('data').child(eventkey).child(self._userId).once('value', function(snapshot) {
     cb(snapshot.val())
   })
 }

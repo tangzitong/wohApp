@@ -46,7 +46,7 @@
       <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledgeFlash">{{!knowledgecontentkey ? $t('knowledge.addflash') : $t('knowledge.updateflash')}}</f7-button>
     </f7-block>
     <!-- Flash -->
-    <f7-block inset v-if="flashPath">
+    <f7-block inset v-if="playerOptions.flash.swf">
       <video-player  class="video-player vjs-custom-skin"
           ref="videoPlayer"
           :playsinline="true"
@@ -64,7 +64,6 @@ export default {
     return {
       knowledgekey: null,
       knowledgecontentkey: null,
-      flashPath: null,
       ord: 0,
       title: '',
       userid: null,

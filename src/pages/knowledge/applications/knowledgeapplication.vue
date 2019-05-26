@@ -10,7 +10,7 @@
       <f7-toolbar class="custom-toolbar flex-row" bottom-md>
         <f7-link class="tool tool-border flex-rest-width" @click="applicationKnowledge">
           <span class="iconfont icon-application"></span>
-          <span class="text" v-text="knowledge.application_count ? knowledge.application_count : $t('knowledge.application')"></span>
+          <span class="text" v-text="knowledge.application_count ? $t('knowledge.application') + '(' +knowledge.application_count + ')' : $t('knowledge.application')"></span>
         </f7-link>
       </f7-toolbar>
       <div class="clist">

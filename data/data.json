@@ -1587,6 +1587,24 @@
           "name" : "test1",
           "time" : 1555750807868
         }
+      },
+      "-Ld495mtWIyObJzEEK7s" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-Ld495mtWIyObJzEEK7s",
+          "name" : "test1",
+          "time" : 1558690523756
+        }
+      },
+      "-LdLvzsimpPWmPNFJwdO" : {
+        "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "knowledgeid" : "-LdLvzsimpPWmPNFJwdO",
+          "name" : "test1",
+          "time" : 1558703325729
+        }
       }
     }
   },
@@ -3176,7 +3194,7 @@
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbYZZXvYQxtpo2AWpzLx20?alt=media&token=d89c0292-3a04-48a1-99f3-ffbe6666d359",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x20",
@@ -3555,7 +3573,7 @@
             "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-Ld495mtWIyObJzEEK7sx25?alt=media&token=6fc5ba7b-bf22-4f62-945a-38a5f0dcda2f",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x25",
@@ -4534,7 +4552,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtODpcc-J83q1aU5fx66?alt=media&token=8602328e-a82d-456b-b2c6-db3d752b5c8a",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x66",
@@ -5078,7 +5096,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_3x36?alt=media&token=124c29a5-2af9-434c-bc0f-e95bea650498",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x36",
@@ -5232,7 +5250,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_4x10?alt=media&token=8688a6b5-aac7-4237-8718-982afff1c1b4",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x10",
@@ -5536,7 +5554,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_6x20?alt=media&token=a2308dd1-0441-4384-9c08-2181bbdba51f",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x20",
@@ -5720,7 +5738,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_7x12?alt=media&token=38038832-9b42-497d-92c7-5521e04a479e",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x12",
@@ -5729,6 +5747,1184 @@
             "ord" : "12",
             "time" : 1555228371611,
             "title" : "12.9 御修了ありがとうございました。",
+            "update_at" : 1556488166377
+          }
+        }
+      },
+      "-LdLtaiBADqiIat-6k_8" : {
+        "contents" : {
+          "x01" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Oracle はリレーショナルモデルを使用した、RDBMS(リレーショナルデータベー\nスマネージメントシステム)である。\nリレーショナルデータベースは、Rows：ローと Columns：カラムから構成される。\n(Rows：ローとは行、Columns：カラムとは列をあらわす) この 2 次元の表形式\nでデータを格納する。\n行と列の交差する部分はフィールドと呼ばれる。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x01",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "01",
+            "time" : 1555228371611,
+            "title" : "1.0 リレーショナルモデル",
+            "update_at" : 1556488166377
+          },
+          "x02" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>主キー(Primary Key)\nNOT NULL 制約と一意制約を組み合せたもの\n主キーの値が、表の中の複数行に存在することはできない。\n主キーを構成する列に NULL を持たせることはできない。\n一意キー\n表の中の2 つの行が一意キーに対して同じ値を持たないようにする。\n単一の列で構成される一意キーの場合は、複数のNULL（行） を持つことが可能。\n複合一意キーにおいてすべてのキー列に対してNULL を持つ行も同様に複数持つこと\nが可能。\nただし、1つ以上のキー列に対して NULLを持ち、その他のキー列に対して同じ組合せ\nの値を持つ 2つの行は制約違反となる。(※)\n(※) この制限は Oracle 検索メカニズムによるとマニュアルに書かれている。標準\nSQL では制約の 1つのキー列でも NULL を持つ場合には制約違反にはならない。\n外部キー(Foreign Key)\n表と表の論理的な関連付けを行い外部キーに対して値（親キー）が存在することを保\n証する。\n外部キーには、親表の値もしくはNULLを持つことが可能。\n外部キーの親キーは主キーもしくは一意キーでなければならない。 \n補足\n表のデータのすべての行(NULLを含む)を一意に識別するためには一意キーではなく、\n主キーを使用しなければならない。\nキーとインデックスは異なる。キーは制約の元で使われる。インデックスはキーを実装\nするために利用されているが制約ではない。RDBMS の実装における副産物のようなもの\nである。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x02",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "02",
+            "time" : 1555228371611,
+            "title" : "2.0 制約とキー",
+            "update_at" : 1556488166377
+          },
+          "x03" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>オラクルとは 1979 年に世界ではじめて商用として出荷された RDBMS : データベース\n・システムである。\nオラクルは リレーショナル・モデル によるデータベースであり、それに加えて データ\nベースを作成、削除および管理する機能が提供されている。つまり リレーショナル・デ\nータベース を管理するシステム (Relational Database Management System: RDBMS)\nOracle というと会社を指すことも多いが、Oracle データベース・システム製品のことを\n言っていることが圧倒的に多い。 （念のため、オラクルはデータベースだけではなく、様\n々なソフトウェアを取り扱っている）\nOracle データベース・システムとは Oracle データベースと Oracle データベース・サ\nーバーから構成されている。\nOralce データベースにはシステム情報、ユーザー情報、制御情報が格納されている。 そ\nの Oracle データベースを管理するシステムが Oracle データベース・サーバーである。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x03",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "03",
+            "time" : 1555228371611,
+            "title" : "3.0 Oracle とは",
+            "update_at" : 1556488166377
+          },
+          "x04" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SQL 言語リファレンス\nエラー・メッセージ\n開発ガイド (旧アプリケーション開発者ガイド - 基礎編 相当） \n（パフォーマンス・チューニング・ガイドを読む前に…）\nパフォーマンス・チューニング・ガイド\nデータ・ウェアハウス・ガイド（パーティション表、分析計算およびレポート用SQL関数）\nPL/SQLパッケージ・プロシージャおよびタイプ・リファレンス\nグローバリゼーション・サポート・ガイド(NLS_*** 関連)\n概要（Oracle Database 概要マニュアル）\n管理者ガイド（概要と管理者ガイドは2つで1セットのようなもの）\nリファレンス（初期化パラメータやディクショナリの説明が載っている）\nユーティリティ(Oracle Data Pump、SQL*Loader、外部表）</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x04",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "04",
+            "time" : 1555228371611,
+            "title" : "4.0 Oracle のマニュアル",
+            "update_at" : 1556488166377
+          },
+          "x05" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nsqlplus scott/tiger@orcl\n                   ↑ ここにスペースを入れると別の意味になるので要注意</p>\n<p>SQL<em>Plus: Release 10.1.0.2.0 - Production\nCopyright (c) 1982, 2004, Oracle.  All rights reserved.\n↑ SQL</em>Plusのバージョン情報とクレジットが表示される(20年以上前・・・)</p>\n<p>Oracle Database 10g {Enterprise Edition}  Release {10.1.0.2.0} - Production \n                     ↑インストールしたエディション  ↑Oracleのバージョンが表示される\nWith the Partitioning, OLAP and Data Mining options\n　　　   ↑オプションでインストールしたコンポーネント\nに接続されました。</p>\n<p>SQL&gt; SQL文 ;\n    or\nSQL&gt; PL/SQL文 ;\nSQL&gt; /   ← PL/SQLの場合には、&#39;/&#39; で内容を実行(RUN)させる。\n       結果表示\nSQL&gt; QUIT\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x05",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "05",
+            "time" : 1555228371611,
+            "title" : "5.0 SQL*Plus とは",
+            "update_at" : 1556488166377
+          },
+          "x06" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SQLPlus コマンド    コマンド 説明\n@    ファイルの内容を実行（詳細は START 参照）\n@@    \n@?    \nn    カレント行を n にする\n/    バッファ内のSQL、PL/SQLブロックを実行（SQL バッファ非表示）\nACCEPT    ACCEPT vData PROMPT &#39; vDataを入力する。&#39;\nAPPEND    行末にテキストを追加\nARCHIVE LOG    アーカイブログ運用の設定と状態表示\nATTRIBUTE    オブジェクト型列の表示書式を設定\nBREAK    \nBTITLE    下部に指定のタイトルの書式設定\nCHANGE    SQL バッファの文字を置換\nCLEAR    画面、バッファ、書式、タイマーの設定などの初期化\nCOLUMN    カラムの書式指定（書式モデル）\nCOMPUTE    \nCONNECT    データベースへの接続\nCOPY    下位互換用\nDEFINE    ユーザー定義定数の設定と表示\nDEL    SQL バッファの一部を削除\nDESCRIBE    スキーマオブジェクトの仕様を表示\nDISCONNECT    データベースから切断\nEDIT    ホストのエディタを使用した編集\nEXECUTE    PL/SQL ブロックの実行\nEXIT    SQL*Plus の終了\nGET    ファイルの内容をSQLバッファに読み込む\nHELP    オンライン・コマンドヘルプ\nHOST    シェルでコマンドの実行\nINPUT    文字列の追加(単独の場合には複数行追加可能)\nLIST    SQL バッファ内を表示\nPASSWORD    パスワードの変更\nPAUSE    処理の一時停止\nPRINT    バインド変数の内容を表示する\nPROMPT    メッセージの表示\nRECOVER    データベースのリカバリー\nREMARK    コメント行\nREPFOOTER    \nREPHEADER    \nQUIT    EXIT コマンドのエイリアス\nRUN    バッファ内SQL、PL/SQLブロックを表示し実行\nSAVE    SQLバッファの内容をファイルに保存\nSET    システム変数を設定する\nSHOW    メモリ、システム変数、初期化パラメータなどの表示\nSHUTDOWN    オラクルの停止\nSPOOL    出力結果をファイルへ出力の開始と終了\nSTART    ファイルの内容を実行\nSTARTUP    オラクルの起動\nSTORE    \nTIMING    タイマーの設定、表示と解除</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x06",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "06",
+            "time" : 1555228371611,
+            "title" : "6.0 SQL*Plus コマンド 一覧",
+            "update_at" : 1556488166377
+          },
+          "x07" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>コマンド    説明\nSET APPINFO    スクリプトの進行状況などを設定\nSET ARRAYSIZE    DBMS_OUTPUT のバッファ、データベースから一度にフェッチする配列の大きさ\nSET AUTOCOMMIT    オートコミットの有効／無効\nSET AUTOPRINT    バインド変数 の自動表示\nSET AUTORECOVERY    RECOVERY コマンドのアーカイブログファイル名を自動補完する／しない\nSET AUTOTRACE    オートトレースの有効／無効、または、トレースモードの設定\nSET BLOCKTERMINATOR    PL/SQL ブロックの終了文字の設定\nSET CMDSEP    SQL*Plus コマンドの区切り文字\nSET COLINVISIBLE    DESCRIBE コマンド において非表示列の表示／非表示の設定\nSET COLSEP    カラムとカラムの間の区切り文字\nSET COMPATIBILITY    Oracle 8 以前向けの下位互換動作用\nSET CONCAT    後続に文字連結するときの置換変数の終了文字の設定\nSET COPYCOMMIT    COPY コマンドのコミットポイント設定\nSET COPYTYPECHECK    COPY コマンドの型チェックの有効／無効\nSET DEFINE    置換変数を有効／無効または接頭辞を設定\nSET DESCRIBE    DESCRIBE コマンド の表示方法の調整\nSET ECHO    スクリプトのSQL*Plusコマンドを表示をする／しない\nSET EDITFILE    EDIT コマンド で使用する一時ファイル名の設定\n    エディタプログラムの指定は _EDITOR 事前定義変数\nSET EMBEDDED    異なるレポート(SQL)でも同一ページ含める／含めない\nSET ERRORLOGGING    実行中に発生した例外を指定したテーブルに出力する\nSET ESCAPE    エスケープ機能を有効／無効、または、別のエスケープ文字を設定\nSET ESCCHAR    ファイル名を指定するときにエスケープして意味を持たせない文字を指定\nSET EXITCOMMIT    EXIT(QUIT) 時のデフォルトの振る舞いで COMMIT するか ROLLBACK \nするかの設定\nSET FEEDBACK    問い合わせの結果の件数を表示をする／しない、または、表示する最小件数の設定\nSET FLAGGER    SQL が SQL92 に準拠しているか調べる／調べないを設定\nSET FLUSH    画面出力にバッファを使用する／しないの設定\nSET HEADING    列ヘッダを表示する／しない\nSET HEADSEP    列ヘッダの区切り文字の設定\nSET HISTORY    コマンドの履歴の無効、または、有効。有効時のヒストリ件数を設定\nSET INSTANCE    デフォルトのインスタンスの設定\nSET LINESIZE    １行に表示する（文字数）バイト数の設定\nSET LOBOFFSET    CLOB、NCLOBの取り出し開始位置の設定\nSET LOBPREFETCH    LOB のプリフェッチサイズ（バイト）の設定\nSET LOGSOURCE    RECOVERY コマンドで使用するアーカイブログファイル位置の設定\nSET LONG    LONG、CLOB、NCLOB の表示幅\nSET LONGCHUNKSIZE    LONG、CLOB、NCLOBのチャンクサイズ\nSET MARKUP    出力をHTML 形式にエンコードをする／しないの設定(SQL*Plusの場合）\nSET NEWPAGE    ページの開始位置から列ヘッダーまでの余白行数の設定\nSET NULL    NULL データの代替文字列設定\nSET NUMFORMAT    数値のデフォルト書式の設定（書式モデル）\nSET NUMWIDTH    数値のデフォルト表示幅\nSET PAGESIZE    1ページの行数\nSET PAUSE    １ページ毎に一時停止をする／しない\nSET RECSEP    レコードセパレータを常に出力する／しない、または、折り返しが発生時のみ出力する\nSET RECSEPCHAR    RECSEP が発生したときに表示される文字の設定\nSET ROWPREFETCH    結果セットのプリフェッチ行数の設定\nSET SECUREDCOL    セキュリティ設定で制限されたカラムに対する表示内容の設定\nSET SERVEROUTPUT    標準出力に表示する／しない、または、バッファの上限サイズ\nSET SHIFTINOUT    シフト文字を表示する／しない（特殊なコンソールのみ）\nSET SHOWMODE    システム変数の変更前値の通知を表示する／しない\nSET SQLBLANKLINES    SQL コマンド、PL/SQL ブロックに空白行を許可する／しない\nSET SQLCASE    すべての入力文字を大文字、または、小文字に変換する／しない\nSET SQLCONTINUE    複数行の SQL*Plusコマンド入力時のプロンプトの設定\nSET SQLNUMBER    複数行の SQL コマンド、PL/SQL ブロック入力時に表示される行番号を表示する／しない\nSET SQLPLUSCOMPATIBILITY    動作保証できる SQL*Plus のバージョンの設定\nSET SQLPREFIX    SQL*Plus コマンドの接頭辞の設定\nSET SQLPROMPT    SQL*Plus のコマンドプロンプトに表示される文字列の設定\nSET SQLTERMINATOR    SQL コマンド、PL/SQL ブロックの終了文字の設定\nSET STATEMENTCACHE    ステートメントキャッシュ（再パースの回避) 数の設定\nSET SUFFIX    スクリプトファイルのデフォルト拡張子の設定\nSET TAB    タブ文字の使用をする／しない\nSET TERMOUT    @、@@、START のスクリプトによるアウトプットを表示する／しない\nSET TIME    SQL プロンプトに時刻表示する／しない\nSET TIMING    タイミング統計（タイマー）を表示する／しない\nSET TRIMOUT    各行の出力の終わりから行末までの空白を出力する／しない（スプールには無関係）\nSET TRIMSPOOL    スプールにおける TRIMOUT システム変数（画面出力には無関係）\nSET UNDERLINE    列ヘッダの下の表示される -----… 文字のあり／なし／文字の設定\nSET VERIFY    置換変数に設定する前後の状態を表示する／しない\nSET WRAP    表示幅に収まらない部分を折り返す／切り捨てる</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x07",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "07",
+            "time" : 1555228371611,
+            "title" : "7.0 SQL*Plus システム変数一覧",
+            "update_at" : 1556488166377
+          },
+          "x08" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nsqlplus\nsqlplus rivus/rivus_pass\nsqlplus /nolog\nconnect rivus/rivus_pass\nexit\ndisconnect\nsqlplus rivus/rivus_pass @go.sql\nsqlplus rivus/rivus_pass@orcl_net @param.sql &quot;100&quot; &quot;200&quot;</p>\n<p>@param.sql\n-- 引数１＋引数２\nselect to_number(&#39;&amp;1&#39;) + to_number(&#39;&amp;2&#39;) from dual;\nquit\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x08",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "08",
+            "time" : 1555228371611,
+            "title" : "8.0 SQL*Plus の起動",
+            "update_at" : 1556488166377
+          },
+          "x09" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>select user_id, user_name from account;\n@atmark.sql param1 param2 ....\n実行中のコマンド、スクリプトを停止する \nSQL*Plus で実行中のスクリプトや延々とデータを表示している状態を Ctrl+C キーを\n押すことで停止することができる。\n旧バージョンではアラートログを出してセッションも切断してしまう事があったので注意。\nDML の処理を実行中で Ctrl+C キーの応答もない場合には、別のセッションから SID と \nSERIAL# を特定して ALTER SYSTEM KILL コマンドを使用してセッションを切断する。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x09",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "09",
+            "time" : 1555228371611,
+            "title" : "9.0 SQL コマンドの実行",
+            "update_at" : 1556488166377
+          },
+          "x10" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; conn rivus/rivus_pass\nSQL&gt; set serveroutput on\n接続されました。\nSQL&gt; declare\n  2     vName   VARCHAR2(10);\n  3  begin\n  4     for vRec in (select user_name from account)\n  5     loop\n  6             dbms_output.put_line(vRec.user_name);\n  7     end loop;\n  8  end;\n  9  /\n富樫 歩夢\n小杉 光輝\n倉本 大翔\n長谷川 春奈\n荒木 奈央子</p>\n<pcode>`</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x10",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "10",
+            "time" : 1555228371611,
+            "title" : "10.0 PL/SQL ブロックの実行",
+            "update_at" : 1556488166377
+          },
+          "x11" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; set serveroutput on\nSQL&gt; call dbms_output.put_line(&#39;プロシージャをコールした&#39;);\nプロシージャをコールした</p>\n<p>コールが完了しました。</p>\n<p>SQL&gt; execute dbms_output.put_line(&#39;プロシージャを実行した&#39;);\nプロシージャを実行した</p>\n<p>PL/SQLプロシージャが正常に完了しました。</p>\n<p>SQL&gt;\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x11",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "11",
+            "time" : 1555228371611,
+            "title" : "11.0 PL/SQL プロシージャを実行する",
+            "update_at" : 1556488166377
+          },
+          "x12" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; variable vNum number;\nSQL&gt; call sys.standard.greatest(100,2,300,4) into :vNum;</p>\n<p>コールが完了しました。</p>\n<p>SQL&gt; print vNum</p>\n<pre><code>  VNUM\n</code></pre><hr>\n<pre><code>   300\n</code></pre><pcode>`</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x12",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "12",
+            "time" : 1555228371611,
+            "title" : "12.0 PL/SQL ファンクションを実行する",
+            "update_at" : 1556488166377
+          },
+          "x13" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nCALL は Oracle 9i からサポートされた 標準SQL のコマンドであり、EXECUTE は\n旧来からある SQL*Plus コマンド である。（※ PL/SQL のコマンドでもない）\n双方ともファンクションやプロシージャの実行に使用するが、その仕様は異なり新し\nく用意された CALL が良いというものでもないといえる。\nOracle 10g までは CALL の引数は位置表記法のみに限定されていたが Oracle 11g \nからは 位置表記法および両方を併用した混合表記も可能になっている。 同時に SQL\n の関数の呼び出しも 位置表記法と混合表記がサポートされた。  </p>\n<p>EXECUTE コマンドは テキストを PL/SQL ブロックに変換してから実行する。</p>\n<p>CALL による呼び出しで、 SQL としてまだサポートされていない BOOLEAN 型 (TRUE\n/FALSE) を PL/SQL のファンクションに使用すると、エラーが発生する。\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x13",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "13",
+            "time" : 1555228371611,
+            "title" : "13.0 CALL 文 と EXECUTE コマンドの違い",
+            "update_at" : 1556488166377
+          },
+          "x14" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>セミコロン(;)\nSQL*Plus コマンドの終端文字 \n単独で使用すると LIST コマンドと同じ動作になる。\nSQL と SQL*Plus コマンドの終端文字はデフォルトで同一であるが SQL*Plus コマンド\nの終端文字は CMDSEP システム変数で変更可能。\nセミコロン(;)\n単一の SQL 文、 PL/SQL ステートメントの終端文字\nSQLTERMINATOR システム変数で変更可能\nスラッシュ(/)\nSQL バッファの実行 兼 ブロック全体の終端文字\nPL/SQLブロック内には、文の終端文字としてセミコロンが既に使用されているため、文末\nと全体の終端との区別のためにある。 機能的には、RUN コマンドと似ているがスラッシュ\nは SQL バッファを表示しないで実行する、 また、RUN コマンドには終端文字として機能\nはないという点も異なる。\n単独で使用すると SQL バッファを実行(再実行)する。\nドット(.)\nブロック全体の終端文字\n行頭で使用することで、終端文字として扱われる。(変数の終了文字としても使用する。)\nブロック要素の入力途中での間違いや入力を中断したいときに使用する(程度しか思い当た\nらない) (入力文字はバッファに入る)\nBLOCKTERMINATOR システム変数で変更可能</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x14",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "14",
+            "time" : 1555228371611,
+            "title" : "14.0 RUN コマンド",
+            "update_at" : 1556488166377
+          },
+          "x15" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; SPOOL\n現在はスプールしていません。\nSQL&gt; SET COLSEP ,\nSQL&gt; SET HEAD OFF\nSQL&gt; SPOOL id_name_csv_file.csv\nSQL&gt; select id ,name from account order by id ;</p>\n<pre><code>     1,小栗 有美\n     2,新村 憲一\n     3,茂木 拓也\n     4,石山 美紀\n     5,古橋 聡\n</code></pre><p>SQL&gt; SPOOL OFF\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x15",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "15",
+            "time" : 1555228371611,
+            "title" : "15.0 問い合わせなどの実行結果をファイルに出力する",
+            "update_at" : 1556488166377
+          },
+          "x16" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nwindows\nSQL&gt; $ dir | sort | more\n               2 個のファイル               9,493 バイト\n              66 個のディレクトリ   3,703,697,408 バイトの空き領域\n C:\\oracle\\product\\10.2.0\\db_1 のディレクトリ\n ドライブ C のボリューム ラベルがありません。\n ボリューム シリアル番号は A818-F405 です\n2006/04/05  00:10                43 install.platform\n2006/04/05  00:10    <DIR>          admin\n2006/04/05  00:10    <DIR>          assistants\n.....</p>\n<h2 id=\"sql\">SQL&gt;</h2>\n<p>linux\nSQL&gt; ! vi /tmp/sqlplus_test.txt\n... エディタが起動\n... 終了するまで、プロンプトは戻らない\n... エディタを終了\nSQL&gt;\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x16",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "16",
+            "time" : 1555228371611,
+            "title" : "16.0 システムコマンド（OSコマンド）を実行する",
+            "update_at" : 1556488166377
+          },
+          "x18" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>set pagesize 0\nset linesize 300\nselect * from table(unload.get_csv(q&#39;{select * from user_tables order by table_name}&#39;));</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x18",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "18",
+            "time" : 1555228371611,
+            "title" : "17.0 結果を CSV で出力する",
+            "update_at" : 1556488166377
+          },
+          "x19" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>set echo off\nset feedback off\nset term off\nset head off\nset linesize 1000\n-- set linesize 2000\n-- set linesize 4000\n-- set linesize 32767\n--  ↑↑ １レコードの文字列の長さによって適宜調整する（レコード数増加により相当遅くなる）\nset long 32767\nset longchunksize 32767\nset pagesize 0\nset trimspool on\nset serveroutput on\nvar cur refcursor\nbegin\n    :cur := unload.sql_to_csv(\n        data_source =&gt; &#39;select * from user_tables order by table_name&#39;,\n        date_format =&gt; &#39;YYYY&quot;年&quot;MM&quot;月&quot;DD&quot;日&quot;&#39;,\n        set_col_sep =&gt; CHR(9)\n    );\nexception\n when others then\n    dbms_output.put_line(&#39;ERROR : &#39; || SQLERRM);\n    raise;\nend;\n/\nset term off\nspool user_tables.csv\nprint cur\nspool off\nset term on</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x19",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "19",
+            "time" : 1555228371611,
+            "title" : "18.0 結果を CSV で出力する (複雑)",
+            "update_at" : 1556488166377
+          },
+          "x20" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSET SERVEROUTPUT ON [SIZE n]\nSET SERVEROUTPUT ON [SIZE n] [ FORMAT 表示制御オプション ]\nSET SERVEROUTPUT OFF\nSET SERVEROUTPUT ON UNLIMITED  (Oracle 10g R2〜)</p>\n<p>SQL&gt; SET LINESIZE 15\nSQL&gt; -- 文字ベースの折り返し\nSQL&gt; SET SERVEROUTPUT ON FORMAT WRAPPED\nSQL&gt; call dbms_output.put_line(&#39;1234567890 1234567890&#39;);\n1234567890 1234\n567890</p>\n<p>SQL&gt; -- 単語ベースの折り返し（半角・全角空白）\nSQL&gt; SET SERVEROUTPUT ON FORMAT WORD_WRAPPED\nSQL&gt; call dbms_output.put_line(&#39;1234567890 1234567890&#39;);\n1234567890\n1234567890</p>\n<p>SQL&gt; -- 切り捨て\nSQL&gt; SET SERVEROUTPUT ON FORMAT TRUNCATED\nSQL&gt; call dbms_output.put_line(&#39;1234567890 1234567890&#39;);\n1234567890 1234</p>\n<p>SQL&gt;\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x20",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "20",
+            "time" : 1555228371611,
+            "title" : "19.0 SERVEROUTPUT システム変数",
+            "update_at" : 1556488166377
+          },
+          "x21" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>CREATE TABLE USER_MASTER\n(\n   USER_ID           VARCHAR2(8) NOT NULL,\n   DEPT_NO           VARCHAR2(8),\n   USER_NAME         VARCHAR2(32),\n   CREATED_ON        DATE DEFAULT SYSDATE,\n   MODIFIED_ON       DATE\n);</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x21",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "21",
+            "time" : 1555228371611,
+            "title" : "20.0 テーブル定義",
+            "update_at" : 1556488166377
+          },
+          "x22" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>ALTER TABLE my_table ADD ( time_col TIMESTAMP(3) ) ;\nALTER TABLE my_table MODIFY ( char_col VARCHAR2(80 char)  ) ;\nALTER TABLE my_table RENAME COLUMN time_col TO date_col ;\nALTER TABLE my_table DROP (\n    char_col , number_col\n)\n-- 以下はオプションなので必須ではない\nCASCADE CONSTRAINT INVALIDATE;</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x22",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "22",
+            "time" : 1555228371611,
+            "title" : "21.0 ALTER TABLE （列の追加、変更、削除）",
+            "update_at" : 1556488166377
+          },
+          "x23" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>DROP TABLE USER_MASTER CASCADE CONSTRAINTS ;\nFLASHBACK TABLE USER_MASTER TO BEFORE DROP ;</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x23",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "23",
+            "time" : 1555228371611,
+            "title" : "22.0 DROP TABLE、FLASHBACK TABLE",
+            "update_at" : 1556488166377
+          },
+          "x24" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>ALTER TABLE table_name ADD CONSTRAINT primary_key_name \n  PRIMARY KEY  (user_id) \n  USING INDEX -- インデックス CREATE 文\n  (\n    -- CREATE INDEX 文をそのまま記述\n    -- インデックス名はプライマリキー同じ名前でも名前の衝突はしない\n    CREATE UNIQUE INDEX primary_key_name ON table_name (col_name, colname2 ..) \n    PCTFREE 50 INITRANS 20\n    STORAGE( INITIAL 1M )\n    TABLESPACE USERS\n  ) ;</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x24",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "24",
+            "time" : 1555228371611,
+            "title" : "23.0 ALTER TABLE （プライマリキーの追加、削除、変更）",
+            "update_at" : 1556488166377
+          },
+          "x25" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL DDL コマンド一覧\nALTER 〜 すべて (＝セッション、システム制御文を含むかどうかわかりません)\nANALYZE\nASSOCIATE STATISTICS / DISASSOCIATE STATISTICS\nAUDIT\nCOMMENT </p>\n<p>CREATE 〜 すべて\nDROP 〜 すべて\nTRUNCATE\nFLASHBACK 〜 すべて\nPURGE\nRENAME </p>\n<p>GRANT\nREVOKE\nNOAUDIT</p>\n<p>データ操作言語 / DML (Data Manipulation Language） \nOracle において DML とは Data ( access and ) Manipulation Language となっている。\nSQL DML コマンド一覧\nSELECT (≠ Manipulate) ／ SELECT FOR UPDATE\nINSERT\nDELETE\nUPDATE\nMERGE  </p>\n<p>CALL\nLOCK TABLE </p>\n<p>EXPLAIN PLAN</p>\n<p>トランザクション制御文 \nトランザクション制御文\nCOMMIT\nROLLBACK\nSET TRANSACTION\nSAVEPOINT</p>\n<p>セッション制御文 ( ALTER SESSION / SET ROLE ) \nセッションのプロパティを設定する。(暗黙コミットは発生しない)\nALTER SESSION \nADVISE { COMMIT|ROLLBACK | NOTHING }\nCLOSE DATABASE LINK dblink\n{ ENABLE | DISABLE } COMMIT IN PROCEDURE\n{ ENABLE | DISABLE } GUARD\n{ ENABLE | DISABLE | FORCE } PARALLEL { DML | DDL |QUERY} [ PARALLEL integer ]\nENABLE RESUMABLE [ TIMEOUT integer ] [ NAME string ]\nDISABLE RESUMABLE\nSET parameter = value [, value, ...]\nSET ROLE \nNONE\nALL [ EXCEPT { role | role_list } ]\nrole IDENTIFIED BY password</p>\n<p>システム制御文 ( ALTER SYSTEM ) \nインスタンスのプロパティを設定する。(暗黙コミットは発生しない)\nALTER SYSTEM \nARCHIVE LOG 〜\nCHECKPOINT [ GLOBAL | LOCAL ]\nCHECK DATAFILES [ GLOBAL | LOCAL ]\n{ ENABLE | DISABLE } DISTRIBUTED RECOVERY\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x25",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "25",
+            "time" : 1555228371611,
+            "title" : "24.0 SQL コマンド一覧 （SQL の種類）",
+            "update_at" : 1556488166377
+          },
+          "x26" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>INSERT INTO USER_MASTER (\n        USER_ID, DEPT_NO, USER_NAME, CREATED_ON, MODIFIED_ON\n) VALUES (\n        &#39;0020&#39;, &#39;1001&#39;,\n        &#39;小泉 純一&#39;,\n        DEFAULT,\n        NULL\n) ;\n-- 行コメント</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x26",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "26",
+            "time" : 1555228371611,
+            "title" : "25.0 DMLの基本形式:INSERT",
+            "update_at" : 1556488166377
+          },
+          "x27" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SELECT * \n  FROM USER_MASTER\n WHERE CREATED_ON BETWEEN &#39;2004/10/01&#39; AND &#39;2004/10/31&#39;\n または\nSELECT * \n  FROM USER_MASTER\n WHERE CREATED_ON &gt;= &#39;2004/10/01&#39; AND CREATED_ON &lt;= &#39;2004/10/31&#39;</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x27",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "27",
+            "time" : 1555228371611,
+            "title" : "26.0 DMLの基本形式:SELECT",
+            "update_at" : 1556488166377
+          },
+          "x28" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>DELETE FROM (\n     SELECT\n            DEPT_NO\n     FROM USER_MASTER\n     WHERE  DEPT_NO = &#39;1002&#39;\n) -- [ ビューの別名 ]\n /*\n WHERE\n    DEPT_NO = &#39;1002&#39;\n */</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x28",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "28",
+            "time" : 1555228371611,
+            "title" : "27.0 DMLの基本形式:UPDATE",
+            "update_at" : 1556488166377
+          },
+          "x29" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nalter session set nls_timestamp_tz_format = &#39;YYYY-MM-DD HH24:MI:SSXFF TZR&#39;;</p>\n<p>SQL&gt; select tzr, ts_tz, ts_tz AT LOCAL as at_local_time from at_timezone_sample;</p>\n<p>TZR             TS_TZ                              AT_LOCAL_TIME</p>\n<hr>\n<p>Asia/Tokyo      2007-01-01 09:00:00.000000 +09:00  2007-01-01 09:00:00.000000 +09:00\nUTC             2007-01-01 09:00:00.000000 +00:00  2007-01-01 18:00:00.000000 +09:00\nUS/Hawaii       2007-01-01 09:00:00.000000 -10:00  2007-01-02 04:00:00.000000 +09:00\nUS/Pacific      2007-01-01 09:00:00.000000 -07:00  2007-01-02 01:00:00.000000 +09:00\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x29",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "29",
+            "time" : 1555228371611,
+            "title" : "28.0 日付に変換",
+            "update_at" : 1556488166377
+          },
+          "x30" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n=    等しい\n&lt;&gt;    等しくない\n!=    ¬= は、あまり一般的でないプラットフォーム向け\n^=    &lt;&gt; は標準SQLに規定されている不等号\n¬=    </p>\n<blockquote>\n<p>   （左辺が）より大きい、より小さい\n&lt;<br>=    （左辺が）以上、以下\n&lt;=<br></code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x30",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "30",
+            "time" : 1555228371611,
+            "title" : "29.0 SQL 比較条件、比較演算子",
+            "update_at" : 1556488166377
+          },
+          "x31" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; select * from null_test where col IS NULL;</p>\n<h2 id=\"col\">COL</h2>\n<p><NULL>\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x31",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "31",
+            "time" : 1555228371611,
+            "title" : "30.0 NULL 値の検索",
+            "update_at" : 1556488166377
+          },
+          "x33" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SELECT DISTINCT /* 重複行を削除するキーワード DISTINCT */\n       DEPT_NO\n  FROM USER_MASTER\n ORDER BY DEPT_NO</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x33",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "33",
+            "time" : 1555228371611,
+            "title" : "31.0 重複行の削除: DISTINCT",
+            "update_at" : 1556488166377
+          },
+          "x34" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; select * from my_table where rownum &lt;= 10;</p>\n<p>FIRST_NAME           LAST_NAME</p>\n<hr>\n<p>Ellen                Abel\nSundar               Ande\nMozhe                Atkinson\nDavid                Austin\nHermann              Baer\nShelli               Baida\nAmit                 Banda\nElizabeth            Bates\nSarah                Bell\nDavid                Bernstein</p>\n<p>10行が選択されました。</p>\n<p>SQL&gt; select rownum, <em> from my_table where rownum &lt;= 10;\nselect rownum, </em> from my_table where rownum &lt;= 10\n               *\n行1でエラーが発生しました。:\nORA-00936: 式がありません。\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x34",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "34",
+            "time" : 1555228371611,
+            "title" : "32.0 SELECT ＊ と疑似列を併記する方法",
+            "update_at" : 1556488166377
+          },
+          "x35" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SELECT * FROM USER_MASTER\n ORDER BY DEPT_NO DESC</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x35",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "35",
+            "time" : 1555228371611,
+            "title" : "33.0 並び替え:ORDER BY",
+            "update_at" : 1556488166377
+          },
+          "x36" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SELECT &quot;学年&quot;, &quot;生徒番号&quot; FROM &quot;成績表&quot;\nWHERE &quot;学年&quot; = 4\nGROUP BY &quot;生徒番号&quot;\nHAVING MAX(&quot;成績&quot;) &gt;= 3</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x36",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "36",
+            "time" : 1555228371611,
+            "title" : "34.0 検索結果のグループ化 (GROUP BY と HAVING)",
+            "update_at" : 1556488166377
+          },
+          "x37" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>SELECT ... FOR UPDATE ;\nIF (condition) THEN\n    UPDATE ... SET ... ;\n    -- COMMIT;  ここには COMMIT 文を記述しない\nEND IF;\nCOMMIT ;   -- ← ここで COMMIT すると FOR UPDATE は常に解放される</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x37",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "37",
+            "time" : 1555228371611,
+            "title" : "35.0 SELECT 時に明示的な行ロックを行なう方法",
+            "update_at" : 1556488166377
+          },
+          "x38" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSELECT 1, 2 FROM DUAL\nUNION ALL\nSELECT 1, 2 FROM DUAL;\n         1          2</p>\n<hr>\n<pre><code>     1          2\n     1          2\n</code></pre><pcode>`</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x38",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "38",
+            "time" : 1555228371611,
+            "title" : "36.0 UNION と UNION ALL 集合演算子",
+            "update_at" : 1556488166377
+          },
+          "x39" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSELECT 1, 2 FROM DUAL\nUNION\nSELECT 2, 3 FROM DUAL\nINTERSECT\nSELECT 1, 2 FROM DUAL;</p>\n<pre><code>     1          2\n</code></pre><hr>\n<pre><code>     1          2\n</code></pre><pcode>`</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x39",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "39",
+            "time" : 1555228371611,
+            "title" : "37.0 INTERSECT",
+            "update_at" : 1556488166377
+          },
+          "x40" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSELECT ROWNUM FROM EMP ;</p>\n<pre><code>ROWNUM\n</code></pre><hr>\n<pre><code>     1\n     2\n</code></pre><p>  ...\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x40",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "40",
+            "time" : 1555228371611,
+            "title" : "38.0 ROWNUM 擬似列",
+            "update_at" : 1556488166377
+          },
+          "x41" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nSQL&gt; select\n  2     color_code,　　　　　　　　   -- カラーコード\n  3     CASE color_code\n  4       WHEN &#39;FFF&#39; THEN &#39;WHITE&#39;　   -- FFF なら白\n  5       WHEN &#39;000&#39; THEN &#39;BACK&#39;      -- 000 なら黒\n  6       ELSE             color_code -- それ以外ならコード値を戻す\n  7     END color_name\n  8  from\n  9     color_sample;</p>\n<p>COLOR_CODE COLOR_NAME</p>\n<hr>\n<p>FFF        WHITE\n000        BACK\nF00        F00\n0F0        0F0\n00F        00F\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x41",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "41",
+            "time" : 1555228371611,
+            "title" : "39.0 SQL の IF 「CASE 〜 WHEN 式」",
+            "update_at" : 1556488166377
+          },
+          "x42" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>書式    入力\nfmt    n\nTO_CHAR( n, &#39;99.99&#39;)    0.5\n    -0.5\n    500\n    0.005\n    0\nTO_CHAR( n, &#39;9&#39;)    0\nTO_CHAR( n, &#39;00.00&#39;)    0.5</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x42",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "42",
+            "time" : 1555228371611,
+            "title" : "40.0 書式",
+            "update_at" : 1556488166377
+          },
+          "x43" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>主な用途は TO_CHAR（日付）、TO_DATE、TO_TIMESTAMP 関数などにおいて日付、\n時刻用のフォーマット文字列として使用する。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x43",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "43",
+            "time" : 1555228371611,
+            "title" : "41.0 日付用の書式",
+            "update_at" : 1556488166377
+          },
+          "x44" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nCREATE OR REPLACE FUNCTION FUNC_GET_TIMESTAMP\nRETURN TIMESTAMP\nIS\nBEGIN\n  RETURN SYSTIMESTAMP;\nEND;\n/\nSELECT\n    D7 D7_1\n    ,TO_CHAR(SYSTIMESTAMP, &#39;FF6&#39;)           D1\n    ,TO_CHAR(FUNC_GET_TIMESTAMP(), &#39;FF6&#39;)   D2\n    ,TO_CHAR(FUNC_GET_TIMESTAMP(), &#39;FF6&#39;)   D3\n    ,TO_CHAR(SYSTIMESTAMP, &#39;FF6&#39;)           D4\n    ,( SELECT TO_CHAR(SYSTIMESTAMP, &#39;FF6&#39;)  FROM MY_DUAL ) D5\n    , D6\n    , D7 D7_2\n FROM (\n    SELECT\n            &#39;DUMMY&#39;\n　　　　　　,TO_CHAR(SYSTIMESTAMP, &#39;FF6&#39;)            D6\n            ,TO_CHAR(FUNC_GET_TIMESTAMP(), &#39;FF6&#39;)    D7\n    FROM\n            USER_CATALOG\n    WHERE ROWNUM &lt;= 5    --- これの有り無しで結果が異なった。\n );</p>\n<p> 実行計画  ROWNUM &lt;= 5  を使用した場合\n|8|SELECT STATEMENT|\n|1| └TEST.MY_DUAL TABLE ACCESS [FULL]|\n|7|   TEST. VIEW|\n|6|   └COUNT [STOPKEY]|\n|5|       FILTER|\n|2|       └SYS.OBJ$ TABLE ACCESS [FULL]|\n|4|       └SYS.TAB$ TABLE ACCESS [CLUSTER]|\n|3|         └SYS.I_OBJ# INDEX [UNIQUE SCAN]|</p>\n<p> 実行計画  ROWNUM &lt;= 5  を指定していない場合\n|6|SELECT STATEMENT\n|1|TEST.MY_DUAL TABLE ACCESS [FULL]\n|5|FILTER\n|2|└SYS.OBJ$ TABLE ACCESS [FULL]\n|4|└SYS.TAB$ TABLE ACCESS [CLUSTER]\n|3|  └SYS.I_OBJ# INDEX [UNIQUE SCAN]\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x44",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "44",
+            "time" : 1555228371611,
+            "title" : "42.0 SYSDATE で色々やってみる",
+            "update_at" : 1556488166377
+          },
+          "x45" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
+              "type" : "Certificate"
+            },
+            "id" : "x45",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_8",
+            "name" : "tei952",
+            "ord" : "45",
+            "time" : 1555228371611,
+            "title" : "43.9 御修了ありがとうございました。",
+            "update_at" : 1556488166377
+          }
+        }
+      },
+      "-LdLtaiBADqiIat-6k_9" : {
+        "contents" : {
+          "x01" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Java の世界へようこそ！ ここでは Java を用いたプログラミングに必要な、\n開発環境の整備をします。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x01",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "01",
+            "time" : 1555228371611,
+            "title" : "1.0 Java 開発環境",
+            "update_at" : 1556488166377
+          },
+          "x02" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Java はオブジェクト指向のプログラミング言語です。 \n他のオブジェクト指向言語を習得している方はお分かりと思います。プログラ\nミングが始めて、あるいは、 オブジェクト指向というのは良くわからない、\nという方にはこのサイトで後で説明しますので、そちらをお読みください。 \nC 言語の「ポインタ」のように、柔軟だけれど危険でわかりにくい、といった\n要素を排除するなどされています。 Java はわかり易い言語仕様で、学習し易\nいといわれています。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x02",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "02",
+            "time" : 1555228371611,
+            "title" : "2.0 Java とは",
+            "update_at" : 1556488166377
+          },
+          "x03" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Java の開発をするには Java Development Kit (JDK) を入手します。 \nJava のダウンロードサイトから、Java SE Development Kit (JDK) 6 をダ\nウンロードします。 \n私の環境は Windows 7 の 32 bit の環境だったのですが、JDK のダウンロー\nドファイル名は jdk-6u19-windows-i586.exe でした。これは 「JDK バージョ\nン 1.6 の Update 19。Windows の i586 用」 という意味になります。 \nパッケージをダブルクリックして、インストールを開始すれば OK です。 \nこのとき、念のためインストール先ディレクトリは変な問題が起きないように、 \nC:\\jdk\\1.6.0_19 のように空白を含まないパスにしておいたほうが良いようです。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x03",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "03",
+            "time" : 1555228371611,
+            "title" : "3.0 JDK のダウンロードとインストール",
+            "update_at" : 1556488166377
+          },
+          "x04" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Eclipse のダウンロードサイト から Eclipse IDE for Java Developers を\nダウンロードします。 \nzip ファイルを展開してできる、eclipse ディレクトリを C:\\eclipse などに\n配置すればそれで完了です。 \nその中の eclipse.exe をダブルクリックすれば Eclipse の IDE が起動します。 \nただ、これだけです。簡単ですね。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x04",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "04",
+            "time" : 1555228371611,
+            "title" : "4.0  Eclipse のインストール",
+            "update_at" : 1556488166377
+          },
+          "x05" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>プログラミング中はなるべくキーボードから手を離さずに、様々な動作ができた方が\n効率が良いことが多いです。 Eclipse にも多数のショートカットキーがデフォルト\nで割り当てられています。 ショートカットは数あれど、ここではその中で、特に便\n利なショートカットキーを紹介します。\n編集タブの移動 : Ctrl + E\n元の場所に戻る・進む : Alt + ← または →\n対応する括弧を行き来する : Ctrl + Shift + P\n行のコメントアウト : Ctrl + /\n複数行のコメントアウト : Ctrl + Shift + /\nフォーマット : Ctrl + Shift + F\nクイックフィックス : Ctrl + 1\n型の階層表示 : F4\n型の検索ボックス表示 : Ctrl + Shift + T\nコードのアウトライン表示 : Ctrl + O\nアウトラインを上下に移動 : Ctrl + Shift + ↑ または ↓\n検索画面の表示 : Ctrl + F\nファイルを閉じる : Ctrl + W\nファイルを保存 : Ctrl + S\nショートカットの表示 : Ctrl + Shift + L</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x05",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "05",
+            "time" : 1555228371611,
+            "title" : "5.0 便利な Eclipse ショートカット集",
+            "update_at" : 1556488166377
+          },
+          "x06" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Java で Web アプリケーションを開発する場合は、Java を実行するアプリケー\nションサーバーが必要になります。 \nTomcat は Apache.org が開発している Java Servlet/JSP の実行環境で、Java \nのアプリケーションサーバーとして広く使われています。 ここでは、Tomcat の\nインストールを行い、さらに Eclipse から Tomcat を利用するためのプラグイ\nンの設定も行います。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x06",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "06",
+            "time" : 1555228371611,
+            "title" : "6.0 Tomcat のインストール",
+            "update_at" : 1556488166377
+          },
+          "x07" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\npublic class HelloJava {</p>\n<pre><code> public static void main(String[] args) {\n\n      System.out.println( &quot;Hello, world!&quot; );     \n\n }\n</code></pre><p>}\nこの内容を HelloJava.java というファイル名で保存してください。 ファイル名\nはそのコードのクラス名で名前をつけます。 \nこのプログラムでは、&quot;Hello, world!&quot; という文字を標準出力に出力します。その\nために System.out.println というメソッドを呼び出していますが、 よくわから\nないという方は、ここでは「画面に文字を出すときには System.out.println を使\nう」 と覚えておけば十分です。 \n次にコマンドプロンプトを開いて、コマンドラインからコンパイルしてみましょう。 \nコンパイルコマンドは javac です。javac に対して、次のように HelloJava.java \nというファイル名を渡します。 \n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x07",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "07",
+            "time" : 1555228371611,
+            "title" : "7.0 JAVAプログラムを動かそう",
+            "update_at" : 1556488166377
+          },
+          "x08" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>データ型  意味  既定値\nbyte     ８ビットの符号付整数\n         -128 から 127 までを表します。 0\nshort    １６ビットの符号付整数\n         -32,768 から 32,767 までを表します。0\nint      ３２ビットの符号付整数\n         -2,147,483,648 から 2,147,483,647 までを表します 0\nlong     ６４ビットの符号付整数\n         -9,223,372,036,854,775,808 から 9,223,372,036,854,775,807 まで\n         を表します 0L\nfloat   ３２ビットの浮動小数点値  0.0f\ndouble  ６４ビットの倍精度浮動小数点値 0.0d\nboolean true または false の値をとる  false\nchar    １６ビットの Unicode 文字\n         \\u0000 から \\uFFFF までの値  &#39;\\u0000&#39;</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x08",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "08",
+            "time" : 1555228371611,
+            "title" : "8.0 変数",
+            "update_at" : 1556488166377
+          },
+          "x09" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n配列\n配列 (array) とは、同じデータ型のデータを複数格納するコンテナです。配列内に格納\nできる要素数は固定です。 例えば、「５個の整数を格納する配列」 は次のように定義で\nきます。 \nint[] a;<br>a = new int[5];\n配列内の要素には添え字 (インデックス) でアクセスできます。 要素内の１番目の要素\nはインデックス [0]、２番目の要素はインデックス [1]、・・・ のように、 n 番目の\n要素には [n-1] というインデックスでアクセスできます。 \n次のコード例では、５個の整数を格納できる整数の配列を用意し、 それに、１番目の要\n素から順に１、２、３、４、５ を格納し、 それを逆に、５、４、３、２、１ という風\nに順番にその要素の中身を出力します。 \npublic class ArrayTest {</p>\n<pre><code> public static void main(String[] args) {\n\n      int[] a;\n\n      a = new int[5];\n\n      a[0] = 1;\n      a[1] = 2;\n      a[2] = 3;\n      a[3] = 4;\n      a[4] = 5;\n\n      System.out.println( a[4] );\n      System.out.println( a[3] );\n      System.out.println( a[2] );\n      System.out.println( a[1] );\n      System.out.println( a[0] );\n\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x09",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "09",
+            "time" : 1555228371611,
+            "title" : "9.0 配列",
+            "update_at" : 1556488166377
+          },
+          "x10" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n足し算、引き算、掛け算、割り算などを行う演算子は次のとおりです。 \n演算子  役割\n+      足し算\n-      引き算\n*      掛け算\n/      割り算\n%      割り算の余り</p>\n<h2 id=\"-1-\">++     1 だけインクリメント (加算) </h2>\n<p>1 だけデクリメント (減算) \nさっそく、この実行例を示します。 \npublic class OpTest1 {</p>\n<pre><code> public static void main(String[] args) {\n\n      System.out.println( 10 + 5 );\n      System.out.println( 10 - 5 );\n      System.out.println( 2 * 3 );\n      System.out.println( 10 / 2 );\n      System.out.println( 10 % 3 );\n\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x10",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "10",
+            "time" : 1555228371611,
+            "title" : "10.0 演算子",
+            "update_at" : 1556488166377
+          },
+          "x12" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nif 文\nif 文では、条件が真 (true) と評価されるときに実行するコードブロック、\n偽 (false) のときに実行するコードブロックを指定することができます。 \nif( 条件文1 ) {\n     // 条件文1 が真 (true) のときにここが実行される\n}\nelse {\n     // 条件文1 が偽 (false) のときにここが実行される\n}\n条件は複数あっても構いません。その場合は else if (条件文2) として記述\nします。 また、else ブロックは任意です。 \n実行例は次のとおりです。 \npublic class ControlFlow1 {</p>\n<pre><code> public static void main(String[] args) {\n\n      int i = 68;\n\n      if( 80 &lt; i ) {\n           System.out.println( &quot;A&quot; );\n      } else if( 60 &lt; i ) {\n           System.out.println( &quot;B&quot; );\n      } else {\n           System.out.println( &quot;C&quot; );\n      }\n\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x12",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "12",
+            "time" : 1555228371611,
+            "title" : "11.0 処理の分岐",
+            "update_at" : 1556488166377
+          },
+          "x13" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n最も基本的なクラス定義は次のようになります。 \nclass クラス名 {\n     // ここにフィールド、コンストラクタ、メソッドを書く\n}\n継承するクラス、実装するインターフェイスがある場合は次のように書きます。 \nclass クラス名 extends スーパークラス implements インターフェイス {\n     // ここにフィールド、コンストラクタ、メソッドを書く\n}\nスパークラスはひとつだけ指定できます。インターフェイスはカンマで区切り\n複数指定できます。 \nそれでは、具体的な例として「人」を表す Person クラスというのを実装して\nみましょう。 \npublic class Person {</p>\n<pre><code> // フィールド\n private int age;\n private String name;\n\n // コンストラクタ\n public Person( int a, String n ) {\n      age = a;\n      name = n;\n }\n\n public void setAge( int a ) {\n      age = a;\n }\n\n public void setName( String n ) {\n      name = n;\n }\n\n public int getAge() {\n      return age;\n }\n\n public String getName() {\n      return name;\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x13",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "13",
+            "time" : 1555228371611,
+            "title" : "12.0 クラス定義とオブジェクト",
+            "update_at" : 1556488166377
+          },
+          "x14" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nコンストラクタはクラスのオブジェクトを生成するときに呼ばれる特別な\nメソッドです。 コンストラクタにパラメータを渡すことで、オブジェク\nト生成時にオブジェクトを初期化できます。 \nさらに、Person クラスを継承して従業員 (Employee) クラスを定義しま\nしょう。 従業員クラスには従業員 ID という属性を持たせましょう。 \npublic class Employee extends Person {</p>\n<pre><code> private int employeeID;\n\n public Employee( int a, String n, int eid ) {\n      super( a, n );\n      employeeID = eid;\n }\n\n public void setEmployeeID( int eid ) {\n      employeeID = eid;\n }\n\n public int getEmployeeID() {\n      return employeeID;\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x14",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "14",
+            "time" : 1555228371611,
+            "title" : "13.0 コンストラクタ",
+            "update_at" : 1556488166377
+          },
+          "x15" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nクラスのインスタンス (オブジェクト) を作成するには new キーワード\nを使います。 \nクラス名 変数名 = new クラス名 (コンストラクタへのパラメータ);\nEmployee クラスを利用するテストプログラムを作成します。 \npublic class EmployeeTestApp1 {</p>\n<pre><code> public static void main(String[] args) {\n\n      Employee p = new Employee( 20, &quot;Ichiro Suzuki&quot;, 100 );\n\n      System.out.println( p.getAge() );\n      System.out.println( p.getName() );\n      System.out.println( p.getEmployeeID() );\n\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x15",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "15",
+            "time" : 1555228371611,
+            "title" : "14.0 オブジェクトの生成",
+            "update_at" : 1556488166377
+          },
+          "x16" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\nオブジェクトのコピーを作る時には、そのオブジェクトが持つ参照に注意が\n必要です。 \n次のコードを見てください。 \nPerson p1 = new Person();\nPerson p2 = p1;</p>\n<p>p1.setAge(30);\nこの例では Person クラスのオブジェクト p1 が p2 に代入されています。 \nこのようにすると、p2 は p1 が指しているオブジェクトと全く同じオブジ\nェクトを指し示します。 すると、p1 に行った変更が p2 にも影響すること\nになります。（実体は全く同じものですから当然ですね） \nclone メソッドの利用\n他の変数に対して行った操作の影響を避けるためには、clone メソッドを利\n用します。 \nclone メソッドは Object クラスにて定義されており、二つのオブジェクト\nをフィールド毎に値を丸コピーします。 \n上のコード例の p1 と p2 が互いに変更の影響を受け合わないようにするに\nは、clone メソッドを用いて次のようにします。 \nPerson p1 = new Person();\nPerson p2 = p1.clone();</p>\n<p>p1.setAge(30);\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x16",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "16",
+            "time" : 1555228371611,
+            "title" : "15.0 コピーとクローンの問題点",
+            "update_at" : 1556488166377
+          },
+          "x17" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n上術のようなオブジェクトのコピー・クローンの問題を解決するには、\nCloneable インターフェイスを実装し clone メソッドを定義し直します。 \npublic class Person implements Cloneable {\n  Class1 o;\n  ...</p>\n<p>  public Person clone() throws CloneNotSupportedException {\n    Person cloned = (Person) super.clone();\n    cloned.o = (Class1) o.clone();\n    return cloned;\n  }\n}</p>\n<p>public class Class1 implements Cloneable {\n  ...</p>\n<p>  public Class1 clone() throws CloneNotSupportedException {\n    return (Class1) super.clone();\n  }\n}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x17",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "17",
+            "time" : 1555228371611,
+            "title" : "16.0 Cloneable インターフェイスと clone メソッドの定義",
+            "update_at" : 1556488166377
+          },
+          "x18" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>次の場面では、クラスに名前をつけること無くクラスを定義してインスタ\nンスを生成する事が可能です。 \nあるクラスの派生クラスのオブジェクトを一つだけインスタンス化する場合 \nあるインターフェイスを実装して一つだけインスタンスを作成する場合 \n名前を付けずにクラスを定義するので、このようなクラスを匿名内部クラス\n (Anonymous Inner Class) といいます。 \n匿名内部クラスの書き方は、次のようになります。 \nnew スーパータイプ ( コンストラクタ パラメータ) {\n  インナークラスのメソッド、データ\n}</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x18",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "18",
+            "time" : 1555228371611,
+            "title" : "17.0 匿名内部クラス",
+            "update_at" : 1556488166377
+          },
+          "x19" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>String は Java で文字列をあらわす基本的なクラスです。基本的な、といっ\nてもプリミティブな変数として「文字列」という型があるわけではなく、 Java\n の標準ライブラリとして String クラスが用意されているということになります。 \nJava でいう「文字列」は Unicode 文字が並んだものです。文字列の定数は &quot; \n(二重引用符) で囲みます。例えば Hello と書きたければ、&quot;Hello&quot; のように二\n重引用符で囲みます。 &quot;Hello&quot; と書いた場合は、H、e、l、l、o という Unicode\n 文字が連続したものです。 \nまた、Unicode の文字コードを直接指定することもできます。 \n例えば次のように ☺ 記号を表す \\u263A を直接入力することもできます。 \npublic class StringTestApp1 {\n  public static void main(String[] args) {\n    System.out.println(&quot;Hello\\u2606&quot;);\n  }\n}</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x19",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "19",
+            "time" : 1555228371611,
+            "title" : "18.0 文字列 (String)",
+            "update_at" : 1556488166377
+          },
+          "x20" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n以下は文字列操作のコードとその実行例です。 \npublic class StringTest1 {</p>\n<pre><code> public static void main(String[] args) {\n\n      // 単純な String の出力\n      String s1 = &quot;Hello!&quot;;\n\n      System.out.println( s1 );\n\n      // char の配列から String を作る\n      char[] c = { &#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;!&#39; };\n      String s2 = new String( c );\n\n      System.out.println( s2 );\n\n      // 文字の結合\n      String s3 = s1.concat( s2 );\n\n      System.out.println( s3 );\n\n      // 文字列を結合する時に + 演算子を使う\n      System.out.println( s1 + &quot; - &quot; + s2 );\n\n      // 長さ\n      System.out.println( s1.length() );\n\n }\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x20",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "20",
+            "time" : 1555228371611,
+            "title" : "19.0 文字列操作",
+            "update_at" : 1556488166377
+          },
+          "x21" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>しかし最初に言うのもなんですが、正規表現自体が非常に奥の深いもので、それだけ\nで本一冊できてしまうボリュームがあるテーマです。\n従って完全に網羅しているわけでないことはあらかじめお断りしておきます。\nその代わり、Java で正規表現を利用するはじめの一歩、取っ掛かりとして役に立つ\n項目を取り上げました。\nJava の正規表現 (Regular Expression) の基礎\nここでは Java で正規表現を利用するための基礎的なメソッドおよびそれの注意事項\nについて説明します。 \nグルーピングで文字を抜き出す\nマッチした箇所から特定の文字を抜き出すのに便利なグルーピングについて説明します。 \n正規表現による文字列のスプリット\n文字列への適用例として、正規表現を使って文字列をスプリットする例を紹介します。 \n正規表現による文字列の置換\n文字列への正規表現の適用例として、マッチした箇所の文字の置換方法を紹介します。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x21",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "21",
+            "time" : 1555228371611,
+            "title" : "20.0 Java の正規表現",
+            "update_at" : 1556488166377
+          },
+          "x22" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>\n例外オブジェクト\nJava の例外オブジェクトは全て、java.lang.Throwable から派生します。 Error、\nException 等です。 \ntry-catch-finally ブロック\n例外処理の形式は次のとおりです。 \ntry {</p>\n<pre><code> // try ブロック\n</code></pre><p>} catch (例外型１ e) {</p>\n<pre><code> // 例外処理\n</code></pre><p>} catch (例外型２ e) {</p>\n<p>...</p>\n<p>} finally {</p>\n<pre><code> // 常に実行される\n</code></pre><p>}\n</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x22",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "22",
+            "time" : 1555228371611,
+            "title" : "21.0 例外オブジェクト",
+            "update_at" : 1556488166377
+          },
+          "x23" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>実行時においてオブジェクトのクラス情報を調べたりすることを、リフレクションといい\nます。リフレクションによって、 実行時にクラスの名前、メソッドの名前やパラメータ\nなどを知ることができます。 \nClass クラスとは？\nJava の実行環境はそれぞれのオブジェクトの型情報を常に判別しています。ここではそ\nのことに関わる Class クラスについて説明します。 \nオブジェクトに関連する Class オブジェクトの取得\nClass オブジェクトの取得方法の一つを、具体例を交えて紹介します。 \nクラス名からの Class オブジェクトの取得\nClass オブジェクトのもう一つの取得方法について説明します。 \nClass オブジェクトからのインスタンスの作成\nここでは Class オブジェクトから、それが表す型のインスタンスを作成する方法をしめ\nします。\nClass オブジェクトからのインスタンスの作成とメソッド呼出し</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x23",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "23",
+            "time" : 1555228371611,
+            "title" : "22.0 リフレクション",
+            "update_at" : 1556488166377
+          },
+          "x24" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>パッケージの命名\nパッケージは通常次のようなルールで命名します。 \n全て小文字とする \nインターネットのドメイン名の逆にしたものをプレフィックスにする\n例. ドメイン名が java.keicode.com ならばプレフィックスは com.keicode.java \nただし、ハイフン等の記号、数字始まり、 Java のキーワード (int 等) を含む場合は _ \n(アンダースコア) をつける\n例. 1foo.com → com._1foo\nhawaii.nokoto.site → com.hajimete_hawaii \nパッケージの作成\nパッケージ名はソースファイルの一行目に package キーワードを用いて、パッケージ名\nを指定します。 \npackage パッケージ名;</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x24",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "24",
+            "time" : 1555228371611,
+            "title" : "23.0 パッケージ",
+            "update_at" : 1556488166377
+          },
+          "x25" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>ジェネリックス (Generics) というのは汎用的なクラスやメソッドを特定の型に対応づけ\nる機能のことで、Java SE5.0 から導入されました。 \nいい例えかどうか分かりませんが、例えば「食べ物コンテナ」という汎用的なコンテナを\n作ったときに、 それを「ラーメンコンテナ」「カレーコンテナ」という風に特定の型にき\nちっと決めるものです。 \nそれがなぜいいのか？どうやって作るのか？どうやって使うのか？ということをみていき\nたいと思います。 \nジェネリックスとは？なぜジェネリックスなのか\nジェネリックスを導入する意図、それがないときの問題点について説明します。\nジェネリックスの名前付け\nサブタイプ\nジェネリックスメソッドとコンストラクタ\n境界型 (Bounded Types)\nワイルドカード\n&lt;? extends クラス名&gt; という意味について説明します。\nスーパータイプ バウンド\nこちらは &lt;? super クラス名&gt; について説明します。また図で理解を深めましょう。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x25",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "25",
+            "time" : 1555228371611,
+            "title" : "24.0 ジェネリックス",
+            "update_at" : 1556488166377
+          },
+          "x26" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>ava では日付、時間およびタイムゾーンを扱うための便利なクラス、ライブラリが用意さ\nれています。 \n日本ではタイムゾーンはひとつだけなので、日本限定のプログラムであればあまりタイム\nゾーンを意識しなくても、 ローカル時間を使えば通常は問題ありません。しかし、例えば\nアメリカなどの複数のタイムゾーンが使われている国でも使えるように拡張しようと思え\nば、たちまちタイムゾーンは深刻な問題となります。 \nタイムゾーンの使い方\nここでは利用可能な TimeZone の列挙方法、タイムゾーン ID についてみていきます。 \nカレンダーとタイムゾーンの利用\nカレンダー (java.util.Calendar) とタイムゾーン (java.util.TimeZone) を利用\nする具体的な方法を紹介します。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x26",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "26",
+            "time" : 1555228371611,
+            "title" : "25.0 日時・タイムゾーンの扱い",
+            "update_at" : 1556488166377
+          },
+          "x27" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>開発環境として、Eclipse と Tomcat を利用することを前提としますので、インストール\nしていない方は、 Tomcat をインストール してください。 \nWeb アプリケーションの動作確認 (Tomcat プロジェクト)\nTomcat プロジェクトを作って、JSP およびサーブレットの簡単な動作確認を行います。 \nサーブレットから JDBC を利用する\nサーブレットから MySQL に JDBC で接続してクエリを実行する具体例を示します。 \nJSP/Servlet フィルターの基本\nJSP/サーブレットフィルタの基本的な開発、設定方法を示します。 \nJSP\nJSP の事前定義変数 - 暗黙オブジェクト \n設定\nウェルカムページ (デフォルトページ) の設定 \nJSP/Servlet フィルターの登録\nJSP/Servlet フィルターのページで登録方法も示しています。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x27",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "27",
+            "time" : 1555228371611,
+            "title" : "26.0 Web アプリケーションの開発",
+            "update_at" : 1556488166377
+          },
+          "x28" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>マルチスレッド・プログラミングは、うまいコードを書くのがもっとも難しいものの一つ\nといってよいでしょう。\nちょっと間違えてスレッドセーフではないコードを書いてしまえば、あっという間にデータ\nが壊れるか、 あるいはテスト環境ではうまく動いていたのに、本番の環境で時々つかみ所\nのないような形でバグがちょろちょろと顔を出してきます。\nここではそんな、 Java のマルチスレッド・プログラミングの基本的な事柄について説明\nします。\nJava のマルチスレッド・プログラミングの基本\nどんなときに複数のスレッドで処理を行うべきなのか、そしてそれはどのように行うのか、\nということについて簡単に説明します。 \nExecutorService の基本的な使い方、考え方\nスレッドプールを簡単に利用する方法として、ExecutorService があります。 Executor\nService の基本的な仕組みと利用方法について説明します。 \n処理のキャンセル、中断\nExecutorService で処理しているタスクを途中でキャンセルするにはどうしたらよいで\nしょうか。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x28",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "28",
+            "time" : 1555228371611,
+            "title" : "27.0 マルチスレッド",
+            "update_at" : 1556488166377
+          },
+          "x29" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>これまで C 言語などでプログラミングをしてきた人は、きっとファイルを操作しようとして\n FILE* などがないことに驚くかもしれません。\nJava ではファイルやソケットなどの入出力は、入力ストリーム (Input Stream)、あるいは、\n出力ストリーム (Output Stream) として扱います。 読み込む元が入力ストリームで、書き\n出す先が出力ストリームです。\nそしてそのストリームに対して、リーダー (Reader) やライター (Writer) が用意されてい\nます。\nこれの優れているところは、ストリーム (読み込み元や書き出す先) が必ずしも伝統的なファ\nイルハンドル (ファイル、ソケット、パイプ等) と限らず、 メモリ上の単純なバイト列だった\nり、あるいは別のストリームであったりするところがあげられます。\nこうすることによってデータの入出力が、それがファイルであろうとメモリブロックであろうと\n、同様に扱えるようになるわけです。 また、多機能なストリームを数珠つなぎにすることによっ\nて、各種データをバッファリングしたり、GZIP したりできます。\nここではテキストファイルやバイナリファイルの入出力を行うことによって、基本的なストリー\nムやリーダー・ライターの使い方を見ていきます。\nテキストファイルの読み込みと書き込み \nバイナリファイルの読み込みと書き込み \nオブジェクトのシリアライズとデシリアライズ \nソケットの読み込みと書き込み</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x29",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "29",
+            "time" : 1555228371611,
+            "title" : "28.0 基本的な I/O",
+            "update_at" : 1556488166377
+          },
+          "x30" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>NIO は java.nio パッケージで提供されます。 これは低レベル I/O を極力サポートして、 \nプラットフォームに合わせてより効率的に I/O 操作ができることを目的としています。\nここでは NIO の具体的な利用方法をみていきましょう。\nNIO Buffer の使い方\n例えば OpenGL ES ライブラリを利用する時等にも、 NIO Buffer は利用されます。ここでは\n具体的な利用例と、それぞれのコードの意味について考えていきます。 バイトオーダー、ビュ\nーバッファなどの説明も。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x30",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "30",
+            "time" : 1555228371611,
+            "title" : "29.0 New I/O (java.nio)",
+            "update_at" : 1556488166377
+          },
+          "x31" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Java アプレット (Java applet) はウェブページに埋め込んだ形で実行可能なアプリケーショ\nンのことです。\nHTML ページに関連付けされたアプレットは、HTML や画像などと同じように自動的にダウンロー\nドされて実行され、 特に１９９０年台後半にインタラクティブなウェブページを実装するのに広\nく使われました。\nその後、JavaVM 自体の配布の問題やら、代替テクノロジ (Java Web Start) の出現などで、当\n時のような人気はなくなったものの、 環境さえ整えば有効に利用できることに変わりはありません。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x31",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "31",
+            "time" : 1555228371611,
+            "title" : "30.0 Java アプレット",
+            "update_at" : 1556488166377
+          },
+          "x32" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Swing とは？ \n最も単純なフレームの表示\n単純なフレームの表示方法を示します。 \nフレームの基本的な設定\nフレームの位置、タイトルなどの基本的な設定方法を示します。 \nルックアンドフィールの設定\nトップレベルコンテナー\nSwing のコンポーネント \nJComponent &gt; AbstractButton \nボタン JButton\nチェックボックス JCheckBox\nラジオボタン \nラジオボタン JRadioButton\nラジオボタングループのタイトルと枠線の表示\nコンボボックス JComboBox の使い方\nレイアウトの基礎 \nFlowLayout (フローレイアウト) の基礎\n等間隔のマス目に並べる GridLayout (グリッドレイアウト)\nBorderLayout (ボーダーレイアウト) \nBoxLayout (ボックスレイアウト) \nCardLayout (カードレイアウト)\nタブ表示 \nタブ表示 JTabbedPane の使い方\nJTabbedPane のタブ切り替えイベント\nイベント処理の基本 （委譲イベントモデル）</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x32",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "32",
+            "time" : 1555228371611,
+            "title" : "31.0 Swing による GUI",
+            "update_at" : 1556488166377
+          },
+          "x33" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>一般的な業務で使われるシステムの目的は、結局のところ構造化されたデータを操作する\nことがメインであることがほとんどと言ってよいでしょう。\n在庫データ、発注データ、販売データ、ナントカデータと、あげればキリがありません。\nカメラアプリなどのように 「一発撮ってファイルに落として、ハイ終了」、というのは\nむしろレアケースです。\n特に標準的な RDBMS に保存される表組みデータを扱うにはグリッドコンポーネントが欠\nかせません。 グリッドとか、表組みとか、呼び名はいろいろあれど要は表組みです。\nSwing ではこれを JTable コンポーネントで行います。\nJTable の簡単な使い方\nJTable でデータとビューをつなぐテーブルモデル\nJTable でのデータの表示方法を決める セルレンダラー\nデフォルトセルレンダラーを使って中央揃えにする方法\nカスタムのセルレンダラーを作りセルの値によって背景色を変更する方法\nJTable のセルの値を更新するテーブルモデルの実装方法\nJTable のセルに編集用のドロップダウンを設定する方法\nJTable での単純なソート（並べ替え）\nJTable でデータフィルターを実装する方法\nJTable に行を追加する\n単純に表示をすれば良い場合から、テーブル内でドロップダウンを表示してデータ編集を行う\nとか、行を追加するとか、いろいろな使用レベルがあります。\n無駄に複雑なコードにしなくていいように、ここでは順を追って少しずつ複雑な形にしていき\nながら説明しています。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x33",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "33",
+            "time" : 1555228371611,
+            "title" : "32.0 JTable の使い方",
+            "update_at" : 1556488166377
+          },
+          "x34" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>Java のコレクションインターフェイスは主に次のものが挙げられます。 \nList - 要素が順番に並んだものを扱う \nMap - キーと値のペアを扱う \nQueue と Deque - 順番に入れたものを順番に取り出す方式のデータ構造を扱う \nSet - 順番は問わないが各要素へアクセス可能としたいとき \nデータ構造についてあまり知らない人は、あまりピンとこないかもしれませんので、不安の\nある人はデータ構造・アルゴリズムに関する文献等でリスト、キュー・・・などの基本的な\n考え方を学んでおいてください。 \nJava のコレクション・クラスライブラリでは、これらのインターフェイスを実装した各種\nクラスがあり、状況に応じて適切なクラスを利用することが可能です。 \n具体例をみてみましょう。 \nList インターフェイスと ArrayList \nキー・バリューペアを保持する Map の基礎 - HashMap、Hashtable、TreeMap \nArrayList 要素のソートと Comparator\nHashSet と TreeSet はどう使う？\n状況によって、望ましい実装は変わります。（その詳細はデータ構造・アルゴリズムの教科書\nを読んでください） \n実装は変わっても、概念的に同系統のものであれば、 それを利用する具体的な方法（コード）\nは統一された方法になる・・・。これがインターフェイスと実装を切り離す利点です。</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x34",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "34",
+            "time" : 1555228371611,
+            "title" : "33.0 コレクション",
+            "update_at" : 1556488166377
+          },
+          "x35" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "data" : "<pre><code>XML はテキストファイルでデータ交換をするためのデータフォーマットとして、現在の主流の\nデータ形式といってよいでしょう。 テキスト形式で要素間の階層構造、属性が人間にもわかり易\nく定義され、また、様々な言語での解析用、要素操作用のライブラリが揃っています。 \nここでは、Java で XML 操作をするときの基本的な方法をみていきましょう。 \nXML を読み込む \nXmlPull を利用した XML の解析 - kXML</code></pre>",
+              "type" : "Html"
+            },
+            "id" : "x35",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "35",
+            "time" : 1555228371611,
+            "title" : "34.0 XML",
+            "update_at" : 1556488166377
+          },
+          "x36" : {
+            "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+            "comment_count" : 0,
+            "content" : {
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
+              "type" : "Certificate"
+            },
+            "id" : "x36",
+            "knowledgeid" : "-LdLtaiBADqiIat-6k_9",
+            "name" : "tei952",
+            "ord" : "36",
+            "time" : 1555228371611,
+            "title" : "35.9 御修了ありがとうございました。",
             "update_at" : 1556488166377
           }
         }
@@ -6126,7 +7322,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLuLklhwL7keqLFNmDx25?alt=media&token=633b163a-b613-44a4-bef9-1df86a737939",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x25",
@@ -6145,7 +7341,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "data" : "<pre><code>\nnextTick 可以让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM。</p>\n<p>在 Vue 2.4 之前都是使用的 microtasks，但是 microtasks 的优先级过高，在某些情况下可能会出现比事件冒泡更快的情况，但如果都使用 macrotasks 又可能会出现渲染的性能问题。所以在新版本中，会默认使用 microtasks，但在特殊情况下会使用 macrotasks，比如 v-on。</p>\n<p>对于实现 macrotasks ，会先判断是否能使用 setImmediate ，不能的话降级为 MessageChannel ，以上都不行的话就使用 setTimeout </p>\n<p>js\nif (typeof setImmediate !== &#39;undefined&#39; &amp;&amp; isNative(setImmediate)) {\n  macroTimerFunc = () =&gt; {\n    setImmediate(flushCallbacks)\n  }\n} else if (\n  typeof MessageChannel !== &#39;undefined&#39; &amp;&amp;\n  (isNative(MessageChannel) ||\n    // PhantomJS\n    MessageChannel.toString() === &#39;[object MessageChannelConstructor]&#39;)\n) {\n  const channel = new MessageChannel()\n  const port = channel.port2\n  channel.port1.onmessage = flushCallbacks\n  macroTimerFunc = () =&gt; {\n    port.postMessage(1)\n  }\n} else {\n  /<em> istanbul ignore next </em>/\n  macroTimerFunc = () =&gt; {\n    setTimeout(flushCallbacks, 0)\n  }\n}\n</code></pre>",
+              "data" : "<pre><code>\nnextTick 可以让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM。</p>\n<p>在 Vue 2.4 之前都是使用的 microtasks，但是 microtasks 的优先级过高，在某些情况下\n可能会出现比事件冒泡更快的情况，但如果都使用 macrotasks 又可能会出现渲染的性能问题\n。所以在新版本中，会默认使用 microtasks，但在特殊情况下会使用 macrotasks，比如 v-on。</p>\n<p>对于实现 macrotasks ，会先判断是否能使用 setImmediate ，不能的话降级为 \nMessageChannel ，以上都不行的话就使用 setTimeout </p>\n<p>js\nif (typeof setImmediate !== &#39;undefined&#39; &amp;&amp; isNative(setImmediate)) {\n  macroTimerFunc = () =&gt; {\n    setImmediate(flushCallbacks)\n  }\n} else if (\n  typeof MessageChannel !== &#39;undefined&#39; &amp;&amp;\n  (isNative(MessageChannel) ||\n    // PhantomJS\n    MessageChannel.toString() === &#39;[object MessageChannelConstructor]&#39;)\n) {\n  const channel = new MessageChannel()\n  const port = channel.port2\n  channel.port1.onmessage = flushCallbacks\n  macroTimerFunc = () =&gt; {\n    port.postMessage(1)\n  }\n} else {\n  /<em> istanbul ignore next </em>/\n  macroTimerFunc = () =&gt; {\n    setTimeout(flushCallbacks, 0)\n  }\n}\n</code></pre>",
               "type" : "Html"
             },
             "id" : "x01",
@@ -6595,7 +7791,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLuU-AHWwvMHDT-QpQx31?alt=media&token=506545c4-e8a3-4929-beea-f7a61a90db92",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x31",
@@ -7634,7 +8830,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLubY6J4gW1t94t63xx69?alt=media&token=ae8fedde-367c-4a1e-b35f-333f5b83551b",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x69",
@@ -7998,7 +9194,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLv2K4G35jI5thkNgRx24?alt=media&token=eb4c215e-9131-480b-969c-8e15b857d8db",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x24",
@@ -8125,7 +9321,11 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "flashPath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLvzsimpPWmPNFJwdO-LfU3cSSJlv7kJgwJ0ww?alt=media&token=dce780cf-a91a-4bdc-8d7e-1291bddb31f6",
+              "flashPath" : "https://www.flashppt.com/files/tangramone.swf",
+              "source0src" : "",
+              "source0type" : "",
+              "source1src" : "",
+              "source1type" : "",
               "type" : "Flash"
             },
             "id" : "-LfU4t0aquIoZi2tAzfb",
@@ -8217,7 +9417,7 @@
             "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
             "comment_count" : 0,
             "content" : {
-              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LedXZi8fzaKO45rL-Kvx05?alt=media&token=5f925820-18bf-46c2-81d6-a799b9abc81d",
+              "certificatePath" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHF-LcPuq3uP8_kKl9Si9yX?alt=media&amp;token=22d159ac-ead7-4465-9279-35ce0d322b20",
               "type" : "Certificate"
             },
             "id" : "x05",
@@ -8391,7 +9591,7 @@
         "address" : "東京都中央区八丁堀４－１０－１　甲東ビル６０４号室",
         "application_count" : 2,
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "certificate_count" : 0,
+        "certificate_count" : 1,
         "content_count" : 25,
         "created_at" : 1555938439185,
         "id" : "-Ld495mtWIyObJzEEK7s",
@@ -8511,6 +9711,46 @@
         "like_count" : 0,
         "name" : "Tensorflow.js入門",
         "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_7?alt=media&token=f1c88664-9ec9-4602-9852-06ca41e529ed"
+      },
+      "-LdLtaiBADqiIat-6k_8" : {
+        "Fax" : "03-3532-6513",
+        "HP" : "http://jp.highwayns.com",
+        "Manager" : "鄭軍",
+        "Tel" : "03-5244-9853",
+        "address" : "東京都中央区八丁堀4-10-1-604",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 45,
+        "created_at" : 1556236102724,
+        "id" : "-LdLtaiBADqiIat-6k_8",
+        "introduce" : "Oracle数据库从入门到精通",
+        "knowledgetype" : "2",
+        "like_count" : 0,
+        "name" : "Oracle数据库",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1558751996178
+      },
+      "-LdLtaiBADqiIat-6k_9" : {
+        "Fax" : "03-3532-6513",
+        "HP" : "http://jp.highwayns.com",
+        "Manager" : "鄭軍",
+        "Tel" : "03-5244-9853",
+        "address" : "東京都中央区八丁堀4-10-1-604",
+        "application_count" : 0,
+        "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "certificate_count" : 0,
+        "content_count" : 36,
+        "created_at" : 1556236102724,
+        "id" : "-LdLtaiBADqiIat-6k_9",
+        "introduce" : "JAVA从入门到精通",
+        "knowledgetype" : "1",
+        "like_count" : 0,
+        "name" : "JAVA入門",
+        "nickname" : "test1",
+        "photo" : "",
+        "update_at" : 1558752037819
       },
       "-LdLuLklhwL7keqLFNmD" : {
         "Fax" : "03-3532-6513",
@@ -8666,7 +9906,7 @@
         "address" : "東京都中央区八丁堀4-10-1-604",
         "application_count" : 1,
         "avatar" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
-        "certificate_count" : 0,
+        "certificate_count" : 11,
         "content_count" : 9,
         "created_at" : 1556236730161,
         "id" : "-LdLvzsimpPWmPNFJwdO",
@@ -8813,6 +10053,31 @@
           "postid" : "-LdLmvv2SvIuEAO7e-ch",
           "time" : 1556669500985
         }
+      },
+      "-LfZGCRl_H1esihYFGoj" : {
+        "-LfZORiXBLpTyDq2grHr" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-LfZORiXBLpTyDq2grHr",
+          "name" : "test1",
+          "postid" : "-LfZGCRl_H1esihYFGoj",
+          "time" : 1558610037809
+        }
+      },
+      "-LfZWAt-DZbrjG0uxqlh" : {
+        "-Lf_F9vc8Yp6g9yblOUQ" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-Lf_F9vc8Yp6g9yblOUQ",
+          "name" : "test1",
+          "postid" : "-LfZWAt-DZbrjG0uxqlh",
+          "time" : 1558624383226
+        },
+        "-Lf_FJ6ZTw-eoubGI9BD" : {
+          "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "id" : "-Lf_FJ6ZTw-eoubGI9BD",
+          "name" : "test1",
+          "postid" : "-LfZWAt-DZbrjG0uxqlh",
+          "time" : 1558624420856
+        }
       }
     },
     "err_code" : 0,
@@ -8929,79 +10194,55 @@
   },
   "posts" : {
     "data" : {
-      "-LbRHgPyDAMcmJnsf_nF" : {
-        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "comment_count" : 6,
-        "created_at" : 1554179082055,
-        "id" : "-LbRHgPyDAMcmJnsf_nF",
-        "like_count" : 4,
-        "nickname" : "test1",
-        "original_pic" : "",
-        "text" : "ddddd"
-      },
-      "-LbRJGq96GZR5TzYhpNI" : {
+      "-LfZGCRl_H1esihYFGoj" : {
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "comment_count" : 0,
-        "created_at" : 1554179497492,
-        "id" : "-LbRJGq96GZR5TzYhpNI",
-        "like_count" : 0,
-        "nickname" : "test1",
-        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "ssss"
-      },
-      "-Lb_nRjO4acOcnmT0YDo" : {
-        "comment_count" : 0,
-        "created_at" : 1554338663756,
-        "id" : "-Lb_nRjO4acOcnmT0YDo",
-        "like_count" : 0,
-        "original_pic" : "",
-        "text" : "gggg"
-      },
-      "-LbkS5fwgqPoZHiYemmY" : {
-        "comment_count" : 0,
-        "created_at" : 1554517355403,
-        "id" : "-LbkS5fwgqPoZHiYemmY",
-        "like_count" : 0,
-        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "ssssss"
-      },
-      "-LbkScA7O38oTZZNaEwm" : {
-        "comment_count" : 0,
-        "created_at" : 1554517492569,
-        "id" : "-LbkScA7O38oTZZNaEwm",
-        "like_count" : 0,
-        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "xxxx"
-      },
-      "-Lblq6e_MAgCrFwQ8mKe" : {
-        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "comment_count" : 0,
-        "created_at" : 1554540690238,
-        "id" : "-Lblq6e_MAgCrFwQ8mKe",
-        "like_count" : 0,
-        "nickname" : "test1",
-        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "hhhh"
-      },
-      "-LdLmvv2SvIuEAO7e-ch" : {
-        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
-        "comment_count" : 1,
-        "created_at" : 1556234354590,
-        "id" : "-LdLmvv2SvIuEAO7e-ch",
+        "created_at" : 1558607878090,
+        "id" : "-LfZGCRl_H1esihYFGoj",
         "like_count" : 1,
         "nickname" : "test1",
-        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : "海威学习app即将发布，欢迎大家关注"
+        "original_pic" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/posts%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F16f2be9b7c244e5ab0b461b0a84eebea?alt=media&token=5f38666c-b04d-4a02-8e1a-c46472f2f81b",
+        "text" : "本システム内部テスト開始しました。よろしくお願いいたします。"
       },
-      "-LdSWsjVAbtoV6Mttgvm" : {
+      "-LfZOGqkSvISSrYGyCNG" : {
         "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
         "comment_count" : 0,
-        "created_at" : 1556347325520,
-        "id" : "-LdSWsjVAbtoV6Mttgvm",
+        "created_at" : 1558609993280,
+        "id" : "-LfZOGqkSvISSrYGyCNG",
         "like_count" : 0,
         "nickname" : "test1",
-        "original_pic" : "https://wohapp-3a179.firebaseapp.com/",
-        "text" : ""
+        "original_pic" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/posts%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F67ee99a2f0a944288f5d3ebf275d69b5?alt=media&token=bed77d99-67af-492d-87bc-3f781fe8a59c",
+        "text" : "请大家多多关注"
+      },
+      "-LfZPZQhjOs_fGfdtCZ6" : {
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "comment_count" : 0,
+        "created_at" : 1558610331520,
+        "id" : "-LfZPZQhjOs_fGfdtCZ6",
+        "like_count" : 0,
+        "nickname" : "test1",
+        "original_pic" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/posts%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F238ab098cd7647f58ffa04162f098c88?alt=media&token=9eb9c01b-ba91-4e69-9fa7-c6918dcf91f3",
+        "text" : "现在测试一下"
+      },
+      "-LfZRtYjQcqkTkg6eNO8" : {
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "comment_count" : 0,
+        "created_at" : 1558610942405,
+        "id" : "-LfZRtYjQcqkTkg6eNO8",
+        "like_count" : 0,
+        "nickname" : "test1",
+        "original_pic" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/posts%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2Fc48dcf1fb050424ba7583f9fbdf48308?alt=media&token=6c550614-4287-455d-9a56-e2ea47b3c52c",
+        "text" : "为人工智能做个广告"
+      },
+      "-LfZWAt-DZbrjG0uxqlh" : {
+        "avatar" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "comment_count" : 0,
+        "created_at" : 1558612066142,
+        "id" : "-LfZWAt-DZbrjG0uxqlh",
+        "like_count" : 2,
+        "nickname" : "test1",
+        "original_pic" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/posts%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F722f793c94d34736b73a92af5b9c38b2?alt=media&token=390ce3b1-3424-42c1-b4fa-6e9b80c3e49b",
+        "text" : "刚改好新闻，可以发图片了"
       }
     },
     "err_code" : 0,
@@ -10287,6 +11528,22 @@
         "timestamp" : 1558521332906,
         "type" : "messageType",
         "userId" : "iHmcxnnRDWPOJAE38On1nCdq0ir2"
+      },
+      "-LfWp4X2jKiERFjoYc8c" : {
+        ".priority" : 1.558566951412E12,
+        "message" : "音频，图片，广告，多项选择已经测试完成，大家可以创建这些类型学习内容了",
+        "name" : "test1",
+        "timestamp" : 1558566951412,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
+      },
+      "-LfZWJXA1QiSiY2tVy-G" : {
+        ".priority" : 1.558612101652E12,
+        "message" : "刚改好新闻，可以发图片了",
+        "name" : "test1",
+        "timestamp" : 1558612101652,
+        "type" : "messageType",
+        "userId" : "CIxg5db1wHWTu1eeymVp4EkLzfg1"
       }
     }
   },
@@ -10318,6 +11575,44 @@
       "location" : "Tokyo",
       "name" : "tei952",
       "type" : "private"
+    }
+  },
+  "room-users" : {
+    "-LbpDP3nLIekOaNV6i9R" : {
+      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+        "-LfgYo9BktOX5amg-8vW" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        },
+        "-LfgrsxvB7qyD_GzXFgN" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        }
+      },
+      "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
+        "-Lfdxs9pvVtcE4i4bkfi" : {
+          "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "name" : "tei952"
+        }
+      }
+    },
+    "-LdZLabGR1N_h0cosQNI" : {
+      "CIxg5db1wHWTu1eeymVp4EkLzfg1" : {
+        "-LfgYo9BktOX5amg-8vW" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        },
+        "-LfgrsxvB7qyD_GzXFgN" : {
+          "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+          "name" : "test1"
+        }
+      },
+      "iHmcxnnRDWPOJAE38On1nCdq0ir2" : {
+        "-Lfdxs9pvVtcE4i4bkfi" : {
+          "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+          "name" : "tei952"
+        }
+      }
     }
   },
   "talents" : {
@@ -10556,6 +11851,24 @@
     "err_code" : 0,
     "err_msg" : "success"
   },
+  "user-names-online" : {
+    "tei952" : {
+      "-Lfgrhc7btgXGrPY717m" : {
+        "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "name" : "tei952"
+      }
+    },
+    "test1" : {
+      "-Lfgrhc7btgXGrPY717m" : {
+        "id" : "iHmcxnnRDWPOJAE38On1nCdq0ir2",
+        "name" : "test1"
+      },
+      "-LfgrsxvB7qyD_GzXFgN" : {
+        "id" : "CIxg5db1wHWTu1eeymVp4EkLzfg1",
+        "name" : "test1"
+      }
+    }
+  },
   "user_login" : {
     "data" : {
       "sid" : "e651771fe37dc17c17421331a87721",
@@ -10612,8 +11925,8 @@
         },
         "-LdLuU-AHWwvMHDT-QpQ" : {
           "LearningStatus" : true,
-          "approval_at" : 1558018634602,
-          "contentOrd" : "05"
+          "approval_at" : 1558568334877,
+          "contentOrd" : "12"
         },
         "-LdLubY6J4gW1t94t63x" : {
           "LearningStatus" : true,
@@ -10622,8 +11935,8 @@
         },
         "-LdLvzsimpPWmPNFJwdO" : {
           "LearningStatus" : true,
-          "approval_at" : 1558537213678,
-          "contentOrd" : "7"
+          "approval_at" : 1558703325731,
+          "contentOrd" : "9"
         },
         "-LedXZi8fzaKO45rL-Kv" : {
           "LearningStatus" : true,
@@ -10636,7 +11949,7 @@
       "name" : "test1",
       "photo" : "https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/users%2FCIxg5db1wHWTu1eeymVp4EkLzfg1?alt=media&token=c3889a1d-9cf5-4c58-9fdc-6f078f1ce32e",
       "points" : 0,
-      "post_count" : 5,
+      "post_count" : 11,
       "project_count" : 2,
       "rooms" : {
         "-LbpDP3nLIekOaNV6i9R" : {
@@ -10655,6 +11968,11 @@
           "location" : "Tokyo",
           "name" : "tei952"
         }
+      },
+      "sessions" : {
+        "-LfgYo9BktOX5amg-8vW" : true,
+        "-LfggxopBoQNASu3intN" : true,
+        "-LfgrsxvB7qyD_GzXFgN" : true
       },
       "talent_count" : 3,
       "tool_count" : 2
@@ -10729,6 +12047,9 @@
           "location" : "Tokyo",
           "name" : "test2"
         }
+      },
+      "sessions" : {
+        "-LfgZdorsm6rvhO3GdaC" : true
       }
     },
     "ejGASFLSr1RsV2ZiVGtENSZ0JP33" : {
@@ -10792,6 +12113,10 @@
           "location" : "Tokyo",
           "name" : "tei952"
         }
+      },
+      "sessions" : {
+        "-Lfdxs9pvVtcE4i4bkfi" : true,
+        "-Lfgrhc7btgXGrPY717m" : true
       }
     },
     "icC70eXYlkOrVQayAOrPo0Os7is2" : {
