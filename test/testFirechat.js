@@ -4804,15 +4804,9 @@ exports['createCertificate'] = function(test) {
       ref.once('value', function(snapshot) {
         console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          chat.getKnowledgeList(function(knowledges) {
-            // console.log(knowledges)
-            for (const knowledge in knowledges) {
-              if (knowledges[knowledge].avatar === user.uid) {
-                chat.createCertificate('src/assets/images/certificate.png', 'src/assets/images/' + knowledges[knowledge].id + knowledges[knowledge].avatar + '.png', () => {
-                  test.done()
-                })
-              }
-            }
+          chat.createCertificate('https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHFx80?alt=media&token=2161c1ec-d5db-476f-814c-0526da29e7ff', (PGDATA) => {
+            console.log(PGDATA)
+            test.done()
           })
         })
       })
