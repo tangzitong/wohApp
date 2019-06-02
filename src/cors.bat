@@ -1,0 +1,1 @@
+gsutil cors set cors.json gs://wohapp-3a179.appspot.com

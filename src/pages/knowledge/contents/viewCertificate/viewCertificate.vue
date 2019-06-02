@@ -213,17 +213,31 @@ export default {
         }
       })
     }
-    this.store = 'knowledgecertificates/' + this.userid + '/' + this.knowledgekey
-    this.db = 'knowledgecertificates/data/' + this.knowledgekey + '/' + this.userid + '/certificatePath'
   },
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
-    uploadFile(PNGData) {
+    uploadFile(data) {
       this.performingRequest = true
-      const blob = new window.Blob(PNGData, {type: 'application/octet-binary'})
-      window.storage(this.store).put(blob, {contentType: blob.type})
+      let len = 0
+      for (let i = 0; i < data.length; ++i) {
+        len += data[i].length
+      }
+      console.log(len)
+      const bytes = new Uint8Array(len)
+      let idx = 0
+      for (let j = 0; j < data.length; ++j) {
+        for (let k = 0; k < data[j].length; ++k) {
+          bytes[idx++] = data[j][k]
+        }
+      }
+      const metadata = {
+        contentType: 'image/png',
+      }
+      // const blob = new window.Blob(PNGData, {type: 'application/octet-binary'})
+      // window.storage(this.store).put(blob, {contentType: blob.type})
+      window.storage(this.store).put(bytes, metadata)
         .then(() => {
           this.handleFileUploaded()
         })
@@ -262,7 +276,12 @@ export default {
         })
     },
     createCertificate() {
-      this.$root.chat.createCertificate(this.certificatePath, PNGData => {
+      this.store = 'knowledgecertificates/' + this.userid + '/' + this.knowledgekey
+      this.db = 'knowledgecertificates/data/' + this.knowledgekey + '/' + this.userid + '/certificatePath'
+      console.log('this.store=' + this.store)
+      console.log('this.db=' + this.db)
+      this.$root.chat.createCertificate(this.certificatePath, './fonts/SourceSansPro-Regular.ttf', PNGData => {
+        // console.log('PNGData=' + PNGData)
         this.uploadFile(PNGData)
       })
       this.$root.chat.addKnowledgeCertificate(this.knowledgekey, knowledgeKey => {

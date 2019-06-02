@@ -1,6 +1,8 @@
 const auth = require('../src/firebaseConfig').auth
 const database = require('../src/firebaseConfig').database
 const chat = require('../src/firebaseConfig').chat
+// const pureimage = require('pureimage/dist/pureimage')
+const fs = require('fs')
 
 // import * as fb from '../src/firebaseConfig.js'
 
@@ -4804,10 +4806,30 @@ exports['createCertificate'] = function(test) {
       ref.once('value', function(snapshot) {
         console.log(snapshot.val())
         chat.setUser(user.uid, snapshot.child('name').val(), function() {
-          chat.createCertificate('https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHFx80?alt=media&token=2161c1ec-d5db-476f-814c-0526da29e7ff', (PGDATA) => {
-            console.log(PGDATA)
-            test.done()
-          })
+          chat.createCertificate('https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledgecontents%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbW07Cj8C37LDyZeKHFx80?alt=media&token=2161c1ec-d5db-476f-814c-0526da29e7ff',
+            'src/assets/fonts/SourceSansPro-Regular.ttf', (data) => {
+              let len = 0
+              for (let i = 0; i < data.length; ++i) {
+                len += data[i].length
+              }
+              console.log(len)
+              const bytes = new Uint8Array(len)
+              let idx = 0
+              for (let j = 0; j < data.length; ++j) {
+                for (let k = 0; k < data[j].length; ++k) {
+                  bytes[idx++] = data[j][k]
+                }
+              }
+              fs.writeFile('c:/tmp/test.png', bytes, (err) => {
+                if (err) {
+                  console.log('エラーが発生しました。' + err)
+                  throw err
+                } else {
+                  console.log('ファイルが正常に書き出しされました')
+                }
+                test.done()
+              })
+            })
         })
       })
     }

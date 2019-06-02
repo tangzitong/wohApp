@@ -21,15 +21,15 @@
     <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
       <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{$t('login.email')}}</f7-label>
-        <f7-input type="email" :placeholder="$t('login.email')" @input="email = $event.target.value" />
+        <f7-input type="email" :placeholder="$t('login.email_')" @input="email = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
         <f7-label>{{$t('login.password')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.password')" @input="password = $event.target.value" />
+        <f7-input type="password" :placeholder="$t('login.password_')" @input="password = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <f7-label>{{$t('login.passwordConfirmation')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
+        <f7-input type="password" :placeholder="$t('login.passwordConfirmation_')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <label for="title">{{$t('modify.usertitle')}}</label>
@@ -79,10 +79,10 @@
 
     <!-- Email reset buttons -->
     <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="mode='reset'">
-        <span class="text" v-text="$t('login.resetPassword')"></span></f7-button>
-      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px" @click="cancel">
-        <span class="text" v-text="$t('login.cancel')"></span></f7-button>
+      <f7-link class="tool tool-border flex-rest-width" @click="mode='reset'">
+        <span class="text" v-text="$t('login.resetPassword')"></span></f7-link>
+      <f7-link class="tool tool-border flex-rest-width" @click="cancel">
+        <span class="text" v-text="$t('login.cancel')"></span></f7-link>
     </div>
 
   </f7-page>
@@ -162,6 +162,7 @@
         }
         .text {
           font-size: 23px;
+          color: blue;
         }
       }
     }

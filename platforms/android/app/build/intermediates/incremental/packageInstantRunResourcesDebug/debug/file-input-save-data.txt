@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jun 01 10:22:04 JST 2019
+#Sat Jun 01 15:28:27 JST 2019
 60.set=ASSET
 52.set=ASSET
 53.base=D\:\\work\\wohapp\\wohapp\\platforms\\android\\app\\build\\intermediates\\assets\\debug

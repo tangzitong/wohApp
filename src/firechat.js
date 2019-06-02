@@ -1,9 +1,11 @@
 // import firebase from 'firebase'
 const firebase = require('firebase/app')
-const pureimage = require('pureimage/dist/pureimage')
-const axios = require('axios')
+const pureimage = require('pureimage')
+const download = require('image-downloader')
+const { Readable } = require('stream')
 const STREAM = require('stream')
 const PassThrough = STREAM.PassThrough
+// const fs = require('fs')
 
 // Firechat is a simple, easily-extensible data layer for multi-user,
 // multi-room chat, built entirely on [Firebase](https://firebase.google.com).
@@ -3693,38 +3695,52 @@ Firechat.prototype.unlikeEvent = function(eventKey, likeKey, callback) {
   })
 }
 
-Firechat.prototype.createCertificate = function(certificateUrl, callback) {
+Firechat.prototype.createCertificate = function(certificateUrl, fontpath, callback) {
   const self = this
-  const fnt = pureimage.registerFont('./fonts/SourceSansPro-Regular.ttf', 'Source Sans Pro')
+  const fnt = pureimage.registerFont(fontpath, 'Source Sans Pro')
   fnt.load(() => {
-    axios.get(certificateUrl, {
-      responseType: 'arraybuffer',
-      headers: {
-        'Content-Type': 'image/png'
-      }
-    }).then(res => {
-      pureimage.decodePNGFromStream(new Buffer.From(res.data)).then((img) => {
-        const ctx = img.getContext('2d')
-        ctx.fillStyle = '#ffffff'
-        ctx.font = "48pt 'Source Sans Pro'"
-        const dt = new Date()
-        const y = dt.getFullYear()
-        const m = ('00' + (dt.getMonth() + 1)).slice(-2)
-        const d = ('00' + dt.getDate()).slice(-2)
-        const result = y + '/' + m + '/' + d
-        ctx.fillText(self._userName, 377, 520)
-        ctx.fillText(result, 377, 573)
-        const passThroughStream = new PassThrough()
-        const PNGData = []
-        pureimage.encodePNGToStream(img, passThroughStream)
-        passThroughStream.on('data', chunk => PNGData.push(chunk))
-        passThroughStream.on('end', () => {
-          if (callback) {
-            callback(PNGData)
+    const options = {
+      url: certificateUrl,
+      dest: ''
+    }
+    download.image(options)
+      .then(({ filename, image }) => {
+        const readableInstanceStream = new Readable({
+          read() {
+            this.push(image)
+            this.push(null)
           }
         })
+        pureimage.decodePNGFromStream(readableInstanceStream).then((img) => {
+          console.log('size is ', img.width, img.height)
+          const ctx = img.getContext('2d')
+          ctx.fillStyle = '#ffffff'
+          ctx.font = "48pt 'Source Sans Pro'"
+          const dt = new Date()
+          const y = dt.getFullYear()
+          const m = ('00' + (dt.getMonth() + 1)).slice(-2)
+          const d = ('00' + dt.getDate()).slice(-2)
+          const result = y + '/' + m + '/' + d
+          ctx.fillText(self._userName, 347, 290)
+          ctx.fillText(result, 347, 343)
+          const passThroughStream = new PassThrough()
+          const PNGData = []
+          passThroughStream.on('data', chunk => PNGData.push(chunk))
+          passThroughStream.on('end', () => {
+            if (callback) {
+              callback(PNGData)
+            }
+          })
+          pureimage.encodePNGToStream(img, passThroughStream).then(() => {
+            console.log('wrote out the png file to out.png')
+          }).catch((e) => {
+            console.log('there was an error writing ' + e.toString())
+          })
+        })
+          .catch((err) => {
+            console.error(err)
+          })
       })
-    })
   })
 }
 
