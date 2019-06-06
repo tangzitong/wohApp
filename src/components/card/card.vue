@@ -55,18 +55,18 @@
         justify-content: center;
         .time {
           font-size: 12px;
-          color: #8999a5;
-          margin-top: 3px;
+          color: #999;
+          //margin-top: 3px;
         }
         .name {
-          color: #ff9800;
+          color: #f6a25c;
           font-weight: bold;
-          font-size: 14px;
+          font-size: 16px;
         }
       }
     }
     .card-content{
-      padding: 5px 10px;
+      padding: 14px 16px;   //更改新闻
       .image {
         margin-top: 5px;
         > img {

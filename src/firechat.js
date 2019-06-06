@@ -2723,27 +2723,42 @@ Firechat.prototype.updateKnowledge = function(knowledgeKey, data, callback) {
 
 Firechat.prototype.addKnowledgeApplication = function(knowledgeKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(self._userId)
-  const newApplication = {
-    id: newApplcationsRef.key,
-    text: applications,
-    knowledgeid: knowledgeKey,
-    avatar: self._userId,
-    name: self._userName,
-    time: firebase.database.ServerValue.TIMESTAMP
-  }
-  newApplcationsRef.set(newApplication, function(error) {
-    if (!error) {
-      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
-        if (current) {
-          current.application_count++
-        }
-        return current
-      }, function(error, committed, snapshot) {
-        if (!error && callback) {
-          callback(newApplcationsRef.key)
+  self.getKnowledgeApplications(knowledgeKey, function(applications_) {
+    let isExists = false
+    for (const application in applications_) {
+      if (applications_[application].avatar === self._userId) {
+        isExists = true
+        break
+      }
+    }
+    if (!isExists) {
+      const newApplcationsRef = self._knowledgeapplicationsRef.child('data').child(knowledgeKey).child(self._userId)
+      const newApplication = {
+        id: newApplcationsRef.key,
+        text: applications,
+        knowledgeid: knowledgeKey,
+        avatar: self._userId,
+        name: self._userName,
+        time: firebase.database.ServerValue.TIMESTAMP
+      }
+      newApplcationsRef.set(newApplication, function(error) {
+        if (!error) {
+          self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+            if (current) {
+              current.application_count++
+            }
+            return current
+          }, function(error, committed, snapshot) {
+            if (!error && callback) {
+              callback(newApplcationsRef.key)
+            }
+          })
         }
       })
+    } else {
+      if (callback) {
+        callback(null)
+      }
     }
   })
 }
@@ -2907,28 +2922,43 @@ Firechat.prototype.updateKnowledgeContent = function(knowledgeKey, contentKey, o
 
 Firechat.prototype.likeKnowledge = function(knowledgeKey, callback) {
   const self = this
-  const newLikesRef = self._knowledgelikesRef.child('data').child(knowledgeKey).child('likes').push()
+  self.getKnowledgeLikes(knowledgeKey, function(likes) {
+    let isExists = false
+    for (const like in likes) {
+      if (likes[like].avatar === self._userId) {
+        isExists = true
+        break
+      }
+    }
+    if (!isExists) {
+      const newLikesRef = self._knowledgelikesRef.child('data').child(knowledgeKey).child('likes').push()
 
-  const newlike = {
-    id: newLikesRef.key,
-    knowledgeid: knowledgeKey,
-    avatar: self._userId,
-    name: self._userName,
-    time: firebase.database.ServerValue.TIMESTAMP
-  }
+      const newlike = {
+        id: newLikesRef.key,
+        knowledgeid: knowledgeKey,
+        avatar: self._userId,
+        name: self._userName,
+        time: firebase.database.ServerValue.TIMESTAMP
+      }
 
-  newLikesRef.set(newlike, function(error) {
-    if (!error) {
-      self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
-        if (current) {
-          current.like_count++
-        }
-        return current
-      }, function(error, committed, snapshot) {
-        if (!error && callback) {
-          callback(newLikesRef.key)
+      newLikesRef.set(newlike, function(error) {
+        if (!error) {
+          self._knowledgesRef.child('data').child(knowledgeKey).transaction(function(current) {
+            if (current) {
+              current.like_count++
+            }
+            return current
+          }, function(error, committed, snapshot) {
+            if (!error && callback) {
+              callback(newLikesRef.key)
+            }
+          })
         }
       })
+    } else {
+      if (callback) {
+        callback(null)
+      }
     }
   })
 }

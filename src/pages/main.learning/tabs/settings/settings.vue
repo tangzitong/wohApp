@@ -37,12 +37,16 @@
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
       </f7-list-item>
     </f7-list>
-    <f7-list v-if="isUserLogin">
+
+    <f7-block v-if="isUserLogin">
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="logout">{{$t('logout.title')}}</f7-button>
+    </f7-block>
+    <!--<f7-list v-if="isUserLogin">
       <f7-list-item :title="$t('logout.title')">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
         <a @click="logout">{{$t('logout.btn')}}</a>
       </f7-list-item>
-    </f7-list>
+    </f7-list>-->
   </div>
 </template>
 
@@ -50,23 +54,32 @@
 .settings-view {
   .list {
     margin: 15px 0;
+    font-size: 16px;
     .iconfont {
       height: 29px;
     }
     .icon-language {
-      color: #0099ff;
+      color: #46b9fc;
+      padding-top: 2px;
     }
     .icon-area {
-      color: #0055ff;
+      color: #46b9fc;
+      padding-top: 2px;
     }
     .icon-industry {
-      color: #5555ff;
+      color: #46b9fc;
+      padding-top: 2px;
+    }
+    .icon-wujieguoyangshi{
+      color: #46b9fc;
+      padding-top: 2px;
     }
     .icon-feedback2 {
-      color: #00cc99;
+      color: #46b9fc;
+      padding-top: 2px;
     }
     .icon-about1 {
-      color: #ffcc33;
+      color: #46b9fc;
     }
   }
   .user-profile {

@@ -9,7 +9,7 @@
       <f7-nav-left class="avatar">
         <img :src="userInfo.avatar_url" class="avatar" alt="Image">
       </f7-nav-left>
-      <f7-nav-title style="text-align: center; font-size: 25px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-nav-title>
+      <f7-nav-title style="text-align: center; font-size: 22px;">{{!$root.user ? $t('login.titleSignIn') : $t('login.titleSignOut')}}</f7-nav-title>
       <f7-nav-right class="user flex-column">
         <div class="name">{{$t('app.app_knowledge')}}</div>
       </f7-nav-right>
@@ -20,26 +20,26 @@
     <!-- Form for email sign in / registration / password reset -->
     <f7-list form id="app-framework-login-screen" inset v-if="!$root.user && (firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration'))">
       <f7-list-item v-if="firebaseConfig.allowEmailLogin || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
-        <f7-label>{{$t('login.email')}}</f7-label>
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('login.email')}}</f7-label>
         <f7-input type="email" :placeholder="$t('login.email_')" @input="email = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="(firebaseConfig.allowEmailLogin && mode === 'signIn') || (firebaseConfig.allowEmailRegistration && mode === 'registration')">
-        <f7-label>{{$t('login.password')}}</f7-label>
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('login.password')}}</f7-label>
         <f7-input type="password" :placeholder="$t('login.password_')" @input="password = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
-        <f7-label>{{$t('login.passwordConfirmation')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.passwordConfirmation_')" @input="passwordConfirmation = $event.target.value" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('login.passwordConfirmation')}}</f7-label>
+        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
-        <label for="title">{{$t('modify.usertitle')}}</label>
-        <input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" :value="title" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('modify.usertitle')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" :value="title" />
       </f7-list-item>
     </f7-list>
 
-    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+    <div class="login-footer flex-row1" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
       <!-- Email sign in buttons -->
-      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleSignIn">
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "background:#fc8c32;line-height:27pxx" @click="handleSignIn">
         <span class="text" v-text="$t('login.signIn')"></span></f7-button>
       <!-- Email registration buttons -->
       <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px"  @click="mode='registration'">
@@ -47,43 +47,75 @@
     </div>
 
     <!-- Email regist buttons -->
-    <div class="login-footer flex-row" v-if="mode === 'registration' && firebaseConfig.allowEmailLogin">
+    <div class="login-footer flex-row1" v-if="mode === 'registration' && firebaseConfig.allowEmailLogin">
       <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleRegistration">
         <span class="text" v-text="$t('login.handleRegistration')"></span></f7-button>
-      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px"  @click="cancel">
+      <f7-button class="tool flex-rest-width" big color="blue" style = "background:#c4c4c4;line-height:27px"  @click="cancel">
         <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
     <!-- Email handle reset buttons -->
-    <div class="login-footer flex-row" v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
+    <div class="login-footer flex-row1" v-if="mode === 'reset' && firebaseConfig.allowEmailLogin">
       <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleReset">
         <span class="text" v-text="$t('login.handleReset')"></span></f7-button>
-      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px"  @click="cancel">
+      <f7-button class="tool flex-rest-width" big color="blue" style = "background:#c4c4c4;line-height:27px"  @click="cancel">
         <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
     <!-- Logout button -->
-    <div class="login-footer flex-row" v-if="mode === 'signOut'">
+    <div class="login-footer flex-row1" v-if="mode === 'signOut'">
       <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="handleSignOut">
         <span class="text" v-text="$t('login.signOut')"></span></f7-button>
-      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px" @click="cancel">
+      <f7-button class="tool flex-rest-width" big color="blue" style = "background:#c4c4c4;line-height:27px" @click="cancel">
         <span class="text" v-text="$t('login.cancel')"></span></f7-button>
     </div>
 
-    <f7-block-title>{{$t('app.language')}}</f7-block-title>
-    <f7-list>
-        <f7-list-item radio name="language-radio" value="enUS" title="English" :checked="lang === 'enUS'" @change="saveLang"></f7-list-item>
-        <f7-list-item radio name="language-radio" value="zhCN" title="简体中文" :checked="lang === 'zhCN'" @change="saveLang"></f7-list-item>
-        <f7-list-item radio name="language-radio" value="jaJP" title="日本語" :checked="lang === 'jaJP'" @change="saveLang"></f7-list-item>
-    </f7-list>
-
-    <!-- Email reset buttons -->
-    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
-      <f7-link class="tool tool-border flex-rest-width" @click="mode='reset'">
-        <span class="text" v-text="$t('login.resetPassword')"></span></f7-link>
-      <f7-link class="tool tool-border flex-rest-width" @click="cancel">
-        <span class="text" v-text="$t('login.cancel')"></span></f7-link>
+    <div class="login-reset" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <div @click="mode='reset'"><span class="text"  v-text="$t('login.resetPassword')"></span></div>
+      <div @click="cancel"><span class="text" style="color:#999;margin-left:80px" v-text="$t('login.cancel')"></span></div>
     </div>
+
+    <f7-block-title class="change_lan">{{$t('app.language')}}</f7-block-title>
+    <div class="lan_link">
+        <f7-list-item v-if="lang === 'enUS'" style="filter: grayscale(0);" value="enUS" @click="saveLang('enUS')">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/en.png?alt=media&token=11c95a87-996b-4ca8-bb37-4e81579a7716" alt="ENGLISH" style="width:60px">
+        </f7-list-item>
+        <f7-list-item v-if="lang !== 'enUS'" style="filter: grayscale(1);" value="enUS" @click="saveLang('enUS')">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/en.png?alt=media&token=11c95a87-996b-4ca8-bb37-4e81579a7716" alt="ENGLISH" style="width:60px">
+        </f7-list-item>
+        <f7-list-item v-if="lang === 'zhCN'" style="filter: grayscale(0);" value="zhCN" @click="saveLang('zhCN')">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/cn.png?alt=media&token=bb9fa1f3-07bf-4edd-bb1b-c159007d77a0" alt="CHINESE" style="width:60px">
+        </f7-list-item>
+        <f7-list-item v-if="lang !== 'zhCN'" style="filter: grayscale(1);" value="zhCN" @click="saveLang('zhCN')">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/cn.png?alt=media&token=bb9fa1f3-07bf-4edd-bb1b-c159007d77a0" alt="CHINESE" style="width:60px">
+        </f7-list-item>
+        <f7-list-item v-if="lang === 'jaJP'" style="filter: grayscale(0);" value="jaJP" @click="saveLang('jaJP')">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/jp.png?alt=media&token=41fb9269-7af9-4c19-8651-16c4c013d811" alt="JAPNESE" style="width:60px">
+        </f7-list-item>
+        <f7-list-item v-if="lang !== 'jaJP'" style="filter: grayscale(1);" value="jaJP" @click="saveLang('jaJP')">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/jp.png?alt=media&token=41fb9269-7af9-4c19-8651-16c4c013d811" alt="JAPNESE" style="width:60px">
+        </f7-list-item>
+    </div>
+
+    <!--<f7-list>
+        <f7-list-item radio name="language-radio" value="enUS" :checked="lang === 'enUS'" @change="saveLang">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/en.png?alt=media&token=11c95a87-996b-4ca8-bb37-4e81579a7716" alt="ENGLISH">
+        </f7-list-item>
+        <f7-list-item radio name="language-radio" value="zhCN" :checked="lang === 'zhCN'" @change="saveLang">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/cn.png?alt=media&token=bb9fa1f3-07bf-4edd-bb1b-c159007d77a0" alt="CHINESE">
+        </f7-list-item>
+        <f7-list-item radio name="language-radio" value="jaJP" :checked="lang === 'jaJP'" @change="saveLang">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/jp.png?alt=media&token=41fb9269-7af9-4c19-8651-16c4c013d811" alt="JAPNESE">
+        </f7-list-item>
+    </f7-list>-->
+
+    <!-- Email reset buttons
+    <div class="login-footer flex-row" v-if="mode === 'signIn' && firebaseConfig.allowEmailLogin">
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:27px" @click="mode='reset'">
+        <span class="text" v-text="$t('login.resetPassword')"></span></f7-button>
+      <f7-button class="tool flex-rest-width" big color="blue" style = "line-height:27px" @click="cancel">
+        <span class="text" v-text="$t('login.cancel')"></span></f7-button>
+    </div>-->
 
   </f7-page>
 </template>
@@ -91,8 +123,58 @@
 <style lang="less">
   @import "../../assets/styles/mixins.less";
 
+.ios .list .item-inner:after {
+  display: none;
+}
+.ios .item-input-wrap {
+  border: #ddd solid 1px;
+}
+.list .item-inner {
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+.login-reset {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  //margin-top: 8px;
+
+  .text {
+    color:#0a94ed;
+    font-size: 16px;
+  }
+}
+.flex-row1{
+  display: flex !important;
+  flex-direction: column;    //登录按钮竖排放0603
+}
+.lan_link {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 10px;
+}
+.ios .list{
+  margin-top: 20px;
+  //margin-bottom: 24px;
+}
+.list li{
+  //margin-bottom: 10px;
+}
+
+.ios .block-title {
+  margin: 50px 0 20px;
+  text-align:center;
+  font-size:18px;
+  color:#888;
+}
+.ios label.item-radio .item-inner {
+    padding: 0;
+}
   .login.post-login {
     background-color: white;
+    //padding: 0;        //0603无效化
     margin: 10px 0;
     margin-top: 0px;
     border-top: 1px solid #dadada;
@@ -120,9 +202,9 @@
           margin-top: 3px;
         }
         .name {
-          color: blue;
-          font-weight: bold;
-          font-size: 20px;
+          color: white;     //更改“海威学习”字样的颜色为白色0603
+          //font-weight: bold;   更改字体样式为正常
+          font-size: 16px;     //更改字体大小
           text-align: right;
         }
       }
@@ -138,15 +220,19 @@
     }
     .login-footer{
       min-height: 35px;
-      padding: 0;
+      margin-left: 30px;
+      margin-right: 30px;
+      //padding: 0;   //0603无效化
       a.link {
         line-height: 35px;
         height: 35px;
       }
       .tool {
         justify-content: center;
+        margin-bottom: 12px;   //按钮的间距0604
+        //padding: 0;             //0603无效化
         &.tool-border{
-          border-right: 1px solid #e1e1e1;
+          //border-right: 1px solid #e1e1e1;   //0603无效化
         }
         &.liked{
           > span {
@@ -161,8 +247,7 @@
           font-size: 16px;
         }
         .text {
-          font-size: 23px;
-          color: blue;
+          font-size: 18px;  //登录按钮字的大小0601
         }
       }
     }
@@ -213,8 +298,10 @@ export default {
     ...mapActions([
       'updatePopup'
     ]),
-    saveLang() {
-      const lang = this.$$('input[name="language-radio"]:checked').val()
+
+    saveLang(lang) {
+      // const lang = this.$$('input[removestyle("filter: grayscale(1);")]:checked').val()
+      this.lang = lang
       setLangConfig(lang)
     },
     cancel: function () {

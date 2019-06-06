@@ -5,8 +5,8 @@
         <f7-link :text="$t('app.save')" @click="saveIndustry"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.industry')}}</f7-block-title>
-    <f7-list>
+    <!--<f7-block-title>{{$t('app.industry')}}</f7-block-title>-->
+    <f7-list style="margin-top:30px">
       <f7-list-group v-for="industry_ in industrys" :key="industry_.id">
         <f7-list-item radio name="industry-radio"
                       :value="industry_.id"

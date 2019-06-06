@@ -9,20 +9,22 @@
       </transition>
     </f7-block>
     <f7-list form @submit.prevent>
-      <f7-list-item>
-        <label for="name">{{$t('modify.name')}}</label>
-        <input type="text" :placeholder="$t('modify.name_')" @input="name = $event.target.value" :value="name" />
+      <div class="modify_ul" style="width=100%;background:#fff;padding:10px 0 10px">
+      <f7-list-item style="list-style-type: none;">
+        <f7-label style="font-size: 16px;margin-bottom:6px">{{$t('modify.name')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('modify.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
-      <f7-list-item>
-        <label for="title">{{$t('modify.usertitle')}}</label>
-        <input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" :value="title" />
+      <f7-list-item style="list-style-type: none;padding-bottom:20px">
+        <f7-label style="font-size: 16px;margin-bottom:6px">{{$t('modify.usertitle')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('modify.usertitle_')" @input="title = $event.target.value" :value="title" />
       </f7-list-item>
+      </div>
     </f7-list>
     <f7-block v-if="isUserLogin">
       <f7-button big raised color="red" fill @click="updateProfile">{{$t('modify.btn')}}</f7-button>
     </f7-block>
     <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin">
+    <f7-block style="margin-bottom:30px" v-if="isUserLogin">
       <imageuploader
         :store="'users/' + id"
         :db="'users/' + id + '/photo'" />
@@ -34,6 +36,12 @@
     </f7-block>
 </f7-page>
 </template>
+
+<style lang="less">
+.ios .block {
+    margin: 20px 0;
+}
+</style>
 
 <script>
 import { mapState } from 'vuex'

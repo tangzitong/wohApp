@@ -6,7 +6,7 @@
         <f7-link v-if="isOwner === 'true'" :text="$t('app.add')" @click="addKnowledgetype"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.knowledgetype')}}</f7-block-title>
+    <!--<f7-block-title>{{$t('app.knowledgetype')}}</f7-block-title>-->
     <f7-searchbar
       search-container="#search-list"
       :disable-link-text="$t('app.cancel')"
@@ -33,6 +33,9 @@
 </template>
 
 <style lang="less">
+.ios .list {
+  margin-top: 0;
+}
 .knowledgetype-page {
   .searchbar{
     top: 44px;

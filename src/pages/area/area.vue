@@ -5,8 +5,8 @@
         <f7-link :text="$t('app.save')" @click="saveArea"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.area')}}</f7-block-title>
-    <f7-list>
+    <!--<f7-block-title>{{$t('app.area')}}</f7-block-title>-->
+    <f7-list style="margin-top:30px">
       <f7-list-group v-for="area_ in areas" :key="area_.id">
         <f7-list-item radio name="area-radio"
                       :value="area_.id"

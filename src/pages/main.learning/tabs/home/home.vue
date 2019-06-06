@@ -15,12 +15,16 @@
         <i class="f7-icons size-25" slot="media">book_fill</i>
       </f7-list-item>
     </f7-list>
-    <f7-list v-if="!isUserLogin">
+    <f7-block v-if="!isUserLogin">
+      <f7-button class="tool tool-border flex-rest-width" big color="blue" style = "line-height:32px;background:#fc8c32" @click="openLogin">{{$t('login.titleSignIn')}}</f7-button>
+    </f7-block>
+
+    <!--<f7-list v-if="!isUserLogin">
       <f7-list-item :title="$t('login.titleSignIn')">
         <i class='iconfont icon-ios7arrowright' slot="media"></i>
         <a @click="openLogin">{{$t('login.titleSignIn')}}</a>
       </f7-list-item>
-    </f7-list>
+    </f7-list>-->
   </div>
 </template>
 

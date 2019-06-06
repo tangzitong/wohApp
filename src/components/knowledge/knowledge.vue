@@ -14,31 +14,37 @@
       <div v-if="data.photo" class="image">
         <img :src="data.photo">
       </div>
-      <div v-if="data.address" class="text">Address:{{data.address}}</div>
-      <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
-      <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
-      <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
-      <div v-if="data.HP" class="link">HP:{{data.HP}}</div>
+      <div v-if="data.address" class="text" style="margin-top:10px">Address:{{data.address}}</div>
+      <div class="contf_" style="display: flex;flex-direction: row;">
+        <div id="contf1">
+          <div v-if="data.Tel" class="text">Tel:{{data.Tel}}</div>
+          <div v-if="data.Manager" class="text">Manager:{{data.Manager}}</div>
+        </div>
+        <div id="contf2">
+          <div v-if="data.Fax" class="text">Fax:{{data.Fax}}</div>
+          <div v-if="data.HP" class="link">HP:{{data.HP}}</div>
+        </div>
+      </div>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button class="tool tool-border flex-rest-width"  big color="blue" style = "line-height:27px" @click="applicationKnowledge">{{$t('knowledge.application')}}
+      <f7-button class="tool tool-border flex-rest-width"  big color="blue" style = "background-color:#f6a25c;margin:4px;line-height:27px" @click="applicationKnowledge">{{$t('knowledge.application')}}
         <span class="text" v-text="data.application_count ? '(' + data.application_count + ')' : ''"></span>
       </f7-button>
-      <f7-button class="tool flex-rest-width"  big color="blue" style = "line-height:27px" @click="likeKnowledge">{{$t('knowledge.like')}}
+      <f7-button class="tool flex-rest-width"  big color="blue" style = "background-color:#fe6566;margin:4px;line-height:27px" @click="likeKnowledge">{{$t('knowledge.like')}}
         <span class="text" v-text="data.like_count ? '(' + data.like_count + ')' : ''"></span>
       </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button class="tool tool-border flex-rest-width"  big color="blue" style = "line-height:27px" @click="knowledgecontents">{{$t('app.knowledgecontents')}}
+      <f7-button class="tool tool-border flex-rest-width"  big color="blue" style = "background-color:#4cc89c;margin:4px;line-height:27px" @click="knowledgecontents">{{$t('app.knowledgecontents')}}
         <span class="text" v-text="data.content_count ? '(' + data.content_count + ')' : ''"></span>
       </f7-button>
-      <f7-button class="tool flex-rest-width"  big color="blue" style = "line-height:27px" @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
+      <f7-button class="tool flex-rest-width"  big color="blue" style = "background-color:#3fa4ff;margin:4px;line-height:27px" @click="knowledgecertificates">{{$t('app.knowledgecertificates')}}
         <span class="text" v-text="data.certificate_count ? '(' + data.certificate_count + ')' : ''"></span>
       </f7-button>
     </div>
     <div class="knowledge-footer flex-row" v-if="enableToolbar">
-      <f7-button class="tool tool-border flex-rest-width"  v-if="isOwner"  big color="blue" style = "line-height:27px" @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
-      <f7-button class="tool flex-rest-width" v-if="isOwner"  big color="blue" style = "line-height:27px" @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
+      <f7-button class="tool tool-border flex-rest-width"  v-if="isOwner"  big color="blue" style = "background-color:#ff8564;margin:4px;line-height:27px" @click="updateKnowledge">{{$t('knowledge.update')}}</f7-button>
+      <f7-button class="tool flex-rest-width" v-if="isOwner"  big color="blue" style = "background-color:#596a93;margin:4px;line-height:27px" @click="deleteKnowledge">{{$t('knowledge.delete')}}</f7-button>
     </div>
   </div>
 </template>
@@ -48,7 +54,8 @@
 
   .knowledge.post-knowledge {
     background-color: white;
-    margin: 10px 0;
+    margin: 10px 0 16px;  //列表上下留白
+    padding-bottom: 20px;   //页面底部留白
     border-top: 1px solid #dadada;
     border-bottom: 1px solid #dadada;
     box-shadow: none;
@@ -70,20 +77,31 @@
         justify-content: center;
         .time {
           font-size: 12px;
-          color: #8999a5;
-          margin-top: 3px;
+          color: #e9e9e9;
+          text-align: right;    //修改文字位置0604
+          //margin-top: 3px;    //修改文字样式0604
         }
         .name {
-          color: blue;
+          color: #fff;
           font-weight: bold;
           font-size: 14px;
+          text-align: right;   //修改文字位置0604
         }
       }
     }
     .knowledge-content{
-      padding: 5px 10px;
+      padding: 14px 16px;
+      #contf1{
+          display: flex;
+          flex-direction: column;
+        }
+      #contf2{
+          display: flex;
+          flex-direction: column;
+          margin-left: 50px;
+        }
       .image {
-        margin-top: 5px;
+        margin: 6px;
         > img {
           width: 100%;
         }
@@ -92,14 +110,20 @@
     .knowledge-footer{
       min-height: 35px;
       padding: 0;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 2px;     //修改图标排列方式
       a.link {
         line-height: 35px;
         height: 35px;
       }
       .tool {
+        display: flex;
+        align-items: center;
         justify-content: center;
+        color: #fff;
         &.tool-border{
-          border-right: 1px solid #e1e1e1;
+          //border-right: 1px solid #e1e1e1;
         }
         &.liked{
           > span {
@@ -114,8 +138,9 @@
           font-size: 16px;
         }
         .text {
-          font-size: 20px;
+          font-size: 16px;
           color: white;
+          margin-left: 4px;
         }
       }
     }
