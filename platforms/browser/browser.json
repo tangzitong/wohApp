@@ -19,7 +19,7 @@
   },
   "installed_plugins": {
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.highwayns.wohApp"
+      "PACKAGE_NAME": "com.highwayns.wohapp"
     }
   },
   "dependent_plugins": {},

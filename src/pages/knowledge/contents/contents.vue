@@ -11,7 +11,7 @@
         <f7-link v-if="isOwner" :text="$t('app.delete')" @click="deleteLearningContent"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{this.name}}</f7-block-title>
+    <f7-block-title class="knowledge-titles" style="margin-top:16px;margin-bottom:4px">{{this.name}}</f7-block-title>
     <f7-list>
       <f7-list-group v-for="knowledgecontent_ in knowledgecontents" :key="knowledgecontent_.id">
         <f7-list-item radio name="knowledgecontent-radio"
@@ -57,6 +57,12 @@
     </f7-list>
   </f7-page>
 </template>
+
+<style lang="less">
+//.ios label.item-radio input[type="radio"] ~ .icon-radio {
+ // margin-right:30px;
+//}
+</style>
 
 <script>
 import { mapState } from 'vuex'

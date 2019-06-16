@@ -5,8 +5,8 @@
         <f7-link :text="$t('app.display')" @click="viewCertificate"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.knowledgecertificates')}}</f7-block-title>
-    <f7-list>
+    <!--<f7-block-title>{{$t('app.knowledgecertificates')}}</f7-block-title>-->
+    <f7-list style="margin-top:30px">
       <f7-list-group v-for="knowledgecertificates_ in knowledgecertificates" :key="knowledgecertificates_.id">
         <f7-list-item radio name="knowledgecertificates-radio"
                       :value="knowledgecertificates_.id"

@@ -1,10 +1,17 @@
 
-@font-face {font-family: "iconfont";
+@font-face {
+  font-family: 'iconfont';  /* project id 1235462 */
   src: url('iconfont.eot?t=1489313832595'); /* IE9*/
   src: url('iconfont.eot?t=1489313832595#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('iconfont.woff?t=1489313832595') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1489313832595') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  /*url('iconfont.svg?t=1489313832595#iconfont') format('svg');*/ /* iOS 4.1- */
+  url('iconfont.ttf?t=1489313832595') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1489313832595#iconfont') format('svg'); /* iOS 4.1- */
+  /*src: url('//at.alicdn.com/t/font_1235462_i1f2n4id2x.eot');
+  src: url('//at.alicdn.com/t/font_1235462_i1f2n4id2x.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1235462_i1f2n4id2x.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1235462_i1f2n4id2x.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1235462_i1f2n4id2x.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1235462_i1f2n4id2x.svg#iconfont') format('svg');*/
 }
 
 .iconfont {
@@ -15,19 +22,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-login:before { content: "\e616"; }
+
 .icon-about:before { content: "\e600"; }
 
-.icon-thumbup:before { content: "\e606"; }
+.icon-thumbup:before { content: "\e603"; }
 
-.icon-feedback:before { content: "\e601"; }
+.icon-feedback:before { content: "\e64b"; }
 
 .icon-about1:before { content: "\e61f"; }
 
-.icon-emotion:before { content: "\e607"; }
+.icon-emotion:before { content: "\e60e"; }
 
 .icon-close:before { content: "\e608"; }
 
-.icon-pic:before { content: "\e609"; }
+.icon-pic:before { content: "\e674"; }
+
+.icon-ios7homepage:before { content: "\e601"; font-size: 24px;}
 
 .icon-ios7reload:before { content: "\e60a"; }
 
@@ -37,21 +48,17 @@
 
 .icon-ios7heartoutline:before { content: "\e60e"; }
 
-.icon-ios7person:before { content: "\e605"; }
+.icon-ios7person:before { content: "\e623"; font-size: 29px;}
 
 .icon-ios7personoutline:before { content: "\e61c"; }
 
 .icon-ios7gear:before { content: "\e60f"; }
 
-.icon-ios7gearoutline:before { content: "\e610"; }
-
-.icon-ios7cameraoutline:before { content: "\e611"; }
-
 .icon-ios7chatboxesoutline:before { content: "\e612"; }
 
-.icon-ios7homeoutline:before { content: "\e613"; }
+.icon-ios7homeoutline:before { content: "\e61b"; font-size: 24px;}
 
-.icon-ios7chatbubble:before { content: "\e614"; }
+.icon-ios7chatbubble:before { content: "\e60b"; font-size: 25px;}
 
 .icon-ios7worldoutline:before { content: "\e615"; }
 
@@ -65,25 +72,27 @@
 
 .icon-ios7arrowright:before { content: "\e618"; }
 
-.icon-feedback2:before { content: "\e658"; }
+.icon-feedback2:before { content: "\e64b"; }
 
-.icon-like:before { content: "\e8d3"; }
+.icon-like:before { content: "\e61a"; }
 
 .icon-lianjie:before { content: "\e619"; }
 
 .icon-send:before { content: "\e603"; }
 
-.icon-feedback3:before { content: "\e621"; }
+.icon-feedback3:before { content: "\e634"; }
 
-.icon-iosatoutline:before { content: "\e61a"; }
+.icon-iosatoutline:before { content: "\e689"; }
 
-.icon-location:before { content: "\e61b"; }
+.icon-location:before { content: "\e60d"; }
 
-.icon-wujieguoyangshi:before { content: "\e622"; }
+.icon-wujieguoyangshi:before { content: "\e600"; }
 
-.icon-comment:before { content: "\e66a"; }
+.icon-comment:before { content: "\e609"; }
 
-.icon-language:before { content: "\e645"; }
+.icon-language:before { content: "\e62b"; }
+
+.icon-modify:before { content: "\e62c"; }
 
 .icon-jobs:before {
   content: "\e611";
@@ -121,14 +130,25 @@
 }
 
 .icon-area:before {
-  content: "\e61b";
+  content: "\e60d";
 }
 
 .icon-industry:before {
-  content: "\e645";
+  content: "\e65b";
 }
 
 .icon-reports:before {
   content: "\e645";
 }
-
+.icon-ios7gearoutline:before { 
+  content: "\e65c"; 
+  font-size: 24px;
+}
+.icon-ios7news:before {
+  content: "\e7d0";
+  font-size: 22px;
+}
+.icon-ios7cameraoutline:before {
+  content: "\e70f";
+  font-size: 22px;
+}

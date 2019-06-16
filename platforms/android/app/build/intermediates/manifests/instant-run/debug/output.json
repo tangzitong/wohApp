@@ -1,1 +1,1 @@
-[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":40000},"path":"AndroidManifest.xml","properties":{"packageId":"com.highwayns.wohApp","split":"","minSdkVersion":"19"}}]
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":40000},"path":"AndroidManifest.xml","properties":{"packageId":"com.highwayns.wohapp","split":"","minSdkVersion":"19"}}]

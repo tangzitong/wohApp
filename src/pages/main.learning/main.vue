@@ -4,30 +4,31 @@
       <f7-nav-title>{{navbarTitle}}</f7-nav-title>
       <f7-nav-right>
         <f7-link icon="iconfont icon-feedback3" icon-size="22" v-show="activedTab === 'news'" @click="openPublisher"></f7-link>
+        <f7-link icon="iconfont icon-login" icon-size="22" v-show="activedTab === 'home' && !isUserLogin" @click="openLogin"></f7-link>
       </f7-nav-right>
     </f7-navbar>
     <f7-toolbar tabbar :labels="!isAndroid">
-      <f7-link id="homelink" :icon="!isAndroid ? 'iconfont icon-ios7homeoutline' : ''" :text="$t('app.student')" tab-link="#home" tab-link-active></f7-link>
+      <f7-link id="homelink" :icon="!isAndroid ? 'iconfont icon-ios7homepage' : ''" :text="$t('app.student')" tab-link="#home" tab-link-active></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7chatbubble' : ''" :text="$t('app.chat')" tab-link="#contacts"></f7-link>
-      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7cameraoutline' : ''" :text="$t('app.news')" tab-link="#news"></f7-link>
+      <f7-link :icon="!isAndroid ? 'iconfont icon-ios7news' : ''" :text="$t('app.news')" tab-link="#news"></f7-link>
       <f7-link id="datalink" :icon="!isAndroid ? 'iconfont icon-ios7person' : ''" :text="$t('app.teacher')" tab-link="#data"></f7-link>
       <f7-link :icon="!isAndroid ? 'iconfont icon-ios7gearoutline' : ''" :text="$t('app.settings')" tab-link="#settings"></f7-link>
     </f7-toolbar>
 
     <f7-tabs>
-      <f7-tab id="home" tab-active @tab:show="tabActived('home')">
+      <f7-tab id="home" style="font-size: 24px" tab-active @tab:show="tabActived('home')">
         <home-view @show-tip="showLoadResult"></home-view>
       </f7-tab>
-      <f7-tab id="contacts" @tab:show="tabActived('contacts')">
+      <f7-tab id="contacts" style="font-size: 24px" @tab:show="tabActived('contacts')">
         <contacts-view></contacts-view>
       </f7-tab>
-      <f7-tab id="news" @tab:show="tabActived('news')">
+      <f7-tab id="news" style="font-size: 22px" @tab:show="tabActived('news')">
         <news-view></news-view>
       </f7-tab>
-      <f7-tab id="data" @tab:show="tabActived('data')">
+      <f7-tab id="data" style="font-size: 28px" @tab:show="tabActived('data')">
         <data-view></data-view>
       </f7-tab>
-      <f7-tab id="settings" @tab:show="tabActived('settings')">
+      <f7-tab id="settings" style="font-size: 24px" @tab:show="tabActived('settings')">
         <settings-view></settings-view>
       </f7-tab>
     </f7-tabs>
@@ -170,6 +171,12 @@ export default {
     openPublisher() {
       this.updatePopup({
         key: 'publisherOpened',
+        value: true
+      })
+    },
+    openLogin() {
+      this.updatePopup({
+        key: 'loginOpened',
         value: true
       })
     }

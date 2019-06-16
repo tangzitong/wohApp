@@ -21,9 +21,6 @@
     },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.highwayns.com"
-    },
-    "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "com.highwayns.com"
     }
   },
   "dependent_plugins": {}

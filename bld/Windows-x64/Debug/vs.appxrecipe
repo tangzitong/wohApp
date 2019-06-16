@@ -21,9 +21,9 @@
     </WindowsSdkPath>
     <LayoutDir>D:\work\wohapp\wohapp\platforms\windows\build\windows\debug\x64\win10\AppX</LayoutDir>
     <RegisteredManifestChecksum>4F853BA4C6986787002E11C87FEAE0766A336480A2B6E3EF879DCDF5A71281D5</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>com.highwayns.wohApp_4.0.0.0_x64__h35559jr9hy9m</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>com.highwayns.wohApp_h35559jr9hy9m!com.highwayns.wohApp</RegisteredUserModeAppID>
-    <RegisteredPackageID>com.highwayns.wohApp</RegisteredPackageID>
+    <RegisteredPackageMoniker>com.highwayns.wohapp_4.0.0.0_x64__h35559jr9hy9m</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>com.highwayns.wohapp_h35559jr9hy9m!com.highwayns.wohapp</RegisteredUserModeAppID>
+    <RegisteredPackageID>com.highwayns.wohapp</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=Apache Cordova Team</RegisteredPackagePublisher>
     <RegisteredVersion>4.0.0.0</RegisteredVersion>
   </PropertyGroup>

@@ -8,8 +8,42 @@
   },
   "installed_plugins": {
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.highwayns.wohApp"
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    }
+  }
 }

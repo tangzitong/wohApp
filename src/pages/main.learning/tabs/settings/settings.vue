@@ -12,7 +12,9 @@
         </div>
       </f7-list-item>
     </f7-list>
-    <f7-list>
+
+    <!--Iconfont 版-->
+      <f7-list>
       <f7-list-item :title="$t('app.language')" link="/language/">
         <i class='iconfont icon-language' slot="media"></i>
       </f7-list-item>
@@ -24,7 +26,7 @@
     </f7-list>
     <f7-list>
       <f7-list-item :title="$t('app.industry')" link="/industry/">
-        <i class='iconfont icon-wujieguoyangshi' slot="media"></i>
+        <i class='iconfont icon-industry' slot="media"></i>
       </f7-list-item>
     </f7-list>
     <f7-list>
@@ -34,7 +36,7 @@
     </f7-list>
     <f7-list v-if="isUserLogin">
       <f7-list-item :title="$t('modify.title')" link="/about/modify/">
-        <i class='iconfont icon-ios7arrowright' slot="media"></i>
+        <i class='iconfont icon-modify' slot="media"></i>
       </f7-list-item>
     </f7-list>
 
@@ -60,24 +62,25 @@
     }
     .icon-language {
       color: #46b9fc;
-      padding-top: 2px;
+      padding-top: 3px;
     }
     .icon-area {
       color: #46b9fc;
-      padding-top: 2px;
+      padding-top: 3px;
     }
-    .icon-industry {
+    .icon-industry{
       color: #46b9fc;
-      padding-top: 2px;
-    }
-    .icon-wujieguoyangshi{
-      color: #46b9fc;
-      padding-top: 2px;
+      padding-top: 4px;
     }
     .icon-feedback2 {
       color: #46b9fc;
+      padding-top: 3px;
+    }
+    .icon-modify {
+      color: #46b9fc;
       padding-top: 2px;
     }
+
     .icon-about1 {
       color: #46b9fc;
     }

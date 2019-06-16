@@ -29,7 +29,7 @@
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('login.passwordConfirmation')}}</f7-label>
-        <f7-input type="password" :placeholder="$t('login.passwordConfirmation')" @input="passwordConfirmation = $event.target.value" />
+        <f7-input type="password" :placeholder="$t('login.passwordConfirmation_')" @input="passwordConfirmation = $event.target.value" />
       </f7-list-item>
       <f7-list-item v-if="firebaseConfig.allowEmailRegistration && mode === 'registration'">
         <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('modify.usertitle')}}</f7-label>
@@ -136,7 +136,8 @@
 .login-reset {
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  margin:0 35px 0;
+  justify-content:space-between;
   //margin-top: 8px;
 
   .text {

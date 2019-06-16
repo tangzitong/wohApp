@@ -3,25 +3,52 @@
     a.tab-link-active {
       color: @mainColor;
       i.icon{
-        &.icon-ios7homeoutline{
+        &.icon-ios7homepage{
           &:before{
-            content: "\E602";
+            content: "\e601";
+            font-size: 24px;
+            margin-top: 3px;
           }
         }
-        &.icon-ios7chatbubbleoutline{
+        &.icon-ios7homeoutline{
           &:before{
-            content: "\E614";
+            content: "\e61b";
+            font-size: 24px;
+            margin-top: 3px;
+          }
+        }
+        &.icon-ios7chatbubble{
+          &:before{
+            content: "\e60b";
+            font-size: 25px;
+            margin-top: 3px;
           }
         }
         &.icon-ios7gearoutline{
           &:before{
-            content: "\E60F";
+            content: "\e65c";
+            font-size: 24px;
+            margin-top: 3px;
           }
         }
-      }
-    } 
-    i.icon{
-      margin-top: 1px;  //改动图标与字的间距0601
+        &.icon-ios7news{
+          &:before{
+            content: "\e7d0";
+            font-size: 22px;
+            margin-top: 3px;
+          }
+        }
+        &.icon-ios7person:before { 
+          &before{
+            content: "\e623";
+            font-size: 29px;
+            margin-top: 3px;
+          }
+        }
+      } 
     }
   }
+}
+.ios .tabbar i.icon, .ios .tabbar-labels i.icon {
+  margin-top:3px;
 }

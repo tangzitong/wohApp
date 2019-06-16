@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.highwayns.wohApp;
+package com.highwayns.wohapp;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

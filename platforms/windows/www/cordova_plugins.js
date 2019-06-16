@@ -148,14 +148,6 @@ module.exports = [
     "file": "plugins/cordova-plugin-dialogs/src/windows/NotificationProxy.js",
     "pluginId": "cordova-plugin-dialogs",
     "runs": true
-  },
-  {
-    "id": "cordova-plugin-fcm.FCMPlugin",
-    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
-    "pluginId": "cordova-plugin-fcm",
-    "clobbers": [
-      "FCMPlugin"
-    ]
   }
 ];
 module.exports.metadata = 
@@ -165,8 +157,7 @@ module.exports.metadata =
   "cordova-plugin-firebase": "2.0.5",
   "cordova-plugin-contacts": "3.0.1",
   "cordova-plugin-device": "2.0.2",
-  "cordova-plugin-dialogs": "2.0.1",
-  "cordova-plugin-fcm": "2.1.2"
+  "cordova-plugin-dialogs": "2.0.1"
 };
 // BOTTOM OF METADATA
 });

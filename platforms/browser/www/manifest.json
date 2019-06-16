@@ -3,7 +3,7 @@
   "display": "standalone",
   "name": "wohApp",
   "short_name": "wohApp",
-  "version": "com.highwayns.wohApp",
+  "version": "com.highwayns.wohapp",
   "description": "A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app.",
   "author": "Tei Gun",
   "icons": [],

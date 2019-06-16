@@ -4,8 +4,8 @@
     <ul class="tools flex-row">
       <li class="tool" v-show="enableTool('camera')"><i class="iconfont icon-ios7cameraoutline"></i></li>
       <li class="tool" v-show="enableTool('album')"><i class="iconfont icon-pic"></i></li>
-      <li class="tool" v-show="enableTool('emotion')"><i class="iconfont icon-emotion"></i></li>
-      <li class="tool" v-show="enableTool('at')"><i class="iconfont icon-iosatoutline"></i></li>
+      <li class="tool" v-show="enableTool('emotion')"><i class="iconfont icon-emotion" style="font-size:22px"></i></li>
+      <li class="tool" v-show="enableTool('at')"><i class="iconfont icon-iosatoutline" style="font-size:26px"></i></li>
       <li class="tool" v-show="enableTool('location')"><i class="iconfont icon-location"></i></li>
     </ul>
   </div>

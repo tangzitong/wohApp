@@ -2,46 +2,46 @@
   <f7-page class="knowledge">
     <f7-navbar :title="$t('knowledge.add')" :back-link="$t('app.back')"></f7-navbar>
     <f7-block>
-      <h3>{{!id ? $t('knowledge.add') : $t('knowledge.update')}}</h3>
+      <!--<h3>{{!id ? $t('knowledge.add') : $t('knowledge.update')}}</h3>-->
       <transition name="fade">
         <p v-if="showSuccess" class="success">{{$t('knowledge.complete')}}</p>
       </transition>
     </f7-block>
     <f7-list form @submit.prevent>
       <f7-list-item>
-        <label>{{$t('knowledge.name')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.name_')" @input="name = $event.target.value" :value="name" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.name')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('knowledge.name_')" @input="name = $event.target.value" :value="name" />
       </f7-list-item>
       <f7-list-item>
-        <label>{{$t('knowledge.introduce')}}</label><br/>
-        <input type="textarea" :placeholder="$t('knowledge.introduce_')" @input="introduce = $event.target.value" :value="introduce" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.introduce')}}</f7-label>
+        <f7-input type="textarea" :placeholder="$t('knowledge.introduce_')" @input="introduce = $event.target.value" :value="introduce" />
       </f7-list-item>
       <f7-list-item>
-        <label>{{$t('knowledge.address')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.address_')" @input="address = $event.target.value" :value="address" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.address')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('knowledge.address_')" @input="address = $event.target.value" :value="address" />
       </f7-list-item>
       <f7-list-item>
-        <label>{{$t('knowledge.Tel')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.Tel')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('knowledge.Tel_')" @input="Tel = $event.target.value" :value="Tel" />
       </f7-list-item>
       <f7-list-item>
-        <label>{{$t('knowledge.Fax')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.Fax')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('knowledge.Fax_')" @input="Fax = $event.target.value" :value="Fax" />
       </f7-list-item>
       <f7-list-item>
-        <label>{{$t('knowledge.Manager')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.Manager')}}</f7-label>
+        <f7-input type="text" :placeholder="$t('knowledge.Manager_')" @input="Manager = $event.target.value" :value="Manager" />
       </f7-list-item>
       <f7-list-item>
-        <label>{{$t('knowledge.HP')}}</label><br/>
-        <input type="text" :placeholder="$t('knowledge.HP_')" @input="HP = $event.target.value" :value="HP" />
+        <f7-label style="font-size: 16px; margin-bottom: 6px">{{$t('knowledge.HP')}}</f7-label>
+        <f7-input style="margin-bottom: 20px" type="text" :placeholder="$t('knowledge.HP_')" @input="HP = $event.target.value" :value="HP" />
       </f7-list-item>
     </f7-list>
-    <f7-block v-if="isUserLogin">
-      <f7-button big color="blue" style = "line-height:27px" @click="updateKnowledge">{{!id ? $t('knowledge.add') : $t('knowledge.update')}}</f7-button>
+    <f7-block style="margin:16px 0" v-if="isUserLogin">
+      <f7-button big color="blue" @click="updateKnowledge">{{!id ? $t('knowledge.add') : $t('knowledge.update')}}</f7-button>
     </f7-block>
       <!-- Image uploader component -->
-    <f7-block v-if="isUserLogin && id">
+    <f7-block style="margin:0 0 30px" v-if="isUserLogin && id">
       <imageuploader
         :store="'knowledges/' + userid + '/' + id"
         :db="'knowledges/data/' + id + '/photo'" />
