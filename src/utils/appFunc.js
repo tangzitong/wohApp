@@ -1,5 +1,5 @@
 export function getRemoteAvatar(id) {
-  return `https://loremflickr.com/70/70/people?lock=${id}`
+  return 'https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/android-icon-xxhdpi-144x144.png?alt=media&token=d6e43d58-52c6-4ed6-ac2d-d68072d5a12a'
 }
 
 export function isAndroid() {

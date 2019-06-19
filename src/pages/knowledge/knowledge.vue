@@ -24,7 +24,8 @@ export default {
       loadedEnd: false,
       isOwner: false,
       knowledgekey: null,
-      knowledgeType: ''
+      knowledgeType: '',
+      istry: false
     }
   },
   computed: {
@@ -35,6 +36,7 @@ export default {
   mounted() {
     const query = this.$f7route.query
     this.isOwner = (query.isowner === 'true')
+    this.istry = (query.istry === 'true')
     this.knowledgeType = query.knowledgetype
     this.knowledgekey = query.mid
     this.getKnowledges(this.isOwner, this.knowledgeType, this.knowledgekey)
@@ -95,7 +97,7 @@ export default {
       this.$f7router.navigate(`/?isowner=${this.isOwner}`)
     },
     routeToContent(data) {
-      this.$f7router.navigate(`/knowledge/contents/?mid=${data.id}&isowner=${this.isOwner}`)
+      this.$f7router.navigate(`/knowledge/contents/?mid=${data.id}&isowner=${this.isOwner}&istry=${this.istry}`)
     }
   },
   components: {

@@ -6,7 +6,7 @@
       </f7-nav-left>
       <f7-nav-title :title="$t('app.knowledgecontents')"></f7-nav-title>
       <f7-nav-right>
-        <f7-link v-if="isApproved" :text="$t('app.study')" @click="startLearning"></f7-link>
+        <f7-link v-if="isApproved || istry" :text="$t('app.study')" @click="startLearning"></f7-link>
         <f7-link v-if="isOwner" :text="$t('app.update')" @click="editLearningContent"></f7-link>
         <f7-link v-if="isOwner" :text="$t('app.delete')" @click="deleteLearningContent"></f7-link>
       </f7-nav-right>
@@ -75,7 +75,8 @@ export default {
       selectedContentType: 'Html',
       isOwner: false,
       isApproved: false,
-      name: null
+      name: null,
+      istry: false
     }
   },
   computed: {
@@ -90,6 +91,7 @@ export default {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
     this.isOwner = (query.isowner === 'true')
+    this.istry = (query.istry === 'true')
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {

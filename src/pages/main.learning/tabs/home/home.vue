@@ -88,7 +88,7 @@
           </f7-list-item>
       </f7-list-group>
     </f7-list>
-    <f7-list>
+    <f7-list v-if="isUserLogin">
       <f7-list-item :title="$t('app.knowledgetype')" link="/knowledge/type/?isowner=false">
         <i class="f7-icons size-25" slot="media">book_fill</i>
       </f7-list-item>
@@ -237,7 +237,7 @@ export default {
       this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}&isowner=false`)
     },
     viewKnowledge(id) {
-      this.$f7router.navigate(`/knowledge/?mid=${id}&isowner=false`)
+      this.$f7router.navigate(`/knowledge/?mid=${id}&isowner=false&istry=true`)
     },
     openLogin() {
       this.updatePopup({

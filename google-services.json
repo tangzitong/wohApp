@@ -25,15 +25,20 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553446471400-0lmqp0m0ci7lola64n51mht5ip96nsoa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "553446471400-g8o7o4jpvkvjsti11tcdle012duki981.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.highwayns.wohapp"
+              }
+            }
+          ]
         }
       }
     }
