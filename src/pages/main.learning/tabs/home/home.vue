@@ -5,25 +5,33 @@
     </div>
     <div class="classify">
       <div class="classify-f">
-      <div class="cf" value="frontprogram" v-on:click="viewKnowledgetype('1')">
+      <div class="cf" value="frontprogram" v-on:click="viewKnowledgetype('9')">
         <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_qianduan.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype1')}}</span>
       </div>
-      <div class="cf" value="moblieprogram" v-on:click="viewKnowledgetype('2')">
+      <div class="cf" value="moblieprogram" v-on:click="viewKnowledgetype('3')">
         <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_yidong.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype2')}}</span>
       </div>
-      <div class="cf" value="codeprogram" v-on:click="viewKnowledgetype('3')">
+      <div class="cf" value="codeprogram" v-on:click="viewKnowledgetype('1')">
         <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_biancheng.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype3')}}</span>
       </div>
-      <div class="cf" value="vbprogram" v-on:click="viewKnowledgetype('4')">
+      <div class="cf" value="vbprogram" v-on:click="viewKnowledgetype('5')">
         <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_yunwei.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype4')}}</span>
       </div>
       </div>
       <div class="classify-f" style="margin-top:20px">
-      <div class="cf" value="datebprogram" v-on:click="viewKnowledgetype('5')">
+      <div class="cf" value="proprogram" v-on:click="viewKnowledgetype('10')">
+        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_xiangmu.png" style="width:45px;height:45px">
+        <span class="classify-txt">{{$t('knowledge.knowledgetype7')}}</span>
+      </div>
+      <div class="cf" value="aiprogram" v-on:click="viewKnowledgetype('4')">
+        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_rengongzhineng.png" style="width:45px;height:45px">
+        <span class="classify-txt">{{$t('knowledge.knowledgetype8')}}</span>
+      </div>
+      <div class="cf" value="datebprogram" v-on:click="viewKnowledgetype('2')">
         <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_shujuku.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype5')}}</span>
       </div>
@@ -31,83 +39,79 @@
         <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_shuju.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype6')}}</span>
       </div>
-      <div class="cf" value="proprogram" v-on:click="viewKnowledgetype('7')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_xiangmu.png" style="width:45px;height:45px">
-        <span class="classify-txt">{{$t('knowledge.knowledgetype7')}}</span>
-      </div>
-      <div class="cf" value="aiprogram" v-on:click="viewKnowledgetype('8')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_rengongzhineng.png" style="width:45px;height:45px">
-        <span class="classify-txt">{{$t('knowledge.knowledgetype8')}}</span>
-      </div>
       </div>
     </div>
 
     <div class="Bouticlass" v-if="!isUserLogin">
       <div class="bouti-title">
         <div class="head-point"></div><div class="classtit">{{$t('app.excellent')}}</div>
+        <!--<div class="moreclass">{{$t('app.moreclass')}}</div>-->
       </div>
       <div class="classtestlist">
         <div class="classtest" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">
           <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
-          <div class="cl-test-tit" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">
-            <span class="classttitle">{{$t('knowledge.knowledge1')}}</span>
-            <button class="tryit">{{$t('app.trystudy')}}</button>
+          <div class="cl-test-tit">
+            <span class="classttitle">{{$t('knowledge.knowledge1')}}</span><!--JAVA-->
+            <button class="tryit" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">
           <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
-          <div class="cl-test-tit" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">
-            <span class="classttitle">{{$t('knowledge.knowledge2')}}</span>
-            <button class="tryit">{{$t('app.trystudy')}}</button>
+          <div class="cl-test-tit">
+            <span class="classttitle">{{$t('knowledge.knowledge2')}}</span><!--C#-->
+            <button class="tryit" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">
           <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
-          <div class="cl-test-tit" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">
-            <span class="classttitle">{{$t('knowledge.knowledge3')}}</span>
-            <button class="tryit">{{$t('app.trystudy')}}</button>
+          <div class="cl-test-tit">
+            <span class="classttitle">{{$t('knowledge.knowledge3')}}</span><!--Python-->
+            <button class="tryit" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">
           <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
-          <div class="cl-test-tit" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">
-            <span class="classttitle">{{$t('knowledge.knowledge4')}}</span>
-            <button class="tryit">{{$t('app.trystudy')}}</button>
+          <div class="cl-test-tit">
+            <span class="classttitle">{{$t('knowledge.knowledge4')}}</span><!--Hybird-->
+            <button class="tryit" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">{{$t('app.trystudy')}}</button>
+          </div>
+        </div>
+        <div class="classtest" v-on:click="viewKnowledge('-LdLuLklhwL7keqLFNmD')">
+          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <div class="cl-test-tit">
+            <span class="classttitle">{{$t('knowledge.knowledge5')}}</span><!--JavaScirpt-->
+            <button class="tryit" v-on:click="viewKnowledge('-LdLuLklhwL7keqLFNmD')">{{$t('app.trystudy')}}</button>
+          </div>
+        </div>
+        <div class="classtest" v-on:click="viewKnowledge('-LdLv2K4G35jI5thkNgR')">
+          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <div class="cl-test-tit">
+            <span class="classttitle">{{$t('knowledge.knowledge6')}}</span><!--Spring-->
+            <button class="tryit" v-on:click="viewKnowledge('-LdLv2K4G35jI5thkNgR')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
       </div>
     </div>
 
-    <f7-list v-if="isUserLogin">
-      <f7-list-group v-for="knowledge_ in knowledges" :key="knowledge_.id">
-        <f7-list-item :link="getLink(knowledge_.id)"
-          :value="knowledge_.id"
-          :title="knowledge_.name"
-          :after="$t('app.study')">
-          <i class="f7-icons size-25" slot="media">book_fill</i>
-          </f7-list-item>
-      </f7-list-group>
-    </f7-list>
-    <f7-list v-if="isUserLogin">
-      <f7-list-item :title="$t('app.knowledgetype')" link="/knowledge/type/?isowner=false">
-        <i class="f7-icons size-25" slot="media">book_fill</i>
-      </f7-list-item>
-    </f7-list>
+    <div class="myclass" v-if="isUserLogin">
+      <div class="bouti-title">
+        <div class="head-point"></div><div class="classtit">{{$t('app.myclass')}}</div>
+        <div class="moreclass" v-on:click="viewKnowledgetypes()">{{$t('app.moreclass')}}</div>
+      </div>
+      <div class="classtestlist">
+        <div class="classtest" v-for="knowledge_ in knowledges" :key="knowledge_.id">
+          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <div class="cl-test-tit" v-on:click="viewKnowledge(knowledge_.id)">
+            <span class="classttitle">{{knowledge_.name}}</span>
+            <button class="tryit" v-on:click="viewKnowledge(knowledge_.id)">{{$t('app.study')}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.home-view {
-  .list {
-    margin: 15px 0;
-    .iconfont {
-      height: 29px;
-    }
-    .icon-knowledges {
-      color: #ff0c33;
-    }
-  }
-}
 .homebanner{
   background:rgb(21,33,39);
   margin-bottom: 4px;
@@ -135,7 +139,9 @@
     }
     .classify-txt{
       font-size:13px;
-      line-height:27px;
+      margin-top: 8px;
+      text-align: center;
+      width: 72px;
       color: #333;
     }
   }
@@ -183,10 +189,15 @@
         width: 168px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding:0 4px;
         .classttitle{
           color:#666;
           font-size:14px;
+          width: 7em;
+          overflow: hidden;
+          text-overflow:ellipsis;
+          white-space: nowrap;
         }
         .tryit{
           width:52px;
@@ -222,10 +233,19 @@ export default {
       this.getKnowledges()
     }
   },
+
   methods: {
     ...mapActions([
       'updatePopup'
     ]),
+
+    openLogin() {
+      this.updatePopup({
+        key: 'loginOpened',
+        value: true
+      })
+    },
+
     getKnowledges() {
       this.$f7.preloader.show()
       this.$root.chat.getKnowledgeListByApplication(function(applicationknowledges) {
@@ -236,18 +256,12 @@ export default {
     viewKnowledgetype(knowledgetype) {
       this.$f7router.navigate(`/knowledge/?knowledgetype=${knowledgetype}&isowner=false`)
     },
+    viewKnowledgetypes() {
+      this.$f7router.navigate(`/knowledge/type/?isowner=false`)
+    },
     viewKnowledge(id) {
       this.$f7router.navigate(`/knowledge/?mid=${id}&isowner=false&istry=true`)
     },
-    openLogin() {
-      this.updatePopup({
-        key: 'loginOpened',
-        value: true
-      })
-    },
-    getLink(id) {
-      return `/knowledge/?mid=${id}&isowner=false`
-    }
   }
 }
 </script>

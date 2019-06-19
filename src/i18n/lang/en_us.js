@@ -281,6 +281,8 @@ export default {
     knowledge2: 'C#',
     knowledge3: 'Python',
     knowledge4: 'Hybrid',
+    knowledge5: 'JavaScript',
+    knowledge6: 'Spring Framework',
     application: 'Application',
     removeapplication: 'Cancel Application',
     agreeapplication: 'Agree Application',
