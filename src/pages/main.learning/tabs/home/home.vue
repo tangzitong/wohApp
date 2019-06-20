@@ -49,42 +49,42 @@
       </div>
       <div class="classtestlist">
         <div class="classtest" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_9?alt=media&token=e107d6ce-a442-406c-a351-ef1f85de9101" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge1')}}</span><!--JAVA-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbYZZXvYQxtpo2AWpzL?alt=media&token=5256a327-3e54-43f4-9854-ec573ced9c58" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge2')}}</span><!--C#-->
             <button class="tryit" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLubY6J4gW1t94t63x?alt=media&token=0ca38135-5abe-49fa-b5b7-e9e37dc59642" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge3')}}</span><!--Python-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-Ld495mtWIyObJzEEK7s?alt=media&token=ef80e837-65fa-43a2-9413-d1f57994e4a3" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge4')}}</span><!--Hybird-->
             <button class="tryit" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLuLklhwL7keqLFNmD')">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLuLklhwL7keqLFNmD?alt=media&token=ee8e1be1-86a1-4ab9-9b4d-d5401091434e" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge5')}}</span><!--JavaScirpt-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLuLklhwL7keqLFNmD')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLv2K4G35jI5thkNgR')">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLv2K4G35jI5thkNgR?alt=media&token=1c859e80-1dd0-41cb-8caa-644ef144f54e" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge6')}}</span><!--Spring-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLv2K4G35jI5thkNgR')">{{$t('app.trystudy')}}</button>
@@ -100,7 +100,7 @@
       </div>
       <div class="classtestlist">
         <div class="classtest" v-for="knowledge_ in knowledges" :key="knowledge_.id">
-          <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_classcover01.png" style="width:168px;height:102px">
+          <img :src="knowledge_.photo" style="width:168px;height:102px">
           <div class="cl-test-tit" v-on:click="viewKnowledge(knowledge_.id)">
             <span class="classttitle">{{knowledge_.name}}</span>
             <button class="tryit" v-on:click="viewKnowledge(knowledge_.id)">{{$t('app.study')}}</button>

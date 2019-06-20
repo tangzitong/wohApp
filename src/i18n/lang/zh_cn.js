@@ -89,7 +89,7 @@ export default {
     events: '活动',
     data: '数据',
     work: '工作',
-    news: '新聞',
+    news: '新闻',
     moreclass: '查看更多',
     trystudy: '试学',
     myclass: '我的课程',

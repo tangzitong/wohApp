@@ -4,8 +4,8 @@
       <f7-list-item link="/about/">
         <img :src="userInfo.avatar_url" class="avatar" slot="media">
         <div slot="inner-start" class="detail">
-          <div class="name">{{userInfo.nick_name}}</div>
-          <div class="location">
+          <div class="name" style="font-size:18px;">{{userInfo.nick_name}}</div>
+          <div class="location" style="font-size:14px;">
             <span>{{$t('app.city')}}: </span>
             <span>{{userInfo.location}}</span>
           </div>
@@ -58,27 +58,28 @@
     margin: 15px 0;
     font-size: 16px;
     .iconfont {
-      height: 29px;
+      height: 34px;
     }
     .icon-language {
       color: #46b9fc;
-      padding-top: 3px;
+      padding-top: 8px;
+      font-size: 22px;
     }
     .icon-area {
       color: #46b9fc;
-      padding-top: 3px;
+      padding-top: 8px;
     }
     .icon-industry{
       color: #46b9fc;
-      padding-top: 4px;
+      padding-top: 8px;
     }
     .icon-feedback2 {
       color: #46b9fc;
-      padding-top: 3px;
+      padding-top: 8px;
     }
     .icon-modify {
       color: #46b9fc;
-      padding-top: 2px;
+      padding-top: 8px;
     }
 
     .icon-about1 {

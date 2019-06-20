@@ -53,7 +53,7 @@
   @import "../../assets/styles/mixins.less";
 
   .knowledge.post-knowledge {
-    background-color: white;
+    background-color: rgb(152, 177, 194);
     margin: 10px 0 16px;  //列表上下留白
     padding-bottom: 20px;   //页面底部留白
     border-top: 1px solid #dadada;
