@@ -177,7 +177,7 @@
   }
   .classtestlist{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     .classtest{
     display: flex;

@@ -1,6 +1,6 @@
 <template>
   <div class="knowledge post-knowledge">
-    <f7-navbar class="knowledge-header">
+    <f7-navbar style = "background-color:#98b1c2" class="knowledge-header">
       <div class="avatar">
         <img :src="getAvatar(data.avatar)" alt="Image">
       </div>
@@ -53,7 +53,7 @@
   @import "../../assets/styles/mixins.less";
 
   .knowledge.post-knowledge {
-    background-color: rgb(152, 177, 194);
+    background-color: white;
     margin: 10px 0 16px;  //列表上下留白
     padding-bottom: 20px;   //页面底部留白
     border-top: 1px solid #dadada;
