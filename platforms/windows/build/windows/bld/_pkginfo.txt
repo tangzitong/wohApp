@@ -1,1 +1,0 @@
-D:\work\wohapp\wohapp\platforms\windows\AppPackages\CordovaApp.Windows10_4.0.0.0_x64_debug_Test\CordovaApp.Windows10_4.0.0.0_x64_debug.appx

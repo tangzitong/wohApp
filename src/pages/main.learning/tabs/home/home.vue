@@ -1,7 +1,7 @@
 <template>
   <div class="home-view">
     <div class="homebanner">
-      <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_banner1.png" value="banner">
+      <img src="https://github.com/highwayns/lohmd2n/blob/master/banner.jpg?raw=true" value="banner">
     </div>
     <div class="classify">
       <div class="classify-f">
@@ -49,42 +49,42 @@
       </div>
       <div class="classtestlist">
         <div class="classtest" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">
-          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLtaiBADqiIat-6k_9?alt=media&token=e107d6ce-a442-406c-a351-ef1f85de9101" style="width:168px;height:102px">
+          <img src="https://github.com/highwayns/lohmd2n/blob/master/Posts/java.png?raw=true" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge1')}}</span><!--JAVA-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLtaiBADqiIat-6k_9')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">
-          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-LbYZZXvYQxtpo2AWpzL?alt=media&token=5256a327-3e54-43f4-9854-ec573ced9c58" style="width:168px;height:102px">
+          <img src="https://github.com/highwayns/lohmd2n/blob/master/Posts/forcsharpbeginner.png?raw=true" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge2')}}</span><!--C#-->
             <button class="tryit" v-on:click="viewKnowledge('-LbYZZXvYQxtpo2AWpzL')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">
-          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLubY6J4gW1t94t63x?alt=media&token=0ca38135-5abe-49fa-b5b7-e9e37dc59642" style="width:168px;height:102px">
+          <img src="https://github.com/highwayns/lohmd2n/blob/master/Posts/python.png?raw=true" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge3')}}</span><!--Python-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLubY6J4gW1t94t63x')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">
-          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FCIxg5db1wHWTu1eeymVp4EkLzfg1%2F-Ld495mtWIyObJzEEK7s?alt=media&token=ef80e837-65fa-43a2-9413-d1f57994e4a3" style="width:168px;height:102px">
+          <img src="https://github.com/highwayns/lohmd2n/blob/master/Posts/hybriddev.png?raw=true" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge4')}}</span><!--Hybird-->
             <button class="tryit" v-on:click="viewKnowledge('-Ld495mtWIyObJzEEK7s')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLuLklhwL7keqLFNmD')">
-          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLuLklhwL7keqLFNmD?alt=media&token=ee8e1be1-86a1-4ab9-9b4d-d5401091434e" style="width:168px;height:102px">
+          <img src="https://github.com/highwayns/lohmd2n/blob/master/Posts/js.png?raw=true" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge5')}}</span><!--JavaScirpt-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLuLklhwL7keqLFNmD')">{{$t('app.trystudy')}}</button>
           </div>
         </div>
         <div class="classtest" v-on:click="viewKnowledge('-LdLv2K4G35jI5thkNgR')">
-          <img src="https://firebasestorage.googleapis.com/v0/b/wohapp-3a179.appspot.com/o/knowledges%2FiHmcxnnRDWPOJAE38On1nCdq0ir2%2F-LdLv2K4G35jI5thkNgR?alt=media&token=1c859e80-1dd0-41cb-8caa-644ef144f54e" style="width:168px;height:102px">
+          <img src="https://github.com/highwayns/lohmd2n/blob/master/Posts/springframework.png?raw=true" style="width:168px;height:102px">
           <div class="cl-test-tit">
             <span class="classttitle">{{$t('knowledge.knowledge6')}}</span><!--Spring-->
             <button class="tryit" v-on:click="viewKnowledge('-LdLv2K4G35jI5thkNgR')">{{$t('app.trystudy')}}</button>
@@ -113,7 +113,7 @@
 
 <style lang="less" scoped>
 .homebanner{
-  background:rgb(21,33,39);
+  background:linear-gradient(#333c49, #1b222d);
   margin-bottom: 4px;
   img{
     max-width:100%;

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
     <Identity Name="com.highwayns.wohapp" Publisher="CN=$username$" Version="4.0.0.0" />
-    <mp:PhoneIdentity PhoneProductId="ac65fcf0-26b2-11e9-864b-4b4443ae1a77" PhonePublisherId="db093ed5-53b1-45f7-af72-751e8f36ab80" />
+    <mp:PhoneIdentity PhoneProductId="e84af930-981a-11e9-b8f3-2bdfc596d5cf" PhonePublisherId="db093ed5-53b1-45f7-af72-751e8f36ab80" />
     <Properties>
         <DisplayName>wohApp</DisplayName>
         <PublisherDisplayName>Tei Gun</PublisherDisplayName>
@@ -37,5 +37,6 @@
         <Capability Name="internetClientServer" />
         <m3:Capability Name="contacts" />
         <DeviceCapability Name="webcam" />
+        <DeviceCapability Name="location" />
     </Capabilities>
 </Package>

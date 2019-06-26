@@ -89,7 +89,4 @@
         <PreBuildEvent>node "$(ProjectDir)\\cordova\\prebuild-10.js"</PreBuildEvent>
         <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     </PropertyGroup>
-    <PropertyGroup>
-        <SDKIdentifier>Windows</SDKIdentifier>
-    </PropertyGroup>
 </Project>

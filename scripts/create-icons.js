@@ -24,10 +24,10 @@ const _ = require('underscore')
 alert('Icon generation ongoing - please wait ...')
 
 // Define background color
-const bg = [255, 255, 255, 255] // hex2rgb('#ffffff').rgb.concat(255)
+const bg = [255, 255, 255, 0] // hex2rgb('#ffffff').rgb.concat(255)
 
 // Define icons (name, width, height, background)
-const icons = [
+/*const icons = [
   ['app-store-icon', 1024, 1024, true],
   ['play-store-icon', 512, 512],
   ['apple-touch-icon', 180, 180, true],
@@ -68,22 +68,67 @@ const icons = [
   ['ios-splash', 1536, 2048, true],
   ['ios-splash', 1436, 2048, true],
   ['ios-splash', 1242, 2208, true],
-  ['ios-splash', 1080, 1920, true],
+  ['ios-
+  .', 1080, 1920, true],
   ['ios-splash', 768, 1024, true],
   ['ios-splash', 750, 1334, true],
   ['ios-splash', 640, 1136, true],
   ['ios-splash', 640, 960, true],
   ['ios-splash', 320, 480, true],
-  ['android-icon-ldpi', 36, 36],
-  ['android-icon-mdpi', 48, 48],
-  ['android-icon-hdpi', 72, 72],
-  ['android-icon-xhdpi', 96, 96],
-  ['android-icon-xxhdpi', 144, 144],
-  ['android-icon-xxxhdpi', 192, 192],
-  ['android-splash-xhdpi', 720, 1280, true],
-  ['android-splash-hdpi', 480, 800, true],
-  ['android-splash-mdpi', 320, 480, true],
-  ['android-splash-ldpi', 200, 320, true]
+  ['android/icon-36-ldpi', 36, 36],
+  ['android/icon-48-mdpi', 48, 48],
+  ['android/icon-72-hdpi', 72, 72],
+  ['android/icon-96-xhdpi', 96, 96],
+  ['android/icon-xxhdpi', 144, 144],
+  ['android/icon-xxxhdpi', 192, 192],
+  ['android/splash-xhdpi', 720, 1280, true],
+  ['android/splash-hdpi', 480, 800, true],
+  ['android/splash-mdpi', 320, 480, true],
+  ['android/splash-ldpi', 200, 320, true]
+]*/
+const icons = [
+  ['res/icon/android/icon-36-ldpi', 36, 36],
+  ['res/icon/android/icon-48-mdpi', 48, 48],
+  ['res/icon/android/icon-72-hdpi', 72, 72],
+  ['res/icon/android/icon-96-xhdpi', 96, 96],
+  ['res/icon/ios/icon-57-2x', 114, 114, true],
+  ['res/icon/ios/icon-57', 57, 57, true],
+  ['res/icon/ios/icon-72-2x', 144, 144, true],
+  ['res/icon/ios/icon-72', 72, 72, true],
+  ['res/screen/android/screen-hdpi-landscape', 320, 200, true],
+  ['res/screen/android/screen-ldpi-landscape', 640, 480, true],
+  ['res/screen/android/screen-mdpi-landscape', 470, 320, true],
+  ['res/screen/android/screen-xhdpi-landscape', 960, 720, true],
+  ['res/screen/android/screen-hdpi-portrait', 200, 320, true],
+  ['res/screen/android/screen-ldpi-portrait', 480, 640, true],
+  ['res/screen/android/screen-mdpi-portrait', 320, 470, true],
+  ['res/screen/android/screen-xhdpi-portrait', 720, 960, true],
+  ['res/screen/ios/screen-ipad-landscape-2x', 2048, 1496, true],
+  ['res/screen/ios/screen-ipad-landscape', 1024, 748, true],
+  ['res/screen/ios/screen-ipad-portrait-2x', 1496, 2048, true],
+  ['res/screen/ios/screen-ipad-portrait', 748, 1024, true],
+  ['res/screen/ios/screen-iphone-landscape-2x', 960, 640, true],
+  ['res/screen/ios/screen-iphone-landscape', 480, 320, true],
+  ['res/screen/ios/screen-iphone-portrait-2x', 640, 960, true],
+  ['res/screen/ios/screen-iphone-portrait', 320, 480, true],
+  ['res/screen/ios/screen-iphone-portrait-568h-2x', 640, 1136, true],
+  ['res/icon/electron/icon', 256, 256, true],
+  ['res/icon/electron/icon@1.5x', 384, 384, true],
+  ['res/icon/electron/icon@2x', 512, 512, true],
+  ['res/icon/electron/icon@4x', 1024, 1024, true],
+  ['res/static/icons/ios/icon-60', 60, 60],
+  ['res/static/icons/ios/icon-60@2x', 120, 120],
+  ['res/static/icons/ios/icon-40', 40, 40],
+  ['res/static/icons/ios/icon-40@2x', 80, 80],
+  ['res/static/icons/ios/icon', 57, 57],
+  ['res/static/icons/ios/icon@2x', 114, 114],
+  ['res/static/icons/ios/icon-small', 29, 29],
+  ['res/static/icons/ios/icon-small@2x', 58, 58],
+  ['res/static/icons/ios/icon-76', 76, 76],
+  ['res/static/icons/ios/icon-76@2x', 152, 152],
+  ['res/static/icons/ios/icon-72', 72, 72],
+  ['res/static/icons/ios/icon-72@2x', 144, 144],
+  ['res/static/icons/ios/icon-50', 50, 50],
 ]
 
 // Add landscape launch screens
@@ -149,7 +194,7 @@ const getIconsToCreate = function (icon, callback) {
     // Define attributes
     const width = icons[i][1]
     const height = icons[i][2]
-    const name = icons[i][0] + '-' + width + 'x' + height + (icons[i][0] === 'app-store-icon' ? '.jpg' : '.png')
+    const name = icons[i][0] + (icons[i][0] === 'app-store-icon' ? '.jpg' : '.png')
     const isFilled = icons[i][3] !== undefined
     // Calculate icon size
     const maxIconWidth = width === height ? width : width / 2

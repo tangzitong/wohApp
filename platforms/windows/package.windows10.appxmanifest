@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package IgnorableNamespaces="uap mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
     <Identity Name="com.highwayns.wohapp" Publisher="CN=$username$" Version="4.0.0.0" />
-    <mp:PhoneIdentity PhoneProductId="ac65fcf0-26b2-11e9-864b-4b4443ae1a77" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+    <mp:PhoneIdentity PhoneProductId="e84af930-981a-11e9-b8f3-2bdfc596d5cf" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
     <Properties>
         <DisplayName>wohApp</DisplayName>
         <PublisherDisplayName>Tei Gun</PublisherDisplayName>
@@ -34,5 +34,6 @@
         <Capability Name="internetClient" />
         <uap:Capability Name="contacts" />
         <DeviceCapability Name="webcam" />
+        <DeviceCapability Name="location" />
     </Capabilities>
 </Package>
