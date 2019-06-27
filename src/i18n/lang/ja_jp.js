@@ -59,6 +59,7 @@ export default {
     industry: '業界選択',
     feedback: 'アドバイス',
     about: 'アバウトアス',
+    download: 'ダウンロード',
     avatar: 'アバター',
     name: 'ニックネーム',
     gender: '性别',
