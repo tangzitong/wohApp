@@ -6,11 +6,11 @@
 .editorconfig
 .enable-dev-mode
 .eslintrc
-.git/
-_SYNCAPP/
+.git
+_SYNCAPP
 database-backup.json
 ftp-config.json
-node_modules/
-snapshots/
-platforms/
-plugins/
+node_modules
+snapshots
+platforms
+plugins
