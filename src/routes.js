@@ -9,6 +9,7 @@ import mainDispatcherPage from './pages/main.dispatcher'
 import mainToolPage from './pages/main.ai'
 import mainEventPage from './pages/main.event'
 import aboutPage from './pages/about'
+import downloadPage from './pages/download'
 import loginPage from './pages/about/login'
 import modifyPage from './pages/about/modify'
 import feedbackPage from './pages/feedback'
@@ -161,6 +162,10 @@ export default [
   {
     path: '/feedback/',
     component: feedbackPage
+  },
+  {
+    path: '/download/',
+    component: downloadPage
   },
   {
     path: '/about/',
