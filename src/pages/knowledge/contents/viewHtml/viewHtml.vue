@@ -171,13 +171,13 @@ export default {
       learningstatus: state => state.learningstatus,
       knowledgecomments: state => state.knowledgecomments,
       isUserLogin: state => state.isUserLogin
-      this.istry = (query.istry === 'true')
     })
   },
   mounted: function () {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
     this.knowledgecontentkey = query.contentid
+    this.istry = (query.istry === 'true')
     if (this.isUserLogin) {
       this.userid = window.user.uid
     }

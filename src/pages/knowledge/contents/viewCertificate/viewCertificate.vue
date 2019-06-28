@@ -203,7 +203,7 @@ export default {
     }
     this.getKnowledgeCertificate()
     this.getMyKnowledgeCertificate()
-    if (!istry && !this.imagePath) {
+    if (!this.istry && !this.imagePath) {
       this.createCertificate()
       this.getMyKnowledgeCertificate()
       this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {

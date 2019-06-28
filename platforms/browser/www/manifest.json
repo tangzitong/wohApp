@@ -4,9 +4,10 @@
   "name": "wohApp",
   "short_name": "wohApp",
   "version": "com.highwayns.wohapp",
-  "description": "A hybrid app made with Framework7.With PhoneGap you can easily convert it to native iOS app.",
+  "description": "A hybrid app made with Framework7.With Cordova we convert it to native iOS, android and windows app.\r\n        It is used for online learning and surpport your work on informtion times.",
   "author": "Tei Gun",
   "icons": [],
+  "orientation": "landscape",
   "start_url": "index.html",
   "theme_color": "#ff9800"
 }
