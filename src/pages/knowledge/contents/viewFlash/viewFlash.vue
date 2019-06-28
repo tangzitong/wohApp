@@ -227,7 +227,7 @@ export default {
         }
       })
 
-      if (!istry) {
+      if (!this.istry) {
         this.$root.chat.getLearningStatus(data => {
           if (data) {
             window.store.dispatch('initLearningstatus', data)
@@ -329,7 +329,7 @@ export default {
     },
     goNext() {
       this.getNextContentType()
-      if (!istry) {
+      if (!this.istry) {
         this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
           console.log('knowledgeKey=' + knowledgeKey)
         })
