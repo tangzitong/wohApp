@@ -164,7 +164,8 @@ export default {
       ord: 0,
       title: '',
       userid: null,
-      comment_count: 0
+      comment_count: 0,
+      istry: false
     }
   },
   computed: {
@@ -180,6 +181,7 @@ export default {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
     this.knowledgecontentkey = query.contentid
+    this.istry = (query.istry === 'true')
     if (this.isUserLogin) {
       this.userid = window.user.uid
     }
@@ -189,11 +191,13 @@ export default {
           window.store.dispatch('initKnowledgecontents', data)
         }
       })
-      this.$root.chat.getLearningStatus(data => {
-        if (data) {
-          window.store.dispatch('initLearningstatus', data)
-        }
-      })
+      if (!istry) {
+        this.$root.chat.getLearningStatus(data => {
+          if (data) {
+            window.store.dispatch('initLearningstatus', data)
+          }
+        })
+      }
     }
     this.getKnowledgeAudio()
     this.getKnowledgeContentsCount()
@@ -254,72 +258,74 @@ export default {
       this.getPrevContentType()
       switch (this.prevContentType) {
         case 'Html':
-          this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Select':
-          this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'MultiSelect':
-          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Input':
-          this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Picture':
-          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Advertisment':
-          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Audio':
-          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Flash':
-          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Youtube':
-          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Certificate':
-          this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
       }
     },
     goNext() {
       this.getNextContentType()
-      this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
-        console.log('knowledgeKey=' + knowledgeKey)
-      })
+      if (!istry) {
+        this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
+          console.log('knowledgeKey=' + knowledgeKey)
+        })
+      }
       switch (this.nextContentType) {
         case 'Html':
-          this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Select':
-          this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'MultiSelect':
-          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Input':
-          this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Picture':
-          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Advertisment':
-          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Audio':
-          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Flash':
-          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Youtube':
-          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Certificate':
-          this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.nextknowledgecontentkey}&istry=${this.istry}`)
           break
       }
     },
