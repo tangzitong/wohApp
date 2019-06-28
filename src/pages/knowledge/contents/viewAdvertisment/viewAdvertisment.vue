@@ -201,9 +201,7 @@ export default {
     this.getKnowledgeContentsCount()
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
-        if (knowledgecomments) {
-          window.store.dispatch('initKnowledgeComments', knowledgecomments)
-        }
+        window.store.dispatch('initKnowledgeComments', knowledgecomments)
       })
     }
   },
