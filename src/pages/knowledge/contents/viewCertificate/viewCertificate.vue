@@ -161,7 +161,8 @@ export default {
       title: '',
       comment_count: 0,
       store: null,
-      db: null
+      db: null,
+      istry: false
     }
   },
   computed: {
@@ -180,26 +181,29 @@ export default {
     const query = this.$f7route.query
     this.knowledgekey = query.mid
     this.knowledgecontentkey = query.contentid
+    this.istry = (query.istry === 'true')
     if (this.knowledgekey) {
       this.$root.chat.getKnowledgeContents(this.knowledgekey, data => {
         if (data) {
           window.store.dispatch('initKnowledgecontents', data)
         }
       })
-      this.$root.chat.getLearningStatus(data => {
-        if (data) {
-          window.store.dispatch('initLearningstatus', data)
-        }
-      })
-      this.$root.chat.getMyKnowledgeCertificate(this.knowledgekey, data => {
-        if (data) {
-          window.store.dispatch('initKnowledgecertificates', data)
-        }
-      })
+      if (!istry) {
+        this.$root.chat.getLearningStatus(data => {
+          if (data) {
+            window.store.dispatch('initLearningstatus', data)
+          }
+        })
+        this.$root.chat.getMyKnowledgeCertificate(this.knowledgekey, data => {
+          if (data) {
+            window.store.dispatch('initKnowledgecertificates', data)
+          }
+        })
+      }
     }
     this.getKnowledgeCertificate()
     this.getMyKnowledgeCertificate()
-    if (!this.imagePath) {
+    if (!istry && !this.imagePath) {
       this.createCertificate()
       this.getMyKnowledgeCertificate()
       this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
@@ -208,9 +212,7 @@ export default {
     }
     if (this.knowledgekey && this.knowledgecontentkey) {
       this.$root.chat.getKnowledgeContentComments(this.knowledgekey, this.knowledgecontentkey, knowledgecomments => {
-        if (knowledgecomments) {
-          window.store.dispatch('initKnowledgeComments', knowledgecomments)
-        }
+        window.store.dispatch('initKnowledgeComments', knowledgecomments)
       })
     }
   },
@@ -323,44 +325,46 @@ export default {
     },
     goPrev() {
       this.getPrevContentType()
-      this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
-        console.log('knowledgeKey=' + knowledgeKey)
-      })
+      if (!istry) {
+        this.$root.chat.updateLearningStatus(this.knowledgekey, this.ord, true, knowledgeKey => {
+          console.log('knowledgeKey=' + knowledgeKey)
+        })
+      }
       switch (this.prevContentType) {
         case 'Html':
-          this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewHtml/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Select':
-          this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'MultiSelect':
-          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewMultiSelect/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Input':
-          this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewInput/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Picture':
-          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewPicture/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Advertisment':
-          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAdvertisment/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Audio':
-          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewAudio/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Flash':
-          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewFlash/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Youtube':
-          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewYoutube/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
         case 'Certificate':
-          this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}`)
+          this.$f7router.navigate(`/knowledge/contents/viewCertificate/?mid=${this.knowledgekey}&contentid=${this.prevknowledgecontentkey}&istry=${this.istry}`)
           break
       }
     },
     routeToContent(data) {
-      this.$f7router.navigate(`/knowledge/contents/?mid=${this.knowledgekey}&isowner=false`)
+      this.$f7router.navigate(`/knowledge/contents/?mid=${this.knowledgekey}&isowner=false&istry=${this.istry}`)
     },
     formatTime(time) {
       return distanceInWordsToNow(time, { addSuffix: true, includeSeconds: true })
