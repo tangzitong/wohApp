@@ -99,20 +99,22 @@ export default {
           this.setName()
         }
       })
-      this.$root.chat.getMyKnowledgeApplication(this.knowledgekey, data => {
-        if (data) {
-          const val = []
-          val.push(data)
-          window.store.dispatch('initKnowledgeApplications', val)
-          this.setIsApproved()
-        }
-      })
-      this.$root.chat.getLearningStatus(data => {
-        if (data) {
-          window.store.dispatch('initLearningstatus', data)
-          this.getSelectedOrd()
-        }
-      })
+      if (!this.istry) {
+        this.$root.chat.getMyKnowledgeApplication(this.knowledgekey, data => {
+          if (data) {
+            const val = []
+            val.push(data)
+            window.store.dispatch('initKnowledgeApplications', val)
+            this.setIsApproved()
+          }
+        })
+        this.$root.chat.getLearningStatus(data => {
+          if (data) {
+            window.store.dispatch('initLearningstatus', data)
+            this.getSelectedOrd()
+          }
+        })
+      }
     }
   },
   methods: {
