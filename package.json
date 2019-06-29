@@ -185,9 +185,9 @@
     },
     "platforms": [
       "electron",
+      "browser",
       "android",
-      "windows",
-      "browser"
+      "windows"
     ]
   }
 }

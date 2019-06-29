@@ -59,7 +59,7 @@ export default {
     industry: 'Industry',
     feedback: 'Feedback',
     about: 'About',
-    download: 'Download',
+    download: 'Help & Download',
     avatar: 'Avatar',
     name: 'Name',
     gender: 'Gender',

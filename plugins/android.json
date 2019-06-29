@@ -22,6 +22,9 @@
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.highwayns.wohapp"
     },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.highwayns.wohapp"
     },
@@ -35,9 +38,6 @@
       "PACKAGE_NAME": "com.highwayns.wohapp"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.highwayns.wohapp"
-    },
-    "cordova-plugin-firebase": {
       "PACKAGE_NAME": "com.highwayns.wohapp"
     }
   },

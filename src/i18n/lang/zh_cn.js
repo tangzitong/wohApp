@@ -59,7 +59,7 @@ export default {
     industry: '行业选择',
     feedback: '意见反馈',
     about: '关于我们',
-    download: '下載',
+    download: '帮助＆下载',
     avatar: '头像',
     name: '昵称',
     gender: '性别',

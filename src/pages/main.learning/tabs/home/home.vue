@@ -6,37 +6,37 @@
     <div class="classify">
       <div class="classify-f">
       <div class="cf" value="frontprogram" v-on:click="viewKnowledgetype('9')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_qianduan.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_qianduan.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype1')}}</span>
       </div>
       <div class="cf" value="moblieprogram" v-on:click="viewKnowledgetype('3')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_yidong.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_yidong.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype2')}}</span>
       </div>
       <div class="cf" value="codeprogram" v-on:click="viewKnowledgetype('1')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_biancheng.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_biancheng.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype3')}}</span>
       </div>
       <div class="cf" value="vbprogram" v-on:click="viewKnowledgetype('5')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_yunwei.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_yunwei.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype4')}}</span>
       </div>
       </div>
       <div class="classify-f" style="margin-top:20px">
       <div class="cf" value="proprogram" v-on:click="viewKnowledgetype('10')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_xiangmu.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_xiangmu.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype7')}}</span>
       </div>
       <div class="cf" value="aiprogram" v-on:click="viewKnowledgetype('4')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_rengongzhineng.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_rengongzhineng.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype8')}}</span>
       </div>
       <div class="cf" value="datebprogram" v-on:click="viewKnowledgetype('2')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_shujuku.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_shujuku.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype5')}}</span>
       </div>
       <div class="cf" value="Designprogram" v-on:click="viewKnowledgetype('6')">
-        <img src="https://i7.photobucket.com/albums/y255/akira_kaka/woh/img_shuju.png" style="width:45px;height:45px">
+        <img src="@/assets/images/img_shuju.png" style="width:45px;height:45px">
         <span class="classify-txt">{{$t('knowledge.knowledgetype6')}}</span>
       </div>
       </div>
