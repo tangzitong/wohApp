@@ -127,7 +127,14 @@ export default {
     noNewestJob: 'No Job Added.',
     placeholder: 'Please input Job keyword',
     empty: 'Empty Job Type',
-    complete: 'Job Add or Update complete'
+    complete: 'Job Add or Update complete',
+    nomal: 'Nomal',
+    contact: 'Contact',
+    arbeit: 'Arbeit',
+    dspatch: 'Dspatch',
+    myjob: 'My job',
+    excellentjob: 'Excellent Job',
+    morejob: 'more',
   },
   company: {
     application: 'Application',

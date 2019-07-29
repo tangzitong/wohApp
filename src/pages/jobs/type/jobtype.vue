@@ -6,7 +6,7 @@
         <f7-link v-if="isOwner === 'true'" :text="$t('app.add')" @click="addJobtype"></f7-link>
       </f7-nav-right>
     </f7-navbar>
-    <f7-block-title>{{$t('app.jobtype')}}</f7-block-title>
+    <!--f7-block-title>{{$t('app.jobtype')}}</f7-block-title-->
     <f7-searchbar
       search-container="#search-list"
       :disable-link-text="$t('app.cancel')"
@@ -108,6 +108,12 @@ export default {
       const jobtype = this.$$('input[name="jobtype-radio"]:checked').val()
       setJobtypeConfig(jobtype)
       this.$f7router.navigate(`/job/add/?jobtype=${jobtype}`)
+    },
+    routeToMain() {
+      this.$f7router.navigate(`/?isowner=${this.isOwner}`)
+    },
+    routeToContent(data) {
+      this.$f7router.navigate(`/jobs/contents/?mid=${data.id}&isowner=${this.isOwner}&istry=${this.istry}`)
     }
   }
 }

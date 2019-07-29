@@ -94,7 +94,7 @@ export default {
     moreclass: '一覧',
     trystudy: '試し',
     myclass: '私の課程',
-    excellent: 'おすすめ課程'
+    excellent: 'おすすめ課程',
   },
   home: {
     comment: 'コメント',
@@ -127,7 +127,14 @@ export default {
     noNewestJob: '仕事は追加されていません.',
     placeholder: '仕事キーワードを入力してください。',
     empty: '仕事タイプなし',
-    complete: '仕事追加または更新完了しました。'
+    complete: '仕事追加または更新完了しました。',
+    nomal: '正社員',
+    contact: '契約社員',
+    arbeit: 'アルバイト',
+    dspatch: '派遣社員',
+    myjob: '私の仕事',
+    excellentjob: 'おすすめ仕事',
+    morejob: '一覧',
   },
   company: {
     application: '面談申請',

@@ -1053,27 +1053,42 @@ Firechat.prototype.updateJob = function(jobKey, data, callback) {
 
 Firechat.prototype.addJobApplication = function(jobKey, applications, callback) {
   const self = this
-  const newApplcationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(self._userId)
-  const newApplication = {
-    id: newApplcationsRef.key,
-    text: applications,
-    jobid: jobKey,
-    avatar: self._userId,
-    name: self._userName,
-    time: firebase.database.ServerValue.TIMESTAMP
-  }
-  newApplcationsRef.set(newApplication, function(error) {
-    if (!error) {
-      self._jobsRef.child('data').child(jobKey).transaction(function(current) {
-        if (current) {
-          current.application_count++
-        }
-        return current
-      }, function(error, committed, snapshot) {
-        if (!error && callback) {
-          callback(newApplcationsRef.key)
+  self.getJobapplications(jobKey, function(applications_) {
+    let isExists = false
+    for (const application in applications_) {
+      if (applications_[application].avatar === self._userId) {
+        isExists = true
+        break
+      }
+    }
+    if (!isExists) {
+      const newApplcationsRef = self._jobapplicationsRef.child('data').child(jobKey).child(self._userId)
+      const newApplication = {
+        id: newApplcationsRef.key,
+        text: applications,
+        jobid: jobKey,
+        avatar: self._userId,
+        name: self._userName,
+        time: firebase.database.ServerValue.TIMESTAMP
+      }
+      newApplcationsRef.set(newApplication, function(error) {
+        if (!error) {
+          self._jobsRef.child('data').child(jobKey).transaction(function(current) {
+            if (current) {
+              current.application_count++
+            }
+            return current
+          }, function(error, committed, snapshot) {
+            if (!error && callback) {
+              callback(newApplcationsRef.key)
+            }
+          })
         }
       })
+    } else {
+      if (callback) {
+        callback(null)
+      }
     }
   })
 }

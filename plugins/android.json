@@ -39,10 +39,16 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.highwayns.wohapp"
+    },
+    "es6-promise-plugin": {
       "PACKAGE_NAME": "com.highwayns.wohapp"
     }
   }

@@ -16,7 +16,6 @@
        specific language governing permissions and limitations
        under the License.
 */
-
 apply plugin: 'com.android.application'
 
 buildscript {
@@ -27,7 +26,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        // implementation 'com.google.android.gms:play-services-location:15.0.1'
     }
 }
 
@@ -40,7 +40,7 @@ allprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.10.3'
+    gradleVersion = '5.1.1'
 }
 
 // Configuration properties. Set these via environment variables, build-extras.gradle, or gradle.properties.
@@ -167,7 +167,7 @@ android {
     defaultConfig {
         versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
-
+        multiDexEnabled true
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
         }
@@ -177,8 +177,12 @@ android {
       abortOnError false;
     }
 
-    compileSdkVersion cdvCompileSdkVersion
-    buildToolsVersion cdvBuildToolsVersion
+    compileSdkVersion 28
+    buildToolsVersion '29.0.0'
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 
     // This code exists for Crosswalk and other Native APIs.
     // By default, we multiply the existing version code in the
@@ -228,10 +232,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 
     if (cdvReleaseSigningPropertiesFile) {
         signingConfigs {
@@ -264,16 +264,20 @@ android {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
-    implementation(project(path: ":CordovaLib"))
-    implementation "com.android.support:support-v4:24.1.1+"
-    implementation "com.google.android.gms:play-services-tagmanager:+"
-    implementation "com.google.firebase:firebase-core:+"
-    implementation "com.google.firebase:firebase-messaging:+"
-    implementation "com.google.firebase:firebase-config:+"
-    implementation "com.google.firebase:firebase-perf:+"
+    implementation project(path: ':CordovaLib')
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-config:18.0.0'
+    implementation 'com.google.firebase:firebase-perf:18.0.1'
+    implementation 'clojurewerkz:support:1.1.0'
     // SUB-PROJECT DEPENDENCIES END
+    implementation 'androidx.core:core:1.2.0-alpha02'
+    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.gms:google-services:4.3.0'
+    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    implementation 'com.google.firebase:firebase-iid:19.0.1'
 }
 
 def promptForReleaseKeyPassword() {
@@ -335,3 +339,6 @@ for (def func : cdvPluginPostBuildExtras) {
 if (hasProperty('postBuildExtras')) {
     postBuildExtras()
 }
+
+task allDeps(type: DependencyReportTask){}
+googleServices { disableVersionCheck = true }

@@ -104,11 +104,11 @@ export default [
     component: mainPage,
   },
   {
-    path: '/',
+    path: '/dasdss',
     component: mainLearningPage,
   },
   {
-    path: '/jobmain/',
+    path: '/',
     component: mainJobPage,
   },
   {

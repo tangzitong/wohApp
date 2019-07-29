@@ -425,6 +425,22 @@
       "file": "plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js",
       "pluginId": "cordova-plugin-statusbar",
       "runs": true
+    },
+    {
+      "id": "cordova-plugin-screen-orientation.screenorientation",
+      "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+      "pluginId": "cordova-plugin-screen-orientation",
+      "clobbers": [
+        "cordova.plugins.screenorientation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-screen-orientation.CDVOrientationProxy",
+      "file": "plugins/cordova-plugin-screen-orientation/src/windows/CDVOrientationProxy.js",
+      "pluginId": "cordova-plugin-screen-orientation",
+      "merges": [
+        ""
+      ]
     }
   ];
   module.exports.metadata = {
@@ -439,6 +455,7 @@
     "cordova-plugin-inappbrowser": "2.0.2",
     "cordova-plugin-network-information": "2.0.1",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-whitelist": "1.3.3"
+    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-screen-orientation": "3.0.2"
   };
 });

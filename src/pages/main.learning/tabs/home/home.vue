@@ -41,7 +41,6 @@
       </div>
       </div>
     </div>
-
     <div class="Bouticlass" v-if="!isUserLogin">
       <div class="bouti-title">
         <div class="head-point"></div><div class="classtit">{{$t('app.excellent')}}</div>
@@ -92,7 +91,6 @@
         </div>
       </div>
     </div>
-
     <div class="myclass" v-if="isUserLogin">
       <div class="bouti-title">
         <div class="head-point"></div><div class="classtit">{{$t('app.myclass')}}</div>
@@ -110,7 +108,6 @@
     </div>
   </div>
 </template>
-
 <style lang="less" scoped>
 .homebanner{
   background:linear-gradient(#333c49, #1b222d);

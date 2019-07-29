@@ -94,7 +94,7 @@ export default {
     moreclass: '查看更多',
     trystudy: '试学',
     myclass: '我的课程',
-    excellent: '推荐课程'
+    excellent: '推荐课程',
   },
   home: {
     comment: '评论',
@@ -127,7 +127,14 @@ export default {
     noNewestJob: '没有追加工作',
     placeholder: '请输入工作关键词。',
     empty: '工作类型为空',
-    complete: '工作追加或更新完了'
+    complete: '工作追加或更新完了',
+    nomal: '正社员',
+    contact: '契约社员',
+    arbeit: '临时工',
+    dspatch: '派遣社员',
+    myjob: '我的工作',
+    excellentjob: '推荐工作',
+    morejob: '查看更多',
   },
   company: {
     application: '面试申请',

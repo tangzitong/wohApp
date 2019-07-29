@@ -22,16 +22,20 @@ package org.apache.cordova.camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.support.v4.content.FileProvider;
 
 import java.io.File;
 
-/*
- * This class exists because Andorid FilesProvider doesn't work on Android 4.4.4 and below and throws
- * weird errors.  I'm not sure why writing to shared cache directories is somehow verboten, but it is
- * and this error is irritating for a Compatibility library to have.
- *
- */
+//
+
+//* This class exists because Andorid FilesProvider doesn't work on Android 4.4.4 and below and throws
+
+//* weird errors.  I'm not sure why writing to shared cache directories is somehow verboten, but it is
+
+//* and this error is irritating for a Compatibility library to have.
+
+//*
+
+//
 
 public class CordovaUri {
 

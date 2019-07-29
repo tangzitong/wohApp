@@ -52,6 +52,7 @@
 		09F32CCDE69E42D59424F999 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECDA9EB8AF449CC84EC44ED /* Protobuf.framework */; };
 		81E952222EF9492694FFD402 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB3E637FCF24D46878C90F7 /* FirebaseRemoteConfig.framework */; };
 		478BECCA847C4C3F9B225637 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2270CF5D68F24BDFB8456C49 /* FirebaseABTesting.framework */; };
+		E7CF9F4F36A74B0D95E6BD70 /* CDVOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = DB42A936D7534123AC64D9EE /* CDVOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,8 @@
 		1ECDA9EB8AF449CC84EC44ED /* Protobuf.framework */ = {isa = PBXFileReference; name = "Protobuf.framework"; path = "wohApp/Plugins/cordova-plugin-firebase/Protobuf.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		CCB3E637FCF24D46878C90F7 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; name = "FirebaseRemoteConfig.framework"; path = "wohApp/Plugins/cordova-plugin-firebase/FirebaseRemoteConfig.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		2270CF5D68F24BDFB8456C49 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; name = "FirebaseABTesting.framework"; path = "wohApp/Plugins/cordova-plugin-firebase/FirebaseABTesting.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		DB42A936D7534123AC64D9EE /* CDVOrientation.m */ = {isa = PBXFileReference; name = "CDVOrientation.m"; path = "cordova-plugin-screen-orientation/CDVOrientation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8EC737A26CB14051B3F98CC5 /* CDVOrientation.h */ = {isa = PBXFileReference; name = "CDVOrientation.h"; path = "cordova-plugin-screen-orientation/CDVOrientation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +338,8 @@
 				AF8CBC0715924C43A7D0F4C9 /* AppDelegate+FirebasePlugin.h */,
 				01705D22FA6649CBAA18D123 /* FirebasePlugin.h */,
 				69455EB6137245978DCB0032 /* Firebase.h */,
+				DB42A936D7534123AC64D9EE /* CDVOrientation.m */,
+				8EC737A26CB14051B3F98CC5 /* CDVOrientation.h */,
 			);
 			name = Plugins;
 			path = "wohApp/Plugins";
@@ -474,6 +479,7 @@
 				E2B8AA5CE6E24ADFA9AA70BD /* CDVFileTransfer.m in Sources */,
 				E75C6D2638904D3990F16566 /* AppDelegate+FirebasePlugin.m in Sources */,
 				7F198FE18A2547FFAA17AA29 /* FirebasePlugin.m in Sources */,
+				E7CF9F4F36A74B0D95E6BD70 /* CDVOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
